@@ -14,6 +14,14 @@
 		E5F6C6D41B7AD93B00618970 /* I_NScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6D31B7AD93B00618970 /* I_NScreenTests.m */; };
 		E5F6C6E01B7AD99900618970 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6DE1B7AD99900618970 /* RootViewController.m */; };
 		E5F6C6E11B7AD99900618970 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F6C6DF1B7AD99900618970 /* RootViewController.xib */; };
+		E5F6C6FA1B7ADBA600618970 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6E91B7ADBA600618970 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5F6C6FB1B7ADBA600618970 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6EB1B7ADBA600618970 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5F6C6FC1B7ADBA600618970 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6ED1B7ADBA600618970 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5F6C6FD1B7ADBA600618970 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6EF1B7ADBA600618970 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5F6C6FE1B7ADBA600618970 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6F11B7ADBA600618970 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5F6C6FF1B7ADBA600618970 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6F31B7ADBA600618970 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5F6C7001B7ADBA600618970 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6F61B7ADBA600618970 /* DataManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5F6C7011B7ADBA600618970 /* UserClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6F81B7ADBA600618970 /* UserClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +48,25 @@
 		E5F6C6DD1B7AD99900618970 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		E5F6C6DE1B7AD99900618970 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		E5F6C6DF1B7AD99900618970 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		E5F6C6E41B7ADBA600618970 /* DefineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineData.h; sourceTree = "<group>"; };
+		E5F6C6E71B7ADBA600618970 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		E5F6C6E81B7ADBA600618970 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		E5F6C6E91B7ADBA600618970 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		E5F6C6EA1B7ADBA600618970 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		E5F6C6EB1B7ADBA600618970 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		E5F6C6EC1B7ADBA600618970 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		E5F6C6ED1B7ADBA600618970 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		E5F6C6EE1B7ADBA600618970 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		E5F6C6EF1B7ADBA600618970 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		E5F6C6F01B7ADBA600618970 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		E5F6C6F11B7ADBA600618970 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		E5F6C6F21B7ADBA600618970 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		E5F6C6F31B7ADBA600618970 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		E5F6C6F51B7ADBA600618970 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		E5F6C6F61B7ADBA600618970 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		E5F6C6F71B7ADBA600618970 /* UserClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserClass.h; sourceTree = "<group>"; };
+		E5F6C6F81B7ADBA600618970 /* UserClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserClass.m; sourceTree = "<group>"; };
+		E5F6C7021B7ADE1100618970 /* I_NScreen-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "I_NScreen-Prefix.pch"; path = "Class/BaseClass/I_NScreen-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +108,7 @@
 		E5F6C6B61B7AD93B00618970 /* I_NScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E5F6C6E21B7ADBA600618970 /* Class */,
 				E5F6C6BB1B7AD93B00618970 /* AppDelegate.h */,
 				E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */,
 				E5F6C6DD1B7AD99900618970 /* RootViewController.h */,
@@ -96,6 +124,7 @@
 		E5F6C6B71B7AD93B00618970 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E5F6C7021B7ADE1100618970 /* I_NScreen-Prefix.pch */,
 				E5F6C6B81B7AD93B00618970 /* Info.plist */,
 				E5F6C6B91B7AD93B00618970 /* main.m */,
 			);
@@ -117,6 +146,71 @@
 				E5F6C6D21B7AD93B00618970 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5F6C6E21B7ADBA600618970 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				E5F6C6E31B7ADBA600618970 /* BaseClass */,
+				E5F6C6E51B7ADBA600618970 /* ControlClass */,
+				E5F6C6F41B7ADBA600618970 /* UserClass */,
+				E5F6C6F91B7ADBA600618970 /* ViewClass */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		E5F6C6E31B7ADBA600618970 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				E5F6C6E41B7ADBA600618970 /* DefineData.h */,
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
+		E5F6C6E51B7ADBA600618970 /* ControlClass */ = {
+			isa = PBXGroup;
+			children = (
+				E5F6C6E61B7ADBA600618970 /* JSon */,
+			);
+			path = ControlClass;
+			sourceTree = "<group>";
+		};
+		E5F6C6E61B7ADBA600618970 /* JSon */ = {
+			isa = PBXGroup;
+			children = (
+				E5F6C6E71B7ADBA600618970 /* JSON.h */,
+				E5F6C6E81B7ADBA600618970 /* JSONKit.h */,
+				E5F6C6E91B7ADBA600618970 /* JSONKit.m */,
+				E5F6C6EA1B7ADBA600618970 /* NSObject+SBJSON.h */,
+				E5F6C6EB1B7ADBA600618970 /* NSObject+SBJSON.m */,
+				E5F6C6EC1B7ADBA600618970 /* NSString+SBJSON.h */,
+				E5F6C6ED1B7ADBA600618970 /* NSString+SBJSON.m */,
+				E5F6C6EE1B7ADBA600618970 /* SBJsonBase.h */,
+				E5F6C6EF1B7ADBA600618970 /* SBJsonBase.m */,
+				E5F6C6F01B7ADBA600618970 /* SBJsonParser.h */,
+				E5F6C6F11B7ADBA600618970 /* SBJsonParser.m */,
+				E5F6C6F21B7ADBA600618970 /* SBJsonWriter.h */,
+				E5F6C6F31B7ADBA600618970 /* SBJsonWriter.m */,
+			);
+			path = JSon;
+			sourceTree = "<group>";
+		};
+		E5F6C6F41B7ADBA600618970 /* UserClass */ = {
+			isa = PBXGroup;
+			children = (
+				E5F6C6F51B7ADBA600618970 /* DataManager.h */,
+				E5F6C6F61B7ADBA600618970 /* DataManager.m */,
+				E5F6C6F71B7ADBA600618970 /* UserClass.h */,
+				E5F6C6F81B7ADBA600618970 /* UserClass.m */,
+			);
+			path = UserClass;
+			sourceTree = "<group>";
+		};
+		E5F6C6F91B7ADBA600618970 /* ViewClass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +313,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5F6C7011B7ADBA600618970 /* UserClass.m in Sources */,
+				E5F6C6FB1B7ADBA600618970 /* NSObject+SBJSON.m in Sources */,
+				E5F6C7001B7ADBA600618970 /* DataManager.m in Sources */,
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
 				E5F6C6BA1B7AD93B00618970 /* main.m in Sources */,
+				E5F6C6FD1B7ADBA600618970 /* SBJsonBase.m in Sources */,
+				E5F6C6FF1B7ADBA600618970 /* SBJsonWriter.m in Sources */,
+				E5F6C6FA1B7ADBA600618970 /* JSONKit.m in Sources */,
+				E5F6C6FE1B7ADBA600618970 /* SBJsonParser.m in Sources */,
+				E5F6C6FC1B7ADBA600618970 /* NSString+SBJSON.m in Sources */,
 				E5F6C6E01B7AD99900618970 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +441,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "I_NScreen/Class/BaseClass/I_NScreen-Prefix.pch";
 				INFOPLIST_FILE = I_NScreen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -349,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "I_NScreen/Class/BaseClass/I_NScreen-Prefix.pch";
 				INFOPLIST_FILE = I_NScreen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
