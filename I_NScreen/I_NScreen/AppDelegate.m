@@ -25,6 +25,7 @@
     self.m_pNaviCon.navigationBarHidden = YES;
     self.window.rootViewController = self.m_pNaviCon;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
