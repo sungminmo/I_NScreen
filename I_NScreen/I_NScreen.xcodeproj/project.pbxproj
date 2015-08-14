@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5505A0F1B7B726A00FE73A2 /* NetWorkCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = E5505A0A1B7B726A00FE73A2 /* NetWorkCtrl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5505A101B7B726A00FE73A2 /* NetWorkPoolCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = E5505A0C1B7B726A00FE73A2 /* NetWorkPoolCtrl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5505A111B7B726A00FE73A2 /* TransactionData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5505A0E1B7B726A00FE73A2 /* TransactionData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E5F6C6BA1B7AD93B00618970 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6B91B7AD93B00618970 /* main.m */; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
 		E5F6C6C51B7AD93B00618970 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F6C6C41B7AD93B00618970 /* Images.xcassets */; };
@@ -52,6 +55,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5505A091B7B726A00FE73A2 /* NetWorkCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkCtrl.h; sourceTree = "<group>"; };
+		E5505A0A1B7B726A00FE73A2 /* NetWorkCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkCtrl.m; sourceTree = "<group>"; };
+		E5505A0B1B7B726A00FE73A2 /* NetWorkPoolCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkPoolCtrl.h; sourceTree = "<group>"; };
+		E5505A0C1B7B726A00FE73A2 /* NetWorkPoolCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkPoolCtrl.m; sourceTree = "<group>"; };
+		E5505A0D1B7B726A00FE73A2 /* TransactionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionData.h; sourceTree = "<group>"; };
+		E5505A0E1B7B726A00FE73A2 /* TransactionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionData.m; sourceTree = "<group>"; };
 		E5F6C6B41B7AD93B00618970 /* I_NScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = I_NScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F6C6B81B7AD93B00618970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5F6C6B91B7AD93B00618970 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -140,6 +149,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E5505A081B7B726A00FE73A2 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				E5505A091B7B726A00FE73A2 /* NetWorkCtrl.h */,
+				E5505A0A1B7B726A00FE73A2 /* NetWorkCtrl.m */,
+				E5505A0B1B7B726A00FE73A2 /* NetWorkPoolCtrl.h */,
+				E5505A0C1B7B726A00FE73A2 /* NetWorkPoolCtrl.m */,
+				E5505A0D1B7B726A00FE73A2 /* TransactionData.h */,
+				E5505A0E1B7B726A00FE73A2 /* TransactionData.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		E5F6C6AB1B7AD93B00618970 = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +245,7 @@
 		E5F6C6E51B7ADBA600618970 /* ControlClass */ = {
 			isa = PBXGroup;
 			children = (
+				E5505A081B7B726A00FE73A2 /* NetWork */,
 				E5F6C7041B7AE64900618970 /* AFNetworking */,
 				E5F6C7181B7AE64900618970 /* UIKit+AFNetworking */,
 				E5F6C6E61B7ADBA600618970 /* JSon */,
@@ -421,6 +444,7 @@
 				E5F6C72A1B7AE64900618970 /* AFHTTPRequestOperation.m in Sources */,
 				E5F6C7011B7ADBA600618970 /* UserClass.m in Sources */,
 				E5F6C6FB1B7ADBA600618970 /* NSObject+SBJSON.m in Sources */,
+				E5505A0F1B7B726A00FE73A2 /* NetWorkCtrl.m in Sources */,
 				E5F6C7001B7ADBA600618970 /* DataManager.m in Sources */,
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
 				E5F6C7331B7AE64900618970 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -442,8 +466,10 @@
 				E5F6C6FA1B7ADBA600618970 /* JSONKit.m in Sources */,
 				E5F6C72E1B7AE64900618970 /* AFSecurityPolicy.m in Sources */,
 				E5F6C6FE1B7ADBA600618970 /* SBJsonParser.m in Sources */,
+				E5505A101B7B726A00FE73A2 /* NetWorkPoolCtrl.m in Sources */,
 				E5F6C73A1B7AE64900618970 /* UIWebView+AFNetworking.m in Sources */,
 				E5F6C6FC1B7ADBA600618970 /* NSString+SBJSON.m in Sources */,
+				E5505A111B7B726A00FE73A2 /* TransactionData.m in Sources */,
 				E5F6C6E01B7AD99900618970 /* RootViewController.m in Sources */,
 				E5F6C7351B7AE64900618970 /* UIAlertView+AFNetworking.m in Sources */,
 			);
@@ -636,6 +662,7 @@
 				E5F6C6D91B7AD93B00618970 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5F6C6DA1B7AD93B00618970 /* Build configuration list for PBXNativeTarget "I_NScreenTests" */ = {
 			isa = XCConfigurationList;
@@ -644,6 +671,7 @@
 				E5F6C6DC1B7AD93B00618970 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
