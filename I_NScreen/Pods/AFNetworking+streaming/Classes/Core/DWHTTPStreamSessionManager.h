@@ -33,6 +33,13 @@ typedef void (^ DWHTTPStreamFailureBlock)(NSURLSessionDataTask *task, NSError *e
                       success:(DWHTTPStreamSuccessBlock)success
                       failure:(DWHTTPStreamFailureBlock)failure;
 
+
+- (NSURLSessionDataTask *)POST:(NSString *)URLString
+                   parameters:(id)parameters
+                         data:(DWHTTPStreamChunkBlock)data
+                      success:(DWHTTPStreamSuccessBlock)success
+                      failure:(DWHTTPStreamFailureBlock)failure;
+
 /**
  * Provide this to automatically serialize the data as it arrives.
  *

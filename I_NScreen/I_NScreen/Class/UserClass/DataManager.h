@@ -18,6 +18,8 @@
     UserClass               *p_gUserClass;
     // 최상위 뷰클래스
     id                     p_gViewController;
+    
+    NSMutableDictionary     *p_gTestDic;            // 테스트 전문 데이터
 }
 
 + (DataManager *)getInstance;
@@ -26,5 +28,7 @@
 @property (nonatomic, assign)UserClass               *p_gUserClass;
 // 최상위 뷰클래스
 @property (nonatomic, assign)id                      p_gViewController;
+// 테스트 전문 데이터
+@property (nonatomic, retain) NSMutableDictionary   *p_gTestDic;
 
 @end

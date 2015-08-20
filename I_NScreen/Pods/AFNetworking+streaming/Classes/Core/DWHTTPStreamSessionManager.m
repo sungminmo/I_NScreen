@@ -92,6 +92,35 @@
     return task;
 }
 
+- (NSURLSessionDataTask *)POST:(NSString *)URLString
+                    parameters:(id)parameters
+                          data:(DWHTTPStreamChunkBlock)data
+                       success:(DWHTTPStreamSuccessBlock)success
+                       failure:(DWHTTPStreamFailureBlock)failure {
+    
+    // Get a default task
+    NSURLSessionDataTask *task = [super POST:URLString
+                                 parameters:parameters
+                                    success:^(NSURLSessionDataTask *task, __unused id response) {
+                                        if (success)
+                                            success(task);
+                                    }
+                                    failure:failure];
+    
+    // Create the item parser for this request
+    DWHTTPStreamItemSerializer *itemSerializer = [self.itemSerializerProvider itemSerializerWithIdentifier:task.taskIdentifier
+                                                                                                  delegate:self];
+    
+    // Create and store the metadata for this task
+    DWHTTPStreamMetadata *metadata = [DWHTTPStreamMetadata metadataWithChunkBlock:data
+                                                                   itemSerializer:itemSerializer
+                                                                         dataTask:task];
+    [self addStreamMetadata:metadata withIdentifier:task.taskIdentifier];
+    
+    // Return the task
+    return task;
+}
+
 #pragma mark - URLSession delegate overrides
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {

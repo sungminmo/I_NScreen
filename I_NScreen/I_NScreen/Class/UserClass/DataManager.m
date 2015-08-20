@@ -17,6 +17,9 @@
 // 최상위 뷰클래스
 @synthesize p_gViewController;
 
+// 테스트 전문
+@synthesize p_gTestDic;
+
 static DataManager *instance = nil;
 
 + (DataManager *)getInstance
@@ -60,6 +63,8 @@ static DataManager *instance = nil;
     p_gUserClass = [[UserClass alloc] init];
     // 최상위 뷰클래스
     p_gViewController = nil;
+    
+    p_gTestDic = [[NSMutableDictionary alloc] initWithCapacity:0];
 }
 
 @end

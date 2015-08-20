@@ -17,9 +17,7 @@
 {
     id<NetWorkCtrlDelegate> delegate;
     
-    // 서버로 전문을 전송하기 위해서 사용되는 패킷
-//    NSMutableData   *recvData;
-    
+    // 서버로 전문 응답을 받기 위해 사용 되는 타입별 객체
     NSMutableArray  *responseDataArr;
     NSMutableDictionary  *responseDataDic;
     

@@ -59,7 +59,7 @@
     return m_bFinishCheck;
 }
 
-#pragma mark - 전문 
+#pragma mark - 전문
 #pragma mark - 전문 테스트 get
 - (void)requestWithDataTest:(TransactionData *)pData
 {
@@ -69,14 +69,15 @@
                                  @"+9", @"push_gmt",
                                  nil];
     
-    [self SendBuffer:bodyDataDic setUrlHeader:@"appapi/saveset"];
+    [self SendGetBuffer:bodyDataDic setUrlHeader:@"appapi/saveset"];
 }
 
 // 전문을 보내기 위해서 공통으로 사용중인 클래스, 전문에 들어갈 값과 서버 명령어를 넣어주면 된다.
 // 전문 값         strData
 // 서버 명령어      strUrl
 #pragma mark -전문을 보내기 위해서 공통으로 사용중인 클래스, 전문에 들어갈 값과 서버 명령어를 넣어주면 된다.
-- (void)SendBuffer:(NSDictionary *)strData setUrlHeader:(NSString *)strUrl
+#pragma mark - Get 방식
+- (void)SendGetBuffer:(NSDictionary *)strData setUrlHeader:(NSString *)strUrl
 {
     NSURL *url = [NSURL URLWithString:DEV_HOST];
     self.manager = [[DWHTTPStreamSessionManager alloc] initWithBaseURL:url];
@@ -123,6 +124,55 @@
                  }];
 }
 
+#pragma mark - Post 방식
+- (void)SendPostBuffer:(NSDictionary *)strData setUrlHeader:(NSString *)strUrl
+{
+    NSURL *url = [NSURL URLWithString:DEV_HOST];
+    self.manager = [[DWHTTPStreamSessionManager alloc] initWithBaseURL:url];
+    self.manager.itemSerializerProvider = [[DWHTTPJSONItemSerializerProvider alloc] init];
+    self.manager.responseSerializer = [[DWDummyHTTPResponseSerializer alloc] init];
+    
+    responseDataArr = [[NSMutableArray alloc] init];
+    responseDataDic = [[NSMutableDictionary alloc] init];
+    
+    [self.manager POST:strUrl
+           parameters:strData
+                 data:^(NSURLSessionDataTask *task, id chunk) {
+                     
+                     if ( [chunk isKindOfClass:[NSDictionary class]] )
+                     {
+                         [responseDataDic setDictionary:chunk];
+                         NSLog(@"__NSDictionary : [%@]", responseDataDic);
+                     }
+                     else if ( [chunk isKindOfClass:[NSArray class]] )
+                     {
+                         responseDataArr = (NSMutableArray*)chunk;
+                         NSLog(@"__NSArrayM : [%@]", responseDataArr);
+                     }
+                     else
+                     {
+                         NSLog(@"what???? : %@", NSStringFromClass([chunk class]));
+                     }
+                     
+                 } success:^(NSURLSessionDataTask *task) {
+                     
+                     NSLog(@"response sucess");
+                     
+                     switch (m_nTrCode) {
+                         case TRINFO_TEST:
+                         {
+                             [self traverseTest:responseDataDic];
+                         }break;
+                     }
+                     
+                 } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                     
+                     NSLog(@"response fail");
+                     [delegate ResponeError:m_nTrCode netwrokID:m_nTagCode];
+                 }];
+}
+
+
 #pragma mark - 외부에서 전문을 받아서 처리하는 모듈 requestWithData를 기준으로 분기한다.
 #pragma mark - 외부에서 전문 요청 데이터를 넘김
 - (void)requestWithData:(TransactionData *)pData
@@ -146,8 +196,8 @@
 {
     NSLog(@"설정 정보 업데이트 결과 = [%@]", pDic);
 
-//    [[DataManager getInstance].p_gSettingUpdateDic removeAllObjects];
-//    [[DataManager getInstance].p_gSettingUpdateDic setDictionary:pDic];
+    [[DataManager getInstance].p_gTestDic removeAllObjects];
+    [[DataManager getInstance].p_gTestDic setDictionary:pDic];
     
     [delegate ResponeFinish:TRINFO_TEST netwrokID:m_nTagCode];
 }
