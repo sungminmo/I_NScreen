@@ -127,7 +127,7 @@
 #pragma mark - Post 방식
 - (void)SendPostBuffer:(NSDictionary *)strData setUrlHeader:(NSString *)strUrl
 {
-    NSURL *url = [NSURL URLWithString:DEV_HOST];
+    NSURL *url = [NSURL URLWithString:@"https://example.com/"];
     self.manager = [[DWHTTPStreamSessionManager alloc] initWithBaseURL:url];
     self.manager.itemSerializerProvider = [[DWHTTPJSONItemSerializerProvider alloc] init];
     self.manager.responseSerializer = [[DWDummyHTTPResponseSerializer alloc] init];
