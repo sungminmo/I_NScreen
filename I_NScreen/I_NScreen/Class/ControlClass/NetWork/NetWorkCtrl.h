@@ -13,19 +13,18 @@
 
 @protocol NetWorkCtrlDelegate;
 
-@interface NetWorkCtrl : NSObject <NSURLConnectionDelegate>
+@interface NetWorkCtrl : NSObject
 {
     id<NetWorkCtrlDelegate> delegate;
     
     // 서버로 전문을 전송하기 위해서 사용되는 패킷
-    NSMutableData   *recvData;
+//    NSMutableData   *recvData;
     
-    NSURLConnection *connection;
+    NSMutableArray  *responseDataArr;
+    NSMutableDictionary  *responseDataDic;
     
     // 전문 헤더 정의
     int             m_nTrCode;
-    // 사용자 정보 고정 처리용
-    NSString        *m_pUserAgent;
     
     // 풀링에 사용될 데이터
     int             m_nTagCode;

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetWorkPoolCtrl.h"
 
-@interface RootViewController : UIViewController
+@interface RootViewController : UIViewController<NetWorkPoolCtrlDelegate>
+{
+    // 통신 처리를 위한 클래스 생성
+    NetWorkPoolCtrl                 *m_pNetWorkCtrl;        // 네트워크 컨트롤 처리
+    TransactionData                 *m_pData;                 // 전문 데이타
+}
 
 @end
