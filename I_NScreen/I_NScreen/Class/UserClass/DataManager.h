@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 // 공통으로 사용될 함수 모음
 #import "UserClass.h"
-#import "JSON.h"
 
 @protocol DataManagerDelegate;
 

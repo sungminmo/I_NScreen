@@ -57,41 +57,36 @@
 //{
 //    [self SendBuffer:@"" setUrlHeader:@"msw0106_01.do"];
 //}
-
+#pragma mark - 전문 테스트 get
+- (void)requestWithDataTest:(TransactionData *)pData
+{
+//    [self SendBuffer:@"" setUrlHeader:<#(NSString *)#>]
+}
 
 // 전문을 보내기 위해서 공통으로 사용중인 클래스, 전문에 들어갈 값과 서버 명령어를 넣어주면 된다.
 // 전문 값         strData
 // 서버 명령어      strUrl
 #pragma mark -전문을 보내기 위해서 공통으로 사용중인 클래스, 전문에 들어갈 값과 서버 명령어를 넣어주면 된다.
-- (void)SendBuffer:(NSString *)strData setUrlHeader:(NSString *)strUrl
+- (void)SendBuffer:(NSDictionary *)strData setUrlHeader:(NSString *)strUrl
 {
-//    NSString *XmlData = [NSString stringWithFormat:@"%@", strData];
-//    //    XmlData = [XmlData stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    NSString *httpBody = [NSString stringWithFormat:@"%@",XmlData];
+//    NSURL *url = [NSURL URLWithString:@"https://raw.githubusercontent.com"];
+//    self.manager = [[DWHTTPStreamSessionManager alloc] initWithBaseURL:url];
+//    self.manager.itemSerializerProvider = [[DWHTTPJSONItemSerializerProvider alloc] init];
+//    self.manager.responseSerializer = [[DWDummyHTTPResponseSerializer alloc] init];
 //    
-//    NSMutableString *strUrlHeader = [NSMutableString stringWithFormat:@"%@%@/%@?",SERVER_IP, SERVER_PATH, strUrl];
-//    NSURL *url = [NSURL URLWithString:strUrlHeader];
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0f];
-//    
-//    NSLog(@"httpBody : [%@], strUrlHeader : [%@]", httpBody , strUrlHeader);
-//    
-//    [request setHTTPMethod:@"POST"];
-//    [request setHTTPBody:[NSData dataWithBytes:[httpBody UTF8String] length:[httpBody length]]];
-//    
-//    [request setValue:@"iPhone Simulator" forHTTPHeaderField:@"User-Agent"];
-//    [request setValue:[self getHanaUserAgent] forHTTPHeaderField:@"CUSTOM_USER_AGENT"];
-//    [request setValue:@"application/x-www-form-urlencoded; charset=euc-kr" forHTTPHeaderField:@"Content-Type"];
-//    
-//    connection = [NSURLConnection connectionWithRequest:request delegate:self];
-//    
-//    if(connection)
-//    {
-//        [recvData release];
-//        recvData = nil;
-//        recvData = [[NSMutableData alloc] init];
-//    }
-//    
-//    [request release];
+//    [self.manager GET:strUrl
+//           parameters:strData
+//                 data:^(NSURLSessionDataTask *task, id chunk) {
+//                     
+//                 } success:^(NSURLSessionDataTask *task) {
+//                     
+//                     NSLog(@"response sucess");
+//                     
+//                 } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//                     
+//                     NSLog(@"response fail");
+//                     
+//                 }];
 }
 
 #pragma mark - 외부에서 전문을 받아서 처리하는 모듈 requestWithData를 기준으로 분기한다.

@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "DefineData.h"
-#import "JSON.h"
-#import "JSONKit.h"
 
 @class DataManager;
 

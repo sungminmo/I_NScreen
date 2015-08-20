@@ -10,8 +10,6 @@
 #import "DefineData.h"
 #import "TransactionData.h"
 #import "DataManager.h"
-#import "JSON.h"
-//#import "NSDataKNAdditions.h"
 
 @protocol NetWorkCtrlDelegate;
 

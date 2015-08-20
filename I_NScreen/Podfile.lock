@@ -1,0 +1,43 @@
+PODS:
+  - AFNetworking (2.6.0):
+    - AFNetworking/NSURLConnection (= 2.6.0)
+    - AFNetworking/NSURLSession (= 2.6.0)
+    - AFNetworking/Reachability (= 2.6.0)
+    - AFNetworking/Security (= 2.6.0)
+    - AFNetworking/Serialization (= 2.6.0)
+    - AFNetworking/UIKit (= 2.6.0)
+  - AFNetworking+streaming (0.6.2):
+    - AFNetworking (~> 2.3)
+    - AFNetworking+streaming/Core (= 0.6.2)
+    - AFNetworking+streaming/Json (= 0.6.2)
+  - AFNetworking+streaming/Core (0.6.2):
+    - AFNetworking (~> 2.3)
+  - AFNetworking+streaming/Json (0.6.2):
+    - AFNetworking (~> 2.3)
+    - AFNetworking+streaming/Core (= 0.6.2)
+    - SBJson4 (~> 4)
+  - AFNetworking/NSURLConnection (2.6.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.0)
+  - AFNetworking/Security (2.6.0)
+  - AFNetworking/Serialization (2.6.0)
+  - AFNetworking/UIKit (2.6.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - SBJson4 (4.0.2)
+
+DEPENDENCIES:
+  - AFNetworking+streaming (~> 0.6.2)
+
+SPEC CHECKSUMS:
+  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  AFNetworking+streaming: 04db14d65ea67a145704ad643c35d64a0babcef8
+  SBJson4: b64afe0d4607e9e339b6d7538b04611e756f71db
+
+COCOAPODS: 0.38.2
