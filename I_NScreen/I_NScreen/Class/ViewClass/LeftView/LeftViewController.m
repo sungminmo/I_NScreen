@@ -33,7 +33,10 @@
 
 - (void)onCloseCollback
 {
-    [self.delegate onCloseCompletionReflash];
+    if ( [self.delegate respondsToSelector:@selector(onCloseCompletionReflash)] )
+    {
+        [self.delegate onCloseCompletionReflash];
+    }
 }
 
 @end

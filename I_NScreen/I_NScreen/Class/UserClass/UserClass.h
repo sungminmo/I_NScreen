@@ -16,8 +16,10 @@
 
 }
 
+// 왼쪽 뷰 컨트롤러 호출
 - (void)onLeftBtnClickWithControl:(id)control;
 
+// 왼쪽 뷰 컨트롤러 닫음
 - (void)onCloseBtnClickWithControl:(id)control;
 
 @end

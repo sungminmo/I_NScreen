@@ -29,26 +29,19 @@
 
 
 //    [self requestWithData:TRINFO_TEST];
-    
-    [self createBtn];
 }
 
-#pragma mark - 초기화
-#pragma mark - 화면 초기화
-- (void)createBtn
-{
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    leftBtn.frame = CGRectMake(10, 120, 60, 30);
-    [leftBtn addTarget:self action:@selector(leftBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [leftBtn setTitle:@"왼쪽" forState:UIControlStateNormal];
-    [self.view addSubview:leftBtn];
-}
 
-- (void)leftBtnClicked:(id)sender
+#pragma mark - 액션 이벤트
+#pragma mark - 버튼 클릭 이벤트
+- (IBAction)onBtnClicked:(id)sender
 {
     [[DataManager getInstance].p_gUserClass onLeftBtnClickWithControl:self];
 }
 
+
+#pragma mark - 콜백 함수
+#pragma mark - 왼쪽 버튼 콜백
 - (void)onCloseCompletionReflash
 {
     

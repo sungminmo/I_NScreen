@@ -17,4 +17,6 @@
     TransactionData                 *m_pData;                 // 전문 데이타
 }
 
+- (IBAction)onBtnClicked:(id)sender;
+
 @end
