@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NetWorkPoolCtrl.h"
+#import "LeftViewController.h"
 
-@interface RootViewController : UIViewController<NetWorkPoolCtrlDelegate>
+@interface RootViewController : UIViewController<NetWorkPoolCtrlDelegate, LeftViewControllerDelegate>
 {
     // 통신 처리를 위한 클래스 생성
     NetWorkPoolCtrl                 *m_pNetWorkCtrl;        // 네트워크 컨트롤 처리

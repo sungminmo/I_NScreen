@@ -18,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[DataManager getInstance] execute];
+
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     RootViewController *pViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
@@ -25,7 +27,6 @@
     self.m_pNaviCon.navigationBarHidden = YES;
     self.window.rootViewController = self.m_pNaviCon;
     [self.window makeKeyAndVisible];
-    
     
     return YES;
 }

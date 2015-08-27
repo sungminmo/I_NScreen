@@ -11,6 +11,8 @@
 		E5505A0F1B7B726A00FE73A2 /* NetWorkCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = E5505A0A1B7B726A00FE73A2 /* NetWorkCtrl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E5505A101B7B726A00FE73A2 /* NetWorkPoolCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = E5505A0C1B7B726A00FE73A2 /* NetWorkPoolCtrl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E5505A111B7B726A00FE73A2 /* TransactionData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5505A0E1B7B726A00FE73A2 /* TransactionData.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5B2A6591B8EAD3200EADFB7 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B2A6571B8EAD3200EADFB7 /* LeftViewController.m */; };
+		E5B2A65A1B8EAD3200EADFB7 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B2A6581B8EAD3200EADFB7 /* LeftViewController.xib */; };
 		E5F6C6BA1B7AD93B00618970 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6B91B7AD93B00618970 /* main.m */; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
 		E5F6C6C51B7AD93B00618970 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5F6C6C41B7AD93B00618970 /* Images.xcassets */; };
@@ -42,6 +44,9 @@
 		E5505A0C1B7B726A00FE73A2 /* NetWorkPoolCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkPoolCtrl.m; sourceTree = "<group>"; };
 		E5505A0D1B7B726A00FE73A2 /* TransactionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionData.h; sourceTree = "<group>"; };
 		E5505A0E1B7B726A00FE73A2 /* TransactionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionData.m; sourceTree = "<group>"; };
+		E5B2A6561B8EAD3200EADFB7 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftViewController.h; path = LeftView/LeftViewController.h; sourceTree = "<group>"; };
+		E5B2A6571B8EAD3200EADFB7 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftViewController.m; path = LeftView/LeftViewController.m; sourceTree = "<group>"; };
+		E5B2A6581B8EAD3200EADFB7 /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LeftViewController.xib; path = LeftView/LeftViewController.xib; sourceTree = "<group>"; };
 		E5F6C6B41B7AD93B00618970 /* I_NScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = I_NScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F6C6B81B7AD93B00618970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5F6C6B91B7AD93B00618970 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -110,6 +115,16 @@
 				E5505A0E1B7B726A00FE73A2 /* TransactionData.m */,
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		E5C0C4B91B8DDD70007C60CB /* LeftView */ = {
+			isa = PBXGroup;
+			children = (
+				E5B2A6561B8EAD3200EADFB7 /* LeftViewController.h */,
+				E5B2A6571B8EAD3200EADFB7 /* LeftViewController.m */,
+				E5B2A6581B8EAD3200EADFB7 /* LeftViewController.xib */,
+			);
+			name = LeftView;
 			sourceTree = "<group>";
 		};
 		E5F6C6AB1B7AD93B00618970 = {
@@ -216,6 +231,7 @@
 		E5F6C6F91B7ADBA600618970 /* ViewClass */ = {
 			isa = PBXGroup;
 			children = (
+				E5C0C4B91B8DDD70007C60CB /* LeftView */,
 			);
 			path = ViewClass;
 			sourceTree = "<group>";
@@ -303,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5F6C6C81B7AD93B00618970 /* LaunchScreen.xib in Resources */,
+				E5B2A65A1B8EAD3200EADFB7 /* LeftViewController.xib in Resources */,
 				E5F6C6C51B7AD93B00618970 /* Images.xcassets in Resources */,
 				E5F6C6E11B7AD99900618970 /* RootViewController.xib in Resources */,
 			);
@@ -363,6 +380,7 @@
 				E5505A101B7B726A00FE73A2 /* NetWorkPoolCtrl.m in Sources */,
 				E5505A111B7B726A00FE73A2 /* TransactionData.m in Sources */,
 				E5F6C6E01B7AD99900618970 /* RootViewController.m in Sources */,
+				E5B2A6591B8EAD3200EADFB7 /* LeftViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

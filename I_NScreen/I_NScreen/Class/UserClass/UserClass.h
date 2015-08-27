@@ -16,5 +16,8 @@
 
 }
 
+- (void)onLeftBtnClickWithControl:(id)control;
+
+- (void)onCloseBtnClickWithControl:(id)control;
 
 @end
