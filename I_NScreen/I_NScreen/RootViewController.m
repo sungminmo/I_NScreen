@@ -13,6 +13,7 @@
 @end
 
 @implementation RootViewController
+//@synthesize pMainGnbView;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -27,9 +28,14 @@
     m_pNetWorkCtrl = [[NetWorkPoolCtrl alloc] init];
     m_pNetWorkCtrl.delegate = self;
 
+//    [self.pHeaderView addSubview:pMainGnbView];
+    self.pHeaderView.translatesAutoresizingMaskIntoConstraints = NO;
+    MainGnbViewController *pViewController = [[MainGnbViewController alloc] initWithNibName:@"MainGnbViewController" bundle:nil];
+    [self.pHeaderView addSubview:pViewController.view];
 
 //    [self requestWithData:TRINFO_TEST];
 }
+
 
 
 #pragma mark - 액션 이벤트

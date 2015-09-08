@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NetWorkPoolCtrl.h"
 #import "LeftViewController.h"
+#import "MainGnbViewController.h"
 
 @interface RootViewController : UIViewController<NetWorkPoolCtrlDelegate, LeftViewControllerDelegate>
 {
@@ -16,6 +17,7 @@
     NetWorkPoolCtrl                 *m_pNetWorkCtrl;        // 네트워크 컨트롤 처리
     TransactionData                 *m_pData;                 // 전문 데이타
 }
+@property (nonatomic, strong) IBOutlet UIView *pHeaderView;
 
 - (IBAction)onBtnClicked:(id)sender;
 
