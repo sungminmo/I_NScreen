@@ -3,11 +3,13 @@
 //  I_NScreen
 //
 //  Created by JUNG KIL BAE on 2015. 8. 12..
-//  Copyright (c) 2015년 JUNG KIL BAE. All rights reserved.
+//  Copyright (c) 2015년 STVN. All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "AFNetworkActivityIndicatorManager.h"
+//#import "DDLog.h"
 
 @interface AppDelegate ()
 
@@ -17,9 +19,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // 쿠키 설정.
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    [cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+    int cacheSizeMemory = 8 * 1024 * 1024; // 8MB
+    int cacheSizeDisk = 32 * 1024 * 1024;  // 32MB
+    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
+    [NSURLCache setSharedURLCache:URLCache];
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
+    // CocoaLumberjack: 로깅.
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
+    
+    
     // Override point for customization after application launch.
-    [[DataManager getInstance] execute];
-
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     RootViewController *pViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
@@ -28,29 +45,23 @@
     self.window.rootViewController = self.m_pNaviCon;
     [self.window makeKeyAndVisible];
     
+    
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 @end

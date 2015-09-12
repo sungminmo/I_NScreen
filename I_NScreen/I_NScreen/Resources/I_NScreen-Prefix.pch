@@ -1,0 +1,13 @@
+//
+// Prefix header for all source files of the 'HanhwaIphone' target in the 'HanhwaIphone' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+
+    #import "CMConstants.h"
+    #import "NSUserDefaults+Settings.h"
+    #import "DefineData.h"
+
+#endif
