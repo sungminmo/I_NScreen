@@ -9,6 +9,8 @@
 #import "RootViewController.h"
 #import "CMSearchHistory.h"
 #import "EpgMainViewController.h"
+#import "CMSearchMainViewController.h"//검색화면 메인
+#import "CMPreferenceMainViewController.h"//설정화면 메인
 
 @interface RootViewController ()
 
@@ -63,11 +65,15 @@
         case 3:
         {
             // 검색
+            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
+            [self.navigationController pushViewController:controller animated:YES];
             
         }break;
         case 4:
         {
             // 설정
+            CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+            [self.navigationController pushViewController:controller animated:YES];
             
         }break;
     }

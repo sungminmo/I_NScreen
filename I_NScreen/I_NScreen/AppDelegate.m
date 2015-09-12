@@ -46,6 +46,8 @@
     [self.window makeKeyAndVisible];
     
     
+    [self settingCommonThemeWithApperance];//공통 디자인을 세팅한다. 
+    
     return YES;
 }
 
@@ -63,5 +65,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
+
+- (void)settingCommonThemeWithApperance {
+    [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
+
+}
+
 
 @end
