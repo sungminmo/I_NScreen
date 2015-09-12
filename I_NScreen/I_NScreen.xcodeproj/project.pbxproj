@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */; };
 		992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992894FA1BA3E68700BE62A0 /* CFNetwork.framework */; };
+		994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BDB2F1BA3F5E9000B6260 /* CMBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
 		99C43B801BA3ED980035A0A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43AE41BA3ED980035A0A4 /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
 		99C43B811BA3ED980035A0A4 /* allch.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C43AE91BA3ED980035A0A4 /* allch.png */; settings = {ASSET_TAGS = (); }; };
 		99C43B821BA3ED980035A0A4 /* allch_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C43AEA1BA3ED980035A0A4 /* allch_press.png */; settings = {ASSET_TAGS = (); }; };
@@ -177,6 +178,8 @@
 		57C9EE5D8B32911941D7BC54 /* Pods-I_NScreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.debug.xcconfig"; sourceTree = "<group>"; };
 		992894FA1BA3E68700BE62A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		992894FC1BA3E69000BE62A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		994BDB2E1BA3F5E9000B6260 /* CMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBaseViewController.h; sourceTree = "<group>"; };
+		994BDB2F1BA3F5E9000B6260 /* CMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBaseViewController.m; sourceTree = "<group>"; };
 		99C43AE51BA3ED980035A0A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		99C43AE91BA3ED980035A0A4 /* allch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch.png; sourceTree = "<group>"; };
 		99C43AEA1BA3ED980035A0A4 /* allch_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch_press.png; sourceTree = "<group>"; };
@@ -402,6 +405,15 @@
 				D59B2745D004925EB9E020AE /* Pods-I_NScreen.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		994BDB2D1BA3F5C5000B6260 /* _view */ = {
+			isa = PBXGroup;
+			children = (
+				994BDB2E1BA3F5E9000B6260 /* CMBaseViewController.h */,
+				994BDB2F1BA3F5E9000B6260 /* CMBaseViewController.m */,
+			);
+			path = _view;
 			sourceTree = "<group>";
 		};
 		99C43AE31BA3ED980035A0A4 /* Base.lproj */ = {
@@ -694,6 +706,7 @@
 		99C43C091BA3EDA10035A0A4 /* _CMCommon */ = {
 			isa = PBXGroup;
 			children = (
+				994BDB2D1BA3F5C5000B6260 /* _view */,
 				99C43C0A1BA3EDA10035A0A4 /* _category */,
 				99C43C251BA3EDA10035A0A4 /* _debuging */,
 				99C43C2A1BA3EDA10035A0A4 /* _define */,
@@ -949,7 +962,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = "JUNG KIL BAE";
+				ORGANIZATIONNAME = STVN;
 				TargetAttributes = {
 					E5F6C6B31B7AD93B00618970 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1167,6 +1180,7 @@
 				99C43C531BA3EDA10035A0A4 /* NSDictionary+DescriptionWithLocale.m in Sources */,
 				99C43C561BA3EDA10035A0A4 /* NSString+Hash.m in Sources */,
 				99C43C641BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m in Sources */,
+				994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */,
 				99C43C691BA3EDA10035A0A4 /* EpgMainViewController.m in Sources */,
 				99C43C571BA3EDA10035A0A4 /* NSString+Helper.m in Sources */,
 				99C43C521BA3EDA10035A0A4 /* NSDate+Helper.m in Sources */,
