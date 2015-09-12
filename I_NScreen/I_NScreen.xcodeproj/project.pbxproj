@@ -10,6 +10,10 @@
 		564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */; };
 		992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992894FA1BA3E68700BE62A0 /* CFNetwork.framework */; };
 		994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BDB2F1BA3F5E9000B6260 /* CMBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
+		994BDB391BA3F6CD000B6260 /* CMSearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BDB371BA3F6CD000B6260 /* CMSearchMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		994BDB3A1BA3F6CD000B6260 /* CMSearchMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 994BDB381BA3F6CD000B6260 /* CMSearchMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		994BDB3E1BA3F6E8000B6260 /* CMPreferenceMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BDB3C1BA3F6E8000B6260 /* CMPreferenceMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		994BDB3F1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 994BDB3D1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		99C43B801BA3ED980035A0A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43AE41BA3ED980035A0A4 /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
 		99C43B811BA3ED980035A0A4 /* allch.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C43AE91BA3ED980035A0A4 /* allch.png */; settings = {ASSET_TAGS = (); }; };
 		99C43B821BA3ED980035A0A4 /* allch_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 99C43AEA1BA3ED980035A0A4 /* allch_press.png */; settings = {ASSET_TAGS = (); }; };
@@ -180,6 +184,12 @@
 		992894FC1BA3E69000BE62A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		994BDB2E1BA3F5E9000B6260 /* CMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBaseViewController.h; sourceTree = "<group>"; };
 		994BDB2F1BA3F5E9000B6260 /* CMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBaseViewController.m; sourceTree = "<group>"; };
+		994BDB361BA3F6CD000B6260 /* CMSearchMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSearchMainViewController.h; sourceTree = "<group>"; };
+		994BDB371BA3F6CD000B6260 /* CMSearchMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSearchMainViewController.m; sourceTree = "<group>"; };
+		994BDB381BA3F6CD000B6260 /* CMSearchMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMSearchMainViewController.xib; sourceTree = "<group>"; };
+		994BDB3B1BA3F6E8000B6260 /* CMPreferenceMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPreferenceMainViewController.h; sourceTree = "<group>"; };
+		994BDB3C1BA3F6E8000B6260 /* CMPreferenceMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPreferenceMainViewController.m; sourceTree = "<group>"; };
+		994BDB3D1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPreferenceMainViewController.xib; sourceTree = "<group>"; };
 		99C43AE51BA3ED980035A0A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		99C43AE91BA3ED980035A0A4 /* allch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch.png; sourceTree = "<group>"; };
 		99C43AEA1BA3ED980035A0A4 /* allch_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch_press.png; sourceTree = "<group>"; };
@@ -414,6 +424,26 @@
 				994BDB2F1BA3F5E9000B6260 /* CMBaseViewController.m */,
 			);
 			path = _view;
+			sourceTree = "<group>";
+		};
+		994BDB311BA3F692000B6260 /* _Preference */ = {
+			isa = PBXGroup;
+			children = (
+				994BDB3B1BA3F6E8000B6260 /* CMPreferenceMainViewController.h */,
+				994BDB3C1BA3F6E8000B6260 /* CMPreferenceMainViewController.m */,
+				994BDB3D1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib */,
+			);
+			path = _Preference;
+			sourceTree = "<group>";
+		};
+		994BDB321BA3F692000B6260 /* _Search */ = {
+			isa = PBXGroup;
+			children = (
+				994BDB361BA3F6CD000B6260 /* CMSearchMainViewController.h */,
+				994BDB371BA3F6CD000B6260 /* CMSearchMainViewController.m */,
+				994BDB381BA3F6CD000B6260 /* CMSearchMainViewController.xib */,
+			);
+			path = _Search;
 			sourceTree = "<group>";
 		};
 		99C43AE31BA3ED980035A0A4 /* Base.lproj */ = {
@@ -807,6 +837,8 @@
 		99C43C3D1BA3EDA10035A0A4 /* _Menu */ = {
 			isa = PBXGroup;
 			children = (
+				994BDB311BA3F692000B6260 /* _Preference */,
+				994BDB321BA3F692000B6260 /* _Search */,
 				99C43C3E1BA3EDA10035A0A4 /* _Epg */,
 				99C43C461BA3EDA10035A0A4 /* _HomeGnb */,
 				99C43C4A1BA3EDA10035A0A4 /* _LeftMenu */,
@@ -1043,6 +1075,7 @@
 				99C43BB11BA3ED980035A0A4 /* normaldot@2x.png in Resources */,
 				99C43BAD1BA3ED980035A0A4 /* allch@2x.png in Resources */,
 				99C43BF31BA3ED980035A0A4 /* 3btn_outline@3x.png in Resources */,
+				994BDB3A1BA3F6CD000B6260 /* CMSearchMainViewController.xib in Resources */,
 				99C43BA31BA3ED980035A0A4 /* genre_normal.png in Resources */,
 				99C43C061BA3ED980035A0A4 /* Info.plist in Resources */,
 				99C43BFC1BA3ED980035A0A4 /* genre_press@3x.png in Resources */,
@@ -1066,6 +1099,7 @@
 				99C43BAE1BA3ED980035A0A4 /* allch_press@2x.png in Resources */,
 				99C43BC71BA3ED980035A0A4 /* 3btn_outline@2x.png in Resources */,
 				99C43B821BA3ED980035A0A4 /* allch_press.png in Resources */,
+				994BDB3F1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib in Resources */,
 				99C43BA41BA3ED980035A0A4 /* genre_press.png in Resources */,
 				99C43B8D1BA3ED980035A0A4 /* 2btn_select.png in Resources */,
 				99C43BA21BA3ED980035A0A4 /* check.png in Resources */,
@@ -1169,6 +1203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				994BDB391BA3F6CD000B6260 /* CMSearchMainViewController.m in Sources */,
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
@@ -1196,6 +1231,7 @@
 				99C43C6B1BA3EDA10035A0A4 /* HomeGnbViewController.m in Sources */,
 				99C43C5A1BA3EDA10035A0A4 /* UIImage+Path.m in Sources */,
 				99C43C621BA3EDA10035A0A4 /* NSMutableDictionary+Network.m in Sources */,
+				994BDB3E1BA3F6E8000B6260 /* CMPreferenceMainViewController.m in Sources */,
 				99C43C661BA3EDA10035A0A4 /* CMConstants.m in Sources */,
 				99C43C5D1BA3EDA10035A0A4 /* UIViewController+OverlayView.m in Sources */,
 				99C43C631BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */,
