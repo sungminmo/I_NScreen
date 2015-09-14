@@ -46,6 +46,10 @@
     // 네비게이션바 백버튼.
     self.navigationItem.hidesBackButton = YES;
     
+    [self loadCustomBackButton];
+}
+
+- (void)loadCustomBackButton {
     float h_padding = (93 - 44)/2;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setBackgroundVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
