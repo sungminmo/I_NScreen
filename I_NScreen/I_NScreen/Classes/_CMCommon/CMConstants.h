@@ -18,6 +18,7 @@
 #import "NSString+Helper.h"
 #import "UIImage+Color.h"
 #import "UIImage+Path.h"
+#import "UIColor+ColorString.h"
 #import "UISegmentedControl+Accessibility.h"
 #import "UIView+ViewController.h"
 #import "UIViewController+OverlayView.h"

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "UINavigationBar+CustomHeight.h"
 //#import "DDLog.h"
 
 @interface AppDelegate ()
@@ -46,7 +47,7 @@
     [self.window makeKeyAndVisible];
     
     
-    [self settingCommonThemeWithApperance];//공통 디자인을 세팅한다. 
+    [self settingCommonApperance];//공통 디자인을 세팅한다. 
     
     return YES;
 }
@@ -66,9 +67,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
 
-- (void)settingCommonThemeWithApperance {
-    [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
-
+- (void)settingCommonApperance {
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:@"7b5aa3"]];
+    self.m_pNaviCon.navigationBar.height = 93;
 }
 
 
