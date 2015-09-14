@@ -164,6 +164,7 @@
 		99C43C6E1BA3EDA10035A0A4 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C4D1BA3EDA10035A0A4 /* LeftMenuViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		99C43C6F1BA3EDA10035A0A4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */; settings = {ASSET_TAGS = (); }; };
 		99C43C701BA3EDA10035A0A4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C501BA3EDA10035A0A4 /* RootViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC6231BA645CB0085C86F /* UINavigationBar+CustomHeight.m */; settings = {ASSET_TAGS = (); }; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
 		E5F6C6D41B7AD93B00618970 /* I_NScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6D31B7AD93B00618970 /* I_NScreenTests.m */; };
 /* End PBXBuildFile section */
@@ -368,6 +369,8 @@
 		99C43C4E1BA3EDA10035A0A4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		99C43C501BA3EDA10035A0A4 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		99ECC6221BA645CB0085C86F /* UINavigationBar+CustomHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomHeight.h"; sourceTree = "<group>"; };
+		99ECC6231BA645CB0085C86F /* UINavigationBar+CustomHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomHeight.m"; sourceTree = "<group>"; };
 		9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I_NScreen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59B2745D004925EB9E020AE /* Pods-I_NScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.release.xcconfig"; sourceTree = "<group>"; };
 		E5F6C6B41B7AD93B00618970 /* I_NScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = I_NScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -887,6 +890,23 @@
 			path = _LeftMenu;
 			sourceTree = "<group>";
 		};
+		99ECC6201BA645CB0085C86F /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				99ECC6211BA645CB0085C86F /* UINavigationBar+CustomHeight */,
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		99ECC6211BA645CB0085C86F /* UINavigationBar+CustomHeight */ = {
+			isa = PBXGroup;
+			children = (
+				99ECC6221BA645CB0085C86F /* UINavigationBar+CustomHeight.h */,
+				99ECC6231BA645CB0085C86F /* UINavigationBar+CustomHeight.m */,
+			);
+			path = "UINavigationBar+CustomHeight";
+			sourceTree = "<group>";
+		};
 		E5F6C6AB1B7AD93B00618970 = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +930,7 @@
 		E5F6C6B61B7AD93B00618970 /* I_NScreen */ = {
 			isa = PBXGroup;
 			children = (
+				99ECC6201BA645CB0085C86F /* Vender */,
 				99C43C081BA3EDA10035A0A4 /* Classes */,
 				E5F6C6BB1B7AD93B00618970 /* AppDelegate.h */,
 				E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */,
@@ -1220,6 +1241,7 @@
 				99C43C571BA3EDA10035A0A4 /* NSString+Helper.m in Sources */,
 				99C43C521BA3EDA10035A0A4 /* NSDate+Helper.m in Sources */,
 				99C43C6F1BA3EDA10035A0A4 /* RootViewController.m in Sources */,
+				99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */,
 				99C43C601BA3EDA10035A0A4 /* CMAppManager.m in Sources */,
 				99C43C071BA3ED980035A0A4 /* main.m in Sources */,
 				99C43C591BA3EDA10035A0A4 /* UIImage+Color.m in Sources */,

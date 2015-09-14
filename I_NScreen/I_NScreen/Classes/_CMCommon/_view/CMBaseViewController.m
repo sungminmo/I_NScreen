@@ -7,6 +7,7 @@
 //
 
 #import "CMBaseViewController.h"
+#import "UINavigationBar+CustomHeight.h"
 
 @interface CMBaseViewController ()
 
@@ -14,8 +15,16 @@
 
 @implementation CMBaseViewController
 
+- (id)init{
+    self = [super init];
+    if(self){
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.height = 100;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,17 +33,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.navigationController.navigationBarHidden) {
-        self.isPrevNavigationBarHidden = YES;
-        [self.navigationController setNavigationBarHidden:NO animated:NO];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    if (self.isPrevNavigationBarHidden) {
-        [self.navigationController setNavigationBarHidden:YES animated:NO];
-    }
 }
 
 @end
