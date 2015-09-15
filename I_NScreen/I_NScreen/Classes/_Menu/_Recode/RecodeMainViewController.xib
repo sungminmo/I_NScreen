@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecodeMainViewController">
@@ -19,16 +20,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34l-cF-LZY" userLabel="View(해더)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34l-cF-LZY" userLabel="View(해더)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="녹화관리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr2-Rx-jOf">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="녹화관리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr2-Rx-jOf">
                             <rect key="frame" x="0.0" y="45" width="414" height="26"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ob-X8-pIQ">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ob-X8-pIQ">
                             <rect key="frame" x="17" y="47" width="9" height="18"/>
                             <state key="normal" image="back.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,54 +38,100 @@
                                 <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="SSq-uq-dUv"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9l-Pj-wS9">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9l-Pj-wS9">
                             <rect key="frame" x="378" y="46" width="24" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="g9l-Pj-wS9" secondAttribute="height" multiplier="12:11" id="3Gz-fY-p3C"/>
+                            </constraints>
                             <state key="normal" backgroundImage="bigpic.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="g9l-Pj-wS9" secondAttribute="trailing" constant="12" id="1ef-5T-Jfx"/>
+                        <constraint firstAttribute="width" secondItem="34l-cF-LZY" secondAttribute="height" multiplier="138:31" id="Lu9-Zl-MLE"/>
+                        <constraint firstItem="7Ob-X8-pIQ" firstAttribute="leading" secondItem="34l-cF-LZY" secondAttribute="leading" constant="17" id="N2u-PC-v6A"/>
+                        <constraint firstAttribute="centerY" secondItem="7Ob-X8-pIQ" secondAttribute="centerY" id="W4S-fY-YxS"/>
+                        <constraint firstItem="mr2-Rx-jOf" firstAttribute="leading" secondItem="34l-cF-LZY" secondAttribute="leading" id="ZS2-rh-3N5"/>
+                        <constraint firstAttribute="centerY" secondItem="g9l-Pj-wS9" secondAttribute="centerY" id="aJI-RA-OgY"/>
+                        <constraint firstAttribute="centerY" secondItem="mr2-Rx-jOf" secondAttribute="centerY" id="rUU-c0-CDJ"/>
+                        <constraint firstAttribute="trailing" secondItem="mr2-Rx-jOf" secondAttribute="trailing" id="zv2-Qr-IHR"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ty7-dp-Jew" userLabel="View(중간)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ty7-dp-Jew" userLabel="View(중간)">
                     <rect key="frame" x="0.0" y="93" width="414" height="82"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2btn_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Wn-pv-Z9x">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMe-m6-nT2">
                             <rect key="frame" x="7" y="10" width="400" height="35"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzq-hZ-LJY" userLabel="Button(녹화예약관리)">
-                            <rect key="frame" x="8" y="11" width="199" height="33"/>
-                            <state key="normal" title="녹화예약관리" backgroundImage="2btn_select.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="WJL-cU-Kq6"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKp-KE-REe" userLabel="Button(녹화물 목록)">
-                            <rect key="frame" x="207" y="11" width="199" height="33"/>
-                            <state key="normal" title="녹화물 목록" backgroundImage="2btn_normal.png">
-                                <color key="titleColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="T4H-zI-VcP"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 120개의 녹화예약 콘텐트가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjP-Qv-Mdc" userLabel="Label(상세코멘트)">
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2btn_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Wn-pv-Z9x">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="35"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzq-hZ-LJY" userLabel="Button(녹화예약관리)">
+                                    <rect key="frame" x="1" y="1" width="199" height="33"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Qzq-hZ-LJY" secondAttribute="height" multiplier="199:33" id="WXY-HJ-8Hn"/>
+                                    </constraints>
+                                    <state key="normal" title="녹화예약관리" backgroundImage="2btn_select.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="WJL-cU-Kq6"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKp-KE-REe" userLabel="Button(녹화물 목록)">
+                                    <rect key="frame" x="200" y="1" width="199" height="33"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="BKp-KE-REe" secondAttribute="height" multiplier="199:33" id="EdH-S5-nho"/>
+                                    </constraints>
+                                    <state key="normal" title="녹화물 목록" backgroundImage="2btn_normal.png">
+                                        <color key="titleColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="T4H-zI-VcP"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="BKp-KE-REe" firstAttribute="top" secondItem="sMe-m6-nT2" secondAttribute="top" constant="1" id="28S-je-jN7"/>
+                                <constraint firstAttribute="width" secondItem="sMe-m6-nT2" secondAttribute="height" multiplier="80:7" id="76w-NG-dd6"/>
+                                <constraint firstItem="Qzq-hZ-LJY" firstAttribute="leading" secondItem="sMe-m6-nT2" secondAttribute="leading" constant="1" id="Ehg-tg-Ge0"/>
+                                <constraint firstAttribute="bottom" secondItem="Qzq-hZ-LJY" secondAttribute="bottom" constant="1" id="KzY-ZA-mii"/>
+                                <constraint firstAttribute="trailing" secondItem="BKp-KE-REe" secondAttribute="trailing" constant="1" id="V3M-pQ-7cj"/>
+                                <constraint firstItem="Qzq-hZ-LJY" firstAttribute="top" secondItem="sMe-m6-nT2" secondAttribute="top" constant="1" id="m5X-RX-Aux"/>
+                                <constraint firstAttribute="bottom" secondItem="BKp-KE-REe" secondAttribute="bottom" constant="1" id="pv0-r6-DIM"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 120개의 녹화예약 콘텐트가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjP-Qv-Mdc" userLabel="Label(상세코멘트)">
                             <rect key="frame" x="0.0" y="52" width="414" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="OjP-Qv-Mdc" secondAttribute="height" multiplier="138:7" id="ICW-0h-HRu"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="sMe-m6-nT2" firstAttribute="leading" secondItem="Ty7-dp-Jew" secondAttribute="leading" constant="7" id="1QE-1Y-33i"/>
+                        <constraint firstAttribute="width" secondItem="Ty7-dp-Jew" secondAttribute="height" multiplier="207:41" id="Cq6-Dh-XzS"/>
+                        <constraint firstItem="OjP-Qv-Mdc" firstAttribute="leading" secondItem="Ty7-dp-Jew" secondAttribute="leading" id="Gfl-9w-fvw"/>
+                        <constraint firstItem="OjP-Qv-Mdc" firstAttribute="top" secondItem="sMe-m6-nT2" secondAttribute="bottom" constant="7" id="MH8-2C-Kgm"/>
+                        <constraint firstItem="sMe-m6-nT2" firstAttribute="top" secondItem="Ty7-dp-Jew" secondAttribute="top" constant="10" id="WZ8-4c-y08"/>
+                        <constraint firstAttribute="trailing" secondItem="sMe-m6-nT2" secondAttribute="trailing" constant="7" id="dyc-2M-FFv"/>
+                        <constraint firstAttribute="trailing" secondItem="OjP-Qv-Mdc" secondAttribute="trailing" id="y5i-tC-kwg"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmB-Ty-zqx" userLabel="View(끝)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmB-Ty-zqx" userLabel="View(끝)">
                     <rect key="frame" x="0.0" y="175" width="414" height="561"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yIr-Nh-mrM">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="569"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yIr-Nh-mrM">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="561"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="FM5-rl-cZE"/>
@@ -93,9 +140,27 @@
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" red="0.8980392157" green="0.92941176469999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="yIr-Nh-mrM" secondAttribute="bottom" id="9IA-dl-cXt"/>
+                        <constraint firstItem="yIr-Nh-mrM" firstAttribute="top" secondItem="fmB-Ty-zqx" secondAttribute="top" id="QRL-xv-eae"/>
+                        <constraint firstItem="yIr-Nh-mrM" firstAttribute="leading" secondItem="fmB-Ty-zqx" secondAttribute="leading" id="WA8-fU-9YW"/>
+                        <constraint firstAttribute="trailing" secondItem="yIr-Nh-mrM" secondAttribute="trailing" id="WZe-nK-zRx"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="34l-cF-LZY" firstAttribute="top" secondItem="6Yd-HA-GLD" secondAttribute="top" id="DgB-N8-aIC"/>
+                <constraint firstItem="fmB-Ty-zqx" firstAttribute="leading" secondItem="6Yd-HA-GLD" secondAttribute="leading" id="Swa-z9-J2h"/>
+                <constraint firstAttribute="bottom" secondItem="fmB-Ty-zqx" secondAttribute="bottom" id="Sz2-hx-Ks3"/>
+                <constraint firstAttribute="trailing" secondItem="fmB-Ty-zqx" secondAttribute="trailing" id="YpA-nr-Aq3"/>
+                <constraint firstItem="fmB-Ty-zqx" firstAttribute="top" secondItem="Ty7-dp-Jew" secondAttribute="bottom" id="bXi-ec-kDq"/>
+                <constraint firstItem="34l-cF-LZY" firstAttribute="leading" secondItem="6Yd-HA-GLD" secondAttribute="leading" id="d7q-ap-hpo"/>
+                <constraint firstAttribute="trailing" secondItem="34l-cF-LZY" secondAttribute="trailing" id="iYt-Fd-yS2"/>
+                <constraint firstItem="Ty7-dp-Jew" firstAttribute="top" secondItem="34l-cF-LZY" secondAttribute="bottom" id="sld-Ht-Ey0"/>
+                <constraint firstItem="Ty7-dp-Jew" firstAttribute="leading" secondItem="6Yd-HA-GLD" secondAttribute="leading" id="t9l-Ws-v5L"/>
+                <constraint firstAttribute="trailing" secondItem="Ty7-dp-Jew" secondAttribute="trailing" id="tJq-eP-7LJ"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>

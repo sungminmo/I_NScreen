@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -30,9 +31,12 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJ6-Vo-m10" userLabel="ImageView(방송총시간)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PJ6-Vo-m10" userLabel="ImageView(방송총시간)">
                         <rect key="frame" x="184" y="65" width="185" height="3"/>
                         <color key="backgroundColor" red="0.70588235290000001" green="0.71372549019999998" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="PJ6-Vo-m10" secondAttribute="height" multiplier="185:3" id="Abb-Xl-Zyl"/>
+                        </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmy-gc-Pxj" userLabel="ImageView(방송본시간)">
                         <rect key="frame" x="184" y="65" width="100" height="3"/>
@@ -56,6 +60,11 @@
                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="PJ6-Vo-m10" secondAttribute="trailing" constant="45" id="0RZ-Id-xf3"/>
+                    <constraint firstItem="PJ6-Vo-m10" firstAttribute="top" secondItem="AZf-2I-GXh" secondAttribute="top" constant="65" id="AYE-h6-hbb"/>
+                    <constraint firstItem="PJ6-Vo-m10" firstAttribute="leading" secondItem="AZf-2I-GXh" secondAttribute="leading" constant="184" id="SnZ-kp-dOf"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="pLineImageView01" destination="cFD-zq-6NZ" id="YDZ-VY-CIb"/>

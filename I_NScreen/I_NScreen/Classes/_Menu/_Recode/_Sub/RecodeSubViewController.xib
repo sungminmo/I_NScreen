@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecodeSubViewController">
@@ -17,16 +18,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fh-RR-EkC" userLabel="View(해더)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fh-RR-EkC" userLabel="View(해더)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="뉴스파이터" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-y9-sw8">
-                            <rect key="frame" x="0.0" y="45" width="414" height="26"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQF-MF-EHQ">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQF-MF-EHQ">
                             <rect key="frame" x="17" y="47" width="9" height="18"/>
                             <state key="normal" image="back.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,16 +30,31 @@
                                 <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="Omx-3l-jFY"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_series.png" translatesAutoresizingMaskIntoConstraints="NO" id="dqG-sq-J81">
-                            <rect key="frame" x="88" y="44" width="58" height="28"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_series.png" translatesAutoresizingMaskIntoConstraints="NO" id="dqG-sq-J81">
+                            <rect key="frame" x="82" y="45" width="58" height="28"/>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="뉴스파이터" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-y9-sw8">
+                            <rect key="frame" x="141" y="45" width="132" height="26"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8fh-RR-EkC" secondAttribute="height" multiplier="138:31" id="AO2-9T-CBR"/>
+                        <constraint firstAttribute="centerY" secondItem="e5Y-y9-sw8" secondAttribute="centerY" id="CIU-Pf-uAe"/>
+                        <constraint firstAttribute="centerY" secondItem="dqG-sq-J81" secondAttribute="centerY" id="Fe5-Ap-zeL"/>
+                        <constraint firstAttribute="centerY" secondItem="aQF-MF-EHQ" secondAttribute="centerY" id="GWz-aI-7oS"/>
+                        <constraint firstItem="aQF-MF-EHQ" firstAttribute="leading" secondItem="8fh-RR-EkC" secondAttribute="leading" constant="17" id="eRq-re-4Y1"/>
+                        <constraint firstAttribute="centerX" secondItem="e5Y-y9-sw8" secondAttribute="centerX" id="pZ3-SQ-GgC"/>
+                        <constraint firstItem="e5Y-y9-sw8" firstAttribute="leading" secondItem="dqG-sq-J81" secondAttribute="trailing" constant="1" id="yDo-Ba-gqg"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fA-m0-IhY" userLabel="View(끝)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fA-m0-IhY" userLabel="View(끝)">
                     <rect key="frame" x="0.0" y="93" width="414" height="643"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="avZ-hM-glp">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="avZ-hM-glp">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -54,9 +64,24 @@
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" red="0.8980392157" green="0.92941176469999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="avZ-hM-glp" secondAttribute="bottom" id="3YZ-5m-7A1"/>
+                        <constraint firstItem="avZ-hM-glp" firstAttribute="leading" secondItem="7fA-m0-IhY" secondAttribute="leading" id="YHR-CA-soW"/>
+                        <constraint firstAttribute="trailing" secondItem="avZ-hM-glp" secondAttribute="trailing" id="laL-N8-T5J"/>
+                        <constraint firstItem="avZ-hM-glp" firstAttribute="top" secondItem="7fA-m0-IhY" secondAttribute="top" id="yv0-hk-Ypm"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7fA-m0-IhY" firstAttribute="leading" secondItem="uC6-cO-pFt" secondAttribute="leading" id="UU2-NP-NrD"/>
+                <constraint firstItem="7fA-m0-IhY" firstAttribute="top" secondItem="8fh-RR-EkC" secondAttribute="bottom" id="Uee-WK-RKj"/>
+                <constraint firstAttribute="trailing" secondItem="8fh-RR-EkC" secondAttribute="trailing" id="Wgc-ik-Tnp"/>
+                <constraint firstAttribute="bottom" secondItem="7fA-m0-IhY" secondAttribute="bottom" id="k3s-z9-0nl"/>
+                <constraint firstItem="8fh-RR-EkC" firstAttribute="top" secondItem="uC6-cO-pFt" secondAttribute="top" id="vkS-aa-LUj"/>
+                <constraint firstAttribute="trailing" secondItem="7fA-m0-IhY" secondAttribute="trailing" id="w8h-rW-P0t"/>
+                <constraint firstItem="8fh-RR-EkC" firstAttribute="leading" secondItem="uC6-cO-pFt" secondAttribute="leading" id="z53-6h-37Q"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>

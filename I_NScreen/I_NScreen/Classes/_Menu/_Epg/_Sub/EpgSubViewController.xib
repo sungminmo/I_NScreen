@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EpgSubViewController">
@@ -17,17 +18,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfi-kS-oJT" userLabel="View(해더)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfi-kS-oJT" userLabel="View(해더)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CH.05.KBS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydm-hk-N5S">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CH.05.KBS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydm-hk-N5S">
                             <rect key="frame" x="0.0" y="45" width="414" height="26"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry8-Fg-LW6">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry8-Fg-LW6">
                             <rect key="frame" x="17" y="47" width="9" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Ry8-Fg-LW6" secondAttribute="height" multiplier="1:2" id="dpr-H7-NMj"/>
+                            </constraints>
                             <state key="normal" image="back.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -35,23 +39,39 @@
                                 <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="Iyb-sC-ccG"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q72-Xr-2GJ">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q72-Xr-2GJ">
                             <rect key="frame" x="378" y="46" width="24" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="q72-Xr-2GJ" secondAttribute="height" multiplier="12:11" id="LmC-dl-cpZ"/>
+                            </constraints>
                             <state key="normal" backgroundImage="bigpic.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Ry8-Fg-LW6" firstAttribute="leading" secondItem="Wfi-kS-oJT" secondAttribute="leading" constant="17" id="A5h-GP-PIL"/>
+                        <constraint firstAttribute="trailing" secondItem="q72-Xr-2GJ" secondAttribute="trailing" constant="12" id="Lef-5F-BG7"/>
+                        <constraint firstAttribute="centerY" secondItem="ydm-hk-N5S" secondAttribute="centerY" id="OMq-eB-72X"/>
+                        <constraint firstAttribute="width" secondItem="Wfi-kS-oJT" secondAttribute="height" multiplier="138:31" id="OX5-md-y4v"/>
+                        <constraint firstItem="ydm-hk-N5S" firstAttribute="leading" secondItem="Wfi-kS-oJT" secondAttribute="leading" id="U2A-Hh-MiQ"/>
+                        <constraint firstAttribute="centerY" secondItem="q72-Xr-2GJ" secondAttribute="centerY" id="aR1-Ya-EKp"/>
+                        <constraint firstAttribute="centerY" secondItem="Ry8-Fg-LW6" secondAttribute="centerY" id="ifC-3h-J4H"/>
+                        <constraint firstAttribute="trailing" secondItem="ydm-hk-N5S" secondAttribute="trailing" id="mgJ-dU-45A"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ai-W0-AMj" userLabel="View(중간)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ai-W0-AMj" userLabel="View(중간)">
                     <rect key="frame" x="0.0" y="93" width="414" height="74"/>
                     <color key="backgroundColor" red="1" green="0.38431372549999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="5ai-W0-AMj" secondAttribute="height" multiplier="207:37" id="Wwq-HC-ffW"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSb-EI-91J" userLabel="View(끝)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSb-EI-91J" userLabel="View(끝)">
                     <rect key="frame" x="0.0" y="167" width="414" height="569"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Tp-eY-j5U">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Tp-eY-j5U">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="569"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -61,9 +81,27 @@
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" red="0.8980392157" green="0.92941176469999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="3Tp-eY-j5U" secondAttribute="trailing" id="GLc-Dl-G4y"/>
+                        <constraint firstItem="3Tp-eY-j5U" firstAttribute="leading" secondItem="vSb-EI-91J" secondAttribute="leading" id="VSq-Uv-9g0"/>
+                        <constraint firstAttribute="bottom" secondItem="3Tp-eY-j5U" secondAttribute="bottom" id="dSx-iZ-i5Z"/>
+                        <constraint firstItem="3Tp-eY-j5U" firstAttribute="top" secondItem="vSb-EI-91J" secondAttribute="top" id="ojt-E6-h8S"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="vSb-EI-91J" secondAttribute="bottom" id="1sx-iZ-n4M"/>
+                <constraint firstAttribute="trailing" secondItem="Wfi-kS-oJT" secondAttribute="trailing" id="6DV-AE-sqZ"/>
+                <constraint firstItem="5ai-W0-AMj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8C9-5r-bsM"/>
+                <constraint firstAttribute="trailing" secondItem="vSb-EI-91J" secondAttribute="trailing" id="8vN-Zv-G1A"/>
+                <constraint firstItem="Wfi-kS-oJT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Cyy-Gh-aWR"/>
+                <constraint firstAttribute="trailing" secondItem="5ai-W0-AMj" secondAttribute="trailing" id="Iiy-Hn-BVj"/>
+                <constraint firstItem="vSb-EI-91J" firstAttribute="top" secondItem="5ai-W0-AMj" secondAttribute="bottom" id="JY7-s3-FK8"/>
+                <constraint firstItem="5ai-W0-AMj" firstAttribute="top" secondItem="Wfi-kS-oJT" secondAttribute="bottom" id="Lqz-ou-8dQ"/>
+                <constraint firstItem="Wfi-kS-oJT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ey7-Mh-f1R"/>
+                <constraint firstItem="vSb-EI-91J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xl0-oR-7vX"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
