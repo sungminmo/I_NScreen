@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HomeGnbViewController.h"
 #import "LeftMenuViewController.h"
+#import "RecodeMainViewController.h"
 
 @interface RootViewController : UIViewController<HomeGnbViewDelegate, LeftMenuViewDelegate>
 

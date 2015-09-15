@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "EpgMainTableViewCell.h"
+#import "EpgPopUpViewController.h"
+#import "EpgSubViewController.h"
 
-@interface EpgMainViewController : UIViewController
+@interface EpgMainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIButton *pBackBtn;
 @property (nonatomic, strong) IBOutlet UIButton *pPopUpBtn;

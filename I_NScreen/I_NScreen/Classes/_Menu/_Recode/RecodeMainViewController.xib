@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecodeMainViewController">
+            <connections>
+                <outlet property="pBackBtn" destination="7Ob-X8-pIQ" id="nP1-I0-sOu"/>
+                <outlet property="pListBtn" destination="BKp-KE-REe" id="wXp-6T-lir"/>
+                <outlet property="pReservationBtn" destination="Qzq-hZ-LJY" id="XBd-6n-T2R"/>
+                <outlet property="pTableView" destination="yIr-Nh-mrM" id="f7N-sW-Zah"/>
+                <outlet property="view" destination="6Yd-HA-GLD" id="tn4-cJ-jXY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="6Yd-HA-GLD">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34l-cF-LZY" userLabel="View(해더)">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="녹화관리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr2-Rx-jOf">
+                            <rect key="frame" x="0.0" y="45" width="414" height="26"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ob-X8-pIQ">
+                            <rect key="frame" x="17" y="47" width="9" height="18"/>
+                            <state key="normal" image="back.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="SSq-uq-dUv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9l-Pj-wS9">
+                            <rect key="frame" x="378" y="46" width="24" height="22"/>
+                            <state key="normal" backgroundImage="bigpic.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ty7-dp-Jew" userLabel="View(중간)">
+                    <rect key="frame" x="0.0" y="93" width="414" height="82"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2btn_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Wn-pv-Z9x">
+                            <rect key="frame" x="7" y="10" width="400" height="35"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzq-hZ-LJY" userLabel="Button(녹화예약관리)">
+                            <rect key="frame" x="8" y="11" width="199" height="33"/>
+                            <state key="normal" title="녹화예약관리" backgroundImage="2btn_select.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="WJL-cU-Kq6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKp-KE-REe" userLabel="Button(녹화물 목록)">
+                            <rect key="frame" x="207" y="11" width="199" height="33"/>
+                            <state key="normal" title="녹화물 목록" backgroundImage="2btn_normal.png">
+                                <color key="titleColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="T4H-zI-VcP"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 120개의 녹화예약 콘텐트가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjP-Qv-Mdc" userLabel="Label(상세코멘트)">
+                            <rect key="frame" x="0.0" y="52" width="414" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmB-Ty-zqx" userLabel="View(끝)">
+                    <rect key="frame" x="0.0" y="175" width="414" height="561"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yIr-Nh-mrM">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="569"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="FM5-rl-cZE"/>
+                                <outlet property="delegate" destination="-1" id="lf8-m7-vvi"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.8980392157" green="0.92941176469999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="2btn_normal.png" width="195" height="33"/>
+        <image name="2btn_select.png" width="195" height="33"/>
+        <image name="back.png" width="9" height="18"/>
+        <image name="bigpic.png" width="24" height="22"/>
+    </resources>
+</document>

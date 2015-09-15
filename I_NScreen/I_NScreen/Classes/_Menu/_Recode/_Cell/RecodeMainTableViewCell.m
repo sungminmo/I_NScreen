@@ -1,14 +1,14 @@
 //
-//  EpgMainTableViewCell.m
+//  RecodeMainTableViewCell.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 9. 11..
+//  Created by JUNG KIL BAE on 2015. 9. 14..
 //  Copyright (c) 2015년 STVN. All rights reserved.
 //
 
-#import "EpgMainTableViewCell.h"
+#import "RecodeMainTableViewCell.h"
 
-@implementation EpgMainTableViewCell
+@implementation RecodeMainTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -30,9 +30,6 @@
     {
         self.pLineImageView01.hidden = NO;
     }
-    
-    self.pChannelLbl.text = [NSString stringWithFormat:@"%d", index];
-    self.pChannelTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
 }
 
 @end

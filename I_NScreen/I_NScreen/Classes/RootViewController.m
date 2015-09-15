@@ -60,6 +60,8 @@
         case 2:
         {
             // PVR
+            RecodeMainViewController *pViewController = [[RecodeMainViewController alloc] initWithNibName:@"RecodeMainViewController" bundle:nil];
+            [self.navigationController pushViewController:pViewController animated:YES];
             
         }break;
         case 3:

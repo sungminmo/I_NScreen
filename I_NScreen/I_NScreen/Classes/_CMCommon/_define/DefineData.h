@@ -23,6 +23,13 @@
 // host
 #define DEV_HOST            @"http://m.dibidibi.com"
 
+/*================================================================================================================
+ 해상도 값 정의
+ ================================================================================================================ */
+#define IPHONE_RESOLUTION_6_PLUS    @"IPHONE_RESOLUTION_6_PLUS"
+#define IPHONE_RESOLUTION_6         @"IPHONE_RESOLUTION_6"
+#define IPHONE_RESOLUTION_5         @"IPHONE_RESOLUTION_5"
+#define IPHONE_RESOLUTION_ELSE      @"IPHONE_RESOLUTION_ELSE"
 
 
 /*================================================================================================================
@@ -36,6 +43,22 @@
 #define EPG_MAIN_VIEW_BTN_TAG_02        10002   // popup 호출
 #define EPG_MAIN_VIEW_BTN_TAG_03        10003   // 
 
+// EpgPopUpViewController btn tag
+#define EPG_POPUP_VIEW_BTN_01           10101   // BACK 버튼
+#define EPG_POPUP_VIEW_BTN_02           10102   // 전체채널 버튼
+#define EPG_POPUP_VIEW_BTN_03           10103   // 선호채널 버튼
+
+// EpgSubViewController btn tag
+#define EPG_SUP_VIEW_BTN_01             10201   // back 버튼
+#define EPG_SUP_VIEW_BTN_02             10202   // 하트 버튼
+
+// RecodeMainViewController btn tag
+#define RECODE_MAIN_VIEW_BTN_01         10301   // back 버튼
+#define RECODE_MAIN_VIEW_BTN_02         10302   // 녹화예약 관리 버튼
+#define RECODE_MAIN_VIEW_BTN_03         10303   // 녹화물 목록 버튼
+
+// RecodeSubViewController btn tag
+#define RECODE_SUB_VIEW_BTN_01          10401   // back 버튼
 
 /*
 문자열 정의
