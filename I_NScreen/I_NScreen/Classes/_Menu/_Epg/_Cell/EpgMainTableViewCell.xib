@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -43,7 +44,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tI5-PM-XsJ" userLabel="ImageView(방송총시간)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tI5-PM-XsJ" userLabel="ImageView(방송총시간)">
                         <rect key="frame" x="109" y="52" width="260" height="3"/>
                         <color key="backgroundColor" red="0.70588235294117641" green="0.71372549019607845" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
@@ -57,7 +58,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="isx-vz-pGC" userLabel="ImageView(Hd)">
                         <rect key="frame" x="250" y="32" width="29" height="16"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-0l-wkh" userLabel="ImageView(화살표)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-0l-wkh" userLabel="ImageView(화살표)">
                         <rect key="frame" x="393" y="26" width="13" height="22"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GrO-7y-gc9" userLabel="Image View(밑라인)">
@@ -65,6 +66,14 @@
                         <color key="backgroundColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="Pph-0l-wkh" secondAttribute="centerY" id="Eqz-G8-yVb"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="tI5-PM-XsJ" secondAttribute="bottom" constant="2" id="H4D-R5-OPG"/>
+                    <constraint firstAttribute="trailing" secondItem="Pph-0l-wkh" secondAttribute="trailing" constant="8" id="JDg-yB-QOm"/>
+                    <constraint firstItem="tI5-PM-XsJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="101" id="MZk-dN-69w"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="tI5-PM-XsJ" secondAttribute="trailing" constant="37" id="TfT-aT-QTK"/>
+                    <constraint firstItem="tI5-PM-XsJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="44" id="jpt-yK-qPc"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="pChannelLbl" destination="M6F-b4-mPP" id="1iX-1m-geW"/>

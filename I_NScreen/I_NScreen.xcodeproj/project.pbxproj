@@ -180,6 +180,9 @@
 		E511818F1BA7ACF900C1E31D /* EpgSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51181881BA7ACF900C1E31D /* EpgSubTableViewCell.xib */; };
 		E51181901BA7ACF900C1E31D /* EpgSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E511818A1BA7ACF900C1E31D /* EpgSubViewController.m */; };
 		E51181911BA7ACF900C1E31D /* EpgSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E511818B1BA7ACF900C1E31D /* EpgSubViewController.xib */; };
+		E541097D1BA7EF5500E74D36 /* indicator@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E541097C1BA7EF5500E74D36 /* indicator@3x.png */; };
+		E541097F1BA7EF5F00E74D36 /* indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E541097E1BA7EF5F00E74D36 /* indicator@2x.png */; };
+		E54109811BA7EF6900E74D36 /* indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E54109801BA7EF6900E74D36 /* indicator.png */; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
 		E5F6C6D41B7AD93B00618970 /* I_NScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6D31B7AD93B00618970 /* I_NScreenTests.m */; };
 /* End PBXBuildFile section */
@@ -411,6 +414,9 @@
 		E51181891BA7ACF900C1E31D /* EpgSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpgSubViewController.h; sourceTree = "<group>"; };
 		E511818A1BA7ACF900C1E31D /* EpgSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpgSubViewController.m; sourceTree = "<group>"; };
 		E511818B1BA7ACF900C1E31D /* EpgSubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpgSubViewController.xib; sourceTree = "<group>"; };
+		E541097C1BA7EF5500E74D36 /* indicator@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indicator@3x.png"; sourceTree = "<group>"; };
+		E541097E1BA7EF5F00E74D36 /* indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indicator@2x.png"; sourceTree = "<group>"; };
+		E54109801BA7EF6900E74D36 /* indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indicator.png; sourceTree = "<group>"; };
 		E5F6C6B41B7AD93B00618970 /* I_NScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = I_NScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F6C6BB1B7AD93B00618970 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -535,6 +541,7 @@
 		99C43AF01BA3ED980035A0A4 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				E54109801BA7EF6900E74D36 /* indicator.png */,
 				99C43AF11BA3ED980035A0A4 /* 15.png */,
 				99C43AF21BA3ED980035A0A4 /* 19.png */,
 				99C43AF31BA3ED980035A0A4 /* 2btn_normal.png */,
@@ -620,6 +627,7 @@
 		99C43B221BA3ED980035A0A4 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				E541097E1BA7EF5F00E74D36 /* indicator@2x.png */,
 				99C43B231BA3ED980035A0A4 /* 15@2x.png */,
 				99C43B241BA3ED980035A0A4 /* 19@2x.png */,
 				99C43B251BA3ED980035A0A4 /* 2btn_normal@2x.png */,
@@ -705,6 +713,7 @@
 		99C43B541BA3ED980035A0A4 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				E541097C1BA7EF5500E74D36 /* indicator@3x.png */,
 				99C43B551BA3ED980035A0A4 /* 15@3x.png */,
 				99C43B561BA3ED980035A0A4 /* 19@3x.png */,
 				99C43B571BA3ED980035A0A4 /* 2btn_normal@3x.png */,
@@ -1180,6 +1189,7 @@
 				99C43BB21BA3ED980035A0A4 /* selectdot@2x.png in Resources */,
 				99C43B961BA3ED980035A0A4 /* pick.png in Resources */,
 				99C43B811BA3ED980035A0A4 /* allch.png in Resources */,
+				E54109811BA7EF6900E74D36 /* indicator.png in Resources */,
 				99C43BFA1BA3ED980035A0A4 /* check@3x.png in Resources */,
 				99C43BB91BA3ED980035A0A4 /* 2btn_select@2x.png in Resources */,
 				99C43BDF1BA3ED980035A0A4 /* selectindicator@3x.png in Resources */,
@@ -1250,6 +1260,7 @@
 				99C43BC21BA3ED980035A0A4 /* pick@2x.png in Resources */,
 				99C43C681BA3EDA10035A0A4 /* EpgMainTableViewCell.xib in Resources */,
 				99C43C011BA3ED980035A0A4 /* close_s@3x.png in Resources */,
+				E541097D1BA7EF5500E74D36 /* indicator@3x.png in Resources */,
 				99C43BE71BA3ED980035A0A4 /* back@3x.png in Resources */,
 				E511817D1BA7ACC600C1E31D /* RecodeSubViewController.xib in Resources */,
 				99C43BF91BA3ED980035A0A4 /* ch_select@3x.png in Resources */,
@@ -1281,6 +1292,7 @@
 				99C43C051BA3ED980035A0A4 /* Images.xcassets in Resources */,
 				99C43BC61BA3ED980035A0A4 /* 3btn_normal@2x.png in Resources */,
 				99C43B8B1BA3ED980035A0A4 /* 2btn_outline.png in Resources */,
+				E541097F1BA7EF5F00E74D36 /* indicator@2x.png in Resources */,
 				99C43B881BA3ED980035A0A4 /* 15.png in Resources */,
 				99C43BD31BA3ED980035A0A4 /* x@2x.png in Resources */,
 				99C43C031BA3ED980035A0A4 /* magnifier@3x.png in Resources */,
