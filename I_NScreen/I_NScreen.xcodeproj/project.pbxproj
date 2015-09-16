@@ -183,6 +183,17 @@
 		E541097D1BA7EF5500E74D36 /* indicator@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E541097C1BA7EF5500E74D36 /* indicator@3x.png */; };
 		E541097F1BA7EF5F00E74D36 /* indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E541097E1BA7EF5F00E74D36 /* indicator@2x.png */; };
 		E54109811BA7EF6900E74D36 /* indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E54109801BA7EF6900E74D36 /* indicator.png */; };
+		E5567BAC1BA93A7E00AB4003 /* MyCMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5567BAA1BA93A7E00AB4003 /* MyCMMainViewController.m */; };
+		E5567BAD1BA93A7E00AB4003 /* MyCMMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BAB1BA93A7E00AB4003 /* MyCMMainViewController.xib */; };
+		E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5567BB01BA9537A00AB4003 /* MyCMMainTableViewCell.m */; };
+		E5567BB31BA9537A00AB4003 /* MyCMMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BB11BA9537A00AB4003 /* MyCMMainTableViewCell.xib */; };
+		E5567BB71BA9558B00AB4003 /* MyCMZimListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5567BB51BA9558B00AB4003 /* MyCMZimListTableViewCell.m */; };
+		E5567BB81BA9558B00AB4003 /* MyCMZimListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BB61BA9558B00AB4003 /* MyCMZimListTableViewCell.xib */; };
+		E5567BBC1BA955A500AB4003 /* MyCMBuyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5567BBA1BA955A500AB4003 /* MyCMBuyListTableViewCell.m */; };
+		E5567BBD1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */; };
+		E5567BC11BA9686300AB4003 /* 3depth2btn_press.png in Resources */ = {isa = PBXBuildFile; fileRef = E5567BC01BA9686300AB4003 /* 3depth2btn_press.png */; };
+		E5567BC31BA9687700AB4003 /* 3depth2btn_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5567BC21BA9687700AB4003 /* 3depth2btn_press@2x.png */; };
+		E5567BC51BA9688500AB4003 /* 3depth2btn_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5567BC41BA9688500AB4003 /* 3depth2btn_press@3x.png */; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
 		E5F6C6D41B7AD93B00618970 /* I_NScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6D31B7AD93B00618970 /* I_NScreenTests.m */; };
 /* End PBXBuildFile section */
@@ -417,6 +428,21 @@
 		E541097C1BA7EF5500E74D36 /* indicator@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indicator@3x.png"; sourceTree = "<group>"; };
 		E541097E1BA7EF5F00E74D36 /* indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indicator@2x.png"; sourceTree = "<group>"; };
 		E54109801BA7EF6900E74D36 /* indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indicator.png; sourceTree = "<group>"; };
+		E5567BA91BA93A7E00AB4003 /* MyCMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCMMainViewController.h; path = _MyCM/MyCMMainViewController.h; sourceTree = "<group>"; };
+		E5567BAA1BA93A7E00AB4003 /* MyCMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCMMainViewController.m; path = _MyCM/MyCMMainViewController.m; sourceTree = "<group>"; };
+		E5567BAB1BA93A7E00AB4003 /* MyCMMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCMMainViewController.xib; path = _MyCM/MyCMMainViewController.xib; sourceTree = "<group>"; };
+		E5567BAF1BA9537A00AB4003 /* MyCMMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCMMainTableViewCell.h; path = _MyCM/_Cell/MyCMMainTableViewCell.h; sourceTree = "<group>"; };
+		E5567BB01BA9537A00AB4003 /* MyCMMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCMMainTableViewCell.m; path = _MyCM/_Cell/MyCMMainTableViewCell.m; sourceTree = "<group>"; };
+		E5567BB11BA9537A00AB4003 /* MyCMMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCMMainTableViewCell.xib; path = _MyCM/_Cell/MyCMMainTableViewCell.xib; sourceTree = "<group>"; };
+		E5567BB41BA9558B00AB4003 /* MyCMZimListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCMZimListTableViewCell.h; path = _MyCM/_Cell/MyCMZimListTableViewCell.h; sourceTree = "<group>"; };
+		E5567BB51BA9558B00AB4003 /* MyCMZimListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCMZimListTableViewCell.m; path = _MyCM/_Cell/MyCMZimListTableViewCell.m; sourceTree = "<group>"; };
+		E5567BB61BA9558B00AB4003 /* MyCMZimListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCMZimListTableViewCell.xib; path = _MyCM/_Cell/MyCMZimListTableViewCell.xib; sourceTree = "<group>"; };
+		E5567BB91BA955A500AB4003 /* MyCMBuyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCMBuyListTableViewCell.h; path = _MyCM/_Cell/MyCMBuyListTableViewCell.h; sourceTree = "<group>"; };
+		E5567BBA1BA955A500AB4003 /* MyCMBuyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCMBuyListTableViewCell.m; path = _MyCM/_Cell/MyCMBuyListTableViewCell.m; sourceTree = "<group>"; };
+		E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCMBuyListTableViewCell.xib; path = _MyCM/_Cell/MyCMBuyListTableViewCell.xib; sourceTree = "<group>"; };
+		E5567BC01BA9686300AB4003 /* 3depth2btn_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3depth2btn_press.png; sourceTree = "<group>"; };
+		E5567BC21BA9687700AB4003 /* 3depth2btn_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3depth2btn_press@2x.png"; sourceTree = "<group>"; };
+		E5567BC41BA9688500AB4003 /* 3depth2btn_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3depth2btn_press@3x.png"; sourceTree = "<group>"; };
 		E5F6C6B41B7AD93B00618970 /* I_NScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = I_NScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F6C6BB1B7AD93B00618970 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -565,6 +591,7 @@
 		99C43B031BA3ED980035A0A4 /* myc&m */ = {
 			isa = PBXGroup;
 			children = (
+				E5567BC01BA9686300AB4003 /* 3depth2btn_press.png */,
 				99C43B041BA3ED980035A0A4 /* 3btn_normal.png */,
 				99C43B051BA3ED980035A0A4 /* 3btn_outline.png */,
 				99C43B061BA3ED980035A0A4 /* 3btn_press.png */,
@@ -651,6 +678,7 @@
 		99C43B351BA3ED980035A0A4 /* myc&m */ = {
 			isa = PBXGroup;
 			children = (
+				E5567BC21BA9687700AB4003 /* 3depth2btn_press@2x.png */,
 				99C43B361BA3ED980035A0A4 /* 3btn_normal@2x.png */,
 				99C43B371BA3ED980035A0A4 /* 3btn_outline@2x.png */,
 				99C43B381BA3ED980035A0A4 /* 3btn_press@2x.png */,
@@ -737,6 +765,7 @@
 		99C43B671BA3ED980035A0A4 /* myc&m */ = {
 			isa = PBXGroup;
 			children = (
+				E5567BC41BA9688500AB4003 /* 3depth2btn_press@3x.png */,
 				99C43B681BA3ED980035A0A4 /* 3btn_normal@3x.png */,
 				99C43B691BA3ED980035A0A4 /* 3btn_outline@3x.png */,
 				99C43B6A1BA3ED980035A0A4 /* 3btn_press@3x.png */,
@@ -889,6 +918,7 @@
 		99C43C3D1BA3EDA10035A0A4 /* _Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E5567BA81BA939CA00AB4003 /* _MyCM */,
 				E51181681BA7ACC600C1E31D /* _Recode */,
 				994BDB311BA3F692000B6260 /* _Preference */,
 				994BDB321BA3F692000B6260 /* _Search */,
@@ -1031,6 +1061,33 @@
 				E51181881BA7ACF900C1E31D /* EpgSubTableViewCell.xib */,
 			);
 			path = _Cell;
+			sourceTree = "<group>";
+		};
+		E5567BA81BA939CA00AB4003 /* _MyCM */ = {
+			isa = PBXGroup;
+			children = (
+				E5567BAE1BA9532A00AB4003 /* _Cell */,
+				E5567BA91BA93A7E00AB4003 /* MyCMMainViewController.h */,
+				E5567BAA1BA93A7E00AB4003 /* MyCMMainViewController.m */,
+				E5567BAB1BA93A7E00AB4003 /* MyCMMainViewController.xib */,
+			);
+			name = _MyCM;
+			sourceTree = "<group>";
+		};
+		E5567BAE1BA9532A00AB4003 /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5567BAF1BA9537A00AB4003 /* MyCMMainTableViewCell.h */,
+				E5567BB01BA9537A00AB4003 /* MyCMMainTableViewCell.m */,
+				E5567BB11BA9537A00AB4003 /* MyCMMainTableViewCell.xib */,
+				E5567BB41BA9558B00AB4003 /* MyCMZimListTableViewCell.h */,
+				E5567BB51BA9558B00AB4003 /* MyCMZimListTableViewCell.m */,
+				E5567BB61BA9558B00AB4003 /* MyCMZimListTableViewCell.xib */,
+				E5567BB91BA955A500AB4003 /* MyCMBuyListTableViewCell.h */,
+				E5567BBA1BA955A500AB4003 /* MyCMBuyListTableViewCell.m */,
+				E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */,
+			);
+			name = _Cell;
 			sourceTree = "<group>";
 		};
 		E5F6C6AB1B7AD93B00618970 = {
@@ -1184,10 +1241,12 @@
 				99C43B971BA3ED980035A0A4 /* sd.png in Resources */,
 				99C43BFB1BA3ED980035A0A4 /* genre_normal@3x.png in Resources */,
 				99C43BEE1BA3ED980035A0A4 /* pick@3x.png in Resources */,
+				E5567BB31BA9537A00AB4003 /* MyCMMainTableViewCell.xib in Resources */,
 				99C43BF81BA3ED980035A0A4 /* ch_press@3x.png in Resources */,
 				99C43B851BA3ED980035A0A4 /* normaldot.png in Resources */,
 				99C43BB21BA3ED980035A0A4 /* selectdot@2x.png in Resources */,
 				99C43B961BA3ED980035A0A4 /* pick.png in Resources */,
+				E5567BAD1BA93A7E00AB4003 /* MyCMMainViewController.xib in Resources */,
 				99C43B811BA3ED980035A0A4 /* allch.png in Resources */,
 				E54109811BA7EF6900E74D36 /* indicator.png in Resources */,
 				99C43BFA1BA3ED980035A0A4 /* check@3x.png in Resources */,
@@ -1204,6 +1263,7 @@
 				99C43C6C1BA3EDA10035A0A4 /* HomeGnbViewController.xib in Resources */,
 				99C43B8F1BA3ED980035A0A4 /* back.png in Resources */,
 				99C43BBC1BA3ED980035A0A4 /* bigpic@2x.png in Resources */,
+				E5567BC31BA9687700AB4003 /* 3depth2btn_press@2x.png in Resources */,
 				99C43BD71BA3ED980035A0A4 /* magnifier@2x.png in Resources */,
 				99C43BC11BA3ED980035A0A4 /* icon_series@2x.png in Resources */,
 				99C43BD51BA3ED980035A0A4 /* close_s@2x.png in Resources */,
@@ -1223,6 +1283,7 @@
 				99C43B951BA3ED980035A0A4 /* icon_series.png in Resources */,
 				99C43BAC1BA3ED980035A0A4 /* serchbox.png in Resources */,
 				99C43BB11BA3ED980035A0A4 /* normaldot@2x.png in Resources */,
+				E5567BC51BA9688500AB4003 /* 3depth2btn_press@3x.png in Resources */,
 				99C43BAD1BA3ED980035A0A4 /* allch@2x.png in Resources */,
 				99C43BF31BA3ED980035A0A4 /* 3btn_outline@3x.png in Resources */,
 				994BDB3A1BA3F6CD000B6260 /* CMSearchMainViewController.xib in Resources */,
@@ -1263,9 +1324,11 @@
 				E541097D1BA7EF5500E74D36 /* indicator@3x.png in Resources */,
 				99C43BE71BA3ED980035A0A4 /* back@3x.png in Resources */,
 				E511817D1BA7ACC600C1E31D /* RecodeSubViewController.xib in Resources */,
+				E5567BB81BA9558B00AB4003 /* MyCMZimListTableViewCell.xib in Resources */,
 				99C43BF91BA3ED980035A0A4 /* ch_select@3x.png in Resources */,
 				99C43BC41BA3ED980035A0A4 /* unpick@2x.png in Resources */,
 				99C43BE01BA3ED980035A0A4 /* 15@3x.png in Resources */,
+				E5567BC11BA9686300AB4003 /* 3depth2btn_press.png in Resources */,
 				99C43BAB1BA3ED980035A0A4 /* magnifier.png in Resources */,
 				99C43B861BA3ED980035A0A4 /* selectdot.png in Resources */,
 				99C43B981BA3ED980035A0A4 /* unpick.png in Resources */,
@@ -1273,6 +1336,7 @@
 				99C43BBB1BA3ED980035A0A4 /* back@2x.png in Resources */,
 				99C43B801BA3ED980035A0A4 /* LaunchScreen.xib in Resources */,
 				99C43B9F1BA3ED980035A0A4 /* ch_normal.png in Resources */,
+				E5567BBD1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib in Resources */,
 				99C43BE31BA3ED980035A0A4 /* 2btn_outline@3x.png in Resources */,
 				99C43BF51BA3ED980035A0A4 /* 3btn_select@3x.png in Resources */,
 				99C43BAF1BA3ED980035A0A4 /* gradation@2x.png in Resources */,
@@ -1368,6 +1432,7 @@
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
 				99C43C581BA3EDA10035A0A4 /* NSUserDefaults+Settings.m in Sources */,
+				E5567BBC1BA955A500AB4003 /* MyCMBuyListTableViewCell.m in Sources */,
 				99C43C5C1BA3EDA10035A0A4 /* UIView+ViewController.m in Sources */,
 				99C43C611BA3EDA10035A0A4 /* CMSearchHistory.m in Sources */,
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
@@ -1378,6 +1443,7 @@
 				99C43C641BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m in Sources */,
 				994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */,
 				99C43C691BA3EDA10035A0A4 /* EpgMainViewController.m in Sources */,
+				E5567BB71BA9558B00AB4003 /* MyCMZimListTableViewCell.m in Sources */,
 				E511818E1BA7ACF900C1E31D /* EpgSubTableViewCell.m in Sources */,
 				99C43C571BA3EDA10035A0A4 /* NSString+Helper.m in Sources */,
 				99C43C521BA3EDA10035A0A4 /* NSDate+Helper.m in Sources */,
@@ -1385,6 +1451,7 @@
 				99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */,
 				99C43C601BA3EDA10035A0A4 /* CMAppManager.m in Sources */,
 				99C43C071BA3ED980035A0A4 /* main.m in Sources */,
+				E5567BAC1BA93A7E00AB4003 /* MyCMMainViewController.m in Sources */,
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
 				99C43C591BA3EDA10035A0A4 /* UIImage+Color.m in Sources */,
 				99C43C511BA3EDA10035A0A4 /* NSData+Hash.m in Sources */,
@@ -1398,6 +1465,7 @@
 				E511817C1BA7ACC600C1E31D /* RecodeSubViewController.m in Sources */,
 				994BDB3E1BA3F6E8000B6260 /* CMPreferenceMainViewController.m in Sources */,
 				99C43C661BA3EDA10035A0A4 /* CMConstants.m in Sources */,
+				E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */,
 				99C43C5D1BA3EDA10035A0A4 /* UIViewController+OverlayView.m in Sources */,
 				99C43C631BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */,
 				E51181781BA7ACC600C1E31D /* RecodeMainTableViewCell.m in Sources */,

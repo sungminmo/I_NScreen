@@ -10,6 +10,7 @@
 #import "HomeGnbViewController.h"
 #import "LeftMenuViewController.h"
 #import "RecodeMainViewController.h"
+#import "MyCMMainViewController.h"
 
 @interface RootViewController : UIViewController<HomeGnbViewDelegate, LeftMenuViewDelegate>
 

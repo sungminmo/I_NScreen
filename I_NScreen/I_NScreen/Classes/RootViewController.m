@@ -78,6 +78,12 @@
             [self.navigationController pushViewController:controller animated:YES];
             
         }break;
+        case 5:
+        {
+            // My C&M
+            MyCMMainViewController *pViewController = [[MyCMMainViewController alloc] initWithNibName:@"MyCMMainViewController" bundle:nil];
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }break;
     }
 }
 

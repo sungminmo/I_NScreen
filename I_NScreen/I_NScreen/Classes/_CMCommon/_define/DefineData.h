@@ -60,6 +60,12 @@
 // RecodeSubViewController btn tag
 #define RECODE_SUB_VIEW_BTN_01          10401   // back 버튼
 
+// MyCMMainViewController btn tag
+#define MY_CM_MAIN_VIEW_BTN_01          10501   // back 버튼
+#define MY_CM_MAIN_VIEW_BTN_02          10502   // VOD 찜목록
+#define MY_CM_MAIN_VIEW_BTN_03          10503   // VOD 시청목록
+#define MY_CM_MAIN_VIEW_BTN_04          10504   // VOD 구매목록
+
 /*
 문자열 정의
 //*/

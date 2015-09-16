@@ -69,6 +69,10 @@
         {
             cell.textLabel.text = @"설정";
         }break;
+        case 4:
+        {
+            cell.textLabel.text = @"마이 C&M";
+        }break;
     }
     
     return cell;
@@ -80,35 +84,11 @@
     [[CMAppManager sharedInstance] onLeftMenuListClose:self];
     
     self.nTag = (int)[indexPath row] + 1;
-    
-    switch ([indexPath row]) {
-        case 0:
-        {
-            
-        }break;
-        case 1:
-        {
-            
-        }break;
-        case 2:
-        {
-            
-        }break;
-        case 3:
-        {
-            
-        }break;
-    }
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 84;
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 5;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
