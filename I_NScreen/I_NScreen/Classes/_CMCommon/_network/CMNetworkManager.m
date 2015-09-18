@@ -67,7 +67,7 @@
         self.drmClient = [[CMDRMServerClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
         self.drmClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 
-        self.smClient = [[CMSMAppServerClient alloc] initWithBaseURL:[NSURL URLWithString:CNM_OPEN_API_SERVER_URL]];
+        self.smClient = [[CMSMAppServerClient alloc] initWithBaseURL:[NSURL URLWithString:CNM_AIRCODE_OPEN_API_SERVER_URL]];
         self.smClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 
         self.webClient = [[CMWebHasServerClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
@@ -81,7 +81,9 @@
 + (NSURL *)genURLWithInterface:(NSString *)interface
 {
 //    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@.asp", CNM_OPEN_API_SERVER_URL, interface]];
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@.asp", interface]];
+//    return [NSURL URLWithString:[NSString stringWithFormat:@"%@.asp", interface]];
+    // Add By BJK
+     return [NSURL URLWithString:[NSString stringWithFormat:@"%@.xml", interface]];
 }
 
 // TODO: UI에서 페이징 처리 결정해야 함!
@@ -159,15 +161,74 @@
 @end
 
 @implementation CMNetworkManager(EPG)
-
-- (NSURLSessionDataTask *)epgProgram:(NSString *)keyword block:(void (^)(NSArray *, NSError *))block {
-    
-    NSURL *url = [CMNetworkManager genURLWithInterface:CNM_OPEN_API_INTERFACE_AuthenticateAdult];
+- (NSURLSessionDataTask *)epgGetChannelListProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+{
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelList];
     NSDictionary *dict = @{
-                           
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           @"areaCode" : @"0"
                            };
     
-    return [self.smClient GET:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
+- (NSURLSessionDataTask *)epgGetChannelGenreProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+{
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelGenre];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION
+                           };
+    
+    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
+- (NSURLSessionDataTask *)epgGetChannelAreaProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+{
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelArea];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION
+                           };
+    
+    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
+- (NSURLSessionDataTask *)epgGetChannelScheduleProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+{
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelSchedule];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           @"channelId" : @"1"
+                           };
+    
+    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
+- (NSURLSessionDataTask *)epgSearchScheduleProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+{
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_SearchSchedule];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           @"areaCode" : @"1",
+                           @"searchString" : @"data"
+                           };
+    
+    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         

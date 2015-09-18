@@ -17,8 +17,15 @@ NSString* const NAVER_SEARCH_API_SERVER_URL = @"http://openapi.naver.com/search?
 // C&M SMApplicationSever openAPI 서버 IP.
 NSString* const CNM_OPEN_API_SERVER_URL = @"http://58.143.243.91/SMApplicationServer/";
 
+// Add By BJK
+// 각각의 화면 마다 서버가 몇몇 다름
+// C&M AirCode Server open API 서버 IP
+NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://58.141.255.69:8080/nscreen/";
+
+
 // C&M SMApplicationSever openAPI 프로토콜 버전.
-NSString* const CNM_OPEN_API_VERSION = @"SmartMobile_v1.0.0";
+//NSString* const CNM_OPEN_API_VERSION = @"SmartMobile_v1.0.0";
+NSString* const CNM_OPEN_API_VERSION = @"1";
 
 // 테스트용 터미널Key.
 NSString* const CNM_TEST_TERMINAL_KEY = @"FAC7AE9F9936BBFEB468F2F6FBEA240";
@@ -103,19 +110,19 @@ NSString* const CNM_OPEN_API_INTERFACE_RequestAuthCode = @"RequestAuthCode";
 
 // 2. Channel
 // GetChannelGenre
-NSString* const CNM_OPEN_API_INTERFACE_GetChannelGenre = @"GetChannelGenre";
+//NSString* const CNM_OPEN_API_INTERFACE_GetChannelGenre = @"GetChannelGenre";
 
 // GetChannelProduct
 NSString* const CNM_OPEN_API_INTERFACE_GetChannelProduct = @"GetChannelProduct";
 
 // GetChannelArea
-NSString* const CNM_OPEN_API_INTERFACE_GetChannelArea = @"GetChannelArea";
+//NSString* const CNM_OPEN_API_INTERFACE_GetChannelArea = @"GetChannelArea";
 
-// GetChannelList
-NSString* const CNM_OPEN_API_INTERFACE_GetChannelList = @"GetChannelList";
+//// GetChannelList
+//NSString* const CNM_OPEN_API_INTERFACE_GetChannelList = @"GetChannelList";
 
 // GetChannelSchedule
-NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule = @"GetChannelSchedule";
+//NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule = @"GetChannelSchedule";
 
 // GetChannelMyList
 NSString* const CNM_OPEN_API_INTERFACE_GetChannelMyList = @"GetChannelMyList";
@@ -205,6 +212,22 @@ NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNInfo = @"GetServiceJoinNIn
 // GetServiceNoticeInfo
 NSString* const CNM_OPEN_API_INTERFACE_GetServiceNoticeInfo = @"GetServiceNoticeInfo";
 
+// Add By BJK
+// 6. Epg
+// getChannelList
+NSString* const CNM_OPEN_API_INTERFACE_GetChannelList = @"getChannelList";
+
+// getChannelGenre
+NSString* const CNM_OPEN_API_INTERFACE_GetChannelGenre = @"getChannelGenre";
+
+// getChannelArea
+NSString* const CNM_OPEN_API_INTERFACE_GetChannelArea = @"getChannelArea";
+
+// getChannelSchedule
+NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule = @"getChannelSchedule";
+
+// searchSchedule
+NSString* const CNM_OPEN_API_INTERFACE_SearchSchedule = @"searchSchedule";
 
 @implementation STVConstants
 

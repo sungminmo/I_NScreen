@@ -76,6 +76,9 @@ extern NSString* const NAVER_SEARCH_API_SERVER_URL;
 // C&M SMApplicationSever openAPI 서버 IP.
 extern NSString* const CNM_OPEN_API_SERVER_URL;
 
+// C&M AirCode Server open API 서버 IP
+extern NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL;
+
 // C&M SMApplicationSever openAPI 프로토콜 버전.
 extern NSString* const CNM_OPEN_API_VERSION;
 
@@ -162,19 +165,19 @@ extern NSString* const CNM_OPEN_API_INTERFACE_RequestAuthCode;
 
 // 2. Channel
 // GetChannelGenre
-extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelGenre;
+//extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelGenre;
 
 // GetChannelProduct
 extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelProduct;
 
 // GetChannelArea
-extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelArea;
+//extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelArea;
 
 // GetChannelList
-extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelList;
+//extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelList;
 
 // GetChannelSchedule
-extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule;
+//extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule;
 
 // GetChannelMyList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelMyList;
@@ -265,6 +268,21 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNInfo;
 extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceNoticeInfo;
 
 
+// Epg
+// getChannelList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelList;
+
+// getChannelGenre
+extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelGenre;
+
+// getChannelArea
+extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelArea;
+
+// getChannelSchedule
+extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule;
+
+// searchSchedule
+extern NSString* const CNM_OPEN_API_INTERFACE_SearchSchedule;
 
 
 @interface STVConstants : NSObject
