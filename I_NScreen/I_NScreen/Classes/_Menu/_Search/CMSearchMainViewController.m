@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.isUseNavigationBar = YES;
 }
 
 - (void)didReceiveMemoryWarning {

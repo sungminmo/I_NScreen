@@ -10,6 +10,8 @@
 
 @interface CMBaseViewController : UIViewController
 
+@property (nonatomic, unsafe_unretained) BOOL isUseNavigationBar;
+
 /**
  *  백버튼 이벤트를 기술한다.
  *
