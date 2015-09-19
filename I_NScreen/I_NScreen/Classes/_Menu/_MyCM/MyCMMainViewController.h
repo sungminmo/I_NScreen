@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBaseViewController.h"
 #import "MyCMZimListTableViewCell.h"
 #import "MyCMBuyListTableViewCell.h"
 
-@interface MyCMMainViewController : UIViewController
+@interface MyCMMainViewController : CMBaseViewController
 
 @property (nonatomic, weak) IBOutlet UIButton *pBackBtn;        // back 버튼
 @property (nonatomic, weak) IBOutlet UIButton *pTapBtn01;       // vod 찜 목록

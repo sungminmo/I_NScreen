@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EpgPopUpViewController : UIViewController
+#import "CMBaseViewController.h"
+
+@interface EpgPopUpViewController : CMBaseViewController
 
 @property (nonatomic, weak) IBOutlet UIButton *pCloseBtn;   // 닫기
 @property (nonatomic, weak) IBOutlet UIButton *pChannelFullBtn;  // 전체 체널 버튼

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBaseViewController.h"
 #import "EpgSubTableViewCell.h"
 
-@interface EpgSubViewController : UIViewController
+@interface EpgSubViewController : CMBaseViewController
 
 @property (nonatomic, strong) IBOutlet UITableView *pTableView;
 @property (nonatomic, weak) IBOutlet UIButton *pBackBtn;

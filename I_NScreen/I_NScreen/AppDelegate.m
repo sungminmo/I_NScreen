@@ -42,6 +42,7 @@
     
     RootViewController *pViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
     self.m_pNaviCon = [[UINavigationController alloc] initWithRootViewController:pViewController];
+    self.m_pNaviCon.interactivePopGestureRecognizer.enabled = YES;
     self.m_pNaviCon.navigationBarHidden = YES;
     self.window.rootViewController = self.m_pNaviCon;
     [self.window makeKeyAndVisible];

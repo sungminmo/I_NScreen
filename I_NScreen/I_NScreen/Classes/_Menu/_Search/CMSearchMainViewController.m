@@ -15,10 +15,9 @@
 @implementation CMSearchMainViewController
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBaseViewController.h"
 #import "RecodeMainTableViewCell.h"
 #import "RecodeSubViewController.h"
 
-@interface RecodeMainViewController : UIViewController
+@interface RecodeMainViewController : CMBaseViewController
 
 @property (nonatomic, weak) IBOutlet UIButton *pBackBtn;        // back 버튼
 @property (nonatomic, weak) IBOutlet UIButton *pReservationBtn; // 녹화 예약 관리 버튼

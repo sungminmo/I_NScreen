@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBaseViewController.h"
 #import "HomeGnbViewController.h"
 #import "LeftMenuViewController.h"
 #import "RecodeMainViewController.h"
 #import "MyCMMainViewController.h"
 
-@interface RootViewController : UIViewController<HomeGnbViewDelegate, LeftMenuViewDelegate>
+@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pGnbView;
 @property (nonatomic, strong) IBOutlet UIView *pBodyView;

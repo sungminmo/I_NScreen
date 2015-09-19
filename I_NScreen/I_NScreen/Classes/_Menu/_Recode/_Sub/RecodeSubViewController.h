@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBaseViewController.h"
 #import "RecodeSubTableViewCell.h"
 
-@interface RecodeSubViewController : UIViewController
+@interface RecodeSubViewController : CMBaseViewController
 
 @property (nonatomic, weak) IBOutlet UIButton *pBackBtn;        // back 버튼
 @property (nonatomic, weak) IBOutlet UITableView *pTableView;
