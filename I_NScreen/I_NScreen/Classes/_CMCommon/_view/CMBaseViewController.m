@@ -9,6 +9,58 @@
 #import "CMBaseViewController.h"
 #import "UINavigationBar+CustomHeight.h"
 
+
+
+@implementation CMNavigationController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+    {
+        self.interactivePopGestureRecognizer.enabled = YES;
+        self.interactivePopGestureRecognizer.delegate = nil;
+        [self.interactivePopGestureRecognizer addTarget:self action:@selector(actionForGesture:)];
+    }
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)] &&
+        gestureRecognizer == self.navigationController.interactivePopGestureRecognizer) {
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return YES;
+}
+
+- (void)actionForGesture:(UISwipeGestureRecognizer *)recognizer {
+    if (self.topViewController != nil)//skip modal
+    {
+        return;
+    }
+    
+    if (recognizer.view != nil && recognizer.state == UIGestureRecognizerStateEnded )
+    {
+        if (self.viewControllers.count > 1)
+        {
+            UIViewController *controller = self.viewControllers[self.viewControllers.count - 1];
+            if ([controller isKindOfClass:NSClassFromString(@"CMBaseViewController")])
+            {
+                if ([controller respondsToSelector:@selector(actionForGesture:)])
+                {
+                    [(CMBaseViewController *)controller actionForGesture:(UISwipeGestureRecognizer*)recognizer];
+                }
+            }
+        }
+    }
+}
+
+@end
+
+
 @interface CMBaseViewController ()
 
 @end
@@ -25,7 +77,8 @@
 - (void)viewDidLoad {
     [self setupLayout];
     [super viewDidLoad];
-//    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+    [self.navigationController.interactivePopGestureRecognizer addTarget:self action:@selector(actionForGesture:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,6 +130,16 @@
 
 #pragma mark - event
 - (void)actionBackButton:(id)sender {
+    [self backCommonAction];
+}
+
+- (void)actionForGesture:(UISwipeGestureRecognizer *)recognizer {
+    [self backCommonAction];
+}
+
+- (void)backCommonAction {
+    //TODO: 팝이벤트가 발생하기 전에 처리할 로직을 기술한다.
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

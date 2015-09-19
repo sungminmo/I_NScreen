@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class CMNavigationController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UINavigationController *m_pNaviCon;
+@property (strong, nonatomic) CMNavigationController *m_pNaviCon;
 
 @end
 
