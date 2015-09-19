@@ -69,8 +69,32 @@
 }
 
 - (void)settingCommonApperance {
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithHexString:@"7b5aa3"]];
-    self.m_pNaviCon.navigationBar.height = 93;
+    //네비게이션
+    [[UINavigationBar appearance] setBarTintColor:[CMColor colorViolet]];
+    self.m_pNaviCon.navigationBar.height = 73;
+    
+    //얼럿뷰
+    [[SIAlertView appearance] setMessageFont:[UIFont systemFontOfSize:13]];
+    [[SIAlertView appearance] setTitleColor:[CMColor colorViolet]];
+    [[SIAlertView appearance] setMessageColor:[UIColor blackColor]];
+    [[SIAlertView appearance] setCornerRadius:0];
+    [[SIAlertView appearance] setShadowRadius:0];
+    [[SIAlertView appearance] setViewBackgroundColor:[CMColor colorWhite]];
+    [[SIAlertView appearance] setButtonColor:[CMColor colorWhite]];
+    [[SIAlertView appearance] setCancelButtonColor:[CMColor colorWhite]];
+    [[SIAlertView appearance] setBackgroundStyle:SIAlertViewBackgroundStyleSolid];
+
+    UIImage* clImage = [UIImage imageWithColor:[CMColor colorLightViolet] withAlpha:1 withSize:CGSizeMake(30, 12)];
+    UIImage* okImage = [UIImage imageWithColor:[CMColor colorGray] withAlpha:1 withSize:CGSizeMake(30, 12)];
+    
+    UIImage* clImage_s = [UIImage imageWithColor:[CMColor colorViolet] withAlpha:1 withSize:CGSizeMake(30, 12)];
+    UIImage* okImage_s = [UIImage imageWithColor:[CMColor colorHighlightedGray] withAlpha:1 withSize:CGSizeMake(30, 12)];
+    
+    [[SIAlertView appearance] setDefaultButtonImage:[okImage resizableImageWithCapInsets:UIEdgeInsetsMake(15,5,14,6)] forState:UIControlStateNormal];
+    [[SIAlertView appearance] setDefaultButtonImage:[okImage_s resizableImageWithCapInsets:UIEdgeInsetsMake(15,5,14,6)] forState:UIControlStateHighlighted];
+    [[SIAlertView appearance] setCancelButtonImage:[clImage resizableImageWithCapInsets:UIEdgeInsetsMake(15,5,14,6)] forState:UIControlStateNormal];
+    [[SIAlertView appearance] setCancelButtonImage:[clImage_s resizableImageWithCapInsets:UIEdgeInsetsMake(15,5,14,6)] forState:UIControlStateHighlighted];
+    
 }
 
 

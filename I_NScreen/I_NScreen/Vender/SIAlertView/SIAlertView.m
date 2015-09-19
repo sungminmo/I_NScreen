@@ -7,6 +7,8 @@
 //
 
 #import "SIAlertView.h"
+#import "UIWindow+SIUtils.h"
+#import "UIView+Layer.h"
 #import <QuartzCore/QuartzCore.h>
 
 NSString *const SIAlertViewWillShowNotification = @"SIAlertViewWillShowNotification";
@@ -20,14 +22,14 @@ NSString *const SIAlertViewDidDismissNotification = @"SIAlertViewDidDismissNotif
 #define MESSAGE_MAX_LINE_COUNT 5
 #define GAP 10
 #define CANCEL_BUTTON_PADDING_TOP 5
-#define CONTENT_PADDING_LEFT 10
-#define CONTENT_PADDING_TOP 12
-#define CONTENT_PADDING_BOTTOM 10
+#define CONTENT_PADDING_LEFT 6
+#define CONTENT_PADDING_TOP 6
+#define CONTENT_PADDING_BOTTOM 6
 #define BUTTON_HEIGHT 44
 #define CONTAINER_WIDTH 300
 
-const UIWindowLevel UIWindowLevelSIAlert = 1999.0;  // don't overlap system's alert
-const UIWindowLevel UIWindowLevelSIAlertBackground = 1998.0; // below the alert window
+const UIWindowLevel UIWindowLevelSIAlert = 1996.0;  // don't overlap system's alert
+const UIWindowLevel UIWindowLevelSIAlertBackground = 1985.0; // below the alert window
 
 @class SIAlertBackgroundWindow;
 
@@ -35,61 +37,6 @@ static NSMutableArray *__si_alert_queue;
 static BOOL __si_alert_animating;
 static SIAlertBackgroundWindow *__si_alert_background_window;
 static SIAlertView *__si_alert_current_view;
-
-@interface UIWindow (SIAlert_Utils)
-
-- (UIViewController *)currentViewController;
-
-@end
-
-@implementation UIWindow (SIAlert_Utils)
-
-- (UIViewController *)currentViewController
-{
-    UIViewController *viewController = self.rootViewController;
-    while (viewController.presentedViewController) {
-        viewController = viewController.presentedViewController;
-    }
-    return viewController;
-}
-
-@end
-
-#ifdef __IPHONE_7_0
-@interface UIWindow (SIAlert_StatusBarUtils)
-
-- (UIViewController *)viewControllerForStatusBarStyle;
-- (UIViewController *)viewControllerForStatusBarHidden;
-
-@end
-
-@implementation UIWindow (SIAlert_StatusBarUtils)
-
-- (UIViewController *)viewControllerForStatusBarStyle
-{
-    UIViewController *currentViewController = [self currentViewController];
-    
-    if ([currentViewController childViewControllerForStatusBarStyle]) {
-        return [currentViewController childViewControllerForStatusBarStyle];
-    } else {
-        return currentViewController;
-    }
-}
-
-- (UIViewController *)viewControllerForStatusBarHidden
-{
-    UIViewController *currentViewController = [self currentViewController];
-    
-    if ([currentViewController childViewControllerForStatusBarHidden]) {
-        return [currentViewController childViewControllerForStatusBarHidden];
-    } else {
-        return currentViewController;
-    }
-}
-
-@end
-#endif
-
 
 @interface SIAlertView ()
 
@@ -283,7 +230,6 @@ static SIAlertView *__si_alert_current_view;
 #pragma mark - SIAlert
 
 @implementation SIAlertView
-
 + (void)initialize
 {
     if (self != [SIAlertView class])
@@ -314,10 +260,23 @@ static SIAlertView *__si_alert_current_view;
 	if (self) {
 		_title = title;
         _message = message;
+        _enabledParallaxEffect = YES;
 		self.items = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
+
+- (id)initWithTitle:(NSString *)title andAttributeMessage:(NSAttributedString *)message {
+    self = [super init];
+    if (self) {
+        _title = title;
+        _attributeMessage = message;
+        _enabledParallaxEffect = YES;
+        self.items = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 
 #pragma mark - Class methods
 
@@ -352,7 +311,14 @@ static SIAlertView *__si_alert_current_view;
 + (void)showBackground
 {
     if (!__si_alert_background_window) {
-        __si_alert_background_window = [[SIAlertBackgroundWindow alloc] initWithFrame:[UIScreen mainScreen].bounds
+        
+        CGRect frame = [[UIScreen mainScreen] bounds];
+        if([[UIScreen mainScreen] respondsToSelector:@selector(fixedCoordinateSpace)])
+        {
+            frame = [[[UIScreen mainScreen] fixedCoordinateSpace] convertRect:frame fromCoordinateSpace:[[UIScreen mainScreen] coordinateSpace]];
+        }
+        
+        __si_alert_background_window = [[SIAlertBackgroundWindow alloc] initWithFrame:frame
                                                                              andStyle:[SIAlertView currentAlertView].backgroundStyle];
         [__si_alert_background_window makeKeyAndVisible];
         __si_alert_background_window.alpha = 0;
@@ -391,6 +357,12 @@ static SIAlertView *__si_alert_current_view;
 - (void)setMessage:(NSString *)message
 {
 	_message = message;
+    [self invalidateLayout];
+}
+
+- (void)setAttributeMessage:(NSAttributedString *)message
+{
+    _attributeMessage = message;
     [self invalidateLayout];
 }
 
@@ -466,6 +438,9 @@ static SIAlertView *__si_alert_current_view;
             self.didShowHandler(self);
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:SIAlertViewDidShowNotification object:self userInfo:nil];
+        #ifdef __IPHONE_7_0
+        [self addParallaxEffect];
+        #endif
         
         [SIAlertView setAnimating:NO];
         
@@ -490,6 +465,9 @@ static SIAlertView *__si_alert_current_view;
             self.willDismissHandler(self);
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:SIAlertViewWillDismissNotification object:self userInfo:nil];
+        #ifdef __IPHONE_7_0
+                [self removeParallaxEffect];
+        #endif
     }
     
     void (^dismissComplete)(void) = ^{
@@ -775,13 +753,21 @@ static SIAlertView *__si_alert_current_view;
         self.titleLabel.text = self.title;
         CGFloat height = [self heightForTitleLabel];
         self.titleLabel.frame = CGRectMake(CONTENT_PADDING_LEFT, y, self.containerView.bounds.size.width - CONTENT_PADDING_LEFT * 2, height);
+        [UIView setOuterLine:self.titleLabel direction:HMOuterLineDirectionBottom lineWeight:1 lineColor:[CMColor colorViolet]];
         y += height;
 	}
     if (self.messageLabel) {
         if (y > CONTENT_PADDING_TOP) {
             y += GAP;
         }
-        self.messageLabel.text = self.message;
+        
+        if (self.message != nil) {
+            self.messageLabel.text = self.message;
+        }
+        else if (self.attributeMessage != nil) {
+            self.messageLabel.attributedText = self.attributeMessage;
+        }
+
         CGFloat height = [self heightForMessageLabel];
         self.messageLabel.frame = CGRectMake(CONTENT_PADDING_LEFT, y, self.containerView.bounds.size.width - CONTENT_PADDING_LEFT * 2, height);
         y += height;
@@ -819,7 +805,7 @@ static SIAlertView *__si_alert_current_view;
 	if (self.title) {
 		height += [self heightForTitleLabel];
 	}
-    if (self.message) {
+    if (self.message || self.attributeMessage) {
         if (height > CONTENT_PADDING_TOP) {
             height += GAP;
         }
@@ -845,18 +831,35 @@ static SIAlertView *__si_alert_current_view;
 - (CGFloat)heightForTitleLabel
 {
     if (self.titleLabel) {
-        CGSize size = [self.title sizeWithFont:self.titleLabel.font
-                                   minFontSize:
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
-                       self.titleLabel.font.pointSize * self.titleLabel.minimumScaleFactor
-#else
-                       self.titleLabel.minimumFontSize
-#endif
-                                actualFontSize:nil
-                                      forWidth:CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2
-                                 lineBreakMode:self.titleLabel.lineBreakMode];
-        return size.height;
+        #ifdef __IPHONE_7_0
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineBreakMode = self.titleLabel.lineBreakMode;
+            
+            NSDictionary *attributes = @{NSFontAttributeName:self.titleLabel.font,
+                                         NSParagraphStyleAttributeName: paragraphStyle.copy};
+            
+            // NSString class method: boundingRectWithSize:options:attributes:context is
+            // available only on ios7.0 sdk.
+            CGRect rect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2, CGFLOAT_MAX)
+                                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                                          attributes:attributes
+                                                             context:nil];
+            return ceil(rect.size.height);
+        #else
+            CGSize size = [self.title sizeWithFont:self.titleLabel.font
+                                       minFontSize:
+                                                    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
+                                                       self.titleLabel.font.pointSize * self.titleLabel.minimumScaleFactor
+                                                    #else
+                                                       self.titleLabel.minimumFontSize
+                                                    #endif
+                                    actualFontSize:nil
+                                          forWidth:CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2
+                                     lineBreakMode:self.titleLabel.lineBreakMode];
+            return size.height;
+        #endif
     }
+    
     return 0;
 }
 
@@ -865,11 +868,31 @@ static SIAlertView *__si_alert_current_view;
     CGFloat minHeight = MESSAGE_MIN_LINE_COUNT * self.messageLabel.font.lineHeight;
     if (self.messageLabel) {
         CGFloat maxHeight = MESSAGE_MAX_LINE_COUNT * self.messageLabel.font.lineHeight;
-        CGSize size = [self.message sizeWithFont:self.messageLabel.font
-                               constrainedToSize:CGSizeMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2, maxHeight)
-                                   lineBreakMode:self.messageLabel.lineBreakMode];
-        return MAX(minHeight, size.height);
+        
+        #ifdef __IPHONE_7_0
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineBreakMode = self.messageLabel.lineBreakMode;
+            
+            NSDictionary *attributes = @{NSFontAttributeName:self.messageLabel.font,
+                                         NSParagraphStyleAttributeName: paragraphStyle.copy};
+            
+            // NSString class method: boundingRectWithSize:options:attributes:context is
+            // available only on ios7.0 sdk.
+            CGRect rect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2, maxHeight)
+                                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                                          attributes:attributes
+                                                             context:nil];
+            
+            return MAX(minHeight, ceil(rect.size.height));
+        #else
+            CGSize size = [self.message sizeWithFont:self.messageLabel.font
+                                   constrainedToSize:CGSizeMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2, maxHeight)
+                                       lineBreakMode:self.messageLabel.lineBreakMode];
+            
+            return MAX(minHeight, size.height);
+        #endif
     }
+    
     return minHeight;
 }
 
@@ -926,6 +949,7 @@ static SIAlertView *__si_alert_current_view;
 #if DEBUG_LAYOUT
             self.titleLabel.backgroundColor = [UIColor redColor];
 #endif
+            [self.titleLabel clearSubOutLineLayers];
 		}
 		self.titleLabel.text = self.title;
 	} else {
@@ -937,7 +961,7 @@ static SIAlertView *__si_alert_current_view;
 
 - (void)updateMessageLabel
 {
-    if (self.message) {
+    if (self.message || self.attributeMessage) {
         if (!self.messageLabel) {
             self.messageLabel = [[UILabel alloc] initWithFrame:self.bounds];
             self.messageLabel.textAlignment = NSTextAlignmentCenter;
@@ -950,7 +974,12 @@ static SIAlertView *__si_alert_current_view;
             self.messageLabel.backgroundColor = [UIColor redColor];
 #endif
         }
-        self.messageLabel.text = self.message;
+        if (self.message) {
+            self.messageLabel.text = self.message;
+        }
+        else if (self.attributeMessage) {
+            self.messageLabel.attributedText = self.attributeMessage;
+        }
     } else {
         [self.messageLabel removeFromSuperview];
         self.messageLabel = nil;
@@ -1180,6 +1209,169 @@ static SIAlertView *__si_alert_current_view;
             [button setTitleColor:[color colorWithAlphaComponent:0.8] forState:UIControlStateHighlighted];
         }
     }
+}
+
+# pragma mark -
+# pragma mark Enable parallax effect (iOS7 only)
+
+#ifdef __IPHONE_7_0
+- (void)addParallaxEffect
+{
+    if (_enabledParallaxEffect && NSClassFromString(@"UIInterpolatingMotionEffect"))
+    {
+        UIInterpolatingMotionEffect *effectHorizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"position.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        UIInterpolatingMotionEffect *effectVertical = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"position.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        [effectHorizontal setMaximumRelativeValue:@(20.0f)];
+        [effectHorizontal setMinimumRelativeValue:@(-20.0f)];
+        [effectVertical setMaximumRelativeValue:@(50.0f)];
+        [effectVertical setMinimumRelativeValue:@(-50.0f)];
+        [self.containerView addMotionEffect:effectHorizontal];
+        [self.containerView addMotionEffect:effectVertical];
+    }
+}
+
+- (void)removeParallaxEffect
+{
+    if (_enabledParallaxEffect && NSClassFromString(@"UIInterpolatingMotionEffect"))
+    {
+        [self.containerView.motionEffects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [self.containerView removeMotionEffect:obj];
+        }];
+    }
+}
+#endif
+
+@end
+
+
+@implementation SIAlertView(Simple)
+
+//**************************************************************
++ (void)alert:(NSString*)title message:(NSString*)message {
+    [SIAlertView alert:title message:message button:@"확인"];
+}
+
++ (void)alert:(NSString*)title message:(NSString*)message button:(NSString*)text {
+    [SIAlertView alert:title message:message button:text completion:nil];
+}
+
++ (void)alert:(NSString*)title message:(NSString*)message completion:(SIAlertViewConfirmHandler)completion {
+    [SIAlertView alert:title message:message button:@"확인" completion:completion];
+}
+
++ (void)alert:(NSString*)title message:(NSString*)message button:(NSString*)text completion:(SIAlertViewConfirmHandler)completion {
+    [SIAlertView alert:title message:message cancel:text buttons:nil completion:completion];
+}
+
++ (void)alert:(NSString*)title message:(NSString*)message cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion {
+    [SIAlertView alert:title message:message containBoldText:nil cancel:cancel buttons:buttons completion:completion];
+}
+
++ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText {
+    [SIAlertView alert:title message:message containBoldText:boldText button:@"확인"];
+}
+
++ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText button:(NSString*)text {
+    [SIAlertView alert:title message:message containBoldText:boldText button:text completion:nil];
+}
+
++ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText completion:(SIAlertViewConfirmHandler)completion {
+    [SIAlertView alert:title message:message containBoldText:boldText button:@"확인" completion:completion];
+}
+
++ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText button:(NSString*)text completion:(SIAlertViewConfirmHandler)completion {
+     [SIAlertView alert:title message:message containBoldText:boldText cancel:text buttons:nil completion:completion];
+}
+
++ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion {
+    NSAttributedString* string = [[NSAttributedString alloc] initWithAttributedString:[SIAlertView attributeText:message bold:boldText]];
+    
+    if (title.length == 0) {
+        title = @"";
+    }
+
+    SIAlertViewButtonType buttonType = SIAlertViewButtonTypeDefault;
+    if (buttons.count == 0) {
+        buttonType = SIAlertViewButtonTypeCancel;
+    }
+    
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:title andAttributeMessage:string];
+    
+    [alertView addButtonWithTitle:cancel
+                             type:buttonType
+                          handler:^(SIAlertView *alertView) {
+                              NSLog(@"Cancel Clicked");
+                              if (completion != nil) {
+                                  completion(0, alertView);
+                              }
+    }];
+    
+    for (NSInteger i = 0; i < buttons.count; i++) {
+        NSString* text = buttons[i];
+        [alertView addButtonWithTitle:text
+                                 type:SIAlertViewButtonTypeCancel
+                              handler:^(SIAlertView *alertView) {
+                                  NSLog(@"OK Clicked");
+                                  if (completion != nil) {
+                                      completion(i+1, alertView);
+                                  }
+        }];
+    }
+    
+    alertView.buttonFont = [UIFont boldSystemFontOfSize:15];
+    alertView.transitionStyle = SIAlertViewTransitionStyleFade;
+    
+    alertView.willShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willShowHandler2", alertView);
+    };
+    alertView.didShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didShowHandler2", alertView);
+    };
+    alertView.willDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willDismissHandler2", alertView);
+    };
+    alertView.didDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didDismissHandler2", alertView);
+    };
+    
+    [alertView show];
+    
+}
+
++ (NSMutableAttributedString*)attributeText:(NSString*)text bold:(NSString*)boldText {
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [style setAlignment:NSTextAlignmentCenter];
+    NSDictionary *dict1 = @{
+                            NSFontAttributeName:[UIFont systemFontOfSize:13],
+                            NSForegroundColorAttributeName:[UIColor colorWithHexString:@"3c3c3c"],
+                            NSParagraphStyleAttributeName:style
+                            }; // Added line
+    NSDictionary *dict2 = @{
+                            NSFontAttributeName:[UIFont boldSystemFontOfSize:14],
+                            NSForegroundColorAttributeName:[UIColor colorWithHexString:@"000000"],
+                            NSParagraphStyleAttributeName:style
+                            }; // Added line
+    
+    NSMutableAttributedString* aString = [[NSMutableAttributedString alloc] initWithString:text];
+    
+    BOOL isMultiAttribute = NO;
+    if (boldText.length > 0) {
+        NSRange rng = [text rangeOfString:boldText];
+        if (rng.location != NSNotFound) {
+            NSInteger lastLen = text.length - (rng.location + rng.length);
+            [aString setAttributes:dict1 range:NSMakeRange(0, rng.location)];
+            [aString setAttributes:dict2 range:rng];
+            [aString setAttributes:dict1 range:NSMakeRange(rng.location + rng.length, lastLen)];
+            isMultiAttribute = YES;
+        }
+    }
+    
+
+    if (isMultiAttribute == NO) {
+        [aString setAttributes:dict1 range:NSMakeRange(0, text.length)];
+    }
+    
+    return aString;
 }
 
 @end

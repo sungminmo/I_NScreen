@@ -102,12 +102,16 @@
     [style setAlignment:NSTextAlignmentCenter];
     [style setLineBreakMode:NSLineBreakByWordWrapping];
     NSDictionary *dict = @{
-                           NSFontAttributeName:[UIFont systemFontOfSize:26],
+                           NSFontAttributeName:[UIFont boldSystemFontOfSize:22],
                            NSForegroundColorAttributeName:[UIColor whiteColor],
                            NSParagraphStyleAttributeName:style,
                            NSShadowAttributeName : shadow
                            };
     [[UINavigationBar appearance] setTitleTextAttributes:dict];
+
+    float h_padding = (73 - 44)/2;
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
+    
     
     // 네비게이션바 백버튼.
     self.navigationItem.hidesBackButton = YES;
@@ -116,7 +120,7 @@
 }
 
 - (void)loadCustomBackButton {
-    float h_padding = (93 - 44)/2;
+    float h_padding = (73 - 44)/2;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setBackgroundVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
     

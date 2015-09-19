@@ -16,12 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"모바일 C&M 상세설정";
     self.isUseNavigationBar = YES;
+    
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+
 
 
 @end

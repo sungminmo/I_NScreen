@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */; };
 		992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992894FA1BA3E68700BE62A0 /* CFNetwork.framework */; };
+		99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D2C1BAD3F3D00CC99E9 /* SIAlertView.m */; settings = {ASSET_TAGS = (); }; };
+		99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D2E1BAD3F3D00CC99E9 /* UIWindow+SIUtils.m */; settings = {ASSET_TAGS = (); }; };
+		99478D331BAD4B3E00CC99E9 /* UIView+Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D321BAD4B3E00CC99E9 /* UIView+Layer.m */; settings = {ASSET_TAGS = (); }; };
+		99478D361BAD4CF200CC99E9 /* CMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D351BAD4CF200CC99E9 /* CMColor.m */; settings = {ASSET_TAGS = (); }; };
 		994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BDB2F1BA3F5E9000B6260 /* CMBaseViewController.m */; };
 		994BDB391BA3F6CD000B6260 /* CMSearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BDB371BA3F6CD000B6260 /* CMSearchMainViewController.m */; };
 		994BDB3A1BA3F6CD000B6260 /* CMSearchMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 994BDB381BA3F6CD000B6260 /* CMSearchMainViewController.xib */; };
@@ -212,6 +216,14 @@
 		57C9EE5D8B32911941D7BC54 /* Pods-I_NScreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.debug.xcconfig"; sourceTree = "<group>"; };
 		992894FA1BA3E68700BE62A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		992894FC1BA3E69000BE62A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		99478D2B1BAD3F3D00CC99E9 /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
+		99478D2C1BAD3F3D00CC99E9 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
+		99478D2D1BAD3F3D00CC99E9 /* UIWindow+SIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SIUtils.h"; sourceTree = "<group>"; };
+		99478D2E1BAD3F3D00CC99E9 /* UIWindow+SIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+SIUtils.m"; sourceTree = "<group>"; };
+		99478D311BAD4B3E00CC99E9 /* UIView+Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layer.h"; sourceTree = "<group>"; };
+		99478D321BAD4B3E00CC99E9 /* UIView+Layer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layer.m"; sourceTree = "<group>"; };
+		99478D341BAD4CF200CC99E9 /* CMColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMColor.h; sourceTree = "<group>"; };
+		99478D351BAD4CF200CC99E9 /* CMColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMColor.m; sourceTree = "<group>"; };
 		994BDB2E1BA3F5E9000B6260 /* CMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBaseViewController.h; sourceTree = "<group>"; };
 		994BDB2F1BA3F5E9000B6260 /* CMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBaseViewController.m; sourceTree = "<group>"; };
 		994BDB361BA3F6CD000B6260 /* CMSearchMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSearchMainViewController.h; sourceTree = "<group>"; };
@@ -488,6 +500,17 @@
 				D59B2745D004925EB9E020AE /* Pods-I_NScreen.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		99478D2A1BAD3F3D00CC99E9 /* SIAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				99478D2B1BAD3F3D00CC99E9 /* SIAlertView.h */,
+				99478D2C1BAD3F3D00CC99E9 /* SIAlertView.m */,
+				99478D2D1BAD3F3D00CC99E9 /* UIWindow+SIUtils.h */,
+				99478D2E1BAD3F3D00CC99E9 /* UIWindow+SIUtils.m */,
+			);
+			path = SIAlertView;
 			sourceTree = "<group>";
 		};
 		994BDB2D1BA3F5C5000B6260 /* _view */ = {
@@ -831,6 +854,8 @@
 		99C43C0A1BA3EDA10035A0A4 /* _category */ = {
 			isa = PBXGroup;
 			children = (
+				99478D311BAD4B3E00CC99E9 /* UIView+Layer.h */,
+				99478D321BAD4B3E00CC99E9 /* UIView+Layer.m */,
 				99ECC6251BA6765C0085C86F /* UIColor+ColorString.h */,
 				99ECC6261BA6765C0085C86F /* UIColor+ColorString.m */,
 				99C43C0B1BA3EDA10035A0A4 /* NSData+Hash.h */,
@@ -878,6 +903,8 @@
 			isa = PBXGroup;
 			children = (
 				99C43C2B1BA3EDA10035A0A4 /* DefineData.h */,
+				99478D341BAD4CF200CC99E9 /* CMColor.h */,
+				99478D351BAD4CF200CC99E9 /* CMColor.m */,
 			);
 			path = _define;
 			sourceTree = "<group>";
@@ -975,6 +1002,7 @@
 		99ECC6201BA645CB0085C86F /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				99478D2A1BAD3F3D00CC99E9 /* SIAlertView */,
 				99ECC6211BA645CB0085C86F /* UINavigationBar+CustomHeight */,
 			);
 			path = Vender;
@@ -1428,11 +1456,14 @@
 				994BDB391BA3F6CD000B6260 /* CMSearchMainViewController.m in Sources */,
 				E511817E1BA7ACC600C1E31D /* RecodeMainViewController.m in Sources */,
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
+				99478D361BAD4CF200CC99E9 /* CMColor.m in Sources */,
+				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
 				E511817A1BA7ACC600C1E31D /* RecodeSubTableViewCell.m in Sources */,
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
 				99C43C581BA3EDA10035A0A4 /* NSUserDefaults+Settings.m in Sources */,
 				E5567BBC1BA955A500AB4003 /* MyCMBuyListTableViewCell.m in Sources */,
+				99478D331BAD4B3E00CC99E9 /* UIView+Layer.m in Sources */,
 				99C43C5C1BA3EDA10035A0A4 /* UIView+ViewController.m in Sources */,
 				99C43C611BA3EDA10035A0A4 /* CMSearchHistory.m in Sources */,
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
@@ -1451,6 +1482,7 @@
 				99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */,
 				99C43C601BA3EDA10035A0A4 /* CMAppManager.m in Sources */,
 				99C43C071BA3ED980035A0A4 /* main.m in Sources */,
+				99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */,
 				E5567BAC1BA93A7E00AB4003 /* MyCMMainViewController.m in Sources */,
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
 				99C43C591BA3EDA10035A0A4 /* UIImage+Color.m in Sources */,

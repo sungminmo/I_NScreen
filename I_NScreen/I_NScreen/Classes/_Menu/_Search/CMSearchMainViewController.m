@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"검색";
     self.isUseNavigationBar = YES;
 }
 
