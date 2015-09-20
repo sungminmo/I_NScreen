@@ -16,6 +16,7 @@
 @implementation CMSearchMainViewController
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"검색";
