@@ -20,6 +20,7 @@ static NSString* const programCellIdentifier = @"programCell";
 @interface CMSearchMainViewController ()
 
 @property (nonatomic, strong) CMTabMenuView* tabMenu;
+@property (nonatomic, strong) IBOutlet UIView* tabMenuContainer;
 
 @property (nonatomic, strong) IBOutlet UICollectionView* vodList;
 @property (nonatomic, strong) IBOutlet UITableView* programList;
@@ -39,6 +40,11 @@ static NSString* const programCellIdentifier = @"programCell";
     
     self.dataArray = [@[] mutableCopy];
     
+    //  test
+    for (int i = 0; i < 100; i++) {
+        [self.dataArray addObject:@{@"image":@"testimg.png", @"title":@"포켓몬스터"}];
+    }
+    
     UINib* nib = [UINib nibWithNibName:@"CMSearchCollectionViewCell" bundle:nil];
     [self.vodList registerNib:nib forCellWithReuseIdentifier:vodCellIdentifier];
     
@@ -52,8 +58,8 @@ static NSString* const programCellIdentifier = @"programCell";
 #pragma mark - Private
 
 - (void)loadUI {
-    self.tabMenu = [[CMTabMenuView alloc] initWithMenuArray:@[@"VOD 명 검색", @"프로그램 명 검색"] posY:93 delegate:self];
-    [self.view addSubview:self.tabMenu];
+    self.tabMenu = [[CMTabMenuView alloc] initWithMenuArray:@[@"VOD 명 검색", @"프로그램 명 검색"] posY:0 delegate:self];
+    [self.tabMenuContainer addSubview:self.tabMenu];
     
     self.vodList.hidden = false;
     self.programList.hidden = true;
@@ -86,16 +92,15 @@ static NSString* const programCellIdentifier = @"programCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    //    return self.dataArray.count;
-    
-    return 100;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:vodCellIdentifier forIndexPath:indexPath];
-    
-    cell.backgroundColor = [UIColor orangeColor];
+    CMSearchCollectionViewCell* cell = (CMSearchCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:vodCellIdentifier forIndexPath:indexPath];
+
+    NSDictionary* data = self.dataArray[indexPath.row];
+    [cell setImageUrl:data[@"image"] title:data[@"title"]];
     
     return cell;
 }
@@ -103,13 +108,6 @@ static NSString* const programCellIdentifier = @"programCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
 }
-
-#pragma mark – UICollectionViewDelegateFlowLayout
-
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-//{
-//    
-//}
 
 #pragma mark - UITableViewDataSource
 

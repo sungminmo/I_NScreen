@@ -21,4 +21,10 @@
     // Initialization code
 }
 
+- (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title {
+    
+    self.posterImageView.image = [UIImage imageNamed:imageUrl];
+    self.titleLabel.text = title;
+}
+
 @end

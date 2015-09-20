@@ -10,4 +10,6 @@
 
 @interface CMSearchCollectionViewCell : UICollectionViewCell
 
+- (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title;
+
 @end

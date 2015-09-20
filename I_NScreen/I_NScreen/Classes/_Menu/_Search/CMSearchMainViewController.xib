@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMSearchMainViewController">
             <connections>
                 <outlet property="programList" destination="2XY-xO-WcO" id="1aU-NF-AS7"/>
+                <outlet property="tabMenuContainer" destination="frg-7F-ZbZ" id="RoP-G5-Z7k"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="vodList" destination="XmU-Rp-rIX" id="HK1-Ie-aG5"/>
             </connections>
@@ -25,14 +26,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1T9-3n-B15" userLabel="View - search bar">
-                    <rect key="frame" x="118" y="149" width="365" height="33"/>
+                    <rect key="frame" x="21" y="149" width="558" height="33"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serchbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ygh-ao-QIR">
-                            <rect key="frame" x="0.0" y="0.0" width="365" height="33"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="33" id="fwZ-Qd-jDN"/>
-                                <constraint firstAttribute="width" constant="365" id="mRC-sG-Ax2"/>
-                            </constraints>
+                            <rect key="frame" x="0.0" y="0.0" width="558" height="33"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifier.png" translatesAutoresizingMaskIntoConstraints="NO" id="pIc-bF-pfa">
                             <rect key="frame" x="9" y="8" width="17" height="17"/>
@@ -42,7 +39,7 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sp2-qH-eLF">
-                            <rect key="frame" x="332" y="0.0" width="33" height="33"/>
+                            <rect key="frame" x="525" y="0.0" width="33" height="33"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="OH3-ey-rXX"/>
@@ -52,7 +49,7 @@
                             <state key="highlighted" image="close_s.png"/>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-N2-aF1">
-                            <rect key="frame" x="36" y="2" width="296" height="31"/>
+                            <rect key="frame" x="36" y="2" width="489" height="31"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                         </textField>
@@ -62,13 +59,14 @@
                         <constraint firstItem="yFa-N2-aF1" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="top" constant="2" id="0p1-IZ-nM6"/>
                         <constraint firstItem="Sp2-qH-eLF" firstAttribute="leading" secondItem="yFa-N2-aF1" secondAttribute="trailing" id="54K-Wg-6iW"/>
                         <constraint firstAttribute="bottom" secondItem="Sp2-qH-eLF" secondAttribute="bottom" id="7BB-SO-oNV"/>
+                        <constraint firstItem="Ygh-ao-QIR" firstAttribute="leading" secondItem="1T9-3n-B15" secondAttribute="leading" id="9gh-9r-AHh"/>
                         <constraint firstAttribute="bottom" secondItem="yFa-N2-aF1" secondAttribute="bottom" id="Amr-dT-F7r"/>
                         <constraint firstItem="pIc-bF-pfa" firstAttribute="leading" secondItem="1T9-3n-B15" secondAttribute="leading" constant="9" id="Idc-xZ-I80"/>
+                        <constraint firstItem="Ygh-ao-QIR" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="top" id="LD8-ID-7sD"/>
+                        <constraint firstAttribute="bottom" secondItem="Ygh-ao-QIR" secondAttribute="bottom" id="Nnn-lK-Jh6"/>
                         <constraint firstItem="yFa-N2-aF1" firstAttribute="leading" secondItem="pIc-bF-pfa" secondAttribute="trailing" constant="10" id="Ypg-fW-qBm"/>
-                        <constraint firstItem="Ygh-ao-QIR" firstAttribute="centerY" secondItem="1T9-3n-B15" secondAttribute="centerY" id="bn6-yG-zc2"/>
                         <constraint firstItem="Sp2-qH-eLF" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="top" id="bwh-4E-ovf"/>
-                        <constraint firstItem="Ygh-ao-QIR" firstAttribute="centerX" secondItem="1T9-3n-B15" secondAttribute="centerX" id="e2R-Jy-Ene"/>
-                        <constraint firstAttribute="width" constant="365" id="eXb-hu-A07"/>
+                        <constraint firstAttribute="trailing" secondItem="Ygh-ao-QIR" secondAttribute="trailing" id="gOu-CL-5Hx"/>
                         <constraint firstAttribute="trailing" secondItem="Sp2-qH-eLF" secondAttribute="trailing" id="kpo-Rk-LWW"/>
                         <constraint firstItem="pIc-bF-pfa" firstAttribute="centerY" secondItem="1T9-3n-B15" secondAttribute="centerY" id="m4g-9o-AEp"/>
                         <constraint firstAttribute="height" constant="33" id="tIp-6g-sm8"/>
@@ -109,11 +107,12 @@
                 <constraint firstItem="XmU-Rp-rIX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="af2-Vb-kex"/>
                 <constraint firstAttribute="bottom" secondItem="2XY-xO-WcO" secondAttribute="bottom" id="cJt-zh-DIt"/>
                 <constraint firstAttribute="bottom" secondItem="XmU-Rp-rIX" secondAttribute="bottom" id="f9p-v9-LgE"/>
+                <constraint firstItem="1T9-3n-B15" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="fsl-c6-N7H"/>
                 <constraint firstAttribute="trailing" secondItem="2XY-xO-WcO" secondAttribute="trailing" id="hpk-pq-r8A"/>
                 <constraint firstItem="2XY-xO-WcO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iyy-V7-W7c"/>
+                <constraint firstAttribute="trailing" secondItem="1T9-3n-B15" secondAttribute="trailing" constant="21" id="l8J-AG-Got"/>
                 <constraint firstItem="XmU-Rp-rIX" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="bottom" constant="52" id="lj3-fG-Iy4"/>
                 <constraint firstItem="1T9-3n-B15" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="s3A-8A-xSp"/>
-                <constraint firstItem="1T9-3n-B15" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="t4X-Bi-0ma"/>
                 <constraint firstItem="frg-7F-ZbZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xGh-N4-Y5Y"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
