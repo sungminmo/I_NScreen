@@ -7,7 +7,8 @@
 //
 
 #import "CMBaseViewController.h"
+#import "CMTabMenuView.h"
 
-@interface CMSearchMainViewController : CMBaseViewController
+@interface CMSearchMainViewController : CMBaseViewController <CMTabMenuViewDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @end

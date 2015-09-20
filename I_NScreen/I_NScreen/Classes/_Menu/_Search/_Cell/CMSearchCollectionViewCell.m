@@ -1,0 +1,24 @@
+//
+//  CMSearchCollectionViewCell.m
+//  I_NScreen
+//
+//  Created by kimteaksoo on 2015. 9. 20..
+//  Copyright © 2015년 STVN. All rights reserved.
+//
+
+#import "CMSearchCollectionViewCell.h"
+
+@interface CMSearchCollectionViewCell()
+
+@property (nonatomic, strong) IBOutlet UIImageView* posterImageView;
+@property (nonatomic, strong) IBOutlet UILabel* titleLabel;
+
+@end
+
+@implementation CMSearchCollectionViewCell
+
+- (void)awakeFromNib {
+    // Initialization code
+}
+
+@end
