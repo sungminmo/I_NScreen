@@ -161,7 +161,9 @@
 @end
 
 @implementation CMNetworkManager(EPG)
-- (NSURLSessionDataTask *)epgGetChannelListProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+
+// http://58.141.255.69:8080/nscreen/getChannelList.xml?version=1&areaCode=0
+- (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block
 {
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelList];
     NSDictionary *dict = @{
@@ -176,7 +178,9 @@
     }];
 }
 
-- (NSURLSessionDataTask *)epgGetChannelGenreProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+
+// http://58.141.255.69:8080/nscreen/getChannelGenre.xml?version=1
+- (NSURLSessionDataTask *)epgGetChannelGenreBlock:(void (^)(NSArray *gets, NSError *error))block
 {
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelGenre];
     NSDictionary *dict = @{
@@ -190,7 +194,8 @@
     }];
 }
 
-- (NSURLSessionDataTask *)epgGetChannelAreaProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+// http://58.141.255.69:8080/nscreen/getChannelArea.xml?version=1
+- (NSURLSessionDataTask *)epgGetChannelAreaBlock:(void (^)(NSArray *gets, NSError *error))block
 {
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelArea];
     NSDictionary *dict = @{
@@ -204,7 +209,22 @@
     }];
 }
 
-- (NSURLSessionDataTask *)epgGetChannelScheduleProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+//- (NSURLSessionDataTask *)epgGetChannelAreaBlock:(void (^)(NSArray *gets, NSError *error))block
+//{
+//    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelArea];
+//    NSDictionary *dict = @{
+//                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION
+//                           };
+//    
+//    return [self.smClient GET:@"brand.html" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//    }];
+//}
+
+// http://58.141.255.69:8080/nscreen/getChannelSchedule.xml?version=1&channelId=1000
+- (NSURLSessionDataTask *)epgGetChannelScheduleChannelId:(NSString *)channelId block:(void (^)(NSArray *gets, NSError *error))block
 {
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelSchedule];
     NSDictionary *dict = @{
@@ -219,7 +239,8 @@
     }];
 }
 
-- (NSURLSessionDataTask *)epgSearchScheduleProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block
+// http://58.141.255.69:8080/nscreen/searchSchedule.xml?version=1&areaCode=1&searchString=aa
+- (NSURLSessionDataTask *)epgSearchScheduleAreaCode:(NSString *)areaCode WithSearch:(NSString *)search block:(void (^)(NSArray *gets, NSError *error))block
 {
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_SearchSchedule];
     NSDictionary *dict = @{

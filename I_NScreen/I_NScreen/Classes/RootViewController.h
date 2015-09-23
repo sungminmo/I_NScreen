@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UIKit/UITableViewController.h>
 #import "CMBaseViewController.h"
 #import "HomeGnbViewController.h"
 #import "LeftMenuViewController.h"

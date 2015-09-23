@@ -39,14 +39,14 @@
 
 @interface CMNetworkManager (EPG)
 
-- (NSURLSessionDataTask *)epgGetChannelListProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block;
+- (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block;
 
-- (NSURLSessionDataTask *)epgGetChannelGenreProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block;
+- (NSURLSessionDataTask *)epgGetChannelGenreBlock:(void (^)(NSArray *gets, NSError *error))block;
 
-- (NSURLSessionDataTask *)epgGetChannelAreaProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block;
+- (NSURLSessionDataTask *)epgGetChannelAreaBlock:(void (^)(NSArray *gets, NSError *error))block;
 
-- (NSURLSessionDataTask *)epgGetChannelScheduleProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block;
+- (NSURLSessionDataTask *)epgGetChannelScheduleChannelId:(NSString *)channelId block:(void (^)(NSArray *gets, NSError *error))block;
 
-- (NSURLSessionDataTask *)epgSearchScheduleProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block;
+- (NSURLSessionDataTask *)epgSearchScheduleAreaCode:(NSString *)areaCode WithSearch:(NSString *)search block:(void (^)(NSArray *gets, NSError *error))block;
 
 @end

@@ -11,6 +11,10 @@
 #import "EpgMainViewController.h"
 #import "CMSearchMainViewController.h"//검색화면 메인
 #import "CMPreferenceMainViewController.h"//설정화면 메인
+#import "NSMutableDictionary+EPG.h"
+#import "UIAlertView+AFNetworking.h"
+#import "UIRefreshControl+AFNetworking.h"
+
 
 @interface RootViewController ()
 
@@ -30,6 +34,14 @@
     [self addChildViewController:pViewController];
     [pViewController didMoveToParentViewController:self];
     [self.pGnbView addSubview:pViewController.view];
+    
+    // !! test bjk
+//    NSURLSessionTask *tesk = [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
+//        
+//    }];
+//    
+//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    [self.refreshControl setRefreshingWithStateOfTask:tesk];
 }
 
 

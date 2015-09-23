@@ -21,6 +21,8 @@ NSString* const CNM_OPEN_API_SERVER_URL = @"http://58.143.243.91/SMApplicationSe
 // 각각의 화면 마다 서버가 몇몇 다름
 // C&M AirCode Server open API 서버 IP
 NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://58.141.255.69:8080/nscreen/";
+//NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://moomin.italks.kr/json/brand/";
+
 
 
 // C&M SMApplicationSever openAPI 프로토콜 버전.

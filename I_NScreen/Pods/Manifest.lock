@@ -30,6 +30,9 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AFXMLDictionarySerializer (0.0.1):
+    - AFNetworking (>= 2.0)
+    - XMLDictionary
   - CocoaLumberjack (2.0.1):
     - CocoaLumberjack/Default (= 2.0.1)
     - CocoaLumberjack/Extensions (= 2.0.1)
@@ -44,10 +47,12 @@ PODS:
     - Realm/Headers (= 0.95.0)
   - Realm/Headers (0.95.0)
   - SBJson4 (4.0.2)
+  - XMLDictionary (1.4)
   - ZipArchive (1.4.0)
 
 DEPENDENCIES:
   - AFNetworking+streaming (~> 0.6.2)
+  - AFXMLDictionarySerializer (~> 0.0.1)
   - CocoaLumberjack (~> 2.0)
   - GDataXML-HTML (~> 1.2)
   - Reachability (~> 3.2)
@@ -57,11 +62,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   AFNetworking+streaming: 04db14d65ea67a145704ad643c35d64a0babcef8
+  AFXMLDictionarySerializer: 12f42d62f7d6ad2a31aff4c8da3b14701d4c232f
   CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
   GDataXML-HTML: dac3692417e9fc612f8e12d8baae3706fccedcc8
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Realm: bbb171b96728ea136ed5cd354dca2a3d6529923c
   SBJson4: b64afe0d4607e9e339b6d7538b04611e756f71db
+  XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-COCOAPODS: 0.38.0.beta.2
+COCOAPODS: 0.38.2

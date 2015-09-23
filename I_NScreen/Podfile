@@ -9,6 +9,8 @@ pod 'CocoaLumberjack', '~> 2.0'
 pod 'Reachability', '~> 3.2'
 pod 'ZipArchive', '~> 1.4'
 pod 'GDataXML-HTML', '~> 1.2'
+pod 'AFXMLDictionarySerializer', '~> 0.0.1’
+
 
 end
 
