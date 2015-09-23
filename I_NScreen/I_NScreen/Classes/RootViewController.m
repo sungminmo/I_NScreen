@@ -36,10 +36,10 @@
     [self.pGnbView addSubview:pViewController.view];
     
     // !! test bjk
-//    NSURLSessionTask *tesk = [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
-//        
-//    }];
-//    
+    NSURLSessionTask *tesk = [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
+        id obj = [epgs valueForKeyPath:@"areaItem"];
+    }];
+//
 //    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 //    [self.refreshControl setRefreshingWithStateOfTask:tesk];
 }

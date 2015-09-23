@@ -7,6 +7,7 @@
 //
 
 #import "CMNetworkManager.h"
+#import "XMLDictionary.h"
 
 @implementation CMDRMServerClient
 
@@ -21,7 +22,7 @@
 @end
 
 
-@interface CMNetworkManager()
+@interface CMNetworkManager() <NSXMLParserDelegate>
 /**
  C&M SMApplicationServer의 openAPI를 사용하기 위한 NSURL 타입의 URL 반환한다.
  
@@ -128,6 +129,10 @@
 @implementation CMNetworkManager(SEARCH)
 
 - (NSURLSessionDataTask *)searchProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block {
+    
+    self.smClient.responseSerializer = [AFJSONResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json", @"text/json", @"text/javascript"]];
+    
     NSURL *url = [CMNetworkManager genURLWithInterface:CNM_OPEN_API_INTERFACE_SearchProgram];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
@@ -182,6 +187,9 @@
 // http://58.141.255.69:8080/nscreen/getChannelGenre.xml?version=1
 - (NSURLSessionDataTask *)epgGetChannelGenreBlock:(void (^)(NSArray *gets, NSError *error))block
 {
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelGenre];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION
@@ -197,6 +205,9 @@
 // http://58.141.255.69:8080/nscreen/getChannelArea.xml?version=1
 - (NSURLSessionDataTask *)epgGetChannelAreaBlock:(void (^)(NSArray *gets, NSError *error))block
 {
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelArea];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION
@@ -204,8 +215,59 @@
     
     return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         
+/*
+ <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+ <response>
+ <version>1.0.0</version>
+ <transactionId>-1</transactionId>
+ <resultCode>100</resultCode>
+ <errorString/>
+ <areaItem>
+ <areaCode>0</areaCode>
+ <areaName>CnM TEST</areaName>
+ </areaItem>
+ <areaItem>
+ <areaCode>19</areaCode>
+ <areaName>울산JCN TEST</areaName>
+ </areaItem>
+ <areaItem>
+ <areaCode>17</areaCode>
+ <areaName>강남 TEST</areaName>
+ </areaItem>
+ </response>
+ */
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
+/*
+ <__NSArrayI 0x7fdd60702ab0>(
+ {
+ __name = response;
+ transactionId = -1;
+ resultCode = 100;
+ areaItem = (
+ {
+ areaCode = 0;
+ areaName = CnM TEST;
+ }
+ ,
+ {
+ areaCode = 19;
+ areaName = 울산JCN TEST;
+ }
+ ,
+ {
+ areaCode = 17;
+ areaName = 강남 TEST;
+ }
+ 
+ );
+ version = 1.0.0;
+ }
+ 
+ )
+ */
+        block(@[result], nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        block(nil, error);
     }];
 }
 
@@ -226,6 +288,9 @@
 // http://58.141.255.69:8080/nscreen/getChannelSchedule.xml?version=1&channelId=1000
 - (NSURLSessionDataTask *)epgGetChannelScheduleChannelId:(NSString *)channelId block:(void (^)(NSArray *gets, NSError *error))block
 {
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelSchedule];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
@@ -242,6 +307,9 @@
 // http://58.141.255.69:8080/nscreen/searchSchedule.xml?version=1&areaCode=1&searchString=aa
 - (NSURLSessionDataTask *)epgSearchScheduleAreaCode:(NSString *)areaCode WithSearch:(NSString *)search block:(void (^)(NSArray *gets, NSError *error))block
 {
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_SearchSchedule];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
@@ -255,6 +323,7 @@
         
     }];
 }
+
 
 @end
 
