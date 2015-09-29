@@ -8,6 +8,7 @@
 
 #import "CMSearchMainViewController.h"
 #import "CMSearchCollectionViewCell.h"
+#import "CMConstants.h"
 
 typedef enum : NSInteger {
     VOD_TABMENU_TYPE,
@@ -24,6 +25,7 @@ static NSString* const programCellIdentifier = @"programCell";
 
 @property (nonatomic, strong) IBOutlet UICollectionView* vodList;
 @property (nonatomic, strong) IBOutlet UITableView* programList;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
 @property (nonatomic, strong) NSMutableArray* dataArray;
 
@@ -37,6 +39,7 @@ static NSString* const programCellIdentifier = @"programCell";
     [super viewDidLoad];
     self.title = @"검색";
     self.isUseNavigationBar = YES;
+    self.topConstraint.constant = cmNavigationHeight;
     
     self.dataArray = [@[] mutableCopy];
     

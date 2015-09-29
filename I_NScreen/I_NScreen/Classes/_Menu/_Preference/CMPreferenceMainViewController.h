@@ -7,6 +7,7 @@
 //
 
 #import "CMBaseViewController.h"
+#import "CMPreferenceMainTableViewCell.h"
 
 @interface CMPreferenceMainViewController : CMBaseViewController
 
