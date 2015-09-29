@@ -57,9 +57,9 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 
 - (void)switchEventAtIndexPath:(NSIndexPath*)indexPath value:(BOOL)isOn{
 
-    NSString* message = @"콘텐트 검색 메뉴에서 검색어 입력을 통한\n콘텐트 검색결과에 성인 콘텐트는 보여지지 않습니다.\n\n성인검색 제한설정을 켜시면 성인 콘텐트를\n포함하는 모든 콘텐트가 검색결과에 보여집니다.";
+    NSString* message = @"콘텐트 검색 메뉴에서 검색어 입력을 통한\n콘텐트 검색결과에 성인 콘텐트는 보여지지 않습니다.\n\n성인검색 제한설정을 켜시면 성인 콘텐트를\n포함하는 모든 콘텐트가 검색결과에 보여집니다.\n\n\n";
     
-    [SIAlertView alert:@"성인검색 제한 설정이란?" message:message containBoldText:nil cancel:nil buttons:nil completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+    [SIAlertView alert:@"\n성인검색 제한 설정이란?\n" message:message containBoldText:nil cancel:nil buttons:nil completion:^(NSInteger buttonIndex, SIAlertView *alert) {
 
     }];
 }

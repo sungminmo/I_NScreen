@@ -18,8 +18,8 @@ NSString *const SIAlertViewDidDismissNotification = @"SIAlertViewDidDismissNotif
 
 #define DEBUG_LAYOUT 0
 
-#define MESSAGE_MIN_LINE_COUNT 3
-#define MESSAGE_MAX_LINE_COUNT 5
+#define MESSAGE_MIN_LINE_COUNT 4
+#define MESSAGE_MAX_LINE_COUNT 7
 #define GAP 10
 #define CANCEL_BUTTON_PADDING_TOP 5
 #define CONTENT_PADDING_LEFT 6
@@ -27,6 +27,8 @@ NSString *const SIAlertViewDidDismissNotification = @"SIAlertViewDidDismissNotif
 #define CONTENT_PADDING_BOTTOM 6
 #define BUTTON_HEIGHT 44
 #define CONTAINER_WIDTH 300
+
+#define CONTENT_MIN_HEIGHT 20
 
 const UIWindowLevel UIWindowLevelSIAlert = 1996.0;  // don't overlap system's alert
 const UIWindowLevel UIWindowLevelSIAlertBackground = 1985.0; // below the alert window
@@ -854,7 +856,7 @@ static SIAlertView *__si_alert_current_view;
                                                              options:NSStringDrawingUsesLineFragmentOrigin
                                                           attributes:attributes
                                                              context:nil];
-            return ceil(rect.size.height);
+            return MAX(CONTENT_MIN_HEIGHT, ceil(rect.size.height));
         #else
             CGSize size = [self.title sizeWithFont:self.titleLabel.font
                                        minFontSize:
@@ -888,7 +890,7 @@ static SIAlertView *__si_alert_current_view;
             
             // NSString class method: boundingRectWithSize:options:attributes:context is
             // available only on ios7.0 sdk.
-            CGRect rect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2, maxHeight)
+            CGRect rect = [self.messageLabel.text boundingRectWithSize:CGSizeMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2, maxHeight)
                                                              options:NSStringDrawingUsesLineFragmentOrigin
                                                           attributes:attributes
                                                              context:nil];
@@ -952,6 +954,7 @@ static SIAlertView *__si_alert_current_view;
 			self.titleLabel.font = self.titleFont;
             self.titleLabel.textColor = self.titleColor;
             self.titleLabel.adjustsFontSizeToFitWidth = YES;
+            self.titleLabel.numberOfLines = 0;
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
             self.titleLabel.minimumScaleFactor = 0.75;
 #else
