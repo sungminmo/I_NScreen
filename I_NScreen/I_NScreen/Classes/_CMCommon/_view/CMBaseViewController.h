@@ -33,4 +33,15 @@
  *  뷰컨트롤러 팝 이벤트 시 처리할 로직을 기술하는 메소드
  */
 - (void)backCommonAction;
+
+/**
+ *  커스텀 테이블뷰셀의 xib 로드.
+ *
+ *  @param tableView      테이블뷰.
+ *  @param cellIdentifier 셀식별자.
+ *  @param nibName        xib 이름.
+ *
+ *  @return UITableViewCell.
+ */
+- (UITableViewCell *)cellWithTableView:(UITableView *)tableView cellIdentifier:(NSString *)cellIdentifier nibName:(NSString *)nibName;
 @end

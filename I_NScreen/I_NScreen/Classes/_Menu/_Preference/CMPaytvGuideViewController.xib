@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMPaytvGuideViewController">
             <connections>
+                <outlet property="detailView" destination="FAf-v0-tBW" id="1r6-Or-Kyb"/>
+                <outlet property="imageView" destination="DVG-VB-gph" id="69U-gK-FPB"/>
+                <outlet property="topMargin" destination="sEi-l3-VrH" id="rCA-qF-MYa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +18,111 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testimg.png" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-VB-gph">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="DVG-VB-gph" secondAttribute="height" multiplier="31:25" id="ZYC-mZ-bry"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ZYC-mZ-bry"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="ZYC-mZ-bry"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGv-YQ-ziE">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.50980392159999999" green="0.3921568627" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="XPa-gG-UsC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="확인">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="XPa-gG-UsC"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="XPa-gG-UsC"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="actionDoneButton:" destination="-1" eventType="touchUpInside" id="vfY-cM-RrT"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-v0-tBW">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    </variation>
+                </textView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DVG-VB-gph" secondAttribute="trailing" constant="14" id="2rI-Vj-H7v"/>
+                <constraint firstAttribute="trailing" secondItem="sGv-YQ-ziE" secondAttribute="trailing" constant="14" id="9Fn-Uo-135"/>
+                <constraint firstAttribute="bottom" secondItem="sGv-YQ-ziE" secondAttribute="bottom" constant="8" id="Buw-wy-iJW"/>
+                <constraint firstItem="FAf-v0-tBW" firstAttribute="top" secondItem="DVG-VB-gph" secondAttribute="bottom" constant="14" id="HH5-on-F50"/>
+                <constraint firstItem="sGv-YQ-ziE" firstAttribute="top" secondItem="FAf-v0-tBW" secondAttribute="bottom" constant="8" id="K0d-nc-3jO"/>
+                <constraint firstItem="FAf-v0-tBW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="UHx-2R-71f"/>
+                <constraint firstAttribute="trailing" secondItem="FAf-v0-tBW" secondAttribute="trailing" constant="14" id="bh4-9m-WIh"/>
+                <constraint firstItem="sGv-YQ-ziE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="k3g-Dx-BAE"/>
+                <constraint firstItem="DVG-VB-gph" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="106" id="sEi-l3-VrH"/>
+                <constraint firstItem="DVG-VB-gph" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="zqf-Oj-0aL"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="DVG-VB-gph"/>
+                    <exclude reference="sGv-YQ-ziE"/>
+                    <exclude reference="FAf-v0-tBW"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="2rI-Vj-H7v"/>
+                    <exclude reference="sEi-l3-VrH"/>
+                    <exclude reference="zqf-Oj-0aL"/>
+                    <exclude reference="HH5-on-F50"/>
+                    <exclude reference="UHx-2R-71f"/>
+                    <exclude reference="bh4-9m-WIh"/>
+                    <exclude reference="9Fn-Uo-135"/>
+                    <exclude reference="Buw-wy-iJW"/>
+                    <exclude reference="K0d-nc-3jO"/>
+                    <exclude reference="k3g-Dx-BAE"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="DVG-VB-gph"/>
+                    <include reference="sGv-YQ-ziE"/>
+                    <include reference="FAf-v0-tBW"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="2rI-Vj-H7v"/>
+                    <include reference="sEi-l3-VrH"/>
+                    <include reference="zqf-Oj-0aL"/>
+                    <include reference="HH5-on-F50"/>
+                    <include reference="UHx-2R-71f"/>
+                    <include reference="bh4-9m-WIh"/>
+                    <include reference="9Fn-Uo-135"/>
+                    <include reference="Buw-wy-iJW"/>
+                    <include reference="K0d-nc-3jO"/>
+                    <include reference="k3g-Dx-BAE"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="testimg.png" width="300" height="430"/>
+    </resources>
 </document>

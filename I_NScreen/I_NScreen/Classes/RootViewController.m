@@ -88,7 +88,6 @@
             // 설정
             CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
             [self.navigationController pushViewController:controller animated:YES];
-            
         }break;
         case 5:
         {

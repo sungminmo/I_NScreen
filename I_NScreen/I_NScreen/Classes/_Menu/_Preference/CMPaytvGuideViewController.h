@@ -10,4 +10,6 @@
 
 @interface CMPaytvGuideViewController : CMBaseViewController
 
+- (void)settingInfo:(NSDictionary*)item;
+
 @end

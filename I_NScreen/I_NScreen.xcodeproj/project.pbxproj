@@ -18,6 +18,10 @@
 		20EAA3441BAE9474004DFCA0 /* CMSearchMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20EAA3431BAE9474004DFCA0 /* CMSearchMainViewController.xib */; };
 		564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */; };
 		992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992894FA1BA3E68700BE62A0 /* CFNetwork.framework */; };
+		99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99366AC71BBA66D00082F8D4 /* CMNoticeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		99366ACD1BBA66D00082F8D4 /* CMNoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99366AC81BBA66D00082F8D4 /* CMNoticeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		99366ACE1BBA66D00082F8D4 /* CMPaytvTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99366ACA1BBA66D00082F8D4 /* CMPaytvTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		99366ACF1BBA66D00082F8D4 /* CMPaytvTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99366ACB1BBA66D00082F8D4 /* CMPaytvTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D2C1BAD3F3D00CC99E9 /* SIAlertView.m */; };
 		99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D2E1BAD3F3D00CC99E9 /* UIWindow+SIUtils.m */; };
 		99478D331BAD4B3E00CC99E9 /* UIView+Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D321BAD4B3E00CC99E9 /* UIView+Layer.m */; };
@@ -249,6 +253,12 @@
 		57C9EE5D8B32911941D7BC54 /* Pods-I_NScreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.debug.xcconfig"; sourceTree = "<group>"; };
 		992894FA1BA3E68700BE62A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		992894FC1BA3E69000BE62A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		99366AC61BBA66D00082F8D4 /* CMNoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMNoticeTableViewCell.h; path = _Cell/CMNoticeTableViewCell.h; sourceTree = "<group>"; };
+		99366AC71BBA66D00082F8D4 /* CMNoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMNoticeTableViewCell.m; path = _Cell/CMNoticeTableViewCell.m; sourceTree = "<group>"; };
+		99366AC81BBA66D00082F8D4 /* CMNoticeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMNoticeTableViewCell.xib; path = _Cell/CMNoticeTableViewCell.xib; sourceTree = "<group>"; };
+		99366AC91BBA66D00082F8D4 /* CMPaytvTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPaytvTableViewCell.h; path = _Cell/CMPaytvTableViewCell.h; sourceTree = "<group>"; };
+		99366ACA1BBA66D00082F8D4 /* CMPaytvTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPaytvTableViewCell.m; path = _Cell/CMPaytvTableViewCell.m; sourceTree = "<group>"; };
+		99366ACB1BBA66D00082F8D4 /* CMPaytvTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMPaytvTableViewCell.xib; path = _Cell/CMPaytvTableViewCell.xib; sourceTree = "<group>"; };
 		99478D2B1BAD3F3D00CC99E9 /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
 		99478D2C1BAD3F3D00CC99E9 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
 		99478D2D1BAD3F3D00CC99E9 /* UIWindow+SIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SIUtils.h"; sourceTree = "<group>"; };
@@ -537,6 +547,12 @@
 		2086CD9C1BBA24620065726E /* _Cell */ = {
 			isa = PBXGroup;
 			children = (
+				99366AC61BBA66D00082F8D4 /* CMNoticeTableViewCell.h */,
+				99366AC71BBA66D00082F8D4 /* CMNoticeTableViewCell.m */,
+				99366AC81BBA66D00082F8D4 /* CMNoticeTableViewCell.xib */,
+				99366AC91BBA66D00082F8D4 /* CMPaytvTableViewCell.h */,
+				99366ACA1BBA66D00082F8D4 /* CMPaytvTableViewCell.m */,
+				99366ACB1BBA66D00082F8D4 /* CMPaytvTableViewCell.xib */,
 				2086CD9D1BBA24B50065726E /* CMPreferenceMainTableViewCell.h */,
 				2086CD9E1BBA24B50065726E /* CMPreferenceMainTableViewCell.m */,
 				2086CD9F1BBA24B50065726E /* CMPreferenceMainTableViewCell.xib */,
@@ -1379,6 +1395,7 @@
 				99C43BDF1BA3ED980035A0A4 /* selectindicator@3x.png in Resources */,
 				99C43BF21BA3ED980035A0A4 /* 3btn_normal@3x.png in Resources */,
 				99C43BC31BA3ED980035A0A4 /* sd@2x.png in Resources */,
+				99366ACD1BBA66D00082F8D4 /* CMNoticeTableViewCell.xib in Resources */,
 				99C43C701BA3EDA10035A0A4 /* RootViewController.xib in Resources */,
 				99C43BE81BA3ED980035A0A4 /* bigpic@3x.png in Resources */,
 				99C43BC81BA3ED980035A0A4 /* 3btn_press@2x.png in Resources */,
@@ -1396,6 +1413,7 @@
 				99C43BBA1BA3ED980035A0A4 /* all@2x.png in Resources */,
 				99C43BE41BA3ED980035A0A4 /* 2btn_press@3x.png in Resources */,
 				E511818D1BA7ACF900C1E31D /* EpgPopUpViewController.xib in Resources */,
+				99366ACF1BBA66D00082F8D4 /* CMPaytvTableViewCell.xib in Resources */,
 				99C43BF41BA3ED980035A0A4 /* 3btn_press@3x.png in Resources */,
 				99C43BD91BA3ED980035A0A4 /* allch@3x.png in Resources */,
 				E511817F1BA7ACC600C1E31D /* RecodeMainViewController.xib in Resources */,
@@ -1565,6 +1583,7 @@
 				E511817E1BA7ACC600C1E31D /* RecodeMainViewController.m in Sources */,
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
 				99478D361BAD4CF200CC99E9 /* CMColor.m in Sources */,
+				99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */,
 				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
 				E511817A1BA7ACC600C1E31D /* RecodeSubTableViewCell.m in Sources */,
 				2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */,
@@ -1610,6 +1629,7 @@
 				99C43C5A1BA3EDA10035A0A4 /* UIImage+Path.m in Sources */,
 				99C43C621BA3EDA10035A0A4 /* NSMutableDictionary+Network.m in Sources */,
 				E511817C1BA7ACC600C1E31D /* RecodeSubViewController.m in Sources */,
+				99366ACE1BBA66D00082F8D4 /* CMPaytvTableViewCell.m in Sources */,
 				994BDB3E1BA3F6E8000B6260 /* CMPreferenceMainViewController.m in Sources */,
 				99C43C661BA3EDA10035A0A4 /* CMConstants.m in Sources */,
 				E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */,
