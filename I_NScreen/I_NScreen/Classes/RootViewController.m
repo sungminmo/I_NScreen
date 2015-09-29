@@ -11,7 +11,6 @@
 #import "EpgMainViewController.h"
 #import "CMSearchMainViewController.h"//검색화면 메인
 #import "CMPreferenceMainViewController.h"//설정화면 메인
-#import "CMPaytvListViewController.h"//임시
 #import "NSMutableDictionary+EPG.h"
 #import "UIAlertView+AFNetworking.h"
 #import "UIRefreshControl+AFNetworking.h"
@@ -87,13 +86,8 @@
         case 4:
         {
             // 설정
-//            CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
-//            [self.navigationController pushViewController:controller animated:YES];
-            
-            
-            CMPaytvListViewController* controller = [[CMPaytvListViewController alloc] initWithNibName:@"CMPaytvListViewController" bundle:nil];
+            CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
             [self.navigationController pushViewController:controller animated:YES];
-            
         }break;
         case 5:
         {
