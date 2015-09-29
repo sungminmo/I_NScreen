@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="programList" destination="2XY-xO-WcO" id="1aU-NF-AS7"/>
                 <outlet property="tabMenuContainer" destination="frg-7F-ZbZ" id="RoP-G5-Z7k"/>
+                <outlet property="topConstraint" destination="JiE-ap-qK3" id="x4w-Ja-rgo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="vodList" destination="XmU-Rp-rIX" id="HK1-Ie-aG5"/>
             </connections>
