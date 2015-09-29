@@ -24,5 +24,8 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)actionDoneButton:(id)sender {
+    [self backCommonAction];
+}
 
 @end
