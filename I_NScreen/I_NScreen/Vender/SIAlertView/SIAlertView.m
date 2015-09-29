@@ -49,9 +49,12 @@ static SIAlertView *__si_alert_current_view;
 @property (nonatomic, assign, getter = isVisible) BOOL visible;
 
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIButton* closeButton;
 @property (nonatomic, strong) UILabel *messageLabel;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) NSMutableArray *buttons;
+
+@property (nonatomic, unsafe_unretained) BOOL isCloseButton;
 
 @property (nonatomic, assign, getter = isLayoutDirty) BOOL layoutDirty;
 
@@ -370,6 +373,10 @@ static SIAlertView *__si_alert_current_view;
 
 - (void)addButtonWithTitle:(NSString *)title type:(SIAlertViewButtonType)type handler:(SIAlertViewHandler)handler
 {
+    if (title == nil) {
+        return;
+    }
+    
     SIAlertItem *item = [[SIAlertItem alloc] init];
 	item.title = title;
 	item.type = type;
@@ -756,6 +763,9 @@ static SIAlertView *__si_alert_current_view;
         [UIView setOuterLine:self.titleLabel direction:HMOuterLineDirectionBottom lineWeight:1 lineColor:[CMColor colorViolet]];
         y += height;
 	}
+    if (self.closeButton && self.isCloseButton) {
+        self.closeButton.frame = CGRectMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT - 18, CONTENT_PADDING_TOP, 14, 14);
+    }
     if (self.messageLabel) {
         if (y > CONTENT_PADDING_TOP) {
             y += GAP;
@@ -902,6 +912,7 @@ static SIAlertView *__si_alert_current_view;
 {
     [self setupContainerView];
     [self updateTitleLabel];
+    [self updateCloseButton];
     [self updateMessageLabel];
     [self setupButtons];
     [self invalidateLayout];
@@ -912,6 +923,7 @@ static SIAlertView *__si_alert_current_view;
     [self.containerView removeFromSuperview];
     self.containerView = nil;
     self.titleLabel = nil;
+    self.closeButton = nil;
     self.messageLabel = nil;
     [self.buttons removeAllObjects];
     [self.alertWindow removeFromSuperview];
@@ -956,6 +968,24 @@ static SIAlertView *__si_alert_current_view;
 		[self.titleLabel removeFromSuperview];
 		self.titleLabel = nil;
 	}
+    [self invalidateLayout];
+}
+
+- (void)updateCloseButton {
+    if (self.isCloseButton) {
+        if (self.closeButton == nil) {
+            self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [self.closeButton setImage:[UIImage imageNamed:@"x.png"] forState:UIControlStateNormal];
+            [self.closeButton addTarget:self action:@selector(buttonActionOnlyClose:) forControlEvents:UIControlEventTouchUpInside];
+            [self.containerView addSubview:self.closeButton];
+        }
+    }
+    else {
+        if (self.closeButton != nil) {
+            [self.closeButton removeFromSuperview];
+            self.closeButton = nil;
+        }
+    }
     [self invalidateLayout];
 }
 
@@ -1051,6 +1081,12 @@ static SIAlertView *__si_alert_current_view;
 	}
 	[self dismissAnimated:YES];
 }
+
+- (void)buttonActionOnlyClose:(UIButton*)button {
+    [SIAlertView setAnimating:YES];
+    [self dismissAnimated:YES];
+}
+
 
 #pragma mark - CAAnimation delegate
 
@@ -1297,14 +1333,16 @@ static SIAlertView *__si_alert_current_view;
     
     SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:title andAttributeMessage:string];
     
-    [alertView addButtonWithTitle:cancel
-                             type:buttonType
-                          handler:^(SIAlertView *alertView) {
-                              NSLog(@"Cancel Clicked");
-                              if (completion != nil) {
-                                  completion(0, alertView);
-                              }
-    }];
+    if (cancel != nil) {
+        [alertView addButtonWithTitle:cancel
+                                 type:buttonType
+                              handler:^(SIAlertView *alertView) {
+                                  NSLog(@"Cancel Clicked");
+                                  if (completion != nil) {
+                                      completion(0, alertView);
+                                  }
+                              }];
+    }
     
     for (NSInteger i = 0; i < buttons.count; i++) {
         NSString* text = buttons[i];
@@ -1317,6 +1355,11 @@ static SIAlertView *__si_alert_current_view;
                                   }
         }];
     }
+    
+    if (cancel == nil && buttons.count == 0) {
+        alertView.isCloseButton = YES;
+    }
+    
     
     alertView.buttonFont = [UIFont boldSystemFontOfSize:15];
     alertView.transitionStyle = SIAlertViewTransitionStyleFade;
