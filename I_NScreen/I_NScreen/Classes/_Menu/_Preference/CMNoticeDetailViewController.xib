@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMNoticeDetailViewController">
             <connections>
+                <outlet property="detailView" destination="eYg-XD-sK2" id="ie7-VI-Wg9"/>
+                <outlet property="topMargin" destination="SLt-27-qsc" id="QhM-Nu-Kae"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +16,88 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoL-hH-bgh">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.50980392156862742" green="0.39215686274509803" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="ecM-qc-GBc">
+                            <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="확인">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ecM-qc-GBc"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="ecM-qc-GBc"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="actionDoneButton:" destination="-1" eventType="touchUpInside" id="uDq-j9-iIK"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYg-XD-sK2">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    </variation>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="MOg-9W-YHJ"/>
+                    </connections>
+                </textView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="FoL-hH-bgh" secondAttribute="trailing" constant="14" id="PvV-Gh-t8D"/>
+                <constraint firstItem="eYg-XD-sK2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="106" id="SLt-27-qsc"/>
+                <constraint firstItem="eYg-XD-sK2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="XOW-ZF-Ute"/>
+                <constraint firstAttribute="trailing" secondItem="eYg-XD-sK2" secondAttribute="trailing" constant="14" id="ihC-8g-fEo"/>
+                <constraint firstAttribute="bottom" secondItem="FoL-hH-bgh" secondAttribute="bottom" constant="13" id="jdH-cP-fqN"/>
+                <constraint firstItem="FoL-hH-bgh" firstAttribute="top" secondItem="eYg-XD-sK2" secondAttribute="bottom" constant="13" id="xOc-zb-uVG">
+                    <variation key="heightClass=regular-widthClass=compact" constant="18"/>
+                </constraint>
+                <constraint firstItem="FoL-hH-bgh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="yRQ-UU-TN3"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="FoL-hH-bgh"/>
+                    <exclude reference="eYg-XD-sK2"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="SLt-27-qsc"/>
+                    <exclude reference="XOW-ZF-Ute"/>
+                    <exclude reference="ihC-8g-fEo"/>
+                    <exclude reference="PvV-Gh-t8D"/>
+                    <exclude reference="jdH-cP-fqN"/>
+                    <exclude reference="xOc-zb-uVG"/>
+                    <exclude reference="yRQ-UU-TN3"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="FoL-hH-bgh"/>
+                    <include reference="eYg-XD-sK2"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="SLt-27-qsc"/>
+                    <include reference="XOW-ZF-Ute"/>
+                    <include reference="ihC-8g-fEo"/>
+                    <include reference="PvV-Gh-t8D"/>
+                    <include reference="jdH-cP-fqN"/>
+                    <include reference="xOc-zb-uVG"/>
+                    <include reference="yRQ-UU-TN3"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

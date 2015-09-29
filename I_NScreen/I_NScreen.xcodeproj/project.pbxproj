@@ -172,6 +172,10 @@
 		99C43C6E1BA3EDA10035A0A4 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C4D1BA3EDA10035A0A4 /* LeftMenuViewController.xib */; };
 		99C43C6F1BA3EDA10035A0A4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */; };
 		99C43C701BA3EDA10035A0A4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C501BA3EDA10035A0A4 /* RootViewController.xib */; };
+		99E6022C1BBA32FE00B60E0F /* CMNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E6022A1BBA32FE00B60E0F /* CMNoticeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		99E6022D1BBA32FE00B60E0F /* CMNoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99E6022B1BBA32FE00B60E0F /* CMNoticeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		99E602311BBA331800B60E0F /* CMPaytvTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E6022F1BBA331800B60E0F /* CMPaytvTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		99E602321BBA331800B60E0F /* CMPaytvTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99E602301BBA331800B60E0F /* CMPaytvTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9EDA01BBA2690002FEBF0 /* CMNoticeListViewController.m */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA31BBA2690002FEBF0 /* CMNoticeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99E9EDA11BBA2690002FEBF0 /* CMNoticeListViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA71BBA26A5002FEBF0 /* CMNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9EDA51BBA26A5002FEBF0 /* CMNoticeDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -432,6 +436,12 @@
 		99C43C4E1BA3EDA10035A0A4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		99C43C501BA3EDA10035A0A4 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		99E602291BBA32FE00B60E0F /* CMNoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNoticeTableViewCell.h; sourceTree = "<group>"; };
+		99E6022A1BBA32FE00B60E0F /* CMNoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMNoticeTableViewCell.m; sourceTree = "<group>"; };
+		99E6022B1BBA32FE00B60E0F /* CMNoticeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMNoticeTableViewCell.xib; sourceTree = "<group>"; };
+		99E6022E1BBA331800B60E0F /* CMPaytvTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPaytvTableViewCell.h; sourceTree = "<group>"; };
+		99E6022F1BBA331800B60E0F /* CMPaytvTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPaytvTableViewCell.m; sourceTree = "<group>"; };
+		99E602301BBA331800B60E0F /* CMPaytvTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPaytvTableViewCell.xib; sourceTree = "<group>"; };
 		99E9ED9F1BBA2690002FEBF0 /* CMNoticeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNoticeListViewController.h; sourceTree = "<group>"; };
 		99E9EDA01BBA2690002FEBF0 /* CMNoticeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMNoticeListViewController.m; sourceTree = "<group>"; };
 		99E9EDA11BBA2690002FEBF0 /* CMNoticeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMNoticeListViewController.xib; sourceTree = "<group>"; };
@@ -579,6 +589,7 @@
 		994BDB311BA3F692000B6260 /* _Preference */ = {
 			isa = PBXGroup;
 			children = (
+				99E602281BBA32BA00B60E0F /* _Cell */,
 				994BDB3B1BA3F6E8000B6260 /* CMPreferenceMainViewController.h */,
 				994BDB3C1BA3F6E8000B6260 /* CMPreferenceMainViewController.m */,
 				994BDB3D1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib */,
@@ -1072,6 +1083,19 @@
 			path = _LeftMenu;
 			sourceTree = "<group>";
 		};
+		99E602281BBA32BA00B60E0F /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99E602291BBA32FE00B60E0F /* CMNoticeTableViewCell.h */,
+				99E6022A1BBA32FE00B60E0F /* CMNoticeTableViewCell.m */,
+				99E6022B1BBA32FE00B60E0F /* CMNoticeTableViewCell.xib */,
+				99E6022E1BBA331800B60E0F /* CMPaytvTableViewCell.h */,
+				99E6022F1BBA331800B60E0F /* CMPaytvTableViewCell.m */,
+				99E602301BBA331800B60E0F /* CMPaytvTableViewCell.xib */,
+			);
+			path = _Cell;
+			sourceTree = "<group>";
+		};
 		99ECC6201BA645CB0085C86F /* Vender */ = {
 			isa = PBXGroup;
 			children = (
@@ -1361,6 +1385,7 @@
 				99C43BF01BA3ED980035A0A4 /* unpick@3x.png in Resources */,
 				99C43BA91BA3ED980035A0A4 /* close_s.png in Resources */,
 				99C43B9C1BA3ED980035A0A4 /* 3btn_press.png in Resources */,
+				99E6022D1BBA32FE00B60E0F /* CMNoticeTableViewCell.xib in Resources */,
 				99C43C6C1BA3EDA10035A0A4 /* HomeGnbViewController.xib in Resources */,
 				99C43B8F1BA3ED980035A0A4 /* back.png in Resources */,
 				99C43BBC1BA3ED980035A0A4 /* bigpic@2x.png in Resources */,
@@ -1479,6 +1504,7 @@
 				99C43B8C1BA3ED980035A0A4 /* 2btn_press.png in Resources */,
 				99C43B8A1BA3ED980035A0A4 /* 2btn_normal.png in Resources */,
 				99C43BBD1BA3ED980035A0A4 /* bigunpic@2x.png in Resources */,
+				99E602321BBA331800B60E0F /* CMPaytvTableViewCell.xib in Resources */,
 				99C43BCC1BA3ED980035A0A4 /* ch_press@2x.png in Resources */,
 				99C43BA11BA3ED980035A0A4 /* ch_select.png in Resources */,
 				99C43B891BA3ED980035A0A4 /* 19.png in Resources */,
@@ -1585,7 +1611,9 @@
 				994BDB3E1BA3F6E8000B6260 /* CMPreferenceMainViewController.m in Sources */,
 				99C43C661BA3EDA10035A0A4 /* CMConstants.m in Sources */,
 				E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */,
+				99E6022C1BBA32FE00B60E0F /* CMNoticeTableViewCell.m in Sources */,
 				99C43C5D1BA3EDA10035A0A4 /* UIViewController+OverlayView.m in Sources */,
+				99E602311BBA331800B60E0F /* CMPaytvTableViewCell.m in Sources */,
 				99C43C631BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */,
 				E51181781BA7ACC600C1E31D /* RecodeMainTableViewCell.m in Sources */,
 				20EAA3421BAE7D2C004DFCA0 /* CMTabMenuView.m in Sources */,

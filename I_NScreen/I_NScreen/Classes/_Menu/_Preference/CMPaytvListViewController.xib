@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMPaytvListViewController">
             <connections>
+                <outlet property="contentsTable" destination="1Gl-5N-z9j" id="hHE-7F-z7s"/>
+                <outlet property="topMargin" destination="A07-ze-iaQ" id="p5x-9f-Qla"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +16,46 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Gl-5N-z9j">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="MXN-BL-FxE"/>
+                        <outlet property="delegate" destination="-1" id="znl-fA-diV"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="1Gl-5N-z9j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="A07-ze-iaQ"/>
+                <constraint firstItem="1Gl-5N-z9j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DVk-6t-iR8"/>
+                <constraint firstAttribute="bottom" secondItem="1Gl-5N-z9j" secondAttribute="bottom" id="ZQ9-Fj-2Ji"/>
+                <constraint firstAttribute="trailing" secondItem="1Gl-5N-z9j" secondAttribute="trailing" id="xlU-gk-2AH"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="1Gl-5N-z9j"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="A07-ze-iaQ"/>
+                    <exclude reference="DVk-6t-iR8"/>
+                    <exclude reference="ZQ9-Fj-2Ji"/>
+                    <exclude reference="xlU-gk-2AH"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="1Gl-5N-z9j"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="A07-ze-iaQ"/>
+                    <include reference="DVk-6t-iR8"/>
+                    <include reference="ZQ9-Fj-2Ji"/>
+                    <include reference="xlU-gk-2AH"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

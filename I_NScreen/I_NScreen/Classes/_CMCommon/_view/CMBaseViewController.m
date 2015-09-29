@@ -109,7 +109,7 @@
                            };
     [[UINavigationBar appearance] setTitleTextAttributes:dict];
 
-    float h_padding = (73 - 44)/2;
+    float h_padding = (cmNavigationHeight - 44)/2;
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
     
     
@@ -120,7 +120,7 @@
 }
 
 - (void)loadCustomBackButton {
-    float h_padding = (73 - 44)/2;
+    float h_padding = (cmNavigationHeight - 44)/2;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setBackgroundVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
     
@@ -145,6 +145,15 @@
     //TODO: 팝이벤트가 발생하기 전에 처리할 로직을 기술한다.
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+#pragma makr - XIB를 사용하는 테이블뷰 재사용
+- (UITableViewCell *)cellWithTableView:(UITableView *)tableView cellIdentifier:(NSString *)cellIdentifier nibName:(NSString *)nibName {
+    [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    return cell;
 }
 
 @end
