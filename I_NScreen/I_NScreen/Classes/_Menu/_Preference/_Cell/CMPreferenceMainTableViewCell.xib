@@ -233,6 +233,9 @@
                             </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C4H-Zm-dSX">
                                 <rect key="frame" x="257" y="17" width="51" height="31"/>
+                                <connections>
+                                    <action selector="buttonWasTouchUpInside:" destination="KGk-i7-Jjw" eventType="valueChanged" id="JMK-xi-64A"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

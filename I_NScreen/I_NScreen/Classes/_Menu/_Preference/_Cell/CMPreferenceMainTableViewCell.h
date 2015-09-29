@@ -13,12 +13,17 @@ typedef enum : NSInteger {
     SETTING_PREFERENCE_MAIN_CELL
 } PREFERENCE_MAIN_CELL_TYPE;
 
+typedef void(^PreferenceSwitchEvent)(NSIndexPath* indexPath, BOOL isOn);
+
 @interface CMPreferenceMainTableViewCell : UITableViewCell
 
+@property (nonatomic, copy) PreferenceSwitchEvent preferenceSwitchEvent;
+
 - (void)setCellType:(PREFERENCE_MAIN_CELL_TYPE)type
+          indexPath:(NSIndexPath*)indexPath
                icon:(BOOL)isIcon
               title:(NSString*)title
           addedInfo:(NSString*)addedInfo
      addedAttribute:(NSDictionary*)addedAttribute
-             switch:(BOOL)isSwitch;
+             switchEvent:(PreferenceSwitchEvent)switchEvent;
 @end

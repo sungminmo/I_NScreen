@@ -13,6 +13,7 @@
 @property (nonatomic, strong) IBOutlet UIView* infoView;
 @property (nonatomic, strong) IBOutlet UIView* settingView;
 
+@property (nonatomic, strong) NSIndexPath* indexPath;
 @property (nonatomic, strong) IBOutlet UIImageView* preIconImageView;
 @property (nonatomic, strong) IBOutlet UILabel* titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel* addedInfoLabel;
@@ -26,6 +27,7 @@
 - (void)awakeFromNib {
 
     self.switchButton.tintColor = [CMColor colorViolet];
+    self.switchButton.onTintColor = [CMColor colorViolet];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,11 +37,14 @@
 }
 
 - (void)setCellType:(PREFERENCE_MAIN_CELL_TYPE)type
+          indexPath:(NSIndexPath*)indexPath
                icon:(BOOL)isIcon
               title:(NSString*)title
           addedInfo:(NSString*)addedInfo
      addedAttribute:(NSDictionary*)addedAttribute
-             switch:(BOOL)isSwitch {
+        switchEvent:(PreferenceSwitchEvent)switchEvent {
+    
+    self.indexPath = indexPath;
     
     self.infoView.hidden = true;
     self.settingView.hidden = true;
@@ -77,13 +82,22 @@
         
         self.addedInfoLabel.attributedText = attributedString;
         
-        if (isSwitch) {
+        self.preferenceSwitchEvent = switchEvent;
+        if (switchEvent) {
             self.indicatorImageView.hidden = true;
             self.switchButton.hidden = false;
         } else {
             self.indicatorImageView.hidden = false;
             self.switchButton.hidden = true;
         }
+    }
+}
+
+- (IBAction)buttonWasTouchUpInside:(id)sender {
+    
+    if (self.preferenceSwitchEvent) {
+        
+        self.preferenceSwitchEvent(self.indexPath, self.switchButton.isOn);
     }
 }
 
