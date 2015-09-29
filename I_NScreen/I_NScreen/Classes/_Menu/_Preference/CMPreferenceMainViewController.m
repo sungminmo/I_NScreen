@@ -43,13 +43,13 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 - (void)settingListData {
 
     self.tableList = @[@{@"type":@(INFO_PREFERENCE_MAIN_CELL_TYPE)},
-                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"icon":@(true), @"title":@"지역설정", @"addedInfo":@"현재설정지역 : 강동구", @"attributedString":@{@"target":@":", @"color":[CMColor colorViolet]}},
-                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"icon":@(true), @"title":@"구매인증 비밀번호 관리"},
+                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"", @"icon":@(true), @"title":@"지역설정", @"addedInfo":@"현재설정지역 : 강동구", @"attributedString":@{@"target":@":", @"color":[CMColor colorViolet]}},
+                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"", @"icon":@(true), @"title":@"구매인증 비밀번호 관리"},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"icon":@(true), @"title":@"성인검색 제한설정", @"switch":@(true)},
-                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"icon":@(true), @"title":@"성인인증", @"addedInfo":@"성인인증이 필요합니다.", @"attributedString":@{@"color":[UIColor redColor]}},
-                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"title":@"공지사항"},
-                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"title":@"유료채널 안내"},
-                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"title":@"고객센터 안내"}];
+                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"", @"icon":@(true), @"title":@"성인인증", @"addedInfo":@"성인인증이 필요합니다.", @"attributedString":@{@"color":[UIColor redColor]}},
+                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMNoticeListViewController", @"title":@"공지사항"},
+                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMPaytvListViewController", @"title":@"유료채널 안내"},
+                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMContactInfoViewCcontroller", @"title":@"고객센터 안내"}];
 }
 
 #pragma mark - UITablevewDataSource
@@ -74,5 +74,14 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
+    NSString* className = self.tableList[indexPath.row][@"class"];
+    
+    if (className) {
+        Class class = NSClassFromString(className);
+        
+        CMBaseViewController* controller = (CMBaseViewController*)[[class alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 @end
