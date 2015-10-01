@@ -31,5 +31,7 @@
     return [UIColor colorWithHexString:@"8b8c8e"];
 }
 
-
++(UIColor*)colorTableSeparator {
+    return [UIColor colorWithHexString:@"C0C1C2"];
+}
 @end

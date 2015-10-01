@@ -8,6 +8,7 @@
 
 #import "CMSearchMainViewController.h"
 #import "CMSearchCollectionViewCell.h"
+#import "CMSearchTableViewCell.h"
 #import "CMConstants.h"
 
 typedef enum : NSInteger {
@@ -48,8 +49,13 @@ static NSString* const programCellIdentifier = @"programCell";
         [self.dataArray addObject:@{@"image":@"testimg.png", @"title":@"포켓몬스터"}];
     }
     
-    UINib* nib = [UINib nibWithNibName:@"CMSearchCollectionViewCell" bundle:nil];
+    UINib* nib;
+    
+    nib = [UINib nibWithNibName:@"CMSearchCollectionViewCell" bundle:nil];
     [self.vodList registerNib:nib forCellWithReuseIdentifier:vodCellIdentifier];
+    
+    nib = [UINib nibWithNibName:@"CMSearchTableViewCell" bundle:nil];
+    [self.programList registerNib:nib forCellReuseIdentifier:programCellIdentifier];
     
     [self loadUI];
 }
@@ -63,6 +69,10 @@ static NSString* const programCellIdentifier = @"programCell";
 - (void)loadUI {
     self.tabMenu = [[CMTabMenuView alloc] initWithMenuArray:@[@"VOD 명 검색", @"프로그램 명 검색"] posY:0 delegate:self];
     [self.tabMenuContainer addSubview:self.tabMenu];
+    
+    UIView* tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.programList.frame.size.width, 1)];
+    tableHeaderView.backgroundColor = [CMColor colorTableSeparator];
+    self.programList.tableHeaderView = tableHeaderView;
     
     self.vodList.hidden = false;
     self.programList.hidden = true;
@@ -119,19 +129,21 @@ static NSString* const programCellIdentifier = @"programCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:programCellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:programCellIdentifier];
-    }
+    CMSearchTableViewCell* cell = (CMSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:programCellIdentifier];
     
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 66;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

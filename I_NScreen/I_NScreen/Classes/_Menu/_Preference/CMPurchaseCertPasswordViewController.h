@@ -8,6 +8,6 @@
 
 #import "CMBaseViewController.h"
 
-@interface CMPurchaseCertPasswordViewController : CMBaseViewController
+@interface CMPurchaseCertPasswordViewController : CMBaseViewController <UITextFieldDelegate>
 
 @end
