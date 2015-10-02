@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMSearchMainViewController">
             <connections>
+                <outlet property="autoCompletList" destination="fVV-Sw-G8q" id="4Pi-dW-fvL"/>
                 <outlet property="programList" destination="2XY-xO-WcO" id="1aU-NF-AS7"/>
+                <outlet property="searchField" destination="yFa-N2-aF1" id="rdk-G8-Qqo"/>
                 <outlet property="tabMenuContainer" destination="frg-7F-ZbZ" id="RoP-G5-Z7k"/>
                 <outlet property="topConstraint" destination="JiE-ap-qK3" id="x4w-Ja-rgo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -48,11 +50,17 @@
                             </constraints>
                             <state key="normal" image="close.png"/>
                             <state key="highlighted" image="close_s.png"/>
+                            <connections>
+                                <action selector="buttonWasTouchUpInside:" destination="-1" eventType="touchUpInside" id="9oK-Cl-pVv"/>
+                            </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-N2-aF1">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-N2-aF1" customClass="CMTextField">
                             <rect key="frame" x="36" y="2" width="489" height="31"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="RFh-EN-JYP"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -73,6 +81,12 @@
                         <constraint firstAttribute="height" constant="33" id="tIp-6g-sm8"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 18개의 검색결과가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kG-wu-1sN">
+                    <rect key="frame" x="0.0" y="184" width="600" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2XY-xO-WcO">
                     <rect key="frame" x="0.0" y="222" width="600" height="378"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,15 +109,33 @@
                         <outlet property="delegate" destination="-1" id="Duc-em-yk6"/>
                     </connections>
                 </collectionView>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fVV-Sw-G8q">
+                    <rect key="frame" x="21" y="196" width="558" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="CiV-6B-sbQ"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="sbW-N7-QNA"/>
+                        <outlet property="delegate" destination="-1" id="XnM-bo-Dsr"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="1T9-3n-B15" secondAttribute="trailing" id="1LS-dv-cvw"/>
                 <constraint firstAttribute="trailing" secondItem="frg-7F-ZbZ" secondAttribute="trailing" id="1Pv-cD-DdT"/>
+                <constraint firstItem="1kG-wu-1sN" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="bottom" constant="2" id="1gH-H2-iPj"/>
                 <constraint firstItem="1T9-3n-B15" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3Bs-QF-eDj"/>
+                <constraint firstItem="fVV-Sw-G8q" firstAttribute="leading" secondItem="1T9-3n-B15" secondAttribute="leading" id="3KE-ZN-18w"/>
+                <constraint firstItem="fVV-Sw-G8q" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="bottom" constant="14" id="83X-xv-UQj"/>
+                <constraint firstAttribute="trailing" secondItem="1kG-wu-1sN" secondAttribute="trailing" id="AyK-EM-HeM"/>
+                <constraint firstItem="2XY-xO-WcO" firstAttribute="top" secondItem="1kG-wu-1sN" secondAttribute="bottom" id="HWb-Np-NyK"/>
+                <constraint firstItem="1kG-wu-1sN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I5L-T2-ru9"/>
                 <constraint firstItem="frg-7F-ZbZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="JiE-ap-qK3"/>
                 <constraint firstItem="2XY-xO-WcO" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="bottom" constant="40" id="Lat-CX-1bW"/>
                 <constraint firstAttribute="trailing" secondItem="XmU-Rp-rIX" secondAttribute="trailing" id="NLV-9Z-JOd"/>
+                <constraint firstItem="fVV-Sw-G8q" firstAttribute="trailing" secondItem="1T9-3n-B15" secondAttribute="trailing" id="UOZ-Bk-U4H"/>
                 <constraint firstItem="1T9-3n-B15" firstAttribute="top" secondItem="frg-7F-ZbZ" secondAttribute="bottom" constant="14" id="Wrw-Fh-gfO"/>
                 <constraint firstItem="XmU-Rp-rIX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="af2-Vb-kex"/>
                 <constraint firstAttribute="bottom" secondItem="2XY-xO-WcO" secondAttribute="bottom" id="cJt-zh-DIt"/>

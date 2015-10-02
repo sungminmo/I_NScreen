@@ -9,6 +9,7 @@
 #import "CMSearchMainViewController.h"
 #import "CMSearchCollectionViewCell.h"
 #import "CMSearchTableViewCell.h"
+#import "CMAutoCompletTableViewCell.h"
 #import "CMConstants.h"
 
 typedef enum : NSInteger {
@@ -16,17 +17,21 @@ typedef enum : NSInteger {
     PROGRAM_TABMENU_TYPE
 } TABMENU_TYPE;
 
+static NSString* const autoCompletCell = @"autoCompletCell";
 static NSString* const vodCellIdentifier = @"vodCell";
 static NSString* const programCellIdentifier = @"programCell";
 
 @interface CMSearchMainViewController ()
+
+@property (nonatomic, strong) IBOutlet CMTextField* searchField;
+@property (nonatomic, strong) IBOutlet UITableView* autoCompletList;
 
 @property (nonatomic, strong) CMTabMenuView* tabMenu;
 @property (nonatomic, strong) IBOutlet UIView* tabMenuContainer;
 
 @property (nonatomic, strong) IBOutlet UICollectionView* vodList;
 @property (nonatomic, strong) IBOutlet UITableView* programList;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *topConstraint;
 
 @property (nonatomic, strong) NSMutableArray* dataArray;
 
@@ -50,6 +55,9 @@ static NSString* const programCellIdentifier = @"programCell";
     }
     
     UINib* nib;
+    
+    nib = [UINib nibWithNibName:@"CMAutoCompletTableViewCell" bundle:nil];
+    [self.autoCompletList registerNib:nib forCellReuseIdentifier:autoCompletCell];
     
     nib = [UINib nibWithNibName:@"CMSearchCollectionViewCell" bundle:nil];
     [self.vodList registerNib:nib forCellWithReuseIdentifier:vodCellIdentifier];
@@ -76,6 +84,12 @@ static NSString* const programCellIdentifier = @"programCell";
     
     self.vodList.hidden = false;
     self.programList.hidden = true;
+}
+
+#pragma mark - 
+
+- (IBAction)buttonWasTouchUpInside:(id)sender {
+    [self.searchField resignFirstResponder];
 }
 
 #pragma mark - CMTabMenuViewDelegate
@@ -125,25 +139,61 @@ static NSString* const programCellIdentifier = @"programCell";
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    
+    if (self.autoCompletList == tableView) {
+        return 100;
+    } else if (self.programList == tableView) {
+        return 100;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CMSearchTableViewCell* cell = (CMSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:programCellIdentifier];
     
-    return cell;
+    if (self.autoCompletList == tableView) {
+        CMAutoCompletTableViewCell* cell = (CMAutoCompletTableViewCell*)[tableView dequeueReusableCellWithIdentifier:autoCompletCell];
+        
+        return cell;
+    } else if (self.programList == tableView) {
+        CMSearchTableViewCell* cell = (CMSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:programCellIdentifier];
+        
+        return cell;
+    }
+    
+    return nil;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 66;
+    if (self.autoCompletList == tableView) {
+        return 33;
+    } else if (self.programList == tableView) {
+        return 66;
+    }
+    return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (self.autoCompletList == tableView) {
+        
+    } else if (self.programList == tableView) {
+        
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.autoCompletList.hidden = false;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.autoCompletList.hidden = true;
 }
 
 @end

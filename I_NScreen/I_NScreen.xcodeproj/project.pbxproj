@@ -19,6 +19,8 @@
 		20A8EFB31BAECAEB00FA0CFA /* testimg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A8EFB21BAECAEB00FA0CFA /* testimg@3x.png */; };
 		20EAA3421BAE7D2C004DFCA0 /* CMTabMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EAA3411BAE7D2C004DFCA0 /* CMTabMenuView.m */; };
 		20EAA3441BAE9474004DFCA0 /* CMSearchMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20EAA3431BAE9474004DFCA0 /* CMSearchMainViewController.xib */; };
+		20FEC9A11BBCD93100F6984F /* CMAutoCompletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FEC99F1BBCD93100F6984F /* CMAutoCompletTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		20FEC9A21BBCD93100F6984F /* CMAutoCompletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FEC9A01BBCD93100F6984F /* CMAutoCompletTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */; };
 		992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992894FA1BA3E68700BE62A0 /* CFNetwork.framework */; };
 		99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99366AC71BBA66D00082F8D4 /* CMNoticeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -258,6 +260,9 @@
 		20EAA3401BAE7D2C004DFCA0 /* CMTabMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTabMenuView.h; sourceTree = "<group>"; };
 		20EAA3411BAE7D2C004DFCA0 /* CMTabMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTabMenuView.m; sourceTree = "<group>"; };
 		20EAA3431BAE9474004DFCA0 /* CMSearchMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMSearchMainViewController.xib; sourceTree = "<group>"; };
+		20FEC99E1BBCD93100F6984F /* CMAutoCompletTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAutoCompletTableViewCell.h; path = _Cell/CMAutoCompletTableViewCell.h; sourceTree = "<group>"; };
+		20FEC99F1BBCD93100F6984F /* CMAutoCompletTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAutoCompletTableViewCell.m; path = _Cell/CMAutoCompletTableViewCell.m; sourceTree = "<group>"; };
+		20FEC9A01BBCD93100F6984F /* CMAutoCompletTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMAutoCompletTableViewCell.xib; path = _Cell/CMAutoCompletTableViewCell.xib; sourceTree = "<group>"; };
 		57C9EE5D8B32911941D7BC54 /* Pods-I_NScreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.debug.xcconfig"; sourceTree = "<group>"; };
 		992894FA1BA3E68700BE62A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		992894FC1BA3E69000BE62A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -577,6 +582,9 @@
 				2053ED5B1BBCA06E00264FBF /* CMSearchTableViewCell.h */,
 				2053ED5C1BBCA06E00264FBF /* CMSearchTableViewCell.m */,
 				2053ED5D1BBCA06E00264FBF /* CMSearchTableViewCell.xib */,
+				20FEC99E1BBCD93100F6984F /* CMAutoCompletTableViewCell.h */,
+				20FEC99F1BBCD93100F6984F /* CMAutoCompletTableViewCell.m */,
+				20FEC9A01BBCD93100F6984F /* CMAutoCompletTableViewCell.xib */,
 			);
 			name = _Cell;
 			sourceTree = "<group>";
@@ -1468,6 +1476,7 @@
 				99C43BB71BA3ED980035A0A4 /* 2btn_outline@2x.png in Resources */,
 				E51181911BA7ACF900C1E31D /* EpgSubViewController.xib in Resources */,
 				99C43C6E1BA3EDA10035A0A4 /* LeftMenuViewController.xib in Resources */,
+				20FEC9A21BBCD93100F6984F /* CMAutoCompletTableViewCell.xib in Resources */,
 				2053ED5F1BBCA06E00264FBF /* CMSearchTableViewCell.xib in Resources */,
 				99C43BCD1BA3ED980035A0A4 /* ch_select@2x.png in Resources */,
 				99C43BAE1BA3ED980035A0A4 /* allch_press@2x.png in Resources */,
@@ -1627,6 +1636,7 @@
 				99C43C571BA3EDA10035A0A4 /* NSString+Helper.m in Sources */,
 				99C43C521BA3EDA10035A0A4 /* NSDate+Helper.m in Sources */,
 				99C43C6F1BA3EDA10035A0A4 /* RootViewController.m in Sources */,
+				20FEC9A11BBCD93100F6984F /* CMAutoCompletTableViewCell.m in Sources */,
 				99E9EDB11BBA26C3002FEBF0 /* CMPaytvGuideViewController.m in Sources */,
 				2086CDA51BBA62E20065726E /* CMPurchaseCertPasswordViewController.m in Sources */,
 				99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */,

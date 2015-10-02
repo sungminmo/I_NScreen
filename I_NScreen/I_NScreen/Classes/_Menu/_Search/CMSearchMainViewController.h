@@ -8,7 +8,8 @@
 
 #import "CMBaseViewController.h"
 #import "CMTabMenuView.h"
+#import "CMTextField.h"
 
-@interface CMSearchMainViewController : CMBaseViewController <CMTabMenuViewDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface CMSearchMainViewController : CMBaseViewController <CMTabMenuViewDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate>
 
 @end

@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSInteger {
+    Normal_CMTextFieldType,
+    Secure_CMTextFieldType
+}CMTextFieldType;
+
 @interface CMTextField : UITextField <UITextFieldDelegate>
+
+@property (nonatomic, assign) CMTextFieldType type;
 
 @end

@@ -20,13 +20,21 @@
 
 - (void)awakeFromNib {
 
-    self.backgroundColor = [UIColor whiteColor];
-    self.layer.borderWidth = 1.f;
-    self.layer.cornerRadius = 4.0f;
-    self.layer.masksToBounds = YES;
-    self.layer.borderColor = [CMColor colorViolet].CGColor;
-    
     [super setDelegate:self];
+}
+
+#pragma mark - Public 
+
+- (void)setType:(CMTextFieldType)type {
+    _type = type;
+    
+    if (Secure_CMTextFieldType == type) {
+        self.backgroundColor = [UIColor whiteColor];
+        self.layer.borderWidth = 1.f;
+        self.layer.cornerRadius = 4.0f;
+        self.layer.masksToBounds = YES;
+        self.layer.borderColor = [CMColor colorViolet].CGColor;
+    }
 }
 
 #pragma mark - Override
@@ -94,6 +102,8 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [self resignFirstResponder];
     
     if ([self.textFieldDelegate respondsToSelector:@selector(textFieldShouldReturn:)]) {
         return [self.textFieldDelegate textFieldShouldReturn:textField];
