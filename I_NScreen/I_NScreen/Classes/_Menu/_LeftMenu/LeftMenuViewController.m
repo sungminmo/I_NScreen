@@ -8,6 +8,8 @@
 
 #import "LeftMenuViewController.h"
 #import "UIView+Layer.h"
+#import "CMTermsViewController.h"
+#import "CMVersionViewController.h"
 
 @interface LeftMenuViewController ()
 
@@ -54,6 +56,15 @@
     self.nTag = 0;
     
     [[CMAppManager sharedInstance] onLeftMenuListClose:self];
+}
+- (IBAction)actionTermsButton:(id)sender {
+    CMTermsViewController *controller = [[CMTermsViewController alloc] initWithNibName:@"CMTermsViewController" bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (IBAction)actionVersionButton:(id)sender {
+    CMVersionViewController *controller = [[CMVersionViewController alloc] initWithNibName:@"CMVersionViewController" bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)onLeftMenuCloseComplet

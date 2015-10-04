@@ -296,6 +296,9 @@
                                             <include reference="jUA-TL-ISJ"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="actionTermsButton:" destination="-1" eventType="touchUpInside" id="lGD-VN-0gZ"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkQ-k5-QBn">
                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -325,6 +328,9 @@
                                             <include reference="6fB-HI-O10"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="actionVersionButton:" destination="-1" eventType="touchUpInside" id="9Ak-sr-Gbz"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
