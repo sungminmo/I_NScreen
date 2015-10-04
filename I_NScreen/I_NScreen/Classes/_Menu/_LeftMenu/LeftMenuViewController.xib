@@ -16,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cmu-dD-wPi">
-                    <rect key="frame" x="0.0" y="0.0" width="160" height="568"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cmu-dD-wPi">
+                    <rect key="frame" x="0.0" y="0.0" width="243" height="568"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yft-uX-j5s">
                             <rect key="frame" x="15" y="8" width="46" height="30"/>
@@ -31,35 +31,19 @@
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kNq-uG-6KS">
                             <rect key="frame" x="0.0" y="59" width="160" height="509"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="509" id="6xu-ER-Yy7"/>
-                                <constraint firstAttribute="width" constant="160" id="8HT-sP-1pV"/>
-                            </constraints>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="M9j-n6-93G"/>
                                 <outlet property="delegate" destination="-1" id="KTE-3S-WZI"/>
                             </connections>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.38431372549999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="kNq-uG-6KS" secondAttribute="bottom" id="28I-hC-hxF"/>
-                        <constraint firstAttribute="height" constant="568" id="3qW-dt-h9y"/>
-                        <constraint firstItem="kNq-uG-6KS" firstAttribute="leading" secondItem="Cmu-dD-wPi" secondAttribute="leading" id="937-r3-qfV"/>
-                        <constraint firstAttribute="width" constant="160" id="J3h-V7-tfh"/>
-                        <constraint firstItem="kNq-uG-6KS" firstAttribute="top" secondItem="Cmu-dD-wPi" secondAttribute="top" constant="59" id="N4i-ak-fB6"/>
-                        <constraint firstAttribute="trailing" secondItem="kNq-uG-6KS" secondAttribute="trailing" id="OpY-yM-6eR"/>
-                    </constraints>
+                    <color key="backgroundColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="0.0" width="243" height="800"/>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="Cmu-dD-wPi" secondAttribute="bottom" id="Gei-BI-dhL"/>
-                <constraint firstItem="Cmu-dD-wPi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Q2Y-oV-XIR"/>
-                <constraint firstItem="Cmu-dD-wPi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aWO-WP-f3J"/>
-                <constraint firstAttribute="trailing" secondItem="Cmu-dD-wPi" secondAttribute="trailing" constant="160" id="r1e-U7-gFh"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>
