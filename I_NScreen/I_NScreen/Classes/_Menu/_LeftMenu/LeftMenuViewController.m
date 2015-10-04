@@ -7,6 +7,7 @@
 //
 
 #import "LeftMenuViewController.h"
+#import "UIView+Layer.h"
 
 @interface LeftMenuViewController ()
 
@@ -17,13 +18,32 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self.upperView clearSubOutLineLayers];
+    [self.bottomView clearSubOutLineLayers];
+    
+    [UIView setOuterLine:self.upperView direction:HMOuterLineDirectionTop|HMOuterLineDirectionBottom lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
+    [UIView setOuterLine:self.bottomView direction:HMOuterLineDirectionTop lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
+
+    CALayer* layer = nil;
+    layer = self.pairingButton.layer;
+    layer.cornerRadius = 4;
+    
+    layer = self.termsButton.layer;
+    layer.cornerRadius = 4;
+    
+    layer = self.versionButton.layer;
+    layer.cornerRadius = 4;
+    
 }
 
 
@@ -50,6 +70,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell.backgroundColor = [UIColor clearColor];
     }
   
     switch (indexPath.row) {
