@@ -1,0 +1,1 @@
+../../../BMXSwipableCell/BMXSwipableCell/BMXSwipableCell.h

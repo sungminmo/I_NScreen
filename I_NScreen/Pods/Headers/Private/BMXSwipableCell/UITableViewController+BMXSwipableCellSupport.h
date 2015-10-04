@@ -1,0 +1,1 @@
+../../../BMXSwipableCell/BMXSwipableCell/UITableViewController+BMXSwipableCellSupport.h
