@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIView *termsButton;
 @property (weak, nonatomic) IBOutlet UIView *versionButton;
 
+@property (weak, nonatomic) IBOutlet UIImageView *pairingImageView;
+@property (weak, nonatomic) IBOutlet UILabel *pairingMessageLabel;
+
 
 
 @property (nonatomic) int nTag;

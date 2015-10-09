@@ -65,35 +65,43 @@
         }break;
         case 1:
         {
-            // EPG
+            // EPG - 채널가이드
             EpgMainViewController *pViewController = [[EpgMainViewController alloc] initWithNibName:@"EpgMainViewController" bundle:nil];
             [self.navigationController pushViewController:pViewController animated:YES];
         }break;
         case 2:
         {
-            // PVR
+            // PVR - 리모컨
             RecodeMainViewController *pViewController = [[RecodeMainViewController alloc] initWithNibName:@"RecodeMainViewController" bundle:nil];
             [self.navigationController pushViewController:pViewController animated:YES];
             
         }break;
-        case 3:
+        case 3: //녹화
         {
-            // 검색
-            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
-            [self.navigationController pushViewController:controller animated:YES];
+//            // 검색
+//            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
+//            [self.navigationController pushViewController:controller animated:YES];
             
         }break;
         case 4:
+        {
+            // My C&M
+            MyCMMainViewController *pViewController = [[MyCMMainViewController alloc] initWithNibName:@"MyCMMainViewController" bundle:nil];
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }break;
+        case 5:
         {
             // 설정
             CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
             [self.navigationController pushViewController:controller animated:YES];
         }break;
-        case 5:
+
+        case 6://임시
         {
-            // My C&M
-            MyCMMainViewController *pViewController = [[MyCMMainViewController alloc] initWithNibName:@"MyCMMainViewController" bundle:nil];
-            [self.navigationController pushViewController:pViewController animated:YES];
+            // 검색
+            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
+            [self.navigationController pushViewController:controller animated:YES];
+            
         }break;
     }
 }

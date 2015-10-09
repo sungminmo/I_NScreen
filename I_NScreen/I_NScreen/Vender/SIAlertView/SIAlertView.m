@@ -28,7 +28,8 @@ NSString *const SIAlertViewDidDismissNotification = @"SIAlertViewDidDismissNotif
 #define BUTTON_HEIGHT 44
 #define CONTAINER_WIDTH 300
 
-#define CONTENT_MIN_HEIGHT 20
+#define TITILE_MIN_HEIGHT 40
+#define CONTENT_MIN_HEIGHT 50
 
 const UIWindowLevel UIWindowLevelSIAlert = 1996.0;  // don't overlap system's alert
 const UIWindowLevel UIWindowLevelSIAlertBackground = 1985.0; // below the alert window
@@ -766,7 +767,7 @@ static SIAlertView *__si_alert_current_view;
         y += height;
 	}
     if (self.closeButton && self.isCloseButton) {
-        self.closeButton.frame = CGRectMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT - 18, CONTENT_PADDING_TOP, 14, 14);
+        self.closeButton.frame = CGRectMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT - 18, CONTENT_PADDING_TOP * 2, 14, 14);
     }
     if (self.messageLabel) {
         if (y > CONTENT_PADDING_TOP) {
@@ -856,7 +857,7 @@ static SIAlertView *__si_alert_current_view;
                                                              options:NSStringDrawingUsesLineFragmentOrigin
                                                           attributes:attributes
                                                              context:nil];
-            return MAX(CONTENT_MIN_HEIGHT, ceil(rect.size.height));
+            return MAX(TITILE_MIN_HEIGHT, ceil(rect.size.height));
         #else
             CGSize size = [self.title sizeWithFont:self.titleLabel.font
                                        minFontSize:
