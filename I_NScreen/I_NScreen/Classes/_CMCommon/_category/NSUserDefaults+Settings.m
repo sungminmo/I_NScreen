@@ -8,7 +8,8 @@
 
 #import "NSUserDefaults+Settings.h"
 
-NSString * const NSUserDefaultsAppType = @"NSUserDefaultsAppType";
+NSString* const NSUserDefaultsAppType = @"NSUserDefaultsAppType";
+NSString* const NSUserDefaultsRestrictType = @"NSUserDefaultsRestrictType";
 
 @implementation NSUserDefaults (Settings)
 
@@ -21,5 +22,15 @@ NSString * const NSUserDefaultsAppType = @"NSUserDefaultsAppType";
 - (CMAppType)appType {
     return [self integerForKey:NSUserDefaultsAppType];
 }
+
+- (void)setRestrictType:(CMContentsRestrictedType)restrictType {
+    [self setInteger:restrictType forKey:NSUserDefaultsRestrictType];
+}
+
+- (CMContentsRestrictedType)restrictType {
+    return [self integerForKey:NSUserDefaultsRestrictType];
+}
+
+
 
 @end

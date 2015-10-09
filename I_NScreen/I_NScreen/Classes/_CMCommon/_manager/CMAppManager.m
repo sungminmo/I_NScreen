@@ -32,11 +32,20 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
 
     [ud setAppType:CMAppTypePhone];
+    [ud setRestrictType:CMContentsRestrictedTypeAdult];
     
     [ud synchronize];
 }
 
 
+
+
+
+
+
+
+
+#pragma mark -
 - (void)onLeftMenuListOpen:(id)control;
 {
     LeftMenuViewController *pViewController = [[LeftMenuViewController alloc] initWithNibName:@"LeftMenuViewController" bundle:nil];

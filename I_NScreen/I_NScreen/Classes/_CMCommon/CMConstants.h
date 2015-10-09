@@ -68,7 +68,19 @@ typedef NS_ENUM(NSInteger, CMAppType) {
 };
 
 
-
+/**
+ *  @brief  성인검색 제한설정 여부.
+ */
+typedef NS_ENUM(NSInteger, CMContentsRestrictedType) {
+    /**
+     *  @brief  제한없음.
+     */
+    CMContentsRestrictedTypeNone = 0,
+    /**
+     *  @brief  성인물 제한.
+     */
+    CMContentsRestrictedTypeAdult
+};
 
 
 static const CGFloat cmNavigationHeight = 93;//네비게이션 커스텀 높이
