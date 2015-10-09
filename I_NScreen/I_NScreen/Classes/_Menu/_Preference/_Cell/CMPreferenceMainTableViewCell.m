@@ -7,6 +7,7 @@
 //
 
 #import "CMPreferenceMainTableViewCell.h"
+#import "CMBaseViewController.h"
 
 @interface CMPreferenceMainTableViewCell ()
 
@@ -14,7 +15,7 @@
 @property (nonatomic, strong) IBOutlet UIView* settingView;
 
 @property (nonatomic, strong) NSIndexPath* indexPath;
-@property (nonatomic, strong) IBOutlet UIImageView* preIconImageView;
+@property (nonatomic, strong) IBOutlet UIButton* preIconButton;
 @property (nonatomic, strong) IBOutlet UILabel* titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel* addedInfoLabel;
 @property (nonatomic, strong) IBOutlet UIImageView* indicatorImageView;
@@ -57,7 +58,7 @@
         
         self.settingView.hidden = false;
         
-        self.preIconImageView.hidden = !isIcon;
+        self.preIconButton.hidden = !isIcon;
         self.titleLabel.text = title;
         
         if (addedInfo) {
@@ -86,11 +87,34 @@
         if (switchEvent) {
             self.indicatorImageView.hidden = true;
             self.switchButton.hidden = false;
+            
+            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            CMContentsRestrictedType type = [ud restrictType];
+            BOOL isRestricted = type==CMContentsRestrictedTypeAdult?YES:NO;
+            self.switchButton.on = isRestricted;
+            
         } else {
             self.indicatorImageView.hidden = false;
             self.switchButton.hidden = true;
         }
     }
+}
+
+- (IBAction)actionCellGuide:(id)sender {
+    NSString* title = self.titleLabel.text;
+    if ([title isEqualToString:@"지역설정"]) {
+        [CMBaseViewController actionGuide:100];
+    }
+    else if ([title isEqualToString:@"구매인증 비밀번호 관리"]) {
+        [CMBaseViewController actionGuide:101];
+    }
+    else if ([title isEqualToString:@"성인검색 제한설정"]) {
+        [CMBaseViewController actionGuide:102];
+    }
+    else if ([title isEqualToString:@"성인인증"]) {
+        [CMBaseViewController actionGuide:-1];//TODO: 작업할 것 
+    }
+
 }
 
 - (IBAction)buttonWasTouchUpInside:(id)sender {

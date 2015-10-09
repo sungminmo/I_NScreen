@@ -44,4 +44,12 @@
  *  @return UITableViewCell.
  */
 - (UITableViewCell *)cellWithTableView:(UITableView *)tableView cellIdentifier:(NSString *)cellIdentifier nibName:(NSString *)nibName;
+
+/**
+ *  물음표 버튼에 대응해서 가이드 알림창을 호출한다.
+ *
+ *  @param buttonTag 태그 
+ */
++ (void)actionGuide:(NSInteger)buttonTag;
+
 @end

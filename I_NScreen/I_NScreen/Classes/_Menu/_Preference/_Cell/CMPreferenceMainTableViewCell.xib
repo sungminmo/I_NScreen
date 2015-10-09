@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80i-7S-7mJ">
@@ -199,13 +199,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkf-Yq-hJI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick.png" translatesAutoresizingMaskIntoConstraints="NO" id="EA1-n9-dxo">
-                                <rect key="frame" x="12" y="25" width="15" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="7Cu-TO-2G7"/>
-                                    <constraint firstAttribute="height" constant="15" id="bVZ-rY-iiw"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEd-6P-BOO">
                                 <rect key="frame" x="44" y="0.0" width="253" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -237,16 +230,27 @@
                                     <action selector="buttonWasTouchUpInside:" destination="KGk-i7-Jjw" eventType="valueChanged" id="JMK-xi-64A"/>
                                 </connections>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otX-5s-fDh">
+                                <rect key="frame" x="8" y="23" width="19" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="5QJ-3D-b91"/>
+                                    <constraint firstAttribute="width" constant="19" id="5qy-5j-lPJ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="icon_qlist_normal.png"/>
+                                <state key="highlighted" image="icon_qlist_press.png"/>
+                                <connections>
+                                    <action selector="actionCellGuide:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1BS-em-PTT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="otX-5s-fDh" firstAttribute="leading" secondItem="gkf-Yq-hJI" secondAttribute="leading" constant="8" id="0Eu-Om-awQ"/>
+                            <constraint firstItem="otX-5s-fDh" firstAttribute="top" secondItem="gkf-Yq-hJI" secondAttribute="top" constant="23" id="3Ma-bz-nQw"/>
                             <constraint firstItem="bEd-6P-BOO" firstAttribute="top" secondItem="gkf-Yq-hJI" secondAttribute="top" id="3pZ-bC-KnV"/>
-                            <constraint firstItem="EA1-n9-dxo" firstAttribute="leading" secondItem="gkf-Yq-hJI" secondAttribute="leading" constant="12" id="8Dk-Rx-UqN"/>
                             <constraint firstItem="GKx-wh-pM8" firstAttribute="leading" secondItem="zI9-7Y-ydx" secondAttribute="trailing" constant="2" id="IRV-fe-BQz"/>
                             <constraint firstItem="zI9-7Y-ydx" firstAttribute="width" secondItem="gkf-Yq-hJI" secondAttribute="width" multiplier="0.43" id="Itp-vp-DhU"/>
-                            <constraint firstItem="bEd-6P-BOO" firstAttribute="leading" secondItem="EA1-n9-dxo" secondAttribute="trailing" constant="17" id="Mlg-h4-rdw"/>
                             <constraint firstItem="GKx-wh-pM8" firstAttribute="leading" secondItem="bEd-6P-BOO" secondAttribute="trailing" constant="2" id="PBO-kw-e8b"/>
-                            <constraint firstItem="EA1-n9-dxo" firstAttribute="centerY" secondItem="gkf-Yq-hJI" secondAttribute="centerY" id="RvB-mm-bss"/>
                             <constraint firstAttribute="trailing" secondItem="GKx-wh-pM8" secondAttribute="trailing" constant="14" id="YDt-4u-hz6"/>
                             <constraint firstItem="zI9-7Y-ydx" firstAttribute="top" secondItem="gkf-Yq-hJI" secondAttribute="top" id="bqD-l6-S5L"/>
                             <constraint firstItem="GKx-wh-pM8" firstAttribute="centerY" secondItem="gkf-Yq-hJI" secondAttribute="centerY" id="dJj-Fh-ISs"/>
@@ -254,6 +258,7 @@
                             <constraint firstAttribute="bottom" secondItem="zI9-7Y-ydx" secondAttribute="bottom" id="gEN-DQ-Lgg"/>
                             <constraint firstItem="C4H-Zm-dSX" firstAttribute="trailing" secondItem="GKx-wh-pM8" secondAttribute="trailing" id="n3i-Lv-PuO"/>
                             <constraint firstAttribute="bottom" secondItem="bEd-6P-BOO" secondAttribute="bottom" id="sBB-Ev-C4a"/>
+                            <constraint firstItem="bEd-6P-BOO" firstAttribute="leading" secondItem="otX-5s-fDh" secondAttribute="trailing" constant="17" id="uhY-cb-fdJ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -272,7 +277,7 @@
                 <outlet property="addedInfoLabel" destination="zI9-7Y-ydx" id="SCX-HT-DON"/>
                 <outlet property="indicatorImageView" destination="GKx-wh-pM8" id="3k3-Wx-bfL"/>
                 <outlet property="infoView" destination="80i-7S-7mJ" id="opn-DV-tZG"/>
-                <outlet property="preIconImageView" destination="EA1-n9-dxo" id="VFf-2Y-8Ba"/>
+                <outlet property="preIconButton" destination="otX-5s-fDh" id="fxw-65-cPm"/>
                 <outlet property="settingView" destination="gkf-Yq-hJI" id="Gz8-qf-rxO"/>
                 <outlet property="switchButton" destination="C4H-Zm-dSX" id="93h-3m-Gzz"/>
                 <outlet property="titleLabel" destination="bEd-6P-BOO" id="WHU-mM-QLr"/>
@@ -280,7 +285,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_qlist_normal.png" width="19" height="19"/>
+        <image name="icon_qlist_press.png" width="19" height="19"/>
         <image name="indicator.png" width="7" height="13"/>
-        <image name="pick.png" width="14" height="13"/>
     </resources>
 </document>
