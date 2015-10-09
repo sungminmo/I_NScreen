@@ -48,7 +48,7 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
     BOOL isRestricted = type==CMContentsRestrictedTypeAdult?YES:NO;
     
     self.tableList = @[@{@"type":@(INFO_PREFERENCE_MAIN_CELL_TYPE)},
-                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"", @"icon":@(true), @"title":@"지역설정", @"addedInfo":@"현재설정지역 : 강동구", @"attributedString":@{@"target":@":", @"color":[CMColor colorViolet]}},
+                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMRegionSettingViewController", @"icon":@(true), @"title":@"지역설정", @"addedInfo":@"현재설정지역 : 강동구", @"attributedString":@{@"target":@":", @"color":[CMColor colorViolet]}},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMPurchaseCertPasswordViewController", @"icon":@(true), @"title":@"구매인증 비밀번호 관리"},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"icon":@(isRestricted), @"title":@"성인검색 제한설정", @"switchEvent":^(NSIndexPath* indexPath, BOOL isOn){[self switchEventAtIndexPath:indexPath value:isOn];}},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"", @"icon":@(true), @"title":@"성인인증", @"addedInfo":@"성인인증이 필요합니다.", @"attributedString":@{@"color":[UIColor redColor]}},
@@ -99,10 +99,16 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
     NSString* className = self.tableList[indexPath.row][@"class"];
     
     if (className) {
-        Class class = NSClassFromString(className);
         
-        CMBaseViewController* controller = (CMBaseViewController*)[[class alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+        if ([className isEqualToString:@"CMPurchaseCertPasswordViewController"]) {
+            //  alertView
+        } else {
+            Class class = NSClassFromString(className);
+            
+            CMBaseViewController* controller = (CMBaseViewController*)[[class alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
     }
 }
+
 @end

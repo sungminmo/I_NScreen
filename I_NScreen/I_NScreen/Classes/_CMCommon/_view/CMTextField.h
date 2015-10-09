@@ -17,4 +17,7 @@ typedef enum : NSInteger {
 
 @property (nonatomic, assign) CMTextFieldType type;
 
+- (void)changeColor:(UIColor*)color;
+- (void)resetColor;
+
 @end

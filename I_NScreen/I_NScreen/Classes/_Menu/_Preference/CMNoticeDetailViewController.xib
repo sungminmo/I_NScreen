@@ -74,13 +74,13 @@
                     <exclude reference="eYg-XD-sK2"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="SLt-27-qsc"/>
-                    <exclude reference="XOW-ZF-Ute"/>
-                    <exclude reference="ihC-8g-fEo"/>
                     <exclude reference="PvV-Gh-t8D"/>
                     <exclude reference="jdH-cP-fqN"/>
                     <exclude reference="xOc-zb-uVG"/>
                     <exclude reference="yRQ-UU-TN3"/>
+                    <exclude reference="SLt-27-qsc"/>
+                    <exclude reference="XOW-ZF-Ute"/>
+                    <exclude reference="ihC-8g-fEo"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -89,13 +89,13 @@
                     <include reference="eYg-XD-sK2"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="SLt-27-qsc"/>
-                    <include reference="XOW-ZF-Ute"/>
-                    <include reference="ihC-8g-fEo"/>
                     <include reference="PvV-Gh-t8D"/>
                     <include reference="jdH-cP-fqN"/>
                     <include reference="xOc-zb-uVG"/>
                     <include reference="yRQ-UU-TN3"/>
+                    <include reference="SLt-27-qsc"/>
+                    <include reference="XOW-ZF-Ute"/>
+                    <include reference="ihC-8g-fEo"/>
                 </mask>
             </variation>
         </view>

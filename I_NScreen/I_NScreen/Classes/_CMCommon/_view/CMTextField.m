@@ -7,6 +7,7 @@
 //
 
 #import "CMTextField.h"
+#import "CMCustomNumberPadView.h"
 
 @interface CMTextField ()
 
@@ -37,6 +38,16 @@
     }
 }
 
+- (void)changeColor:(UIColor*)color {
+    self.layer.borderColor = color.CGColor;
+    self.textColor = color;
+}
+
+- (void)resetColor {
+    self.layer.borderColor = [CMColor colorViolet].CGColor;
+    self.textColor = [CMColor colorViolet];
+}
+
 #pragma mark - Override
 
 - (void)setDelegate:(id<UITextFieldDelegate>)delegate {
@@ -47,8 +58,6 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     
-    self.layer.borderColor = [UIColor redColor].CGColor;
-    
     if ([self.textFieldDelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)]) {
         return [self.textFieldDelegate textFieldShouldBeginEditing:textField];
     } else {
@@ -58,14 +67,28 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0f)
+    {
+        if(self.keyboardType == UIKeyboardTypeNumberPad)
+        {
+            NSArray *listViews = [[NSBundle mainBundle] loadNibNamed:@"CMCustomNumberPadView" owner:nil options:nil];
+            CMCustomNumberPadView *textFieldView = listViews[0];
+            
+            self.inputView = textFieldView;
+            
+            textFieldView.textField = self;
+            textFieldView.doneBlock = ^void(UITextField* textField) {
+                [self textFieldShouldReturn:textField];
+            };
+        }
+    }
+    
     if ([self.textFieldDelegate respondsToSelector:@selector(textFieldDidBeginEditing:)]) {
         [self.textFieldDelegate textFieldDidBeginEditing:textField];
     }
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    
-    self.layer.borderColor = [CMColor colorViolet].CGColor;
     
     if ([self.textFieldDelegate respondsToSelector:@selector(textFieldShouldEndEditing:)]) {
         return [self.textFieldDelegate textFieldShouldEndEditing:textField];
@@ -75,8 +98,6 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    
-    self.layer.borderColor = [CMColor colorViolet].CGColor;
     
     if ([self.textFieldDelegate respondsToSelector:@selector(textFieldDidEndEditing:)]) {
         [self.textFieldDelegate textFieldDidEndEditing:textField];
@@ -113,3 +134,4 @@
 }
 
 @end
+

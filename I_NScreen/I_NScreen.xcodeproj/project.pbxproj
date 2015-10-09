@@ -14,6 +14,10 @@
 		2086CDA51BBA62E20065726E /* CMPurchaseCertPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2086CDA31BBA62E20065726E /* CMPurchaseCertPasswordViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2086CDA61BBA62E20065726E /* CMPurchaseCertPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2086CDA41BBA62E20065726E /* CMPurchaseCertPasswordViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		208729AF1BBB90E5009601A4 /* CMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 208729AE1BBB90E5009601A4 /* CMTextField.m */; settings = {ASSET_TAGS = (); }; };
+		20989CDE1BC7934F009C4418 /* CMCustomNumberPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20989CDC1BC7934F009C4418 /* CMCustomNumberPadView.m */; settings = {ASSET_TAGS = (); }; };
+		20989CDF1BC7934F009C4418 /* CMCustomNumberPadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20989CDD1BC7934F009C4418 /* CMCustomNumberPadView.xib */; settings = {ASSET_TAGS = (); }; };
+		20989CE31BC7AE00009C4418 /* CMRegionSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20989CE11BC7AE00009C4418 /* CMRegionSettingViewController.m */; settings = {ASSET_TAGS = (); }; };
+		20989CE41BC7AE00009C4418 /* CMRegionSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20989CE21BC7AE00009C4418 /* CMRegionSettingViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		20A8EFB01BAEB6AA00FA0CFA /* CMSearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A8EFAE1BAEB6A900FA0CFA /* CMSearchCollectionViewCell.m */; };
 		20A8EFB11BAEB6AA00FA0CFA /* CMSearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A8EFAF1BAEB6A900FA0CFA /* CMSearchCollectionViewCell.xib */; };
 		20EAA3421BAE7D2C004DFCA0 /* CMTabMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EAA3411BAE7D2C004DFCA0 /* CMTabMenuView.m */; };
@@ -492,6 +496,12 @@
 		2086CDA41BBA62E20065726E /* CMPurchaseCertPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPurchaseCertPasswordViewController.xib; sourceTree = "<group>"; };
 		208729AD1BBB90E5009601A4 /* CMTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTextField.h; sourceTree = "<group>"; };
 		208729AE1BBB90E5009601A4 /* CMTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTextField.m; sourceTree = "<group>"; };
+		20989CDB1BC7934F009C4418 /* CMCustomNumberPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMCustomNumberPadView.h; sourceTree = "<group>"; };
+		20989CDC1BC7934F009C4418 /* CMCustomNumberPadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMCustomNumberPadView.m; sourceTree = "<group>"; };
+		20989CDD1BC7934F009C4418 /* CMCustomNumberPadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMCustomNumberPadView.xib; sourceTree = "<group>"; };
+		20989CE01BC7AE00009C4418 /* CMRegionSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRegionSettingViewController.h; sourceTree = "<group>"; };
+		20989CE11BC7AE00009C4418 /* CMRegionSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRegionSettingViewController.m; sourceTree = "<group>"; };
+		20989CE21BC7AE00009C4418 /* CMRegionSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMRegionSettingViewController.xib; sourceTree = "<group>"; };
 		20A8EFAD1BAEB6A900FA0CFA /* CMSearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMSearchCollectionViewCell.h; path = _Cell/CMSearchCollectionViewCell.h; sourceTree = "<group>"; };
 		20A8EFAE1BAEB6A900FA0CFA /* CMSearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMSearchCollectionViewCell.m; path = _Cell/CMSearchCollectionViewCell.m; sourceTree = "<group>"; };
 		20A8EFAF1BAEB6A900FA0CFA /* CMSearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMSearchCollectionViewCell.xib; path = _Cell/CMSearchCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1713,6 +1723,9 @@
 				20EAA3411BAE7D2C004DFCA0 /* CMTabMenuView.m */,
 				208729AD1BBB90E5009601A4 /* CMTextField.h */,
 				208729AE1BBB90E5009601A4 /* CMTextField.m */,
+				20989CDB1BC7934F009C4418 /* CMCustomNumberPadView.h */,
+				20989CDC1BC7934F009C4418 /* CMCustomNumberPadView.m */,
+				20989CDD1BC7934F009C4418 /* CMCustomNumberPadView.xib */,
 			);
 			path = _view;
 			sourceTree = "<group>";
@@ -1742,6 +1755,9 @@
 				2086CDA21BBA62E20065726E /* CMPurchaseCertPasswordViewController.h */,
 				2086CDA31BBA62E20065726E /* CMPurchaseCertPasswordViewController.m */,
 				2086CDA41BBA62E20065726E /* CMPurchaseCertPasswordViewController.xib */,
+				20989CE01BC7AE00009C4418 /* CMRegionSettingViewController.h */,
+				20989CE11BC7AE00009C4418 /* CMRegionSettingViewController.m */,
+				20989CE21BC7AE00009C4418 /* CMRegionSettingViewController.xib */,
 			);
 			path = _Preference;
 			sourceTree = "<group>";
@@ -2323,6 +2339,7 @@
 				9912782C1BC78BE100552291 /* icon_menu_chguide@2x.png in Resources */,
 				991277AB1BC78BE100552291 /* icon_discount_normal.png in Resources */,
 				991278431BC78BE100552291 /* contentsno_n@2x.png in Resources */,
+				20989CE41BC7AE00009C4418 /* CMRegionSettingViewController.xib in Resources */,
 				991277CD1BC78BE100552291 /* contentsno_f.png in Resources */,
 				9912778A1BC78BE100552291 /* icon_series.png in Resources */,
 				991278A61BC78BE100552291 /* icon_menu_chguide@3x.png in Resources */,
@@ -2549,6 +2566,7 @@
 				E5567BBD1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib in Resources */,
 				20EAA3441BAE9474004DFCA0 /* CMSearchMainViewController.xib in Resources */,
 				9912779D1BC78BE100552291 /* fp1btn_ok_normal.png in Resources */,
+				20989CDF1BC7934F009C4418 /* CMCustomNumberPadView.xib in Resources */,
 				991277C51BC78BE100552291 /* smallbtn_press.png in Resources */,
 				9912782B1BC78BE100552291 /* icon_check@2x.png in Resources */,
 				991277D11BC78BE100552291 /* icon_3depth_close.png in Resources */,
@@ -2659,6 +2677,7 @@
 				99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */,
 				E511817E1BA7ACC600C1E31D /* RecodeMainViewController.m in Sources */,
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
+				20989CDE1BC7934F009C4418 /* CMCustomNumberPadView.m in Sources */,
 				99478D361BAD4CF200CC99E9 /* CMColor.m in Sources */,
 				99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */,
 				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
@@ -2691,6 +2710,7 @@
 				99C43C571BA3EDA10035A0A4 /* NSString+Helper.m in Sources */,
 				99C43C521BA3EDA10035A0A4 /* NSDate+Helper.m in Sources */,
 				99C43C6F1BA3EDA10035A0A4 /* RootViewController.m in Sources */,
+				20989CE31BC7AE00009C4418 /* CMRegionSettingViewController.m in Sources */,
 				20FEC9A11BBCD93100F6984F /* CMAutoCompletTableViewCell.m in Sources */,
 				99E9EDB11BBA26C3002FEBF0 /* CMPaytvGuideViewController.m in Sources */,
 				2086CDA51BBA62E20065726E /* CMPurchaseCertPasswordViewController.m in Sources */,
