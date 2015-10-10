@@ -11,6 +11,7 @@
                 <outlet property="completeButton" destination="MPx-17-OaK" id="e7k-HT-mvt"/>
                 <outlet property="resionLabel" destination="XVu-hU-ecA" id="Hjm-vC-GW3"/>
                 <outlet property="tableView" destination="hCi-26-mA4" id="NUv-vh-bsR"/>
+                <outlet property="topConstraint" destination="vGp-Hu-5vA" id="88U-9u-gXW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
