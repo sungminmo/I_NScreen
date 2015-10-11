@@ -24,6 +24,7 @@ static NSString* const programCellIdentifier = @"programCell";
 @interface CMSearchMainViewController ()
 
 @property (nonatomic, strong) IBOutlet CMTextField* searchField;
+@property (nonatomic, strong) IBOutlet UILabel* infoLabel;
 @property (nonatomic, strong) IBOutlet UITableView* autoCompletList;
 
 @property (nonatomic, strong) CMTabMenuView* tabMenu;
@@ -49,10 +50,7 @@ static NSString* const programCellIdentifier = @"programCell";
     
     self.dataArray = [@[] mutableCopy];
     
-    //  test
-    for (int i = 0; i < 100; i++) {
-        [self.dataArray addObject:@{@"image":@"testimg.png", @"title":@"포켓몬스터"}];
-    }
+    [self setListCount:10];
     
     UINib* nib;
     
@@ -66,6 +64,11 @@ static NSString* const programCellIdentifier = @"programCell";
     [self.programList registerNib:nib forCellReuseIdentifier:programCellIdentifier];
     
     [self loadUI];
+    
+    //  test
+    for (int i = 0; i < 100; i++) {
+        [self.dataArray addObject:@{@"image":@"testimg.png", @"title":@"포켓몬스터"}];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +89,16 @@ static NSString* const programCellIdentifier = @"programCell";
     self.programList.hidden = true;
 }
 
-#pragma mark - 
+- (void)setListCount:(NSInteger)count {
+    
+    if (0 > count) {
+        self.infoLabel.text = @"성인 콘텐츠를 검색하시려면\n 설정>성인검색 제한 설정을 해제 해주세요.";
+    } else {
+        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , count];
+    }
+}
+
+#pragma mark - Event
 
 - (IBAction)buttonWasTouchUpInside:(id)sender {
     [self.searchField resignFirstResponder];
@@ -179,6 +191,8 @@ static NSString* const programCellIdentifier = @"programCell";
     
     if (self.autoCompletList == tableView) {
         
+        tableView.hidden = YES;
+        [self.searchField resignFirstResponder];
     } else if (self.programList == tableView) {
         
     }

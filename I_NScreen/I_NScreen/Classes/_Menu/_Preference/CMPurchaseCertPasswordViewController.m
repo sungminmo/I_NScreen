@@ -18,6 +18,7 @@ typedef enum : NSInteger {
 
 @property (nonatomic, strong) IBOutlet CMTextField* textField1;
 @property (nonatomic, strong) IBOutlet CMTextField* textField2;
+@property (nonatomic, strong) IBOutlet UILabel* infoLabel;
 
 @property (nonatomic, strong) IBOutlet UIButton* cancelButton;
 @property (nonatomic, strong) IBOutlet UIButton* completButton;
@@ -43,6 +44,27 @@ typedef enum : NSInteger {
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Private
+
+- (BOOL)validateValue {
+    
+    self.infoLabel.text = @"";
+    self.infoLabel.hidden = YES;
+    [self.textField2 resetColor];
+
+    BOOL validation = true;
+    if ([[self.textField1.text trim] isEqualToString:[self.textField2.text trim]] == false) {
+        validation = false;
+        
+        self.infoLabel.text = @"인증번호가 일치하지 않습니다.";
+        self.infoLabel.hidden = NO;
+        
+        [self.textField2 changeColor:[UIColor redColor]];
+    }
+    
+    return validation;
+}
+
 #pragma mark - Event
 
 - (IBAction)buttonWasTouchUpInside:(id)sender {
@@ -50,9 +72,15 @@ typedef enum : NSInteger {
     
     switch (tag) {
         case TAG_CANCEL: {
+            
+            [self.navigationController popViewControllerAnimated:YES];
         }
             break;
         case TAG_COMPLETE: {
+            
+            if ([self validateValue]) {
+                
+            }
         }
             break;
         default:

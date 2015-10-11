@@ -99,7 +99,12 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
     if (className) {
         
         if ([className isEqualToString:@"CMPurchaseCertPasswordViewController"]) {
-            //  alertView
+            //  add alertView
+            
+            Class class = NSClassFromString(className);
+            
+            CMBaseViewController* controller = (CMBaseViewController*)[[class alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
         } else {
             Class class = NSClassFromString(className);
             

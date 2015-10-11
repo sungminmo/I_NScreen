@@ -12,13 +12,15 @@
 
 @property (nonatomic, strong) IBOutlet UILabel* titleLabel;
 @property (nonatomic, strong) IBOutlet UIButton* closeButton;
+@property (nonatomic, strong) IBOutlet UIView* lineView;
 
 @end
 
 @implementation CMAutoCompletTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+
+    self.lineView.backgroundColor = [CMColor colorTableSeparator];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
