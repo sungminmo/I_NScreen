@@ -11,6 +11,7 @@
 #import "CMSearchTableViewCell.h"
 #import "CMAutoCompletTableViewCell.h"
 #import "CMConstants.h"
+#import "BMXSwipableCell+ConfigureCell.h"
 
 typedef enum : NSInteger {
     VOD_TABMENU_TYPE,
@@ -169,6 +170,8 @@ static NSString* const programCellIdentifier = @"programCell";
     } else if (self.programList == tableView) {
         CMSearchTableViewCell* cell = (CMSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:programCellIdentifier];
         
+        [cell configureCellForItem:@{}];
+        
         return cell;
     }
     
@@ -198,6 +201,11 @@ static NSString* const programCellIdentifier = @"programCell";
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [BMXSwipableCell hideBasementOfAllCells];
 }
 
 #pragma mark - UITextFieldDelegate

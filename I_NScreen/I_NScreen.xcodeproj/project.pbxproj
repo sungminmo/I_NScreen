@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20100C0F1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20100C0E1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m */; settings = {ASSET_TAGS = (); }; };
 		2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2053ED5C1BBCA06E00264FBF /* CMSearchTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		2053ED5F1BBCA06E00264FBF /* CMSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2053ED5D1BBCA06E00264FBF /* CMSearchTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2086CD9E1BBA24B50065726E /* CMPreferenceMainTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -485,6 +486,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20100C0D1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMXSwipableCell+ConfigureCell.h"; sourceTree = "<group>"; };
+		20100C0E1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMXSwipableCell+ConfigureCell.m"; sourceTree = "<group>"; };
 		2053ED5B1BBCA06E00264FBF /* CMSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMSearchTableViewCell.h; path = _Cell/CMSearchTableViewCell.h; sourceTree = "<group>"; };
 		2053ED5C1BBCA06E00264FBF /* CMSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMSearchTableViewCell.m; path = _Cell/CMSearchTableViewCell.m; sourceTree = "<group>"; };
 		2053ED5D1BBCA06E00264FBF /* CMSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMSearchTableViewCell.xib; path = _Cell/CMSearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -1843,6 +1846,8 @@
 				99C43C221BA3EDA10035A0A4 /* UIView+ViewController.m */,
 				99C43C231BA3EDA10035A0A4 /* UIViewController+OverlayView.h */,
 				99C43C241BA3EDA10035A0A4 /* UIViewController+OverlayView.m */,
+				20100C0D1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.h */,
+				20100C0E1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m */,
 			);
 			path = _category;
 			sourceTree = "<group>";
@@ -2687,6 +2692,7 @@
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
 				99C43C581BA3EDA10035A0A4 /* NSUserDefaults+Settings.m in Sources */,
+				20100C0F1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m in Sources */,
 				E5567BBC1BA955A500AB4003 /* MyCMBuyListTableViewCell.m in Sources */,
 				99478D331BAD4B3E00CC99E9 /* UIView+Layer.m in Sources */,
 				99E9EDA71BBA26A5002FEBF0 /* CMNoticeDetailViewController.m in Sources */,

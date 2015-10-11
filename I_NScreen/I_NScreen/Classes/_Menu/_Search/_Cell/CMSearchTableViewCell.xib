@@ -84,6 +84,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="YD7-1n-3pi" firstAttribute="leading" secondItem="wJK-zn-FaB" secondAttribute="trailing" constant="19" id="3kr-lB-sJU"/>
                     <constraint firstItem="nG5-L5-byg" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.58" id="6Do-QD-lqQ"/>

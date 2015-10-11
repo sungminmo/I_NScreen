@@ -16,6 +16,8 @@
 @implementation CMSearchTableViewCell
 
 - (void)awakeFromNib {
+    
+    [super awakeFromNib];
 
     self.lineView.backgroundColor = [CMColor colorTableSeparator];
 }

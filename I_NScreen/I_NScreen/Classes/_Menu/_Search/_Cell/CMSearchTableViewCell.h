@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <BMXSwipableCell/BMXSwipableCell.h>
 
-@interface CMSearchTableViewCell : UITableViewCell
+@interface CMSearchTableViewCell : BMXSwipableCell
 
 @end
