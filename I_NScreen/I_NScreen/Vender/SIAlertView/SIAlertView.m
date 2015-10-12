@@ -11,6 +11,8 @@
 #import "UIView+Layer.h"
 #import <QuartzCore/QuartzCore.h>
 
+#import "CMTextField.h"
+
 NSString *const SIAlertViewWillShowNotification = @"SIAlertViewWillShowNotification";
 NSString *const SIAlertViewDidShowNotification = @"SIAlertViewDidShowNotification";
 NSString *const SIAlertViewWillDismissNotification = @"SIAlertViewWillDismissNotification";
@@ -25,6 +27,7 @@ NSString *const SIAlertViewDidDismissNotification = @"SIAlertViewDidDismissNotif
 #define CONTENT_PADDING_LEFT 6
 #define CONTENT_PADDING_TOP 6
 #define CONTENT_PADDING_BOTTOM 6
+#define CONTENT_TEXTFIELD_HEIGHT 32
 #define BUTTON_HEIGHT 44
 #define CONTAINER_WIDTH 300
 
@@ -56,6 +59,10 @@ static SIAlertView *__si_alert_current_view;
 @property (nonatomic, strong) UILabel *messageLabel;
 @property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) NSMutableArray *buttons;
+
+@property (nonatomic, strong) NSString* textHolder;//플레이스 홀더
+@property (nonatomic, strong) NSString* textValue;//텍스트필드 입력값
+@property (nonatomic, assign) NSInteger textLength;//최대입력제한
 
 @property (nonatomic, unsafe_unretained) BOOL isCloseButton;
 
@@ -267,6 +274,7 @@ static SIAlertView *__si_alert_current_view;
 		_title = title;
         _message = message;
         _enabledParallaxEffect = YES;
+        self.textFieldPosition = SIAlertViewTextFieldPositionNone;
 		self.items = [[NSMutableArray alloc] init];
 	}
 	return self;
@@ -278,6 +286,7 @@ static SIAlertView *__si_alert_current_view;
         _title = title;
         _attributeMessage = message;
         _enabledParallaxEffect = YES;
+        self.textFieldPosition = SIAlertViewTextFieldPositionNone;
         self.items = [[NSMutableArray alloc] init];
     }
     return self;
@@ -1021,6 +1030,30 @@ static SIAlertView *__si_alert_current_view;
     [self invalidateLayout];
 }
 
+
+- (void)updateInputField {
+    
+    if (_textHolder == nil) {
+        [self invalidateLayout];
+        return;
+    }
+    
+    if (!self.inputField) {
+        CGFloat fieldWidth = self.containerView.bounds.size.width - CONTENT_PADDING_LEFT * 2;
+        self.inputField = [[CMTextField alloc] initWithFrame:CGRectMake(CONTENT_PADDING_LEFT, 0, fieldWidth, CONTENT_TEXTFIELD_HEIGHT)];
+        self.inputField.inputDelegate = self;
+//        [self.inputField settingLeftMargin:10];
+//        [self.inputField settingRightViewOnlyDeleteButton];
+//        [self.inputField settingInputFieldHolder:_textHolder];
+        [self.containerView addSubview:self.inputField];
+    }
+    else {
+        [self.inputField removeFromSuperview];
+        self.inputField = nil;
+    }
+    [self invalidateLayout];
+}
+
 - (void)setupButtons
 {
     self.buttons = [[NSMutableArray alloc] initWithCapacity:self.items.count];
@@ -1385,6 +1418,70 @@ static SIAlertView *__si_alert_current_view;
     
 }
 
++ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText textHoloder:(NSString*)holder textValue:(NSString*)value textPosition:(SIAlertViewTextFieldPosition)position textLength:(NSInteger)maxLength cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion {
+
+    NSAttributedString* string = [[NSAttributedString alloc] initWithAttributedString:[SIAlertView attributeText:message bold:boldText]];
+    
+    if (title.length == 0) {
+        title = @"";
+    }
+    
+    SIAlertViewButtonType buttonType = SIAlertViewButtonTypeDefault;
+    if (buttons.count == 0) {
+        buttonType = SIAlertViewButtonTypeCancel;
+    }
+    
+    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:title andAttributeMessage:string];
+    alertView.textFieldPosition = position;
+    
+    if (cancel != nil) {
+        [alertView addButtonWithTitle:cancel
+                                 type:buttonType
+                              handler:^(SIAlertView *alertView) {
+                                  NSLog(@"Cancel Clicked");
+                                  if (completion != nil) {
+                                      completion(0, alertView);
+                                  }
+                              }];
+    }
+    
+    for (NSInteger i = 0; i < buttons.count; i++) {
+        NSString* text = buttons[i];
+        [alertView addButtonWithTitle:text
+                                 type:SIAlertViewButtonTypeCancel
+                              handler:^(SIAlertView *alertView) {
+                                  NSLog(@"OK Clicked");
+                                  if (completion != nil) {
+                                      completion(i+1, alertView);
+                                  }
+                              }];
+    }
+    
+    if (cancel == nil && buttons.count == 0) {
+        alertView.isCloseButton = YES;
+    }
+    
+    
+    alertView.buttonFont = [UIFont boldSystemFontOfSize:15];
+    alertView.transitionStyle = SIAlertViewTransitionStyleFade;
+    
+    alertView.willShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willShowHandler2", alertView);
+    };
+    alertView.didShowHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didShowHandler2", alertView);
+    };
+    alertView.willDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, willDismissHandler2", alertView);
+    };
+    alertView.didDismissHandler = ^(SIAlertView *alertView) {
+        NSLog(@"%@, didDismissHandler2", alertView);
+    };
+    
+    [alertView show];
+    
+}
+
 + (NSMutableAttributedString*)attributeText:(NSString*)text bold:(NSString*)boldText {
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     [style setAlignment:NSTextAlignmentCenter];
@@ -1419,6 +1516,24 @@ static SIAlertView *__si_alert_current_view;
     }
     
     return aString;
+}
+
+#pragma mark - NSNotification
+
+- (void)keyboardWillShow:(NSNotification*)notification
+{
+    NSDictionary* info = [notification userInfo];
+    CGRect keypadFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGRect frame = self.containerView.frame;
+    frame.origin.y = self.frame.size.height - keypadFrame.size.height - frame.size.height;
+    self.containerView.frame = frame;
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification {
+    CGRect frame = self.containerView.frame;
+    frame.origin.y = (self.frame.size.height - frame.size.height)/2;
+    self.containerView.frame = frame;
 }
 
 @end

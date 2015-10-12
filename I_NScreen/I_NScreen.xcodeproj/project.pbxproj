@@ -382,6 +382,7 @@
 		991278CF1BC78BE100552291 /* vod3btn_p_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9912776B1BC78BE100552291 /* vod3btn_p_press@3x.png */; settings = {ASSET_TAGS = (); }; };
 		991278D01BC78BE100552291 /* vod3btn_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9912776C1BC78BE100552291 /* vod3btn_press@3x.png */; settings = {ASSET_TAGS = (); }; };
 		991278D11BC78BE100552291 /* vod3btn_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9912776D1BC78BE100552291 /* vod3btn_select@3x.png */; settings = {ASSET_TAGS = (); }; };
+		9916175F1BCB2B140085B310 /* CMTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9916175E1BCB2B140085B310 /* CMTextFieldView.m */; settings = {ASSET_TAGS = (); }; };
 		992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992894FA1BA3E68700BE62A0 /* CFNetwork.framework */; };
 		99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99366AC71BBA66D00082F8D4 /* CMNoticeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		99366ACD1BBA66D00082F8D4 /* CMNoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99366AC81BBA66D00082F8D4 /* CMNoticeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -871,6 +872,8 @@
 		9912776B1BC78BE100552291 /* vod3btn_p_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod3btn_p_press@3x.png"; sourceTree = "<group>"; };
 		9912776C1BC78BE100552291 /* vod3btn_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod3btn_press@3x.png"; sourceTree = "<group>"; };
 		9912776D1BC78BE100552291 /* vod3btn_select@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod3btn_select@3x.png"; sourceTree = "<group>"; };
+		9916175D1BCB2B140085B310 /* CMTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTextFieldView.h; sourceTree = "<group>"; };
+		9916175E1BCB2B140085B310 /* CMTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTextFieldView.m; sourceTree = "<group>"; };
 		992894FA1BA3E68700BE62A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		992894FC1BA3E69000BE62A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		99366AC61BBA66D00082F8D4 /* CMNoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMNoticeTableViewCell.h; path = _Cell/CMNoticeTableViewCell.h; sourceTree = "<group>"; };
@@ -1729,6 +1732,8 @@
 				20989CDB1BC7934F009C4418 /* CMCustomNumberPadView.h */,
 				20989CDC1BC7934F009C4418 /* CMCustomNumberPadView.m */,
 				20989CDD1BC7934F009C4418 /* CMCustomNumberPadView.xib */,
+				9916175D1BCB2B140085B310 /* CMTextFieldView.h */,
+				9916175E1BCB2B140085B310 /* CMTextFieldView.m */,
 			);
 			path = _view;
 			sourceTree = "<group>";
@@ -2742,6 +2747,7 @@
 				99C43C661BA3EDA10035A0A4 /* CMConstants.m in Sources */,
 				E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */,
 				99C43C5D1BA3EDA10035A0A4 /* UIViewController+OverlayView.m in Sources */,
+				9916175F1BCB2B140085B310 /* CMTextFieldView.m in Sources */,
 				99C43C631BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */,
 				E51181781BA7ACC600C1E31D /* RecodeMainTableViewCell.m in Sources */,
 				20EAA3421BAE7D2C004DFCA0 /* CMTabMenuView.m in Sources */,

@@ -80,18 +80,30 @@ typedef NS_ENUM(NSInteger, SIAlertViewTransitionStyle) {
     SIAlertViewTransitionStyleDropDown
 };
 
+typedef NS_ENUM(NSInteger, SIAlertViewTextFieldPosition) {
+    SIAlertViewTextFieldPositionNone = 0,
+    SIAlertViewTextFieldPositionTop,
+    SIAlertViewTextFieldPositionMiddle,
+    SIAlertViewTextFieldPositionBottom
+};
+
+@class CMTextField;
 @class SIAlertView;
 typedef void(^SIAlertViewHandler)(SIAlertView *alertView);
 typedef void(^SIAlertViewConfirmHandler)(NSInteger buttonIndex, SIAlertView* alert);
+typedef void(^SIAlertViewTextFieldHandler)(NSInteger buttonIndex, SIAlertView* alert);
 @interface SIAlertView : UIView
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, copy) NSAttributedString *attributeMessage;
 
+@property (nonatomic, strong) CMTextField* inputField;
+
 @property (nonatomic, assign) SIAlertViewTransitionStyle transitionStyle; // default is SIAlertViewTransitionStyleSlideFromBottom
 @property (nonatomic, assign) SIAlertViewBackgroundStyle backgroundStyle; // default is SIAlertViewBackgroundStyleGradient
 @property (nonatomic, assign) SIAlertViewButtonsListStyle buttonsListStyle; // default is SIAlertViewButtonsListStyleNormal
+@property (nonatomic, assign) SIAlertViewTextFieldPosition textFieldPosition; // default is SIAlertViewTextFieldPositionNone
 
 @property (nonatomic, copy) SIAlertViewHandler willShowHandler;
 @property (nonatomic, copy) SIAlertViewHandler didShowHandler;
@@ -160,6 +172,9 @@ typedef void(^SIAlertViewConfirmHandler)(NSInteger buttonIndex, SIAlertView* ale
 + (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText completion:(SIAlertViewConfirmHandler)completion;
 + (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText button:(NSString*)text completion:(SIAlertViewConfirmHandler)completion;
 + (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion;
+
++ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText textHoloder:(NSString*)holder textValue:(NSString*)value textPosition:(SIAlertViewTextFieldPosition)position textLength:(NSInteger)maxLength cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion;
+
 @end
 
 
