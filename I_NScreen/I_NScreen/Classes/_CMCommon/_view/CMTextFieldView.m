@@ -38,6 +38,11 @@ static int tag_button_done = 849404;
         self.inputField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         [self addSubview:self.inputField];
         
+        self.fieldLeftView = [[UIView alloc] initWithFrame:CGRectZero];
+        self.fieldRightView = [[UIView alloc] initWithFrame:CGRectZero];
+        self.inputField.leftView = self.fieldLeftView;
+        self.inputField.rightView = self.fieldRightView;
+        
         //3. default setting
         self.fieldState = CMTextFieldControlStateNormal;
         self.fieldType = CMTextFieldTypeDefault;
@@ -196,6 +201,15 @@ static int tag_button_done = 849404;
     [self.inputField setLeftViewMode:UITextFieldViewModeAlways];
 }
 
+- (void)settingTextAlignment:(NSTextAlignment)textAlignment {
+    
+    self.inputField.textAlignment = textAlignment;
+    
+    if (textAlignment == NSTextAlignmentCenter) {
+        self.inputField.leftView.frame = CGRectZero;
+        self.inputField.rightView.frame = CGRectZero;
+    }
+}
 
 - (void)settingInputFieldHolder:(NSString*)holder {
     //    self.inputField.placeholder = holder;

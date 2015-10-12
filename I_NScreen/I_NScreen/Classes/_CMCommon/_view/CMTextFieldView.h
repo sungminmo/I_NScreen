@@ -40,6 +40,8 @@ static CGFloat fTextFieldPadding = 11.f;
 
 @property (nonatomic, strong) UITextField* inputField;
 @property (nonatomic, strong) NSString* placeHolder;
+@property (nonatomic, strong) UIView* fieldLeftView;
+@property (nonatomic, strong) UIView* fieldRightView;
 @property (nonatomic, assign) id inputDelegate;
 @property (nonatomic, strong) UIButton* deleteButton;
 
@@ -56,6 +58,13 @@ static CGFloat fTextFieldPadding = 11.f;
  *  @param margin 마진
  */
 - (void)settingLeftMargin:(CGFloat)margin;
+
+/**
+ *  텍스트 필드 정렬
+ *
+ *  @param textAlignment NSTextAlignment
+ */
+- (void)settingTextAlignment:(NSTextAlignment)textAlignment;
 
 /**
  *  플레이스홀더를 세팅한다.
