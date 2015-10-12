@@ -2,7 +2,7 @@
 //  CMTextFieldView.m
 //  I_NScreen
 //
-//  Created by 조백근 on 2015. 10. 12..
+//  Created by kimts on 2015. 10. 12..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 static int tag_button_delete = 21001;//삭제버튼 태그
 static int tag_button_done = 849404;
 
-@interface CMTextFieldView ()
+@interface CMTextFieldView () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UIImageView* backgroundImageView;
 @property (nonatomic, strong) UIButton* doneButton;
@@ -29,7 +29,7 @@ static int tag_button_done = 849404;
         self.placeHolder = @"";
         
         //2. subviews
-        self.backgroundImageView = [[UIImageView alloc] initWithFrame:frame];
+        self.backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
         [self addSubview:self.backgroundImageView];
         
         self.inputField = [[UITextField alloc] initWithFrame:self.bounds];
@@ -113,7 +113,7 @@ static int tag_button_done = 849404;
             break;
     }
     
-    UIImage* image = [[UIImage imageNamed:@"pwbox.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 50, 0, 50)];
+    UIImage* image = [[UIImage imageNamed:@"pwbox.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 50, 10, 50)];
     
     return image;
 }
@@ -127,7 +127,7 @@ static int tag_button_done = 849404;
     self.inputField.enabled = YES;
     switch ((NSInteger)_fieldState) {
         case CMTextFieldControlStateNormal : {//정상
-
+            
             if (self.deleteButton != nil) {
                 self.deleteButton.hidden = YES;
             }
@@ -145,7 +145,7 @@ static int tag_button_done = 849404;
         }
     }
     
-    return [self.backgroundImageView setImage:[self createBackgrroundImageWithFieldState:fieldState]];
+    [self.backgroundImageView setImage:[self createBackgrroundImageWithFieldState:fieldState]];
 }
 
 - (void)setFieldType:(CMTextFieldType)fieldType {
@@ -315,7 +315,7 @@ static int tag_button_done = 849404;
         
         [self clearTextField];
     } else if (tag == tag_button_done) {
-
+        
         [self textFieldShouldReturn:self.inputField];
     }
 }
@@ -476,43 +476,44 @@ static int tag_button_done = 849404;
 - (void)keyboardWillShow:(NSNotification*)notification {
     
     /*if ([self isFirstResponder] == false) {
-        return;
-    }
-    
-    UINavigationController* navigationController = (UINavigationController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
-    CGRect rootViewFrame = navigationController.view.frame;
-    
-    NSDictionary* keyboardInfo = [notification userInfo];
-    CGRect keyboardFrame = [[keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    
-    CGRect frame = [self.window convertRect:self.frame fromView:self.superview];
-    
-    CGFloat bottomPadding = 3;
-    if (keyboardFrame.origin.y < frame.origin.y + bottomPadding) {
-        
-        CGFloat calcY;
-        
-        if ((CGRectGetMaxY(frame) <= keyboardFrame.origin.y) && (keyboardFrame.origin.y - CGRectGetMaxY(frame) < bottomPadding)) {
-            calcY = bottomPadding - (keyboardFrame.origin.y - CGRectGetMaxY(frame));
-        } else {
-            calcY = CGRectGetMaxY(frame) - keyboardFrame.origin.y + bottomPadding;
-        }
-        
-        rootViewFrame.origin.y -= calcY;
-        [UIView animateWithDuration:.4 animations:^{
-            navigationController.view.frame = rootViewFrame;
-        }];
-    }*/
+     return;
+     }
+     
+     UINavigationController* navigationController = (UINavigationController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+     CGRect rootViewFrame = navigationController.view.frame;
+     
+     NSDictionary* keyboardInfo = [notification userInfo];
+     CGRect keyboardFrame = [[keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+     
+     CGRect frame = [self.window convertRect:self.frame fromView:self.superview];
+     
+     CGFloat bottomPadding = 3;
+     if (keyboardFrame.origin.y < frame.origin.y + bottomPadding) {
+     
+     CGFloat calcY;
+     
+     if ((CGRectGetMaxY(frame) <= keyboardFrame.origin.y) && (keyboardFrame.origin.y - CGRectGetMaxY(frame) < bottomPadding)) {
+     calcY = bottomPadding - (keyboardFrame.origin.y - CGRectGetMaxY(frame));
+     } else {
+     calcY = CGRectGetMaxY(frame) - keyboardFrame.origin.y + bottomPadding;
+     }
+     
+     rootViewFrame.origin.y -= calcY;
+     [UIView animateWithDuration:.4 animations:^{
+     navigationController.view.frame = rootViewFrame;
+     }];
+     }*/
 }
 
 - (void)keyboardWillHide:(NSNotification*)noti {
     
     /*UINavigationController* navigationController = (UINavigationController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
-    CGRect rootViewFrame = navigationController.view.frame;
-    rootViewFrame.origin.y = 0;
-    
-    [UIView animateWithDuration:.4 animations:^{
-        navigationController.view.frame = rootViewFrame;
-    }];*/
+     CGRect rootViewFrame = navigationController.view.frame;
+     rootViewFrame.origin.y = 0;
+     
+     [UIView animateWithDuration:.4 animations:^{
+     navigationController.view.frame = rootViewFrame;
+     }];*/
 }
+
 @end

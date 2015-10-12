@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20100C0F1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20100C0E1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m */; settings = {ASSET_TAGS = (); }; };
+		203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203ED8571BCBCAC3003C0521 /* CMTextFieldView.m */; settings = {ASSET_TAGS = (); }; };
 		2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2053ED5C1BBCA06E00264FBF /* CMSearchTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		2053ED5F1BBCA06E00264FBF /* CMSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2053ED5D1BBCA06E00264FBF /* CMSearchTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2086CD9E1BBA24B50065726E /* CMPreferenceMainTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -26,7 +27,6 @@
 		20FEC9A11BBCD93100F6984F /* CMAutoCompletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FEC99F1BBCD93100F6984F /* CMAutoCompletTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		20FEC9A21BBCD93100F6984F /* CMAutoCompletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FEC9A01BBCD93100F6984F /* CMAutoCompletTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */; };
-		992225051BCBB86F00987624 /* CMTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 992225041BCBB86F00987624 /* CMTextFieldView.m */; settings = {ASSET_TAGS = (); }; };
 		992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992894FA1BA3E68700BE62A0 /* CFNetwork.framework */; };
 		99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99366AC71BBA66D00082F8D4 /* CMNoticeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		99366ACD1BBA66D00082F8D4 /* CMNoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99366AC81BBA66D00082F8D4 /* CMNoticeTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -698,6 +698,8 @@
 /* Begin PBXFileReference section */
 		20100C0D1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMXSwipableCell+ConfigureCell.h"; sourceTree = "<group>"; };
 		20100C0E1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMXSwipableCell+ConfigureCell.m"; sourceTree = "<group>"; };
+		203ED8561BCBCAC3003C0521 /* CMTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTextFieldView.h; sourceTree = "<group>"; };
+		203ED8571BCBCAC3003C0521 /* CMTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTextFieldView.m; sourceTree = "<group>"; };
 		2053ED5B1BBCA06E00264FBF /* CMSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMSearchTableViewCell.h; path = _Cell/CMSearchTableViewCell.h; sourceTree = "<group>"; };
 		2053ED5C1BBCA06E00264FBF /* CMSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMSearchTableViewCell.m; path = _Cell/CMSearchTableViewCell.m; sourceTree = "<group>"; };
 		2053ED5D1BBCA06E00264FBF /* CMSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMSearchTableViewCell.xib; path = _Cell/CMSearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -725,8 +727,6 @@
 		20FEC99F1BBCD93100F6984F /* CMAutoCompletTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAutoCompletTableViewCell.m; path = _Cell/CMAutoCompletTableViewCell.m; sourceTree = "<group>"; };
 		20FEC9A01BBCD93100F6984F /* CMAutoCompletTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMAutoCompletTableViewCell.xib; path = _Cell/CMAutoCompletTableViewCell.xib; sourceTree = "<group>"; };
 		57C9EE5D8B32911941D7BC54 /* Pods-I_NScreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.debug.xcconfig"; sourceTree = "<group>"; };
-		992225031BCBB86F00987624 /* CMTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTextFieldView.h; sourceTree = "<group>"; };
-		992225041BCBB86F00987624 /* CMTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTextFieldView.m; sourceTree = "<group>"; };
 		992894FA1BA3E68700BE62A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		992894FC1BA3E69000BE62A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		99366AC61BBA66D00082F8D4 /* CMNoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMNoticeTableViewCell.h; path = _Cell/CMNoticeTableViewCell.h; sourceTree = "<group>"; };
@@ -1542,8 +1542,6 @@
 		994BDB2D1BA3F5C5000B6260 /* _view */ = {
 			isa = PBXGroup;
 			children = (
-				992225031BCBB86F00987624 /* CMTextFieldView.h */,
-				992225041BCBB86F00987624 /* CMTextFieldView.m */,
 				994BDB2E1BA3F5E9000B6260 /* CMBaseViewController.h */,
 				994BDB2F1BA3F5E9000B6260 /* CMBaseViewController.m */,
 				20EAA3401BAE7D2C004DFCA0 /* CMTabMenuView.h */,
@@ -1553,6 +1551,8 @@
 				20989CDB1BC7934F009C4418 /* CMCustomNumberPadView.h */,
 				20989CDC1BC7934F009C4418 /* CMCustomNumberPadView.m */,
 				20989CDD1BC7934F009C4418 /* CMCustomNumberPadView.xib */,
+				203ED8561BCBCAC3003C0521 /* CMTextFieldView.h */,
+				203ED8571BCBCAC3003C0521 /* CMTextFieldView.m */,
 			);
 			path = _view;
 			sourceTree = "<group>";
@@ -3650,7 +3650,7 @@
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
 				99C43C591BA3EDA10035A0A4 /* UIImage+Color.m in Sources */,
 				99C43C511BA3EDA10035A0A4 /* NSData+Hash.m in Sources */,
-				992225051BCBB86F00987624 /* CMTextFieldView.m in Sources */,
+				203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */,
 				99C43C5B1BA3EDA10035A0A4 /* UISegmentedControl+Accessibility.m in Sources */,
 				99C43C6D1BA3EDA10035A0A4 /* LeftMenuViewController.m in Sources */,
 				99C43C5F1BA3EDA10035A0A4 /* UIViewController+DebuggingViewInjector.m in Sources */,

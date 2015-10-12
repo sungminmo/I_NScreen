@@ -2,7 +2,7 @@
 //  CMTextFieldView.h
 //  I_NScreen
 //
-//  Created by 조백근 on 2015. 10. 12..
+//  Created by kimts on 2015. 10. 12..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
@@ -36,7 +36,7 @@ static CGFloat fTextFieldPadding = 11.f;
 
 @class CMTextField;
 
-@interface CMTextFieldView : UIView <UITextFieldDelegate>
+@interface CMTextFieldView : UIView
 
 @property (nonatomic, strong) UITextField* inputField;
 @property (nonatomic, strong) NSString* placeHolder;
