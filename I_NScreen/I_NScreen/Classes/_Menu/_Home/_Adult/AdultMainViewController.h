@@ -11,4 +11,11 @@
 
 @interface AdultMainViewController : CMBaseViewController
 
+@property (nonatomic, strong) IBOutlet UIScrollView *pMainScrollView;
+@property (nonatomic, strong) IBOutlet UIView *pAdultView;
+@property (nonatomic, strong) IBOutlet UIPageControl *pAdultPgControl;
+@property (nonatomic, strong) IBOutlet UIButton *pMoreAdultBtn;
+
+- (IBAction)onBtnClicked:(UIButton *)btn;
+
 @end

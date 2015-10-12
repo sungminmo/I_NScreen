@@ -11,4 +11,8 @@
 
 @interface MovieMainViewController : CMBaseViewController
 
+@property (nonatomic, strong) IBOutlet UIScrollView *pScrollView;
+@property (nonatomic, strong) IBOutlet UIView *pView01;
+@property (nonatomic, strong) IBOutlet UIView *pView02;
+
 @end
