@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecommendMainViewController">
+            <connections>
+                <outlet property="pBannerPgControl" destination="YmG-Ph-6ru" id="FiB-Mg-IQ2"/>
+                <outlet property="pBannerScrollView" destination="i1E-wH-ZVx" id="Ffz-11-Fx0"/>
+                <outlet property="pBannerView" destination="htc-9C-A3O" id="lZi-H5-C3h"/>
+                <outlet property="pMainScrollView" destination="5oh-ry-ceB" id="TX6-oM-9wn"/>
+                <outlet property="pMoreNewWorkBtn" destination="9J1-dw-xxb" id="Kci-d4-IkS"/>
+                <outlet property="pMorePopulariryBtn" destination="5YY-cq-9UW" id="4Lw-kP-jFl"/>
+                <outlet property="pMoreRecommendBtn" destination="5t0-jn-CfG" id="8Ru-yT-dh9"/>
+                <outlet property="pNewWorkPgControl" destination="NGP-hA-yHd" id="q9J-tJ-R1s"/>
+                <outlet property="pNewWorkScrollView" destination="Yce-hd-Q85" id="2nD-we-JKx"/>
+                <outlet property="pNewWorkView" destination="Swe-s2-wc5" id="3zh-63-dYf"/>
+                <outlet property="pPopularityPgControl" destination="63D-FH-hcZ" id="BgU-cQ-R8r"/>
+                <outlet property="pPopularityScrollView" destination="pfW-BZ-nmR" id="C3j-h1-XMX"/>
+                <outlet property="pPopularityView" destination="0FO-Gm-6YD" id="lIB-JS-cSw"/>
+                <outlet property="pRecommendPgControl" destination="CtP-7X-5tJ" id="aBi-t7-8RE"/>
+                <outlet property="pRecommendScrollView" destination="osO-X1-yNP" id="2kB-mv-oVS"/>
+                <outlet property="pRecommendView" destination="kiT-5H-LNJ" id="Iiy-QC-xCl"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5oh-ry-ceB">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view contentMode="scaleToFill" id="htc-9C-A3O" userLabel="View(배너)">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1E-wH-ZVx">
+                    <rect key="frame" x="6" y="10" width="402" height="182"/>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="YmG-Ph-6ru">
+                    <rect key="frame" x="166" y="189" width="81" height="37"/>
+                    <color key="pageIndicatorTintColor" red="0.70588235294117641" green="0.71372549019607845" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uM-ak-40L" userLabel="View(하단라인)">
+                    <rect key="frame" x="7" y="224" width="400" height="1"/>
+                    <color key="backgroundColor" red="0.73725490196078436" green="0.74117647058823533" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+        <view contentMode="scaleToFill" id="0FO-Gm-6YD" userLabel="View(인기순위)">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="394"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pfW-BZ-nmR">
+                    <rect key="frame" x="7" y="51" width="400" height="316"/>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="63D-FH-hcZ">
+                    <rect key="frame" x="167" y="359" width="81" height="37"/>
+                    <color key="pageIndicatorTintColor" red="0.70588235290000001" green="0.71372549019999998" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="인기순위 Top20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxF-k2-iQa">
+                    <rect key="frame" x="21" y="14" width="248" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-k2-N1j">
+                    <rect key="frame" x="396" y="18" width="7" height="14"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-oK-BXE">
+                    <rect key="frame" x="260" y="15" width="120" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.54117647058823526" green="0.5490196078431373" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YY-cq-9UW" userLabel="Button(더보기)">
+                    <rect key="frame" x="175" y="0.0" width="232" height="38"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="nee-Iz-Gqj"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="223" y="1037"/>
+        </view>
+        <view contentMode="scaleToFill" id="Swe-s2-wc5" userLabel="View(금주의신작)">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="394"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yce-hd-Q85">
+                    <rect key="frame" x="7" y="51" width="400" height="316"/>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="NGP-hA-yHd">
+                    <rect key="frame" x="167" y="359" width="81" height="37"/>
+                    <color key="pageIndicatorTintColor" red="0.70588235290000001" green="0.71372549019999998" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="금주의 신작영화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cH-gl-1oh">
+                    <rect key="frame" x="21" y="14" width="248" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fQ-74I">
+                    <rect key="frame" x="396" y="18" width="7" height="14"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="en3-oS-F2W">
+                    <rect key="frame" x="260" y="15" width="120" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.54117647059999996" green="0.54901960780000003" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9J1-dw-xxb" userLabel="Button(더보기)">
+                    <rect key="frame" x="175" y="0.0" width="232" height="38"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="7iY-vk-jgx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="223" y="1494"/>
+        </view>
+        <view contentMode="scaleToFill" id="kiT-5H-LNJ" userLabel="View(이달의추천)">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="394"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osO-X1-yNP">
+                    <rect key="frame" x="7" y="51" width="400" height="316"/>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="CtP-7X-5tJ">
+                    <rect key="frame" x="167" y="359" width="81" height="37"/>
+                    <color key="pageIndicatorTintColor" red="0.70588235290000001" green="0.71372549019999998" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이달의 추천 VOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pK1-q6-NS1">
+                    <rect key="frame" x="21" y="14" width="248" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vev-KQ-AFE">
+                    <rect key="frame" x="396" y="18" width="7" height="14"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtV-7L-WBf">
+                    <rect key="frame" x="260" y="15" width="120" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.54117647059999996" green="0.54901960780000003" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5t0-jn-CfG" userLabel="Button(더보기)">
+                    <rect key="frame" x="175" y="0.0" width="232" height="38"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="0mx-ry-058"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="223" y="1951"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="indicator.png" width="7" height="13"/>
+    </resources>
+</document>

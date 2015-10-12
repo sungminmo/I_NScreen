@@ -13,6 +13,11 @@
 #import "LeftMenuViewController.h"
 #import "RecodeMainViewController.h"
 #import "MyCMMainViewController.h"
+#import "AdultMainViewController.h"
+#import "PopularProgramMainViewController.h"
+#import "AniKidsMainViewController.h"
+#import "MovieMainViewController.h"
+#import "RecommendMainViewController.h"
 
 @interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate>
 

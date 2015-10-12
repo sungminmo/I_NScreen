@@ -36,7 +36,13 @@
  화면에 사용될 버튼 이벤트 값 정의
 ================================================================================================================ */
 // HomeGnbViewController btn tag
-#define HOME_GNB_VIEW_BTN_TAG_01       10000       //
+#define HOME_GNB_VIEW_BTN_01            10000       //
+#define HOME_GNB_VIEW_BTN_02            10001   // 검색 버튼
+#define HOME_GNB_VIEW_BTN_03            10002   // 추천 버튼
+#define HOME_GNB_VIEW_BTN_04            10003   // 영화 버튼
+#define HOME_GNB_VIEW_BTN_05            10004   // 애니키즈 버튼
+#define HOME_GNB_VIEW_BTN_06            10005   // 인기프로그램 버튼
+#define HOME_GNB_VIEW_BTN_07            10006   // 성인 버튼
 
 // EpgMainViewController btn tag
 #define EPG_MAIN_VIEW_BTN_TAG_01        10001   // back 버튼
@@ -65,6 +71,11 @@
 #define MY_CM_MAIN_VIEW_BTN_02          10502   // VOD 찜목록
 #define MY_CM_MAIN_VIEW_BTN_03          10503   // VOD 시청목록
 #define MY_CM_MAIN_VIEW_BTN_04          10504   // VOD 구매목록
+
+// RecommendMainViewController btn tag
+#define RECOMMEND_MAIN_VIEW_BTN_01      10601   // 인기 순위 더보기
+#define RECOMMEND_MAIN_VIEW_BTN_02      10602   // 금주의 신작 영화
+#define RECOMMEND_MAIN_VIEW_BTN_03      10603   // 이달의 추천 VOD
 
 /*
 문자열 정의
