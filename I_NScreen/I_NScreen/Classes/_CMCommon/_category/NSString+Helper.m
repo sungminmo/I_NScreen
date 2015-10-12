@@ -202,4 +202,25 @@ unsigned char strToChar (char a, char b) {
     return s;
 }
 
++ (BOOL)isContainKorean:(NSString*)word {
+    if ([word length] == 0) {
+        return NO;
+    }
+    const char* tmp = [word cStringUsingEncoding:NSUTF8StringEncoding];
+    if ([word length] != strlen(tmp)) {
+        return YES;
+    }
+    return NO;
+}
+
++ (BOOL)isDigitOnly:(NSString*)word {
+    NSCharacterSet *nonDigits = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    NSRange nond = [word rangeOfCharacterFromSet:nonDigits];
+    if (NSNotFound == nond.location) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 @end

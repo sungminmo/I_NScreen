@@ -122,4 +122,22 @@
  */
 -(NSString *) stringByStrippingHTML;
 
+/**
+ *  한글이 포함되었는지 검사 (NSUTF8StringEncoding 엔코딩으로 체크함.)
+ *
+ *  @param word 검사문자
+ *
+ *  @return 한글포함여부
+ */
++ (BOOL)isContainKorean:(NSString*)word;
+
+/**
+ *  숫자여부 검사
+ *
+ *  @param word 검사문자
+ *
+ *  @return 숫자여부
+ */
++ (BOOL)isDigitOnly:(NSString*)word;
+
 @end

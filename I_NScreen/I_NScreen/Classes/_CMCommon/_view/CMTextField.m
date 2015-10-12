@@ -45,7 +45,7 @@
 
 #pragma mark - Public 
 
-- (void)setType:(CMTextFieldType)type {
+- (void)setType:(CMTextFieldTextType)type {
     _type = type;
     
     if (Secure_CMTextFieldType == type) {

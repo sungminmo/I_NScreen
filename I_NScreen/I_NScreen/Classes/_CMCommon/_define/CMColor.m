@@ -34,4 +34,9 @@
 +(UIColor*)colorTableSeparator {
     return [UIColor colorWithHexString:@"C4C5C6"];
 }
+
++(UIColor*)colorPlaceHolderColor {
+    return [UIColor colorWithHexString:@"666666"];
+}
+
 @end

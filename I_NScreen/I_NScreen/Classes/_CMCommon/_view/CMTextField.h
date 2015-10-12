@@ -11,11 +11,11 @@
 typedef enum : NSInteger {
     Normal_CMTextFieldType,
     Secure_CMTextFieldType
-}CMTextFieldType;
+}CMTextFieldTextType;
 
 @interface CMTextField : UITextField <UITextFieldDelegate>
 
-@property (nonatomic, assign) CMTextFieldType type;
+@property (nonatomic, assign) CMTextFieldTextType type;
 
 - (void)changeColor:(UIColor*)color;
 - (void)resetColor;

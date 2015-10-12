@@ -15,4 +15,5 @@
 +(UIColor*)colorGray;
 +(UIColor*)colorHighlightedGray;
 +(UIColor*)colorTableSeparator;
++(UIColor*)colorPlaceHolderColor;
 @end
