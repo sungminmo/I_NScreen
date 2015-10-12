@@ -29,28 +29,101 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    HomeGnbViewController *pViewController = [[HomeGnbViewController alloc] initWithNibName:@"HomeGnbViewController" bundle:nil];
-    pViewController.delegate = self;
-    [self addChildViewController:pViewController];
-    [pViewController didMoveToParentViewController:self];
-    [self.pGnbView addSubview:pViewController.view];
+    // Gnb add
+    HomeGnbViewController *pGnbViewController = [[HomeGnbViewController alloc] initWithNibName:@"HomeGnbViewController" bundle:nil];
+    pGnbViewController.delegate = self;
+    [self addChildViewController:pGnbViewController];
+    [pGnbViewController didMoveToParentViewController:self];
+    [self.pGnbView addSubview:pGnbViewController.view];
     
     // !! test bjk
-    NSURLSessionTask *tesk = [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
-        id obj = [epgs valueForKeyPath:@"areaItem"];
-    }];
+//    NSURLSessionTask *tesk = [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
+//        id obj = [epgs valueForKeyPath:@"areaItem"];
+//    }];
 //
 //    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 //    [self.refreshControl setRefreshingWithStateOfTask:tesk];
+    
+    // 추천 add
+    RecommendMainViewController *pRecommendViewController = [[RecommendMainViewController alloc] initWithNibName:@"RecommendMainViewController" bundle:nil];
+    pRecommendViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+    [self addChildViewController:pRecommendViewController];
+    [pRecommendViewController didMoveToParentViewController:self];
+    [self.pBodyView addSubview:pRecommendViewController.view];
 }
 
 
 - (void)onHomeGnbViewMenuList:(int)nTag
 {
     switch (nTag) {
-        case HOME_GNB_VIEW_BTN_TAG_01:
+        case HOME_GNB_VIEW_BTN_01:
         {
             [[CMAppManager sharedInstance] onLeftMenuListOpen:self];
+        }break;
+        case HOME_GNB_VIEW_BTN_02:
+        {
+            // 검색
+            
+        }break;
+        case HOME_GNB_VIEW_BTN_03:
+        {
+            // 추천
+            [self bodySubViewsRemove];
+            
+            RecommendMainViewController *pViewController = [[RecommendMainViewController alloc] initWithNibName:@"RecommendMainViewController" bundle:nil];
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+            
+        }break;
+        case HOME_GNB_VIEW_BTN_04:
+        {
+            // 영화
+            [self bodySubViewsRemove];
+            
+            MovieMainViewController *pViewController = [[MovieMainViewController alloc] initWithNibName:@"MovieMainViewController" bundle:nil];
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+            
+        }break;
+        case HOME_GNB_VIEW_BTN_05:
+        {
+            // 애니키즈
+            [self bodySubViewsRemove];
+            
+            AniKidsMainViewController *pViewController = [[AniKidsMainViewController alloc] initWithNibName:@"AniKidsMainViewController" bundle:nil];
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+            
+        }break;
+        case HOME_GNB_VIEW_BTN_06:
+        {
+            // 인기프로그램
+            [self bodySubViewsRemove];
+            
+            PopularProgramMainViewController *pViewController = [[PopularProgramMainViewController alloc] initWithNibName:@"PopularProgramMainViewController" bundle:nil];
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+            
+        }break;
+        case HOME_GNB_VIEW_BTN_07:
+        {
+            // 성인
+            [self bodySubViewsRemove];
+            
+            AdultMainViewController *pViewController = [[AdultMainViewController alloc] initWithNibName:@"AdultMainViewController" bundle:nil];
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+            
         }break;
     }
 }
@@ -103,6 +176,14 @@
             [self.navigationController pushViewController:controller animated:YES];
             
         }break;
+    }
+}
+
+- (void)bodySubViewsRemove
+{
+    for ( UIView *view in [[[self.view subviews] objectAtIndex:1] subviews] )
+    {
+        [view removeFromSuperview];
     }
 }
 

@@ -14,6 +14,12 @@
 
 @property (nonatomic, weak) id <HomeGnbViewDelegate>delegate;
 @property (nonatomic, strong) IBOutlet UIButton *pListBtn;
+@property (nonatomic, strong) IBOutlet UIButton *pSearchBtn;
+@property (nonatomic, strong) IBOutlet UIButton *pMenu01;   // 추천 버튼
+@property (nonatomic, strong) IBOutlet UIButton *pMenu02;   // 영화 버튼
+@property (nonatomic, strong) IBOutlet UIButton *pMenu03;   // 애니키즈
+@property (nonatomic, strong) IBOutlet UIButton *pMenu04;   // 인기프로그램
+@property (nonatomic, strong) IBOutlet UIButton *pMenu05;   // 성인
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 
