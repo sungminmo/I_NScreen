@@ -11,4 +11,11 @@
 
 @interface PopularProgramMainViewController : CMBaseViewController
 
+@property (nonatomic, strong) IBOutlet UIScrollView *pMainScrollView;
+@property (nonatomic, strong) IBOutlet UIView *pPopularView;
+@property (nonatomic, strong) IBOutlet UIPageControl *pPopularPgControl;
+@property (nonatomic, strong) IBOutlet UIButton *pMorePopularBtn;
+
+- (IBAction)onBtnClicked:(UIButton *)btn;
+
 @end

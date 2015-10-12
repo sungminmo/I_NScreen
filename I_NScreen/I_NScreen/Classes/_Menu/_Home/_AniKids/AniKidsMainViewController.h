@@ -11,4 +11,11 @@
 
 @interface AniKidsMainViewController : CMBaseViewController
 
+@property (nonatomic, strong) IBOutlet UIScrollView *pMainScrollView;
+@property (nonatomic, strong) IBOutlet UIView *pAniKidsView;
+@property (nonatomic, strong) IBOutlet UIPageControl *pAniKidsPgControl;
+@property (nonatomic, strong) IBOutlet UIButton *pMoreAniKidsBtn;
+
+- (IBAction)onBtnClicked:(UIButton *)btn;
+
 @end
