@@ -12,16 +12,19 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "CMTextField.h"
+#import "CMTextFieldView.h"
 
 NSString *const SIAlertViewWillShowNotification = @"SIAlertViewWillShowNotification";
 NSString *const SIAlertViewDidShowNotification = @"SIAlertViewDidShowNotification";
 NSString *const SIAlertViewWillDismissNotification = @"SIAlertViewWillDismissNotification";
 NSString *const SIAlertViewDidDismissNotification = @"SIAlertViewDidDismissNotification";
 
+NSString *const SIAlertViewFieldChangeSign = @"##FIELD##";
+
 #define DEBUG_LAYOUT 0
 
 #define MESSAGE_MIN_LINE_COUNT 4
-#define MESSAGE_MAX_LINE_COUNT 7
+#define MESSAGE_MAX_LINE_COUNT 10
 #define GAP 10
 #define CANCEL_BUTTON_PADDING_TOP 5
 #define CONTENT_PADDING_LEFT 6
@@ -794,6 +797,25 @@ static SIAlertView *__si_alert_current_view;
         self.messageLabel.frame = CGRectMake(CONTENT_PADDING_LEFT, y, self.containerView.bounds.size.width - CONTENT_PADDING_LEFT * 2, height);
         y += height;
     }
+    
+    if (self.fieldView) {
+        CGFloat filedY = 0;
+        
+        if (self.messageLabel && self.textFieldPosition != SIAlertViewTextFieldPositionNone) {
+            if (self.textFieldPosition == SIAlertViewTextFieldPositionTop) {
+                filedY = self.messageLabel.frame.origin.y + 2;
+            }
+            else if (self.textFieldPosition == SIAlertViewTextFieldPositionMiddle) {
+                filedY = self.messageLabel.frame.origin.y + self.messageLabel.frame.size.height/3;
+            }
+            else if (self.textFieldPosition == SIAlertViewTextFieldPositionBottom) {
+                filedY = self.messageLabel.frame.origin.y + self.messageLabel.frame.size.height - CONTENT_PADDING_TOP - CONTENT_TEXTFIELD_HEIGHT;
+            }
+            CGFloat fieldWidth = self.containerView.bounds.size.width - CONTENT_PADDING_LEFT * 4;
+            self.fieldView.frame = CGRectMake(CONTENT_PADDING_LEFT * 2, filedY, fieldWidth, CONTENT_TEXTFIELD_HEIGHT);
+        }
+    }
+    
     if (self.items.count > 0) {
         if (y > CONTENT_PADDING_TOP) {
             y += GAP;
@@ -926,6 +948,7 @@ static SIAlertView *__si_alert_current_view;
     [self updateTitleLabel];
     [self updateCloseButton];
     [self updateMessageLabel];
+    [self updateInputField];
     [self setupButtons];
     [self invalidateLayout];
 }
@@ -1038,18 +1061,18 @@ static SIAlertView *__si_alert_current_view;
         return;
     }
     
-    if (!self.inputField) {
-        CGFloat fieldWidth = self.containerView.bounds.size.width - CONTENT_PADDING_LEFT * 2;
-        self.inputField = [[CMTextField alloc] initWithFrame:CGRectMake(CONTENT_PADDING_LEFT, 0, fieldWidth, CONTENT_TEXTFIELD_HEIGHT)];
-        self.inputField.inputDelegate = self;
-//        [self.inputField settingLeftMargin:10];
-//        [self.inputField settingRightViewOnlyDeleteButton];
-//        [self.inputField settingInputFieldHolder:_textHolder];
-        [self.containerView addSubview:self.inputField];
+    if (!self.fieldView) {
+        CGFloat fieldWidth = self.containerView.bounds.size.width - CONTENT_PADDING_LEFT * 4;
+        self.fieldView = [[CMTextFieldView alloc] initWithFrame:CGRectMake(CONTENT_PADDING_LEFT * 2, 0, fieldWidth, CONTENT_TEXTFIELD_HEIGHT)];
+        self.fieldView.inputDelegate = self;
+        [self.fieldView settingLeftMargin:10];
+        [self.fieldView settingInputFieldHolder:_textHolder];
+        [self.containerView addSubview:self.fieldView];
     }
     else {
-        [self.inputField removeFromSuperview];
-        self.inputField = nil;
+        [self.fieldView removeFromSuperview];
+        self.fieldView.inputDelegate = nil;
+        self.fieldView = nil;
     }
     [self invalidateLayout];
 }
@@ -1357,7 +1380,7 @@ static SIAlertView *__si_alert_current_view;
 }
 
 + (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion {
-    NSAttributedString* string = [[NSAttributedString alloc] initWithAttributedString:[SIAlertView attributeText:message bold:boldText]];
+    NSAttributedString* string = [[NSAttributedString alloc] initWithAttributedString:[SIAlertView attributeText:message bold:boldText filedPosition:SIAlertViewTextFieldPositionNone]];
     
     if (title.length == 0) {
         title = @"";
@@ -1419,11 +1442,13 @@ static SIAlertView *__si_alert_current_view;
 }
 
 + (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText textHoloder:(NSString*)holder textValue:(NSString*)value textPosition:(SIAlertViewTextFieldPosition)position textLength:(NSInteger)maxLength cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion {
-
-    NSAttributedString* string = [[NSAttributedString alloc] initWithAttributedString:[SIAlertView attributeText:message bold:boldText]];
+    NSAttributedString* string = [[NSAttributedString alloc] initWithAttributedString:[SIAlertView attributeText:message bold:boldText filedPosition:position]];
     
     if (title.length == 0) {
         title = @"";
+    }
+    if (holder.length == 0) {
+        holder = @"";
     }
     
     SIAlertViewButtonType buttonType = SIAlertViewButtonTypeDefault;
@@ -1433,6 +1458,7 @@ static SIAlertView *__si_alert_current_view;
     
     SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:title andAttributeMessage:string];
     alertView.textFieldPosition = position;
+    alertView.textHolder = holder;
     
     if (cancel != nil) {
         [alertView addButtonWithTitle:cancel
@@ -1467,6 +1493,13 @@ static SIAlertView *__si_alert_current_view;
     
     alertView.willShowHandler = ^(SIAlertView *alertView) {
         NSLog(@"%@, willShowHandler2", alertView);
+        
+        alertView.fieldView.maxInput = maxLength;
+        if (value.length > 0) {
+            alertView.fieldView.inputField.text = value;
+        }
+        
+        
     };
     alertView.didShowHandler = ^(SIAlertView *alertView) {
         NSLog(@"%@, didShowHandler2", alertView);
@@ -1482,9 +1515,11 @@ static SIAlertView *__si_alert_current_view;
     
 }
 
-+ (NSMutableAttributedString*)attributeText:(NSString*)text bold:(NSString*)boldText {
++ (NSMutableAttributedString*)attributeText:(NSString*)text bold:(NSString*)boldText filedPosition:(SIAlertViewTextFieldPosition)position {
+    
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     [style setAlignment:NSTextAlignmentCenter];
+    
     NSDictionary *dict1 = @{
                             NSFontAttributeName:[UIFont systemFontOfSize:13],
                             NSForegroundColorAttributeName:[UIColor colorWithHexString:@"3c3c3c"],
@@ -1495,6 +1530,19 @@ static SIAlertView *__si_alert_current_view;
                             NSForegroundColorAttributeName:[UIColor colorWithHexString:@"000000"],
                             NSParagraphStyleAttributeName:style
                             }; // Added line
+    
+    NSString* filedLine =  @"\n\n\n\n\n";
+    if (position != SIAlertViewTextFieldPositionNone) {
+        if (position == SIAlertViewTextFieldPositionTop) {
+            text = [NSString stringWithFormat:@"%@%@", filedLine, text];
+        }
+        else if (position == SIAlertViewTextFieldPositionMiddle) {
+            text = [text stringByReplacingOccurrencesOfString:SIAlertViewFieldChangeSign withString:filedLine];
+        }
+        else if (position == SIAlertViewTextFieldPositionBottom) {
+            text = [NSString stringWithFormat:@"%@%@", text, filedLine];
+        }
+    }
     
     NSMutableAttributedString* aString = [[NSMutableAttributedString alloc] initWithString:text];
     

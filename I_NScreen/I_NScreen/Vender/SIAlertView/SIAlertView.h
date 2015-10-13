@@ -56,6 +56,8 @@ extern NSString *const SIAlertViewDidShowNotification;
 extern NSString *const SIAlertViewWillDismissNotification;
 extern NSString *const SIAlertViewDidDismissNotification;
 
+extern NSString *const SIAlertViewFieldChangeSign;
+
 typedef NS_ENUM(NSInteger, SIAlertViewButtonType) {
     SIAlertViewButtonTypeDefault = 0,
     SIAlertViewButtonTypeDestructive,
@@ -87,6 +89,7 @@ typedef NS_ENUM(NSInteger, SIAlertViewTextFieldPosition) {
     SIAlertViewTextFieldPositionBottom
 };
 
+@class CMTextFieldView;
 @class CMTextField;
 @class SIAlertView;
 typedef void(^SIAlertViewHandler)(SIAlertView *alertView);
@@ -98,7 +101,7 @@ typedef void(^SIAlertViewTextFieldHandler)(NSInteger buttonIndex, SIAlertView* a
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, copy) NSAttributedString *attributeMessage;
 
-@property (nonatomic, strong) CMTextField* inputField;
+@property (nonatomic, strong) CMTextFieldView* fieldView;
 
 @property (nonatomic, assign) SIAlertViewTransitionStyle transitionStyle; // default is SIAlertViewTransitionStyleSlideFromBottom
 @property (nonatomic, assign) SIAlertViewBackgroundStyle backgroundStyle; // default is SIAlertViewBackgroundStyleGradient
@@ -173,6 +176,26 @@ typedef void(^SIAlertViewTextFieldHandler)(NSInteger buttonIndex, SIAlertView* a
 + (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText button:(NSString*)text completion:(SIAlertViewConfirmHandler)completion;
 + (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion;
 
+/**
+ *  텍스트필드 알림창
+ *
+ *  @param title      타이틀
+ *  @param message    메세지
+ *  @param boldText   굵은글씨
+ *  @param holder     텍스트필드 플레이스 홀더
+ *  @param value      텍스트필드 세팅값
+ *  @param position   텍스트필드 위치
+ *  @param maxLength  텍스트필드 유효성값
+ *  @param cancel     취소버튼 타이틀
+ *  @param buttons    버튼 타이틀 목록
+ *  @param completion 완료 후 처리 핸들러
+ *
+ *              position 이 SIAlertViewTextFieldPositionMiddle 인 경우 message에 텍스트 필드 높이 확보를 위한
+ *                  대체텍스트(SIAlertViewFieldChangeSign - "##FIELD##")가 반드시 포함되어야 한다.
+ *
+ *              그리고 해당 텍스트 필드 알림창은 최대 메세지를 5라인 이상 입력할 수 없음. 
+ *
+ */
 + (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText textHoloder:(NSString*)holder textValue:(NSString*)value textPosition:(SIAlertViewTextFieldPosition)position textLength:(NSInteger)maxLength cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion;
 
 @end

@@ -34,8 +34,6 @@ typedef NS_ENUM(NSInteger, CMTextFieldLimitType) {//키패드 입력값 제한
 
 static CGFloat fTextFieldPadding = 11.f;
 
-@class CMTextField;
-
 @interface CMTextFieldView : UIView
 
 @property (nonatomic, strong) UITextField* inputField;
