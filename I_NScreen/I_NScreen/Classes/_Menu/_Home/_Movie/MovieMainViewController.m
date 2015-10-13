@@ -13,6 +13,7 @@
 @end
 
 @implementation MovieMainViewController
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -31,7 +32,7 @@
 #pragma mark - 버튼 태그 초기화
 - (void) setTagInit
 {
-    
+    self.pListBtn.tag = MOVIE_MAIN_VIEW_BTN_01;
 }
 
 #pragma mark - 화면 초기화
@@ -46,6 +47,18 @@
     int nHeight = self.pView01.frame.size.height + self.pView02.frame.size.height;
     
     [self.pScrollView setContentSize:CGSizeMake(self.pScrollView.frame.size.width, nHeight)];
+}
+
+#pragma mark - 액션 이벤트
+#pragma mark - 버튼 액션 이벤트
+- (IBAction)onBtnClicked:(UIButton *)btn
+{
+    switch ([btn tag]) {
+        case MOVIE_MAIN_VIEW_BTN_01:
+        {
+            [self.delegate MovieMainViewWithBtnTag:MOVIE_MAIN_VIEW_BTN_01];
+        }break;
+    }
 }
 
 @end

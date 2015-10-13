@@ -661,6 +661,17 @@
 		E511818F1BA7ACF900C1E31D /* EpgSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51181881BA7ACF900C1E31D /* EpgSubTableViewCell.xib */; };
 		E51181901BA7ACF900C1E31D /* EpgSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E511818A1BA7ACF900C1E31D /* EpgSubViewController.m */; };
 		E51181911BA7ACF900C1E31D /* EpgSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E511818B1BA7ACF900C1E31D /* EpgSubViewController.xib */; };
+		E54CC09B1BCC9F8E003806C0 /* MoviePopUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E54CC09C1BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0991BCC9F8E003806C0 /* MoviePopUpViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E54CC09E1BCC9F8E003806C0 /* MoviePopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54CC09A1BCC9F8E003806C0 /* MoviePopUpViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E54CC0A11BCC9F9A003806C0 /* TreeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0A01BCC9F9A003806C0 /* TreeListModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E54CC0AE1BCCA0C6003806C0 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0A51BCCA0C6003806C0 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E54CC0AF1BCCA0C6003806C0 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0A71BCCA0C6003806C0 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E54CC0B01BCCA0C6003806C0 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0A91BCCA0C6003806C0 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E54CC0B11BCCA0C6003806C0 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0AB1BCCA0C6003806C0 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E54CC0B21BCCA0C6003806C0 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0AD1BCCA0C6003806C0 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E54CC0B41BCCA0E1003806C0 /* contents.json in Resources */ = {isa = PBXBuildFile; fileRef = E54CC0B31BCCA0E1003806C0 /* contents.json */; settings = {ASSET_TAGS = (); }; };
 		E5567BAC1BA93A7E00AB4003 /* MyCMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5567BAA1BA93A7E00AB4003 /* MyCMMainViewController.m */; };
 		E5567BAD1BA93A7E00AB4003 /* MyCMMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BAB1BA93A7E00AB4003 /* MyCMMainViewController.xib */; };
 		E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5567BB01BA9537A00AB4003 /* MyCMMainTableViewCell.m */; };
@@ -1417,6 +1428,26 @@
 		E51181891BA7ACF900C1E31D /* EpgSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpgSubViewController.h; sourceTree = "<group>"; };
 		E511818A1BA7ACF900C1E31D /* EpgSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpgSubViewController.m; sourceTree = "<group>"; };
 		E511818B1BA7ACF900C1E31D /* EpgSubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpgSubViewController.xib; sourceTree = "<group>"; };
+		E54CC0951BCC9F8E003806C0 /* MoviePopUpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePopUpTableViewCell.h; sourceTree = "<group>"; };
+		E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePopUpTableViewCell.m; sourceTree = "<group>"; };
+		E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviePopUpTableViewCell.xib; sourceTree = "<group>"; };
+		E54CC0981BCC9F8E003806C0 /* MoviePopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePopUpViewController.h; sourceTree = "<group>"; };
+		E54CC0991BCC9F8E003806C0 /* MoviePopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePopUpViewController.m; sourceTree = "<group>"; };
+		E54CC09A1BCC9F8E003806C0 /* MoviePopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviePopUpViewController.xib; sourceTree = "<group>"; };
+		E54CC09F1BCC9F9A003806C0 /* TreeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeListModel.h; sourceTree = "<group>"; };
+		E54CC0A01BCC9F9A003806C0 /* TreeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeListModel.m; sourceTree = "<group>"; };
+		E54CC0A31BCCA0C6003806C0 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		E54CC0A41BCCA0C6003806C0 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		E54CC0A51BCCA0C6003806C0 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		E54CC0A61BCCA0C6003806C0 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		E54CC0A71BCCA0C6003806C0 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		E54CC0A81BCCA0C6003806C0 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		E54CC0A91BCCA0C6003806C0 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		E54CC0AA1BCCA0C6003806C0 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		E54CC0AB1BCCA0C6003806C0 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		E54CC0AC1BCCA0C6003806C0 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		E54CC0AD1BCCA0C6003806C0 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		E54CC0B31BCCA0E1003806C0 /* contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = contents.json; path = Resources/contents.json; sourceTree = "<group>"; };
 		E5567BA91BA93A7E00AB4003 /* MyCMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCMMainViewController.h; path = _MyCM/MyCMMainViewController.h; sourceTree = "<group>"; };
 		E5567BAA1BA93A7E00AB4003 /* MyCMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCMMainViewController.m; path = _MyCM/MyCMMainViewController.m; sourceTree = "<group>"; };
 		E5567BAB1BA93A7E00AB4003 /* MyCMMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCMMainViewController.xib; path = _MyCM/MyCMMainViewController.xib; sourceTree = "<group>"; };
@@ -1624,6 +1655,7 @@
 		99C43C091BA3EDA10035A0A4 /* _CMCommon */ = {
 			isa = PBXGroup;
 			children = (
+				E54CC0A21BCCA0C6003806C0 /* _sbjson */,
 				994BDB2D1BA3F5C5000B6260 /* _view */,
 				99C43C0A1BA3EDA10035A0A4 /* _category */,
 				99C43C251BA3EDA10035A0A4 /* _debuging */,
@@ -1709,6 +1741,8 @@
 		99C43C2F1BA3EDA10035A0A4 /* _model */ = {
 			isa = PBXGroup;
 			children = (
+				E54CC09F1BCC9F9A003806C0 /* TreeListModel.h */,
+				E54CC0A01BCC9F9A003806C0 /* TreeListModel.m */,
 				99C43C301BA3EDA10035A0A4 /* CMSearchHistory.h */,
 				99C43C311BA3EDA10035A0A4 /* CMSearchHistory.m */,
 				99C43C321BA3EDA10035A0A4 /* NSMutableDictionary+Network.h */,
@@ -2715,6 +2749,46 @@
 			path = _Cell;
 			sourceTree = "<group>";
 		};
+		E54CC0931BCC9F8E003806C0 /* _PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				E54CC0941BCC9F8E003806C0 /* _Cell */,
+				E54CC0981BCC9F8E003806C0 /* MoviePopUpViewController.h */,
+				E54CC0991BCC9F8E003806C0 /* MoviePopUpViewController.m */,
+				E54CC09A1BCC9F8E003806C0 /* MoviePopUpViewController.xib */,
+			);
+			name = _PopUp;
+			path = _Home/_Movie/_PopUp;
+			sourceTree = "<group>";
+		};
+		E54CC0941BCC9F8E003806C0 /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E54CC0951BCC9F8E003806C0 /* MoviePopUpTableViewCell.h */,
+				E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */,
+				E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */,
+			);
+			path = _Cell;
+			sourceTree = "<group>";
+		};
+		E54CC0A21BCCA0C6003806C0 /* _sbjson */ = {
+			isa = PBXGroup;
+			children = (
+				E54CC0A31BCCA0C6003806C0 /* JSON.h */,
+				E54CC0A41BCCA0C6003806C0 /* NSObject+SBJSON.h */,
+				E54CC0A51BCCA0C6003806C0 /* NSObject+SBJSON.m */,
+				E54CC0A61BCCA0C6003806C0 /* NSString+SBJSON.h */,
+				E54CC0A71BCCA0C6003806C0 /* NSString+SBJSON.m */,
+				E54CC0A81BCCA0C6003806C0 /* SBJsonBase.h */,
+				E54CC0A91BCCA0C6003806C0 /* SBJsonBase.m */,
+				E54CC0AA1BCCA0C6003806C0 /* SBJsonParser.h */,
+				E54CC0AB1BCCA0C6003806C0 /* SBJsonParser.m */,
+				E54CC0AC1BCCA0C6003806C0 /* SBJsonWriter.h */,
+				E54CC0AD1BCCA0C6003806C0 /* SBJsonWriter.m */,
+			);
+			path = _sbjson;
+			sourceTree = "<group>";
+		};
 		E5567BA81BA939CA00AB4003 /* _MyCM */ = {
 			isa = PBXGroup;
 			children = (
@@ -2767,6 +2841,7 @@
 		E5DE649D1BCB4BE300FC3122 /* _Movie */ = {
 			isa = PBXGroup;
 			children = (
+				E54CC0931BCC9F8E003806C0 /* _PopUp */,
 				E5DE64BF1BCB4E4400FC3122 /* MovieMainViewController.h */,
 				E5DE64C01BCB4E4400FC3122 /* MovieMainViewController.m */,
 				E5DE64C11BCB4E4400FC3122 /* MovieMainViewController.xib */,
@@ -2839,6 +2914,7 @@
 		E5F6C6B71B7AD93B00618970 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E54CC0B31BCCA0E1003806C0 /* contents.json */,
 				E50FF1441BCB808000F1045C /* images */,
 				99C43AE31BA3ED980035A0A4 /* Base.lproj */,
 				99C43B7D1BA3ED980035A0A4 /* Images.xcassets */,
@@ -2998,6 +3074,7 @@
 				E50FF3CE1BCB808100F1045C /* icon_generalpay.png in Resources */,
 				E50FF4DD1BCB808100F1045C /* icon_qlist_press@2x.png in Resources */,
 				E50FF4771BCB808100F1045C /* 2btn_press@2x.png in Resources */,
+				E54CC0B41BCCA0E1003806C0 /* contents.json in Resources */,
 				E50FF59F1BCB808100F1045C /* stbpairingbtn_normal@3x.png in Resources */,
 				99366ACD1BBA66D00082F8D4 /* CMNoticeTableViewCell.xib in Resources */,
 				E50FF5121BCB808100F1045C /* genremovie_select@3x.png in Resources */,
@@ -3026,6 +3103,7 @@
 				E50FF3AE1BCB808100F1045C /* genrereligion_normal.png in Resources */,
 				E50FF52D1BCB808100F1045C /* 2btn_outline@3x.png in Resources */,
 				E50FF4C51BCB808100F1045C /* onoffbtn_normal@2x.png in Resources */,
+				E54CC09C1BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib in Resources */,
 				E50FF4411BCB808100F1045C /* v_unpick.png in Resources */,
 				E50FF5271BCB808100F1045C /* normaldot@3x.png in Resources */,
 				E50FF56D1BCB808100F1045C /* p1btn_cancel_press@3x.png in Resources */,
@@ -3062,6 +3140,7 @@
 				E50FF5A11BCB808100F1045C /* 4depth_select@3x.png in Resources */,
 				E50FF4961BCB808100F1045C /* indicator@2x.png in Resources */,
 				E50FF4051BCB808100F1045C /* pwbox_error.png in Resources */,
+				E54CC09E1BCC9F8E003806C0 /* MoviePopUpViewController.xib in Resources */,
 				E5DE64C81BCB4E5500FC3122 /* RecommendMainViewController.xib in Resources */,
 				E50FF4281BCB808100F1045C /* menu_pres.png in Resources */,
 				E50FF4381BCB808100F1045C /* icon_mobile.png in Resources */,
@@ -3623,9 +3702,14 @@
 				99C43C611BA3EDA10035A0A4 /* CMSearchHistory.m in Sources */,
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
 				208729AF1BBB90E5009601A4 /* CMTextField.m in Sources */,
+				E54CC0B11BCCA0C6003806C0 /* SBJsonParser.m in Sources */,
 				99C43C551BA3EDA10035A0A4 /* NSMutableDictionary+Merge.m in Sources */,
+				E54CC0AF1BCCA0C6003806C0 /* NSString+SBJSON.m in Sources */,
+				E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */,
 				99E9EDAC1BBA26B5002FEBF0 /* CMPaytvListViewController.m in Sources */,
+				E54CC0B21BCCA0C6003806C0 /* SBJsonWriter.m in Sources */,
 				99C43C531BA3EDA10035A0A4 /* NSDictionary+DescriptionWithLocale.m in Sources */,
+				E54CC0B01BCCA0C6003806C0 /* SBJsonBase.m in Sources */,
 				99C43C561BA3EDA10035A0A4 /* NSString+Hash.m in Sources */,
 				E51181901BA7ACF900C1E31D /* EpgSubViewController.m in Sources */,
 				99C43C641BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m in Sources */,
@@ -3645,14 +3729,17 @@
 				99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */,
 				99C43C601BA3EDA10035A0A4 /* CMAppManager.m in Sources */,
 				99C43C071BA3ED980035A0A4 /* main.m in Sources */,
+				E54CC09B1BCC9F8E003806C0 /* MoviePopUpTableViewCell.m in Sources */,
 				99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */,
 				E5567BAC1BA93A7E00AB4003 /* MyCMMainViewController.m in Sources */,
+				E54CC0AE1BCCA0C6003806C0 /* NSObject+SBJSON.m in Sources */,
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
 				99C43C591BA3EDA10035A0A4 /* UIImage+Color.m in Sources */,
 				99C43C511BA3EDA10035A0A4 /* NSData+Hash.m in Sources */,
 				203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */,
 				99C43C5B1BA3EDA10035A0A4 /* UISegmentedControl+Accessibility.m in Sources */,
 				99C43C6D1BA3EDA10035A0A4 /* LeftMenuViewController.m in Sources */,
+				E54CC0A11BCC9F9A003806C0 /* TreeListModel.m in Sources */,
 				99C43C5F1BA3EDA10035A0A4 /* UIViewController+DebuggingViewInjector.m in Sources */,
 				99C43C671BA3EDA10035A0A4 /* EpgMainTableViewCell.m in Sources */,
 				99C43C6B1BA3EDA10035A0A4 /* HomeGnbViewController.m in Sources */,

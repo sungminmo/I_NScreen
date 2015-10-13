@@ -18,8 +18,9 @@
 #import "AniKidsMainViewController.h"
 #import "MovieMainViewController.h"
 #import "RecommendMainViewController.h"
+#import "MoviePopUpViewController.h"
 
-@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate>
+@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pGnbView;
 @property (nonatomic, strong) IBOutlet UIView *pBodyView;

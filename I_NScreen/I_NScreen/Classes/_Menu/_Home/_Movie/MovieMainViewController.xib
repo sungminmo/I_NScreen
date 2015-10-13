@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieMainViewController">
             <connections>
+                <outlet property="pListBtn" destination="uSo-ij-8Hs" id="BoR-xJ-nog"/>
                 <outlet property="pScrollView" destination="IOV-xj-dL4" id="8Yh-0T-uzM"/>
                 <outlet property="pView01" destination="3Eg-cx-9nC" id="Hzu-sG-hAt"/>
                 <outlet property="pView02" destination="pLg-by-1NP" id="Eij-NH-kHq"/>
@@ -30,6 +31,15 @@
         <view contentMode="scaleToFill" id="3Eg-cx-9nC" userLabel="View1">
             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSo-ij-8Hs">
+                    <rect key="frame" x="47" y="23" width="299" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="GGb-pB-wrr"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

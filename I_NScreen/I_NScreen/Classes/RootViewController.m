@@ -84,6 +84,7 @@
             
             MovieMainViewController *pViewController = [[MovieMainViewController alloc] initWithNibName:@"MovieMainViewController" bundle:nil];
             pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            pViewController.delegate = self;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
@@ -184,6 +185,21 @@
     for ( UIView *view in [[[self.view subviews] objectAtIndex:1] subviews] )
     {
         [view removeFromSuperview];
+    }
+}
+
+#pragma mark - 델리게이트
+#pragma mark - MovieMainViewController 델리게이트
+- (void) MovieMainViewWithBtnTag:(int)nTag
+{
+    switch (nTag) {
+        case MOVIE_MAIN_VIEW_BTN_01:
+        {
+            MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.view addSubview:pViewController.view];
+        }break;
     }
 }
 

@@ -77,6 +77,9 @@
 #define RECOMMEND_MAIN_VIEW_BTN_02      10602   // 금주의 신작 영화
 #define RECOMMEND_MAIN_VIEW_BTN_03      10603   // 이달의 추천 VOD
 
+// MovieMainViewController btn tag
+#define MOVIE_MAIN_VIEW_BTN_01          10701   // 카테고리 리스트 버튼
+
 /*
 문자열 정의
 //*/
