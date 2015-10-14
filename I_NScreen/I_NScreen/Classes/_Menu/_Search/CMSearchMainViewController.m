@@ -79,7 +79,7 @@ static NSString* const programCellIdentifier = @"programCell";
 #pragma mark - Private
 
 - (void)loadUI {
-    self.tabMenu = [[CMTabMenuView alloc] initWithMenuArray:@[@"VOD 명 검색", @"프로그램 명 검색"] posY:0 delegate:self];
+    self.tabMenu = [[CMTabMenuView alloc] initWithMenuArray:@[@"VOD 명 검색", @"TV 프로그램 명 검색"] posY:0 delegate:self];
     [self.tabMenuContainer addSubview:self.tabMenu];
     
     UIView* tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.programList.frame.size.width, 1)];

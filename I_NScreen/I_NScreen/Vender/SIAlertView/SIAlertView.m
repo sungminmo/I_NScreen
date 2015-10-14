@@ -916,16 +916,23 @@ static SIAlertView *__si_alert_current_view;
         #ifdef __IPHONE_7_0
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
             paragraphStyle.lineBreakMode = self.messageLabel.lineBreakMode;
-            
+        
+        CGRect rect = CGRectZero;
+
+        if (self.attributeMessage != nil) {
+            rect = [self.messageLabel.attributedText boundingRectWithSize:CGSizeMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2, maxHeight) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+        }
+        else {
             NSDictionary *attributes = @{NSFontAttributeName:self.messageLabel.font,
                                          NSParagraphStyleAttributeName: paragraphStyle.copy};
             
             // NSString class method: boundingRectWithSize:options:attributes:context is
             // available only on ios7.0 sdk.
-            CGRect rect = [self.messageLabel.text boundingRectWithSize:CGSizeMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2, maxHeight)
-                                                             options:NSStringDrawingUsesLineFragmentOrigin
-                                                          attributes:attributes
-                                                             context:nil];
+            rect = [self.messageLabel.text boundingRectWithSize:CGSizeMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT * 2, maxHeight)
+                                                        options:NSStringDrawingUsesLineFragmentOrigin
+                                                     attributes:attributes
+                                                        context:nil];
+        }
             
             return MAX(minHeight, ceil(rect.size.height));
         #else
