@@ -10,9 +10,6 @@
 
 @interface NSMutableDictionary (VOD)
 
-// http://58.141.255.69:8080/nscreen/getChannelList.xml?version=1&areaCode=0
-+ (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode completion:(void (^)(NSArray *epgs, NSError *error))block;
-
 //http://192.168.40.5:8080/HApplicationServer/getPopularityChart.xml?version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&categoryId=713230&requestItems=all
 
 /*!<
@@ -26,6 +23,10 @@
 + (NSURLSessionDataTask *)vodGetPopularityChartWithCategoryId:(NSString *)categoryId
                                WithRequestItems:(NSString *)requestItems
                                      completion:(void (^)(NSArray *vod, NSError *error))block;
+
+
+
++ (NSURLSessionDataTask *)vodGetContentGroupListWithContentGroupProfile:(NSString *)contentGroupProfile WithPageIndex:(NSString *)pageIndex WithCategoryId:(NSString *)categoryId WithSortType:(NSString *)sortType WithPageSize:(NSString *)pageSize WithTransactionId:(NSString *)transactionId WithIndexRotaion:(NSString *)indexRotaion completion:(void (^)(NSArray *vod, NSError *error))block;
 
 
 @end

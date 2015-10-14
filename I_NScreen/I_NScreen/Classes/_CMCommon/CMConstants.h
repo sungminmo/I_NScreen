@@ -273,6 +273,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_SearchVod;
 // GetPopularityChart
 extern NSString* const CNM_OPEN_API_INTERFACE_GetPopularityChart;
 
+// GetContentGroupList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetContentGroupList;
+
 // 6.Service
 // GetGuideCategory
 extern NSString* const CNM_OPEN_API_INTERFACE_GetGuideCategory;

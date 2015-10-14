@@ -53,6 +53,10 @@
 
 @interface CMNetworkManager (VOD)
 
+// 인기순위 Top20
 - (NSURLSessionDataTask *)vodGetPopularityChartWithCategoryId:(NSString *)categoryId WithRequestItems:(NSString *)requestItems block:(void (^)(NSArray *gets, NSError *error))block;
+
+// 금주의 신작영화
+- (NSURLSessionDataTask *)vodGetContentGroupListWithContentGroupProfile:(NSString *)contentGroupProfile WithPageIndex:(NSString *)pageIndex WithCategoryId:(NSString *)categoryId WithSortType:(NSString *)sortType WithPageSize:(NSString *)pageSize WithTransactionId:(NSString *)transactionId WithIndexRotaion:(NSString *)indexRotaion block:(void (^)(NSArray *gets, NSError *error))block;
 
 @end

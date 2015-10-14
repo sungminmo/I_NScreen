@@ -15,13 +15,14 @@ NSString* const NAVER_SEARCH_API_KEY = @"7868041a52660445b7e1d4bb4f24709c";//발
 NSString* const NAVER_SEARCH_API_SERVER_URL = @"http://openapi.naver.com/search?";
 
 // C&M SMApplicationSever openAPI 서버 IP.
-NSString* const CNM_OPEN_API_SERVER_URL = @"http://58.143.243.91/SMApplicationServer/";
+//NSString* const CNM_OPEN_API_SERVER_URL = @"http://58.143.243.91/SMApplicationServer/";
+NSString* const CNM_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";
 
 // Add By BJK
 // 각각의 화면 마다 서버가 몇몇 다름
 // C&M AirCode Server open API 서버 IP
-//NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://58.141.255.69:8080/nscreen/";
-NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";
+NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://58.141.255.69:8080/nscreen/";
+//NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";
 //NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://moomin.italks.kr/json/brand/";
 
 
@@ -189,6 +190,9 @@ NSString* const CNM_OPEN_API_INTERFACE_Notification = @"Notification";
 // Add By BJK
 // getPopularityChart
 NSString* const CNM_OPEN_API_INTERFACE_GetPopularityChart = @"getPopularityChart";
+
+// getContentGroupList
+NSString* const CNM_OPEN_API_INTERFACE_GetContentGroupList = @"getContentGroupList";
 
 // 5. Search
 // SearchChannel
