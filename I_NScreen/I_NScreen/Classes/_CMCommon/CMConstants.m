@@ -20,7 +20,8 @@ NSString* const CNM_OPEN_API_SERVER_URL = @"http://58.143.243.91/SMApplicationSe
 // Add By BJK
 // 각각의 화면 마다 서버가 몇몇 다름
 // C&M AirCode Server open API 서버 IP
-NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://58.141.255.69:8080/nscreen/";
+//NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://58.141.255.69:8080/nscreen/";
+NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";
 //NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://moomin.italks.kr/json/brand/";
 
 
@@ -31,6 +32,9 @@ NSString* const CNM_OPEN_API_VERSION = @"1";
 
 // 테스트용 터미널Key.
 NSString* const CNM_TEST_TERMINAL_KEY = @"FAC7AE9F9936BBFEB468F2F6FBEA240";
+
+// real 테스트용 터미널 Key
+NSString* const CNM_REAL_TEST_TERMINAL_KEY = @"9CED3A20FB6A4D7FF35D1AC965F988D2";
 
 // 기본 정보(지역코드, 상품코드)
 NSString* const CNM_DEFAULT_AREA_CODE = @"12";
@@ -182,6 +186,10 @@ NSString* const CNM_OPEN_API_INTERFACE_SetVodSetTopDisplayInfo = @"SetVodSetTopD
 // Notification
 NSString* const CNM_OPEN_API_INTERFACE_Notification = @"Notification";
 
+// Add By BJK
+// getPopularityChart
+NSString* const CNM_OPEN_API_INTERFACE_GetPopularityChart = @"getPopularityChart";
+
 // 5. Search
 // SearchChannel
 NSString* const CNM_OPEN_API_INTERFACE_SearchChannel = @"SearchChannel";
@@ -230,6 +238,7 @@ NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule = @"getChannelSchedule
 
 // searchSchedule
 NSString* const CNM_OPEN_API_INTERFACE_SearchSchedule = @"searchSchedule";
+
 
 @implementation STVConstants
 

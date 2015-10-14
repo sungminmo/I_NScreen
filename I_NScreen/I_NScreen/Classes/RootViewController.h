@@ -20,7 +20,7 @@
 #import "RecommendMainViewController.h"
 #import "MoviePopUpViewController.h"
 
-@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate>
+@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MoviePopUpViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pGnbView;
 @property (nonatomic, strong) IBOutlet UIView *pBodyView;

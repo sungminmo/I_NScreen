@@ -14,6 +14,7 @@
 
 @implementation MoviePopUpViewController
 @synthesize pModel;
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -24,6 +25,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self setTagInit];
+    [self setViewInit];
+}
+
+#pragma mark - 초기화
+#pragma mark - 태그 초기화
+- (void)setTagInit
+{
+    self.pBgBtn.tag = MOVICE_POPUP_VIEW_BTN_01;
+}
+
+#pragma mark - 화면 초기화
+- (void)setViewInit
+{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contents" ofType:@"json"];
     
     self.pModel = [[TreeListModel alloc] initWithJSONFilePath:filePath];
@@ -31,7 +46,21 @@
     [self.pTableView reloadData];
 }
 
+#pragma mark - 액션이벤트
+#pragma mark - 버튼 액션 이벤트
+- (IBAction)onBtnClicked:(UIButton *)btn
+{
+    switch ([btn tag]) {
+        case MOVICE_POPUP_VIEW_BTN_01:
+        {
+            [self.view removeFromSuperview];
+            [self willMoveToParentViewController:nil];
+            [self removeFromParentViewController];
+        }break;
+    }
+}
 
+#pragma mark - 델리게이트
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

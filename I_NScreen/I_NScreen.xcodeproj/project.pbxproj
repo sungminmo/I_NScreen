@@ -680,6 +680,7 @@
 		E5567BB81BA9558B00AB4003 /* MyCMZimListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BB61BA9558B00AB4003 /* MyCMZimListTableViewCell.xib */; };
 		E5567BBC1BA955A500AB4003 /* MyCMBuyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5567BBA1BA955A500AB4003 /* MyCMBuyListTableViewCell.m */; };
 		E5567BBD1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */; };
+		E5CBA4F21BCE132D003A2AC1 /* NSMutableDictionary+VOD.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B81BCB4E2000FC3122 /* PopularProgramMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B61BCB4E2000FC3122 /* PopularProgramMainViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -1460,6 +1461,8 @@
 		E5567BB91BA955A500AB4003 /* MyCMBuyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCMBuyListTableViewCell.h; path = _MyCM/_Cell/MyCMBuyListTableViewCell.h; sourceTree = "<group>"; };
 		E5567BBA1BA955A500AB4003 /* MyCMBuyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCMBuyListTableViewCell.m; path = _MyCM/_Cell/MyCMBuyListTableViewCell.m; sourceTree = "<group>"; };
 		E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCMBuyListTableViewCell.xib; path = _MyCM/_Cell/MyCMBuyListTableViewCell.xib; sourceTree = "<group>"; };
+		E5CBA4F01BCE132D003A2AC1 /* NSMutableDictionary+VOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+VOD.h"; sourceTree = "<group>"; };
+		E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+VOD.m"; sourceTree = "<group>"; };
 		E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainViewController.h; path = _Home/_Adult/AdultMainViewController.h; sourceTree = "<group>"; };
 		E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdultMainViewController.m; path = _Home/_Adult/AdultMainViewController.m; sourceTree = "<group>"; };
 		E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdultMainViewController.xib; path = _Home/_Adult/AdultMainViewController.xib; sourceTree = "<group>"; };
@@ -1753,6 +1756,8 @@
 				99C43C371BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m */,
 				E5F6DDE81BB0DD61006C4DD4 /* NSMutableDictionary+EPG.h */,
 				E5F6DDE91BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m */,
+				E5CBA4F01BCE132D003A2AC1 /* NSMutableDictionary+VOD.h */,
+				E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */,
 			);
 			path = _model;
 			sourceTree = "<group>";
@@ -3746,6 +3751,7 @@
 				99C43C5A1BA3EDA10035A0A4 /* UIImage+Path.m in Sources */,
 				99C43C621BA3EDA10035A0A4 /* NSMutableDictionary+Network.m in Sources */,
 				E511817C1BA7ACC600C1E31D /* RecodeSubViewController.m in Sources */,
+				E5CBA4F21BCE132D003A2AC1 /* NSMutableDictionary+VOD.m in Sources */,
 				E5DE64C71BCB4E5500FC3122 /* RecommendMainViewController.m in Sources */,
 				99EA17E71BC0D1F8005A958C /* CMVersionViewController.m in Sources */,
 				99366ACE1BBA66D00082F8D4 /* CMPaytvTableViewCell.m in Sources */,

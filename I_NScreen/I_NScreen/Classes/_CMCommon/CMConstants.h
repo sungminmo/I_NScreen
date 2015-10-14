@@ -107,6 +107,9 @@ extern NSString* const CNM_OPEN_API_VERSION;
 // 테스트용 터미널Key.
 extern NSString* const CNM_TEST_TERMINAL_KEY;
 
+// 실서버용 테스트 터미널 Key.
+extern NSString* const CNM_REAL_TEST_TERMINAL_KEY;
+
 // 기본 정보(지역코드, 상품코드)
 extern NSString* const CNM_DEFAULT_AREA_CODE;
 extern NSString* const CNM_DEFAULT_PRODUCT_CODE;
@@ -266,6 +269,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_SearchProgram;
 
 // SearchVod
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchVod;
+
+// GetPopularityChart
+extern NSString* const CNM_OPEN_API_INTERFACE_GetPopularityChart;
 
 // 6.Service
 // GetGuideCategory

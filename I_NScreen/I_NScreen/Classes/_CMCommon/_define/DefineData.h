@@ -80,6 +80,9 @@
 // MovieMainViewController btn tag
 #define MOVIE_MAIN_VIEW_BTN_01          10701   // 카테고리 리스트 버튼
 
+// MoviePopUpViewController btn tag
+#define MOVICE_POPUP_VIEW_BTN_01        10801   // 닫기 버튼
+
 /*
 문자열 정의
 //*/

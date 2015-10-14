@@ -50,3 +50,9 @@
 - (NSURLSessionDataTask *)epgSearchScheduleAreaCode:(NSString *)areaCode WithSearch:(NSString *)search block:(void (^)(NSArray *gets, NSError *error))block;
 
 @end
+
+@interface CMNetworkManager (VOD)
+
+- (NSURLSessionDataTask *)vodGetPopularityChartWithCategoryId:(NSString *)categoryId WithRequestItems:(NSString *)requestItems block:(void (^)(NSArray *gets, NSError *error))block;
+
+@end

@@ -14,7 +14,7 @@
 #import "NSMutableDictionary+EPG.h"
 #import "UIAlertView+AFNetworking.h"
 #import "UIRefreshControl+AFNetworking.h"
-
+#import "NSMutableDictionary+VOD.h"
 
 @interface RootViewController ()
 
@@ -43,6 +43,15 @@
 //
 //    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 //    [self.refreshControl setRefreshingWithStateOfTask:tesk];
+    
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPopularityChartWithCategoryId:@"713230"
+                                                                         WithRequestItems:@"all"
+                                                                               completion:^(NSArray *vod, NSError *error) {
+                                                                                   id obj = [vod valueForKeyPath:@"weeklyChart"];
+                                                                                   NSLog(@"obj = [%@]", obj);
+                                                                               }];
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     
     // 추천 add
     RecommendMainViewController *pRecommendViewController = [[RecommendMainViewController alloc] initWithNibName:@"RecommendMainViewController" bundle:nil];
@@ -196,11 +205,18 @@
         case MOVIE_MAIN_VIEW_BTN_01:
         {
             MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
+            pViewController.delegate = self;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.view addSubview:pViewController.view];
         }break;
     }
+}
+
+#pragma mark - MoviePopUpViewController 델리게이트
+- (void)MoviePopUpViewWithBtnTag:(int)nTag
+{
+    
 }
 
 @end
