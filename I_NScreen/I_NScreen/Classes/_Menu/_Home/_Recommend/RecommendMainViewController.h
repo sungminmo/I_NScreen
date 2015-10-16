@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
+#import "CMPageViewController.h"
 
-@interface RecommendMainViewController : CMBaseViewController
+@interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIScrollView *pMainScrollView;
 

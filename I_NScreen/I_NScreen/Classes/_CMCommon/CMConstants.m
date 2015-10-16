@@ -25,7 +25,7 @@ NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://58.141.255.69:8080/ns
 //NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";
 //NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://moomin.italks.kr/json/brand/";
 
-
+NSString* const CNM_RUMPUS_OPEN_API_SERVER_URL = @"http://58.141.255.80/smapplicationserver/";
 
 // C&M SMApplicationSever openAPI 프로토콜 버전.
 //NSString* const CNM_OPEN_API_VERSION = @"SmartMobile_v1.0.0";

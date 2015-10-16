@@ -101,6 +101,8 @@ extern NSString* const CNM_OPEN_API_SERVER_URL;
 // C&M AirCode Server open API 서버 IP
 extern NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL;
 
+extern NSString* const CNM_RUMPUS_OPEN_API_SERVER_URL;
+
 // C&M SMApplicationSever openAPI 프로토콜 버전.
 extern NSString* const CNM_OPEN_API_VERSION;
 

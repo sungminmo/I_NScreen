@@ -680,6 +680,8 @@
 		E5567BB81BA9558B00AB4003 /* MyCMZimListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BB61BA9558B00AB4003 /* MyCMZimListTableViewCell.xib */; };
 		E5567BBC1BA955A500AB4003 /* MyCMBuyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5567BBA1BA955A500AB4003 /* MyCMBuyListTableViewCell.m */; };
 		E5567BBD1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */; };
+		E567629E1BCF361B00221AF8 /* CMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E567629C1BCF361B00221AF8 /* CMPageViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E567629F1BCF361B00221AF8 /* CMPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E567629D1BCF361B00221AF8 /* CMPageViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5CBA4F21BCE132D003A2AC1 /* NSMutableDictionary+VOD.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -695,6 +697,7 @@
 		E5F6C6D41B7AD93B00618970 /* I_NScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6D31B7AD93B00618970 /* I_NScreenTests.m */; };
 		E5F6DDEA1BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6DDE91BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m */; };
 		E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6DDEB1BB0EBB7006C4DD4 /* UIKit.framework */; };
+		E5FD2E9D1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FD2E9C1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1461,6 +1464,9 @@
 		E5567BB91BA955A500AB4003 /* MyCMBuyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCMBuyListTableViewCell.h; path = _MyCM/_Cell/MyCMBuyListTableViewCell.h; sourceTree = "<group>"; };
 		E5567BBA1BA955A500AB4003 /* MyCMBuyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCMBuyListTableViewCell.m; path = _MyCM/_Cell/MyCMBuyListTableViewCell.m; sourceTree = "<group>"; };
 		E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCMBuyListTableViewCell.xib; path = _MyCM/_Cell/MyCMBuyListTableViewCell.xib; sourceTree = "<group>"; };
+		E567629B1BCF361B00221AF8 /* CMPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageViewController.h; sourceTree = "<group>"; };
+		E567629C1BCF361B00221AF8 /* CMPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageViewController.m; sourceTree = "<group>"; };
+		E567629D1BCF361B00221AF8 /* CMPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageViewController.xib; sourceTree = "<group>"; };
 		E5CBA4F01BCE132D003A2AC1 /* NSMutableDictionary+VOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+VOD.h"; sourceTree = "<group>"; };
 		E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+VOD.m"; sourceTree = "<group>"; };
 		E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainViewController.h; path = _Home/_Adult/AdultMainViewController.h; sourceTree = "<group>"; };
@@ -1487,6 +1493,8 @@
 		E5F6DDE81BB0DD61006C4DD4 /* NSMutableDictionary+EPG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+EPG.h"; sourceTree = "<group>"; };
 		E5F6DDE91BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+EPG.m"; sourceTree = "<group>"; };
 		E5F6DDEB1BB0EBB7006C4DD4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E5FD2E9B1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+EPG_SEARCH.h"; sourceTree = "<group>"; };
+		E5FD2E9C1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+EPG_SEARCH.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1587,6 +1595,9 @@
 				20989CDD1BC7934F009C4418 /* CMCustomNumberPadView.xib */,
 				203ED8561BCBCAC3003C0521 /* CMTextFieldView.h */,
 				203ED8571BCBCAC3003C0521 /* CMTextFieldView.m */,
+				E567629B1BCF361B00221AF8 /* CMPageViewController.h */,
+				E567629C1BCF361B00221AF8 /* CMPageViewController.m */,
+				E567629D1BCF361B00221AF8 /* CMPageViewController.xib */,
 			);
 			path = _view;
 			sourceTree = "<group>";
@@ -1756,6 +1767,8 @@
 				99C43C371BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m */,
 				E5F6DDE81BB0DD61006C4DD4 /* NSMutableDictionary+EPG.h */,
 				E5F6DDE91BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m */,
+				E5FD2E9B1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.h */,
+				E5FD2E9C1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m */,
 				E5CBA4F01BCE132D003A2AC1 /* NSMutableDictionary+VOD.h */,
 				E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */,
 			);
@@ -3468,6 +3481,7 @@
 				E50FF4401BCB808100F1045C /* v_pick.png in Resources */,
 				E50FF56B1BCB808100F1045C /* longselect@3x.png in Resources */,
 				E50FF5991BCB808100F1045C /* icon_qlist_normal@3x.png in Resources */,
+				E567629F1BCF361B00221AF8 /* CMPageViewController.xib in Resources */,
 				E50FF3B21BCB808100F1045C /* genreshopping_press.png in Resources */,
 				E50FF4081BCB808100F1045C /* icon_discount_select.png in Resources */,
 				E50FF40F1BCB808100F1045C /* onoffbtn_press.png in Resources */,
@@ -3712,6 +3726,7 @@
 				E54CC0AF1BCCA0C6003806C0 /* NSString+SBJSON.m in Sources */,
 				E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */,
 				99E9EDAC1BBA26B5002FEBF0 /* CMPaytvListViewController.m in Sources */,
+				E5FD2E9D1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m in Sources */,
 				E54CC0B21BCCA0C6003806C0 /* SBJsonWriter.m in Sources */,
 				99C43C531BA3EDA10035A0A4 /* NSDictionary+DescriptionWithLocale.m in Sources */,
 				E54CC0B01BCCA0C6003806C0 /* SBJsonBase.m in Sources */,
@@ -3746,6 +3761,7 @@
 				99C43C6D1BA3EDA10035A0A4 /* LeftMenuViewController.m in Sources */,
 				E54CC0A11BCC9F9A003806C0 /* TreeListModel.m in Sources */,
 				99C43C5F1BA3EDA10035A0A4 /* UIViewController+DebuggingViewInjector.m in Sources */,
+				E567629E1BCF361B00221AF8 /* CMPageViewController.m in Sources */,
 				99C43C671BA3EDA10035A0A4 /* EpgMainTableViewCell.m in Sources */,
 				99C43C6B1BA3EDA10035A0A4 /* HomeGnbViewController.m in Sources */,
 				99C43C5A1BA3EDA10035A0A4 /* UIImage+Path.m in Sources */,

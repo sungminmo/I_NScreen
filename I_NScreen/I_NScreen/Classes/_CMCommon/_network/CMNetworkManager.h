@@ -18,11 +18,15 @@
 @interface CMWebHasServerClient : AFHTTPSessionManager
 @end
 
+@interface CMRUMPUSServerClient : AFHTTPSessionManager
+@end
+
 @interface CMNetworkManager : NSObject
 
 @property (nonatomic, strong) CMDRMServerClient* drmClient;
 @property (nonatomic, strong) CMSMAppServerClient* smClient;
 @property (nonatomic, strong) CMWebHasServerClient* webClient;
+@property (nonatomic, strong) CMRUMPUSServerClient* rumClient;
 
 + (CMNetworkManager *)sharedInstance;
 
@@ -33,7 +37,7 @@
 
 - (NSURLSessionDataTask *)searchProgram:(NSString *)keyword block:(void (^)(NSArray *posts, NSError *error))block;
 
-
+- (NSURLSessionDataTask *)epgSearchSearchChannelWithSearchString:(NSString *)searchString WithPageSize:(NSString *)pageSize WithPageIndex:(NSString *)pageIndex WithSortType:(NSString *)sortType block:(void (^)(NSArray *posts, NSError *error))block;
 
 @end
 

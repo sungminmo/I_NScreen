@@ -9,7 +9,7 @@
 #import "RecommendMainViewController.h"
 
 @interface RecommendMainViewController ()
-
+@property (nonatomic, strong) NSMutableArray *pBnViewController;    // 배너 컨트롤
 @end
 
 @implementation RecommendMainViewController
@@ -25,6 +25,8 @@
     
     [self setTagInit];
     [self setViewInit];
+    
+    [self banPageControllerInit];
 }
 
 #pragma mark - 초기화
@@ -77,6 +79,80 @@
             // 이달의 추천 VOD
             
         }break;
+    }
+}
+
+#pragma mark - 배너
+#pragma mark - 배너 페이지 컨트롤 초기화
+- (void)banPageControllerInit
+{
+    // 하드코딩 토탈 카운터 3개만 하자
+    NSMutableArray *pControllers = [[NSMutableArray alloc] init];
+    
+    int nTotalCount = 3;
+    
+    for ( NSUInteger i = 0; i < nTotalCount; i++ )
+    {
+        [pControllers addObject:[NSNull null]];
+    }
+    
+    self.pBnViewController = pControllers;
+    
+    self.pBannerPgControl.numberOfPages = nTotalCount;
+    self.pBannerPgControl.currentPage = 0;
+    
+    self.pBannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.pBannerScrollView.frame) * nTotalCount, CGRectGetHeight(self.pBannerScrollView.frame));
+    self.pBannerScrollView.pagingEnabled = YES;
+    self.pBannerScrollView.showsHorizontalScrollIndicator = NO;
+    self.pBannerScrollView.showsVerticalScrollIndicator = NO;
+    self.pBannerScrollView.scrollsToTop = NO;
+    self.pBannerScrollView.delegate = self;
+    
+    [self banLoadScrollViewWithPage:0];
+    [self banLoadScrollViewWithPage:1];
+}
+
+#pragma mark - 배너 페이지 전환
+- (void)banLoadScrollViewWithPage:(NSInteger )page
+{
+    int nTotalCount = 3;
+    
+    // 초기값 리턴
+    if ( page >= nTotalCount || page < 0 )
+        return;
+    
+    CMPageViewController *controller = [self.pBnViewController objectAtIndex:page];
+    
+    if ( (NSNull *)controller == [NSNull null] )
+    {
+        controller = [[CMPageViewController alloc] initWithData:nil WithPage:(int)page];
+        controller.delegate = self;
+        [self.pBnViewController replaceObjectAtIndex:page withObject:controller];
+    }
+    
+    if ( [controller.view superview] == nil )
+    {
+        CGRect frame = self.pBannerScrollView.frame;
+        frame.origin.x = CGRectGetWidth(frame) * page;
+        frame.origin.y = 0;
+        controller.view.frame = frame;
+        
+        [self.pBannerScrollView addSubview:controller.view];
+    }
+}
+
+#pragma mark - UIScrollView 델리게이트
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if ( scrollView == self.pBannerScrollView )
+    {
+        CGFloat pageWidth = CGRectGetWidth(self.pBannerScrollView.frame);
+        NSUInteger page = floor((self.pBannerScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        self.pBannerPgControl.currentPage = page;
+        
+        [self banLoadScrollViewWithPage:page - 1];
+        [self banLoadScrollViewWithPage:page];
+        [self banLoadScrollViewWithPage:page + 1];
     }
 }
 

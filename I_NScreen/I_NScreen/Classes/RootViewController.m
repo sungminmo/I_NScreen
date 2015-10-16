@@ -15,6 +15,7 @@
 #import "UIAlertView+AFNetworking.h"
 #import "UIRefreshControl+AFNetworking.h"
 #import "NSMutableDictionary+VOD.h"
+#import "NSMutableDictionary+EPG_SEARCH.h"
 
 @interface RootViewController ()
 
@@ -44,13 +45,17 @@
 //    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 //    [self.refreshControl setRefreshingWithStateOfTask:tesk];
     
-    
-    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPopularityChartWithCategoryId:@"713230"
-                                                                         WithRequestItems:@"all"
-                                                                               completion:^(NSArray *vod, NSError *error) {
-                                                                                   id obj = [vod valueForKeyPath:@"weeklyChart"];
-                                                                                   NSLog(@"obj = [%@]", obj);
-                                                                               }];
+//    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPopularityChartWithCategoryId:@"713230"
+//                                                                         WithRequestItems:@"all"
+//                                                                               completion:^(NSArray *vod, NSError *error) {
+//                                                                                   id obj = [vod valueForKeyPath:@"weeklyChart"];
+//                                                                                   NSLog(@"obj = [%@]", obj);
+//                                                                               }];
+//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSearchSearchChannelWithSearchString:@"MBC" WithPageSize:@"3" WithPageIndex:@"0" WithSortType:@"ChannelNoDesc" completion:^(NSArray *epgs, NSError *error) {
+        
+    }];
+
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     
     // 추천 add
