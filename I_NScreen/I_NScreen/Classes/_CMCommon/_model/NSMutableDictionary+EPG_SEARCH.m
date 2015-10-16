@@ -12,7 +12,7 @@
 
 + (NSURLSessionDataTask *)epgSearchSearchChannelWithSearchString:(NSString *)searchString WithPageSize:(NSString *)pageSize WithPageIndex:(NSString *)pageIndex WithSortType:(NSString *)sortType completion:(void (^)(NSArray *, NSError *))block
 {
-    return [[CMNetworkManager sharedInstance] epgSearchSearchChannelWithSearchString:searchString WithPageSize:pageSize WithPageIndex:pageIndex WithSortType:sortType block:block];
+    return [[CMNetworkManager sharedInstance] epgSearchChannelListWithSearchString:searchString WithPageSize:pageSize WithPageIndex:pageIndex WithSortType:sortType block:block];
 }
 
 @end
