@@ -682,6 +682,10 @@
 		E5567BBD1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */; };
 		E567629E1BCF361B00221AF8 /* CMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E567629C1BCF361B00221AF8 /* CMPageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E567629F1BCF361B00221AF8 /* CMPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E567629D1BCF361B00221AF8 /* CMPageViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230A1BD137200076AF97 /* CMPageCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5A9230D1BD137200076AF97 /* CMPageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E5A923121BD13AAA0076AF97 /* CMPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5CBA4F21BCE132D003A2AC1 /* NSMutableDictionary+VOD.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -1467,6 +1471,12 @@
 		E567629B1BCF361B00221AF8 /* CMPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageViewController.h; sourceTree = "<group>"; };
 		E567629C1BCF361B00221AF8 /* CMPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageViewController.m; sourceTree = "<group>"; };
 		E567629D1BCF361B00221AF8 /* CMPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageViewController.xib; sourceTree = "<group>"; };
+		E5A923091BD137200076AF97 /* CMPageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageCollectionViewController.h; sourceTree = "<group>"; };
+		E5A9230A1BD137200076AF97 /* CMPageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageCollectionViewController.m; sourceTree = "<group>"; };
+		E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageCollectionViewController.xib; sourceTree = "<group>"; };
+		E5A9230E1BD13AAA0076AF97 /* CMPageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageCollectionViewCell.h; sourceTree = "<group>"; };
+		E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageCollectionViewCell.m; sourceTree = "<group>"; };
+		E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		E5CBA4F01BCE132D003A2AC1 /* NSMutableDictionary+VOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+VOD.h"; sourceTree = "<group>"; };
 		E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+VOD.m"; sourceTree = "<group>"; };
 		E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainViewController.h; path = _Home/_Adult/AdultMainViewController.h; sourceTree = "<group>"; };
@@ -1598,6 +1608,12 @@
 				E567629B1BCF361B00221AF8 /* CMPageViewController.h */,
 				E567629C1BCF361B00221AF8 /* CMPageViewController.m */,
 				E567629D1BCF361B00221AF8 /* CMPageViewController.xib */,
+				E5A923091BD137200076AF97 /* CMPageCollectionViewController.h */,
+				E5A9230A1BD137200076AF97 /* CMPageCollectionViewController.m */,
+				E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */,
+				E5A9230E1BD13AAA0076AF97 /* CMPageCollectionViewCell.h */,
+				E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */,
+				E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */,
 			);
 			path = _view;
 			sourceTree = "<group>";
@@ -3068,6 +3084,7 @@
 				E50FF4BB1BCB808100F1045C /* pwbox@2x.png in Resources */,
 				E50FF5581BCB808100F1045C /* 3btn_outline@3x.png in Resources */,
 				E50FF4541BCB808100F1045C /* genreentertain_press@2x.png in Resources */,
+				E5A9230D1BD137200076AF97 /* CMPageCollectionViewController.xib in Resources */,
 				E50FF4C01BCB808100F1045C /* purchase_dimmed@2x.png in Resources */,
 				E50FF5B31BCB808100F1045C /* star_full@3x.png in Resources */,
 				E50FF45D1BCB808100F1045C /* genremusic_press@2x.png in Resources */,
@@ -3156,6 +3173,7 @@
 				E50FF4991BCB808100F1045C /* unpick@2x.png in Resources */,
 				E50FF46E1BCB808100F1045C /* gradation@2x.png in Resources */,
 				E50FF5A11BCB808100F1045C /* 4depth_select@3x.png in Resources */,
+				E5A923121BD13AAA0076AF97 /* CMPageCollectionViewCell.xib in Resources */,
 				E50FF4961BCB808100F1045C /* indicator@2x.png in Resources */,
 				E50FF4051BCB808100F1045C /* pwbox_error.png in Resources */,
 				E54CC09E1BCC9F8E003806C0 /* MoviePopUpViewController.xib in Resources */,
@@ -3725,6 +3743,7 @@
 				99C43C551BA3EDA10035A0A4 /* NSMutableDictionary+Merge.m in Sources */,
 				E54CC0AF1BCCA0C6003806C0 /* NSString+SBJSON.m in Sources */,
 				E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */,
+				E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */,
 				99E9EDAC1BBA26B5002FEBF0 /* CMPaytvListViewController.m in Sources */,
 				E5FD2E9D1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m in Sources */,
 				E54CC0B21BCCA0C6003806C0 /* SBJsonWriter.m in Sources */,
@@ -3752,6 +3771,7 @@
 				E54CC09B1BCC9F8E003806C0 /* MoviePopUpTableViewCell.m in Sources */,
 				99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */,
 				E5567BAC1BA93A7E00AB4003 /* MyCMMainViewController.m in Sources */,
+				E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */,
 				E54CC0AE1BCCA0C6003806C0 /* NSObject+SBJSON.m in Sources */,
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
 				99C43C591BA3EDA10035A0A4 /* UIImage+Color.m in Sources */,
