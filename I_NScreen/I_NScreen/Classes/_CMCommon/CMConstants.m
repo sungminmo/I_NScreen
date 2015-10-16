@@ -19,12 +19,12 @@ NSString* const NAVER_SEARCH_API_SERVER_URL = @"http://openapi.naver.com/search?
 NSString* const CNM_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";
 
 // Add By BJK
-// 각각의 화면 마다 서버가 몇몇 다름
 // C&M AirCode Server open API 서버 IP
 NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://58.141.255.69:8080/nscreen/";
 //NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";
 //NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://moomin.italks.kr/json/brand/";
 
+// C&M RUMPUS Server open API 서버 IP
 NSString* const CNM_RUMPUS_OPEN_API_SERVER_URL = @"http://58.141.255.80/smapplicationserver/";
 
 // C&M SMApplicationSever openAPI 프로토콜 버전.
