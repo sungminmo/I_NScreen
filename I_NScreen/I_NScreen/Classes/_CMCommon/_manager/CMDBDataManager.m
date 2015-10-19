@@ -11,8 +11,6 @@
 #import <Realm/Realm.h>
 #import "CMPurchaseAuthorize.h"
 #import "CMAreaInfo.h"
-#import "CMProductInfo.h"
-
 
 @implementation CMDBDataManager
 

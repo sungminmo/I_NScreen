@@ -60,10 +60,6 @@
 		99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C271BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m */; };
 		99C43C5F1BA3EDA10035A0A4 /* UIViewController+DebuggingViewInjector.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C291BA3EDA10035A0A4 /* UIViewController+DebuggingViewInjector.m */; };
 		99C43C601BA3EDA10035A0A4 /* CMAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C2E1BA3EDA10035A0A4 /* CMAppManager.m */; };
-		99C43C611BA3EDA10035A0A4 /* CMSearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C311BA3EDA10035A0A4 /* CMSearchHistory.m */; };
-		99C43C621BA3EDA10035A0A4 /* NSMutableDictionary+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C331BA3EDA10035A0A4 /* NSMutableDictionary+Network.m */; };
-		99C43C631BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C351BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m */; };
-		99C43C641BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C371BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m */; };
 		99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C3A1BA3EDA10035A0A4 /* CMNetworkManager.m */; };
 		99C43C661BA3EDA10035A0A4 /* CMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C3C1BA3EDA10035A0A4 /* CMConstants.m */; };
 		99C43C671BA3EDA10035A0A4 /* EpgMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C411BA3EDA10035A0A4 /* EpgMainTableViewCell.m */; };
@@ -76,7 +72,6 @@
 		99C43C6E1BA3EDA10035A0A4 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C4D1BA3EDA10035A0A4 /* LeftMenuViewController.xib */; };
 		99C43C6F1BA3EDA10035A0A4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */; };
 		99C43C701BA3EDA10035A0A4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C501BA3EDA10035A0A4 /* RootViewController.xib */; };
-		99E41C7D1BD49E9400C64056 /* CMPurchaseAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41C7C1BD49E9400C64056 /* CMPurchaseAuthorize.m */; settings = {ASSET_TAGS = (); }; };
 		99E41C801BD49F3300C64056 /* CMDBDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41C7F1BD49F3300C64056 /* CMDBDataManager.m */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9EDA01BBA2690002FEBF0 /* CMNoticeListViewController.m */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA31BBA2690002FEBF0 /* CMNoticeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99E9EDA11BBA2690002FEBF0 /* CMNoticeListViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -94,7 +89,15 @@
 		99EA17E81BC0D1F8005A958C /* CMVersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EA17E61BC0D1F8005A958C /* CMVersionViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC6231BA645CB0085C86F /* UINavigationBar+CustomHeight.m */; };
 		99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC6261BA6765C0085C86F /* UIColor+ColorString.m */; };
-		99ECD56B1BD5151800EABA67 /* CMAreaInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD56A1BD5151800EABA67 /* CMAreaInfo.m */; settings = {ASSET_TAGS = (); }; };
+		99ECD5831BD5188B00EABA67 /* NSMutableDictionary+EPG.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5711BD5188B00EABA67 /* NSMutableDictionary+EPG.m */; settings = {ASSET_TAGS = (); }; };
+		99ECD5841BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5731BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.m */; settings = {ASSET_TAGS = (); }; };
+		99ECD5851BD5188B00EABA67 /* NSMutableDictionary+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5751BD5188B00EABA67 /* NSMutableDictionary+Network.m */; settings = {ASSET_TAGS = (); }; };
+		99ECD5861BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5771BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m */; settings = {ASSET_TAGS = (); }; };
+		99ECD5871BD5188B00EABA67 /* NSMutableDictionary+VOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5791BD5188B00EABA67 /* NSMutableDictionary+VOD.m */; settings = {ASSET_TAGS = (); }; };
+		99ECD5881BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD57B1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m */; settings = {ASSET_TAGS = (); }; };
+		99ECD5891BD5188B00EABA67 /* CMAreaInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD57E1BD5188B00EABA67 /* CMAreaInfo.m */; settings = {ASSET_TAGS = (); }; };
+		99ECD58A1BD5188B00EABA67 /* CMPurchaseAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5801BD5188B00EABA67 /* CMPurchaseAuthorize.m */; settings = {ASSET_TAGS = (); }; };
+		99ECD58B1BD5188B00EABA67 /* CMSearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5821BD5188B00EABA67 /* CMSearchHistory.m */; settings = {ASSET_TAGS = (); }; };
 		E50FF3911BCB808100F1045C /* allch.png in Resources */ = {isa = PBXBuildFile; fileRef = E50FF1471BCB808000F1045C /* allch.png */; settings = {ASSET_TAGS = (); }; };
 		E50FF3921BCB808100F1045C /* allch_press.png in Resources */ = {isa = PBXBuildFile; fileRef = E50FF1481BCB808000F1045C /* allch_press.png */; settings = {ASSET_TAGS = (); }; };
 		E50FF3931BCB808100F1045C /* genreall_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E50FF1491BCB808000F1045C /* genreall_normal.png */; settings = {ASSET_TAGS = (); }; };
@@ -693,7 +696,6 @@
 		E5A923121BD13AAA0076AF97 /* CMPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5C2C7181BD485D20093C76C /* longnormal.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C2C7161BD485D20093C76C /* longnormal.png */; settings = {ASSET_TAGS = (); }; };
 		E5C2C7191BD485D20093C76C /* longselect.png in Resources */ = {isa = PBXBuildFile; fileRef = E5C2C7171BD485D20093C76C /* longselect.png */; settings = {ASSET_TAGS = (); }; };
-		E5CBA4F21BCE132D003A2AC1 /* NSMutableDictionary+VOD.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B81BCB4E2000FC3122 /* PopularProgramMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B61BCB4E2000FC3122 /* PopularProgramMainViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -706,9 +708,7 @@
 		E5DE64C81BCB4E5500FC3122 /* RecommendMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64C61BCB4E5500FC3122 /* RecommendMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
 		E5F6C6D41B7AD93B00618970 /* I_NScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6D31B7AD93B00618970 /* I_NScreenTests.m */; };
-		E5F6DDEA1BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6DDE91BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m */; };
 		E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6DDEB1BB0EBB7006C4DD4 /* UIKit.framework */; };
-		E5FD2E9D1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FD2E9C1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -813,14 +813,6 @@
 		99C43C2B1BA3EDA10035A0A4 /* DefineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineData.h; sourceTree = "<group>"; };
 		99C43C2D1BA3EDA10035A0A4 /* CMAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAppManager.h; sourceTree = "<group>"; };
 		99C43C2E1BA3EDA10035A0A4 /* CMAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAppManager.m; sourceTree = "<group>"; };
-		99C43C301BA3EDA10035A0A4 /* CMSearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSearchHistory.h; sourceTree = "<group>"; };
-		99C43C311BA3EDA10035A0A4 /* CMSearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSearchHistory.m; sourceTree = "<group>"; };
-		99C43C321BA3EDA10035A0A4 /* NSMutableDictionary+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Network.h"; sourceTree = "<group>"; };
-		99C43C331BA3EDA10035A0A4 /* NSMutableDictionary+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Network.m"; sourceTree = "<group>"; };
-		99C43C341BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PROGRAM_SEARCH.h"; sourceTree = "<group>"; };
-		99C43C351BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PROGRAM_SEARCH.m"; sourceTree = "<group>"; };
-		99C43C361BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+VOD_SEARCH.h"; sourceTree = "<group>"; };
-		99C43C371BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+VOD_SEARCH.m"; sourceTree = "<group>"; };
 		99C43C391BA3EDA10035A0A4 /* CMNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNetworkManager.h; sourceTree = "<group>"; };
 		99C43C3A1BA3EDA10035A0A4 /* CMNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMNetworkManager.m; sourceTree = "<group>"; };
 		99C43C3B1BA3EDA10035A0A4 /* CMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMConstants.h; sourceTree = "<group>"; };
@@ -840,8 +832,6 @@
 		99C43C4E1BA3EDA10035A0A4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		99C43C501BA3EDA10035A0A4 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		99E41C7B1BD49E9400C64056 /* CMPurchaseAuthorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPurchaseAuthorize.h; sourceTree = "<group>"; };
-		99E41C7C1BD49E9400C64056 /* CMPurchaseAuthorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPurchaseAuthorize.m; sourceTree = "<group>"; };
 		99E41C7E1BD49F3300C64056 /* CMDBDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDBDataManager.h; sourceTree = "<group>"; };
 		99E41C7F1BD49F3300C64056 /* CMDBDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDBDataManager.m; sourceTree = "<group>"; };
 		99E9ED9F1BBA2690002FEBF0 /* CMNoticeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNoticeListViewController.h; sourceTree = "<group>"; };
@@ -869,8 +859,24 @@
 		99ECC6231BA645CB0085C86F /* UINavigationBar+CustomHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomHeight.m"; sourceTree = "<group>"; };
 		99ECC6251BA6765C0085C86F /* UIColor+ColorString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorString.h"; sourceTree = "<group>"; };
 		99ECC6261BA6765C0085C86F /* UIColor+ColorString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorString.m"; sourceTree = "<group>"; };
-		99ECD5691BD5151800EABA67 /* CMAreaInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAreaInfo.h; sourceTree = "<group>"; };
-		99ECD56A1BD5151800EABA67 /* CMAreaInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAreaInfo.m; sourceTree = "<group>"; };
+		99ECD5701BD5188B00EABA67 /* NSMutableDictionary+EPG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+EPG.h"; sourceTree = "<group>"; };
+		99ECD5711BD5188B00EABA67 /* NSMutableDictionary+EPG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+EPG.m"; sourceTree = "<group>"; };
+		99ECD5721BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+EPG_SEARCH.h"; sourceTree = "<group>"; };
+		99ECD5731BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+EPG_SEARCH.m"; sourceTree = "<group>"; };
+		99ECD5741BD5188B00EABA67 /* NSMutableDictionary+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Network.h"; sourceTree = "<group>"; };
+		99ECD5751BD5188B00EABA67 /* NSMutableDictionary+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Network.m"; sourceTree = "<group>"; };
+		99ECD5761BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PROGRAM_SEARCH.h"; sourceTree = "<group>"; };
+		99ECD5771BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PROGRAM_SEARCH.m"; sourceTree = "<group>"; };
+		99ECD5781BD5188B00EABA67 /* NSMutableDictionary+VOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+VOD.h"; sourceTree = "<group>"; };
+		99ECD5791BD5188B00EABA67 /* NSMutableDictionary+VOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+VOD.m"; sourceTree = "<group>"; };
+		99ECD57A1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+VOD_SEARCH.h"; sourceTree = "<group>"; };
+		99ECD57B1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+VOD_SEARCH.m"; sourceTree = "<group>"; };
+		99ECD57D1BD5188B00EABA67 /* CMAreaInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAreaInfo.h; sourceTree = "<group>"; };
+		99ECD57E1BD5188B00EABA67 /* CMAreaInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAreaInfo.m; sourceTree = "<group>"; };
+		99ECD57F1BD5188B00EABA67 /* CMPurchaseAuthorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPurchaseAuthorize.h; sourceTree = "<group>"; };
+		99ECD5801BD5188B00EABA67 /* CMPurchaseAuthorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPurchaseAuthorize.m; sourceTree = "<group>"; };
+		99ECD5811BD5188B00EABA67 /* CMSearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSearchHistory.h; sourceTree = "<group>"; };
+		99ECD5821BD5188B00EABA67 /* CMSearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSearchHistory.m; sourceTree = "<group>"; };
 		9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I_NScreen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59B2745D004925EB9E020AE /* Pods-I_NScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.release.xcconfig"; sourceTree = "<group>"; };
 		E50FF1471BCB808000F1045C /* allch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch.png; sourceTree = "<group>"; };
@@ -1496,8 +1502,6 @@
 		E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageCollectionViewCell.xib; sourceTree = "<group>"; };
 		E5C2C7161BD485D20093C76C /* longnormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longnormal.png; sourceTree = "<group>"; };
 		E5C2C7171BD485D20093C76C /* longselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longselect.png; sourceTree = "<group>"; };
-		E5CBA4F01BCE132D003A2AC1 /* NSMutableDictionary+VOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+VOD.h"; sourceTree = "<group>"; };
-		E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+VOD.m"; sourceTree = "<group>"; };
 		E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainViewController.h; path = _Home/_Adult/AdultMainViewController.h; sourceTree = "<group>"; };
 		E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdultMainViewController.m; path = _Home/_Adult/AdultMainViewController.m; sourceTree = "<group>"; };
 		E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdultMainViewController.xib; path = _Home/_Adult/AdultMainViewController.xib; sourceTree = "<group>"; };
@@ -1519,11 +1523,7 @@
 		E5F6C6CD1B7AD93B00618970 /* I_NScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = I_NScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F6C6D21B7AD93B00618970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5F6C6D31B7AD93B00618970 /* I_NScreenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = I_NScreenTests.m; sourceTree = "<group>"; };
-		E5F6DDE81BB0DD61006C4DD4 /* NSMutableDictionary+EPG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+EPG.h"; sourceTree = "<group>"; };
-		E5F6DDE91BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+EPG.m"; sourceTree = "<group>"; };
 		E5F6DDEB1BB0EBB7006C4DD4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		E5FD2E9B1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+EPG_SEARCH.h"; sourceTree = "<group>"; };
-		E5FD2E9C1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+EPG_SEARCH.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1792,26 +1792,10 @@
 		99C43C2F1BA3EDA10035A0A4 /* _model */ = {
 			isa = PBXGroup;
 			children = (
+				99ECD56F1BD5188B00EABA67 /* _dictionaryModel */,
+				99ECD57C1BD5188B00EABA67 /* _realmModel */,
 				E54CC09F1BCC9F9A003806C0 /* TreeListModel.h */,
 				E54CC0A01BCC9F9A003806C0 /* TreeListModel.m */,
-				99C43C301BA3EDA10035A0A4 /* CMSearchHistory.h */,
-				99C43C311BA3EDA10035A0A4 /* CMSearchHistory.m */,
-				99E41C7B1BD49E9400C64056 /* CMPurchaseAuthorize.h */,
-				99E41C7C1BD49E9400C64056 /* CMPurchaseAuthorize.m */,
-				99ECD5691BD5151800EABA67 /* CMAreaInfo.h */,
-				99ECD56A1BD5151800EABA67 /* CMAreaInfo.m */,
-				99C43C321BA3EDA10035A0A4 /* NSMutableDictionary+Network.h */,
-				99C43C331BA3EDA10035A0A4 /* NSMutableDictionary+Network.m */,
-				99C43C341BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.h */,
-				99C43C351BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m */,
-				99C43C361BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.h */,
-				99C43C371BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m */,
-				E5F6DDE81BB0DD61006C4DD4 /* NSMutableDictionary+EPG.h */,
-				E5F6DDE91BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m */,
-				E5FD2E9B1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.h */,
-				E5FD2E9C1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m */,
-				E5CBA4F01BCE132D003A2AC1 /* NSMutableDictionary+VOD.h */,
-				E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */,
 			);
 			path = _model;
 			sourceTree = "<group>";
@@ -1906,6 +1890,38 @@
 				99ECC6231BA645CB0085C86F /* UINavigationBar+CustomHeight.m */,
 			);
 			path = "UINavigationBar+CustomHeight";
+			sourceTree = "<group>";
+		};
+		99ECD56F1BD5188B00EABA67 /* _dictionaryModel */ = {
+			isa = PBXGroup;
+			children = (
+				99ECD5701BD5188B00EABA67 /* NSMutableDictionary+EPG.h */,
+				99ECD5711BD5188B00EABA67 /* NSMutableDictionary+EPG.m */,
+				99ECD5721BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.h */,
+				99ECD5731BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.m */,
+				99ECD5741BD5188B00EABA67 /* NSMutableDictionary+Network.h */,
+				99ECD5751BD5188B00EABA67 /* NSMutableDictionary+Network.m */,
+				99ECD5761BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.h */,
+				99ECD5771BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m */,
+				99ECD5781BD5188B00EABA67 /* NSMutableDictionary+VOD.h */,
+				99ECD5791BD5188B00EABA67 /* NSMutableDictionary+VOD.m */,
+				99ECD57A1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.h */,
+				99ECD57B1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m */,
+			);
+			path = _dictionaryModel;
+			sourceTree = "<group>";
+		};
+		99ECD57C1BD5188B00EABA67 /* _realmModel */ = {
+			isa = PBXGroup;
+			children = (
+				99ECD57D1BD5188B00EABA67 /* CMAreaInfo.h */,
+				99ECD57E1BD5188B00EABA67 /* CMAreaInfo.m */,
+				99ECD57F1BD5188B00EABA67 /* CMPurchaseAuthorize.h */,
+				99ECD5801BD5188B00EABA67 /* CMPurchaseAuthorize.m */,
+				99ECD5811BD5188B00EABA67 /* CMSearchHistory.h */,
+				99ECD5821BD5188B00EABA67 /* CMSearchHistory.m */,
+			);
+			path = _realmModel;
 			sourceTree = "<group>";
 		};
 		E50FF1441BCB808000F1045C /* images */ = {
@@ -3771,7 +3787,6 @@
 				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
 				2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */,
 				E5DE64BD1BCB4E3300FC3122 /* AniKidsMainViewController.m in Sources */,
-				E5F6DDEA1BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m in Sources */,
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
 				99C43C581BA3EDA10035A0A4 /* NSUserDefaults+Settings.m in Sources */,
@@ -3780,12 +3795,13 @@
 				99478D331BAD4B3E00CC99E9 /* UIView+Layer.m in Sources */,
 				99E9EDA71BBA26A5002FEBF0 /* CMNoticeDetailViewController.m in Sources */,
 				99C43C5C1BA3EDA10035A0A4 /* UIView+ViewController.m in Sources */,
-				99ECD56B1BD5151800EABA67 /* CMAreaInfo.m in Sources */,
+				99ECD5881BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m in Sources */,
 				99EA17E21BC0D1E6005A958C /* CMTermsViewController.m in Sources */,
+				99ECD5851BD5188B00EABA67 /* NSMutableDictionary+Network.m in Sources */,
+				99ECD5891BD5188B00EABA67 /* CMAreaInfo.m in Sources */,
 				99E9EDB61BBA26D2002FEBF0 /* CMContactInfoViewCcontroller.m in Sources */,
 				E52EE57B1BD508AF00797251 /* PvrSubTableViewCell.m in Sources */,
 				2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */,
-				99C43C611BA3EDA10035A0A4 /* CMSearchHistory.m in Sources */,
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
 				208729AF1BBB90E5009601A4 /* CMTextField.m in Sources */,
 				E54CC0B11BCCA0C6003806C0 /* SBJsonParser.m in Sources */,
@@ -3795,13 +3811,12 @@
 				E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */,
 				E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */,
 				99E9EDAC1BBA26B5002FEBF0 /* CMPaytvListViewController.m in Sources */,
-				E5FD2E9D1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m in Sources */,
 				E54CC0B21BCCA0C6003806C0 /* SBJsonWriter.m in Sources */,
+				99ECD5841BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.m in Sources */,
 				99C43C531BA3EDA10035A0A4 /* NSDictionary+DescriptionWithLocale.m in Sources */,
 				E54CC0B01BCCA0C6003806C0 /* SBJsonBase.m in Sources */,
 				99C43C561BA3EDA10035A0A4 /* NSString+Hash.m in Sources */,
 				E51181901BA7ACF900C1E31D /* EpgSubViewController.m in Sources */,
-				99C43C641BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m in Sources */,
 				994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */,
 				99E41C801BD49F3300C64056 /* CMDBDataManager.m in Sources */,
 				99C43C691BA3EDA10035A0A4 /* EpgMainViewController.m in Sources */,
@@ -3812,6 +3827,7 @@
 				99C43C6F1BA3EDA10035A0A4 /* RootViewController.m in Sources */,
 				E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */,
 				20989CE31BC7AE00009C4418 /* CMRegionSettingViewController.m in Sources */,
+				99ECD5831BD5188B00EABA67 /* NSMutableDictionary+EPG.m in Sources */,
 				20FEC9A11BBCD93100F6984F /* CMAutoCompletTableViewCell.m in Sources */,
 				99E9EDB11BBA26C3002FEBF0 /* CMPaytvGuideViewController.m in Sources */,
 				E52EE57F1BD508AF00797251 /* PvrMainViewController.m in Sources */,
@@ -3824,7 +3840,10 @@
 				99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */,
 				E5567BAC1BA93A7E00AB4003 /* MyCMMainViewController.m in Sources */,
 				E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */,
+				99ECD5871BD5188B00EABA67 /* NSMutableDictionary+VOD.m in Sources */,
+				99ECD58A1BD5188B00EABA67 /* CMPurchaseAuthorize.m in Sources */,
 				E52EE58B1BD50E5400797251 /* RemoconMainTableViewCell.m in Sources */,
+				99ECD5861BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */,
 				E54CC0AE1BCCA0C6003806C0 /* NSObject+SBJSON.m in Sources */,
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
 				E52EE57D1BD508AF00797251 /* PvrSubViewController.m in Sources */,
@@ -3832,6 +3851,7 @@
 				99C43C511BA3EDA10035A0A4 /* NSData+Hash.m in Sources */,
 				203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */,
 				99C43C5B1BA3EDA10035A0A4 /* UISegmentedControl+Accessibility.m in Sources */,
+				99ECD58B1BD5188B00EABA67 /* CMSearchHistory.m in Sources */,
 				99C43C6D1BA3EDA10035A0A4 /* LeftMenuViewController.m in Sources */,
 				E54CC0A11BCC9F9A003806C0 /* TreeListModel.m in Sources */,
 				99C43C5F1BA3EDA10035A0A4 /* UIViewController+DebuggingViewInjector.m in Sources */,
@@ -3840,9 +3860,6 @@
 				99C43C6B1BA3EDA10035A0A4 /* HomeGnbViewController.m in Sources */,
 				99C43C5A1BA3EDA10035A0A4 /* UIImage+Path.m in Sources */,
 				E52EE5851BD50AD100797251 /* RemoconMainViewController.m in Sources */,
-				99C43C621BA3EDA10035A0A4 /* NSMutableDictionary+Network.m in Sources */,
-				99E41C7D1BD49E9400C64056 /* CMPurchaseAuthorize.m in Sources */,
-				E5CBA4F21BCE132D003A2AC1 /* NSMutableDictionary+VOD.m in Sources */,
 				E5DE64C71BCB4E5500FC3122 /* RecommendMainViewController.m in Sources */,
 				99EA17E71BC0D1F8005A958C /* CMVersionViewController.m in Sources */,
 				99366ACE1BBA66D00082F8D4 /* CMPaytvTableViewCell.m in Sources */,
@@ -3850,7 +3867,6 @@
 				99C43C661BA3EDA10035A0A4 /* CMConstants.m in Sources */,
 				E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */,
 				99C43C5D1BA3EDA10035A0A4 /* UIViewController+OverlayView.m in Sources */,
-				99C43C631BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */,
 				20EAA3421BAE7D2C004DFCA0 /* CMTabMenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

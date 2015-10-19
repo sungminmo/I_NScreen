@@ -12,13 +12,24 @@
 
 + (CMDBDataManager *)sharedInstance;
 
+/**
+ *  구매인증번호 조회
+ *
+ *  @return 구매인증번호 
+ */
 - (NSString*)purchaseAuthorizedNumber;
 
+/**
+ *  구매인증번호 저장
+ *
+ *  @param number 구매인증번호
+ */
 - (void)savePurchaseAuthorizedNumber:(NSString*)number;
 
-
+/**
+ *  지역코드 기본설정
+ */
 - (void)saveDefaultAeraCode;
 
-- (void)saveDefaultProductCode;
 
 @end
