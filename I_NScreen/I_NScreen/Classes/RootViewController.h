@@ -19,6 +19,7 @@
 #import "RecommendMainViewController.h"
 #import "MoviePopUpViewController.h"
 #import "PvrMainViewController.h"
+#import "RemoconMainViewController.h"
 
 @interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MoviePopUpViewDelegate>
 

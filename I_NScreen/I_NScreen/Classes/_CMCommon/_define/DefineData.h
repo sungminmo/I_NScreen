@@ -82,6 +82,14 @@
 // PvrSubViewController btn tag
 #define PVR_SUB_VIEW_BTN_01             11001   // BACK 버튼
 
+// RemoconMainViewController btn tag
+#define REMOCON_MAIN_VIEW_BTN_01        12001   // BACK 버튼
+#define REMOCON_MAIN_VIEW_BTN_02        12002   // 전원 버튼
+#define REMOCON_MAIN_VIEW_BTN_03        12003   // 채널 버튼
+#define REMOCON_MAIN_VIEW_BTN_04        12004   // 볼륨 다운
+#define REMOCON_MAIN_VIEW_BTN_05        12005   // 볼륨 업
+
+
 /*
 문자열 정의
 //*/

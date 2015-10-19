@@ -159,13 +159,16 @@
         }break;
         case 2:
         {
-            // PVR - 리모컨
-            PvrMainViewController *pViewController = [[PvrMainViewController alloc] initWithNibName:@"PvrMainViewController" bundle:nil];
+            // 리모컨
+            RemoconMainViewController *pViewController = [[RemoconMainViewController alloc] initWithNibName:@"RemoconMainViewController" bundle:nil];
             [self.navigationController pushViewController:pViewController animated:YES];
             
         }break;
-        case 3: //녹화
+        case 3:
         {
+            // PVR - 녹화
+            PvrMainViewController *pViewController = [[PvrMainViewController alloc] initWithNibName:@"PvrMainViewController" bundle:nil];
+            [self.navigationController pushViewController:pViewController animated:YES];
 //            // 검색
 //            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
 //            [self.navigationController pushViewController:controller animated:YES];

@@ -661,6 +661,10 @@
 		E52EE57E1BD508AF00797251 /* PvrSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE5751BD508AF00797251 /* PvrSubViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E52EE57F1BD508AF00797251 /* PvrMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52EE5771BD508AF00797251 /* PvrMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E52EE5801BD508AF00797251 /* PvrMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE5781BD508AF00797251 /* PvrMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E52EE5851BD50AD100797251 /* RemoconMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52EE5831BD50AD100797251 /* RemoconMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E52EE5861BD50AD100797251 /* RemoconMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE5841BD50AD100797251 /* RemoconMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E52EE58B1BD50E5400797251 /* RemoconMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52EE5891BD50E5400797251 /* RemoconMainTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E52EE58C1BD50E5400797251 /* RemoconMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE58A1BD50E5400797251 /* RemoconMainTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E54CC09B1BCC9F8E003806C0 /* MoviePopUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E54CC09C1BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0991BCC9F8E003806C0 /* MoviePopUpViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -1440,6 +1444,12 @@
 		E52EE5761BD508AF00797251 /* PvrMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvrMainViewController.h; sourceTree = "<group>"; };
 		E52EE5771BD508AF00797251 /* PvrMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvrMainViewController.m; sourceTree = "<group>"; };
 		E52EE5781BD508AF00797251 /* PvrMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PvrMainViewController.xib; sourceTree = "<group>"; };
+		E52EE5821BD50AD100797251 /* RemoconMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoconMainViewController.h; path = _Remocon/RemoconMainViewController.h; sourceTree = "<group>"; };
+		E52EE5831BD50AD100797251 /* RemoconMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoconMainViewController.m; path = _Remocon/RemoconMainViewController.m; sourceTree = "<group>"; };
+		E52EE5841BD50AD100797251 /* RemoconMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RemoconMainViewController.xib; path = _Remocon/RemoconMainViewController.xib; sourceTree = "<group>"; };
+		E52EE5881BD50E5400797251 /* RemoconMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoconMainTableViewCell.h; path = _Remocon/_Cell/RemoconMainTableViewCell.h; sourceTree = "<group>"; };
+		E52EE5891BD50E5400797251 /* RemoconMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoconMainTableViewCell.m; path = _Remocon/_Cell/RemoconMainTableViewCell.m; sourceTree = "<group>"; };
+		E52EE58A1BD50E5400797251 /* RemoconMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RemoconMainTableViewCell.xib; path = _Remocon/_Cell/RemoconMainTableViewCell.xib; sourceTree = "<group>"; };
 		E54CC0951BCC9F8E003806C0 /* MoviePopUpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePopUpTableViewCell.h; sourceTree = "<group>"; };
 		E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePopUpTableViewCell.m; sourceTree = "<group>"; };
 		E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviePopUpTableViewCell.xib; sourceTree = "<group>"; };
@@ -1813,6 +1823,7 @@
 		99C43C3D1BA3EDA10035A0A4 /* _Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E52EE5811BD50AA900797251 /* _Remocon */,
 				E52EE5691BD508AF00797251 /* _Pvr */,
 				E5DE649B1BCB4BC200FC3122 /* _Home */,
 				E5567BA81BA939CA00AB4003 /* _MyCM */,
@@ -2793,6 +2804,27 @@
 			path = _Cell;
 			sourceTree = "<group>";
 		};
+		E52EE5811BD50AA900797251 /* _Remocon */ = {
+			isa = PBXGroup;
+			children = (
+				E52EE5871BD50E3400797251 /* _Cell */,
+				E52EE5821BD50AD100797251 /* RemoconMainViewController.h */,
+				E52EE5831BD50AD100797251 /* RemoconMainViewController.m */,
+				E52EE5841BD50AD100797251 /* RemoconMainViewController.xib */,
+			);
+			name = _Remocon;
+			sourceTree = "<group>";
+		};
+		E52EE5871BD50E3400797251 /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E52EE5881BD50E5400797251 /* RemoconMainTableViewCell.h */,
+				E52EE5891BD50E5400797251 /* RemoconMainTableViewCell.m */,
+				E52EE58A1BD50E5400797251 /* RemoconMainTableViewCell.xib */,
+			);
+			name = _Cell;
+			sourceTree = "<group>";
+		};
 		E54CC0931BCC9F8E003806C0 /* _PopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -3336,6 +3368,7 @@
 				E50FF5311BCB808100F1045C /* back@3x.png in Resources */,
 				E50FF48C1BCB808100F1045C /* icon_promotion_05@2x.png in Resources */,
 				E50FF3D61BCB808100F1045C /* icon_promotion_06.png in Resources */,
+				E52EE5861BD50AD100797251 /* RemoconMainViewController.xib in Resources */,
 				99E9EDAD1BBA26B5002FEBF0 /* CMPaytvListViewController.xib in Resources */,
 				E50FF3961BCB808100F1045C /* genredrama_normal.png in Resources */,
 				E50FF5031BCB808100F1045C /* genreall_select@3x.png in Resources */,
@@ -3600,6 +3633,7 @@
 				E50FF5131BCB808100F1045C /* genremusic_normal@3x.png in Resources */,
 				99E9EDA31BBA2690002FEBF0 /* CMNoticeListViewController.xib in Resources */,
 				E50FF4421BCB808100F1045C /* vod1btn_normal.select.png in Resources */,
+				E52EE58C1BD50E5400797251 /* RemoconMainTableViewCell.xib in Resources */,
 				E50FF45A1BCB808100F1045C /* genremovie_press@2x.png in Resources */,
 				E50FF46D1BCB808100F1045C /* genresports_select@2x.png in Resources */,
 				E50FF50D1BCB808100F1045C /* genrefavorite_normal@3x.png in Resources */,
@@ -3784,6 +3818,7 @@
 				99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */,
 				E5567BAC1BA93A7E00AB4003 /* MyCMMainViewController.m in Sources */,
 				E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */,
+				E52EE58B1BD50E5400797251 /* RemoconMainTableViewCell.m in Sources */,
 				E54CC0AE1BCCA0C6003806C0 /* NSObject+SBJSON.m in Sources */,
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
 				E52EE57D1BD508AF00797251 /* PvrSubViewController.m in Sources */,
@@ -3798,6 +3833,7 @@
 				99C43C671BA3EDA10035A0A4 /* EpgMainTableViewCell.m in Sources */,
 				99C43C6B1BA3EDA10035A0A4 /* HomeGnbViewController.m in Sources */,
 				99C43C5A1BA3EDA10035A0A4 /* UIImage+Path.m in Sources */,
+				E52EE5851BD50AD100797251 /* RemoconMainViewController.m in Sources */,
 				99C43C621BA3EDA10035A0A4 /* NSMutableDictionary+Network.m in Sources */,
 				99E41C7D1BD49E9400C64056 /* CMPurchaseAuthorize.m in Sources */,
 				E5CBA4F21BCE132D003A2AC1 /* NSMutableDictionary+VOD.m in Sources */,
