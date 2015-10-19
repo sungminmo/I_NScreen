@@ -1,14 +1,15 @@
 //
-//  NSMutableDictionary+VOD_SEARCH.m
+//  NSMutableDictionary+SEARCH.m
 //  I_NScreen
 //
-//  Created by 조백근 on 2015. 8. 31..
-//  Copyright (c) 2015년 STVN. All rights reserved.
+//  Created by kimts on 2015. 10. 19..
+//  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "NSMutableDictionary+VOD_SEARCH.h"
+#import "NSMutableDictionary+SEARCH.h"
 
-@implementation NSMutableDictionary (VOD_SEARCH)
+@implementation NSMutableDictionary (SEARCH)
+
 + (NSURLSessionDataTask *)programSearchListWithSearchString:(NSString *)searchString WithPageSize:(NSInteger)pageSize WithPageIndex:(NSInteger)pageIndex WithAreaCode:(NSString *)areaCode WithProductCode:(NSString *)productCode completion:(void (^)(NSArray *programs, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] programSearchListWithSearchString:searchString WithPageSize:pageSize WithPageIndex:pageIndex WithAreaCode:areaCode WithProductCode:productCode completion:block];

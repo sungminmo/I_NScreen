@@ -12,6 +12,7 @@
 #import "CMAutoCompletTableViewCell.h"
 #import "CMConstants.h"
 #import "BMXSwipableCell+ConfigureCell.h"
+#import "NSMutableDictionary+SEARCH.h"
 
 typedef enum : NSInteger {
     VOD_TABMENU_TYPE,
@@ -21,6 +22,8 @@ typedef enum : NSInteger {
 static NSString* const autoCompletCell = @"autoCompletCell";
 static NSString* const vodCellIdentifier = @"vodCell";
 static NSString* const programCellIdentifier = @"programCell";
+
+static const CGFloat pageSize = 28;
 
 @interface CMSearchMainViewController ()
 
@@ -37,6 +40,11 @@ static NSString* const programCellIdentifier = @"programCell";
 
 @property (nonatomic, strong) NSMutableArray* dataArray;
 
+@property (nonatomic, assign) NSInteger pageIndex;
+@property (nonatomic, assign) NSInteger totalPage;
+
+@property (nonatomic, assign) BOOL isLoading;
+
 @end
 
 @implementation CMSearchMainViewController
@@ -44,14 +52,18 @@ static NSString* const programCellIdentifier = @"programCell";
 #pragma mark - Life Cycle
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     self.title = @"검색";
     self.isUseNavigationBar = YES;
     self.topConstraint.constant = cmNavigationHeight;
     
+    self.pageIndex = 0;
+    self.totalPage = 0;
     self.dataArray = [@[] mutableCopy];
     
-    [self setListCount:10];
+    [self setListCount:self.dataArray.count];
     
     UINib* nib;
     
@@ -65,11 +77,6 @@ static NSString* const programCellIdentifier = @"programCell";
     [self.programList registerNib:nib forCellReuseIdentifier:programCellIdentifier];
     
     [self loadUI];
-    
-    //  test
-    for (int i = 0; i < 100; i++) {
-        [self.dataArray addObject:@{@"image":@"testimg.png", @"title":@"포켓몬스터"}];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,9 +106,53 @@ static NSString* const programCellIdentifier = @"programCell";
     }
 }
 
+- (void)requestVodList{
+    
+    self.isLoading = YES;
+    
+    NSString* searchWord = [self.searchField.text trim];
+    
+    [NSMutableDictionary vodSerchListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithSortType:@"TitleAsc" completion:^(NSArray *programs, NSError *error) {
+        
+        self.isLoading = NO;
+        
+        NSDictionary* response = programs[0];
+        
+        NSString* resultCode = response[CNM_OPEN_API_RESULT_CODE_KEY];
+        if ([CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY isEqualToString:resultCode] == false) {
+            
+            [self.dataArray removeAllObjects];
+            [self.vodList reloadData];
+            
+            NSLog(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
+            
+            return;
+        }
+        
+        self.totalPage = [(NSString*)response[CNM_OPEN_API_RESULT_TOTAL_PAGE] integerValue];
+        
+        NSString* totalCount = response[CNM_OPEN_API_RESULT_TOTAL_COUNT];
+        [self setListCount:[totalCount integerValue]];
+        
+        [self.dataArray addObjectsFromArray:response[@"VodSearch_Item"]];
+        [self.vodList reloadData];
+    }];
+}
+
+- (void)resetData {
+    
+    self.pageIndex = 0;
+    
+    [self.dataArray removeAllObjects];
+    [self setListCount:0];
+    [self.vodList reloadData];
+    [self.programList reloadData];
+}
+
 #pragma mark - Event
 
 - (IBAction)buttonWasTouchUpInside:(id)sender {
+    
     [self.searchField resignFirstResponder];
 }
 
@@ -140,8 +191,9 @@ static NSString* const programCellIdentifier = @"programCell";
     CMSearchCollectionViewCell* cell = (CMSearchCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:vodCellIdentifier forIndexPath:indexPath];
 
     NSDictionary* data = self.dataArray[indexPath.row];
-    [cell setImageUrl:data[@"image"] title:data[@"title"]];
-    
+
+    [cell setImageUrl:data[@"VOD_IMG"] title:data[@"VOD_Title"]];
+
     return cell;
 }
 
@@ -203,11 +255,6 @@ static NSString* const programCellIdentifier = @"programCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [BMXSwipableCell hideBasementOfAllCells];
-}
-
 #pragma mark - UITextFieldDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -215,7 +262,71 @@ static NSString* const programCellIdentifier = @"programCell";
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+    
     self.autoCompletList.hidden = true;
+
+    [self resetData];
+    
+    TABMENU_TYPE type = [self.tabMenu getTabMenuIndex];
+    switch (type) {
+        case VOD_TABMENU_TYPE: {
+            
+            [self requestVodList];
+        }
+            break;
+        case PROGRAM_TABMENU_TYPE: {
+            
+        }
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    switch ([self.tabMenu getTabMenuIndex]) {
+        case VOD_TABMENU_TYPE: {
+            
+        }
+            break;
+        case PROGRAM_TABMENU_TYPE: {
+            [BMXSwipableCell hideBasementOfAllCells];
+        }
+            break;
+        default:
+            break;
+    }
+    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    switch ([self.tabMenu getTabMenuIndex]) {
+        case VOD_TABMENU_TYPE: {
+            
+            CGFloat offsetY = scrollView.contentOffset.y;
+            CGFloat contentHeight = scrollView.contentSize.height;
+            
+//            if ( self.isLoading == NO && (offsetY + scrollView.frame.size.height > contentHeight - 200)) {
+            if ( self.isLoading == NO && (offsetY + scrollView.frame.size.height > contentHeight)) {
+                if (self.totalPage > self.pageIndex) {
+                    self.pageIndex++;
+                    
+                    [self requestVodList];
+                }
+            }
+        }
+            break;
+        case PROGRAM_TABMENU_TYPE: {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end

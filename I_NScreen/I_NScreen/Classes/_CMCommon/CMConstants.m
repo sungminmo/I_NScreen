@@ -81,6 +81,12 @@ NSString* const CNM_OPEN_API_RESULT_CODE_KEY = @"resultCode";
 // resultCode 100(성공)
 NSString* const CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY = @"100";
 
+// 검색된 페이지
+NSString* const CNM_OPEN_API_RESULT_TOTAL_PAGE = @"totalPage";
+
+// 검색된 리스트수
+NSString* const CNM_OPEN_API_RESULT_TOTAL_COUNT = @"totalCount";
+
 // 사용자 정보.
 NSString* const CNM_OPEN_API_USER_INFO_KEY = @"UserInfo";
 

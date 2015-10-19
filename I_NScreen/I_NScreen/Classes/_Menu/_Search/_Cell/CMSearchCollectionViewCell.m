@@ -7,6 +7,7 @@
 //
 
 #import "CMSearchCollectionViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface CMSearchCollectionViewCell()
 
@@ -23,7 +24,7 @@
 
 - (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title {
     
-    self.posterImageView.image = [UIImage imageNamed:imageUrl];
+    [self.posterImageView setImageWithURL:[NSURL URLWithString:imageUrl]];
     self.titleLabel.text = title;
 }
 

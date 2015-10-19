@@ -169,7 +169,7 @@
     }];
 }
 
-- (NSURLSessionDataTask *)programSearchListWithSearchString:(NSString *)searchString WithPageSize:(NSString *)pageSize WithPageIndex:(NSString *)pageIndex WithAreaCode:(NSString *)areaCode WithProductCode:(NSString *)productCode completion:(void (^)(NSArray *programs, NSError *error))block {
+- (NSURLSessionDataTask *)programSearchListWithSearchString:(NSString *)searchString WithPageSize:(NSInteger)pageSize WithPageIndex:(NSInteger)pageIndex WithAreaCode:(NSString *)areaCode WithProductCode:(NSString *)productCode completion:(void (^)(NSArray *programs, NSError *error))block {
     
     self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
@@ -179,8 +179,8 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
                            @"Search_String" : searchString,
-                           @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex,
+                           @"pageSize" : @(pageSize),
+                           @"pageIndex" : @(pageIndex),
                            @"areaCode" : areaCode,
                            @"productCode" : productCode
                            };
@@ -221,7 +221,7 @@
     }];
 }
 
-- (NSURLSessionDataTask *)vodSerchListWithSearchString:(NSString *)searchString WithPageSize:(NSString *)pageSize WithPageIndex:(NSString *)pageIndex WithSortType:(NSString *)sortType completion:(void (^)(NSArray *gets, NSError *error))block
+- (NSURLSessionDataTask *)vodSerchListWithSearchString:(NSString *)searchString WithPageSize:(NSInteger)pageSize WithPageIndex:(NSInteger)pageIndex WithSortType:(NSString *)sortType completion:(void (^)(NSArray *gets, NSError *error))block
 {
     self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
@@ -231,8 +231,8 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
                            @"Search_String" : searchString,
-                           @"pageSize" : pageSize,
-                           @"pageIndex" : pageIndex,
+                           @"pageSize" : @(pageSize),
+                           @"pageIndex" : @(pageIndex),
                            @"sortType" : sortType
                            };
     

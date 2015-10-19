@@ -93,17 +93,10 @@ static NSString* const CellIdentifier = @"regionSettingCell";
     
     switch (tag) {
         case TAG_CANCEL: {
-            [self.navigationController popViewControllerAnimated:YES];
-            CGRect frame = self.navigationController.view.frame;
-            frame.origin.y -= 100;
-            self.navigationController.view.frame = frame;
+            [self backCommonAction];
         }
             break;
         case TAG_COMPLETE: {
-            
-            CGRect frame = self.navigationController.view.frame;
-            frame.origin.y += 100;
-            self.navigationController.view.frame = frame;
         }
             break;
             
