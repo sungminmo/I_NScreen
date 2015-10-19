@@ -7,8 +7,12 @@
 //
 
 #import "CMDBDataManager.h"
+
 #import <Realm/Realm.h>
 #import "CMPurchaseAuthorize.h"
+#import "CMAreaInfo.h"
+#import "CMProductInfo.h"
+
 
 @implementation CMDBDataManager
 
@@ -23,6 +27,7 @@
 
 - (id)init {
     if (self = [super init]) {
+        [self saveDefaultAeraCode];
     }
     return self;
 }
@@ -140,5 +145,39 @@
     [realm addObject:pa];
     [realm commitWriteTransaction];
 }
+
+#pragma mark - 지역/상품 설정 관련 기본세팅
+- (void)saveDefaultAeraCodeForce:(BOOL)isForce {
+    
+    BOOL isEmpty = YES;
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    
+    RLMArray* all = (RLMArray*)[CMAreaInfo allObjects];
+    if (all.count > 0) {
+        isEmpty = NO;
+        if (isForce) {
+            [realm beginWriteTransaction];
+            [realm deleteObjects:all];
+            [realm commitWriteTransaction];
+        }
+    }
+    
+    if (isForce || isEmpty) {
+        CMAreaInfo *setting =  [[CMAreaInfo alloc] init];
+        // 지역코드/명 기본값.
+        setting.areaCode = @"12";
+        setting.areaName = @"송파";
+        
+        //1-2. 저장
+        [realm beginWriteTransaction];
+        [realm addObject:setting];
+        [realm commitWriteTransaction];
+    }
+}
+
+
+
 
 @end

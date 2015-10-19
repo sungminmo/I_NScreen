@@ -94,6 +94,7 @@
 		99EA17E81BC0D1F8005A958C /* CMVersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EA17E61BC0D1F8005A958C /* CMVersionViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC6231BA645CB0085C86F /* UINavigationBar+CustomHeight.m */; };
 		99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECC6261BA6765C0085C86F /* UIColor+ColorString.m */; };
+		99ECD56B1BD5151800EABA67 /* CMAreaInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD56A1BD5151800EABA67 /* CMAreaInfo.m */; settings = {ASSET_TAGS = (); }; };
 		E50FF3911BCB808100F1045C /* allch.png in Resources */ = {isa = PBXBuildFile; fileRef = E50FF1471BCB808000F1045C /* allch.png */; settings = {ASSET_TAGS = (); }; };
 		E50FF3921BCB808100F1045C /* allch_press.png in Resources */ = {isa = PBXBuildFile; fileRef = E50FF1481BCB808000F1045C /* allch_press.png */; settings = {ASSET_TAGS = (); }; };
 		E50FF3931BCB808100F1045C /* genreall_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E50FF1491BCB808000F1045C /* genreall_normal.png */; settings = {ASSET_TAGS = (); }; };
@@ -864,6 +865,8 @@
 		99ECC6231BA645CB0085C86F /* UINavigationBar+CustomHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomHeight.m"; sourceTree = "<group>"; };
 		99ECC6251BA6765C0085C86F /* UIColor+ColorString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorString.h"; sourceTree = "<group>"; };
 		99ECC6261BA6765C0085C86F /* UIColor+ColorString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorString.m"; sourceTree = "<group>"; };
+		99ECD5691BD5151800EABA67 /* CMAreaInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAreaInfo.h; sourceTree = "<group>"; };
+		99ECD56A1BD5151800EABA67 /* CMAreaInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAreaInfo.m; sourceTree = "<group>"; };
 		9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I_NScreen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59B2745D004925EB9E020AE /* Pods-I_NScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.release.xcconfig"; sourceTree = "<group>"; };
 		E50FF1471BCB808000F1045C /* allch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch.png; sourceTree = "<group>"; };
@@ -1785,6 +1788,8 @@
 				99C43C311BA3EDA10035A0A4 /* CMSearchHistory.m */,
 				99E41C7B1BD49E9400C64056 /* CMPurchaseAuthorize.h */,
 				99E41C7C1BD49E9400C64056 /* CMPurchaseAuthorize.m */,
+				99ECD5691BD5151800EABA67 /* CMAreaInfo.h */,
+				99ECD56A1BD5151800EABA67 /* CMAreaInfo.m */,
 				99C43C321BA3EDA10035A0A4 /* NSMutableDictionary+Network.h */,
 				99C43C331BA3EDA10035A0A4 /* NSMutableDictionary+Network.m */,
 				99C43C341BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.h */,
@@ -3743,6 +3748,7 @@
 				99478D331BAD4B3E00CC99E9 /* UIView+Layer.m in Sources */,
 				99E9EDA71BBA26A5002FEBF0 /* CMNoticeDetailViewController.m in Sources */,
 				99C43C5C1BA3EDA10035A0A4 /* UIView+ViewController.m in Sources */,
+				99ECD56B1BD5151800EABA67 /* CMAreaInfo.m in Sources */,
 				99EA17E21BC0D1E6005A958C /* CMTermsViewController.m in Sources */,
 				99E9EDB61BBA26D2002FEBF0 /* CMContactInfoViewCcontroller.m in Sources */,
 				2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */,

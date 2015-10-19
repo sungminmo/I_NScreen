@@ -16,4 +16,9 @@
 
 - (void)savePurchaseAuthorizedNumber:(NSString*)number;
 
+
+- (void)saveDefaultAeraCode;
+
+- (void)saveDefaultProductCode;
+
 @end
