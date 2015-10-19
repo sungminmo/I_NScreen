@@ -76,6 +76,8 @@
 		99C43C6E1BA3EDA10035A0A4 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C4D1BA3EDA10035A0A4 /* LeftMenuViewController.xib */; };
 		99C43C6F1BA3EDA10035A0A4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */; };
 		99C43C701BA3EDA10035A0A4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C501BA3EDA10035A0A4 /* RootViewController.xib */; };
+		99E41C7D1BD49E9400C64056 /* CMPurchaseAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41C7C1BD49E9400C64056 /* CMPurchaseAuthorize.m */; settings = {ASSET_TAGS = (); }; };
+		99E41C801BD49F3300C64056 /* CMDBDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41C7F1BD49F3300C64056 /* CMDBDataManager.m */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9EDA01BBA2690002FEBF0 /* CMNoticeListViewController.m */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA31BBA2690002FEBF0 /* CMNoticeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99E9EDA11BBA2690002FEBF0 /* CMNoticeListViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA71BBA26A5002FEBF0 /* CMNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9EDA51BBA26A5002FEBF0 /* CMNoticeDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -833,6 +835,10 @@
 		99C43C4E1BA3EDA10035A0A4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		99C43C501BA3EDA10035A0A4 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		99E41C7B1BD49E9400C64056 /* CMPurchaseAuthorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPurchaseAuthorize.h; sourceTree = "<group>"; };
+		99E41C7C1BD49E9400C64056 /* CMPurchaseAuthorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPurchaseAuthorize.m; sourceTree = "<group>"; };
+		99E41C7E1BD49F3300C64056 /* CMDBDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDBDataManager.h; sourceTree = "<group>"; };
+		99E41C7F1BD49F3300C64056 /* CMDBDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDBDataManager.m; sourceTree = "<group>"; };
 		99E9ED9F1BBA2690002FEBF0 /* CMNoticeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNoticeListViewController.h; sourceTree = "<group>"; };
 		99E9EDA01BBA2690002FEBF0 /* CMNoticeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMNoticeListViewController.m; sourceTree = "<group>"; };
 		99E9EDA11BBA2690002FEBF0 /* CMNoticeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMNoticeListViewController.xib; sourceTree = "<group>"; };
@@ -1764,6 +1770,8 @@
 			children = (
 				99C43C2D1BA3EDA10035A0A4 /* CMAppManager.h */,
 				99C43C2E1BA3EDA10035A0A4 /* CMAppManager.m */,
+				99E41C7E1BD49F3300C64056 /* CMDBDataManager.h */,
+				99E41C7F1BD49F3300C64056 /* CMDBDataManager.m */,
 			);
 			path = _manager;
 			sourceTree = "<group>";
@@ -1775,6 +1783,8 @@
 				E54CC0A01BCC9F9A003806C0 /* TreeListModel.m */,
 				99C43C301BA3EDA10035A0A4 /* CMSearchHistory.h */,
 				99C43C311BA3EDA10035A0A4 /* CMSearchHistory.m */,
+				99E41C7B1BD49E9400C64056 /* CMPurchaseAuthorize.h */,
+				99E41C7C1BD49E9400C64056 /* CMPurchaseAuthorize.m */,
 				99C43C321BA3EDA10035A0A4 /* NSMutableDictionary+Network.h */,
 				99C43C331BA3EDA10035A0A4 /* NSMutableDictionary+Network.m */,
 				99C43C341BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.h */,
@@ -3753,6 +3763,7 @@
 				E51181901BA7ACF900C1E31D /* EpgSubViewController.m in Sources */,
 				99C43C641BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m in Sources */,
 				994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */,
+				99E41C801BD49F3300C64056 /* CMDBDataManager.m in Sources */,
 				99C43C691BA3EDA10035A0A4 /* EpgMainViewController.m in Sources */,
 				E5567BB71BA9558B00AB4003 /* MyCMZimListTableViewCell.m in Sources */,
 				E511818E1BA7ACF900C1E31D /* EpgSubTableViewCell.m in Sources */,
@@ -3786,6 +3797,7 @@
 				99C43C6B1BA3EDA10035A0A4 /* HomeGnbViewController.m in Sources */,
 				99C43C5A1BA3EDA10035A0A4 /* UIImage+Path.m in Sources */,
 				99C43C621BA3EDA10035A0A4 /* NSMutableDictionary+Network.m in Sources */,
+				99E41C7D1BD49E9400C64056 /* CMPurchaseAuthorize.m in Sources */,
 				E511817C1BA7ACC600C1E31D /* RecodeSubViewController.m in Sources */,
 				E5CBA4F21BCE132D003A2AC1 /* NSMutableDictionary+VOD.m in Sources */,
 				E5DE64C71BCB4E5500FC3122 /* RecommendMainViewController.m in Sources */,
