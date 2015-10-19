@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		20100C0F1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20100C0E1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m */; settings = {ASSET_TAGS = (); }; };
 		203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203ED8571BCBCAC3003C0521 /* CMTextFieldView.m */; settings = {ASSET_TAGS = (); }; };
-		2043AB721BD502D4008C10DC /* NSMutableDictionary+SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 2043AB711BD502D4008C10DC /* NSMutableDictionary+SEARCH.m */; settings = {ASSET_TAGS = (); }; };
 		2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2053ED5C1BBCA06E00264FBF /* CMSearchTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		2053ED5F1BBCA06E00264FBF /* CMSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2053ED5D1BBCA06E00264FBF /* CMSearchTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2086CD9E1BBA24B50065726E /* CMPreferenceMainTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -73,6 +72,7 @@
 		99C43C6E1BA3EDA10035A0A4 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C4D1BA3EDA10035A0A4 /* LeftMenuViewController.xib */; };
 		99C43C6F1BA3EDA10035A0A4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */; };
 		99C43C701BA3EDA10035A0A4 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43C501BA3EDA10035A0A4 /* RootViewController.xib */; };
+		99D808921BD5B76700533E35 /* NSMutableDictionary+SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D808911BD5B76700533E35 /* NSMutableDictionary+SEARCH.m */; settings = {ASSET_TAGS = (); }; };
 		99E41C801BD49F3300C64056 /* CMDBDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41C7F1BD49F3300C64056 /* CMDBDataManager.m */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9EDA01BBA2690002FEBF0 /* CMNoticeListViewController.m */; settings = {ASSET_TAGS = (); }; };
 		99E9EDA31BBA2690002FEBF0 /* CMNoticeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99E9EDA11BBA2690002FEBF0 /* CMNoticeListViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -93,9 +93,7 @@
 		99ECD5831BD5188B00EABA67 /* NSMutableDictionary+EPG.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5711BD5188B00EABA67 /* NSMutableDictionary+EPG.m */; settings = {ASSET_TAGS = (); }; };
 		99ECD5841BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5731BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.m */; settings = {ASSET_TAGS = (); }; };
 		99ECD5851BD5188B00EABA67 /* NSMutableDictionary+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5751BD5188B00EABA67 /* NSMutableDictionary+Network.m */; settings = {ASSET_TAGS = (); }; };
-		99ECD5861BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5771BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m */; settings = {ASSET_TAGS = (); }; };
 		99ECD5871BD5188B00EABA67 /* NSMutableDictionary+VOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5791BD5188B00EABA67 /* NSMutableDictionary+VOD.m */; settings = {ASSET_TAGS = (); }; };
-		99ECD5881BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD57B1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m */; settings = {ASSET_TAGS = (); }; };
 		99ECD5891BD5188B00EABA67 /* CMAreaInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD57E1BD5188B00EABA67 /* CMAreaInfo.m */; settings = {ASSET_TAGS = (); }; };
 		99ECD58A1BD5188B00EABA67 /* CMPurchaseAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5801BD5188B00EABA67 /* CMPurchaseAuthorize.m */; settings = {ASSET_TAGS = (); }; };
 		99ECD58B1BD5188B00EABA67 /* CMSearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5821BD5188B00EABA67 /* CMSearchHistory.m */; settings = {ASSET_TAGS = (); }; };
@@ -727,8 +725,6 @@
 		20100C0E1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMXSwipableCell+ConfigureCell.m"; sourceTree = "<group>"; };
 		203ED8561BCBCAC3003C0521 /* CMTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMTextFieldView.h; sourceTree = "<group>"; };
 		203ED8571BCBCAC3003C0521 /* CMTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMTextFieldView.m; sourceTree = "<group>"; };
-		2043AB701BD502D4008C10DC /* NSMutableDictionary+SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SEARCH.h"; sourceTree = "<group>"; };
-		2043AB711BD502D4008C10DC /* NSMutableDictionary+SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SEARCH.m"; sourceTree = "<group>"; };
 		2053ED5B1BBCA06E00264FBF /* CMSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMSearchTableViewCell.h; path = _Cell/CMSearchTableViewCell.h; sourceTree = "<group>"; };
 		2053ED5C1BBCA06E00264FBF /* CMSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMSearchTableViewCell.m; path = _Cell/CMSearchTableViewCell.m; sourceTree = "<group>"; };
 		2053ED5D1BBCA06E00264FBF /* CMSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMSearchTableViewCell.xib; path = _Cell/CMSearchTableViewCell.xib; sourceTree = "<group>"; };
@@ -835,6 +831,8 @@
 		99C43C4E1BA3EDA10035A0A4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		99C43C4F1BA3EDA10035A0A4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		99C43C501BA3EDA10035A0A4 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		99D808901BD5B76700533E35 /* NSMutableDictionary+SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SEARCH.h"; sourceTree = "<group>"; };
+		99D808911BD5B76700533E35 /* NSMutableDictionary+SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SEARCH.m"; sourceTree = "<group>"; };
 		99E41C7E1BD49F3300C64056 /* CMDBDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDBDataManager.h; sourceTree = "<group>"; };
 		99E41C7F1BD49F3300C64056 /* CMDBDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDBDataManager.m; sourceTree = "<group>"; };
 		99E9ED9F1BBA2690002FEBF0 /* CMNoticeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNoticeListViewController.h; sourceTree = "<group>"; };
@@ -868,12 +866,8 @@
 		99ECD5731BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+EPG_SEARCH.m"; sourceTree = "<group>"; };
 		99ECD5741BD5188B00EABA67 /* NSMutableDictionary+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Network.h"; sourceTree = "<group>"; };
 		99ECD5751BD5188B00EABA67 /* NSMutableDictionary+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Network.m"; sourceTree = "<group>"; };
-		99ECD5761BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PROGRAM_SEARCH.h"; sourceTree = "<group>"; };
-		99ECD5771BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PROGRAM_SEARCH.m"; sourceTree = "<group>"; };
 		99ECD5781BD5188B00EABA67 /* NSMutableDictionary+VOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+VOD.h"; sourceTree = "<group>"; };
 		99ECD5791BD5188B00EABA67 /* NSMutableDictionary+VOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+VOD.m"; sourceTree = "<group>"; };
-		99ECD57A1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+VOD_SEARCH.h"; sourceTree = "<group>"; };
-		99ECD57B1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+VOD_SEARCH.m"; sourceTree = "<group>"; };
 		99ECD57D1BD5188B00EABA67 /* CMAreaInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAreaInfo.h; sourceTree = "<group>"; };
 		99ECD57E1BD5188B00EABA67 /* CMAreaInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAreaInfo.m; sourceTree = "<group>"; };
 		99ECD57F1BD5188B00EABA67 /* CMPurchaseAuthorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPurchaseAuthorize.h; sourceTree = "<group>"; };
@@ -1799,22 +1793,6 @@
 				99ECD57C1BD5188B00EABA67 /* _realmModel */,
 				E54CC09F1BCC9F9A003806C0 /* TreeListModel.h */,
 				E54CC0A01BCC9F9A003806C0 /* TreeListModel.m */,
-				99C43C301BA3EDA10035A0A4 /* CMSearchHistory.h */,
-				99C43C311BA3EDA10035A0A4 /* CMSearchHistory.m */,
-				99C43C321BA3EDA10035A0A4 /* NSMutableDictionary+Network.h */,
-				99C43C331BA3EDA10035A0A4 /* NSMutableDictionary+Network.m */,
-				99C43C341BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.h */,
-				99C43C351BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m */,
-				99C43C361BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.h */,
-				99C43C371BA3EDA10035A0A4 /* NSMutableDictionary+VOD_SEARCH.m */,
-				E5F6DDE81BB0DD61006C4DD4 /* NSMutableDictionary+EPG.h */,
-				E5F6DDE91BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m */,
-				E5FD2E9B1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.h */,
-				E5FD2E9C1BD0BBAD00A81F7E /* NSMutableDictionary+EPG_SEARCH.m */,
-				E5CBA4F01BCE132D003A2AC1 /* NSMutableDictionary+VOD.h */,
-				E5CBA4F11BCE132D003A2AC1 /* NSMutableDictionary+VOD.m */,
-				2043AB701BD502D4008C10DC /* NSMutableDictionary+SEARCH.h */,
-				2043AB711BD502D4008C10DC /* NSMutableDictionary+SEARCH.m */,
 			);
 			path = _model;
 			sourceTree = "<group>";
@@ -1920,12 +1898,10 @@
 				99ECD5731BD5188B00EABA67 /* NSMutableDictionary+EPG_SEARCH.m */,
 				99ECD5741BD5188B00EABA67 /* NSMutableDictionary+Network.h */,
 				99ECD5751BD5188B00EABA67 /* NSMutableDictionary+Network.m */,
-				99ECD5761BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.h */,
-				99ECD5771BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m */,
+				99D808901BD5B76700533E35 /* NSMutableDictionary+SEARCH.h */,
+				99D808911BD5B76700533E35 /* NSMutableDictionary+SEARCH.m */,
 				99ECD5781BD5188B00EABA67 /* NSMutableDictionary+VOD.h */,
 				99ECD5791BD5188B00EABA67 /* NSMutableDictionary+VOD.m */,
-				99ECD57A1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.h */,
-				99ECD57B1BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m */,
 			);
 			path = _dictionaryModel;
 			sourceTree = "<group>";
@@ -3804,8 +3780,6 @@
 				99478D361BAD4CF200CC99E9 /* CMColor.m in Sources */,
 				99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */,
 				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
-				2043AB721BD502D4008C10DC /* NSMutableDictionary+SEARCH.m in Sources */,
-				E511817A1BA7ACC600C1E31D /* RecodeSubTableViewCell.m in Sources */,
 				2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */,
 				E5DE64BD1BCB4E3300FC3122 /* AniKidsMainViewController.m in Sources */,
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
@@ -3816,7 +3790,6 @@
 				99478D331BAD4B3E00CC99E9 /* UIView+Layer.m in Sources */,
 				99E9EDA71BBA26A5002FEBF0 /* CMNoticeDetailViewController.m in Sources */,
 				99C43C5C1BA3EDA10035A0A4 /* UIView+ViewController.m in Sources */,
-				99ECD5881BD5188B00EABA67 /* NSMutableDictionary+VOD_SEARCH.m in Sources */,
 				99EA17E21BC0D1E6005A958C /* CMTermsViewController.m in Sources */,
 				99ECD5851BD5188B00EABA67 /* NSMutableDictionary+Network.m in Sources */,
 				99ECD5891BD5188B00EABA67 /* CMAreaInfo.m in Sources */,
@@ -3855,6 +3828,7 @@
 				2086CDA51BBA62E20065726E /* CMPurchaseCertPasswordViewController.m in Sources */,
 				E5DE64C21BCB4E4400FC3122 /* MovieMainViewController.m in Sources */,
 				99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */,
+				99D808921BD5B76700533E35 /* NSMutableDictionary+SEARCH.m in Sources */,
 				99C43C601BA3EDA10035A0A4 /* CMAppManager.m in Sources */,
 				99C43C071BA3ED980035A0A4 /* main.m in Sources */,
 				E54CC09B1BCC9F8E003806C0 /* MoviePopUpTableViewCell.m in Sources */,
@@ -3864,7 +3838,6 @@
 				99ECD5871BD5188B00EABA67 /* NSMutableDictionary+VOD.m in Sources */,
 				99ECD58A1BD5188B00EABA67 /* CMPurchaseAuthorize.m in Sources */,
 				E52EE58B1BD50E5400797251 /* RemoconMainTableViewCell.m in Sources */,
-				99ECD5861BD5188B00EABA67 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */,
 				E54CC0AE1BCCA0C6003806C0 /* NSObject+SBJSON.m in Sources */,
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
 				E52EE57D1BD508AF00797251 /* PvrSubViewController.m in Sources */,
