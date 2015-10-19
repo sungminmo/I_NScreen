@@ -1,14 +1,14 @@
 //
-//  RecodeSubTableViewCell.m
+//  PvrSubTableViewCell.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 9. 14..
-//  Copyright (c) 2015년 STVN. All rights reserved.
+//  Created by JUNG KIL BAE on 2015. 10. 19..
+//  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "RecodeSubTableViewCell.h"
+#import "PvrSubTableViewCell.h"
 
-@implementation RecodeSubTableViewCell
+@implementation PvrSubTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

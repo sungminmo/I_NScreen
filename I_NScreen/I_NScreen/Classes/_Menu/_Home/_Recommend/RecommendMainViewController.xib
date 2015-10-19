@@ -31,31 +31,54 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5oh-ry-ceB">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oh-ry-ceB">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5oh-ry-ceB" secondAttribute="trailing" id="MFn-ix-hv5"/>
+                <constraint firstItem="5oh-ry-ceB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b70-id-oLs"/>
+                <constraint firstAttribute="bottom" secondItem="5oh-ry-ceB" secondAttribute="bottom" id="hRe-Ig-S5j"/>
+                <constraint firstItem="5oh-ry-ceB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nWG-f8-3KF"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="htc-9C-A3O" userLabel="View(배너)">
             <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1E-wH-ZVx">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1E-wH-ZVx">
                     <rect key="frame" x="6" y="10" width="402" height="182"/>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="YmG-Ph-6ru">
-                    <rect key="frame" x="166" y="189" width="81" height="37"/>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="YmG-Ph-6ru">
+                    <rect key="frame" x="171" y="188" width="71" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="KHq-aI-r75"/>
+                        <constraint firstAttribute="width" constant="71" id="i4l-Rx-ZcQ"/>
+                    </constraints>
                     <color key="pageIndicatorTintColor" red="0.70588235294117641" green="0.71372549019607845" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="currentPageIndicatorTintColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uM-ak-40L" userLabel="View(하단라인)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uM-ak-40L" userLabel="View(하단라인)">
                     <rect key="frame" x="7" y="224" width="400" height="1"/>
                     <color key="backgroundColor" red="0.73725490196078436" green="0.74117647058823533" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="YmG-Ph-6ru" secondAttribute="bottom" id="8YE-ya-3oy"/>
+                <constraint firstAttribute="bottom" secondItem="6uM-ak-40L" secondAttribute="bottom" id="Blg-RR-9JT"/>
+                <constraint firstAttribute="trailing" secondItem="YmG-Ph-6ru" secondAttribute="trailing" constant="172" id="Bxq-5F-PxV"/>
+                <constraint firstItem="i1E-wH-ZVx" firstAttribute="leading" secondItem="htc-9C-A3O" secondAttribute="leading" constant="6" id="IhI-6l-3wE"/>
+                <constraint firstItem="i1E-wH-ZVx" firstAttribute="top" secondItem="htc-9C-A3O" secondAttribute="top" constant="10" id="TzQ-yM-Wqt"/>
+                <constraint firstAttribute="trailing" secondItem="6uM-ak-40L" secondAttribute="trailing" constant="7" id="ecH-ZP-UUx"/>
+                <constraint firstItem="YmG-Ph-6ru" firstAttribute="leading" secondItem="htc-9C-A3O" secondAttribute="leading" constant="171" id="h7j-H3-TMm"/>
+                <constraint firstItem="6uM-ak-40L" firstAttribute="leading" secondItem="htc-9C-A3O" secondAttribute="leading" constant="7" id="rKq-TV-aff"/>
+                <constraint firstAttribute="trailing" secondItem="i1E-wH-ZVx" secondAttribute="trailing" constant="6" id="seM-Lg-2t7"/>
+                <constraint firstItem="6uM-ak-40L" firstAttribute="top" secondItem="i1E-wH-ZVx" secondAttribute="bottom" constant="32" id="vpI-Zo-FP3"/>
+                <constraint firstItem="6uM-ak-40L" firstAttribute="top" secondItem="htc-9C-A3O" secondAttribute="top" constant="224" id="wEe-U8-lyM"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
@@ -93,7 +116,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.87058823529999996" green="0.31372549020000001" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="223" y="1037"/>

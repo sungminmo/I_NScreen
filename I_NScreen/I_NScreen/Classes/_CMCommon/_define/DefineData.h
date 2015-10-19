@@ -20,9 +20,6 @@
 // 널데이터 처리
 #define IS_NOT_NSNULL(X)    X != [NSNull null] && X != nil ? YES : NO
 
-// host
-#define DEV_HOST            @"http://m.dibidibi.com"
-
 /*================================================================================================================
  해상도 값 정의
  ================================================================================================================ */
@@ -53,18 +50,12 @@
 #define EPG_POPUP_VIEW_BTN_01           10101   // BACK 버튼
 #define EPG_POPUP_VIEW_BTN_02           10102   // 전체채널 버튼
 #define EPG_POPUP_VIEW_BTN_03           10103   // 선호채널 버튼
+#define EPG_POPUP_VIEW_BTN_04           10104   // BG 버튼
 
 // EpgSubViewController btn tag
 #define EPG_SUP_VIEW_BTN_01             10201   // back 버튼
 #define EPG_SUP_VIEW_BTN_02             10202   // 하트 버튼
 
-// RecodeMainViewController btn tag
-#define RECODE_MAIN_VIEW_BTN_01         10301   // back 버튼
-#define RECODE_MAIN_VIEW_BTN_02         10302   // 녹화예약 관리 버튼
-#define RECODE_MAIN_VIEW_BTN_03         10303   // 녹화물 목록 버튼
-
-// RecodeSubViewController btn tag
-#define RECODE_SUB_VIEW_BTN_01          10401   // back 버튼
 
 // MyCMMainViewController btn tag
 #define MY_CM_MAIN_VIEW_BTN_01          10501   // back 버튼
@@ -82,6 +73,22 @@
 
 // MoviePopUpViewController btn tag
 #define MOVICE_POPUP_VIEW_BTN_01        10801   // 닫기 버튼
+
+// PvrMainViewController btn tag
+#define PVR_MAIN_VIEW_BTN_01            10901   // BACK 버튼
+#define PVR_MAIN_VIEW_BTN_02            10902   // 녹화예약 관리 버튼
+#define PVR_MAIN_VIEW_BTN_03            10903   // 녹화물 목록 버튼
+
+// PvrSubViewController btn tag
+#define PVR_SUB_VIEW_BTN_01             11001   // BACK 버튼
+
+// RemoconMainViewController btn tag
+#define REMOCON_MAIN_VIEW_BTN_01        12001   // BACK 버튼
+#define REMOCON_MAIN_VIEW_BTN_02        12002   // 전원 버튼
+#define REMOCON_MAIN_VIEW_BTN_03        12003   // 채널 버튼
+#define REMOCON_MAIN_VIEW_BTN_04        12004   // 볼륨 다운
+#define REMOCON_MAIN_VIEW_BTN_05        12005   // 볼륨 업
+
 
 /*
 문자열 정의
