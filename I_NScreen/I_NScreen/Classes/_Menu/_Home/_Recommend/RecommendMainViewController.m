@@ -46,7 +46,28 @@
     [self.pMainScrollView addSubview:self.pNewWorkView];
     [self.pMainScrollView addSubview:self.pRecommendView];
     
-    self.pBannerView.frame = CGRectMake(0, 0, self.pBannerView.frame.size.width, self.pBannerView.frame.size.height);
+    int nBannerHeight = 0;
+    int nBannerScrollHeight = 0;
+    
+    int nWith = [UIScreen mainScreen].bounds.size.width;
+    
+    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
+    {
+        nBannerHeight = 225;
+        nBannerScrollHeight = 182;
+        
+    }else
+    {
+        nBannerHeight = 225 * nWith / 414;
+        nBannerScrollHeight = 182 * (nWith - 12) / 414;
+    }
+    
+    
+    
+    
+    self.pBannerView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, nBannerHeight);
+    
+    
     
     self.pPopularityView.frame = CGRectMake(0, self.pBannerView.frame.origin.y + self.pBannerView.frame.size.height, self.pPopularityView.frame.size.width, self.pPopularityView.frame.size.height);
     
@@ -56,7 +77,7 @@
     
     int nHeight = self.pBannerView.frame.size.height + self.pPopularityView.frame.size.height + self.pNewWorkView.frame.size.height + self.pRecommendView.frame.size.height;
     
-    [self.pMainScrollView setContentSize:CGSizeMake(self.pMainScrollView.frame.size.width, nHeight)];
+    [self.pMainScrollView setContentSize:CGSizeMake(0, nHeight)];
 }
 
 #pragma mark - 액션 이벤트
@@ -107,6 +128,9 @@
     self.pBannerScrollView.showsVerticalScrollIndicator = NO;
     self.pBannerScrollView.scrollsToTop = NO;
     self.pBannerScrollView.delegate = self;
+    int nWith = [UIScreen mainScreen].bounds.size.width;
+    self.pBannerScrollView.frame = CGRectMake(6, 10, nWith - 12, 100);
+    self.pBannerScrollView.backgroundColor = [UIColor redColor];
     
     [self banLoadScrollViewWithPage:0];
     [self banLoadScrollViewWithPage:1];
@@ -125,7 +149,9 @@
     
     if ( (NSNull *)controller == [NSNull null] )
     {
-        controller = [[CMPageViewController alloc] initWithData:nil WithPage:(int)page];
+        CGRect rect = self.pBannerScrollView.frame;
+        
+        controller = [[CMPageViewController alloc] initWithData:nil WithPage:(int)page WithFrame:rect];
         controller.delegate = self;
         [self.pBnViewController replaceObjectAtIndex:page withObject:controller];
     }

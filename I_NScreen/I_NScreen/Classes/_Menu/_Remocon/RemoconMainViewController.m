@@ -1,23 +1,24 @@
 //
-//  RecodeSubViewController.m
+//  RemoconMainViewController.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 9. 14..
-//  Copyright (c) 2015년 STVN. All rights reserved.
+//  Created by JUNG KIL BAE on 2015. 10. 19..
+//  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "RecodeSubViewController.h"
+#import "RemoconMainViewController.h"
 
-@interface RecodeSubViewController ()
+@interface RemoconMainViewController ()
 
 @end
 
-@implementation RecodeSubViewController
+@implementation RemoconMainViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +31,11 @@
 #pragma mark - 화면 태그값 초기화
 - (void)setTagInit
 {
-    self.pBackBtn.tag = RECODE_SUB_VIEW_BTN_01;
+    self.pBackBtn.tag = REMOCON_MAIN_VIEW_BTN_01;
+    self.pPowerBtn.tag = REMOCON_MAIN_VIEW_BTN_02;
+    self.pChannelBtn.tag = REMOCON_MAIN_VIEW_BTN_03;
+    self.pVolumeDownBtn.tag = REMOCON_MAIN_VIEW_BTN_04;
+    self.pVoluumeUpBtn.tag = REMOCON_MAIN_VIEW_BTN_05;
 }
 
 #pragma mark - 액션 이벤트
@@ -38,10 +43,31 @@
 - (IBAction)onBtnClick:(UIButton *)btn
 {
     switch (btn.tag) {
-        case RECODE_SUB_VIEW_BTN_01:
+        case REMOCON_MAIN_VIEW_BTN_01:
         {
             // back
             [self.navigationController popViewControllerAnimated:YES];
+            
+        }break;
+        case REMOCON_MAIN_VIEW_BTN_02:
+        {
+            // 전원 버튼
+            
+            
+        }break;
+        case REMOCON_MAIN_VIEW_BTN_03:
+        {
+            // 채널 버튼
+            
+        }break;
+        case REMOCON_MAIN_VIEW_BTN_04:
+        {
+            // 볼륨 다운 버튼
+            
+        }break;
+        case REMOCON_MAIN_VIEW_BTN_05:
+        {
+            // 볼륨 업 버튼
             
         }break;
     }
@@ -50,13 +76,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *pCellIn = @"RecodeSubTableViewCellIn";
+    static NSString *pCellIn = @"RemoconMainTableViewCellIn";
     
-    RecodeSubTableViewCell *pCell = (RecodeSubTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
+    RemoconMainTableViewCell *pCell = (RemoconMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
     
     if (pCell == nil)
     {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RecodeSubTableViewCell" owner:nil options:nil];
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RemoconMainTableViewCell" owner:nil options:nil];
         pCell = [arr objectAtIndex:0];
     }
     
@@ -69,8 +95,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
-    //    [self.navigationController pushViewController:pViewController animated:YES];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -97,6 +122,5 @@
         NSLog(@"delete");
     }
 }
-
 
 @end
