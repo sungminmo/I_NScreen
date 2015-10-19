@@ -647,20 +647,20 @@
 		E50FF5B91BCB808100F1045C /* vod3btn_p_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E50FF38E1BCB808100F1045C /* vod3btn_p_press@3x.png */; settings = {ASSET_TAGS = (); }; };
 		E50FF5BA1BCB808100F1045C /* vod3btn_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E50FF38F1BCB808100F1045C /* vod3btn_press@3x.png */; settings = {ASSET_TAGS = (); }; };
 		E50FF5BB1BCB808100F1045C /* vod3btn_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E50FF3901BCB808100F1045C /* vod3btn_select@3x.png */; settings = {ASSET_TAGS = (); }; };
-		E51181781BA7ACC600C1E31D /* RecodeMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E511816B1BA7ACC600C1E31D /* RecodeMainTableViewCell.m */; };
-		E51181791BA7ACC600C1E31D /* RecodeMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E511816C1BA7ACC600C1E31D /* RecodeMainTableViewCell.xib */; };
-		E511817A1BA7ACC600C1E31D /* RecodeSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51181701BA7ACC600C1E31D /* RecodeSubTableViewCell.m */; };
-		E511817B1BA7ACC600C1E31D /* RecodeSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51181711BA7ACC600C1E31D /* RecodeSubTableViewCell.xib */; };
-		E511817C1BA7ACC600C1E31D /* RecodeSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51181731BA7ACC600C1E31D /* RecodeSubViewController.m */; };
-		E511817D1BA7ACC600C1E31D /* RecodeSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51181741BA7ACC600C1E31D /* RecodeSubViewController.xib */; };
-		E511817E1BA7ACC600C1E31D /* RecodeMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51181761BA7ACC600C1E31D /* RecodeMainViewController.m */; };
-		E511817F1BA7ACC600C1E31D /* RecodeMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51181771BA7ACC600C1E31D /* RecodeMainViewController.xib */; };
 		E511818C1BA7ACF900C1E31D /* EpgPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51181821BA7ACF900C1E31D /* EpgPopUpViewController.m */; };
 		E511818D1BA7ACF900C1E31D /* EpgPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51181831BA7ACF900C1E31D /* EpgPopUpViewController.xib */; };
 		E511818E1BA7ACF900C1E31D /* EpgSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51181871BA7ACF900C1E31D /* EpgSubTableViewCell.m */; };
 		E511818F1BA7ACF900C1E31D /* EpgSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51181881BA7ACF900C1E31D /* EpgSubTableViewCell.xib */; };
 		E51181901BA7ACF900C1E31D /* EpgSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E511818A1BA7ACF900C1E31D /* EpgSubViewController.m */; };
 		E51181911BA7ACF900C1E31D /* EpgSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E511818B1BA7ACF900C1E31D /* EpgSubViewController.xib */; };
+		E52EE5791BD508AF00797251 /* PvrMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52EE56C1BD508AF00797251 /* PvrMainTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E52EE57A1BD508AF00797251 /* PvrMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE56D1BD508AF00797251 /* PvrMainTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E52EE57B1BD508AF00797251 /* PvrSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52EE5711BD508AF00797251 /* PvrSubTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E52EE57C1BD508AF00797251 /* PvrSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE5721BD508AF00797251 /* PvrSubTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E52EE57D1BD508AF00797251 /* PvrSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52EE5741BD508AF00797251 /* PvrSubViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E52EE57E1BD508AF00797251 /* PvrSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE5751BD508AF00797251 /* PvrSubViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E52EE57F1BD508AF00797251 /* PvrMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52EE5771BD508AF00797251 /* PvrMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E52EE5801BD508AF00797251 /* PvrMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE5781BD508AF00797251 /* PvrMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E54CC09B1BCC9F8E003806C0 /* MoviePopUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E54CC09C1BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0991BCC9F8E003806C0 /* MoviePopUpViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -1419,18 +1419,6 @@
 		E50FF38E1BCB808100F1045C /* vod3btn_p_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod3btn_p_press@3x.png"; sourceTree = "<group>"; };
 		E50FF38F1BCB808100F1045C /* vod3btn_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod3btn_press@3x.png"; sourceTree = "<group>"; };
 		E50FF3901BCB808100F1045C /* vod3btn_select@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod3btn_select@3x.png"; sourceTree = "<group>"; };
-		E511816A1BA7ACC600C1E31D /* RecodeMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecodeMainTableViewCell.h; sourceTree = "<group>"; };
-		E511816B1BA7ACC600C1E31D /* RecodeMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecodeMainTableViewCell.m; sourceTree = "<group>"; };
-		E511816C1BA7ACC600C1E31D /* RecodeMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecodeMainTableViewCell.xib; sourceTree = "<group>"; };
-		E511816F1BA7ACC600C1E31D /* RecodeSubTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecodeSubTableViewCell.h; sourceTree = "<group>"; };
-		E51181701BA7ACC600C1E31D /* RecodeSubTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecodeSubTableViewCell.m; sourceTree = "<group>"; };
-		E51181711BA7ACC600C1E31D /* RecodeSubTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecodeSubTableViewCell.xib; sourceTree = "<group>"; };
-		E51181721BA7ACC600C1E31D /* RecodeSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecodeSubViewController.h; sourceTree = "<group>"; };
-		E51181731BA7ACC600C1E31D /* RecodeSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecodeSubViewController.m; sourceTree = "<group>"; };
-		E51181741BA7ACC600C1E31D /* RecodeSubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecodeSubViewController.xib; sourceTree = "<group>"; };
-		E51181751BA7ACC600C1E31D /* RecodeMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecodeMainViewController.h; sourceTree = "<group>"; };
-		E51181761BA7ACC600C1E31D /* RecodeMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecodeMainViewController.m; sourceTree = "<group>"; };
-		E51181771BA7ACC600C1E31D /* RecodeMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecodeMainViewController.xib; sourceTree = "<group>"; };
 		E51181811BA7ACF900C1E31D /* EpgPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpgPopUpViewController.h; sourceTree = "<group>"; };
 		E51181821BA7ACF900C1E31D /* EpgPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpgPopUpViewController.m; sourceTree = "<group>"; };
 		E51181831BA7ACF900C1E31D /* EpgPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpgPopUpViewController.xib; sourceTree = "<group>"; };
@@ -1440,6 +1428,18 @@
 		E51181891BA7ACF900C1E31D /* EpgSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpgSubViewController.h; sourceTree = "<group>"; };
 		E511818A1BA7ACF900C1E31D /* EpgSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpgSubViewController.m; sourceTree = "<group>"; };
 		E511818B1BA7ACF900C1E31D /* EpgSubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpgSubViewController.xib; sourceTree = "<group>"; };
+		E52EE56B1BD508AF00797251 /* PvrMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvrMainTableViewCell.h; sourceTree = "<group>"; };
+		E52EE56C1BD508AF00797251 /* PvrMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvrMainTableViewCell.m; sourceTree = "<group>"; };
+		E52EE56D1BD508AF00797251 /* PvrMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PvrMainTableViewCell.xib; sourceTree = "<group>"; };
+		E52EE5701BD508AF00797251 /* PvrSubTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvrSubTableViewCell.h; sourceTree = "<group>"; };
+		E52EE5711BD508AF00797251 /* PvrSubTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvrSubTableViewCell.m; sourceTree = "<group>"; };
+		E52EE5721BD508AF00797251 /* PvrSubTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PvrSubTableViewCell.xib; sourceTree = "<group>"; };
+		E52EE5731BD508AF00797251 /* PvrSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvrSubViewController.h; sourceTree = "<group>"; };
+		E52EE5741BD508AF00797251 /* PvrSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvrSubViewController.m; sourceTree = "<group>"; };
+		E52EE5751BD508AF00797251 /* PvrSubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PvrSubViewController.xib; sourceTree = "<group>"; };
+		E52EE5761BD508AF00797251 /* PvrMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvrMainViewController.h; sourceTree = "<group>"; };
+		E52EE5771BD508AF00797251 /* PvrMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvrMainViewController.m; sourceTree = "<group>"; };
+		E52EE5781BD508AF00797251 /* PvrMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PvrMainViewController.xib; sourceTree = "<group>"; };
 		E54CC0951BCC9F8E003806C0 /* MoviePopUpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePopUpTableViewCell.h; sourceTree = "<group>"; };
 		E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePopUpTableViewCell.m; sourceTree = "<group>"; };
 		E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviePopUpTableViewCell.xib; sourceTree = "<group>"; };
@@ -1813,9 +1813,9 @@
 		99C43C3D1BA3EDA10035A0A4 /* _Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E52EE5691BD508AF00797251 /* _Pvr */,
 				E5DE649B1BCB4BC200FC3122 /* _Home */,
 				E5567BA81BA939CA00AB4003 /* _MyCM */,
-				E51181681BA7ACC600C1E31D /* _Recode */,
 				994BDB311BA3F692000B6260 /* _Preference */,
 				994BDB321BA3F692000B6260 /* _Search */,
 				99C43C3E1BA3EDA10035A0A4 /* _Epg */,
@@ -2719,49 +2719,6 @@
 			path = vod;
 			sourceTree = "<group>";
 		};
-		E51181681BA7ACC600C1E31D /* _Recode */ = {
-			isa = PBXGroup;
-			children = (
-				E51181691BA7ACC600C1E31D /* _Cell */,
-				E511816D1BA7ACC600C1E31D /* _Sub */,
-				E51181751BA7ACC600C1E31D /* RecodeMainViewController.h */,
-				E51181761BA7ACC600C1E31D /* RecodeMainViewController.m */,
-				E51181771BA7ACC600C1E31D /* RecodeMainViewController.xib */,
-			);
-			path = _Recode;
-			sourceTree = "<group>";
-		};
-		E51181691BA7ACC600C1E31D /* _Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E511816A1BA7ACC600C1E31D /* RecodeMainTableViewCell.h */,
-				E511816B1BA7ACC600C1E31D /* RecodeMainTableViewCell.m */,
-				E511816C1BA7ACC600C1E31D /* RecodeMainTableViewCell.xib */,
-			);
-			path = _Cell;
-			sourceTree = "<group>";
-		};
-		E511816D1BA7ACC600C1E31D /* _Sub */ = {
-			isa = PBXGroup;
-			children = (
-				E511816E1BA7ACC600C1E31D /* _Cell */,
-				E51181721BA7ACC600C1E31D /* RecodeSubViewController.h */,
-				E51181731BA7ACC600C1E31D /* RecodeSubViewController.m */,
-				E51181741BA7ACC600C1E31D /* RecodeSubViewController.xib */,
-			);
-			path = _Sub;
-			sourceTree = "<group>";
-		};
-		E511816E1BA7ACC600C1E31D /* _Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E511816F1BA7ACC600C1E31D /* RecodeSubTableViewCell.h */,
-				E51181701BA7ACC600C1E31D /* RecodeSubTableViewCell.m */,
-				E51181711BA7ACC600C1E31D /* RecodeSubTableViewCell.xib */,
-			);
-			path = _Cell;
-			sourceTree = "<group>";
-		};
 		E51181801BA7ACF900C1E31D /* _PopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -2789,6 +2746,49 @@
 				E51181861BA7ACF900C1E31D /* EpgSubTableViewCell.h */,
 				E51181871BA7ACF900C1E31D /* EpgSubTableViewCell.m */,
 				E51181881BA7ACF900C1E31D /* EpgSubTableViewCell.xib */,
+			);
+			path = _Cell;
+			sourceTree = "<group>";
+		};
+		E52EE5691BD508AF00797251 /* _Pvr */ = {
+			isa = PBXGroup;
+			children = (
+				E52EE56A1BD508AF00797251 /* _Cell */,
+				E52EE56E1BD508AF00797251 /* _Sub */,
+				E52EE5761BD508AF00797251 /* PvrMainViewController.h */,
+				E52EE5771BD508AF00797251 /* PvrMainViewController.m */,
+				E52EE5781BD508AF00797251 /* PvrMainViewController.xib */,
+			);
+			path = _Pvr;
+			sourceTree = "<group>";
+		};
+		E52EE56A1BD508AF00797251 /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E52EE56B1BD508AF00797251 /* PvrMainTableViewCell.h */,
+				E52EE56C1BD508AF00797251 /* PvrMainTableViewCell.m */,
+				E52EE56D1BD508AF00797251 /* PvrMainTableViewCell.xib */,
+			);
+			path = _Cell;
+			sourceTree = "<group>";
+		};
+		E52EE56E1BD508AF00797251 /* _Sub */ = {
+			isa = PBXGroup;
+			children = (
+				E52EE56F1BD508AF00797251 /* _Cell */,
+				E52EE5731BD508AF00797251 /* PvrSubViewController.h */,
+				E52EE5741BD508AF00797251 /* PvrSubViewController.m */,
+				E52EE5751BD508AF00797251 /* PvrSubViewController.xib */,
+			);
+			path = _Sub;
+			sourceTree = "<group>";
+		};
+		E52EE56F1BD508AF00797251 /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E52EE5701BD508AF00797251 /* PvrSubTableViewCell.h */,
+				E52EE5711BD508AF00797251 /* PvrSubTableViewCell.m */,
+				E52EE5721BD508AF00797251 /* PvrSubTableViewCell.xib */,
 			);
 			path = _Cell;
 			sourceTree = "<group>";
@@ -3213,9 +3213,9 @@
 				E50FF5AA1BCB808100F1045C /* icon_3depth_close@3x.png in Resources */,
 				E50FF4D51BCB808100F1045C /* icon_menu_remotecontrol@2x.png in Resources */,
 				E50FF4AA1BCB808100F1045C /* fp2btn_cancel_normal@2x.png in Resources */,
-				E511817F1BA7ACC600C1E31D /* RecodeMainViewController.xib in Resources */,
 				E50FF4981BCB808100F1045C /* sd@2x.png in Resources */,
 				E50FF5331BCB808100F1045C /* bigunpic@3x.png in Resources */,
+				E52EE57A1BD508AF00797251 /* PvrMainTableViewCell.xib in Resources */,
 				E50FF44D1BCB808100F1045C /* genredrama_normal@2x.png in Resources */,
 				E50FF5161BCB808100F1045C /* genrenews_normal@3x.png in Resources */,
 				99C43C6A1BA3EDA10035A0A4 /* EpgMainViewController.xib in Resources */,
@@ -3303,7 +3303,6 @@
 				E50FF55D1BCB808100F1045C /* ch_press@3x.png in Resources */,
 				E50FF4AD1BCB808100F1045C /* fp2btn_ok_press@2x.png in Resources */,
 				E50FF3E11BCB808100F1045C /* sd.png in Resources */,
-				E51181791BA7ACC600C1E31D /* RecodeMainTableViewCell.xib in Resources */,
 				E50FF5731BCB808100F1045C /* p2btn_ok_press@3x.png in Resources */,
 				E50FF5141BCB808100F1045C /* genremusic_press@3x.png in Resources */,
 				E50FF5771BCB808100F1045C /* p3btn_ok_press@3x.png in Resources */,
@@ -3315,7 +3314,6 @@
 				99C43C061BA3ED980035A0A4 /* Info.plist in Resources */,
 				E50FF4B71BCB808100F1045C /* p3btn_cancel_normal@2x.png in Resources */,
 				E50FF4E81BCB808100F1045C /* bullet_3depth@2x.png in Resources */,
-				E511817B1BA7ACC600C1E31D /* RecodeSubTableViewCell.xib in Resources */,
 				E50FF5A51BCB808100F1045C /* bullet_3depth@3x.png in Resources */,
 				E50FF52C1BCB808100F1045C /* 2btn_normal@3x.png in Resources */,
 				E50FF4F61BCB808100F1045C /* star_full@2x.png in Resources */,
@@ -3350,6 +3348,7 @@
 				E51181911BA7ACF900C1E31D /* EpgSubViewController.xib in Resources */,
 				E50FF4A61BCB808100F1045C /* ch_select@2x_original.png in Resources */,
 				E50FF4881BCB808100F1045C /* icon_promotion_01@2x.png in Resources */,
+				E52EE57C1BD508AF00797251 /* PvrSubTableViewCell.xib in Resources */,
 				E50FF4FD1BCB808100F1045C /* vod3btn_press@2x.png in Resources */,
 				E50FF3A41BCB808100F1045C /* genremovie_select.png in Resources */,
 				E50FF3BE1BCB808100F1045C /* 2btn_normal.png in Resources */,
@@ -3359,6 +3358,7 @@
 				E50FF4B11BCB808100F1045C /* longnormal@2x.png in Resources */,
 				E50FF55E1BCB808100F1045C /* ch_select@3x.png in Resources */,
 				E50FF50A1BCB808100F1045C /* genreentertain_normal@3x.png in Resources */,
+				E52EE57E1BD508AF00797251 /* PvrSubViewController.xib in Resources */,
 				E50FF5BB1BCB808100F1045C /* vod3btn_select@3x.png in Resources */,
 				E50FF4BD1BCB808100F1045C /* x@2x.png in Resources */,
 				99C43C6E1BA3EDA10035A0A4 /* LeftMenuViewController.xib in Resources */,
@@ -3436,6 +3436,7 @@
 				E50FF5941BCB808100F1045C /* icon_pairing_after@3x.png in Resources */,
 				E50FF39A1BCB808100F1045C /* genreedu_press.png in Resources */,
 				E50FF5511BCB808100F1045C /* sd@3x.png in Resources */,
+				E52EE5801BD508AF00797251 /* PvrMainViewController.xib in Resources */,
 				E50FF4711BCB808100F1045C /* selectdot@2x.png in Resources */,
 				E50FF3BD1BCB808100F1045C /* 19.png in Resources */,
 				E50FF5531BCB808100F1045C /* icon_left_normal@3x.png in Resources */,
@@ -3492,7 +3493,6 @@
 				E50FF3B31BCB808100F1045C /* genreshopping_select.png in Resources */,
 				E50FF5291BCB808100F1045C /* selectindicator@3x.png in Resources */,
 				E50FF4AE1BCB808100F1045C /* genre_normal@2x.png in Resources */,
-				E511817D1BA7ACC600C1E31D /* RecodeSubViewController.xib in Resources */,
 				E50FF4C81BCB808100F1045C /* volumedown_press@2x.png in Resources */,
 				E5DE64C31BCB4E4400FC3122 /* MovieMainViewController.xib in Resources */,
 				E50FF43A1BCB808100F1045C /* seriesno_bg.png in Resources */,
@@ -3725,13 +3725,11 @@
 				994BDB391BA3F6CD000B6260 /* CMSearchMainViewController.m in Sources */,
 				E5DE64B81BCB4E2000FC3122 /* PopularProgramMainViewController.m in Sources */,
 				99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */,
-				E511817E1BA7ACC600C1E31D /* RecodeMainViewController.m in Sources */,
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
 				20989CDE1BC7934F009C4418 /* CMCustomNumberPadView.m in Sources */,
 				99478D361BAD4CF200CC99E9 /* CMColor.m in Sources */,
 				99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */,
 				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
-				E511817A1BA7ACC600C1E31D /* RecodeSubTableViewCell.m in Sources */,
 				2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */,
 				E5DE64BD1BCB4E3300FC3122 /* AniKidsMainViewController.m in Sources */,
 				E5F6DDEA1BB0DD61006C4DD4 /* NSMutableDictionary+EPG.m in Sources */,
@@ -3745,12 +3743,14 @@
 				99C43C5C1BA3EDA10035A0A4 /* UIView+ViewController.m in Sources */,
 				99EA17E21BC0D1E6005A958C /* CMTermsViewController.m in Sources */,
 				99E9EDB61BBA26D2002FEBF0 /* CMContactInfoViewCcontroller.m in Sources */,
+				E52EE57B1BD508AF00797251 /* PvrSubTableViewCell.m in Sources */,
 				2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */,
 				99C43C611BA3EDA10035A0A4 /* CMSearchHistory.m in Sources */,
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
 				208729AF1BBB90E5009601A4 /* CMTextField.m in Sources */,
 				E54CC0B11BCCA0C6003806C0 /* SBJsonParser.m in Sources */,
 				99C43C551BA3EDA10035A0A4 /* NSMutableDictionary+Merge.m in Sources */,
+				E52EE5791BD508AF00797251 /* PvrMainTableViewCell.m in Sources */,
 				E54CC0AF1BCCA0C6003806C0 /* NSString+SBJSON.m in Sources */,
 				E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */,
 				E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */,
@@ -3774,6 +3774,7 @@
 				20989CE31BC7AE00009C4418 /* CMRegionSettingViewController.m in Sources */,
 				20FEC9A11BBCD93100F6984F /* CMAutoCompletTableViewCell.m in Sources */,
 				99E9EDB11BBA26C3002FEBF0 /* CMPaytvGuideViewController.m in Sources */,
+				E52EE57F1BD508AF00797251 /* PvrMainViewController.m in Sources */,
 				2086CDA51BBA62E20065726E /* CMPurchaseCertPasswordViewController.m in Sources */,
 				E5DE64C21BCB4E4400FC3122 /* MovieMainViewController.m in Sources */,
 				99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */,
@@ -3785,6 +3786,7 @@
 				E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */,
 				E54CC0AE1BCCA0C6003806C0 /* NSObject+SBJSON.m in Sources */,
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
+				E52EE57D1BD508AF00797251 /* PvrSubViewController.m in Sources */,
 				99C43C591BA3EDA10035A0A4 /* UIImage+Color.m in Sources */,
 				99C43C511BA3EDA10035A0A4 /* NSData+Hash.m in Sources */,
 				203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */,
@@ -3798,7 +3800,6 @@
 				99C43C5A1BA3EDA10035A0A4 /* UIImage+Path.m in Sources */,
 				99C43C621BA3EDA10035A0A4 /* NSMutableDictionary+Network.m in Sources */,
 				99E41C7D1BD49E9400C64056 /* CMPurchaseAuthorize.m in Sources */,
-				E511817C1BA7ACC600C1E31D /* RecodeSubViewController.m in Sources */,
 				E5CBA4F21BCE132D003A2AC1 /* NSMutableDictionary+VOD.m in Sources */,
 				E5DE64C71BCB4E5500FC3122 /* RecommendMainViewController.m in Sources */,
 				99EA17E71BC0D1F8005A958C /* CMVersionViewController.m in Sources */,
@@ -3808,7 +3809,6 @@
 				E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */,
 				99C43C5D1BA3EDA10035A0A4 /* UIViewController+OverlayView.m in Sources */,
 				99C43C631BA3EDA10035A0A4 /* NSMutableDictionary+PROGRAM_SEARCH.m in Sources */,
-				E51181781BA7ACC600C1E31D /* RecodeMainTableViewCell.m in Sources */,
 				20EAA3421BAE7D2C004DFCA0 /* CMTabMenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,6 +33,7 @@
     self.pCloseBtn.tag = EPG_POPUP_VIEW_BTN_01;
     self.pChannelFullBtn.tag = EPG_POPUP_VIEW_BTN_02;
     self.pChannelFavorBtn.tag = EPG_POPUP_VIEW_BTN_03;
+    self.pChannelBgBtn.tag = EPG_POPUP_VIEW_BTN_04;
 }
 
 #pragma mark - 액션 이벤트
@@ -41,6 +42,7 @@
 {
     switch (btn.tag) {
         case EPG_POPUP_VIEW_BTN_01:
+        case EPG_POPUP_VIEW_BTN_04:
         {
             // 닫기
             [self.view removeFromSuperview];

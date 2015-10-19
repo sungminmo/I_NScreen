@@ -1,18 +1,18 @@
 //
-//  RecodeMainViewController.m
+//  PvrMainViewController.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 9. 14..
-//  Copyright (c) 2015년 STVN. All rights reserved.
+//  Created by JUNG KIL BAE on 2015. 10. 19..
+//  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "RecodeMainViewController.h"
+#import "PvrMainViewController.h"
 
-@interface RecodeMainViewController ()
+@interface PvrMainViewController ()
 
 @end
 
-@implementation RecodeMainViewController
+@implementation PvrMainViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -29,9 +29,9 @@
 #pragma mark - 화면 태그값 초기화
 - (void)setTagInit
 {
-    self.pBackBtn.tag = RECODE_MAIN_VIEW_BTN_01;
-    self.pReservationBtn.tag = RECODE_MAIN_VIEW_BTN_02;
-    self.pListBtn.tag = RECODE_MAIN_VIEW_BTN_03;
+    self.pBackBtn.tag = PVR_MAIN_VIEW_BTN_01;
+    self.pReservationBtn.tag = PVR_MAIN_VIEW_BTN_02;
+    self.pListBtn.tag = PVR_MAIN_VIEW_BTN_03;
 }
 
 #pragma mark - 액션 이벤트
@@ -39,13 +39,13 @@
 - (IBAction)onBtnClick:(UIButton *)btn
 {
     switch (btn.tag) {
-        case RECODE_MAIN_VIEW_BTN_01:
+        case PVR_MAIN_VIEW_BTN_01:
         {
             // back
             [self.navigationController popViewControllerAnimated:YES];
             
         }break;
-        case RECODE_MAIN_VIEW_BTN_02:
+        case PVR_MAIN_VIEW_BTN_02:
         {
             // 녹화 예약 관리
             [self.pReservationBtn setBackgroundImage:[UIImage imageNamed:@"2btn_select.png"] forState:UIControlStateNormal];
@@ -56,7 +56,7 @@
             
             
         }break;
-        case RECODE_MAIN_VIEW_BTN_03:
+        case PVR_MAIN_VIEW_BTN_03:
         {
             // 녹화물 목록
             [self.pReservationBtn setBackgroundImage:[UIImage imageNamed:@"2btn_normal.png"] forState:UIControlStateNormal];
@@ -72,13 +72,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *pCellIn = @"RecodeMainTableViewCellIn";
+    static NSString *pCellIn = @"PvrMainTableViewCellIn";
     
-    RecodeMainTableViewCell *pCell = (RecodeMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
+    PvrMainTableViewCell *pCell = (PvrMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
     
     if (pCell == nil)
     {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RecodeMainTableViewCell" owner:nil options:nil];
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PvrMainTableViewCell" owner:nil options:nil];
         pCell = [arr objectAtIndex:0];
     }
     
@@ -91,7 +91,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RecodeSubViewController *pViewController = [[RecodeSubViewController alloc] initWithNibName:@"RecodeSubViewController" bundle:nil];
+    PvrSubViewController *pViewController = [[PvrSubViewController alloc] initWithNibName:@"PvrSubViewController" bundle:nil];
     [self.navigationController pushViewController:pViewController animated:YES];
 }
 

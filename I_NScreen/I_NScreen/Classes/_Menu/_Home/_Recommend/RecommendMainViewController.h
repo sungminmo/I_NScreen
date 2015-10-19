@@ -10,7 +10,7 @@
 #import "CMBaseViewController.h"
 #import "CMPageViewController.h"
 
-@interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate>
+@interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate, CMPageViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIScrollView *pMainScrollView;
 

@@ -35,4 +35,12 @@
  */
 - (void)onLeftMenuListClose:(id)control;
 
+/**
+ * @brief 디바이스 체크
+ */
+- (NSString *)getDeviceCheck;
+
+
+
+
 @end

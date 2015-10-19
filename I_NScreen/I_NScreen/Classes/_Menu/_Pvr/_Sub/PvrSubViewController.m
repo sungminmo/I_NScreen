@@ -1,18 +1,18 @@
 //
-//  RecodeSubViewController.m
+//  PvrSubViewController.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 9. 14..
-//  Copyright (c) 2015년 STVN. All rights reserved.
+//  Created by JUNG KIL BAE on 2015. 10. 19..
+//  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "RecodeSubViewController.h"
+#import "PvrSubViewController.h"
 
-@interface RecodeSubViewController ()
+@interface PvrSubViewController ()
 
 @end
 
-@implementation RecodeSubViewController
+@implementation PvrSubViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
     [self setTagInit];
 }
 
@@ -30,7 +29,7 @@
 #pragma mark - 화면 태그값 초기화
 - (void)setTagInit
 {
-    self.pBackBtn.tag = RECODE_SUB_VIEW_BTN_01;
+    self.pBackBtn.tag = PVR_SUB_VIEW_BTN_01;
 }
 
 #pragma mark - 액션 이벤트
@@ -38,7 +37,7 @@
 - (IBAction)onBtnClick:(UIButton *)btn
 {
     switch (btn.tag) {
-        case RECODE_SUB_VIEW_BTN_01:
+        case PVR_SUB_VIEW_BTN_01:
         {
             // back
             [self.navigationController popViewControllerAnimated:YES];
@@ -50,13 +49,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *pCellIn = @"RecodeSubTableViewCellIn";
+    static NSString *pCellIn = @"PvrSubTableViewCellIn";
     
-    RecodeSubTableViewCell *pCell = (RecodeSubTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
+    PvrSubTableViewCell *pCell = (PvrSubTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
     
     if (pCell == nil)
     {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"RecodeSubTableViewCell" owner:nil options:nil];
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"PvrSubTableViewCell" owner:nil options:nil];
         pCell = [arr objectAtIndex:0];
     }
     

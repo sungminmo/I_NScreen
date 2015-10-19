@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PvrMainViewController">
+            <connections>
+                <outlet property="pBackBtn" destination="aGJ-Lg-JY8" id="Ggr-0h-Bec"/>
+                <outlet property="pListBtn" destination="jco-ic-Voh" id="4HR-GS-wK9"/>
+                <outlet property="pReservationBtn" destination="U0l-TV-tIp" id="Pwg-sh-aVJ"/>
+                <outlet property="pTableView" destination="v5I-PD-Fe2" id="eE0-qr-yYT"/>
+                <outlet property="view" destination="LSy-EZ-Yf9" id="Agb-eO-kXU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="LSy-EZ-Yf9">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAW-MY-a9c" userLabel="View(해더)">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="녹화관리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud9-si-llB">
+                            <rect key="frame" x="0.0" y="45" width="414" height="26"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGJ-Lg-JY8">
+                            <rect key="frame" x="17" y="47" width="9" height="18"/>
+                            <state key="normal" image="back.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="lTN-Mw-UJk"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdS-La-tmV">
+                            <rect key="frame" x="378" y="46" width="24" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="kdS-La-tmV" secondAttribute="height" multiplier="12:11" id="tn8-Ey-5Hb"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="bigpic.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="kdS-La-tmV" secondAttribute="centerY" id="ALc-jJ-C7C"/>
+                        <constraint firstItem="Ud9-si-llB" firstAttribute="leading" secondItem="PAW-MY-a9c" secondAttribute="leading" id="BDu-bQ-pxr"/>
+                        <constraint firstAttribute="centerY" secondItem="Ud9-si-llB" secondAttribute="centerY" id="EEV-Jm-esG"/>
+                        <constraint firstAttribute="centerY" secondItem="aGJ-Lg-JY8" secondAttribute="centerY" id="G6a-TJ-dk4"/>
+                        <constraint firstItem="aGJ-Lg-JY8" firstAttribute="leading" secondItem="PAW-MY-a9c" secondAttribute="leading" constant="17" id="ITk-h1-eGo"/>
+                        <constraint firstAttribute="width" secondItem="PAW-MY-a9c" secondAttribute="height" multiplier="138:31" id="IxG-E8-mrU"/>
+                        <constraint firstAttribute="trailing" secondItem="kdS-La-tmV" secondAttribute="trailing" constant="12" id="jza-NJ-aJg"/>
+                        <constraint firstAttribute="trailing" secondItem="Ud9-si-llB" secondAttribute="trailing" id="usK-MC-qR4"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiq-uX-uIB" userLabel="View(중간)">
+                    <rect key="frame" x="0.0" y="93" width="414" height="82"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgC-H3-egS">
+                            <rect key="frame" x="7" y="10" width="400" height="35"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2btn_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dqa-yp-84n">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="35"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0l-TV-tIp" userLabel="Button(녹화예약관리)">
+                                    <rect key="frame" x="1" y="1" width="199" height="33"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="U0l-TV-tIp" secondAttribute="height" multiplier="199:33" id="QnM-g3-gZU"/>
+                                    </constraints>
+                                    <state key="normal" title="녹화예약관리" backgroundImage="2btn_select.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="mrP-N7-wiS"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jco-ic-Voh" userLabel="Button(녹화물 목록)">
+                                    <rect key="frame" x="200" y="1" width="199" height="33"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="jco-ic-Voh" secondAttribute="height" multiplier="199:33" id="rSx-O1-Hxc"/>
+                                    </constraints>
+                                    <state key="normal" title="녹화물 목록" backgroundImage="2btn_normal.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="SqF-0I-WD8"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="jco-ic-Voh" secondAttribute="trailing" constant="1" id="3oG-bI-fbJ"/>
+                                <constraint firstAttribute="width" secondItem="GgC-H3-egS" secondAttribute="height" multiplier="80:7" id="9El-qY-NKq"/>
+                                <constraint firstItem="U0l-TV-tIp" firstAttribute="leading" secondItem="GgC-H3-egS" secondAttribute="leading" constant="1" id="PIv-nP-7VT"/>
+                                <constraint firstItem="U0l-TV-tIp" firstAttribute="top" secondItem="GgC-H3-egS" secondAttribute="top" constant="1" id="Ywe-Zm-D3M"/>
+                                <constraint firstAttribute="bottom" secondItem="jco-ic-Voh" secondAttribute="bottom" constant="1" id="cWm-hN-pPb"/>
+                                <constraint firstItem="jco-ic-Voh" firstAttribute="top" secondItem="GgC-H3-egS" secondAttribute="top" constant="1" id="lj9-bg-mDK"/>
+                                <constraint firstAttribute="bottom" secondItem="U0l-TV-tIp" secondAttribute="bottom" constant="1" id="oqx-Hv-zOl"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 120개의 녹화예약 콘텐트가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmO-RI-avg" userLabel="Label(상세코멘트)">
+                            <rect key="frame" x="0.0" y="52" width="414" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="cmO-RI-avg" secondAttribute="height" multiplier="138:7" id="dKy-VY-vpk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="cmO-RI-avg" firstAttribute="leading" secondItem="hiq-uX-uIB" secondAttribute="leading" id="Bu0-hn-ZTD"/>
+                        <constraint firstAttribute="trailing" secondItem="GgC-H3-egS" secondAttribute="trailing" constant="7" id="Ccd-66-ehx"/>
+                        <constraint firstAttribute="trailing" secondItem="cmO-RI-avg" secondAttribute="trailing" id="UtA-Fn-30w"/>
+                        <constraint firstItem="GgC-H3-egS" firstAttribute="top" secondItem="hiq-uX-uIB" secondAttribute="top" constant="10" id="Zes-dR-7ph"/>
+                        <constraint firstItem="cmO-RI-avg" firstAttribute="top" secondItem="GgC-H3-egS" secondAttribute="bottom" constant="7" id="ff9-BN-Rq7"/>
+                        <constraint firstItem="GgC-H3-egS" firstAttribute="leading" secondItem="hiq-uX-uIB" secondAttribute="leading" constant="7" id="gPV-NK-p06"/>
+                        <constraint firstAttribute="width" secondItem="hiq-uX-uIB" secondAttribute="height" multiplier="207:41" id="vi8-g0-Jrd"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bqo-hb-cjW" userLabel="View(끝)">
+                    <rect key="frame" x="0.0" y="175" width="414" height="561"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="v5I-PD-Fe2">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="561"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="ZYX-FH-hYc"/>
+                                <outlet property="delegate" destination="-1" id="s3H-zb-GG7"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.8980392157" green="0.92941176469999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="v5I-PD-Fe2" firstAttribute="top" secondItem="Bqo-hb-cjW" secondAttribute="top" id="DoC-CN-Eo1"/>
+                        <constraint firstItem="v5I-PD-Fe2" firstAttribute="leading" secondItem="Bqo-hb-cjW" secondAttribute="leading" id="d8k-1a-CNq"/>
+                        <constraint firstAttribute="trailing" secondItem="v5I-PD-Fe2" secondAttribute="trailing" id="e0h-Xb-HTe"/>
+                        <constraint firstAttribute="bottom" secondItem="v5I-PD-Fe2" secondAttribute="bottom" id="pm5-KO-PUH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="PAW-MY-a9c" firstAttribute="top" secondItem="LSy-EZ-Yf9" secondAttribute="top" id="0D5-Ny-a0r"/>
+                <constraint firstItem="hiq-uX-uIB" firstAttribute="top" secondItem="PAW-MY-a9c" secondAttribute="bottom" id="3tt-F7-fb4"/>
+                <constraint firstItem="Bqo-hb-cjW" firstAttribute="leading" secondItem="LSy-EZ-Yf9" secondAttribute="leading" id="6r6-iW-RmA"/>
+                <constraint firstAttribute="bottom" secondItem="Bqo-hb-cjW" secondAttribute="bottom" id="FVw-8c-rAK"/>
+                <constraint firstItem="hiq-uX-uIB" firstAttribute="leading" secondItem="LSy-EZ-Yf9" secondAttribute="leading" id="GZu-yb-T2d"/>
+                <constraint firstAttribute="trailing" secondItem="Bqo-hb-cjW" secondAttribute="trailing" id="Mll-SJ-kiZ"/>
+                <constraint firstAttribute="trailing" secondItem="hiq-uX-uIB" secondAttribute="trailing" id="SIn-ka-ouF"/>
+                <constraint firstItem="Bqo-hb-cjW" firstAttribute="top" secondItem="hiq-uX-uIB" secondAttribute="bottom" id="clh-Gw-ZCi"/>
+                <constraint firstAttribute="trailing" secondItem="PAW-MY-a9c" secondAttribute="trailing" id="d5u-0j-Ylu"/>
+                <constraint firstItem="PAW-MY-a9c" firstAttribute="leading" secondItem="LSy-EZ-Yf9" secondAttribute="leading" id="hg6-Ae-BNE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="2btn_normal.png" width="195" height="33"/>
+        <image name="2btn_select.png" width="195" height="33"/>
+        <image name="back.png" width="9" height="18"/>
+        <image name="bigpic.png" width="24" height="22"/>
+    </resources>
+</document>

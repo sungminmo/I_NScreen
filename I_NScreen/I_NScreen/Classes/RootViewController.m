@@ -160,7 +160,7 @@
         case 2:
         {
             // PVR - 리모컨
-            RecodeMainViewController *pViewController = [[RecodeMainViewController alloc] initWithNibName:@"RecodeMainViewController" bundle:nil];
+            PvrMainViewController *pViewController = [[PvrMainViewController alloc] initWithNibName:@"PvrMainViewController" bundle:nil];
             [self.navigationController pushViewController:pViewController animated:YES];
             
         }break;

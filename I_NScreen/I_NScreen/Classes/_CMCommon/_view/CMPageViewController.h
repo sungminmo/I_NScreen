@@ -14,7 +14,7 @@
 
 @property (nonatomic, weak) id <CMPageViewDelegate>delegate;
 
-- (id)initWithData:(NSDictionary *)dic WithPage:(int)page;
+- (id)initWithData:(NSDictionary *)dic WithPage:(int)page WithFrame:(CGRect )cgRect;
 
 @end
 
