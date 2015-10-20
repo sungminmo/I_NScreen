@@ -23,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setTagInit];
+    [self setViewInit];
 }
 
 #pragma mark - 초기화
@@ -36,6 +37,21 @@
     self.pMenu03.tag = HOME_GNB_VIEW_BTN_05;
     self.pMenu04.tag = HOME_GNB_VIEW_BTN_06;
     self.pMenu05.tag = HOME_GNB_VIEW_BTN_07;
+}
+
+#pragma mark - 화면 초기화
+- (void)setViewInit
+{
+    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_5]
+        || [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_ELSE] )
+    {
+        self.pMenu01.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+        self.pMenu02.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+        self.pMenu03.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+        self.pMenu04.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+        self.pMenu05.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+        
+    }
 }
 
 #pragma mark - 액션 이벤트

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8191"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController">
@@ -21,7 +22,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
                     <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="115" id="YXG-lN-rt7"/>
+                        <constraint firstAttribute="width" secondItem="sYe-wd-r5t" secondAttribute="height" multiplier="18:5" id="HQ0-qR-gZv"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAn-fo-gzJ" userLabel="View(body)">
@@ -31,13 +32,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="lAn-fo-gzJ" secondAttribute="bottom" id="0n5-h1-N8y"/>
-                <constraint firstAttribute="trailing" secondItem="lAn-fo-gzJ" secondAttribute="trailing" id="28U-EB-tLY"/>
-                <constraint firstItem="lAn-fo-gzJ" firstAttribute="top" secondItem="sYe-wd-r5t" secondAttribute="bottom" id="6KO-Xh-4Wf"/>
-                <constraint firstItem="sYe-wd-r5t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="N4m-QE-e71"/>
-                <constraint firstItem="lAn-fo-gzJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PfN-ie-NvA"/>
-                <constraint firstItem="sYe-wd-r5t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xo5-1e-mFp"/>
-                <constraint firstAttribute="trailing" secondItem="sYe-wd-r5t" secondAttribute="trailing" id="nS3-vG-wxx"/>
+                <constraint firstItem="sYe-wd-r5t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7zQ-fn-gMd"/>
+                <constraint firstAttribute="bottom" secondItem="lAn-fo-gzJ" secondAttribute="bottom" id="8kU-ec-nBe"/>
+                <constraint firstAttribute="trailing" secondItem="sYe-wd-r5t" secondAttribute="trailing" id="9mb-Ev-DSV"/>
+                <constraint firstItem="lAn-fo-gzJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Cl2-bN-y9g"/>
+                <constraint firstAttribute="trailing" secondItem="lAn-fo-gzJ" secondAttribute="trailing" id="MIg-xD-SKz"/>
+                <constraint firstItem="lAn-fo-gzJ" firstAttribute="top" secondItem="sYe-wd-r5t" secondAttribute="bottom" id="NLh-yE-EkG"/>
+                <constraint firstItem="sYe-wd-r5t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TCH-gX-nhc"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
         </view>
