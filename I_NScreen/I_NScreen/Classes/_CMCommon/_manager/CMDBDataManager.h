@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CMAreaInfo.h"
+
 
 @interface CMDBDataManager : NSObject
 
@@ -29,7 +31,22 @@
 /**
  *  지역코드 기본설정
  */
-- (void)saveDefaultAeraCode;
+- (void)saveDefaultAeraCodeForce:(BOOL)isForce;
+
+/**
+ *  지역정보 저장
+ *
+ *  @param code 코드
+ *  @param name 명칭
+ */
+- (void)saveAreaCode:(NSString*)code name:(NSString*)name;
+
+/**
+ *  지역정보 반환
+ *
+ *  @return 지역정보
+ */
+- (CMAreaInfo*)currentAreaInfo;
 
 
 @end

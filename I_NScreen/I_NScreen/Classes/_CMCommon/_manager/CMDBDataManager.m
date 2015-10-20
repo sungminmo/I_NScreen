@@ -25,9 +25,14 @@
 
 - (id)init {
     if (self = [super init]) {
-        [self saveDefaultAeraCode];
+        [self saveDefaultAeraCodeForce:NO];
     }
     return self;
+}
+
+- (RLMRealm*)cmRealm {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    return realm;
 }
 
 //TODO: 테스트 후 적용여부가 결정되면 수정할 것.
@@ -126,7 +131,7 @@
 
 - (void)savePurchaseAuthorizedNumber:(NSString*)number {
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMRealm *realm = [self cmRealm];
     
     if ([self purchaseAuthorizedNumber].length > 0) {
         RLMArray* all = (RLMArray*)[CMPurchaseAuthorize allObjects];
@@ -149,7 +154,7 @@
     
     BOOL isEmpty = YES;
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMRealm *realm = [self cmRealm];
     
     
     RLMArray* all = (RLMArray*)[CMAreaInfo allObjects];
@@ -175,7 +180,35 @@
     }
 }
 
+- (void)saveAreaCode:(NSString*)code name:(NSString*)name {
+    if (code.length == 0 || name.length == 0) {
+        return;
+    }
+    
+    RLMRealm *realm = [self cmRealm];
+    RLMArray* all = (RLMArray*)[CMAreaInfo allObjects];
+    if (all.count > 0) {
+        [realm beginWriteTransaction];
+        [realm deleteObjects:all];
+        [realm commitWriteTransaction];
+    }
+    CMAreaInfo *setting =  [[CMAreaInfo alloc] init];
+    // 지역코드/명 기본값.
+    setting.areaCode = code;
+    setting.areaName = name;
+    
+    //1-2. 저장
+    [realm beginWriteTransaction];
+    [realm addObject:setting];
+    [realm commitWriteTransaction];
+}
 
-
+- (CMAreaInfo*)currentAreaInfo {
+    RLMArray* all = (RLMArray*)[CMAreaInfo allObjects];
+    if (all.count > 0) {
+        return all.lastObject;
+    }
+    return nil;
+}
 
 @end

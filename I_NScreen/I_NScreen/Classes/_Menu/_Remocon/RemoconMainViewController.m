@@ -25,6 +25,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setTagInit];
+    [self setViewInit];
 }
 
 #pragma mark - 초기화
@@ -36,6 +37,33 @@
     self.pChannelBtn.tag = REMOCON_MAIN_VIEW_BTN_03;
     self.pVolumeDownBtn.tag = REMOCON_MAIN_VIEW_BTN_04;
     self.pVoluumeUpBtn.tag = REMOCON_MAIN_VIEW_BTN_05;
+}
+
+#pragma mark - 화면 초기화
+- (void)setViewInit
+{
+    // 화면 해상도 대응
+    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
+    {
+        self.pPowerBtn.frame = CGRectMake(14, 0, 142, 46);
+        self.pChannelBtn.frame = CGRectMake(168, 0, 230, 46);
+        self.pVolumeDownBtn.frame = CGRectMake(14, 20, 178, 76);
+        self.pVoluumeUpBtn.frame = CGRectMake(222, 20, 178, 76);
+    }
+    else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
+    {
+        self.pPowerBtn.frame = CGRectMake(15, 0, 128, 40);
+        self.pChannelBtn.frame = CGRectMake(150, 0, 208, 40);
+        self.pVolumeDownBtn.frame = CGRectMake(14, 20, 142, 60);
+        self.pVoluumeUpBtn.frame = CGRectMake(164, 20, 142, 60);
+    }
+    else
+    {
+        self.pPowerBtn.frame = CGRectMake(15, 0, 128, 40);
+        self.pChannelBtn.frame = CGRectMake(128, 0, 177, 35);
+        self.pVolumeDownBtn.frame = CGRectMake(14, 20, 154, 64);
+        self.pVoluumeUpBtn.frame = CGRectMake(205, 20, 154, 64);
+    }
 }
 
 #pragma mark - 액션 이벤트

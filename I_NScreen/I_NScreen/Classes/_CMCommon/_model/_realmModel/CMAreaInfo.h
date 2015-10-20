@@ -6,6 +6,8 @@
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
+//지역설정정보
+
 #import "RLMObject.h"
 
 @interface CMAreaInfo : RLMObject

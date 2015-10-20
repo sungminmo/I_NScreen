@@ -7,6 +7,8 @@
 //
 
 #import "CMRegionSettingViewController.h"
+#import "NSMutableDictionary+EPG.h"
+#import "CMDBDataManager.h"
 
 typedef enum : NSInteger {
     TAG_CANCEL = 10000000,
@@ -48,10 +50,18 @@ static NSString* const CellIdentifier = @"regionSettingCell";
     self.completeButton.tag = TAG_COMPLETE;
     
     //  test
-    self.regionData = [@[@"노원구", @"마포구", @"동대문구", @"서대문구", @"서초구", @"성북구", @"성동구", @"가나다라마바사아차카"] mutableCopy];
-    self.selectedIdx = 0;
-    
-    [self selectRegionAtIndex:self.selectedIdx];
+//    self.regionData = [@[@"노원구", @"마포구", @"동대문구", @"서대문구", @"서초구", @"성북구", @"성동구", @"가나다라마바사아차카"] mutableCopy];
+//    self.selectedIdx = 0;
+    [self loadAreaList];
+}
+
+- (void)loadAreaList {
+    NSURLSessionTask *tesk = [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
+        NSArray* obj = [epgs valueForKeyPath:@"areaItem"];
+        self.regionData = [obj.lastObject copy];
+        DDLogInfo(@"%@", [obj description]);
+        [self loadSelectedRegion];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +70,19 @@ static NSString* const CellIdentifier = @"regionSettingCell";
 }
 
 #pragma mark - Private
+- (void)loadSelectedRegion {
+    CMDBDataManager* manager = [CMDBDataManager sharedInstance];
+    CMAreaInfo* info = [manager currentAreaInfo];
+    
+    NSPredicate* p = [NSPredicate predicateWithFormat:@"areaCode == %@", info.areaCode];
+    NSArray* rs = [self.regionData filteredArrayUsingPredicate:p];
+    if (rs.count > 0) {
+        self.selectedIdx = [self.regionData indexOfObject:rs.lastObject];
+    }
+    
+    [self selectRegionAtIndex:self.selectedIdx];
+}
+
 
 - (void)selectRegionAtIndex:(NSInteger)index {
 
@@ -69,7 +92,7 @@ static NSString* const CellIdentifier = @"regionSettingCell";
     
     self.selectedIdx = index;
     
-    [self setPresentResionLabel:self.regionData[index]];
+    [self setPresentResionLabel:self.regionData[index][@"areaName"]];
     [self.tableView reloadData];
 }
 
@@ -97,6 +120,13 @@ static NSString* const CellIdentifier = @"regionSettingCell";
         }
             break;
         case TAG_COMPLETE: {
+            
+            NSDictionary* areaItem = self.regionData[self.selectedIdx];
+            if (areaItem != nil) {
+                CMDBDataManager* manager = [CMDBDataManager sharedInstance];
+                [manager saveAreaCode:areaItem[@"areaCode"] name:areaItem[@"areaName"]];
+            }
+            [self backCommonAction];
         }
             break;
             
@@ -156,7 +186,7 @@ static NSString* const CellIdentifier = @"regionSettingCell";
     UILabel* regionLabel = (UILabel*)[cell.contentView viewWithTag:TAG_REGION_LABEL_IN_CELL];
     UIImageView* checkImageView = (UIImageView*)[cell.contentView viewWithTag:TAG_CHECK_IMAGE_IN_CELL];
     
-    regionLabel.text = self.regionData[indexPath.row];
+    regionLabel.text = self.regionData[indexPath.row][@"areaName"];
     
     if (self.selectedIdx == indexPath.row) {
         checkImageView.hidden = NO;
