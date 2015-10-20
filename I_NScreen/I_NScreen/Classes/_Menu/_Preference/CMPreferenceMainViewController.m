@@ -7,6 +7,7 @@
 //
 
 #import "CMPreferenceMainViewController.h"
+#import "CMDBDataManager.h"
 
 static NSString* const CellIdentifier = @"preferenceMainCell";
 
@@ -23,6 +24,12 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 
 #pragma mark - Life Cycle
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self settingListData];
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -30,8 +37,6 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
     self.isUseNavigationBar = YES;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CMPreferenceMainTableViewCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
-    
-    [self settingListData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,8 +47,14 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 
 
 - (void)settingListData {
+    
+    //1. 지역설정 가져오기
+    CMDBDataManager* manager = [CMDBDataManager sharedInstance];
+    CMAreaInfo* info = [manager currentAreaInfo];
+    NSString* areaDesc = [NSString stringWithFormat:@"현재설정지역 : %@", info.areaName];
+    
     self.tableList = @[@{@"type":@(INFO_PREFERENCE_MAIN_CELL_TYPE)},
-                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMRegionSettingViewController", @"icon":@(true), @"title":@"지역설정", @"addedInfo":@"현재설정지역 : 강동구", @"attributedString":@{@"target":@":", @"color":[CMColor colorViolet]}},
+                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMRegionSettingViewController", @"icon":@(true), @"title":@"지역설정", @"addedInfo":areaDesc, @"attributedString":@{@"target":@":", @"color":[CMColor colorViolet]}},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMPurchaseCertPasswordViewController", @"icon":@(true), @"title":@"구매인증 비밀번호 관리"},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"icon":@(true), @"title":@"성인검색 제한설정", @"switchEvent":^(NSIndexPath* indexPath, BOOL isOn){[self switchEventAtIndexPath:indexPath value:isOn];}},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"", @"icon":@(true), @"title":@"성인인증", @"addedInfo":@"성인인증이 필요합니다.", @"attributedString":@{@"color":[UIColor redColor]}},

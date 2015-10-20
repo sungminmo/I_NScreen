@@ -25,6 +25,11 @@
 
 @end
 
+@implementation CMAirCodeServerClient
+
+@end
+
+
 
 @interface CMNetworkManager() <NSXMLParserDelegate>
 /**
@@ -80,7 +85,10 @@
         
         self.rumClient = [[CMRUMPUSServerClient alloc] initWithBaseURL:[NSURL URLWithString:CNM_RUMPUS_OPEN_API_SERVER_URL]];
         self.rumClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        
+
+        self.acodeClient = [[CMAirCodeServerClient alloc] initWithBaseURL:[NSURL URLWithString:CNM_AIRCODE_OPEN_API_SERVER_URL]];
+        self.acodeClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+
         
     }
     return self;
@@ -288,15 +296,15 @@
 // http://58.141.255.69:8080/nscreen/getChannelArea.xml?version=1
 - (NSURLSessionDataTask *)epgGetChannelAreaBlock:(void (^)(NSArray *gets, NSError *error))block
 {
-    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    self.acodeClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.acodeClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelArea];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    return [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         
 /*
  <?xml version="1.0" encoding="utf-8" standalone="yes"?>

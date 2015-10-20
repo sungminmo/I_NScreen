@@ -21,12 +21,16 @@
 @interface CMRUMPUSServerClient : AFHTTPSessionManager
 @end
 
+@interface CMAirCodeServerClient : AFHTTPSessionManager
+@end
+
 @interface CMNetworkManager : NSObject
 
 @property (nonatomic, strong) CMDRMServerClient* drmClient;
 @property (nonatomic, strong) CMSMAppServerClient* smClient;
 @property (nonatomic, strong) CMWebHasServerClient* webClient;
 @property (nonatomic, strong) CMRUMPUSServerClient* rumClient;
+@property (nonatomic, strong) CMAirCodeServerClient* acodeClient;
 
 + (CMNetworkManager *)sharedInstance;
 
