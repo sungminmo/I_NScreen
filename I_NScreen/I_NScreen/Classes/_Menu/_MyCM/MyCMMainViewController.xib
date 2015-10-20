@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ynV-oj-cwV" userLabel="View(해더)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ynV-oj-cwV" userLabel="View(해더)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiA-Cg-FbR">
@@ -32,16 +32,25 @@
                                 <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="Cih-7f-DD0"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="마이 C&amp;M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-8Z-ZwD">
-                            <rect key="frame" x="141" y="45" width="132" height="26"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마이 C&amp;M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-8Z-ZwD">
+                            <rect key="frame" x="0.0" y="45" width="414" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="Bds-pW-HJK"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="93" id="qOY-rO-Ti8"/>
+                        <constraint firstItem="3Dd-8Z-ZwD" firstAttribute="leading" secondItem="ynV-oj-cwV" secondAttribute="leading" id="s5X-Wi-0NE"/>
+                        <constraint firstAttribute="trailing" secondItem="3Dd-8Z-ZwD" secondAttribute="trailing" id="tYD-As-Etj"/>
+                        <constraint firstItem="3Dd-8Z-ZwD" firstAttribute="top" secondItem="ynV-oj-cwV" secondAttribute="top" constant="45" id="ws2-6d-XGg"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iy8-ns-BtF" userLabel="View(중간)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iy8-ns-BtF" userLabel="View(중간)">
                     <rect key="frame" x="0.0" y="93" width="414" height="45"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3btn_outline.png" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-Cd-y9J">
@@ -83,6 +92,9 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Lec-mU-plE"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHd-Ul-Cvl" userLabel="View(구매)">
                     <rect key="frame" x="0.0" y="138" width="414" height="598"/>
@@ -126,6 +138,14 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ynV-oj-cwV" firstAttribute="top" secondItem="Qlm-XO-8LL" secondAttribute="top" id="DF1-5r-azB"/>
+                <constraint firstAttribute="trailing" secondItem="ynV-oj-cwV" secondAttribute="trailing" id="Jqe-KX-0xl"/>
+                <constraint firstAttribute="trailing" secondItem="Iy8-ns-BtF" secondAttribute="trailing" id="Rpj-Ma-X2v"/>
+                <constraint firstItem="Iy8-ns-BtF" firstAttribute="leading" secondItem="Qlm-XO-8LL" secondAttribute="leading" id="hu8-e8-7bX"/>
+                <constraint firstItem="ynV-oj-cwV" firstAttribute="leading" secondItem="Qlm-XO-8LL" secondAttribute="leading" id="ivz-xj-fTt"/>
+                <constraint firstItem="Iy8-ns-BtF" firstAttribute="top" secondItem="ynV-oj-cwV" secondAttribute="bottom" id="sFH-0J-Yf6"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
