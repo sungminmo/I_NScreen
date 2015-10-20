@@ -112,6 +112,10 @@ static const CGFloat pageSize = 28;
     
     NSString* searchWord = [self.searchField.text trim];
     
+    if (searchWord.length == 0) {
+        return;
+    }
+    
     [NSMutableDictionary vodSerchListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithSortType:@"TitleAsc" completion:^(NSArray *programs, NSError *error) {
         
         self.isLoading = NO;
@@ -153,7 +157,12 @@ static const CGFloat pageSize = 28;
 
 - (IBAction)buttonWasTouchUpInside:(id)sender {
     
-    [self.searchField resignFirstResponder];
+//    [self.searchField resignFirstResponder];
+    
+    [self resetData];
+    
+    self.searchField.text = @"";
+    [self.searchField becomeFirstResponder];
 }
 
 #pragma mark - CMTabMenuViewDelegate
@@ -258,12 +267,10 @@ static const CGFloat pageSize = 28;
 #pragma mark - UITextFieldDelegate
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    self.autoCompletList.hidden = false;
+
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    
-    self.autoCompletList.hidden = true;
 
     [self resetData];
     
