@@ -10,8 +10,8 @@
 
 @interface NSMutableDictionary (EPG)
 
-// http://58.141.255.69:8080/nscreen/getChannelList.xml?version=1&areaCode=0
-+ (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode completion:(void (^)(NSArray *epgs, NSError *error))block;
+// http://58.141.255.69:8080/nscreen/getChannelList.xml?version=1&areaCode=0&genreCode=1 전체는 머지??
++ (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode WithGenreCode:(NSString *)genreCode completion:(void (^)(NSArray *epgs, NSError *error))block;
 
 // http://58.141.255.69:8080/nscreen/getChannelGenre.xml?version=1
 + (NSURLSessionDataTask *)epgGetChannelGenreCompletion:(void (^)(NSArray *epgs, NSError *error))block;

@@ -11,9 +11,9 @@
 
 @implementation NSMutableDictionary (EPG)
 
-+ (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode completion:(void (^)(NSArray *epgs, NSError *error))block
++ (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode WithGenreCode:(NSString *)genreCode completion:(void (^)(NSArray *epgs, NSError *error))block
 {
-    return [[CMNetworkManager sharedInstance] epgGetChannelListAreaCode:areaCode block:block];
+    return [[CMNetworkManager sharedInstance] epgGetChannelListAreaCode:areaCode WithGenreCode:genreCode block:block];
 }
 
 + (NSURLSessionDataTask *)epgGetChannelGenreCompletion:(void (^)(NSArray *epgs, NSError *error))block

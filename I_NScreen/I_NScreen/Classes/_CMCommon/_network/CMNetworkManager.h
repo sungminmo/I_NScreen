@@ -54,7 +54,7 @@
 
 @interface CMNetworkManager (EPG)
 
-- (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block;
+- (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode WithGenreCode:(NSString *)genreCode block:(void (^)(NSArray *gets, NSError *error))block;
 
 - (NSURLSessionDataTask *)epgGetChannelGenreBlock:(void (^)(NSArray *gets, NSError *error))block;
 
@@ -76,5 +76,11 @@
 
 // 금주의 신작영화
 - (NSURLSessionDataTask *)vodGetContentGroupListWithContentGroupProfile:(NSString *)contentGroupProfile WithCategoryId:(NSString *)categoryId block:(void (^)(NSArray *gets, NSError *error))block;
+
+// 연관 컨텐츠
+- (NSURLSessionDataTask *)vodRecommendContentGroupByAssetId:(NSString *)assetId WithContentGroupProfile:(NSString *)contentGroupProfile block:(void (^)(NSArray *gets, NSError *error))block;
+
+// 묶음 상품
+- (NSURLSessionDataTask *)vodGetBundleProductListWithProductProfile:(NSString *)productProfile block:(void (^)(NSArray *gets, NSError *error))block;
 
 @end

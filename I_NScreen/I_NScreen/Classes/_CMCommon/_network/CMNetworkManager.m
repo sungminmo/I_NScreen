@@ -258,19 +258,29 @@
 
 @implementation CMNetworkManager(EPG)
 
-// http://58.141.255.69:8080/nscreen/getChannelList.xml?version=1&areaCode=0
-- (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block
+// http://58.141.255.69:8080/nscreen/getChannelList.xml?version=1&areaCode=0&genreCode=1
+- (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode WithGenreCode:(NSString *)genreCode block:(void (^)(NSArray *gets, NSError *error))block
 {
+    self.acodeClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.acodeClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           @"areaCode" : @"0"
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           @"areaCode" : @"0",
+                           @"genreCode" : genreCode
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    return [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
+        block(nil, error);
     }];
 }
 
@@ -485,6 +495,55 @@
         
         block(@[result], nil);
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        block(nil, error);
+    }];
+}
+
+- (NSURLSessionDataTask *)vodRecommendContentGroupByAssetId:(NSString *)assetId WithContentGroupProfile:(NSString *)contentGroupProfile block:(void (^)(NSArray *gets, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           @"assetId" : assetId,
+                           @"contentGroupProfile" : contentGroupProfile
+                           };
+    
+    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+}
+
+- (NSURLSessionDataTask *)vodGetBundleProductListWithProductProfile:(NSString *)productProfile block:(void (^)(NSArray *gets, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetBundleProductList];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           @"productProfile" : productProfile
+                           };
+    
+    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+       
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
         block(nil, error);
     }];
 }
