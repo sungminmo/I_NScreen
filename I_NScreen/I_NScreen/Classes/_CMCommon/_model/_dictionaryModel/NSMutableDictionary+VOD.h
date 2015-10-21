@@ -25,9 +25,25 @@
                                      completion:(void (^)(NSArray *vod, NSError *error))block;
 
 
+/*!<
+ 금주의 신작 영화
+ ex) 
+ 192.168.40.5:8080/HApplicationServer/getContentGroupList.xml?version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&contentGroupProfile=2&categoryId=723049
+ 
+ 또는
+ 이달의 추천 영화
+ ex) 
+ 192.168.40.5:8080/HApplicationServer/getContentGroupList.xml?version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&contentGroupProfile=2&categoryId=713229
+ */
++ (NSURLSessionDataTask *)vodGetContentGroupListWithContentGroupProfile:(NSString *)contentGroupProfile WithCategoryId:(NSString *)categoryId completion:(void (^)(NSArray *vod, NSError *error))block;
 
-+ (NSURLSessionDataTask *)vodGetContentGroupListWithContentGroupProfile:(NSString *)contentGroupProfile WithPageIndex:(NSString *)pageIndex WithCategoryId:(NSString *)categoryId WithSortType:(NSString *)sortType WithPageSize:(NSString *)pageSize WithTransactionId:(NSString *)transactionId WithIndexRotaion:(NSString *)indexRotaion completion:(void (^)(NSArray *vod, NSError *error))block;
 
+/*!<
+ 상세 페이지 ( 인기순위 top 20 은 이미지를 상세에서 받는다 )
+ ex )
+ 192.168.40.5:8080/HApplicationServer/getAssetInfo.xml?version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&assetId=www.hchoice.co.kr|M4151006LSG348552901&assetProfile=9
+ */
++ (NSURLSessionDataTask *)vodGetAssetInfoWithAssetId:(NSString *)assetId WithAssetProfile:(NSString *)assetProfile completion:(void (^)(NSArray *vod, NSError *error))block;
 
 @end
 

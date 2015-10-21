@@ -37,6 +37,7 @@
     self.pMenu03.tag = HOME_GNB_VIEW_BTN_05;
     self.pMenu04.tag = HOME_GNB_VIEW_BTN_06;
     self.pMenu05.tag = HOME_GNB_VIEW_BTN_07;
+    self.pTestBtn.tag = HOME_GNB_VIEW_BTN_08;
 }
 
 #pragma mark - 화면 초기화
@@ -117,6 +118,16 @@
             [self.pMenu03 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pMenu04 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pMenu05 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        }break;
+        case HOME_GNB_VIEW_BTN_08:
+        {
+            // 테스트 버튼
+            [self.pMenu01 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            [self.pMenu02 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            [self.pMenu03 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            [self.pMenu04 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            [self.pMenu05 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            
         }break;
     }
     [self.delegate onHomeGnbViewMenuList:(int)[btn tag]];

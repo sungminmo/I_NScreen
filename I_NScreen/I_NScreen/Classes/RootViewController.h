@@ -20,6 +20,7 @@
 #import "MoviePopUpViewController.h"
 #import "PvrMainViewController.h"
 #import "RemoconMainViewController.h"
+#import "TestMainViewController.h"
 
 @interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MoviePopUpViewDelegate>
 

@@ -10,14 +10,19 @@
 
 @implementation NSMutableDictionary (VOD)
 
-+ (NSURLSessionDataTask *)vodGetPopularityChartWithCategoryId:(NSString *)categoryId WithRequestItems:(NSString *)requestItems completion:(void (^)(NSArray *, NSError *))block
++ (NSURLSessionDataTask *)vodGetPopularityChartWithCategoryId:(NSString *)categoryId WithRequestItems:(NSString *)requestItems completion:(void (^)(NSArray *vod, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] vodGetPopularityChartWithCategoryId:categoryId WithRequestItems:requestItems block:block];
 }
 
-+ (NSURLSessionDataTask *)vodGetContentGroupListWithContentGroupProfile:(NSString *)contentGroupProfile WithPageIndex:(NSString *)pageIndex WithCategoryId:(NSString *)categoryId WithSortType:(NSString *)sortType WithPageSize:(NSString *)pageSize WithTransactionId:(NSString *)transactionId WithIndexRotaion:(NSString *)indexRotaion completion:(void (^)(NSArray *, NSError *))block
++ (NSURLSessionDataTask *)vodGetContentGroupListWithContentGroupProfile:(NSString *)contentGroupProfile WithCategoryId:(NSString *)categoryId completion:(void (^)(NSArray *vod, NSError *error))block
 {
-    return [[CMNetworkManager sharedInstance] vodGetContentGroupListWithContentGroupProfile:contentGroupProfile WithPageIndex:pageIndex WithCategoryId:categoryId WithSortType:sortType WithPageSize:pageSize WithTransactionId:transactionId WithIndexRotaion:indexRotaion block:block];
+    return [[CMNetworkManager sharedInstance] vodGetContentGroupListWithContentGroupProfile:contentGroupProfile WithCategoryId:categoryId block:block];
+}
+
++ (NSURLSessionDataTask *)vodGetAssetInfoWithAssetId:(NSString *)assetId WithAssetProfile:(NSString *)assetProfile completion:(void (^)(NSArray *vod, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetAssetInfoWithAssetId:assetId WithAssetProfile:assetProfile block:block];
 }
 
 @end

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,18 +14,30 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="95" height="158"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hMa-kw-bgp">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genreall_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="hMa-kw-bgp">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="hMa-kw-bgp" secondAttribute="height" multiplier="95:138" id="QPY-Un-FjL"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="베테랑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDF-9Q-zeC">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="베테랑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDF-9Q-zeC">
                         <rect key="frame" x="0.0" y="138" width="95" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstItem="WDF-9Q-zeC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3Hm-Qx-TkJ"/>
+                <constraint firstItem="WDF-9Q-zeC" firstAttribute="top" secondItem="hMa-kw-bgp" secondAttribute="bottom" id="EyA-ba-EHq"/>
+                <constraint firstAttribute="trailing" secondItem="hMa-kw-bgp" secondAttribute="trailing" id="Uzd-e0-gSz"/>
+                <constraint firstAttribute="bottom" secondItem="WDF-9Q-zeC" secondAttribute="bottom" id="dwq-wt-JpH"/>
+                <constraint firstAttribute="trailing" secondItem="WDF-9Q-zeC" secondAttribute="trailing" id="jnz-mU-WFa"/>
+                <constraint firstItem="hMa-kw-bgp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="orN-sQ-otm"/>
+                <constraint firstItem="hMa-kw-bgp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ycS-jw-s4f"/>
+            </constraints>
             <size key="customSize" width="229" height="313"/>
             <connections>
                 <outlet property="pThumImageView" destination="hMa-kw-bgp" id="z7C-Wv-7HB"/>
@@ -33,4 +46,7 @@
             <point key="canvasLocation" x="154.5" y="383"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="genreall_select.png" width="146" height="147"/>
+    </resources>
 </document>

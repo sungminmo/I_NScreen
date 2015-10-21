@@ -268,6 +268,8 @@ extern NSString* const CNM_OPEN_API_INTERFACE_SetVodSetTopDisplayInfo;
 // Notification
 extern NSString* const CNM_OPEN_API_INTERFACE_Notification;
 
+extern NSString* const CNM_OPEN_API_INTERFACE_GetAssetInfo;
+
 // 5. Search
 // SearchChannel
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchChannel;

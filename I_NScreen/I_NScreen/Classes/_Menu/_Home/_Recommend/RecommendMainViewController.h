@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
 #import "CMPageViewController.h"
+#import "CategoryTableViewCell.h"
+#import "BannerTableViewCell.h"
 
 @interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate, CMPageViewDelegate>
 
@@ -36,6 +38,9 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *pRecommendScrollView;
 @property (nonatomic, strong) IBOutlet UIPageControl *pRecommendPgControl;
 @property (nonatomic, strong) IBOutlet UIButton *pMoreRecommendBtn;
+
+@property (nonatomic, strong) IBOutlet UITableView *pTableView;
+
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 

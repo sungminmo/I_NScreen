@@ -200,6 +200,9 @@ NSString* const CNM_OPEN_API_INTERFACE_GetPopularityChart = @"getPopularityChart
 // getContentGroupList
 NSString* const CNM_OPEN_API_INTERFACE_GetContentGroupList = @"getContentGroupList";
 
+// getAssetInfo
+NSString* const CNM_OPEN_API_INTERFACE_GetAssetInfo = @"getAssetInfo";
+
 // 5. Search
 // SearchChannel
 NSString* const CNM_OPEN_API_INTERFACE_SearchChannel = @"SearchChannel";

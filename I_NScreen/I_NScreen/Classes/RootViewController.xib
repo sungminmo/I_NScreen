@@ -22,7 +22,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
                     <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="sYe-wd-r5t" secondAttribute="height" multiplier="18:5" id="HQ0-qR-gZv"/>
+                        <constraint firstAttribute="width" secondItem="sYe-wd-r5t" secondAttribute="height" multiplier="18:5" id="Niq-v6-nNw"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAn-fo-gzJ" userLabel="View(body)">
@@ -32,15 +32,15 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="sYe-wd-r5t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7zQ-fn-gMd"/>
-                <constraint firstAttribute="bottom" secondItem="lAn-fo-gzJ" secondAttribute="bottom" id="8kU-ec-nBe"/>
-                <constraint firstAttribute="trailing" secondItem="sYe-wd-r5t" secondAttribute="trailing" id="9mb-Ev-DSV"/>
-                <constraint firstItem="lAn-fo-gzJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Cl2-bN-y9g"/>
-                <constraint firstAttribute="trailing" secondItem="lAn-fo-gzJ" secondAttribute="trailing" id="MIg-xD-SKz"/>
-                <constraint firstItem="lAn-fo-gzJ" firstAttribute="top" secondItem="sYe-wd-r5t" secondAttribute="bottom" id="NLh-yE-EkG"/>
-                <constraint firstItem="sYe-wd-r5t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TCH-gX-nhc"/>
+                <constraint firstAttribute="bottom" secondItem="lAn-fo-gzJ" secondAttribute="bottom" id="2dN-a8-erZ"/>
+                <constraint firstItem="lAn-fo-gzJ" firstAttribute="top" secondItem="sYe-wd-r5t" secondAttribute="bottom" id="6rC-BV-TmH"/>
+                <constraint firstAttribute="trailing" secondItem="lAn-fo-gzJ" secondAttribute="trailing" id="AGP-jU-G1G"/>
+                <constraint firstAttribute="trailing" secondItem="sYe-wd-r5t" secondAttribute="trailing" id="CEO-Dr-Ss8"/>
+                <constraint firstItem="sYe-wd-r5t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ibx-eu-bqb"/>
+                <constraint firstItem="lAn-fo-gzJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="omx-id-7aW"/>
+                <constraint firstItem="sYe-wd-r5t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vGo-FI-HHH"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>

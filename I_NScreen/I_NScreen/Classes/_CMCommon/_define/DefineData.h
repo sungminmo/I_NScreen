@@ -40,6 +40,7 @@
 #define HOME_GNB_VIEW_BTN_05            10004   // 애니키즈 버튼
 #define HOME_GNB_VIEW_BTN_06            10005   // 인기프로그램 버튼
 #define HOME_GNB_VIEW_BTN_07            10006   // 성인 버튼
+#define HOME_GNB_VIEW_BTN_08            10007   // 테스트 버튼
 
 // EpgMainViewController btn tag
 #define EPG_MAIN_VIEW_BTN_TAG_01        10001   // back 버튼

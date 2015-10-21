@@ -20,6 +20,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *pMenu03;   // 애니키즈
 @property (nonatomic, strong) IBOutlet UIButton *pMenu04;   // 인기프로그램
 @property (nonatomic, strong) IBOutlet UIButton *pMenu05;   // 성인
+@property (nonatomic, strong) IBOutlet UIButton *pTestBtn;  // 테스트 버튼
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 

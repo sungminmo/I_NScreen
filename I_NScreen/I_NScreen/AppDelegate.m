@@ -43,6 +43,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     RootViewController *pViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+    pViewController.view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     self.m_pNaviCon = [[CMNavigationController alloc] initWithRootViewController:pViewController];
     self.m_pNaviCon.navigationBarHidden = YES;
     self.window.rootViewController = self.m_pNaviCon;

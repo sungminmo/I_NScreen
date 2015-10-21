@@ -15,6 +15,7 @@
                 <outlet property="pMenu04" destination="2Za-PU-JjN" id="8jg-1s-2GK"/>
                 <outlet property="pMenu05" destination="oZx-4z-iqg" id="nbH-ht-KHd"/>
                 <outlet property="pSearchBtn" destination="QlO-59-uTT" id="GJ5-XV-7iL"/>
+                <outlet property="pTestBtn" destination="Uwz-f0-gEp" id="9O5-yM-Kbv"/>
                 <outlet property="view" destination="hJV-wt-Uew" id="3RT-7m-jRx"/>
             </connections>
         </placeholder>
@@ -62,6 +63,14 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwz-f0-gEp">
+                                            <rect key="frame" x="0.0" y="22" width="74" height="41"/>
+                                            <color key="backgroundColor" red="0.1333333333" green="0.53333333329999999" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="테스트"/>
+                                            <connections>
+                                                <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="qaf-ck-Phw"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>

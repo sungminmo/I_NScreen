@@ -52,11 +52,11 @@
 //                                                                                   NSLog(@"obj = [%@]", obj);
 //                                                                               }];
 //    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSearchSearchChannelWithSearchString:@"MBC" WithPageSize:@"3" WithPageIndex:@"0" WithSortType:@"ChannelNoDesc" completion:^(NSArray *epgs, NSError *error) {
-        
-    }];
-
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSearchSearchChannelWithSearchString:@"MBC" WithPageSize:@"3" WithPageIndex:@"0" WithSortType:@"ChannelNoDesc" completion:^(NSArray *epgs, NSError *error) {
+//        
+//    }];
+//
+//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     
     // 추천 add
     RecommendMainViewController *pRecommendViewController = [[RecommendMainViewController alloc] initWithNibName:@"RecommendMainViewController" bundle:nil];
@@ -141,6 +141,15 @@
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
             
+        }break;
+        case HOME_GNB_VIEW_BTN_08:
+        {
+            // 테스트 버튼
+            TestMainViewController *pViewController = [[TestMainViewController alloc] initWithNibName:@"TestMainViewController" bundle:nil];
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
         }break;
     }
 }

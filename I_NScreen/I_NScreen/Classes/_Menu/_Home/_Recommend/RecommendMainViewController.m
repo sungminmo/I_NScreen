@@ -7,9 +7,15 @@
 //
 
 #import "RecommendMainViewController.h"
+#import "NSMutableDictionary+VOD.h"
+#import "UIAlertView+AFNetworking.h"
 
 @interface RecommendMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pBnViewController;    // 배너 컨트롤
+@property (nonatomic, strong) NSMutableArray *pPopularityArr;       // 인기순위 top 20 배열 데이터
+@property (nonatomic, strong) NSMutableArray *pWeekMovieArr;        // 금주의 신작 영화
+@property (nonatomic, strong) NSMutableArray *pThisMonthRecommendArr;   // 이달의 추천
+
 @end
 
 @implementation RecommendMainViewController
@@ -25,8 +31,13 @@
     
     [self setTagInit];
     [self setViewInit];
+    [self setDataInit];
     
-    [self banPageControllerInit];
+//    [self banPageControllerInit];
+    
+    [self requestWithPopularTopTwenty];
+    [self requestWithThisMonthRecommend];
+    [self requestWithWeekMovie];
 }
 
 #pragma mark - 초기화
@@ -41,43 +52,15 @@
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
-    [self.pMainScrollView addSubview:self.pBannerView];
-    [self.pMainScrollView addSubview:self.pPopularityView];
-    [self.pMainScrollView addSubview:self.pNewWorkView];
-    [self.pMainScrollView addSubview:self.pRecommendView];
-    
-    int nBannerHeight = 0;
-    int nBannerScrollHeight = 0;
-    
-    int nWith = [UIScreen mainScreen].bounds.size.width;
-    
-    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
-    {
-        nBannerHeight = 225;
-        nBannerScrollHeight = 182;
-        
-    }else
-    {
-        nBannerHeight = 225 * nWith / 414;
-        nBannerScrollHeight = 182 * (nWith - 12) / 414;
-    }
-    
-    
-    
-    
-    self.pBannerView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, nBannerHeight);
-    
-    
-    
-    self.pPopularityView.frame = CGRectMake(0, self.pBannerView.frame.origin.y + self.pBannerView.frame.size.height, self.pPopularityView.frame.size.width, self.pPopularityView.frame.size.height);
-    
-    self.pNewWorkView.frame = CGRectMake(0, self.pPopularityView.frame.origin.y + self.pPopularityView.frame.size.height, self.pNewWorkView.frame.size.width, self.pNewWorkView.frame.size.height);
-    
-    self.pRecommendView.frame = CGRectMake(0, self.pNewWorkView.frame.origin.y + self.pNewWorkView.frame.size.height, self.pRecommendView.frame.size.width, self.pRecommendView.frame.size.height);
-    
-    int nHeight = self.pBannerView.frame.size.height + self.pPopularityView.frame.size.height + self.pNewWorkView.frame.size.height + self.pRecommendView.frame.size.height;
-    
-    [self.pMainScrollView setContentSize:CGSizeMake(0, nHeight)];
+   
+}
+
+#pragma mark - 데이터 초기화
+- (void)setDataInit
+{
+    self.pPopularityArr = [[NSMutableArray alloc] init];
+    self.pWeekMovieArr = [[NSMutableArray alloc] init];
+    self.pThisMonthRecommendArr = [[NSMutableArray alloc] init];
 }
 
 #pragma mark - 액션 이벤트
@@ -180,6 +163,235 @@
         [self banLoadScrollViewWithPage:page];
         [self banLoadScrollViewWithPage:page + 1];
     }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if ( indexPath.row == 0 )
+    {
+        static NSString *pCellIn1 = @"BannerTableViewCellIn";
+        
+        BannerTableViewCell *pCell1 = (BannerTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn1];
+        
+        if ( pCell1 == nil )
+        {
+            NSArray *arr1 = [[NSBundle mainBundle] loadNibNamed:@"BannerTableViewCell" owner:nil options:nil];
+            pCell1 = [arr1 objectAtIndex:0];
+        }
+        
+        [pCell1 setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        return pCell1;
+    }
+ 
+    static NSString *pCellIn2 = @"CategoryTableViewCellIn";
+
+    CategoryTableViewCell *pCell2 = (CategoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn2];
+    
+    if ( pCell2 == nil )
+    {
+        NSArray *arr2 = [[NSBundle mainBundle] loadNibNamed:@"CategoryTableViewCell" owner:nil options:nil];
+        pCell2 = [arr2 objectAtIndex:0];
+    }
+    
+    [pCell2 setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    [pCell2 setListData:nil WithIndex:(int)indexPath.row];
+    
+    return pCell2;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
+    //    [self.navigationController pushViewController:pViewController animated:YES];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( indexPath.row == 0 )
+    {
+        if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
+            return 230;
+        else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
+            return 207;
+        else
+            return 177;
+    }
+    else
+    {
+        if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
+            return 405;
+        else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
+            return 364;
+        else
+            return 313;
+    }
+    
+    return 0;
+}
+
+#pragma mark - 전문
+#pragma mark - 인기순위 Top 20 전문
+- (void)requestWithPopularTopTwenty
+{
+    NSString *sCategoryId = @"713230";
+    NSString *sRequestItems = @"weekly";
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPopularityChartWithCategoryId:sCategoryId WithRequestItems:sRequestItems completion:^(NSArray *vod, NSError *error) {
+        
+        
+        NSLog(@"인기순위 top 20 = [%@]", vod);
+        
+        if ( [vod count] == 0 )
+            return;
+        
+        [self.pPopularityArr removeAllObjects];
+        
+        for ( NSDictionary *dic in [[[[vod objectAtIndex:0] objectForKey:@"weeklyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"]  )
+        {
+            NSMutableDictionary *nDic = [[NSMutableDictionary alloc] init];
+            
+            [nDic setObject:[dic objectForKey:@"assetId"] forKey:@"assetId"];
+            [nDic setObject:[dic objectForKey:@"isNew"] forKey:@"isNew"];
+            [nDic setObject:[dic objectForKey:@"comparision"] forKey:@"comparision"];
+            [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
+            [nDic setObject:[dic objectForKey:@"hitCount"] forKey:@"hitCount"];
+            [nDic setObject:[dic objectForKey:@"categoryId"] forKey:@"categoryId"];
+            [nDic setObject:[dic objectForKey:@"hot"] forKey:@"hot"];
+            [nDic setObject:[dic objectForKey:@"ranking"] forKey:@"ranking"];
+            [nDic setObject:[dic objectForKey:@"new"] forKey:@"new"];
+            
+            
+            [self.pPopularityArr addObject:nDic];
+        }
+        
+        
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    
+
+}
+
+#pragma mark - 금주의 신작 영화 전문
+- (void)requestWithWeekMovie
+{
+    NSString *sCategoryId = @"723049";
+    NSString *sContentGroupProfile = @"2";  // 이건 무슨값??
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {
+        
+        NSLog(@"금주의 신작 영화 = [%@]", vod);
+        
+        if ( [vod count] == 0 )
+            return;
+        
+        [self.pWeekMovieArr removeAllObjects];
+        
+        for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] )
+        {
+            NSMutableDictionary *nDic = [[NSMutableDictionary alloc] init];
+            
+            [nDic setObject:[dic objectForKey:@"assetNew"] forKey:@"assetNew"];
+            [nDic setObject:[dic objectForKey:@"imageFileName"] forKey:@"imageFileName"];
+            [nDic setObject:[dic objectForKey:@"rating"] forKey:@"rating"];
+            [nDic setObject:[dic objectForKey:@"runningTime"] forKey:@"runningTime"];
+            [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
+            [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"primaryAssetId"];
+            [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
+            [nDic setObject:[dic objectForKey:@"synopsis"] forKey:@"synopsis"];
+            [nDic setObject:[dic objectForKey:@"assetBundle"] forKey:@"assetBundle"];
+            [nDic setObject:[dic objectForKey:@"likedCount"] forKey:@"likedCount"];
+            [nDic setObject:[dic objectForKey:@"starring"] forKey:@"starring"];
+            [nDic setObject:[dic objectForKey:@"assetFree"] forKey:@"assetFree"];
+            [nDic setObject:[dic objectForKey:@"episodePeerExistence"] forKey:@"episodePeerExistence"];
+            [nDic setObject:[dic objectForKey:@"assetSeriesLink"] forKey:@"assetSeriesLink"];
+            [nDic setObject:[dic objectForKey:@"isLiked"] forKey:@"isLiked"];
+            [nDic setObject:[dic objectForKey:@"production"] forKey:@"production"];
+            [nDic setObject:[dic objectForKey:@"UHDAssetCount"] forKey:@"UHDAssetCount"];
+            [nDic setObject:[dic objectForKey:@"isFavorite"] forKey:@"isFavorite"];
+            [nDic setObject:[dic objectForKey:@"director"] forKey:@"director"];
+            [nDic setObject:[dic objectForKey:@"HDAssetCount"] forKey:@"HDAssetCount"];
+            [nDic setObject:[dic objectForKey:@"SDAssetCount"] forKey:@"SDAssetCount"];
+            [nDic setObject:[dic objectForKey:@"genre"] forKey:@"genre"];
+            [nDic setObject:[dic objectForKey:@"promotionSticker"] forKey:@"promotionSticker"];
+            [nDic setObject:[dic objectForKey:@"reviewRating"] forKey:@"reviewRating"];
+            [nDic setObject:[dic objectForKey:@"assetHot"] forKey:@"assetHot"];
+            [nDic setObject:[dic objectForKey:@"categoryId"] forKey:@"categoryId"];
+            [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
+            
+            [self.pWeekMovieArr addObject:nDic];
+        }
+        
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 이달의 추천 vod 전문
+- (void)requestWithThisMonthRecommend
+{
+    NSString *sCategoryId = @"713229";
+    NSString *sContentGroupProfile = @"2";
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {
+        
+        NSLog(@"이달의 추천 vod = [%@]", vod);
+        
+        if ( [vod count] == 0 )
+            return;
+        
+        [self.pThisMonthRecommendArr removeAllObjects];
+        
+        for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] )
+        {
+            NSMutableDictionary *nDic = [[NSMutableDictionary alloc] init];
+            
+            [nDic setObject:[dic objectForKey:@"assetNew"] forKey:@"assetNew"];
+            [nDic setObject:[dic objectForKey:@"imageFileName"] forKey:@"imageFileName"];
+            [nDic setObject:[dic objectForKey:@"rating"] forKey:@"rating"];
+            [nDic setObject:[dic objectForKey:@"runningTime"] forKey:@"runningTime"];
+            [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
+            [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"primaryAssetId"];
+            [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
+            [nDic setObject:[dic objectForKey:@"synopsis"] forKey:@"synopsis"];
+            [nDic setObject:[dic objectForKey:@"assetBundle"] forKey:@"assetBundle"];
+            [nDic setObject:[dic objectForKey:@"likedCount"] forKey:@"likedCount"];
+            [nDic setObject:[dic objectForKey:@"starring"] forKey:@"starring"];
+            [nDic setObject:[dic objectForKey:@"assetFree"] forKey:@"assetFree"];
+            [nDic setObject:[dic objectForKey:@"episodePeerExistence"] forKey:@"episodePeerExistence"];
+            [nDic setObject:[dic objectForKey:@"assetSeriesLink"] forKey:@"assetSeriesLink"];
+            [nDic setObject:[dic objectForKey:@"isLiked"] forKey:@"isLiked"];
+            [nDic setObject:[dic objectForKey:@"production"] forKey:@"production"];
+            [nDic setObject:[dic objectForKey:@"UHDAssetCount"] forKey:@"UHDAssetCount"];
+            [nDic setObject:[dic objectForKey:@"isFavorite"] forKey:@"isFavorite"];
+            [nDic setObject:[dic objectForKey:@"director"] forKey:@"director"];
+            [nDic setObject:[dic objectForKey:@"HDAssetCount"] forKey:@"HDAssetCount"];
+            [nDic setObject:[dic objectForKey:@"SDAssetCount"] forKey:@"SDAssetCount"];
+            [nDic setObject:[dic objectForKey:@"genre"] forKey:@"genre"];
+            [nDic setObject:[dic objectForKey:@"promotionSticker"] forKey:@"promotionSticker"];
+            [nDic setObject:[dic objectForKey:@"reviewRating"] forKey:@"reviewRating"];
+            [nDic setObject:[dic objectForKey:@"assetHot"] forKey:@"assetHot"];
+            [nDic setObject:[dic objectForKey:@"categoryId"] forKey:@"categoryId"];
+            [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
+            
+            [self.pThisMonthRecommendArr addObject:nDic];
+        }
+        
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end
