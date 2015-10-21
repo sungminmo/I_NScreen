@@ -22,28 +22,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    [self setViewInit];
 }
 
 #pragma mark - 초기화
 #pragma mark - 화면초기화
-- (void)setViewInit
-{
-    [self.pMainScrollView addSubview:self.pBannerView];
-    [self.pMainScrollView addSubview:self.pPopularityView];
-    [self.pMainScrollView addSubview:self.pNewWorkView];
-    [self.pMainScrollView addSubview:self.pRecommendView];
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     
-    self.pBannerView.frame = CGRectMake(0, 0, self.pBannerView.frame.size.width, self.pBannerView.frame.size.height);
-    self.pPopularityView.frame = CGRectMake(0, self.pBannerView.frame.size.height + self.pBannerView.frame.origin.y, self.pPopularityView.frame.size.width, self.pPopularityView.frame.size.height);
-    self.pNewWorkView.frame = CGRectMake(0, self.pPopularityView.frame.origin.y + self.pPopularityView.frame.size.height, self.pNewWorkView.frame.size.width, self.pNewWorkView.frame.size.height);
-    self.pRecommendView.frame = CGRectMake(0, self.pNewWorkView.frame.origin.y + self.pNewWorkView.frame.size.height, self.pRecommendView.frame.size.width, self.pRecommendView.frame.size.height);
+    CGFloat width = self.pMainScrollView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pBannerView, self.pPopularityView, self.pNewWorkView, self.pRecommendView];
     
-    int nHeight = self.pBannerView.frame.size.height + self.pPopularityView.frame.size.height + self.pNewWorkView.frame.size.height + self.pRecommendView.frame.size.height;
-    
-    [self.pMainScrollView setContentSize:CGSizeMake(self.pMainScrollView.frame.size.width, nHeight)];
+    for (UIView* item in items) {
+        [self.pMainScrollView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                       attribute:NSLayoutAttributeWidth
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:item
+                                                                       attribute:NSLayoutAttributeWidth
+                                                                      multiplier:1.0
+                                                                        constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pMainScrollView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
 }
 
 @end
