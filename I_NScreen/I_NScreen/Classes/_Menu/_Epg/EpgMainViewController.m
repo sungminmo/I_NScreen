@@ -7,8 +7,12 @@
 //
 
 #import "EpgMainViewController.h"
+#import "NSMutableDictionary+EPG.h"
+#import "UIAlertView+AFNetworking.h"
 
 @interface EpgMainViewController ()
+
+@property (nonatomic, strong) NSMutableArray *pListDataArr;
 
 @end
 
@@ -24,12 +28,31 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setTagInit];
+    [self setViewInit];
+    [self setViewDataInit];
+    
+    // 1은 지상판데 전체는 머지
+    [self requestWithChannelListWithGenreCode:@"1"];
 }
 
+#pragma mark - 초기화
+#pragma mark - 버튼 태그 초기화
 - (void)setTagInit
 {
     self.pBackBtn.tag = EPG_MAIN_VIEW_BTN_TAG_01;
     self.pPopUpBtn.tag = EPG_MAIN_VIEW_BTN_TAG_02;
+}
+
+#pragma mark - 화면 초기화
+- (void)setViewInit
+{
+
+}
+
+#pragma mark - 데이터 초기화
+- (void)setViewDataInit
+{
+    self.pListDataArr = [[NSMutableArray alloc] init];
 }
 
 - (IBAction)onBtnClick:(UIButton *)btn;
@@ -67,7 +90,7 @@
     
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    [pCell setListData:nil WithIndex:(int)indexPath.row];
+    [pCell setListData:[self.pListDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
     
     return pCell;
 }
@@ -80,19 +103,42 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
     return 66;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 24;
+    int nTotal = (int)[self.pListDataArr count];
+    
+    return nTotal;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+
+#pragma mark - 전문
+#pragma mark - 체널 리스트 전문
+- (void)requestWithChannelListWithGenreCode:(NSString *)genreCode
+{
+    NSString *sAreaCode = @"0";
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:sAreaCode WithGenreCode:genreCode completion:^(NSArray *epgs, NSError *error) {
+        
+        
+        NSLog(@"epg = [%@]", epgs);
+        
+        if ( [epgs count] == 0 )
+            return;
+        
+        [self.pListDataArr removeAllObjects];
+        [self.pListDataArr setArray:[[epgs objectAtIndex:0] objectForKey:@"channelItem"]];
+        
+        [self.pTableView reloadData];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end
