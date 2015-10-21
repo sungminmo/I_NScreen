@@ -25,4 +25,14 @@
     return [[CMNetworkManager sharedInstance] vodGetAssetInfoWithAssetId:assetId WithAssetProfile:assetProfile block:block];
 }
 
++ (NSURLSessionDataTask *)vodRecommendContentGroupByAssetId:(NSString *)assetId WithContentGroupProfile:(NSString *)contentGroupProfile completion:(void (^)(NSArray *, NSError *))block
+{
+    return [[CMNetworkManager sharedInstance] vodRecommendContentGroupByAssetId:assetId WithContentGroupProfile:contentGroupProfile block:block];
+}
+
++ (NSURLSessionDataTask *)vodGetBundleProductListWithProductProfile:(NSString *)productProfile completion:(void (^)(NSArray *, NSError *))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetBundleProductListWithProductProfile:productProfile block:block];
+}
+
 @end

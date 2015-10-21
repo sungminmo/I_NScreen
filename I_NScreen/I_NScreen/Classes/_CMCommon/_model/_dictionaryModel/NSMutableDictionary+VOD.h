@@ -45,5 +45,20 @@
  */
 + (NSURLSessionDataTask *)vodGetAssetInfoWithAssetId:(NSString *)assetId WithAssetProfile:(NSString *)assetProfile completion:(void (^)(NSArray *vod, NSError *error))block;
 
+/*!<
+ 연관 컨텐츠
+ ex) 
+ 192.168.40.5:8080/HApplicationServer/recommendContentGroupByAssetId.xml?version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&assetId=www.hchoice.co.kr|M4154270LSG347422301&contentGroupProfile=2
+ */
++ (NSURLSessionDataTask *)vodRecommendContentGroupByAssetId:(NSString *)assetId WithContentGroupProfile:(NSString *)contentGroupProfile completion:(void (^)(NSArray *vod, NSError *error))block;
+
+/*!<
+ 묶음상품
+ ex)
+ 192.168.40.5:8080/HApplicationServer/getBundleProductList.xml?version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&productProfile=1
+ */
++ (NSURLSessionDataTask *)vodGetBundleProductListWithProductProfile:(NSString *)productProfile completion:(void (^)(NSArray *vod, NSError *error))block;
+
+
 @end
 

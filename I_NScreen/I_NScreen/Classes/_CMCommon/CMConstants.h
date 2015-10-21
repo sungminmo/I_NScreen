@@ -270,6 +270,12 @@ extern NSString* const CNM_OPEN_API_INTERFACE_Notification;
 
 extern NSString* const CNM_OPEN_API_INTERFACE_GetAssetInfo;
 
+// RecommendContentGroupByAssetId
+extern NSString* const CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId;
+
+// GetBundleProductList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetBundleProductList;
+
 // 5. Search
 // SearchChannel
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchChannel;

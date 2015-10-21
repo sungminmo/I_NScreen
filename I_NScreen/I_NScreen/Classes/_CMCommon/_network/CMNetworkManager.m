@@ -489,6 +489,55 @@
     }];
 }
 
+- (NSURLSessionDataTask *)vodRecommendContentGroupByAssetId:(NSString *)assetId WithContentGroupProfile:(NSString *)contentGroupProfile block:(void (^)(NSArray *gets, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           @"assetId" : assetId,
+                           @"contentGroupProfile" : contentGroupProfile
+                           };
+    
+    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+}
+
+- (NSURLSessionDataTask *)vodGetBundleProductListWithProductProfile:(NSString *)productProfile block:(void (^)(NSArray *gets, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetBundleProductList];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           @"productProfile" : productProfile
+                           };
+    
+    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+       
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+}
+
 @end
 
 

@@ -213,6 +213,13 @@ NSString* const CNM_OPEN_API_INTERFACE_SearchProgram = @"SearchProgram";
 // SearchVod
 NSString* const CNM_OPEN_API_INTERFACE_SearchVod = @"SearchVod";
 
+// RecommendContentGroupByAssetId
+NSString* const CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId = @"recommendContentGroupByAssetId";
+
+// GetBundleProductList
+NSString* const CNM_OPEN_API_INTERFACE_GetBundleProductList = @"getBundleProductList";
+
+
 // 6.Service
 // GetGuideCategory
 NSString* const CNM_OPEN_API_INTERFACE_GetGuideCategory = @"GetGuideCategory";
