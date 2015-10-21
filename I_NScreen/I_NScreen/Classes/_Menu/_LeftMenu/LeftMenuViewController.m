@@ -130,11 +130,11 @@
             cell.imageView.image = [UIImage imageNamed:@"icon_menu_setting.png"];
             cell.textLabel.text = @"설정";
         }break;
-        case 5://TODO: 임시 나중에 제거
-        {
-            cell.imageView.image = [UIImage imageNamed:@"icon_menu_remotecontrol.png"];
-            cell.textLabel.text = @"검색";
-        }break;
+//        case 5://TODO: 임시 나중에 제거
+//        {
+//            cell.imageView.image = [UIImage imageNamed:@"icon_menu_remotecontrol.png"];
+//            cell.textLabel.text = @"검색";
+//        }break;
     }
     
     return cell;
@@ -176,7 +176,7 @@ static NSInteger ivTag = 1212;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 5;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

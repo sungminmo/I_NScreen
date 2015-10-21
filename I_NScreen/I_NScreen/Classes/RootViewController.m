@@ -77,6 +77,8 @@
         case HOME_GNB_VIEW_BTN_02:
         {
             // 검색
+            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
+            [self.navigationController pushViewController:controller animated:YES];
             
         }break;
         case HOME_GNB_VIEW_BTN_03:
@@ -187,13 +189,13 @@
             [self.navigationController pushViewController:controller animated:YES];
         }break;
 
-        case 6://임시
-        {
-            // 검색
-            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
-            [self.navigationController pushViewController:controller animated:YES];
-            
-        }break;
+//        case 6://임시
+//        {
+//            // 검색
+//            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
+//            [self.navigationController pushViewController:controller animated:YES];
+//            
+//        }break;
     }
 }
 
