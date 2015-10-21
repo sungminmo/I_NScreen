@@ -17,10 +17,10 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="mqN-ln-0no">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtD-F9-4Yc">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtD-F9-4Yc">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Jsq-GM-iRJ"/>
@@ -55,7 +55,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="394"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Hf-z9-cdY">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Hf-z9-cdY">
                     <rect key="frame" x="7" y="51" width="400" height="316"/>
                     <color key="backgroundColor" red="0.91426936859999997" green="0.99008898329999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -72,7 +72,7 @@
                         </mask>
                     </variation>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="bfl-M0-hyZ">
+                <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="bfl-M0-hyZ">
                     <rect key="frame" x="167" y="359" width="81" height="37"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="37" id="UNa-cP-xCE"/>
@@ -93,7 +93,7 @@
                         </mask>
                     </variation>
                 </pageControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="인기순위 Top20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0h-Gz-pIq">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="인기순위 Top20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0h-Gz-pIq">
                     <rect key="frame" x="21" y="14" width="248" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="T1d-pV-OGy"/>
@@ -115,7 +115,7 @@
                         </mask>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="3AI-Av-A53">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="3AI-Av-A53">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="tdt-oC-I6L"/>
@@ -134,7 +134,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2L-CR-mlC">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2L-CR-mlC">
                     <rect key="frame" x="260" y="15" width="120" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="B0i-VC-ytP"/>
@@ -156,7 +156,7 @@
                         </mask>
                     </variation>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPx-J1-YHI" userLabel="Button(더보기)">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPx-J1-YHI" userLabel="Button(더보기)">
                     <rect key="frame" x="175" y="0.0" width="232" height="38"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="38" id="XL3-Mr-aIW"/>
@@ -208,12 +208,12 @@
                     <exclude reference="mUc-jO-tOi"/>
                     <exclude reference="pBx-pm-b0e"/>
                     <exclude reference="xCa-Xb-ID1"/>
-                    <exclude reference="MP3-Ok-jlo"/>
                     <exclude reference="LuA-IN-sYY"/>
                     <exclude reference="QGc-Hz-WtM"/>
                     <exclude reference="cP3-sT-jF2"/>
                     <exclude reference="euV-Bp-HvM"/>
                     <exclude reference="jc4-Xg-sPV"/>
+                    <exclude reference="MP3-Ok-jlo"/>
                     <exclude reference="CUY-lo-jzs"/>
                     <exclude reference="rOU-DK-IU9"/>
                     <exclude reference="XU4-rc-Rqv"/>
@@ -230,12 +230,12 @@
                     <exclude reference="mUc-jO-tOi"/>
                     <include reference="pBx-pm-b0e"/>
                     <include reference="xCa-Xb-ID1"/>
-                    <include reference="MP3-Ok-jlo"/>
                     <include reference="LuA-IN-sYY"/>
                     <exclude reference="QGc-Hz-WtM"/>
                     <exclude reference="cP3-sT-jF2"/>
                     <include reference="euV-Bp-HvM"/>
                     <exclude reference="jc4-Xg-sPV"/>
+                    <include reference="MP3-Ok-jlo"/>
                     <include reference="CUY-lo-jzs"/>
                     <include reference="rOU-DK-IU9"/>
                     <include reference="XU4-rc-Rqv"/>
@@ -249,7 +249,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suh-pK-9B2">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suh-pK-9B2">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -266,11 +266,11 @@
                         </mask>
                     </variation>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dbf-LM-1Ta">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dbf-LM-1Ta">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPc-HV-aHl">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPc-HV-aHl">
                     <rect key="frame" x="6" y="10" width="402" height="182"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="182" id="vRe-Tf-afv"/>
@@ -286,7 +286,7 @@
                         </mask>
                     </variation>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="0B3-DC-85E">
+                <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="0B3-DC-85E">
                     <rect key="frame" x="171" y="188" width="71" height="37"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="37" id="Oye-8m-Sx4"/>
@@ -307,7 +307,7 @@
                         </mask>
                     </variation>
                 </pageControl>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6zO-vF-aE9" userLabel="View(하단라인)">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6zO-vF-aE9" userLabel="View(하단라인)">
                     <rect key="frame" x="7" y="224" width="400" height="1"/>
                     <color key="backgroundColor" red="0.73725490199999999" green="0.74117647060000003" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -397,7 +397,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="394"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDr-nL-A5F">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDr-nL-A5F">
                     <rect key="frame" x="7" y="51" width="400" height="316"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="316" id="8Uy-eY-k25"/>
@@ -413,7 +413,7 @@
                         </mask>
                     </variation>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="mS1-Lb-SxD">
+                <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="mS1-Lb-SxD">
                     <rect key="frame" x="167" y="359" width="81" height="37"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="37" id="DGN-e0-Dfd"/>
@@ -434,7 +434,7 @@
                         </mask>
                     </variation>
                 </pageControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="금주의 신작영화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFl-3o-EEh">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="금주의 신작영화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFl-3o-EEh">
                     <rect key="frame" x="21" y="14" width="248" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="Q33-cl-hAJ"/>
@@ -456,7 +456,7 @@
                         </mask>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Kj-ZJ-gaN">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Kj-ZJ-gaN">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="eD4-4v-y4Y"/>
@@ -475,7 +475,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-iN-ajm">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MC6-iN-ajm">
                     <rect key="frame" x="260" y="15" width="120" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="ZkC-96-Dpl"/>
@@ -497,7 +497,7 @@
                         </mask>
                     </variation>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHQ-zc-h77" userLabel="Button(더보기)">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHQ-zc-h77" userLabel="Button(더보기)">
                     <rect key="frame" x="175" y="0.0" width="232" height="38"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="232" id="Z1C-at-jJn"/>
@@ -581,7 +581,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="394"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fch-ma-8xm">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fch-ma-8xm">
                     <rect key="frame" x="7" y="51" width="400" height="316"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="316" id="0dh-rM-8Vw"/>
@@ -597,7 +597,7 @@
                         </mask>
                     </variation>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="E1t-Q8-hxj">
+                <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="E1t-Q8-hxj">
                     <rect key="frame" x="167" y="359" width="81" height="37"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="81" id="EqY-6a-l4F"/>
@@ -618,7 +618,7 @@
                         </mask>
                     </variation>
                 </pageControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이달의 추천 VOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQp-lI-QBn">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="이달의 추천 VOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQp-lI-QBn">
                     <rect key="frame" x="21" y="14" width="248" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="248" id="GO0-dx-JfM"/>
@@ -640,7 +640,7 @@
                         </mask>
                     </variation>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="VNE-1W-nvV">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="VNE-1W-nvV">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="YlR-PG-qC6"/>
@@ -659,7 +659,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1x-oY-ZwA">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1x-oY-ZwA">
                     <rect key="frame" x="260" y="15" width="120" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="4dY-sI-UK6"/>
@@ -681,7 +681,7 @@
                         </mask>
                     </variation>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMw-DH-18n" userLabel="Button(더보기)">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMw-DH-18n" userLabel="Button(더보기)">
                     <rect key="frame" x="175" y="0.0" width="232" height="38"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="8cb-r1-v9Y"/>
