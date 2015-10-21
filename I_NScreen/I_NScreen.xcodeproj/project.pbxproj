@@ -709,8 +709,8 @@
 		E5DE64C31BCB4E4400FC3122 /* MovieMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64C11BCB4E4400FC3122 /* MovieMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DE64C71BCB4E5500FC3122 /* RecommendMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64C51BCB4E5500FC3122 /* RecommendMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64C81BCB4E5500FC3122 /* RecommendMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64C61BCB4E5500FC3122 /* RecommendMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		E5E5A2B31BD7416700A99883 /* TestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E5A2B11BD7416700A99883 /* TestMainViewController.m */; settings = {ASSET_TAGS = (); }; };
-		E5E5A2B41BD7416700A99883 /* TestMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E5A2B21BD7416700A99883 /* TestMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5E5A2B91BD78A6500A99883 /* TestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5E5A2BA1BD78A6500A99883 /* TestMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
 		E5F6C6D41B7AD93B00618970 /* I_NScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6D31B7AD93B00618970 /* I_NScreenTests.m */; };
 		E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6DDEB1BB0EBB7006C4DD4 /* UIKit.framework */; };
@@ -1526,9 +1526,9 @@
 		E5DE64C41BCB4E5500FC3122 /* RecommendMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendMainViewController.h; path = _Home/_Recommend/RecommendMainViewController.h; sourceTree = "<group>"; };
 		E5DE64C51BCB4E5500FC3122 /* RecommendMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommendMainViewController.m; path = _Home/_Recommend/RecommendMainViewController.m; sourceTree = "<group>"; };
 		E5DE64C61BCB4E5500FC3122 /* RecommendMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecommendMainViewController.xib; path = _Home/_Recommend/RecommendMainViewController.xib; sourceTree = "<group>"; };
-		E5E5A2B01BD7416700A99883 /* TestMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestMainViewController.h; path = _Test/TestMainViewController.h; sourceTree = "<group>"; };
-		E5E5A2B11BD7416700A99883 /* TestMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestMainViewController.m; path = _Test/TestMainViewController.m; sourceTree = "<group>"; };
-		E5E5A2B21BD7416700A99883 /* TestMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TestMainViewController.xib; path = _Test/TestMainViewController.xib; sourceTree = "<group>"; };
+		E5E5A2B61BD78A6500A99883 /* TestMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestMainViewController.h; path = _Test/TestMainViewController.h; sourceTree = "<group>"; };
+		E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestMainViewController.m; path = _Test/TestMainViewController.m; sourceTree = "<group>"; };
+		E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TestMainViewController.xib; path = _Test/TestMainViewController.xib; sourceTree = "<group>"; };
 		E5F6C6B41B7AD93B00618970 /* I_NScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = I_NScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F6C6BB1B7AD93B00618970 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -3004,9 +3004,9 @@
 		E5E5A2AF1BD7414300A99883 /* _Test */ = {
 			isa = PBXGroup;
 			children = (
-				E5E5A2B01BD7416700A99883 /* TestMainViewController.h */,
-				E5E5A2B11BD7416700A99883 /* TestMainViewController.m */,
-				E5E5A2B21BD7416700A99883 /* TestMainViewController.xib */,
+				E5E5A2B61BD78A6500A99883 /* TestMainViewController.h */,
+				E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */,
+				E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */,
 			);
 			name = _Test;
 			sourceTree = "<group>";
@@ -3683,7 +3683,7 @@
 				E50FF4FF1BCB808100F1045C /* allch@3x.png in Resources */,
 				E50FF5931BCB808100F1045C /* icon_menu_setting@3x.png in Resources */,
 				E50FF5111BCB808100F1045C /* genremovie_press@3x.png in Resources */,
-				E5E5A2B41BD7416700A99883 /* TestMainViewController.xib in Resources */,
+				E5E5A2BA1BD78A6500A99883 /* TestMainViewController.xib in Resources */,
 				E50FF3FC1BCB808100F1045C /* p1btn_cancel_normal@2x.png in Resources */,
 				E50FF4671BCB808100F1045C /* genrereligion_select@2x.png in Resources */,
 				E50FF4511BCB808100F1045C /* genreedu_press@2x.png in Resources */,
@@ -3845,7 +3845,7 @@
 				E54CC0B11BCCA0C6003806C0 /* SBJsonParser.m in Sources */,
 				99C43C551BA3EDA10035A0A4 /* NSMutableDictionary+Merge.m in Sources */,
 				E52EE5791BD508AF00797251 /* PvrMainTableViewCell.m in Sources */,
-				E5E5A2B31BD7416700A99883 /* TestMainViewController.m in Sources */,
+				E5E5A2B91BD78A6500A99883 /* TestMainViewController.m in Sources */,
 				E54CC0AF1BCCA0C6003806C0 /* NSString+SBJSON.m in Sources */,
 				E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */,
 				E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */,
