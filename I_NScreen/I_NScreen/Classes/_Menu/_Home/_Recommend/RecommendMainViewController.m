@@ -223,6 +223,9 @@
             
             int nTotal = (int)[self.pPopularityArr count];
             
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
             for ( NSUInteger i = 0; i < nTotal; i++ )
             {
                 [pControllers1 addObject:[NSNull null]];
@@ -241,6 +244,9 @@
             
             int nTotal = (int)[self.pWeekMovieArr count];
             
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
             for ( NSUInteger i = 0; i < nTotal; i++ )
             {
                 [pControllers2 addObject:[NSNull null]];
@@ -258,6 +264,8 @@
             NSMutableArray *pControllers3 = [[NSMutableArray alloc] init];
             
             int nTotal = (int)[self.pThisMonthRecommendArr count];
+            if ( nTotal >= 5 )
+                nTotal = 5;
             
             for ( NSUInteger i = 0; i < nTotal; i++ )
             {
@@ -288,6 +296,9 @@
             // 인기 순위
             nTotal = (int)[self.pPopularityArr count];
             
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
             // 초기값 리턴
             if ( page >= nTotal || page < 0 )
                 return;
@@ -317,6 +328,9 @@
             // 금주의 신작
             nTotal = (int)[self.pWeekMovieArr count];
             
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
             // 초기값 리턴
             if ( page >= nTotal || page < 0 )
                 return;
@@ -345,6 +359,9 @@
         {
             // 이달의 추천
             nTotal = (int)[self.pThisMonthRecommendArr count];
+            
+            if ( nTotal >= 5 )
+                nTotal = 5;
             
             // 초기값 리턴
             if ( page >= nTotal || page < 0 )
