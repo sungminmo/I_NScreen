@@ -46,8 +46,9 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    return pArr.count;
-    return 8;
+    int nCount = (int)[pArr count];
+    
+    return nCount;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -57,7 +58,7 @@
 //    STCollectionItem *item = [_items objectAtIndex:indexPath.row];
 //    cell.numberLabel.text = [NSString stringWithFormat:@"%d", item.number];
 //    cell.captionLabel.text = item.caption;
-    [cell setListData:nil WithIndex:(int)indexPath.row];
+    [cell setListData:[pArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
     
     return cell;
 }
@@ -88,5 +89,9 @@
     
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    
+}
 
 @end
