@@ -234,11 +234,6 @@
             
             self.pPopularityScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.pPopularityScrollView.frame) * nTotal, CGRectGetHeight(self.pPopularityScrollView.frame));
             
-            self.pPopularityScrollView.pagingEnabled = YES;
-            self.pPopularityScrollView.showsHorizontalScrollIndicator = NO;
-            self.pPopularityScrollView.showsVerticalScrollIndicator = NO;
-            self.pPopularityScrollView.scrollsToTop = NO;
-            
         }break;
         case TrinfoNewWork:
         {

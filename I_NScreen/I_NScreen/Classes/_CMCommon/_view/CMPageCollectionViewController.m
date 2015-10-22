@@ -66,15 +66,24 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGSize size;
-//    size.width = 90;
-        size.width = 81;
-    size.height = 158;
-//    
-//    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
-//        return 230;
-//    else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
-//        return 207;
-//    else
+
+    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
+    {
+        size.width = 95;
+        size.height = 158;
+    }
+    else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
+    {
+        size.width = 85;
+        size.height = 138;
+    }
+    else
+    {
+        size.width = 70;
+        size.height = 113;
+    }
+    
+    
     return size;
 }
 
