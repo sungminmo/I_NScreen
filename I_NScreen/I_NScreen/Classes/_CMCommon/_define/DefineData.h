@@ -70,7 +70,7 @@
 #define RECOMMEND_MAIN_VIEW_BTN_03      10603   // 이달의 추천 VOD
 
 // MovieMainViewController btn tag
-#define MOVIE_MAIN_VIEW_BTN_01          10701   // 카테고리 리스트 버튼
+//#define MOVIE_MAIN_VIEW_BTN_01          10701   // 카테고리 리스트 버튼
 
 // MoviePopUpViewController btn tag
 #define MOVICE_POPUP_VIEW_BTN_01        10801   // 닫기 버튼
@@ -90,6 +90,19 @@
 #define REMOCON_MAIN_VIEW_BTN_04        12004   // 볼륨 다운
 #define REMOCON_MAIN_VIEW_BTN_05        12005   // 볼륨 업
 
+// AniKidsMainViewController btn tag
+#define ANI_KIDS_MAIN_VIEW_BTN_01       13001   // 인기 순위 버튼
+#define ANI_KIDS_MAIN_VIEW_BTN_02       13002   // 실시간 인기순위 버튼
+#define ANI_KIDS_MAIN_VIEW_BTN_03       13003   // 주간 인기순위 버튼
+#define ANI_KIDS_MAIN_VIEW_BTN_04       13004   // 그외 순위 버튼
+
+// MovieMainViewController btn tag
+#define MOVIE_MAIN_VIEW_BTN_01          14001   // 인기 순위 버튼
+#define MOVIE_MAIN_VIEW_BTN_02          14002   // 실시간 인기 순위 버튼
+#define MOVIE_MAIN_VIEW_BTN_03          14003   // 주간 인기 순위 버튼
+#define MOVIE_MAIN_VIEW_BTN_04          14004   // 그외 순위 버튼
+
+//
 
 /*
 문자열 정의

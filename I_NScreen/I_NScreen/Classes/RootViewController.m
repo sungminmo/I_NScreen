@@ -120,10 +120,10 @@
         }break;
         case HOME_GNB_VIEW_BTN_06:
         {
-            // 인기프로그램
+            // TV다시보기
             [self bodySubViewsRemove];
             
-            PopularProgramMainViewController *pViewController = [[PopularProgramMainViewController alloc] initWithNibName:@"PopularProgramMainViewController" bundle:nil];
+            TVReplayViewController *pViewController = [[TVReplayViewController alloc] initWithNibName:@"TVReplayViewController" bundle:nil];
             pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];

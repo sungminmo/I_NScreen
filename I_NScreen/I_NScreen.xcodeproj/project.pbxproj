@@ -705,14 +705,14 @@
 		E5B555491BD9DD3F00AA02B2 /* vod3btn_p_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B553161BD9DD3F00AA02B2 /* vod3btn_p_press@3x.png */; settings = {ASSET_TAGS = (); }; };
 		E5B5554A1BD9DD3F00AA02B2 /* vod3btn_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B553171BD9DD3F00AA02B2 /* vod3btn_press@3x.png */; settings = {ASSET_TAGS = (); }; };
 		E5B5554B1BD9DD3F00AA02B2 /* vod3btn_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B553181BD9DD3F00AA02B2 /* vod3btn_select@3x.png */; settings = {ASSET_TAGS = (); }; };
+		E5B555501BD9E00400AA02B2 /* TVReplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B5554E1BD9E00400AA02B2 /* TVReplayViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5B555511BD9E00400AA02B2 /* TVReplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B5554F1BD9E00400AA02B2 /* TVReplayViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5BE92041BD65F5A00970E16 /* BannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE92021BD65F5A00970E16 /* BannerTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E5BE92051BD65F5A00970E16 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92031BD65F5A00970E16 /* BannerTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5BE92091BD65F7100970E16 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE92071BD65F7100970E16 /* CategoryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E5BE920A1BD65F7100970E16 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92081BD65F7100970E16 /* CategoryTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		E5DE64B81BCB4E2000FC3122 /* PopularProgramMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B61BCB4E2000FC3122 /* PopularProgramMainViewController.m */; settings = {ASSET_TAGS = (); }; };
-		E5DE64B91BCB4E2000FC3122 /* PopularProgramMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B71BCB4E2000FC3122 /* PopularProgramMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DE64BD1BCB4E3300FC3122 /* AniKidsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64BB1BCB4E3300FC3122 /* AniKidsMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64BE1BCB4E3300FC3122 /* AniKidsMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64BC1BCB4E3300FC3122 /* AniKidsMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DE64C21BCB4E4400FC3122 /* MovieMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64C01BCB4E4400FC3122 /* MovieMainViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -1526,6 +1526,9 @@
 		E5B553161BD9DD3F00AA02B2 /* vod3btn_p_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod3btn_p_press@3x.png"; sourceTree = "<group>"; };
 		E5B553171BD9DD3F00AA02B2 /* vod3btn_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod3btn_press@3x.png"; sourceTree = "<group>"; };
 		E5B553181BD9DD3F00AA02B2 /* vod3btn_select@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod3btn_select@3x.png"; sourceTree = "<group>"; };
+		E5B5554D1BD9E00400AA02B2 /* TVReplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TVReplayViewController.h; path = _Home/_TVReplay/TVReplayViewController.h; sourceTree = "<group>"; };
+		E5B5554E1BD9E00400AA02B2 /* TVReplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TVReplayViewController.m; path = _Home/_TVReplay/TVReplayViewController.m; sourceTree = "<group>"; };
+		E5B5554F1BD9E00400AA02B2 /* TVReplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TVReplayViewController.xib; path = _Home/_TVReplay/TVReplayViewController.xib; sourceTree = "<group>"; };
 		E5BE92011BD65F5A00970E16 /* BannerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BannerTableViewCell.h; path = _Home/_Recommend/_Cell/BannerTableViewCell.h; sourceTree = "<group>"; };
 		E5BE92021BD65F5A00970E16 /* BannerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BannerTableViewCell.m; path = _Home/_Recommend/_Cell/BannerTableViewCell.m; sourceTree = "<group>"; };
 		E5BE92031BD65F5A00970E16 /* BannerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BannerTableViewCell.xib; path = _Home/_Recommend/_Cell/BannerTableViewCell.xib; sourceTree = "<group>"; };
@@ -1535,9 +1538,6 @@
 		E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainViewController.h; path = _Home/_Adult/AdultMainViewController.h; sourceTree = "<group>"; };
 		E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdultMainViewController.m; path = _Home/_Adult/AdultMainViewController.m; sourceTree = "<group>"; };
 		E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdultMainViewController.xib; path = _Home/_Adult/AdultMainViewController.xib; sourceTree = "<group>"; };
-		E5DE64B51BCB4E2000FC3122 /* PopularProgramMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopularProgramMainViewController.h; path = _Home/_PopularProgram/PopularProgramMainViewController.h; sourceTree = "<group>"; };
-		E5DE64B61BCB4E2000FC3122 /* PopularProgramMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopularProgramMainViewController.m; path = _Home/_PopularProgram/PopularProgramMainViewController.m; sourceTree = "<group>"; };
-		E5DE64B71BCB4E2000FC3122 /* PopularProgramMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopularProgramMainViewController.xib; path = _Home/_PopularProgram/PopularProgramMainViewController.xib; sourceTree = "<group>"; };
 		E5DE64BA1BCB4E3300FC3122 /* AniKidsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AniKidsMainViewController.h; path = _Home/_AniKids/AniKidsMainViewController.h; sourceTree = "<group>"; };
 		E5DE64BB1BCB4E3300FC3122 /* AniKidsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AniKidsMainViewController.m; path = _Home/_AniKids/AniKidsMainViewController.m; sourceTree = "<group>"; };
 		E5DE64BC1BCB4E3300FC3122 /* AniKidsMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AniKidsMainViewController.xib; path = _Home/_AniKids/AniKidsMainViewController.xib; sourceTree = "<group>"; };
@@ -2963,6 +2963,16 @@
 			path = vod;
 			sourceTree = "<group>";
 		};
+		E5B5554C1BD9DFB400AA02B2 /* _TVReplay */ = {
+			isa = PBXGroup;
+			children = (
+				E5B5554D1BD9E00400AA02B2 /* TVReplayViewController.h */,
+				E5B5554E1BD9E00400AA02B2 /* TVReplayViewController.m */,
+				E5B5554F1BD9E00400AA02B2 /* TVReplayViewController.xib */,
+			);
+			name = _TVReplay;
+			sourceTree = "<group>";
+		};
 		E5BE92001BD65F1D00970E16 /* _Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2979,8 +2989,8 @@
 		E5DE649B1BCB4BC200FC3122 /* _Home */ = {
 			isa = PBXGroup;
 			children = (
+				E5B5554C1BD9DFB400AA02B2 /* _TVReplay */,
 				E5DE64A01BCB4C8100FC3122 /* _Adult */,
-				E5DE649F1BCB4C6100FC3122 /* _PopularProgram */,
 				E5DE649E1BCB4BFF00FC3122 /* _AniKids */,
 				E5DE649D1BCB4BE300FC3122 /* _Movie */,
 				E5DE649C1BCB4BCC00FC3122 /* _Recommend */,
@@ -3019,16 +3029,6 @@
 				E5DE64BC1BCB4E3300FC3122 /* AniKidsMainViewController.xib */,
 			);
 			name = _AniKids;
-			sourceTree = "<group>";
-		};
-		E5DE649F1BCB4C6100FC3122 /* _PopularProgram */ = {
-			isa = PBXGroup;
-			children = (
-				E5DE64B51BCB4E2000FC3122 /* PopularProgramMainViewController.h */,
-				E5DE64B61BCB4E2000FC3122 /* PopularProgramMainViewController.m */,
-				E5DE64B71BCB4E2000FC3122 /* PopularProgramMainViewController.xib */,
-			);
-			name = _PopularProgram;
 			sourceTree = "<group>";
 		};
 		E5DE64A01BCB4C8100FC3122 /* _Adult */ = {
@@ -3469,7 +3469,6 @@
 				99EA17E31BC0D1E6005A958C /* CMTermsViewController.xib in Resources */,
 				E5B554081BD9DD3F00AA02B2 /* bigunpic@2x.png in Resources */,
 				E5B553C71BD9DD3F00AA02B2 /* seriesno_indicator_l.png in Resources */,
-				E5DE64B91BCB4E2000FC3122 /* PopularProgramMainViewController.xib in Resources */,
 				99C43C061BA3ED980035A0A4 /* Info.plist in Resources */,
 				E5B554811BD9DD3F00AA02B2 /* seriesno_indicator_r@2x.png in Resources */,
 				E5B553701BD9DD3F00AA02B2 /* 3btn_outline.png in Resources */,
@@ -3579,6 +3578,7 @@
 				E5B553A01BD9DD3F00AA02B2 /* magnifier.png in Resources */,
 				E5B555161BD9DD3F00AA02B2 /* close@3x.png in Resources */,
 				E5B554801BD9DD3F00AA02B2 /* seriesno_indicator_l@2x.png in Resources */,
+				E5B555511BD9E00400AA02B2 /* TVReplayViewController.xib in Resources */,
 				E5B553311BD9DD3F00AA02B2 /* genrenews_press.png in Resources */,
 				E5B5531C1BD9DD3F00AA02B2 /* genreall_press.png in Resources */,
 				E5B553521BD9DD3F00AA02B2 /* icon_chpick.png in Resources */,
@@ -3867,7 +3867,6 @@
 				20A8EFB01BAEB6AA00FA0CFA /* CMSearchCollectionViewCell.m in Sources */,
 				E511818C1BA7ACF900C1E31D /* EpgPopUpViewController.m in Sources */,
 				994BDB391BA3F6CD000B6260 /* CMSearchMainViewController.m in Sources */,
-				E5DE64B81BCB4E2000FC3122 /* PopularProgramMainViewController.m in Sources */,
 				99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */,
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
 				20989CDE1BC7934F009C4418 /* CMCustomNumberPadView.m in Sources */,
@@ -3939,6 +3938,7 @@
 				E52EE57D1BD508AF00797251 /* PvrSubViewController.m in Sources */,
 				99C43C591BA3EDA10035A0A4 /* UIImage+Color.m in Sources */,
 				99C43C511BA3EDA10035A0A4 /* NSData+Hash.m in Sources */,
+				E5B555501BD9E00400AA02B2 /* TVReplayViewController.m in Sources */,
 				203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */,
 				99C43C5B1BA3EDA10035A0A4 /* UISegmentedControl+Accessibility.m in Sources */,
 				99ECD58B1BD5188B00EABA67 /* CMSearchHistory.m in Sources */,

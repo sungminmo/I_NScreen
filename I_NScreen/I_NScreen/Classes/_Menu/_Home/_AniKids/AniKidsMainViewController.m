@@ -31,7 +31,10 @@
 #pragma mark - 테그 초기화
 - (void)setTagInit
 {
-    
+    self.pPopularBtn.tag = ANI_KIDS_MAIN_VIEW_BTN_01;
+    self.pRealTimePopularBtn.tag = ANI_KIDS_MAIN_VIEW_BTN_02;
+    self.pWeekPopularBtn.tag = ANI_KIDS_MAIN_VIEW_BTN_03;
+    self.pElseBtn.tag = ANI_KIDS_MAIN_VIEW_BTN_04;
 }
 
 #pragma mark - 화면 초기화
@@ -46,7 +49,28 @@
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    
+    switch ([btn tag]) {
+        case ANI_KIDS_MAIN_VIEW_BTN_01:
+        {
+            // 인기 순위 버튼
+            
+        }break;
+        case ANI_KIDS_MAIN_VIEW_BTN_02:
+        {
+            // 실시간 인기 순위 버튼
+            
+        }break;
+        case ANI_KIDS_MAIN_VIEW_BTN_03:
+        {
+            // 주간 인기 순위 버튼
+            
+        }break;
+        case ANI_KIDS_MAIN_VIEW_BTN_04:
+        {
+            // 그외 순위 버튼
+            
+        }break;
+    }
 }
 
 @end
