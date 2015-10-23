@@ -11,10 +11,20 @@
 
 @interface AniKidsMainViewController : CMBaseViewController
 
-@property (nonatomic, strong) IBOutlet UIScrollView *pMainScrollView;
-@property (nonatomic, strong) IBOutlet UIView *pAniKidsView;
-@property (nonatomic, strong) IBOutlet UIPageControl *pAniKidsPgControl;
-@property (nonatomic, strong) IBOutlet UIButton *pMoreAniKidsBtn;
+// 인기순위 화면
+@property (nonatomic, strong) IBOutlet UIView *pPopularView;  // 인기순위 뷰
+@property (nonatomic, strong) IBOutlet UIButton *pPopularBtn;  // 인기 순위 버튼
+@property (nonatomic, strong) IBOutlet UIButton *pRealTimePopularBtn;   // 실시간 인기 순위 버튼
+@property (nonatomic, strong) IBOutlet UIButton *pWeekPopularBtn;       // 주간 인기 순위 버튼
+@property (nonatomic, strong) IBOutlet UITableView *pPopularTableView;  // 인기 순위 테이블 뷰
+
+@property (nonatomic, strong) IBOutlet UIImageView *pPopularLine01;
+@property (nonatomic, strong) IBOutlet UIImageView *pPopularLine02;
+
+// 그외 화면
+@property (nonatomic, strong) IBOutlet UIView *pElseView;   // 그외 뷰
+@property (nonatomic, strong) IBOutlet UIButton *pElseBtn;  // 그외 버튼
+@property (nonatomic, strong) IBOutlet UITableView *pElseTableView; // 그외 테이블 뷰
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 

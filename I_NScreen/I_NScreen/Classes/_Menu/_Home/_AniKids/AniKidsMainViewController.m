@@ -37,9 +37,9 @@
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
-    [self.pMainScrollView addSubview:self.pAniKidsView];
-    
-    self.pAniKidsView.frame = CGRectMake(0, 0, self.pAniKidsView.frame.size.width, self.pAniKidsView.frame.size.height);
+    // 초기 인기 순위화면이 default
+    self.pPopularView.hidden = NO;
+    self.pElseView.hidden = YES;
 }
 
 #pragma mark - 액션이벤트
