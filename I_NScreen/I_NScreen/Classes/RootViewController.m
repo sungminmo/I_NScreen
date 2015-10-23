@@ -197,6 +197,12 @@
             CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
             [self.navigationController pushViewController:controller animated:YES];
         }break;
+        case 6:
+        {
+            // 페어링
+            PairingMainViewController *controller = [[PairingMainViewController alloc] initWithNibName:@"PairingMainViewController" bundle:nil];
+            [self.navigationController pushViewController:controller animated:YES];
+        }break;
 
 //        case 6://임시
 //        {

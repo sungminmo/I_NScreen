@@ -707,6 +707,8 @@
 		E5B5554B1BD9DD3F00AA02B2 /* vod3btn_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B553181BD9DD3F00AA02B2 /* vod3btn_select@3x.png */; settings = {ASSET_TAGS = (); }; };
 		E5B555501BD9E00400AA02B2 /* TVReplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B5554E1BD9E00400AA02B2 /* TVReplayViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5B555511BD9E00400AA02B2 /* TVReplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B5554F1BD9E00400AA02B2 /* TVReplayViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5B555561BD9F1D800AA02B2 /* PairingMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B555541BD9F1D800AA02B2 /* PairingMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5B555571BD9F1D800AA02B2 /* PairingMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B555551BD9F1D800AA02B2 /* PairingMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5BE92041BD65F5A00970E16 /* BannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE92021BD65F5A00970E16 /* BannerTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E5BE92051BD65F5A00970E16 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92031BD65F5A00970E16 /* BannerTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5BE92091BD65F7100970E16 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE92071BD65F7100970E16 /* CategoryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -1529,6 +1531,9 @@
 		E5B5554D1BD9E00400AA02B2 /* TVReplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TVReplayViewController.h; path = _Home/_TVReplay/TVReplayViewController.h; sourceTree = "<group>"; };
 		E5B5554E1BD9E00400AA02B2 /* TVReplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TVReplayViewController.m; path = _Home/_TVReplay/TVReplayViewController.m; sourceTree = "<group>"; };
 		E5B5554F1BD9E00400AA02B2 /* TVReplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TVReplayViewController.xib; path = _Home/_TVReplay/TVReplayViewController.xib; sourceTree = "<group>"; };
+		E5B555531BD9F1D800AA02B2 /* PairingMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PairingMainViewController.h; path = _Pairing/PairingMainViewController.h; sourceTree = "<group>"; };
+		E5B555541BD9F1D800AA02B2 /* PairingMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PairingMainViewController.m; path = _Pairing/PairingMainViewController.m; sourceTree = "<group>"; };
+		E5B555551BD9F1D800AA02B2 /* PairingMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingMainViewController.xib; path = _Pairing/PairingMainViewController.xib; sourceTree = "<group>"; };
 		E5BE92011BD65F5A00970E16 /* BannerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BannerTableViewCell.h; path = _Home/_Recommend/_Cell/BannerTableViewCell.h; sourceTree = "<group>"; };
 		E5BE92021BD65F5A00970E16 /* BannerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BannerTableViewCell.m; path = _Home/_Recommend/_Cell/BannerTableViewCell.m; sourceTree = "<group>"; };
 		E5BE92031BD65F5A00970E16 /* BannerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BannerTableViewCell.xib; path = _Home/_Recommend/_Cell/BannerTableViewCell.xib; sourceTree = "<group>"; };
@@ -1845,6 +1850,7 @@
 		99C43C3D1BA3EDA10035A0A4 /* _Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E5B555521BD9F1AF00AA02B2 /* _Pairing */,
 				E5E5A2AF1BD7414300A99883 /* _Test */,
 				E52EE5811BD50AA900797251 /* _Remocon */,
 				E52EE5691BD508AF00797251 /* _Pvr */,
@@ -2973,6 +2979,16 @@
 			name = _TVReplay;
 			sourceTree = "<group>";
 		};
+		E5B555521BD9F1AF00AA02B2 /* _Pairing */ = {
+			isa = PBXGroup;
+			children = (
+				E5B555531BD9F1D800AA02B2 /* PairingMainViewController.h */,
+				E5B555541BD9F1D800AA02B2 /* PairingMainViewController.m */,
+				E5B555551BD9F1D800AA02B2 /* PairingMainViewController.xib */,
+			);
+			name = _Pairing;
+			sourceTree = "<group>";
+		};
 		E5BE92001BD65F1D00970E16 /* _Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -3684,6 +3700,7 @@
 				E5B554A61BD9DD3F00AA02B2 /* genrenews_select@3x.png in Resources */,
 				E5B555211BD9DD3F00AA02B2 /* icon_menu_recording@3x.png in Resources */,
 				E5B553351BD9DD3F00AA02B2 /* genreregion_select.png in Resources */,
+				E5B555571BD9F1D800AA02B2 /* PairingMainViewController.xib in Resources */,
 				E5B554DB1BD9DD3F00AA02B2 /* icon_tvpointpay@3x.png in Resources */,
 				E5B553E41BD9DD3F00AA02B2 /* genrefavorite_select@2x.png in Resources */,
 				E5B5542E1BD9DD3F00AA02B2 /* 3depth2btn_press@2x.png in Resources */,
@@ -3875,6 +3892,7 @@
 				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
 				2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */,
 				E5DE64BD1BCB4E3300FC3122 /* AniKidsMainViewController.m in Sources */,
+				E5B555561BD9F1D800AA02B2 /* PairingMainViewController.m in Sources */,
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
 				99C43C581BA3EDA10035A0A4 /* NSUserDefaults+Settings.m in Sources */,

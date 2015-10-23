@@ -9,12 +9,12 @@
             <connections>
                 <outlet property="pElseBtn" destination="wfX-r6-Rsu" id="H3t-Dm-V5N"/>
                 <outlet property="pElseTableView" destination="vHi-9H-BEw" id="wFC-Pm-aR2"/>
-                <outlet property="pElseView" destination="htX-Cn-rEg" id="nsi-H0-pCD"/>
+                <outlet property="pElseView" destination="htX-Cn-rEg" id="24M-pP-880"/>
                 <outlet property="pPopularBtn" destination="BcJ-79-hBq" id="lYI-X1-04X"/>
                 <outlet property="pPopularLine01" destination="fLq-pF-YUJ" id="WoG-rK-Lc1"/>
                 <outlet property="pPopularLine02" destination="7RR-M3-zHl" id="ABC-y4-Jqh"/>
                 <outlet property="pPopularTableView" destination="rF1-nV-ktd" id="RB4-en-nBX"/>
-                <outlet property="pPopularView" destination="dS6-gO-lwU" id="THK-q5-I6m"/>
+                <outlet property="pPopularView" destination="dS6-gO-lwU" id="e78-ta-lgp"/>
                 <outlet property="pRealTimePopularBtn" destination="ywm-9j-7wo" id="Udt-um-8xV"/>
                 <outlet property="pWeekPopularBtn" destination="91x-A8-ajJ" id="xIZ-4f-9ls"/>
                 <outlet property="view" destination="PP5-Pc-1xr" id="x4A-MT-FmK"/>
@@ -50,6 +50,10 @@
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vHi-9H-BEw">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="mli-w1-oOg"/>
+                                        <outlet property="delegate" destination="-1" id="AzU-en-4PP"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" red="0.76862745099999996" green="0.1019607843" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,6 +121,10 @@
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rF1-nV-ktd">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="509"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="rIl-aj-z8B"/>
+                                        <outlet property="delegate" destination="-1" id="wiw-Vh-Ec2"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" red="0.76862745099999996" green="0.1019607843" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>

@@ -102,6 +102,11 @@
 #define MOVIE_MAIN_VIEW_BTN_03          14003   // 주간 인기 순위 버튼
 #define MOVIE_MAIN_VIEW_BTN_04          14004   // 그외 순위 버튼
 
+// 페어링
+// PairingMainViewController btn tag
+#define PAIRING_MAIN_VIEW_BTN_01        15001   // 등록 취소
+#define PAIRING_MAIN_VIEW_BTN_02        15002   // 등록 완료
+
 //
 
 /*

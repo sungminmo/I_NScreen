@@ -52,6 +52,13 @@
         self.pairingButton.selected = YES;
         self.pairingMessageLabel.text = @"셋탑박스와 연동중입니다.";
     }
+    
+    
+    // 연동 화면
+    [[CMAppManager sharedInstance] onLeftMenuListClose:self];
+    self.nTag = 6;
+    
+    ///
 }
 
 

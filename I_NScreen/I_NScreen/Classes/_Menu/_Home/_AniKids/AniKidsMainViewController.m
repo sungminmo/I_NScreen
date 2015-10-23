@@ -73,4 +73,50 @@
     }
 }
 
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 인기순위 일때 pPopularView , else pPopularView
+    
+    static NSString *pCellIn = @"AnikidsMainTableViewCellIn";
+    
+    AnikidsMainTableViewCell *pCell = (AnikidsMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
+    
+    if (pCell == nil)
+    {
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"AnikidsMainTableViewCell" owner:nil options:nil];
+        pCell = [arr objectAtIndex:0];
+    }
+    
+    [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+//    [pCell setListData:nil WithIndex:(int)indexPath.row];
+    
+    return pCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 24;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
 @end

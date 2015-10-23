@@ -21,6 +21,7 @@
 #import "RemoconMainViewController.h"
 #import "TestMainViewController.h"
 #import "TVReplayViewController.h"
+#import "PairingMainViewController.h"
 
 @interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MoviePopUpViewDelegate>
 

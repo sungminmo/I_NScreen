@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
+#import "AnikidsMainTableViewCell.h"
 
 @interface AniKidsMainViewController : CMBaseViewController
 
