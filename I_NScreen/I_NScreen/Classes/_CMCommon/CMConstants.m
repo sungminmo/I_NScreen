@@ -213,6 +213,9 @@ NSString* const CNM_OPEN_API_INTERFACE_SearchProgram = @"SearchProgram";
 // SearchVod
 NSString* const CNM_OPEN_API_INTERFACE_SearchVod = @"SearchVod";
 
+// SearchWord
+NSString* const CNM_OPEN_API_INTERFACE_getSearchWord = @"getSearchWord";
+
 // RecommendContentGroupByAssetId
 NSString* const CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId = @"recommendContentGroupByAssetId";
 

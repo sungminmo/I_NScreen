@@ -286,6 +286,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_SearchProgram;
 // SearchVod
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchVod;
 
+// SearchWord
+extern NSString* const CNM_OPEN_API_INTERFACE_getSearchWord;
+
 // GetPopularityChart
 extern NSString* const CNM_OPEN_API_INTERFACE_GetPopularityChart;
 

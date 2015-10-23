@@ -23,6 +23,11 @@ static NSString* const autoCompletCell = @"autoCompletCell";
 static NSString* const vodCellIdentifier = @"vodCell";
 static NSString* const programCellIdentifier = @"programCell";
 
+static NSString* const searchWordList = @"searchWordList";
+static NSString* const searchWord = @"searchWord";
+
+static NSString* const VodSearch_Item = @"VodSearch_Item";
+
 static const CGFloat pageSize = 28;
 
 @interface CMSearchMainViewController ()
@@ -38,12 +43,15 @@ static const CGFloat pageSize = 28;
 @property (nonatomic, strong) IBOutlet UITableView* programList;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *topConstraint;
 
-@property (nonatomic, strong) NSMutableArray* dataArray;
+@property (nonatomic, strong) NSMutableArray* searchWordArray;   //  검색어 목록
+@property (nonatomic, strong) NSMutableArray* dataArray;    //  vod/프로그램 목록
 
 @property (nonatomic, assign) NSInteger pageIndex;
 @property (nonatomic, assign) NSInteger totalPage;
 
 @property (nonatomic, assign) BOOL isLoading;
+
+@property (nonatomic, strong) NSTimer* searchWordTimer;
 
 @end
 
@@ -61,6 +69,7 @@ static const CGFloat pageSize = 28;
     
     self.pageIndex = 0;
     self.totalPage = 0;
+    self.searchWordArray = [@[] mutableCopy];
     self.dataArray = [@[] mutableCopy];
     
     [self setListCount:self.dataArray.count];
@@ -86,6 +95,9 @@ static const CGFloat pageSize = 28;
 #pragma mark - Private
 
 - (void)loadUI {
+    
+    [self.searchField addTarget:self action:@selector(textMessageChanged:) forControlEvents:UIControlEventEditingChanged];
+    
     self.tabMenu = [[CMTabMenuView alloc] initWithMenuArray:@[@"VOD 명 검색", @"TV 프로그램 명 검색"] posY:0 delegate:self];
     [self.tabMenuContainer addSubview:self.tabMenu];
     
@@ -100,13 +112,85 @@ static const CGFloat pageSize = 28;
 - (void)setListCount:(NSInteger)count {
     
     if (0 > count) {
+        
         self.infoLabel.text = @"성인 콘텐츠를 검색하시려면\n 설정>성인검색 제한 설정을 해제 해주세요.";
     } else {
+        
         self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , count];
     }
 }
 
-- (void)requestVodList{
+- (void)resetData {
+    
+    self.pageIndex = 0;
+    
+    [self.searchWordArray removeAllObjects];
+    [self.dataArray removeAllObjects];
+    [self setListCount:0];
+    [self.vodList reloadData];
+    [self.programList reloadData];
+}
+
+- (void)showAutoCompletList:(BOOL)isShow {
+    
+    if (isShow) {
+        
+        if (self.searchWordArray.count == 0) {
+            
+            self.autoCompletList.hidden = YES;
+        } else {
+            
+            [self.autoCompletList reloadData];
+            [self.autoCompletList scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            self.autoCompletList.hidden = !isShow;
+        }
+    } else {
+        
+        [self.searchWordArray removeAllObjects];
+        [self.autoCompletList reloadData];
+        self.autoCompletList.hidden = !isShow;
+    }
+}
+
+#pragma mark - Request
+
+- (void)requestSearchWord {
+    
+    self.searchWordTimer = nil;
+    
+    NSString* searchWord = [self.searchField.text trim];
+    
+    if (searchWord.length == 0) {
+        return;
+    }
+    
+    [NSMutableDictionary searchWordListWithSearchString:searchWord completion:^(NSArray *programs, NSError *error) {
+        
+        NSDictionary* response = programs[0];
+        
+        NSString* resultCode = response[CNM_OPEN_API_RESULT_CODE_KEY];
+        if ([CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY isEqualToString:resultCode] == false) {
+            
+            [self showAutoCompletList:NO];
+            
+            NSLog(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
+            
+            return;
+        }
+        
+        NSObject* itemObject = response[searchWordList];
+        
+        if ([itemObject isKindOfClass:[NSDictionary class]]) {
+            [self.searchWordArray addObject:itemObject];
+        } else if ([itemObject isKindOfClass:[NSArray class]]) {
+            [self.searchWordArray addObjectsFromArray:(NSArray*)itemObject];
+        }
+     
+        [self showAutoCompletList:YES];
+    }];
+}
+
+- (void)requestVodList {
     
     self.isLoading = YES;
     
@@ -138,19 +222,16 @@ static const CGFloat pageSize = 28;
         NSString* totalCount = response[CNM_OPEN_API_RESULT_TOTAL_COUNT];
         [self setListCount:[totalCount integerValue]];
         
-        [self.dataArray addObjectsFromArray:response[@"VodSearch_Item"]];
+        NSObject* itemObject = response[VodSearch_Item];
+        
+        if ([itemObject isKindOfClass:[NSDictionary class]]) {
+            [self.dataArray addObject:itemObject];
+        } else if ([itemObject isKindOfClass:[NSArray class]]) {
+            [self.dataArray addObjectsFromArray:(NSArray*)itemObject];
+        }
+
         [self.vodList reloadData];
     }];
-}
-
-- (void)resetData {
-    
-    self.pageIndex = 0;
-    
-    [self.dataArray removeAllObjects];
-    [self setListCount:0];
-    [self.vodList reloadData];
-    [self.programList reloadData];
 }
 
 #pragma mark - Event
@@ -163,6 +244,15 @@ static const CGFloat pageSize = 28;
     
     self.searchField.text = @"";
     [self.searchField becomeFirstResponder];
+}
+
+- (void)textMessageChanged:(CMTextField*)textField {
+    
+    if (self.searchWordTimer) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(requestSearchWord) object:nil];
+    }
+    
+    self.searchWordTimer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(requestSearchWord) userInfo:nil repeats:false];
 }
 
 #pragma mark - CMTabMenuViewDelegate
@@ -215,7 +305,7 @@ static const CGFloat pageSize = 28;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (self.autoCompletList == tableView) {
-        return 100;
+        return self.searchWordArray.count;
     } else if (self.programList == tableView) {
         return 100;
     }
@@ -226,6 +316,8 @@ static const CGFloat pageSize = 28;
     
     if (self.autoCompletList == tableView) {
         CMAutoCompletTableViewCell* cell = (CMAutoCompletTableViewCell*)[tableView dequeueReusableCellWithIdentifier:autoCompletCell];
+        
+        [cell setTitle:self.searchWordArray[indexPath.row][searchWord]];
         
         return cell;
     } else if (self.programList == tableView) {
@@ -255,8 +347,13 @@ static const CGFloat pageSize = 28;
     
     if (self.autoCompletList == tableView) {
         
-        tableView.hidden = YES;
         [self.searchField resignFirstResponder];
+        
+        self.searchField.text = self.searchWordArray[indexPath.row][searchWord];
+        [self resetData];
+        [self requestVodList];
+        
+        [self showAutoCompletList:NO];
     } else if (self.programList == tableView) {
         
     }
@@ -272,11 +369,17 @@ static const CGFloat pageSize = 28;
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
 
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
     [self resetData];
     
     TABMENU_TYPE type = [self.tabMenu getTabMenuIndex];
     switch (type) {
         case VOD_TABMENU_TYPE: {
+            
+            [self showAutoCompletList:NO];
             
             [self requestVodList];
         }
@@ -288,6 +391,8 @@ static const CGFloat pageSize = 28;
         default:
             break;
     }
+    
+    return YES;
 }
 
 #pragma mark - UIScrollViewDelegate
