@@ -13,7 +13,6 @@
 #import "LeftMenuViewController.h"
 #import "MyCMMainViewController.h"
 #import "AdultMainViewController.h"
-#import "PopularProgramMainViewController.h"
 #import "AniKidsMainViewController.h"
 #import "MovieMainViewController.h"
 #import "RecommendMainViewController.h"
@@ -21,6 +20,7 @@
 #import "PvrMainViewController.h"
 #import "RemoconMainViewController.h"
 #import "TestMainViewController.h"
+#import "TVReplayViewController.h"
 
 @interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MoviePopUpViewDelegate>
 

@@ -46,8 +46,9 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    return pArr.count;
-    return 8;
+    int nCount = (int)[pArr count];
+    
+    return nCount;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -57,7 +58,7 @@
 //    STCollectionItem *item = [_items objectAtIndex:indexPath.row];
 //    cell.numberLabel.text = [NSString stringWithFormat:@"%d", item.number];
 //    cell.captionLabel.text = item.caption;
-    [cell setListData:nil WithIndex:(int)indexPath.row];
+    [cell setListData:[pArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
     
     return cell;
 }
@@ -65,15 +66,24 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGSize size;
-//    size.width = 90;
-        size.width = 81;
-    size.height = 158;
-//    
-//    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
-//        return 230;
-//    else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
-//        return 207;
-//    else
+
+    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
+    {
+        size.width = 95;
+        size.height = 158;
+    }
+    else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
+    {
+        size.width = 85;
+        size.height = 138;
+    }
+    else
+    {
+        size.width = 70;
+        size.height = 113;
+    }
+    
+    
     return size;
 }
 
@@ -88,5 +98,9 @@
     
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    
+}
 
 @end

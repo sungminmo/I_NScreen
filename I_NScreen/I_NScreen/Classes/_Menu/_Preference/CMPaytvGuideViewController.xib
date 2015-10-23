@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -89,16 +89,16 @@
                     <exclude reference="FAf-v0-tBW"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="9Fn-Uo-135"/>
+                    <exclude reference="Buw-wy-iJW"/>
+                    <exclude reference="K0d-nc-3jO"/>
+                    <exclude reference="k3g-Dx-BAE"/>
                     <exclude reference="2rI-Vj-H7v"/>
                     <exclude reference="sEi-l3-VrH"/>
                     <exclude reference="zqf-Oj-0aL"/>
                     <exclude reference="HH5-on-F50"/>
                     <exclude reference="UHx-2R-71f"/>
                     <exclude reference="bh4-9m-WIh"/>
-                    <exclude reference="9Fn-Uo-135"/>
-                    <exclude reference="Buw-wy-iJW"/>
-                    <exclude reference="K0d-nc-3jO"/>
-                    <exclude reference="k3g-Dx-BAE"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -108,16 +108,16 @@
                     <include reference="FAf-v0-tBW"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="9Fn-Uo-135"/>
+                    <include reference="Buw-wy-iJW"/>
+                    <include reference="K0d-nc-3jO"/>
+                    <include reference="k3g-Dx-BAE"/>
                     <include reference="2rI-Vj-H7v"/>
                     <include reference="sEi-l3-VrH"/>
                     <include reference="zqf-Oj-0aL"/>
                     <include reference="HH5-on-F50"/>
                     <include reference="UHx-2R-71f"/>
                     <include reference="bh4-9m-WIh"/>
-                    <include reference="9Fn-Uo-135"/>
-                    <include reference="Buw-wy-iJW"/>
-                    <include reference="K0d-nc-3jO"/>
-                    <include reference="k3g-Dx-BAE"/>
                 </mask>
             </variation>
         </view>

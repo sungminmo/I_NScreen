@@ -11,6 +11,14 @@
 #import "CMPageViewController.h"
 #import "CategoryTableViewCell.h"
 #import "BannerTableViewCell.h"
+#import "CMPageCollectionViewController.h"
+
+// 화면 타입
+typedef enum : NSInteger {
+    TrinfoPopularity = 100000,
+    TrinfoNewWork,
+    TrinfoRecommend
+}TrinfoType;
 
 @interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate, CMPageViewDelegate>
 
@@ -39,7 +47,6 @@
 @property (nonatomic, strong) IBOutlet UIPageControl *pRecommendPgControl;
 @property (nonatomic, strong) IBOutlet UIButton *pMoreRecommendBtn;
 
-@property (nonatomic, strong) IBOutlet UITableView *pTableView;
 
 
 - (IBAction)onBtnClicked:(UIButton *)btn;

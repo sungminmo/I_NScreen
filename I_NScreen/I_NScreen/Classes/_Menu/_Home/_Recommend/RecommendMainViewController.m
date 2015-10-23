@@ -12,6 +12,9 @@
 
 @interface RecommendMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pBnViewController;    // 배너 컨트롤
+@property (nonatomic, strong) NSMutableArray *pPopularityViewController;    // 인기 순위 컨트롤
+@property (nonatomic, strong) NSMutableArray *pWeekMovieViewController; // 금주의 신작 영화 컨트롤
+@property (nonatomic, strong) NSMutableArray *pThisMonthRecommendViewController;    // 이달의 추천 컨트롤
 @property (nonatomic, strong) NSMutableArray *pPopularityArr;       // 인기순위 top 20 배열 데이터
 @property (nonatomic, strong) NSMutableArray *pWeekMovieArr;        // 금주의 신작 영화
 @property (nonatomic, strong) NSMutableArray *pThisMonthRecommendArr;   // 이달의 추천
@@ -38,6 +41,64 @@
     [self requestWithPopularTopTwenty];
     [self requestWithThisMonthRecommend];
     [self requestWithWeekMovie];
+}
+
+#pragma mark - 초기화
+#pragma mark - 화면초기화
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self setViewSize];
+    
+    CGFloat width = self.pMainScrollView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pBannerView, self.pPopularityView, self.pNewWorkView, self.pRecommendView];
+    
+    for (UIView* item in items) {
+        [self.pMainScrollView addSubview:item];
+        
+        
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pMainScrollView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+}
+
+- (void)setViewSize
+{
+    int nBannerHeight = 0;
+    int nCollectionHeight = 0;
+    
+    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
+    {
+        nBannerHeight = self.pBannerView.frame.size.height;
+        nCollectionHeight = self.pPopularityView.frame.size.height;
+    }
+    else if ( [[[CMAppManager sharedInstance] getDeviceCheck]isEqualToString:IPHONE_RESOLUTION_6] )
+    {
+        nBannerHeight = 202;
+        nCollectionHeight = 354;
+    }
+    else
+    {
+        nBannerHeight = 174;
+        nCollectionHeight = 304;
+    }
+    
+    self.pBannerView.frame = CGRectMake(0, 0, self.pBannerView.frame.size.width, nBannerHeight);
+    self.pPopularityView.frame = CGRectMake(0, 0, self.pPopularityView.frame.size.width, nCollectionHeight);
+    self.pNewWorkView.frame = CGRectMake(0, 0, self.pNewWorkView.frame.size.width, nCollectionHeight);
+    self.pRecommendView.frame = CGRectMake(0, 0, self.pRecommendView.frame.size.width, nCollectionHeight);
 }
 
 #pragma mark - 초기화
@@ -150,6 +211,185 @@
     }
 }
 
+#pragma mark - 컬렉션
+#pragma mark - 컬렉션 페이지 컨트롤 초기화
+- (void)collectionPageControllerInitWithTrinfoType:(TrinfoType )trinfoType
+{
+    switch (trinfoType) {
+        case TrinfoPopularity:
+        {
+            // 인기순위
+            NSMutableArray *pControllers1 = [[NSMutableArray alloc] init];
+            
+            int nTotal = (int)[self.pPopularityArr count];
+            
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
+            for ( NSUInteger i = 0; i < nTotal; i++ )
+            {
+                [pControllers1 addObject:[NSNull null]];
+            }
+            
+            self.pPopularityViewController = pControllers1;
+            self.pPopularityPgControl.numberOfPages = nTotal;
+            self.pPopularityPgControl.currentPage = 0;
+            
+            self.pPopularityScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.pPopularityScrollView.frame) * nTotal, CGRectGetHeight(self.pPopularityScrollView.frame));
+            
+        }break;
+        case TrinfoNewWork:
+        {
+            NSMutableArray *pControllers2 = [[NSMutableArray alloc] init];
+            
+            int nTotal = (int)[self.pWeekMovieArr count];
+            
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
+            for ( NSUInteger i = 0; i < nTotal; i++ )
+            {
+                [pControllers2 addObject:[NSNull null]];
+            }
+            
+            self.pWeekMovieViewController = pControllers2;
+            self.pNewWorkPgControl.numberOfPages = nTotal;
+            self.pNewWorkPgControl.currentPage = 0;
+            
+            self.pNewWorkScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.pNewWorkScrollView.frame) * nTotal, CGRectGetHeight(self.pNewWorkScrollView.frame));
+            
+        }break;
+        case TrinfoRecommend:
+        {
+            NSMutableArray *pControllers3 = [[NSMutableArray alloc] init];
+            
+            int nTotal = (int)[self.pThisMonthRecommendArr count];
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
+            for ( NSUInteger i = 0; i < nTotal; i++ )
+            {
+                [pControllers3 addObject:[NSNull null]];
+            }
+            
+            self.pThisMonthRecommendViewController = pControllers3;
+            self.pRecommendPgControl.numberOfPages = nTotal;
+            self.pRecommendPgControl.currentPage = 0;
+            
+            self.pRecommendScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.pRecommendScrollView.frame) * nTotal, CGRectGetHeight(self.pRecommendScrollView.frame));
+            
+        }break;
+    }
+    
+    [self collectionLoadScrollViewWithTrinfoType:trinfoType WithPage:0];
+    [self collectionLoadScrollViewWithTrinfoType:trinfoType WithPage:1];
+}
+
+#pragma mark - 컬렉션 페이지 전환
+- (void)collectionLoadScrollViewWithTrinfoType:(TrinfoType )trinfoType WithPage:(NSInteger)page
+{
+    int nTotal = 0;
+    
+    switch (trinfoType) {
+        case TrinfoPopularity:
+        {
+            // 인기 순위
+            nTotal = (int)[self.pPopularityArr count];
+            
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
+            // 초기값 리턴
+            if ( page >= nTotal || page < 0 )
+                return;
+            
+            CMPageCollectionViewController *controller = [self.pPopularityViewController objectAtIndex:page];
+            
+            if ( (NSNull *)controller == [NSNull null] )
+            {
+                controller = [[CMPageCollectionViewController alloc] initWithData:[self.pPopularityArr objectAtIndex:page] WithPage:(int)page];
+//                controller.delegate = self;
+                [self.pPopularityViewController replaceObjectAtIndex:page withObject:controller];
+            }
+            
+            if ( [controller.view superview] == nil )
+            {
+                CGRect frame = self.pPopularityScrollView.frame;
+                frame.origin.x = CGRectGetWidth(frame) * page;
+                frame.origin.y = 0;
+                controller.view.frame = frame;
+                
+                [self.pPopularityScrollView addSubview:controller.view];
+            }
+            
+        }break;
+        case TrinfoNewWork:
+        {
+            // 금주의 신작
+            nTotal = (int)[self.pWeekMovieArr count];
+            
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
+            // 초기값 리턴
+            if ( page >= nTotal || page < 0 )
+                return;
+            
+            CMPageCollectionViewController *controller = [self.pWeekMovieViewController objectAtIndex:page];
+            
+            if ( (NSNull *)controller == [NSNull null] )
+            {
+                controller = [[CMPageCollectionViewController alloc] initWithData:[self.pWeekMovieArr objectAtIndex:page] WithPage:(int)page];
+                //                controller.delegate = self;
+                [self.pWeekMovieViewController replaceObjectAtIndex:page withObject:controller];
+            }
+            
+            if ( [controller.view superview] == nil )
+            {
+                CGRect frame = self.pNewWorkScrollView.frame;
+                frame.origin.x = CGRectGetWidth(frame) * page;
+                frame.origin.y = 0;
+                controller.view.frame = frame;
+                
+                [self.pNewWorkScrollView addSubview:controller.view];
+            }
+
+        }break;
+        case TrinfoRecommend:
+        {
+            // 이달의 추천
+            nTotal = (int)[self.pThisMonthRecommendArr count];
+            
+            if ( nTotal >= 5 )
+                nTotal = 5;
+            
+            // 초기값 리턴
+            if ( page >= nTotal || page < 0 )
+                return;
+            
+            CMPageCollectionViewController *controller = [self.pThisMonthRecommendViewController objectAtIndex:page];
+            
+            if ( (NSNull *)controller == [NSNull null] )
+            {
+                controller = [[CMPageCollectionViewController alloc] initWithData:[self.pThisMonthRecommendArr objectAtIndex:page] WithPage:(int)page];
+                //                controller.delegate = self;
+                [self.pThisMonthRecommendViewController replaceObjectAtIndex:page withObject:controller];
+            }
+            
+            if ( [controller.view superview] == nil )
+            {
+                CGRect frame = self.pRecommendScrollView.frame;
+                frame.origin.x = CGRectGetWidth(frame) * page;
+                frame.origin.y = 0;
+                controller.view.frame = frame;
+                
+                [self.pRecommendScrollView addSubview:controller.view];
+            }
+            
+        }break;
+    }
+}
+
 #pragma mark - UIScrollView 델리게이트
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -163,82 +403,36 @@
         [self banLoadScrollViewWithPage:page];
         [self banLoadScrollViewWithPage:page + 1];
     }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    if ( indexPath.row == 0 )
+    else if ( scrollView == self.pPopularityScrollView )
     {
-        static NSString *pCellIn1 = @"BannerTableViewCellIn";
+        CGFloat pageWidth = CGRectGetWidth(self.pPopularityScrollView.frame);
+        NSUInteger page = floor((self.pPopularityScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        self.pPopularityPgControl.currentPage = page;
         
-        BannerTableViewCell *pCell1 = (BannerTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn1];
-        
-        if ( pCell1 == nil )
-        {
-            NSArray *arr1 = [[NSBundle mainBundle] loadNibNamed:@"BannerTableViewCell" owner:nil options:nil];
-            pCell1 = [arr1 objectAtIndex:0];
-        }
-        
-        [pCell1 setSelectionStyle:UITableViewCellSelectionStyleNone];
-        
-        return pCell1;
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoPopularity WithPage:page - 1];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoPopularity WithPage:page];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoPopularity WithPage:page + 1];
     }
- 
-    static NSString *pCellIn2 = @"CategoryTableViewCellIn";
-
-    CategoryTableViewCell *pCell2 = (CategoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn2];
-    
-    if ( pCell2 == nil )
+    else if ( scrollView == self.pNewWorkScrollView )
     {
-        NSArray *arr2 = [[NSBundle mainBundle] loadNibNamed:@"CategoryTableViewCell" owner:nil options:nil];
-        pCell2 = [arr2 objectAtIndex:0];
+        CGFloat pageWidth = CGRectGetWidth(self.pNewWorkScrollView.frame);
+        NSUInteger page = floor((self.pNewWorkScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        self.pNewWorkPgControl.currentPage = page;
+        
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoNewWork WithPage:page - 1];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoNewWork WithPage:page];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoNewWork WithPage:page + 1];
     }
-    
-    [pCell2 setSelectionStyle:UITableViewCellSelectionStyleNone];
-    
-    [pCell2 setListData:nil WithIndex:(int)indexPath.row];
-    
-    return pCell2;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
-    //    [self.navigationController pushViewController:pViewController animated:YES];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 4;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ( indexPath.row == 0 )
+    else if ( scrollView == self.pRecommendScrollView )
     {
-        if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
-            return 230;
-        else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
-            return 207;
-        else
-            return 177;
+        CGFloat pageWidth = CGRectGetWidth(self.pRecommendScrollView.frame);
+        NSUInteger page = floor((self.pRecommendScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+        self.pRecommendPgControl.currentPage = page;
+        
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoRecommend WithPage:page - 1];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoRecommend WithPage:page];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoRecommend WithPage:page + 1];
     }
-    else
-    {
-        if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
-            return 405;
-        else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
-            return 364;
-        else
-            return 313;
-    }
-    
-    return 0;
 }
 
 #pragma mark - 전문
@@ -250,13 +444,17 @@
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPopularityChartWithCategoryId:sCategoryId WithRequestItems:sRequestItems completion:^(NSArray *vod, NSError *error) {
         
-        
         NSLog(@"인기순위 top 20 = [%@]", vod);
         
         if ( [vod count] == 0 )
             return;
         
         [self.pPopularityArr removeAllObjects];
+
+        int nIndex = 1;
+        int nTotal = (int)[[[[vod objectAtIndex:0] objectForKey:@"weeklyChart"] objectForKey:@"totalCount"] integerValue];
+        
+        NSMutableArray *pArr = [[NSMutableArray alloc] init];
         
         for ( NSDictionary *dic in [[[[vod objectAtIndex:0] objectForKey:@"weeklyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"]  )
         {
@@ -272,11 +470,18 @@
             [nDic setObject:[dic objectForKey:@"ranking"] forKey:@"ranking"];
             [nDic setObject:[dic objectForKey:@"new"] forKey:@"new"];
             
+            [pArr addObject:nDic];
             
-            [self.pPopularityArr addObject:nDic];
+            if ( nIndex % 8 == 0 || nIndex == nTotal)
+            {
+                [self.pPopularityArr addObject:[pArr copy]];
+                [pArr removeAllObjects];
+            }
+            
+            nIndex++;
         }
         
-        
+        [self collectionPageControllerInitWithTrinfoType:TrinfoPopularity];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -299,6 +504,11 @@
         
         [self.pWeekMovieArr removeAllObjects];
         
+        int nIndex = 1;
+        int nTotal = (int)[[[vod objectAtIndex:0] objectForKey:@"totalCount"] integerValue];
+        
+        NSMutableArray *pArr = [[NSMutableArray alloc] init];
+        
         for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] )
         {
             NSMutableDictionary *nDic = [[NSMutableDictionary alloc] init];
@@ -331,9 +541,19 @@
             [nDic setObject:[dic objectForKey:@"categoryId"] forKey:@"categoryId"];
             [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
             
-            [self.pWeekMovieArr addObject:nDic];
+//            [self.pWeekMovieArr addObject:nDic];
+            [pArr addObject:nDic];
+            
+            if ( nIndex % 8 == 0 || nIndex == nTotal)
+            {
+                [self.pWeekMovieArr addObject:[pArr copy]];
+                [pArr removeAllObjects];
+            }
+            
+            nIndex++;
         }
         
+        [self collectionPageControllerInitWithTrinfoType:TrinfoNewWork];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -354,6 +574,11 @@
         
         [self.pThisMonthRecommendArr removeAllObjects];
         
+        int nIndex = 1;
+        int nTotal = (int)[[[vod objectAtIndex:0] objectForKey:@"totalCount"] integerValue];
+        
+        NSMutableArray *pArr = [[NSMutableArray alloc] init];
+        
         for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] )
         {
             NSMutableDictionary *nDic = [[NSMutableDictionary alloc] init];
@@ -386,9 +611,19 @@
             [nDic setObject:[dic objectForKey:@"categoryId"] forKey:@"categoryId"];
             [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
             
-            [self.pThisMonthRecommendArr addObject:nDic];
+//            [self.pThisMonthRecommendArr addObject:nDic];
+            [pArr addObject:nDic];
+            
+            if ( nIndex % 8 == 0 || nIndex == nTotal)
+            {
+                [self.pThisMonthRecommendArr addObject:[pArr copy]];
+                [pArr removeAllObjects];
+            }
+            
+            nIndex++;
         }
         
+        [self collectionPageControllerInitWithTrinfoType:TrinfoRecommend];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];

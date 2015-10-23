@@ -26,20 +26,58 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rAT-di-knA">
+                        <rect key="frame" x="61" y="2" width="32" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="rAT-di-knA" secondAttribute="height" multiplier="16:5" id="Nya-rY-oE9"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtE-iU-7yY">
+                        <rect key="frame" x="0.0" y="0.0" width="24" height="27"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_rank.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-EA-Al5">
+                                <rect key="frame" x="0.0" y="0.0" width="24" height="27"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjg-0M-53e">
+                                <rect key="frame" x="0.0" y="0.0" width="24" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dl8-EA-Al5" firstAttribute="leading" secondItem="QtE-iU-7yY" secondAttribute="leading" id="2vW-rd-eq5"/>
+                            <constraint firstAttribute="trailing" secondItem="sjg-0M-53e" secondAttribute="trailing" id="HEu-S1-QDN"/>
+                            <constraint firstItem="Dl8-EA-Al5" firstAttribute="top" secondItem="QtE-iU-7yY" secondAttribute="top" id="YvH-YP-Blb"/>
+                            <constraint firstAttribute="bottom" secondItem="sjg-0M-53e" secondAttribute="bottom" id="bB0-ME-coS"/>
+                            <constraint firstItem="sjg-0M-53e" firstAttribute="leading" secondItem="QtE-iU-7yY" secondAttribute="leading" id="fWv-H3-uaF"/>
+                            <constraint firstItem="sjg-0M-53e" firstAttribute="top" secondItem="QtE-iU-7yY" secondAttribute="top" id="jxz-0m-8gZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Dl8-EA-Al5" secondAttribute="bottom" id="lDS-cE-LCA"/>
+                            <constraint firstAttribute="width" secondItem="QtE-iU-7yY" secondAttribute="height" multiplier="8:9" id="pj1-cA-8Gd"/>
+                            <constraint firstAttribute="trailing" secondItem="Dl8-EA-Al5" secondAttribute="trailing" id="qJV-VG-Djq"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstItem="WDF-9Q-zeC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3Hm-Qx-TkJ"/>
+                <constraint firstItem="QtE-iU-7yY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DEW-WP-Zdt"/>
                 <constraint firstItem="WDF-9Q-zeC" firstAttribute="top" secondItem="hMa-kw-bgp" secondAttribute="bottom" id="EyA-ba-EHq"/>
                 <constraint firstAttribute="trailing" secondItem="hMa-kw-bgp" secondAttribute="trailing" id="Uzd-e0-gSz"/>
                 <constraint firstAttribute="bottom" secondItem="WDF-9Q-zeC" secondAttribute="bottom" id="dwq-wt-JpH"/>
+                <constraint firstItem="QtE-iU-7yY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eZy-Io-5Ie"/>
                 <constraint firstAttribute="trailing" secondItem="WDF-9Q-zeC" secondAttribute="trailing" id="jnz-mU-WFa"/>
                 <constraint firstItem="hMa-kw-bgp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="orN-sQ-otm"/>
+                <constraint firstAttribute="trailing" secondItem="rAT-di-knA" secondAttribute="trailing" constant="2" id="xbf-Zr-kuD"/>
+                <constraint firstItem="rAT-di-knA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="yOl-KH-UTg"/>
                 <constraint firstItem="hMa-kw-bgp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ycS-jw-s4f"/>
             </constraints>
             <size key="customSize" width="229" height="313"/>
             <connections>
+                <outlet property="pRankingLbl" destination="sjg-0M-53e" id="cYO-c4-m3r"/>
+                <outlet property="pStickerImageView" destination="rAT-di-knA" id="4VQ-Zh-6HI"/>
                 <outlet property="pThumImageView" destination="hMa-kw-bgp" id="z7C-Wv-7HB"/>
                 <outlet property="pTitleLbl" destination="WDF-9Q-zeC" id="Rb3-fX-x73"/>
             </connections>
@@ -48,5 +86,6 @@
     </objects>
     <resources>
         <image name="genreall_select.png" width="146" height="147"/>
+        <image name="icon_rank.png" width="24" height="27"/>
     </resources>
 </document>

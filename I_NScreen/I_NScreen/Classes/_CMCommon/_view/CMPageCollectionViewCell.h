@@ -12,6 +12,8 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *pTitleLbl;
 @property (nonatomic, weak) IBOutlet UIImageView *pThumImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *pStickerImageView;
+@property (nonatomic, weak) IBOutlet UILabel *pRankingLbl;
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index;
 
