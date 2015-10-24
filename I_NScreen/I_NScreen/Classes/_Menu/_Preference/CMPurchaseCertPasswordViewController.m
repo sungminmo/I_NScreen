@@ -8,6 +8,8 @@
 
 #import "CMPurchaseCertPasswordViewController.h"
 #import "CMTextField.h"
+#import "CMTextFieldView.h"
+#import "CMDBDataManager.h"
 
 typedef enum : NSInteger {
     TAG_CANCEL = 10000000,
@@ -37,6 +39,23 @@ typedef enum : NSInteger {
  
     self.textField1.type = Secure_CMTextFieldType;
     self.textField2.type = Secure_CMTextFieldType;
+    
+    CMDBDataManager* manager= [CMDBDataManager sharedInstance];
+    NSString* savedPurchaseNumber = [manager purchaseAuthorizedNumber];
+    if (savedPurchaseNumber.length > 0) {
+        [SIAlertView alert:@"구매인증 비밀번호 입력" message:@"구매인증 비밀번호를 입력해주세요.##FIELD##인증번호가 기억나지 않으실 경우,\n셋탑박스를 다시 등록 해주세요." containBoldText:@"" textHoloder:@"" textValue:@"" textPosition:SIAlertViewTextFieldPositionMiddle textLength:0 cancel:@"취소" buttons:@[@"확인"] completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+            if (buttonIndex == 0) {
+                [self backCommonAction];
+            }
+            else {
+                NSString* input = alert.fieldView.inputField.text;
+                if ([input isEqualToString:savedPurchaseNumber] == NO) {
+                    [self backCommonAction];
+                }
+            }
+        }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,14 +91,16 @@ typedef enum : NSInteger {
     
     switch (tag) {
         case TAG_CANCEL: {
-            
-            [self.navigationController popViewControllerAnimated:YES];
+            [self backCommonAction];
         }
             break;
         case TAG_COMPLETE: {
             
             if ([self validateValue]) {
-                
+                NSString* value = [self.textField1.text trim];
+                CMDBDataManager* manager= [CMDBDataManager sharedInstance];
+                [manager savePurchaseAuthorizedNumber:value];
+                [self backCommonAction];                
             }
         }
             break;

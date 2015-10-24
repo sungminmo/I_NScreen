@@ -112,7 +112,7 @@
         [CMBaseViewController actionGuide:102];
     }
     else if ([title isEqualToString:@"성인인증"]) {
-        [CMBaseViewController actionGuide:-1];//TODO: 작업할 것 
+        [CMBaseViewController actionGuide:103];
     }
 
 }
@@ -120,8 +120,16 @@
 - (IBAction)buttonWasTouchUpInside:(id)sender {
     
     if (self.preferenceSwitchEvent) {
-        
-        self.preferenceSwitchEvent(self.indexPath, self.switchButton.isOn);
+        BOOL isOn = self.switchButton.isOn;
+        if (isOn == NO) {//성인인증제한 설정 해재 필요
+            [SIAlertView alert:@"성인인증 필요" message:@"성인검색 제한 설정을 해제하기 위해서는\n성인인증이 필요합니다.\n\n성인인증을 진행하시겠습니까?" containBoldText:@"성인인증을 진행하시겠습니까?" cancel:@"아니요" buttons:@[@"예"] completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                if (buttonIndex == 1) {//성인인증 진행이동
+                    self.preferenceSwitchEvent(self.switchButton, self.indexPath, NO/*추후변경할 값 */);
+                }
+                self.switchButton.on = YES;
+            }];
+        }
+
     }
 }
 

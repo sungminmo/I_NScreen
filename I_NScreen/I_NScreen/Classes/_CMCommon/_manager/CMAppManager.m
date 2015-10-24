@@ -22,28 +22,33 @@
 
 - (id)init {
     if (self = [super init]) {
+        
+        self.isFirst = [self isFirstLoading];
+        if (self.isFirst) {
+            [self defaultSetting];
+        }
+
     }
     return self;
 }
 
-
-
 - (void)defaultSetting {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-
     [ud setAppType:CMAppTypePhone];
     [ud setRestrictType:CMContentsRestrictedTypeAdult];
-    
     [ud synchronize];
 }
 
-
-
-
-
-
-
-
+- (BOOL)isFirstLoading {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    BOOL isFirst = [ud boolForKey:@"CMFirstApplicationLoading"];
+    
+    if (!isFirst) {
+        [ud setBool:YES forKey:@"CMFirstApplicationLoading"];
+    }
+    
+    return !isFirst;
+}
 
 #pragma mark -
 - (void)onLeftMenuListOpen:(id)control;

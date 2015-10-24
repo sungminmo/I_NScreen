@@ -12,7 +12,10 @@
 
 @interface CMAppManager : NSObject
 
+@property (nonatomic, unsafe_unretained) BOOL isFirst;//앱 최초실행여부 
+
 + (CMAppManager *)sharedInstance;
+
 
 
 /**
