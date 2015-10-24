@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PairingMainViewController">
             <connections>
+                <outlet property="pBackBtn" destination="Lib-ru-qjS" id="1wi-uN-bat"/>
                 <outlet property="pCancelBtn" destination="wBe-xK-rXa" id="7wp-dl-7ld"/>
                 <outlet property="pOkBtn" destination="Pnv-dy-B7n" id="q7Y-et-vwa"/>
                 <outlet property="pPwTextField" destination="Wdv-xf-VnO" id="jjb-kp-Rax"/>
@@ -27,6 +28,9 @@
                             <state key="normal" image="back.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="kg7-gv-Cbi"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="셋탑박스 등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJN-lX-tgz">
                             <rect key="frame" x="0.0" y="45" width="414" height="26"/>
@@ -133,12 +137,18 @@
                                     <rect key="frame" x="210" y="21" width="188" height="45"/>
                                     <state key="normal" title="다음단계" backgroundImage="p2btn_ok_normal.png"/>
                                     <state key="highlighted" backgroundImage="p2btn_ok_press.png"/>
+                                    <connections>
+                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="ik0-Vz-1QO"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBe-xK-rXa">
                                     <rect key="frame" x="14" y="21" width="188" height="45"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="등록취소" backgroundImage="p2btn_cancel_normal.png"/>
                                     <state key="highlighted" backgroundImage="p2btn_cancel_press.png"/>
+                                    <connections>
+                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="ZRA-kQ-UXa"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

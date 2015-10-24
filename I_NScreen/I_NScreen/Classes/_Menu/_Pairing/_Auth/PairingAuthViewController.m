@@ -1,24 +1,25 @@
 //
-//  PairingMainViewController.m
+//  PairingAuthViewController.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 23..
+//  Created by JUNG KIL BAE on 2015. 10. 24..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "PairingMainViewController.h"
 #import "PairingAuthViewController.h"
+#import "PairingFinishViewController.h"
 
-@interface PairingMainViewController ()
+@interface PairingAuthViewController ()
 
 @end
 
-@implementation PairingMainViewController
+@implementation PairingAuthViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,15 +33,15 @@
 #pragma mark - 테그 초기화
 - (void)setTagInit
 {
-    self.pBackBtn.tag = PAIRING_MAIN_VIEW_BTN_01;
-    self.pCancelBtn.tag = PAIRING_MAIN_VIEW_BTN_02;
-    self.pOkBtn.tag = PAIRING_MAIN_VIEW_BTN_03;
+    self.pBackBtn.tag = PAIRING_AUTH_VIEW_BTN_01;
+    self.pCancelBtn.tag = PAIRING_AUTH_VIEW_BTN_02;
+    self.pOkBtn.tag = PAIRING_AUTH_VIEW_BTN_03;
 }
 
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
-
+    
 }
 
 
@@ -48,18 +49,18 @@
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-
+    
     switch ([btn tag]) {
-        case PAIRING_MAIN_VIEW_BTN_01:
-        case PAIRING_MAIN_VIEW_BTN_02:
+        case PAIRING_AUTH_VIEW_BTN_01:
+        case PAIRING_AUTH_VIEW_BTN_02:
         {
             // 등록 취소
             [self.navigationController popViewControllerAnimated:YES];
         }break;
-        case PAIRING_MAIN_VIEW_BTN_03:
+        case PAIRING_AUTH_VIEW_BTN_03:
         {
             // 다음 단계
-            PairingAuthViewController *pViewController = [[PairingAuthViewController alloc] initWithNibName:@"PairingAuthViewController" bundle:nil];
+            PairingFinishViewController *pViewController = [[PairingFinishViewController alloc] initWithNibName:@"PairingFinishViewController" bundle:nil];
             [self.navigationController pushViewController:pViewController animated:YES];
         }break;
     }

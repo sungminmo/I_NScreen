@@ -104,8 +104,19 @@
 
 // 페어링
 // PairingMainViewController btn tag
-#define PAIRING_MAIN_VIEW_BTN_01        15001   // 등록 취소
-#define PAIRING_MAIN_VIEW_BTN_02        15002   // 등록 완료
+#define PAIRING_MAIN_VIEW_BTN_01        15001   // back 버튼
+#define PAIRING_MAIN_VIEW_BTN_02        15002   // 등록 취소
+#define PAIRING_MAIN_VIEW_BTN_03        15003   // 다음단계
+
+// PairingAuthViewController btn tag
+#define PAIRING_AUTH_VIEW_BTN_01        16001   // BACK 버튼
+#define PAIRING_AUTH_VIEW_BTN_02        16002   // 등록 취소
+#define PAIRING_AUTH_VIEW_BTN_03        16003   // 등록 완료
+
+// PairingFinishViewController btn tag
+#define PAIRING_FINISH_VIEW_BTN_01      17001   // BACK 버튼
+#define PAIRING_FINISH_VIEW_BTN_02      17002   // 완료
+
 
 //
 

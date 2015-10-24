@@ -1,18 +1,15 @@
 //
-//  PairingMainViewController.h
+//  PairingAuthViewController.h
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 23..
+//  Created by JUNG KIL BAE on 2015. 10. 24..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
 
-@interface PairingMainViewController : CMBaseViewController
-
-@property (nonatomic, strong) IBOutlet UITextField *pPwTextField;
-@property (nonatomic, strong) IBOutlet UITextField *pRePwTextFiled;
+@interface PairingAuthViewController : CMBaseViewController
 
 @property (nonatomic, strong) IBOutlet UIButton *pBackBtn;
 @property (nonatomic, strong) IBOutlet UIButton *pCancelBtn;

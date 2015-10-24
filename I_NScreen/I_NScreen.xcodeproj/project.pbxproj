@@ -721,6 +721,10 @@
 		E5DE64C31BCB4E4400FC3122 /* MovieMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64C11BCB4E4400FC3122 /* MovieMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DE64C71BCB4E5500FC3122 /* RecommendMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64C51BCB4E5500FC3122 /* RecommendMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64C81BCB4E5500FC3122 /* RecommendMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64C61BCB4E5500FC3122 /* RecommendMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5E0DF7A1BDB91EE0049E3F6 /* PairingAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0DF781BDB91EE0049E3F6 /* PairingAuthViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5E0DF7B1BDB91EE0049E3F6 /* PairingAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E0DF791BDB91EE0049E3F6 /* PairingAuthViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5E0DF801BDB96A60049E3F6 /* PairingFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0DF7E1BDB96A60049E3F6 /* PairingFinishViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5E0DF811BDB96A60049E3F6 /* PairingFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E0DF7F1BDB96A60049E3F6 /* PairingFinishViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5E5A2B91BD78A6500A99883 /* TestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5E5A2BA1BD78A6500A99883 /* TestMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
@@ -1552,6 +1556,12 @@
 		E5DE64C41BCB4E5500FC3122 /* RecommendMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendMainViewController.h; path = _Home/_Recommend/RecommendMainViewController.h; sourceTree = "<group>"; };
 		E5DE64C51BCB4E5500FC3122 /* RecommendMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommendMainViewController.m; path = _Home/_Recommend/RecommendMainViewController.m; sourceTree = "<group>"; };
 		E5DE64C61BCB4E5500FC3122 /* RecommendMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecommendMainViewController.xib; path = _Home/_Recommend/RecommendMainViewController.xib; sourceTree = "<group>"; };
+		E5E0DF771BDB91EE0049E3F6 /* PairingAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PairingAuthViewController.h; path = _Pairing/_Auth/PairingAuthViewController.h; sourceTree = "<group>"; };
+		E5E0DF781BDB91EE0049E3F6 /* PairingAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PairingAuthViewController.m; path = _Pairing/_Auth/PairingAuthViewController.m; sourceTree = "<group>"; };
+		E5E0DF791BDB91EE0049E3F6 /* PairingAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingAuthViewController.xib; path = _Pairing/_Auth/PairingAuthViewController.xib; sourceTree = "<group>"; };
+		E5E0DF7D1BDB96A60049E3F6 /* PairingFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PairingFinishViewController.h; path = _Pairing/_Finish/PairingFinishViewController.h; sourceTree = "<group>"; };
+		E5E0DF7E1BDB96A60049E3F6 /* PairingFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PairingFinishViewController.m; path = _Pairing/_Finish/PairingFinishViewController.m; sourceTree = "<group>"; };
+		E5E0DF7F1BDB96A60049E3F6 /* PairingFinishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingFinishViewController.xib; path = _Pairing/_Finish/PairingFinishViewController.xib; sourceTree = "<group>"; };
 		E5E5A2B61BD78A6500A99883 /* TestMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestMainViewController.h; path = _Test/TestMainViewController.h; sourceTree = "<group>"; };
 		E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestMainViewController.m; path = _Test/TestMainViewController.m; sourceTree = "<group>"; };
 		E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TestMainViewController.xib; path = _Test/TestMainViewController.xib; sourceTree = "<group>"; };
@@ -2982,6 +2992,8 @@
 		E5B555521BD9F1AF00AA02B2 /* _Pairing */ = {
 			isa = PBXGroup;
 			children = (
+				E5E0DF7C1BDB96670049E3F6 /* _Finish */,
+				E5E0DF761BDB91930049E3F6 /* _Auth */,
 				E5B555531BD9F1D800AA02B2 /* PairingMainViewController.h */,
 				E5B555541BD9F1D800AA02B2 /* PairingMainViewController.m */,
 				E5B555551BD9F1D800AA02B2 /* PairingMainViewController.xib */,
@@ -3055,6 +3067,26 @@
 				E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */,
 			);
 			name = _Adult;
+			sourceTree = "<group>";
+		};
+		E5E0DF761BDB91930049E3F6 /* _Auth */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0DF771BDB91EE0049E3F6 /* PairingAuthViewController.h */,
+				E5E0DF781BDB91EE0049E3F6 /* PairingAuthViewController.m */,
+				E5E0DF791BDB91EE0049E3F6 /* PairingAuthViewController.xib */,
+			);
+			name = _Auth;
+			sourceTree = "<group>";
+		};
+		E5E0DF7C1BDB96670049E3F6 /* _Finish */ = {
+			isa = PBXGroup;
+			children = (
+				E5E0DF7D1BDB96A60049E3F6 /* PairingFinishViewController.h */,
+				E5E0DF7E1BDB96A60049E3F6 /* PairingFinishViewController.m */,
+				E5E0DF7F1BDB96A60049E3F6 /* PairingFinishViewController.xib */,
+			);
+			name = _Finish;
 			sourceTree = "<group>";
 		};
 		E5E5A2AF1BD7414300A99883 /* _Test */ = {
@@ -3402,6 +3434,7 @@
 				E5B553A91BD9DD3F00AA02B2 /* icon_menu_recording.png in Resources */,
 				E5B5547C1BD9DD3F00AA02B2 /* icon_3depth_open@2x.png in Resources */,
 				E5B5533D1BD9DD3F00AA02B2 /* genresports_press.png in Resources */,
+				E5E0DF7B1BDB91EE0049E3F6 /* PairingAuthViewController.xib in Resources */,
 				E5B554961BD9DD3F00AA02B2 /* genreedu_press@3x.png in Resources */,
 				E5B554F51BD9DD3F00AA02B2 /* genre_normal@3x.png in Resources */,
 				E5B554F11BD9DD3F00AA02B2 /* fp2btn_cancel_normal@3x.png in Resources */,
@@ -3753,6 +3786,7 @@
 				E5B554761BD9DD3F00AA02B2 /* bullet_3depth@2x.png in Resources */,
 				E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */,
 				E5B554AA1BD9DD3F00AA02B2 /* genrereligion_normal@3x.png in Resources */,
+				E5E0DF811BDB96A60049E3F6 /* PairingFinishViewController.xib in Resources */,
 				E5B553F01BD9DD3F00AA02B2 /* genreregion_select@2x.png in Resources */,
 				E5B553E61BD9DD3F00AA02B2 /* genremovie_press@2x.png in Resources */,
 				99C43C051BA3ED980035A0A4 /* Images.xcassets in Resources */,
@@ -3885,6 +3919,7 @@
 				E511818C1BA7ACF900C1E31D /* EpgPopUpViewController.m in Sources */,
 				994BDB391BA3F6CD000B6260 /* CMSearchMainViewController.m in Sources */,
 				99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */,
+				E5E0DF801BDB96A60049E3F6 /* PairingFinishViewController.m in Sources */,
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
 				20989CDE1BC7934F009C4418 /* CMCustomNumberPadView.m in Sources */,
 				99478D361BAD4CF200CC99E9 /* CMColor.m in Sources */,
@@ -3905,6 +3940,7 @@
 				99ECD5851BD5188B00EABA67 /* NSMutableDictionary+Network.m in Sources */,
 				99ECD5891BD5188B00EABA67 /* CMAreaInfo.m in Sources */,
 				99E9EDB61BBA26D2002FEBF0 /* CMContactInfoViewCcontroller.m in Sources */,
+				E5E0DF7A1BDB91EE0049E3F6 /* PairingAuthViewController.m in Sources */,
 				E52EE57B1BD508AF00797251 /* PvrSubTableViewCell.m in Sources */,
 				2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */,
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
