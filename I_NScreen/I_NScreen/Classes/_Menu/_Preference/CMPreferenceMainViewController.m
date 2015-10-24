@@ -73,7 +73,9 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
     [ud synchronize];
     
     //성인인증 성공하면 변경
-    swButton.on = isOn;
+    @synchronized(self) {
+        [swButton setOn:isOn animated:NO];
+    }
 }
 
 #pragma mark - UITablevewDataSource

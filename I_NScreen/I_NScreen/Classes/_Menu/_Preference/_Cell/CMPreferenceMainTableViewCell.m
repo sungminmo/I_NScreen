@@ -21,6 +21,8 @@
 @property (nonatomic, strong) IBOutlet UIImageView* indicatorImageView;
 @property (nonatomic, strong) IBOutlet UISwitch* switchButton;
 
+@property (nonatomic, unsafe_unretained) BOOL isSwitchWorking;
+
 @end
 
 @implementation CMPreferenceMainTableViewCell
@@ -120,13 +122,21 @@
 - (IBAction)buttonWasTouchUpInside:(id)sender {
     
     if (self.preferenceSwitchEvent) {
+        
+        if (self.isSwitchWorking == YES) {
+            return;
+        }
+        
         BOOL isOn = self.switchButton.isOn;
         if (isOn == NO) {//성인인증제한 설정 해재 필요
+            self.isSwitchWorking = YES;
             [SIAlertView alert:@"성인인증 필요" message:@"성인검색 제한 설정을 해제하기 위해서는\n성인인증이 필요합니다.\n\n성인인증을 진행하시겠습니까?" containBoldText:@"성인인증을 진행하시겠습니까?" cancel:@"아니요" buttons:@[@"예"] completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 if (buttonIndex == 1) {//성인인증 진행이동
                     self.preferenceSwitchEvent(self.switchButton, self.indexPath, NO/*추후변경할 값 */);
+                } else {
+                    self.switchButton.on = YES;
                 }
-                self.switchButton.on = YES;
+                self.isSwitchWorking = NO;
             }];
         }
 
