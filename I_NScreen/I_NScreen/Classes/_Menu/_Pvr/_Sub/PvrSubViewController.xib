@@ -57,6 +57,10 @@
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TJp-LD-Obd">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="L6J-jq-MCB"/>
+                                <outlet property="delegate" destination="-1" id="wcN-n9-FKd"/>
+                            </connections>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" red="0.8980392157" green="0.92941176469999998" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>

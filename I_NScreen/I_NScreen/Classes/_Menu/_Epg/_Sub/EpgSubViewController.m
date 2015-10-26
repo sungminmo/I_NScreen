@@ -7,6 +7,8 @@
 //
 
 #import "EpgSubViewController.h"
+#import "IDScrollableTabBar.h"
+#import "BMXSwipableCell+ConfigureCell.h"
 
 @interface EpgSubViewController ()
 
@@ -23,12 +25,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
     [self setTagInit];
+    [self setViewInit];
 }
 
+#pragma mark - 초기화
+#pragma mark - 버튼 태그 초기화
 - (void)setTagInit
 {
     self.pBackBtn.tag = EPG_SUP_VIEW_BTN_01;
+}
+
+#pragma mark - 화면 초기화
+- (void)setViewInit
+{
+    IDItem *itemClock = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"clock"] text:@"10.26"];
+    IDItem *itemCamera = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"camera"] text:@"10.27"];
+    IDItem *itemMail = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"mail"] text:@"10.28"];
+    IDItem *itemFave = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"fave"] text:@"10.29"];
+    IDItem *itemGames = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"games"] text:@"10.30"];
+    IDItem *itemSettings = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"settings"] text:@"10.31"];
+    IDItem *itemMusic = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"music"] text:@"11.01"];
+    IDItem *itemZip = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"zip"] text:@"11.02"];
+    
+    IDScrollableTabBar *scrollableTabBarGray = [[IDScrollableTabBar alloc] initWithFrame:CGRectMake(0, 10, [UIScreen mainScreen].bounds.size.width, 0) itemWidth:74 items:itemClock,itemCamera,itemMail,itemFave,itemGames,itemSettings,itemMusic,itemZip, nil];
+    scrollableTabBarGray.delegate = self;
+    scrollableTabBarGray.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    //    [scrollableTabBarGray setArchImage:[UIImage imageNamed:@"grayArch"] centerImage:[UIImage imageNamed:@"grayCenter"] backGroundImage:[UIImage imageNamed:@"grayBackground"]];
+    
+    //    _backImageView.backgroundColor = [UIColor colorWithRed:198.0f/255.0f green:179.0f/255.0f blue:221.0f/255.0f alpha:1.0f];
+    //    [scrollableTabBarGray setArchImage:[UIImage imageNamed:@""] centerImage:[UIImage imageNamed:@""] backGroundImage:[UIImage imageNamed:@"blueBackground"]];
+    [scrollableTabBarGray setResizeCoeff:0.2f];
+    //you can hide divider image and shadow images
+    [scrollableTabBarGray setDividerImage:nil];
+    [scrollableTabBarGray setShadowImageRight:nil];
+    [scrollableTabBarGray setShadowImageLeft:nil];
+    [self.pSubChannelView addSubview:scrollableTabBarGray];
+}
+
+-(void)scrollTabBarAction : (NSNumber *)selectedNumber sender:(id)sender{
+    NSLog(@"selectedNumber - %@", selectedNumber);
 }
 
 - (IBAction)onBtnClick:(UIButton *)btn;
@@ -51,29 +88,22 @@
     
     static NSString *pCellIn = @"EpgSubTableViewCellIn";
     
-    EpgSubTableViewCell *pCell = (EpgSubTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
+    EpgSubTableViewCell* cell = (EpgSubTableViewCell*)[tableView dequeueReusableCellWithIdentifier:pCellIn];
     
-    if (pCell == nil)
+    if (cell == nil)
     {
         NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"EpgSubTableViewCell" owner:nil options:nil];
-        pCell = [arr objectAtIndex:0];
+        cell = [arr objectAtIndex:0];
     }
     
-    [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    [pCell setListData:nil WithIndex:(int)indexPath.row];
+    cell.delegate = self;
+    [cell configureCellForItem:@{@"More":@"TV로 시청", @"Delete":@"녹화중지"} WithItemCount:2];
     
-    return pCell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"delete");
-    }
+//    [pCell setListData:nil WithIndex:(int)indexPath.row];
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,5 +128,16 @@
     return 1;
 }
 
+#pragma mark - 델리게이트
+#pragma mark - EpgSubTableViewCellDelegate
+- (void)EpgSubTableViewMoreBtn:(int)nIndex
+{
+    
+}
+
+- (void)EpgSubTableViewDeleteBtn:(int)nIndex
+{
+    
+}
 
 @end

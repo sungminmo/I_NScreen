@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
 #import "EpgSubTableViewCell.h"
+#import "IDScrollableTabBarDelegate.h"
+#import "CMSearchTableViewCell.h"
 
-@interface EpgSubViewController : CMBaseViewController
+@interface EpgSubViewController : CMBaseViewController<IDScrollableTabBarDelegate, EpgSubTableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *pTableView;
 @property (nonatomic, weak) IBOutlet UIButton *pBackBtn;
+@property (nonatomic, strong) IBOutlet UIView *pSubChannelView;
 
 @end

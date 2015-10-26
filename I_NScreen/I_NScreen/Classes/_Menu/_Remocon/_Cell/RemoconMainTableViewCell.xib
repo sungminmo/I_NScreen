@@ -66,6 +66,15 @@
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="pAllImageView" destination="oCW-SG-ptv" id="86h-Ih-3f3"/>
+                <outlet property="pChannelLbl" destination="oMP-Fh-Yy9" id="Jiw-wb-KHJ"/>
+                <outlet property="pChannelLogoImageView" destination="ig9-3e-Hzi" id="oSr-Bz-CWT"/>
+                <outlet property="pHdImageView" destination="ZSN-7F-l2U" id="4I3-w3-z43"/>
+                <outlet property="pStarImageView" destination="f9l-eO-79O" id="U50-fv-D05"/>
+                <outlet property="pTimeLbl" destination="ojV-yP-qI0" id="etA-Qo-gLk"/>
+                <outlet property="pTitleLbl" destination="Yl2-Lt-fYr" id="qmG-21-M59"/>
+            </connections>
             <point key="canvasLocation" x="340" y="375"/>
         </tableViewCell>
     </objects>

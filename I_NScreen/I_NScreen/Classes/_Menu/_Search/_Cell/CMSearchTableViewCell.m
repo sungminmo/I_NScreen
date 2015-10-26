@@ -19,7 +19,7 @@
     
     [super awakeFromNib];
 
-    self.lineView.backgroundColor = [CMColor colorTableSeparator];
+//    self.lineView.backgroundColor = [CMColor colorTableSeparator];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

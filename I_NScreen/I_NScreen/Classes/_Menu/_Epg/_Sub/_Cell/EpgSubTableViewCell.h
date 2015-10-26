@@ -7,14 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <BMXSwipableCell/BMXSwipableCell.h>
 
-@interface EpgSubTableViewCell : UITableViewCell
+@protocol EpgSubTableViewDelegate;
 
-@property (nonatomic, weak) IBOutlet UIImageView *pLineImageView01;     // 윗라인
-@property (nonatomic, weak) IBOutlet UIImageView *pLineImageView02;     // 밑 라인
-@property (nonatomic, weak) IBOutlet UILabel     *pTitleLbl;            // 타이틀
-@property (nonatomic, weak) IBOutlet UILabel     *pTimeLbl;             // 시간
+@interface EpgSubTableViewCell : BMXSwipableCell
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index;
+//@property (nonatomic, weak) IBOutlet UIImageView *pLineImageView01;     // 윗라인
+//@property (nonatomic, weak) IBOutlet UIImageView *pLineImageView02;     // 밑 라인
+//@property (nonatomic, weak) IBOutlet UILabel     *pTitleLbl;            // 타이틀
+//@property (nonatomic, weak) IBOutlet UILabel     *pTimeLbl;             // 시간
+
+//- (void)setListData:(NSDictionary *)dic WithIndex:(int)index;
+
+@property (nonatomic, weak) id <EpgSubTableViewDelegate>delegate;
+
+@end
+
+@protocol EpgSubTableViewDelegate <NSObject>
+
+@optional
+- (void)EpgSubTableViewMoreBtn:(int)nIndex;
+- (void)EpgSubTableViewDeleteBtn:(int)nIndex;
+
 
 @end

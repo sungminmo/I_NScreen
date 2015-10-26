@@ -12,4 +12,6 @@
 
 - (void)configureCellForItem:(NSDictionary*)item;
 
+- (void)configureCellForItem:(NSDictionary *)item WithItemCount:(int)nCount;
+
 @end
