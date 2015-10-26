@@ -237,9 +237,7 @@ static const CGFloat pageSize = 28;
 #pragma mark - Event
 
 - (IBAction)buttonWasTouchUpInside:(id)sender {
-    
-//    [self.searchField resignFirstResponder];
-    
+
     [self resetData];
     
     self.searchField.text = @"";
@@ -248,8 +246,10 @@ static const CGFloat pageSize = 28;
 
 - (void)textMessageChanged:(CMTextField*)textField {
     
+    [self showAutoCompletList:NO];
+    
     if (self.searchWordTimer) {
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(requestSearchWord) object:nil];
+        [self.searchWordTimer invalidate];
     }
     
     self.searchWordTimer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(requestSearchWord) userInfo:nil repeats:false];

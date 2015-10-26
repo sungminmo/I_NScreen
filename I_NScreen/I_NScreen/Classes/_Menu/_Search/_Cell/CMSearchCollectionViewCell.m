@@ -24,6 +24,7 @@
 
 - (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title {
     
+    self.posterImageView.image = nil;
     [self.posterImageView setImageWithURL:[NSURL URLWithString:imageUrl]];
     self.titleLabel.text = title;
 }
