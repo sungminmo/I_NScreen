@@ -745,6 +745,7 @@
 		E5BE92051BD65F5A00970E16 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92031BD65F5A00970E16 /* BannerTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5BE92091BD65F7100970E16 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE92071BD65F7100970E16 /* CategoryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E5BE920A1BD65F7100970E16 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92081BD65F7100970E16 /* CategoryTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E5DA6AD21BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DE64BD1BCB4E3300FC3122 /* AniKidsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64BB1BCB4E3300FC3122 /* AniKidsMainViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -1617,6 +1618,8 @@
 		E5BE92061BD65F7100970E16 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = _Home/_Recommend/_Cell/CategoryTableViewCell.h; sourceTree = "<group>"; };
 		E5BE92071BD65F7100970E16 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = _Home/_Recommend/_Cell/CategoryTableViewCell.m; sourceTree = "<group>"; };
 		E5BE92081BD65F7100970E16 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryTableViewCell.xib; path = _Home/_Recommend/_Cell/CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		E5DA6AD01BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Pairing.h"; sourceTree = "<group>"; };
+		E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Pairing.m"; sourceTree = "<group>"; };
 		E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainViewController.h; path = _Home/_Adult/AdultMainViewController.h; sourceTree = "<group>"; };
 		E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdultMainViewController.m; path = _Home/_Adult/AdultMainViewController.m; sourceTree = "<group>"; };
 		E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdultMainViewController.xib; path = _Home/_Adult/AdultMainViewController.xib; sourceTree = "<group>"; };
@@ -2036,6 +2039,8 @@
 				99D808911BD5B76700533E35 /* NSMutableDictionary+SEARCH.m */,
 				99ECD5781BD5188B00EABA67 /* NSMutableDictionary+VOD.h */,
 				99ECD5791BD5188B00EABA67 /* NSMutableDictionary+VOD.m */,
+				E5DA6AD01BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.h */,
+				E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */,
 			);
 			path = _dictionaryModel;
 			sourceTree = "<group>";
@@ -4188,6 +4193,7 @@
 				E5BE92041BD65F5A00970E16 /* BannerTableViewCell.m in Sources */,
 				994BDB3E1BA3F6E8000B6260 /* CMPreferenceMainViewController.m in Sources */,
 				99C43C661BA3EDA10035A0A4 /* CMConstants.m in Sources */,
+				E5DA6AD21BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m in Sources */,
 				E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */,
 				99C43C5D1BA3EDA10035A0A4 /* UIViewController+OverlayView.m in Sources */,
 				20EAA3421BAE7D2C004DFCA0 /* CMTabMenuView.m in Sources */,

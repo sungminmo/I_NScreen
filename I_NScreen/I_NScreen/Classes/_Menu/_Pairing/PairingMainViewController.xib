@@ -10,8 +10,8 @@
                 <outlet property="pBackBtn" destination="Lib-ru-qjS" id="1wi-uN-bat"/>
                 <outlet property="pCancelBtn" destination="wBe-xK-rXa" id="7wp-dl-7ld"/>
                 <outlet property="pOkBtn" destination="Pnv-dy-B7n" id="q7Y-et-vwa"/>
-                <outlet property="pPwTextField" destination="Wdv-xf-VnO" id="jjb-kp-Rax"/>
-                <outlet property="pRePwTextFiled" destination="yPn-k9-zMz" id="yQZ-Xv-Xug"/>
+                <outlet property="pPwTextField" destination="Wdv-xf-VnO" id="nUX-He-NrN"/>
+                <outlet property="pRePwTextFiled" destination="yPn-k9-zMz" id="x14-LO-nhn"/>
                 <outlet property="view" destination="Sd3-CT-nfd" id="yza-GB-f5V"/>
             </connections>
         </placeholder>
@@ -102,15 +102,21 @@
                                             <color key="textColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="pwbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wdv-xf-VnO">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="pwbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wdv-xf-VnO" customClass="CMTextField">
                                             <rect key="frame" x="36" y="140" width="315" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="Xcb-qo-qcc"/>
+                                            </connections>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="pwbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="yPn-k9-zMz">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="pwbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="yPn-k9-zMz" customClass="CMTextField">
                                             <rect key="frame" x="36" y="239" width="315" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="CTd-Cx-us3"/>
+                                            </connections>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="인증번호가 일치하지 않습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zed-CW-y2i">
                                             <rect key="frame" x="0.0" y="285" width="386" height="21"/>

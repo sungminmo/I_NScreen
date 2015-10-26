@@ -40,7 +40,8 @@
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
-
+    self.pPwTextField.type = Secure_CMTextFieldType;
+    self.pRePwTextFiled.type = Secure_CMTextFieldType;
 }
 
 

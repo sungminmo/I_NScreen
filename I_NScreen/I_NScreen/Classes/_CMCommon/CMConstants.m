@@ -37,6 +37,19 @@ NSString* const CNM_TEST_TERMINAL_KEY = @"FAC7AE9F9936BBFEB468F2F6FBEA240";
 // real 테스트용 터미널 Key
 NSString* const CNM_REAL_TEST_TERMINAL_KEY = @"9CED3A20FB6A4D7FF35D1AC965F988D2";
 
+/*<!
+ WEBHAS 에선 터미널 키가 두개 존재 한다.
+ Public 이랑 Private 키가 두개 존재하는데 public 터미널 키는 페어링 하지 않은 사용자가 쓸 터미널 키이고
+ private 는 페어링 한 사용자가 서버에서 받은 터미널 키이다.
+ 현재 테스트용으로 private 도 박아놨지만 차후 서버에서 받아온 터미널 키를 private 엔 대체 하도록.
+*/
+
+// public terminalKey
+NSString* const CNM_PUBLIC_TERMINAL_KEY = @"8A5D2E45D3874824FF23EC97F78D358";
+
+// private terminalKey
+NSString* const CNM_PRIVATE_TERMINAL_KEY = @"C5E6DBF75F13A2C1D5B2EFDB2BC940";
+ 
 // 기본 정보(지역코드, 상품코드)
 NSString* const CNM_DEFAULT_AREA_CODE = @"12";
 NSString* const CNM_DEFAULT_PRODUCT_CODE = @"12";
@@ -262,6 +275,13 @@ NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule = @"getChannelSchedule
 // searchSchedule
 NSString* const CNM_OPEN_API_INTERFACE_SearchSchedule = @"searchSchedule";
 
+
+// 7. Pairing
+// addUser
+NSString* const CNM_OPEN_API_INTERFACE_AddUser = @"addUser";
+
+// authenticateDevice
+NSString* const CNM_OPEN_API_INTERFACE_AuthenticateDevice = @"authenticateDevice";
 
 @implementation STVConstants
 

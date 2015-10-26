@@ -116,6 +116,13 @@ extern NSString* const CNM_REAL_TEST_TERMINAL_KEY;
 extern NSString* const CNM_DEFAULT_AREA_CODE;
 extern NSString* const CNM_DEFAULT_PRODUCT_CODE;
 
+
+// public terminalKey
+extern NSString* const CNM_PUBLIC_TERMINAL_KEY;
+
+// private terminalKey
+extern NSString* const CNM_PRIVATE_TERMINAL_KEY;
+
 // ----------------------------------------------------------------------------------
 // 미러TV 에러 메시지.
 // ----------------------------------------------------------------------------------
@@ -334,6 +341,13 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule;
 // searchSchedule
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchSchedule;
 
+// Pairing
+
+// addUser
+extern NSString* const CNM_OPEN_API_INTERFACE_AddUser;
+
+// authenticateDevice
+extern NSString* const CNM_OPEN_API_INTERFACE_AuthenticateDevice;
 
 @interface STVConstants : NSObject
 

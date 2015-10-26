@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMTextField.h"
 #import "CMBaseViewController.h"
 
-@interface PairingMainViewController : CMBaseViewController
+@interface PairingMainViewController : CMBaseViewController<UITextFieldDelegate>
 
-@property (nonatomic, strong) IBOutlet UITextField *pPwTextField;
-@property (nonatomic, strong) IBOutlet UITextField *pRePwTextFiled;
+@property (nonatomic, strong) IBOutlet CMTextField *pPwTextField;
+@property (nonatomic, strong) IBOutlet CMTextField *pRePwTextFiled;
 
 @property (nonatomic, strong) IBOutlet UIButton *pBackBtn;
 @property (nonatomic, strong) IBOutlet UIButton *pCancelBtn;
