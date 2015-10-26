@@ -10,6 +10,9 @@
 
 @interface RemoconMainTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) IBOutlet UIImageView *pStarImageView; // 별표
+@property (nonatomic, strong) IBOutlet UIImageView *pChannelImageView;
+
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index;
 
 @end

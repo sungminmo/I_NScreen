@@ -136,12 +136,6 @@
 		E5567BBD1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */; };
 		E567629E1BCF361B00221AF8 /* CMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E567629C1BCF361B00221AF8 /* CMPageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E567629F1BCF361B00221AF8 /* CMPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E567629D1BCF361B00221AF8 /* CMPageViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		E5A6E2F51BDDBC73005AC701 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2F41BDDBC73005AC701 /* libz.tbd */; };
-		E5A6E2F71BDDBD0C005AC701 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */; };
-		E5A6E2F91BDDBD1B005AC701 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */; };
-		E5A6E2FB1BDDBD26005AC701 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FA1BDDBD26005AC701 /* libresolv.tbd */; };
-		E5A6E2FD1BDDBD3A005AC701 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FC1BDDBD3A005AC701 /* libSystem.tbd */; };
-		E5A6E2FF1BDDBD45005AC701 /* libcommonCrypto.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FE1BDDBD45005AC701 /* libcommonCrypto.tbd */; };
 		E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230A1BD137200076AF97 /* CMPageCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5A9230D1BD137200076AF97 /* CMPageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -1589,12 +1583,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5A6E2FF1BDDBD45005AC701 /* libcommonCrypto.tbd in Frameworks */,
-				E5A6E2FD1BDDBD3A005AC701 /* libSystem.tbd in Frameworks */,
-				E5A6E2FB1BDDBD26005AC701 /* libresolv.tbd in Frameworks */,
-				E5A6E2F91BDDBD1B005AC701 /* libxml2.tbd in Frameworks */,
-				E5A6E2F71BDDBD0C005AC701 /* libc++.tbd in Frameworks */,
-				E5A6E2F51BDDBC73005AC701 /* libz.tbd in Frameworks */,
 				E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */,
 				992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */,
 				564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */,
