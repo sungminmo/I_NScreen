@@ -136,6 +136,12 @@
 		E5567BBD1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */; };
 		E567629E1BCF361B00221AF8 /* CMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E567629C1BCF361B00221AF8 /* CMPageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E567629F1BCF361B00221AF8 /* CMPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E567629D1BCF361B00221AF8 /* CMPageViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5A6E2F51BDDBC73005AC701 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2F41BDDBC73005AC701 /* libz.tbd */; };
+		E5A6E2F71BDDBD0C005AC701 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */; };
+		E5A6E2F91BDDBD1B005AC701 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */; };
+		E5A6E2FB1BDDBD26005AC701 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FA1BDDBD26005AC701 /* libresolv.tbd */; };
+		E5A6E2FD1BDDBD3A005AC701 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FC1BDDBD3A005AC701 /* libSystem.tbd */; };
+		E5A6E2FF1BDDBD45005AC701 /* libcommonCrypto.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FE1BDDBD45005AC701 /* libcommonCrypto.tbd */; };
 		E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230A1BD137200076AF97 /* CMPageCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5A9230D1BD137200076AF97 /* CMPageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -250,7 +256,6 @@
 		E5B553821BD9DD3F00AA02B2 /* longnormal.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B551341BD9DD3E00AA02B2 /* longnormal.png */; settings = {ASSET_TAGS = (); }; };
 		E5B553831BD9DD3F00AA02B2 /* longnormal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B551351BD9DD3E00AA02B2 /* longnormal@2x.png */; settings = {ASSET_TAGS = (); }; };
 		E5B553841BD9DD3F00AA02B2 /* longselect.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B551361BD9DD3E00AA02B2 /* longselect.png */; settings = {ASSET_TAGS = (); }; };
-		E5B553851BD9DD3F00AA02B2 /* longselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B551371BD9DD3E00AA02B2 /* longselect@2x.png */; settings = {ASSET_TAGS = (); }; };
 		E5B553861BD9DD3F00AA02B2 /* p1btn_cancel_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B551381BD9DD3E00AA02B2 /* p1btn_cancel_normal@2x.png */; settings = {ASSET_TAGS = (); }; };
 		E5B553871BD9DD3F00AA02B2 /* p1btn_cancel_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B551391BD9DD3E00AA02B2 /* p1btn_cancel_press@2x.png */; settings = {ASSET_TAGS = (); }; };
 		E5B553881BD9DD3F00AA02B2 /* p1btn_ok_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B5513A1BD9DD3E00AA02B2 /* p1btn_ok_normal.png */; settings = {ASSET_TAGS = (); }; };
@@ -960,6 +965,12 @@
 		E567629B1BCF361B00221AF8 /* CMPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageViewController.h; sourceTree = "<group>"; };
 		E567629C1BCF361B00221AF8 /* CMPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageViewController.m; sourceTree = "<group>"; };
 		E567629D1BCF361B00221AF8 /* CMPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageViewController.xib; sourceTree = "<group>"; };
+		E5A6E2F41BDDBC73005AC701 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		E5A6E2FA1BDDBD26005AC701 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		E5A6E2FC1BDDBD3A005AC701 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
+		E5A6E2FE1BDDBD45005AC701 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 		E5A923091BD137200076AF97 /* CMPageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageCollectionViewController.h; sourceTree = "<group>"; };
 		E5A9230A1BD137200076AF97 /* CMPageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageCollectionViewController.m; sourceTree = "<group>"; };
 		E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageCollectionViewController.xib; sourceTree = "<group>"; };
@@ -1077,7 +1088,6 @@
 		E5B551341BD9DD3E00AA02B2 /* longnormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longnormal.png; sourceTree = "<group>"; };
 		E5B551351BD9DD3E00AA02B2 /* longnormal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "longnormal@2x.png"; sourceTree = "<group>"; };
 		E5B551361BD9DD3E00AA02B2 /* longselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = longselect.png; sourceTree = "<group>"; };
-		E5B551371BD9DD3E00AA02B2 /* longselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "longselect@2x.png"; sourceTree = "<group>"; };
 		E5B551381BD9DD3E00AA02B2 /* p1btn_cancel_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p1btn_cancel_normal@2x.png"; sourceTree = "<group>"; };
 		E5B551391BD9DD3E00AA02B2 /* p1btn_cancel_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p1btn_cancel_press@2x.png"; sourceTree = "<group>"; };
 		E5B5513A1BD9DD3E00AA02B2 /* p1btn_ok_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p1btn_ok_normal.png; sourceTree = "<group>"; };
@@ -1579,6 +1589,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A6E2FF1BDDBD45005AC701 /* libcommonCrypto.tbd in Frameworks */,
+				E5A6E2FD1BDDBD3A005AC701 /* libSystem.tbd in Frameworks */,
+				E5A6E2FB1BDDBD26005AC701 /* libresolv.tbd in Frameworks */,
+				E5A6E2F91BDDBD1B005AC701 /* libxml2.tbd in Frameworks */,
+				E5A6E2F71BDDBD0C005AC701 /* libc++.tbd in Frameworks */,
+				E5A6E2F51BDDBC73005AC701 /* libz.tbd in Frameworks */,
 				E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */,
 				992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */,
 				564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */,
@@ -1630,6 +1646,12 @@
 		2A31540C6A4435CD145AFDE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5A6E2FE1BDDBD45005AC701 /* libcommonCrypto.tbd */,
+				E5A6E2FC1BDDBD3A005AC701 /* libSystem.tbd */,
+				E5A6E2FA1BDDBD26005AC701 /* libresolv.tbd */,
+				E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */,
+				E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */,
+				E5A6E2F41BDDBC73005AC701 /* libz.tbd */,
 				E5F6DDEB1BB0EBB7006C4DD4 /* UIKit.framework */,
 				992894FC1BA3E69000BE62A0 /* QuartzCore.framework */,
 				992894FA1BA3E68700BE62A0 /* CFNetwork.framework */,
@@ -1752,6 +1774,7 @@
 		99C43C091BA3EDA10035A0A4 /* _CMCommon */ = {
 			isa = PBXGroup;
 			children = (
+				E5A6E2F01BDDBBAE005AC701 /* _drmLb */,
 				E54CC0A21BCCA0C6003806C0 /* _sbjson */,
 				994BDB2D1BA3F5C5000B6260 /* _view */,
 				99C43C0A1BA3EDA10035A0A4 /* _category */,
@@ -2145,6 +2168,13 @@
 			name = _Cell;
 			sourceTree = "<group>";
 		};
+		E5A6E2F01BDDBBAE005AC701 /* _drmLb */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = _drmLb;
+			sourceTree = "<group>";
+		};
 		E5B550BF1BD9D97100AA02B2 /* _Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2311,7 +2341,6 @@
 				E5B551341BD9DD3E00AA02B2 /* longnormal.png */,
 				E5B551351BD9DD3E00AA02B2 /* longnormal@2x.png */,
 				E5B551361BD9DD3E00AA02B2 /* longselect.png */,
-				E5B551371BD9DD3E00AA02B2 /* longselect@2x.png */,
 				E5B551381BD9DD3E00AA02B2 /* p1btn_cancel_normal@2x.png */,
 				E5B551391BD9DD3E00AA02B2 /* p1btn_cancel_press@2x.png */,
 				E5B5513A1BD9DD3E00AA02B2 /* p1btn_ok_normal.png */,
@@ -3645,7 +3674,6 @@
 				E5B554B01BD9DD3F00AA02B2 /* genresports_normal@3x.png in Resources */,
 				E5B555271BD9DD3F00AA02B2 /* icon_q_normal@3x.png in Resources */,
 				E52EE5801BD508AF00797251 /* PvrMainViewController.xib in Resources */,
-				E5B553851BD9DD3F00AA02B2 /* longselect@2x.png in Resources */,
 				E5B553D31BD9DD3F00AA02B2 /* vod3btn_select.png in Resources */,
 				E5B553C61BD9DD3F00AA02B2 /* seriesno_bg.png in Resources */,
 				E5B553ED1BD9DD3F00AA02B2 /* genrenews_select@2x.png in Resources */,
@@ -4139,9 +4167,15 @@
 				INFOPLIST_FILE = "$(SRCROOT)/I_NScreen/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/I_NScreen/Classes/_CMCommon/_drmLb",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.cnm.ncreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -4156,9 +4190,15 @@
 				INFOPLIST_FILE = "$(SRCROOT)/I_NScreen/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/I_NScreen/Classes/_CMCommon/_drmLb",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.cnm.ncreen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
