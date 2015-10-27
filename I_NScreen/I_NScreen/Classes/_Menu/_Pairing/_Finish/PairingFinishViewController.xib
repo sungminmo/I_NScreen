@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PairingFinishViewController">
             <connections>
-                <outlet property="pBackBtn" destination="hFr-qZ-49v" id="eo3-Bk-nmO"/>
                 <outlet property="pOkBtn" destination="WaK-Y4-etE" id="AH9-wt-1cl"/>
                 <outlet property="view" destination="dWw-Ul-891" id="BIj-Ai-AyM"/>
             </connections>
@@ -17,19 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mVz-io-jYA" userLabel="View(해더)">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVz-io-jYA" userLabel="View(해더)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFr-qZ-49v">
-                            <rect key="frame" x="17" y="47" width="9" height="18"/>
-                            <state key="normal" image="back.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="BG7-Ed-NRh"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="셋탑박스 등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSS-4Z-8tn">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="셋탑박스 등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSS-4Z-8tn">
                             <rect key="frame" x="0.0" y="45" width="414" height="26"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,23 +27,33 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="xSS-4Z-8tn" secondAttribute="trailing" id="GH6-Rz-YVN"/>
+                        <constraint firstItem="xSS-4Z-8tn" firstAttribute="leading" secondItem="mVz-io-jYA" secondAttribute="leading" id="JbL-eJ-HVZ"/>
+                        <constraint firstItem="xSS-4Z-8tn" firstAttribute="top" secondItem="mVz-io-jYA" secondAttribute="top" constant="45" id="Qd5-4F-n8z"/>
+                        <constraint firstAttribute="bottom" secondItem="xSS-4Z-8tn" secondAttribute="bottom" constant="22" id="eZ3-R8-pUs"/>
+                    </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6P9-Ql-b5v">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6P9-Ql-b5v">
                     <rect key="frame" x="0.0" y="93" width="414" height="643"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjN-e5-ze7" userLabel="View2">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XjN-e5-ze7" userLabel="View2">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="555"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_pairingbig.png" translatesAutoresizingMaskIntoConstraints="NO" id="RDl-sm-2kW">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pairingbig.png" translatesAutoresizingMaskIntoConstraints="NO" id="RDl-sm-2kW">
                                     <rect key="frame" x="162" y="179" width="89" height="71"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="89" id="DYm-rh-BPq"/>
+                                        <constraint firstAttribute="height" constant="71" id="Vhl-P7-wfX"/>
+                                    </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="셋탑박스가 모바일 앱에" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXs-MY-r0u">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="셋탑박스가 모바일 앱에" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXs-MY-r0u">
                                     <rect key="frame" x="45" y="267" width="323" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.30588235289999999" green="0.18823529410000001" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="성공적으로 등록 되었습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqk-a1-i9c">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성공적으로 등록 되었습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqk-a1-i9c">
                                     <rect key="frame" x="45" y="294" width="323" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.30588235289999999" green="0.18823529410000001" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,11 +61,22 @@
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="eXs-MY-r0u" firstAttribute="centerX" secondItem="XjN-e5-ze7" secondAttribute="centerX" id="07T-2Z-Gbk"/>
+                                <constraint firstAttribute="height" constant="555" id="2yx-4y-Rrl"/>
+                                <constraint firstItem="gqk-a1-i9c" firstAttribute="trailing" secondItem="eXs-MY-r0u" secondAttribute="trailing" id="Cfn-ug-pjP"/>
+                                <constraint firstItem="gqk-a1-i9c" firstAttribute="leading" secondItem="eXs-MY-r0u" secondAttribute="leading" id="Iwb-g2-QmF"/>
+                                <constraint firstItem="gqk-a1-i9c" firstAttribute="top" secondItem="eXs-MY-r0u" secondAttribute="bottom" constant="6" id="LCl-g0-OjR"/>
+                                <constraint firstItem="eXs-MY-r0u" firstAttribute="centerY" secondItem="XjN-e5-ze7" secondAttribute="centerY" id="Q8B-iX-1fT"/>
+                                <constraint firstItem="eXs-MY-r0u" firstAttribute="centerX" secondItem="RDl-sm-2kW" secondAttribute="centerX" id="QOh-ZC-GIf"/>
+                                <constraint firstItem="eXs-MY-r0u" firstAttribute="leading" secondItem="XjN-e5-ze7" secondAttribute="leading" constant="45" id="ZOU-Vo-cbX"/>
+                                <constraint firstItem="eXs-MY-r0u" firstAttribute="top" secondItem="RDl-sm-2kW" secondAttribute="bottom" constant="17" id="kSq-8s-8Un"/>
+                            </constraints>
                         </view>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O8c-m0-oEQ" userLabel="View4">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8c-m0-oEQ" userLabel="View4">
                             <rect key="frame" x="0.0" y="555" width="414" height="88"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaK-Y4-etE">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaK-Y4-etE">
                                     <rect key="frame" x="14" y="21" width="386" height="45"/>
                                     <state key="normal" title="등록완료" backgroundImage="p2btn_ok_normal.png"/>
                                     <state key="highlighted" backgroundImage="p2btn_ok_press.png"/>
@@ -75,17 +86,42 @@
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="WaK-Y4-etE" firstAttribute="top" secondItem="O8c-m0-oEQ" secondAttribute="top" constant="21" id="NM0-YN-9ZI"/>
+                                <constraint firstItem="WaK-Y4-etE" firstAttribute="leading" secondItem="O8c-m0-oEQ" secondAttribute="leading" constant="14" id="T8d-12-Hwm"/>
+                                <constraint firstItem="WaK-Y4-etE" firstAttribute="centerX" secondItem="O8c-m0-oEQ" secondAttribute="centerX" id="ymH-O4-KfT"/>
+                                <constraint firstItem="WaK-Y4-etE" firstAttribute="centerY" secondItem="O8c-m0-oEQ" secondAttribute="centerY" id="zEC-w6-YlX"/>
+                            </constraints>
                         </view>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="XjN-e5-ze7" firstAttribute="leading" secondItem="O8c-m0-oEQ" secondAttribute="leading" id="2iz-En-iSp"/>
+                        <constraint firstItem="XjN-e5-ze7" firstAttribute="leading" secondItem="6P9-Ql-b5v" secondAttribute="leading" id="9eI-nk-jK0"/>
+                        <constraint firstItem="O8c-m0-oEQ" firstAttribute="top" secondItem="XjN-e5-ze7" secondAttribute="bottom" id="Kac-4Z-7hG"/>
+                        <constraint firstAttribute="bottom" secondItem="O8c-m0-oEQ" secondAttribute="bottom" id="ZRc-qh-zgm"/>
+                        <constraint firstItem="O8c-m0-oEQ" firstAttribute="trailing" secondItem="XjN-e5-ze7" secondAttribute="trailing" id="aya-1a-SNZ"/>
+                        <constraint firstItem="XjN-e5-ze7" firstAttribute="centerX" secondItem="6P9-Ql-b5v" secondAttribute="centerX" id="buW-Le-vI4"/>
+                        <constraint firstAttribute="trailing" secondItem="XjN-e5-ze7" secondAttribute="trailing" id="pz1-1L-Jhe"/>
+                        <constraint firstItem="XjN-e5-ze7" firstAttribute="top" secondItem="6P9-Ql-b5v" secondAttribute="top" id="xn1-ZV-BLf"/>
+                    </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mVz-io-jYA" firstAttribute="top" secondItem="dWw-Ul-891" secondAttribute="top" id="21Y-Ng-irY"/>
+                <constraint firstItem="6P9-Ql-b5v" firstAttribute="top" secondItem="mVz-io-jYA" secondAttribute="bottom" id="5X9-M8-tna"/>
+                <constraint firstItem="6P9-Ql-b5v" firstAttribute="top" secondItem="dWw-Ul-891" secondAttribute="top" constant="93" id="HfW-4G-W3R"/>
+                <constraint firstItem="6P9-Ql-b5v" firstAttribute="trailing" secondItem="mVz-io-jYA" secondAttribute="trailing" id="dFf-J5-nXK"/>
+                <constraint firstItem="6P9-Ql-b5v" firstAttribute="leading" secondItem="dWw-Ul-891" secondAttribute="leading" id="eqI-fG-zkg"/>
+                <constraint firstAttribute="trailing" secondItem="6P9-Ql-b5v" secondAttribute="trailing" id="rZt-PC-bFh"/>
+                <constraint firstAttribute="bottom" secondItem="6P9-Ql-b5v" secondAttribute="bottom" id="woV-JO-47c"/>
+                <constraint firstItem="6P9-Ql-b5v" firstAttribute="leading" secondItem="mVz-io-jYA" secondAttribute="leading" id="x3q-Rl-ghw"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="560" y="280"/>
         </view>
     </objects>
     <resources>
-        <image name="back.png" width="9" height="18"/>
         <image name="icon_pairingbig.png" width="87" height="70"/>
         <image name="p2btn_ok_normal.png" width="172" height="45"/>
         <image name="p2btn_ok_press.png" width="172" height="45"/>

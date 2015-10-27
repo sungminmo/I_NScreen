@@ -31,8 +31,7 @@
 #pragma mark - 테그 초기화
 - (void)setTagInit
 {
-    self.pBackBtn.tag = PAIRING_FINISH_VIEW_BTN_01;
-    self.pOkBtn.tag = PAIRING_FINISH_VIEW_BTN_02;
+    self.pOkBtn.tag = PAIRING_FINISH_VIEW_BTN_01;
 }
 
 #pragma mark - 화면 초기화
@@ -49,11 +48,6 @@
     
     switch ([btn tag]) {
         case PAIRING_FINISH_VIEW_BTN_01:
-        {
-            // 등록 취소
-            [self.navigationController popViewControllerAnimated:YES];
-        }break;
-        case PAIRING_FINISH_VIEW_BTN_02:
         {
             // 완료
             [self.navigationController popToRootViewControllerAnimated:YES];

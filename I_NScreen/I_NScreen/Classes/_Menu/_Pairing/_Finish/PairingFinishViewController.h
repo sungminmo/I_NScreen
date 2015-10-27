@@ -11,7 +11,6 @@
 
 @interface PairingFinishViewController : CMBaseViewController
 
-@property (nonatomic, strong) IBOutlet UIButton *pBackBtn;
 @property (nonatomic, strong) IBOutlet UIButton *pOkBtn;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
