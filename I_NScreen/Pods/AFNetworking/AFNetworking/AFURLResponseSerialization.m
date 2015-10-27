@@ -221,11 +221,8 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
         return nil;
     }
 
-//    self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
+    self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
 
-    // !! test bjk
-    self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"application/xml", @"text/html", nil];
-    
     return self;
 }
 
@@ -254,9 +251,6 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     id responseObject = nil;
     NSError *serializationError = nil;
     @autoreleasepool {
-        
-        
-        
         NSString *responseString = [[NSString alloc] initWithData:data encoding:stringEncoding];
         if (responseString && ![responseString isEqualToString:@" "]) {
             // Workaround for a bug in NSJSONSerialization when Unicode character escape codes are used instead of the actual character
@@ -266,15 +260,6 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
             if (data) {
                 if ([data length] > 0) {
                     responseObject = [NSJSONSerialization JSONObjectWithData:data options:self.readingOptions error:&serializationError];
-
-                    //////////////
-                    // !! test bjk
-                    /////  json xml 구분
-//                    if ( [responseObject length] == 0 )
-//                    {
-//                        return [[NSXMLParser alloc] initWithData:data];
-//                    }
-                    
                 } else {
                     return nil;
                 }

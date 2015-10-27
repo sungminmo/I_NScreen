@@ -50,7 +50,7 @@
     [self.window makeKeyAndVisible];
     
     
-    [self settingCommonApperance];//공통 디자인을 세팅한다. 
+    [self settingCommonApperance];//공통 디자인을 세팅한다.
     
     return YES;
 }
