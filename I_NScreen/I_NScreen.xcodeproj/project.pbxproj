@@ -138,6 +138,7 @@
 		E567629F1BCF361B00221AF8 /* CMPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E567629D1BCF361B00221AF8 /* CMPageViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57042891BDF407F00057D10 /* PairingRePwViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */ = {isa = PBXBuildFile; fileRef = E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30C1BDE1B4B005AC701 /* IDScrollableTabBar.m */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30F1BDE1B4B005AC701 /* IDScrollableTabBarItem.m */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3331BDE1CC2005AC701 /* defaultArch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3131BDE1CC2005AC701 /* defaultArch.png */; settings = {ASSET_TAGS = (); }; };
@@ -998,6 +999,8 @@
 		E57042881BDF407F00057D10 /* PairingRePwViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PairingRePwViewController.h; path = _Pairing/PairingRePwViewController.h; sourceTree = "<group>"; };
 		E57042891BDF407F00057D10 /* PairingRePwViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PairingRePwViewController.m; path = _Pairing/PairingRePwViewController.m; sourceTree = "<group>"; };
 		E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingRePwViewController.xib; path = _Pairing/PairingRePwViewController.xib; sourceTree = "<group>"; };
+		E570428D1BDF5B3E00057D10 /* NSMutableDictionary+PVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PVR.h"; sourceTree = "<group>"; };
+		E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PVR.m"; sourceTree = "<group>"; };
 		E5A6E2F41BDDBC73005AC701 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -2046,6 +2049,8 @@
 				99ECD5791BD5188B00EABA67 /* NSMutableDictionary+VOD.m */,
 				E5DA6AD01BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.h */,
 				E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */,
+				E570428D1BDF5B3E00057D10 /* NSMutableDictionary+PVR.h */,
+				E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */,
 			);
 			path = _dictionaryModel;
 			sourceTree = "<group>";
@@ -4152,6 +4157,7 @@
 				99C43C561BA3EDA10035A0A4 /* NSString+Hash.m in Sources */,
 				E51181901BA7ACF900C1E31D /* EpgSubViewController.m in Sources */,
 				994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */,
+				E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */,
 				99E41C801BD49F3300C64056 /* CMDBDataManager.m in Sources */,
 				99C43C691BA3EDA10035A0A4 /* EpgMainViewController.m in Sources */,
 				E5567BB71BA9558B00AB4003 /* MyCMZimListTableViewCell.m in Sources */,

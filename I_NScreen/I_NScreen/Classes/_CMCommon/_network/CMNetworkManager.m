@@ -25,6 +25,10 @@
 
 @end
 
+@implementation CMRUMPUSServerClientVPN
+
+@end
+
 @implementation CMAirCodeServerClient
 
 @end
@@ -85,6 +89,9 @@
         
         self.rumClient = [[CMRUMPUSServerClient alloc] initWithBaseURL:[NSURL URLWithString:CNM_RUMPUS_OPEN_API_SERVER_URL]];
         self.rumClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+        
+        self.rumClientVpn = [[CMRUMPUSServerClientVPN alloc] initWithBaseURL:[NSURL URLWithString:CNM_RUMPUS_OPEN_API_SERVER_URL_VPN]];
+        self.rumClientVpn.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 
         self.acodeClient = [[CMAirCodeServerClient alloc] initWithBaseURL:[NSURL URLWithString:CNM_AIRCODE_OPEN_API_SERVER_URL]];
         self.acodeClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
@@ -620,6 +627,77 @@
         
         block(nil, error);
     }];
+}
+
+// !! TEST BJK
+// 현재 privte 터미널 키를 서버 이슈로 못받고 있기 때문에 public 터미널 키를 박음 수정 해야함
+- (NSURLSessionDataTask *)pvrGetrecordlistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
+{
+
+    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_Getrecordlist];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PUBLIC_TERMINAL_KEY,
+                           @"deviceId" : @"1234567889"
+                           };
+    return [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+       
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+}
+
+- (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
+{
+    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : @"1",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           @"deviceId" : @"739d8470f604cfceb13784ab94fc368256253477"
+                           };
+    return [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    
+    
+//    
+//    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
+//    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+//    
+//    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist];
+//    NSDictionary *dict = @{
+//                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+//                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+//                           @"deviceId" : @"739d8470f604cfceb13784ab94fc368256253477"
+//                           };
+//    
+//    return [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        
+//        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+//        
+//        block(@[result], nil);
+//    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+//        block(nil, error);
+//    }];
+
 }
 
 @end

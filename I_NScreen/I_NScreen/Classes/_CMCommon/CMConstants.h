@@ -103,6 +103,9 @@ extern NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL;
 
 extern NSString* const CNM_RUMPUS_OPEN_API_SERVER_URL;
 
+// RUMPUS Server VPN 용 open API 서버 IP
+extern NSString* const CNM_RUMPUS_OPEN_API_SERVER_URL_VPN;
+
 // C&M SMApplicationSever openAPI 프로토콜 버전.
 extern NSString* const CNM_OPEN_API_VERSION;
 
@@ -353,6 +356,13 @@ extern NSString* const CNM_OPEN_API_INTERFACE_AddUser;
 
 // authenticateDevice
 extern NSString* const CNM_OPEN_API_INTERFACE_AuthenticateDevice;
+
+// pvr
+// dev.getrecordlist
+extern NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist;
+
+// dev.getrecordReservelist
+extern NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist;
 
 @interface STVConstants : NSObject
 

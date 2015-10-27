@@ -27,6 +27,9 @@ NSString* const CNM_AIRCODE_OPEN_API_SERVER_URL = @"http://58.141.255.69:8080/ns
 // C&M RUMPUS Server open API 서버 IP
 NSString* const CNM_RUMPUS_OPEN_API_SERVER_URL = @"http://58.141.255.80/smapplicationserver/";
 
+// C&M RUMPUS Server open API 서버 IP VPN용
+NSString* const CNM_RUMPUS_OPEN_API_SERVER_URL_VPN = @"http://192.168.44.10/smapplicationserver/";
+
 // C&M SMApplicationSever openAPI 프로토콜 버전.
 //NSString* const CNM_OPEN_API_VERSION = @"SmartMobile_v1.0.0";
 NSString* const CNM_OPEN_API_VERSION = @"1";
@@ -289,6 +292,13 @@ NSString* const CNM_OPEN_API_INTERFACE_AddUser = @"addUser";
 
 // authenticateDevice
 NSString* const CNM_OPEN_API_INTERFACE_AuthenticateDevice = @"authenticateDevice";
+
+// 8. pvr
+// dev.getrecordlist
+NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist = @"dev.getrecordReservelist";
+
+// dev.getrecordReservelist
+NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist = @"dev.getrecordlist";
 
 @implementation STVConstants
 

@@ -7,6 +7,8 @@
 //
 
 #import "PvrMainViewController.h"
+#import "NSMutableDictionary+PVR.h"
+#import "UIAlertView+AFNetworking.h"
 
 @interface PvrMainViewController ()
 
@@ -23,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setTagInit];
+    [self setViewInit];
 }
 
 #pragma mark - 초기화
@@ -32,6 +35,13 @@
     self.pBackBtn.tag = PVR_MAIN_VIEW_BTN_01;
     self.pReservationBtn.tag = PVR_MAIN_VIEW_BTN_02;
     self.pListBtn.tag = PVR_MAIN_VIEW_BTN_03;
+}
+
+#pragma mark - 화면 초기화
+-(void)setViewInit
+{
+    // 초기 예약 녹화 리스트
+    [self requestWithRecordReservelist];
 }
 
 #pragma mark - 액션 이벤트
@@ -112,14 +122,36 @@
     return 1;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+#pragma mark - 전문
+#pragma mark - 예약 녹화물 리스트
+- (void)requestWithRecordReservelist
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary pvrGetrecordReservelistCompletion:^(NSArray *pvr, NSError *error) {
+       
+        NSLog(@"예약 녹화물 리스트 = [%@]", pvr);
+        
+        if ( [pvr count] == 0 )
+            return ;
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"delete");
-    }
+#pragma mark - 녹화 목록 리스트
+- (void)requestWithRecordList
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary pvrGetrecordlistCompletion:^(NSArray *pvr, NSError *error) {
+        
+        NSLog(@"녹화 목록 리스트 = [%@]", pvr);
+        
+        if ( [pvr count] == 0 )
+            return;
+        
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
+
+
 
 @end

@@ -21,6 +21,10 @@
 @interface CMRUMPUSServerClient : AFHTTPSessionManager
 @end
 
+@interface CMRUMPUSServerClientVPN : AFHTTPSessionManager
+
+@end
+
 @interface CMAirCodeServerClient : AFHTTPSessionManager
 @end
 
@@ -30,6 +34,7 @@
 @property (nonatomic, strong) CMSMAppServerClient* smClient;
 @property (nonatomic, strong) CMWebHasServerClient* webClient;
 @property (nonatomic, strong) CMRUMPUSServerClient* rumClient;
+@property (nonatomic, strong) CMRUMPUSServerClientVPN* rumClientVpn;
 @property (nonatomic, strong) CMAirCodeServerClient* acodeClient;
 
 + (CMNetworkManager *)sharedInstance;
@@ -98,5 +103,18 @@
 // privte 터미널 키 획득
 // 192.168.40.5:8080/HApplicationServer/authenticateDevice.json?version=1&secondDeviceId=6192378192479184
 - (NSURLSessionDataTask *)pairingAuthenticateDeviceCompletion:(void (^)(NSArray *pairing, NSError *error))block;
+
+@end
+
+@interface CMNetworkManager ( PVR )
+
+// 녹화
+// 녹화 목록 리스트
+// ext) 192.168.44.10/SMApplicationserver/dev.getrecordlist.asp?Version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&deviceId=739d8470f604cfceb13784ab94fc368256253477
+- (NSURLSessionDataTask *)pvrGetrecordlistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
+
+// 예약 녹화 목록 리스트
+// ex)192.168.44.10/SMApplicationserver/dev.getrecordReservelist.asp?Version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&deviceId=739d8470f604cfceb13784ab94fc368256253477
+- (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
 
 @end
