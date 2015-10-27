@@ -126,8 +126,9 @@
         {
             // 성공이면
             // uuid 및 구매 번호 keychain 에 저장
-            // 받아온 terminalKey 값이 private terminalKey가 됨 현재 private terminal key 받는 api 안됨 
-            
+            // 받아온 terminalKey 값이 private terminalKey가 됨 현재 private terminal key 받는 api 안됨
+            PairingFinishViewController *pViewController = [[PairingFinishViewController alloc] initWithNibName:@"PairingFinishViewController" bundle:nil];
+                        [self.navigationController pushViewController:pViewController animated:YES];
         }
         
     }];
