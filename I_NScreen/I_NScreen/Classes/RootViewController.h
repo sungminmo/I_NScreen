@@ -22,6 +22,7 @@
 #import "TestMainViewController.h"
 #import "TVReplayViewController.h"
 #import "PairingMainViewController.h"
+#import "PairingRePwViewController.h"
 
 @interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MoviePopUpViewDelegate>
 

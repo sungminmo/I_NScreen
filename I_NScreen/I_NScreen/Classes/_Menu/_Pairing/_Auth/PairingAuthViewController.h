@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMTextField.h"
 #import "CMBaseViewController.h"
 
-@interface PairingAuthViewController : CMBaseViewController
+@interface PairingAuthViewController : CMBaseViewController<UITextFieldDelegate>
+
+@property (nonatomic, strong) IBOutlet CMTextField *pAuthTextField;
 
 @property (nonatomic, strong) IBOutlet UIButton *pBackBtn;
 @property (nonatomic, strong) IBOutlet UIButton *pCancelBtn;

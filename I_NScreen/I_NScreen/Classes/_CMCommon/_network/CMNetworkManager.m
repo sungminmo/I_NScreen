@@ -583,7 +583,7 @@
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PUBLIC_TERMINAL_KEY,
-                           @"userId" : @"1234567890",
+                           @"userId" : @"1234567899",
                            @"authCode" : authCode
                            };
     
@@ -607,7 +607,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_AuthenticateDevice];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           @"secondDeviceId" : @"1234567890"
+                           @"secondDeviceId" : @"1234567899"
                            };
     
     return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

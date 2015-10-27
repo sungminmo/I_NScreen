@@ -117,6 +117,11 @@
 #define PAIRING_FINISH_VIEW_BTN_01      17001   // BACK 버튼
 #define PAIRING_FINISH_VIEW_BTN_02      17002   // 완료
 
+// PairingRePwViewController btn tag
+#define PAIRING_RE_PW_VIEW_BTN_01       18001   // BACK 버튼
+#define PAIRING_RE_PW_VIEW_BTN_02       10002   // 설정 취소
+#define PAIRING_RE_PW_VIEW_BTN_03       10003   // 설정 완료
+
 
 //
 

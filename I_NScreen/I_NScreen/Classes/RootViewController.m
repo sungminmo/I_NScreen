@@ -16,6 +16,7 @@
 #import "UIRefreshControl+AFNetworking.h"
 #import "NSMutableDictionary+VOD.h"
 #import "NSMutableDictionary+EPG_SEARCH.h"
+#import "FXKeychain.h"
 
 @interface RootViewController ()
 
@@ -200,10 +201,19 @@
         case 6:
         {
             // 페어링
-            PairingMainViewController *controller = [[PairingMainViewController alloc] initWithNibName:@"PairingMainViewController" bundle:nil];
-            [self.navigationController pushViewController:controller animated:YES];
-        }break;
+            if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY] length] != 0 )
+            {
+                PairingRePwViewController *controller = [[PairingRePwViewController alloc] initWithNibName:@"PairingRePwViewController" bundle:nil];
+                [self.navigationController pushViewController:controller animated:YES];
+            }
+            else
+            {
+                PairingMainViewController *controller = [[PairingMainViewController alloc] initWithNibName:@"PairingMainViewController" bundle:nil];
+                [self.navigationController pushViewController:controller animated:YES];
 
+            }
+            
+        }break;
 //        case 6://임시
 //        {
 //            // 검색

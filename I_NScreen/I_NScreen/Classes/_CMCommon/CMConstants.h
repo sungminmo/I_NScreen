@@ -138,6 +138,11 @@ extern NSString* const MIRRORTV_ERROR;
 // ----------------------------------------------------------------------------------
 // C&M SMApplicationSever openAPI Parameter Key.
 // ----------------------------------------------------------------------------------
+// uuid
+extern NSString* const CNM_OPEN_API_UUID_KEY;
+
+// 구매 비밀번호 로컬 저장
+extern NSString* const CNM_OPEN_API_BUY_PW;
 
 // version
 extern NSString* const CNM_OPEN_API_VERSION_KEY;

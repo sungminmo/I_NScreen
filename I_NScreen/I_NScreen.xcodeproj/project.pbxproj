@@ -136,6 +136,8 @@
 		E5567BBD1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5567BBB1BA955A500AB4003 /* MyCMBuyListTableViewCell.xib */; };
 		E567629E1BCF361B00221AF8 /* CMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E567629C1BCF361B00221AF8 /* CMPageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E567629F1BCF361B00221AF8 /* CMPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E567629D1BCF361B00221AF8 /* CMPageViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57042891BDF407F00057D10 /* PairingRePwViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30C1BDE1B4B005AC701 /* IDScrollableTabBar.m */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30F1BDE1B4B005AC701 /* IDScrollableTabBarItem.m */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3331BDE1CC2005AC701 /* defaultArch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3131BDE1CC2005AC701 /* defaultArch.png */; settings = {ASSET_TAGS = (); }; };
@@ -993,6 +995,9 @@
 		E567629B1BCF361B00221AF8 /* CMPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageViewController.h; sourceTree = "<group>"; };
 		E567629C1BCF361B00221AF8 /* CMPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageViewController.m; sourceTree = "<group>"; };
 		E567629D1BCF361B00221AF8 /* CMPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageViewController.xib; sourceTree = "<group>"; };
+		E57042881BDF407F00057D10 /* PairingRePwViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PairingRePwViewController.h; path = _Pairing/PairingRePwViewController.h; sourceTree = "<group>"; };
+		E57042891BDF407F00057D10 /* PairingRePwViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PairingRePwViewController.m; path = _Pairing/PairingRePwViewController.m; sourceTree = "<group>"; };
+		E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingRePwViewController.xib; path = _Pairing/PairingRePwViewController.xib; sourceTree = "<group>"; };
 		E5A6E2F41BDDBC73005AC701 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -3148,6 +3153,9 @@
 				E5B555531BD9F1D800AA02B2 /* PairingMainViewController.h */,
 				E5B555541BD9F1D800AA02B2 /* PairingMainViewController.m */,
 				E5B555551BD9F1D800AA02B2 /* PairingMainViewController.xib */,
+				E57042881BDF407F00057D10 /* PairingRePwViewController.h */,
+				E57042891BDF407F00057D10 /* PairingRePwViewController.m */,
+				E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */,
 			);
 			name = _Pairing;
 			sourceTree = "<group>";
@@ -3755,6 +3763,7 @@
 				E5B5540F1BD9DD3F00AA02B2 /* icon_complexpay@2x.png in Resources */,
 				E52EE57E1BD508AF00797251 /* PvrSubViewController.xib in Resources */,
 				E5A6E3411BDE1CC2005AC701 /* selectindicator@3x.png in Resources */,
+				E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */,
 				99C43C6E1BA3EDA10035A0A4 /* LeftMenuViewController.xib in Resources */,
 				E5B553BD1BD9DD3F00AA02B2 /* bullet_3depth.png in Resources */,
 				E5B553D21BD9DD3F00AA02B2 /* vod3btn_press.png in Resources */,
@@ -4161,6 +4170,7 @@
 				99ECC6241BA645CB0085C86F /* UINavigationBar+CustomHeight.m in Sources */,
 				99D808921BD5B76700533E35 /* NSMutableDictionary+SEARCH.m in Sources */,
 				99C43C601BA3EDA10035A0A4 /* CMAppManager.m in Sources */,
+				E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */,
 				99C43C071BA3ED980035A0A4 /* main.m in Sources */,
 				E54CC09B1BCC9F8E003806C0 /* MoviePopUpTableViewCell.m in Sources */,
 				99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */,

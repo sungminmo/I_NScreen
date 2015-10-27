@@ -70,6 +70,13 @@ NSString* const MIRRORTV_ERROR = @"미러TV 영상이 지연되고 있습니다.
 // C&M SMApplicationSever openAPI Parameter Key.
 // ----------------------------------------------------------------------------------
 
+// add by bjk
+// uuid
+NSString* const CNM_OPEN_API_UUID_KEY = @"uuid";
+
+// 구매 비밀 번호 로컬 저장
+NSString* const CNM_OPEN_API_BUY_PW = @"buyPw";
+
 // version
 NSString* const CNM_OPEN_API_VERSION_KEY = @"version";
 
