@@ -128,7 +128,7 @@
 {
     NSURLSessionDataTask *tesk = [NSMutableDictionary pvrGetrecordReservelistCompletion:^(NSArray *pvr, NSError *error) {
        
-        NSLog(@"예약 녹화물 리스트 = [%@]", pvr);
+        DDLogError(@"예약 녹화물 리스트 = [%@]", pvr);
         
         if ( [pvr count] == 0 )
             return ;
@@ -142,7 +142,7 @@
 {
     NSURLSessionDataTask *tesk = [NSMutableDictionary pvrGetrecordlistCompletion:^(NSArray *pvr, NSError *error) {
         
-        NSLog(@"녹화 목록 리스트 = [%@]", pvr);
+        DDLogError(@"녹화 목록 리스트 = [%@]", pvr);
         
         if ( [pvr count] == 0 )
             return;

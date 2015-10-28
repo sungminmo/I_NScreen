@@ -29,7 +29,7 @@
 // - PSPDFAssert(y > 3, @"Bad value for y");
 #define PSPDFAssert(expression, ...) \
 do { if(!(expression)) { \
-NSLog(@"%@", [NSString stringWithFormat: @"Assertion failure: %s in %s on line %s:%d. %@", #expression, __PRETTY_FUNCTION__, __FILE__, __LINE__, [NSString stringWithFormat:@"" __VA_ARGS__]]); \
+DDLogError(@"%@", [NSString stringWithFormat: @"Assertion failure: %s in %s on line %s:%d. %@", #expression, __PRETTY_FUNCTION__, __FILE__, __LINE__, [NSString stringWithFormat:@"" __VA_ARGS__]]); \
 abort(); }} while(0)
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -45,7 +45,7 @@ BOOL PSPDFReplaceMethodWithBlock(Class c, SEL origSEL, SEL newSEL, id block)
     IMP impl = imp_implementationWithBlock(block);
     if (!class_addMethod(c, newSEL, impl, encoding))
     {
-        NSLog(@"Failed to add method: %@ on %@", NSStringFromSelector(newSEL), c);
+        DDLogError(@"Failed to add method: %@ on %@", NSStringFromSelector(newSEL), c);
         return NO;
     }
     else

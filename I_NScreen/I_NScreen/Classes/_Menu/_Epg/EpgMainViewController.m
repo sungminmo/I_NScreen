@@ -127,7 +127,7 @@
     NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:sAreaCode WithGenreCode:genreCode completion:^(NSArray *epgs, NSError *error) {
         
         
-        NSLog(@"epg = [%@]", epgs);
+        DDLogError(@"epg = [%@]", epgs);
         
         if ( [epgs count] == 0 )
             return;

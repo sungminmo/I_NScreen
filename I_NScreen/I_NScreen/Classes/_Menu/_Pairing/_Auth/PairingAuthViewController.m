@@ -85,7 +85,7 @@
 //    
 //    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {
 //        
-//        NSLog(@"이달의 추천 vod = [%@]", vod);
+//        DDLogError(@"이달의 추천 vod = [%@]", vod);
 //        
 //       
 //        
@@ -99,7 +99,7 @@
 
     NSURLSessionDataTask *tesk = [NSMutableDictionary pairingAddUserWithAuthCode:self.pAuthTextField.text completion:^(NSArray *pairing, NSError *error) {
         
-        NSLog(@"응답 결과 = [%@]", pairing);
+        DDLogError(@"응답 결과 = [%@]", pairing);
         NSString *sResultCode = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"resultCode"]];
         
         if ( [sResultCode isEqualToString:@"100"] )
@@ -118,7 +118,7 @@
 {
     NSURLSessionDataTask *tesk = [NSMutableDictionary pairingAuthenticateDeviceCompletion:^(NSArray *pairing, NSError *error) {
         
-        NSLog(@"등답 결과 = [%@]", pairing);
+        DDLogError(@"등답 결과 = [%@]", pairing);
         
         NSString *sResultCode = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"resultCode"]];
         

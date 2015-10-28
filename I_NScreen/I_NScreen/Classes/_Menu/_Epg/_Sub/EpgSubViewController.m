@@ -65,7 +65,7 @@
 }
 
 -(void)scrollTabBarAction : (NSNumber *)selectedNumber sender:(id)sender{
-    NSLog(@"selectedNumber - %@", selectedNumber);
+    DDLogError(@"selectedNumber - %@", selectedNumber);
 }
 
 - (IBAction)onBtnClick:(UIButton *)btn;

@@ -173,7 +173,7 @@ static const CGFloat pageSize = 28;
             
             [self showAutoCompletList:NO];
             
-            NSLog(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
+            DDLogError(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
             
             return;
         }
@@ -212,7 +212,7 @@ static const CGFloat pageSize = 28;
             [self.dataArray removeAllObjects];
             [self.vodList reloadData];
             
-            NSLog(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
+            DDLogError(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
             
             return;
         }

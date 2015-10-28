@@ -41,13 +41,13 @@
 
 - (void)userPressedMoreButton:(id)sender
 {
-    NSLog(@"11more");
+    DDLogError(@"11more");
     [self.delegate EpgSubTableViewDeleteBtn:0];
 }
 
 - (void)userPressedDeleteButton:(id)sender
 {
-    NSLog(@"22delete");
+    DDLogError(@"22delete");
     [self.delegate EpgSubTableViewDeleteBtn:1];
 }
 

@@ -444,7 +444,7 @@
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPopularityChartWithCategoryId:sCategoryId WithRequestItems:sRequestItems completion:^(NSArray *vod, NSError *error) {
         
-        NSLog(@"인기순위 top 20 = [%@]", vod);
+        DDLogError(@"인기순위 top 20 = [%@]", vod);
         
         if ( [vod count] == 0 )
             return;
@@ -497,7 +497,7 @@
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {
         
-        NSLog(@"금주의 신작 영화 = [%@]", vod);
+        DDLogError(@"금주의 신작 영화 = [%@]", vod);
         
         if ( [vod count] == 0 )
             return;
@@ -567,7 +567,7 @@
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {
         
-        NSLog(@"이달의 추천 vod = [%@]", vod);
+        DDLogError(@"이달의 추천 vod = [%@]", vod);
         
         if ( [vod count] == 0 )
             return;

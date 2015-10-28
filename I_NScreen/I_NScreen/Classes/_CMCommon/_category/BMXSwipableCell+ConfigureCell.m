@@ -97,12 +97,12 @@
 
 - (void)userPressedMoreButton:(id)sender
 {
-    NSLog(@"more");
+    DDLogError(@"more");
 }
 
 - (void)userPressedDeleteButton:(id)sender
 {
-    NSLog(@"delete");
+    DDLogError(@"delete");
 }
 
 @end
