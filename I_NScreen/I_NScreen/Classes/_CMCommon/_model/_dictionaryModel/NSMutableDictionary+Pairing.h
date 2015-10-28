@@ -20,5 +20,8 @@
 // 192.168.40.5:8080/HApplicationServer/authenticateDevice.json?version=1&secondDeviceId=6192378192479184
 + (NSURLSessionDataTask *)pairingAuthenticateDeviceCompletion:(void (^)(NSArray *pairing, NSError *error))block;
 
+//http://192.168.44.10/SMApplicationServer/ClientSetTopBoxRegist.xml?version=1&deviceId=1234&authKey=1111
+
++ (NSURLSessionDataTask *)pairingClientSetTopBoxRegistWithAuthKey:(NSString *)authKey completion:(void (^)(NSArray *pairing, NSError *error))block;
 
 @end

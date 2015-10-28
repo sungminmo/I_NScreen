@@ -21,4 +21,9 @@
     return [[CMNetworkManager sharedInstance] pairingAuthenticateDeviceCompletion:block];
 }
 
++ (NSURLSessionDataTask *)pairingClientSetTopBoxRegistWithAuthKey:(NSString *)authKey completion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] pairingClientSetTopBoxRegistWithAuthKey:authKey completion:block];
+}
+
 @end

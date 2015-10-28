@@ -9,6 +9,7 @@
 #import "RecommendMainViewController.h"
 #import "NSMutableDictionary+VOD.h"
 #import "UIAlertView+AFNetworking.h"
+#import "NSMutableDictionary+Pairing.h"
 
 @interface RecommendMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pBnViewController;    // 배너 컨트롤
@@ -644,6 +645,26 @@
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+- (void)requestWithTest
+{
+//    NSString *sCategoryId = @"713229";
+//    NSString *sContentGroupProfile = @"2";
+//    
+//    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {
+//        
+//        DDLogError(@"이달의 추천 vod = [%@]", vod);
+//        
+//       
+//    }];
+    
+    
+//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary pairingAuthenticateDeviceCompletion:^(NSArray *pairing, NSError *error) {
+       
+        DDLogError(@"PAIRAIN = [%@]", pairing);
+    }];
 }
 
 @end

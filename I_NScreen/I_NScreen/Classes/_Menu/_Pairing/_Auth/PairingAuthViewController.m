@@ -97,7 +97,7 @@
 - (void)requestWithPairingAuth
 {
 
-    NSURLSessionDataTask *tesk = [NSMutableDictionary pairingAddUserWithAuthCode:self.pAuthTextField.text completion:^(NSArray *pairing, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary pairingClientSetTopBoxRegistWithAuthKey:self.pAuthTextField.text completion:^(NSArray *pairing, NSError *error) {
         
         DDLogError(@"응답 결과 = [%@]", pairing);
         NSString *sResultCode = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"resultCode"]];

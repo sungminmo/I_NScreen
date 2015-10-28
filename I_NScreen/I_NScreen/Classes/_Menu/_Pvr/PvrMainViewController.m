@@ -41,6 +41,7 @@
 -(void)setViewInit
 {
     // 초기 예약 녹화 리스트
+//    [self requestWithRecordList];
     [self requestWithRecordReservelist];
 }
 

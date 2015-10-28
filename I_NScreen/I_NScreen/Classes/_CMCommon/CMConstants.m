@@ -16,7 +16,9 @@ NSString* const NAVER_SEARCH_API_SERVER_URL = @"http://openapi.naver.com/search?
 
 // C&M SMApplicationSever openAPI 서버 IP.
 //NSString* const CNM_OPEN_API_SERVER_URL = @"http://58.143.243.91/SMApplicationServer/";
-NSString* const CNM_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";
+NSString* const CNM_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";  // 라이브
+// private 터미널 키 발급 받을땐 테스트를 통해서 ..
+NSString* const CNM_OPEN_API_SERVER_URL_VPN = @"http://58.141.255.70:8080/HApplicationServer/"; // 테스트
 
 // Add By BJK
 // C&M AirCode Server open API 서버 IP
@@ -298,10 +300,13 @@ NSString* const CNM_OPEN_API_INTERFACE_AuthenticateDevice = @"authenticateDevice
 
 // 8. pvr
 // dev.getrecordlist
-NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist = @"dev.getrecordReservelist";
+//NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist = @"dev.getrecordlist";
+NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist = @"getrecordlist";
+
 
 // dev.getrecordReservelist
-NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist = @"dev.getrecordlist";
+//NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist = @"dev.getrecordReservelist";
+NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist = @"getrecordReservelist";
 
 @implementation STVConstants
 
