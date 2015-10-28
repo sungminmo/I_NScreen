@@ -598,13 +598,24 @@
     }];
 }
 
-//- (NSURLSessionDataTask *)vodGetServicebannerlistBlock:(void(^)(NSArray *vod, NSError *error))block
-//{
-//    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
-//    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
-//    
-//    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", ];
-//}
+- (NSURLSessionDataTask *)vodGetServicebannerlistBlock:(void(^)(NSArray *vod, NSError *error))block
+{
+    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceBannerlist];
+    
+    return [self.rumClientVpn GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+}
 
 @end
 

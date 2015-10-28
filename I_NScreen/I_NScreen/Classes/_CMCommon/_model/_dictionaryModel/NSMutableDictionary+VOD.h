@@ -60,5 +60,7 @@
 + (NSURLSessionDataTask *)vodGetBundleProductListWithProductProfile:(NSString *)productProfile completion:(void (^)(NSArray *vod, NSError *error))block;
 
 
++ (NSURLSessionDataTask *)vodGetServicebannerlistCompletion:(void (^)(NSArray *banner, NSError *error))block;
+
 @end
 

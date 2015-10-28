@@ -310,6 +310,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetPopularityChart;
 // GetContentGroupList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetContentGroupList;
 
+// Getservicebannerlist
+extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceBannerlist;
+
 // 6.Service
 // GetGuideCategory
 extern NSString* const CNM_OPEN_API_INTERFACE_GetGuideCategory;

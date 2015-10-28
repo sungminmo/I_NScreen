@@ -35,4 +35,9 @@
     return [[CMNetworkManager sharedInstance] vodGetBundleProductListWithProductProfile:productProfile block:block];
 }
 
++ (NSURLSessionDataTask *)vodGetServicebannerlistCompletion:(void (^)(NSArray *, NSError *))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetServicebannerlistBlock:block];
+}
+
 @end
