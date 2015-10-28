@@ -38,7 +38,7 @@
 
 @interface CMNetworkManager() <NSXMLParserDelegate>
 
-
+@property (nonatomic, strong) NSString* alreadyIndicatorKey;
 @property (nonatomic, strong) UIActivityIndicatorView* indicator;
 
 /**
@@ -83,11 +83,7 @@
 - (id)init {
     if (self = [super init]) {
         
-        self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        self.indicator.hidesWhenStopped = YES;
-        UIView* view = [[UIApplication sharedApplication] delegate].window;
-        [view addSubview:self.indicator];
-        self.indicator.center = view.center;
+        [self settingActivityIndicator];
         
         self.drmClient = [[CMDRMServerClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
         self.drmClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
@@ -110,6 +106,53 @@
         
     }
     return self;
+}
+
+- (void)settingActivityIndicator {
+    UIActivityIndicatorView* IndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2, 80, 80)];
+    IndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    IndicatorView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    IndicatorView.color = [UIColor whiteColor];
+    IndicatorView.layer.cornerRadius = 5;
+    IndicatorView.layer.masksToBounds = YES;
+    IndicatorView.tag = 1999;
+    self.indicator = IndicatorView;
+//    self.indicator.hidesWhenStopped = YES;
+//    UIView* view = [[UIApplication sharedApplication] delegate].window;
+//    [view addSubview:self.indicator];
+//    self.indicator.center = view.center;
+//    [self.indicator setTranslatesAutoresizingMaskIntoConstraints:YES];
+//    [self.indicator setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin];
+}
+
+- (void)updateActivityIndicator:(NSURLSessionTask*)task {
+
+    [self.indicator setAnimatingWithStateOfTask:task];
+    
+    UIWindow* window = [[UIApplication sharedApplication] delegate].window;
+    UINavigationController* navigationController = (UINavigationController* )window.rootViewController;
+    NSArray* viewControllers = navigationController.viewControllers;
+    UIViewController* topController = viewControllers.firstObject;
+    UIView* view = topController.view;
+    NSString* key = NSStringFromClass([topController class]);
+    if (key == nil) {
+        return;
+    }
+    
+    if (self.alreadyIndicatorKey != nil) {
+
+        if ([self.alreadyIndicatorKey isEqualToString:key]) {
+            return;
+        }
+        
+        [self.indicator removeFromSuperview];
+        self.alreadyIndicatorKey = nil;
+    }
+
+    [view addSubview:self.indicator];
+    [self.indicator setTranslatesAutoresizingMaskIntoConstraints:YES];
+    [self.indicator setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin];
+    self.alreadyIndicatorKey = NSStringFromClass([topController class]);
 }
 
 #pragma mar - from CMGenerator
@@ -411,7 +454,7 @@
         block(nil, error);
     }];
     
-    [self.indicator setAnimatingWithStateOfTask:task];
+    [self updateActivityIndicator:task];
     
     return task;
 }
@@ -496,9 +539,7 @@
         block(nil, error);
     }];
     
-    UIView* view = [[UIApplication sharedApplication] delegate].window;
-    [view bringSubviewToFront:self.indicator];
-    [self.indicator setAnimatingWithStateOfTask:task];
+    [self updateActivityIndicator:task];
     
     return task;
 }
