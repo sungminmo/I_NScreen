@@ -7,12 +7,12 @@
 //
 
 #import "CMPageViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface CMPageViewController ()
 {
     NSDictionary *pDic;
     int nPage;
-    CGRect rect;
 }
 @end
 
@@ -24,13 +24,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (id)initWithData:(NSDictionary *)dic WithPage:(int)page WithFrame:(CGRect )cgRect
+- (id)initWithData:(NSDictionary *)dic WithPage:(int)page
 {
     if ( self = [super initWithNibName:@"CMPageViewController" bundle:nil])
     {
         pDic = dic;
         nPage = page;
-        rect = cgRect;
     }
     return self;
 }
@@ -38,61 +37,68 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
-    
-    int nBannerHeight = 0;
-    
-    int nWith = [UIScreen mainScreen].bounds.size.width;
-    
-    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
-    {
-        nBannerHeight = 225;
-        
-    }else
-    {
-        nBannerHeight = 225 * nWith / 414;
-    }
-    
-//    if ( nPage == 0 )
-//    {
-//        self.view.backgroundColor = [UIColor redColor];
-//        
-//    }
-//    else if ( nPage == 1 )
-//    {
-//        self.view.backgroundColor = [UIColor grayColor];
-//        
-//    }
-//    else
-//    {
-//        self.view.backgroundColor = [UIColor yellowColor];
-//        
-//    }
-    
     
     UIImage *pBgImage = [UIImage imageNamed:@"banner_empty.png"];
-//    UIImageView *pBgImagView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, pBgImage.size.width, pBgImage.size.height)];
-   UIImageView *pBgImagView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
+   UIImageView *pBgImagView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     pBgImagView.image = pBgImage;
     [pBgImagView setContentMode:UIViewContentModeScaleAspectFit];
-//    [self.view addSubview:pBgImagView];
+    [self.view addSubview:pBgImagView];
     
-    UIImage *pImage = [UIImage imageNamed:@"banner_sample.png"];
-    UIImageView *pImageView = [[UIImageView alloc] initWithFrame:CGRectMake(1, 0, rect.size.width - 2, rect.size.height - 2)];
-    pImageView.image = pImage;
+//    UIImage *pImage = [UIImage imageNamed:@"banner_sample.png"];
+    UIImageView *pImageView = [[UIImageView alloc] initWithFrame:CGRectMake(1, 0, self.view.frame.size.width - 2, self.view.frame.size.height - 2)];
+    [pImageView setImageWithURL:[NSURL URLWithString:[self getImageUrlSplit]]];
     [pImageView setContentMode:UIViewContentModeScaleAspectFit];
-//    [self.view addSubview:pImageView];
+    [self.view addSubview:pImageView];
     
     UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    pBtn.frame = CGRectMake(0, 0, rect.size.width, rect.size.height);
+    pBtn.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [pBtn addTarget:self action:@selector(onBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:pBtn];
+    [self.view addSubview:pBtn];
 }
 
+#pragma mark - 액션 이벤트
+#pragma mark - 버튼 액션 이벤트
 - (void)onBtnClicked:(UIButton *)btn
 {
     
 }
 
+#pragma mark - url split
+- (NSString *)getImageUrlSplit
+{
+    NSString *sNNImage = @"";
+    
+    NSString *sImgUrl = [NSString stringWithFormat:@"%@", [pDic objectForKey:@"iphone_imgurl"]];
+    
+    NSArray *sImageArr = [sImgUrl componentsSeparatedByString:@"://"];
+    
+    if ( [sImageArr count] != 0 )
+    {
+        NSString *sNImgUrl = [NSString stringWithFormat:@"%@", [sImageArr objectAtIndex:[sImageArr count] - 1]];
+        
+        NSArray *sNImageArr = [sNImgUrl componentsSeparatedByString:@"/"];
+        
+        int nCount = 0;
+        NSMutableString *sImageAdd = [NSMutableString new];
+        
+        for ( NSString *str in sNImageArr )
+        {
+            if ( nCount == 0 )
+            {
+                [sImageAdd appendString:@"http://192.168.44.10"];
+            }
+            else
+            {
+                [sImageAdd appendFormat:@"/%@", str];
+            }
+            
+            nCount++;
+        }
+        
+        sNNImage = [NSString stringWithString:sImageAdd];
+    }
+    
+    return sNNImage;
+}
 
 @end

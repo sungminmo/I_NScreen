@@ -246,7 +246,7 @@ NSString* const CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId = @"recomm
 NSString* const CNM_OPEN_API_INTERFACE_GetBundleProductList = @"getBundleProductList";
 
 // Getservicebannerlist
-//NSString* const CNM_OPEN_API_INTERFACE_GetServiceBann
+NSString* const CNM_OPEN_API_INTERFACE_GetServiceBannerlist = @"getservicebannerlist";
 
 
 // 6.Service

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *pPopularityArr;       // 인기순위 top 20 배열 데이터
 @property (nonatomic, strong) NSMutableArray *pWeekMovieArr;        // 금주의 신작 영화
 @property (nonatomic, strong) NSMutableArray *pThisMonthRecommendArr;   // 이달의 추천
+@property (nonatomic, strong) NSMutableArray *pBnArr;           // 배너 배열
 
 @end
 
@@ -37,7 +38,7 @@
     [self setDataInit];
     
 //    [self banPageControllerInit];
-    
+    [self requestWithBanner];
     [self requestWithPopularTopTwenty];
     [self requestWithThisMonthRecommend];
     [self requestWithWeekMovie];
@@ -122,6 +123,7 @@
     self.pPopularityArr = [[NSMutableArray alloc] init];
     self.pWeekMovieArr = [[NSMutableArray alloc] init];
     self.pThisMonthRecommendArr = [[NSMutableArray alloc] init];
+    self.pBnArr = [[NSMutableArray alloc] init];
 }
 
 #pragma mark - 액션 이벤트
@@ -193,9 +195,7 @@
     
     if ( (NSNull *)controller == [NSNull null] )
     {
-        CGRect rect = self.pBannerScrollView.frame;
-        
-        controller = [[CMPageViewController alloc] initWithData:nil WithPage:(int)page WithFrame:rect];
+        controller = [[CMPageViewController alloc] initWithData:[self.pBnArr objectAtIndex:page] WithPage:(int)page];
         controller.delegate = self;
         [self.pBnViewController replaceObjectAtIndex:page withObject:controller];
     }
@@ -436,6 +436,23 @@
 }
 
 #pragma mark - 전문
+#pragma mark - 배너
+- (void)requestWithBanner
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetServicebannerlistCompletion:^(NSArray *banner, NSError *error) {
+        
+        DDLogError(@"banner = [%@]", banner);
+        
+        [self.pBnArr removeAllObjects];
+        
+        [self.pBnArr setArray:[[banner objectAtIndex:0] objectForKey:@"BannerList_Item"]];
+        
+        [self banPageControllerInit];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
 #pragma mark - 인기순위 Top 20 전문
 - (void)requestWithPopularTopTwenty
 {
