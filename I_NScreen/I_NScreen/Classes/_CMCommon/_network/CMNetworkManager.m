@@ -8,6 +8,7 @@
 
 #import "CMNetworkManager.h"
 #import "XMLDictionary.h"
+#import "UIActivityIndicatorView+AFNetworking.h"
 
 @implementation CMDRMServerClient
 
@@ -36,6 +37,10 @@
 
 
 @interface CMNetworkManager() <NSXMLParserDelegate>
+
+
+@property (nonatomic, strong) UIActivityIndicatorView* indicator;
+
 /**
  C&M SMApplicationServer의 openAPI를 사용하기 위한 NSURL 타입의 URL 반환한다.
  
@@ -77,6 +82,12 @@
 
 - (id)init {
     if (self = [super init]) {
+        
+        self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        self.indicator.hidesWhenStopped = YES;
+        UIView* view = [[UIApplication sharedApplication] delegate].window;
+        [view addSubview:self.indicator];
+        self.indicator.center = view.center;
         
         self.drmClient = [[CMDRMServerClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
         self.drmClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
@@ -343,7 +354,7 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION
                            };
     
-    return [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSURLSessionDataTask *task = [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         
 /*
  <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -399,6 +410,10 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         block(nil, error);
     }];
+    
+    [self.indicator setAnimatingWithStateOfTask:task];
+    
+    return task;
 }
 
 //- (NSURLSessionDataTask *)epgGetChannelAreaBlock:(void (^)(NSArray *gets, NSError *error))block
@@ -472,7 +487,7 @@
                            @"requestItems" : requestItems
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask* task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
         
@@ -480,6 +495,12 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         block(nil, error);
     }];
+    
+    UIView* view = [[UIApplication sharedApplication] delegate].window;
+    [view bringSubviewToFront:self.indicator];
+    [self.indicator setAnimatingWithStateOfTask:task];
+    
+    return task;
 }
 
 - (NSURLSessionDataTask *)vodGetContentGroupListWithContentGroupProfile:(NSString *)contentGroupProfile WithCategoryId:(NSString *)categoryId block:(void (^)(NSArray *, NSError *))block
