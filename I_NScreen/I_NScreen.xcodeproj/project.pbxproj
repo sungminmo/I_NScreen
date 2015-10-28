@@ -139,6 +139,8 @@
 		E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57042891BDF407F00057D10 /* PairingRePwViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */ = {isa = PBXBuildFile; fileRef = E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */; settings = {ASSET_TAGS = (); }; };
+		E581E3901BE07946007B8DB7 /* VodDetailMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E581E38E1BE07946007B8DB7 /* VodDetailMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E581E3911BE07946007B8DB7 /* VodDetailMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E581E38F1BE07946007B8DB7 /* VodDetailMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30C1BDE1B4B005AC701 /* IDScrollableTabBar.m */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30F1BDE1B4B005AC701 /* IDScrollableTabBarItem.m */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3331BDE1CC2005AC701 /* defaultArch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3131BDE1CC2005AC701 /* defaultArch.png */; settings = {ASSET_TAGS = (); }; };
@@ -1001,6 +1003,9 @@
 		E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingRePwViewController.xib; path = _Pairing/PairingRePwViewController.xib; sourceTree = "<group>"; };
 		E570428D1BDF5B3E00057D10 /* NSMutableDictionary+PVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PVR.h"; sourceTree = "<group>"; };
 		E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PVR.m"; sourceTree = "<group>"; };
+		E581E38D1BE07946007B8DB7 /* VodDetailMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VodDetailMainViewController.h; path = _Home/_VodDetail/VodDetailMainViewController.h; sourceTree = "<group>"; };
+		E581E38E1BE07946007B8DB7 /* VodDetailMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VodDetailMainViewController.m; path = _Home/_VodDetail/VodDetailMainViewController.m; sourceTree = "<group>"; };
+		E581E38F1BE07946007B8DB7 /* VodDetailMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VodDetailMainViewController.xib; path = _Home/_VodDetail/VodDetailMainViewController.xib; sourceTree = "<group>"; };
 		E5A6E2F41BDDBC73005AC701 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -2243,6 +2248,16 @@
 			name = _Cell;
 			sourceTree = "<group>";
 		};
+		E581E38C1BE07915007B8DB7 /* _VodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E581E38D1BE07946007B8DB7 /* VodDetailMainViewController.h */,
+				E581E38E1BE07946007B8DB7 /* VodDetailMainViewController.m */,
+				E581E38F1BE07946007B8DB7 /* VodDetailMainViewController.xib */,
+			);
+			name = _VodDetail;
+			sourceTree = "<group>";
+		};
 		E5A6E2F01BDDBBAE005AC701 /* _drmLb */ = {
 			isa = PBXGroup;
 			children = (
@@ -3181,6 +3196,7 @@
 		E5DE649B1BCB4BC200FC3122 /* _Home */ = {
 			isa = PBXGroup;
 			children = (
+				E581E38C1BE07915007B8DB7 /* _VodDetail */,
 				E5B5554C1BD9DFB400AA02B2 /* _TVReplay */,
 				E5DE64A01BCB4C8100FC3122 /* _Adult */,
 				E5DE649E1BCB4BFF00FC3122 /* _AniKids */,
@@ -3988,6 +4004,7 @@
 				E5B554631BD9DD3F00AA02B2 /* icon_menu_remotecontrol@2x.png in Resources */,
 				E5B553961BD9DD3F00AA02B2 /* allch.png in Resources */,
 				E5B554901BD9DD3F00AA02B2 /* genreall_press@3x.png in Resources */,
+				E581E3911BE07946007B8DB7 /* VodDetailMainViewController.xib in Resources */,
 				E5B554C61BD9DD3F00AA02B2 /* icon_chpick@3x.png in Resources */,
 				E5B554FF1BD9DD3F00AA02B2 /* p2btn_cancel_press@3x.png in Resources */,
 				E5B554B51BD9DD3F00AA02B2 /* normaldot@3x.png in Resources */,
@@ -4122,6 +4139,7 @@
 				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
 				E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */,
 				2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */,
+				E581E3901BE07946007B8DB7 /* VodDetailMainViewController.m in Sources */,
 				E5DE64BD1BCB4E3300FC3122 /* AniKidsMainViewController.m in Sources */,
 				E5B555561BD9F1D800AA02B2 /* PairingMainViewController.m in Sources */,
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
