@@ -8,12 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AniKidsMainViewController">
             <connections>
                 <outlet property="pElseBtn" destination="wfX-r6-Rsu" id="H3t-Dm-V5N"/>
-                <outlet property="pElseTableView" destination="vHi-9H-BEw" id="wFC-Pm-aR2"/>
                 <outlet property="pElseView" destination="htX-Cn-rEg" id="24M-pP-880"/>
                 <outlet property="pPopularBtn" destination="BcJ-79-hBq" id="lYI-X1-04X"/>
                 <outlet property="pPopularLine01" destination="fLq-pF-YUJ" id="WoG-rK-Lc1"/>
                 <outlet property="pPopularLine02" destination="7RR-M3-zHl" id="ABC-y4-Jqh"/>
-                <outlet property="pPopularTableView" destination="rF1-nV-ktd" id="RB4-en-nBX"/>
                 <outlet property="pPopularView" destination="dS6-gO-lwU" id="e78-ta-lgp"/>
                 <outlet property="pRealTimePopularBtn" destination="ywm-9j-7wo" id="Udt-um-8xV"/>
                 <outlet property="pWeekPopularBtn" destination="91x-A8-ajJ" id="xIZ-4f-9ls"/>

@@ -176,7 +176,7 @@
     self.pBannerScrollView.delegate = self;
     int nWith = [UIScreen mainScreen].bounds.size.width;
     self.pBannerScrollView.frame = CGRectMake(6, 10, nWith - 12, 100);
-    self.pBannerScrollView.backgroundColor = [UIColor redColor];
+    self.pBannerScrollView.backgroundColor = [UIColor clearColor];
     
     [self banLoadScrollViewWithPage:0];
     [self banLoadScrollViewWithPage:1];
