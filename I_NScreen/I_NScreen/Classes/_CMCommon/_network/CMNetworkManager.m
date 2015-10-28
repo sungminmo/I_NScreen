@@ -222,7 +222,7 @@
                            @"Search_String" : [keyword stringByUrlEncoding]
                            };
     
-    return [self.smClient POST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSURLSessionDataTask *task = [self.smClient POST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         //1차로 예외처리 및 공통처리할 때 사용.
         NSArray *response = [responseObject valueForKeyPath:@"data"];
         NSMutableArray *programs = [NSMutableArray arrayWithCapacity:[response count]];
@@ -236,6 +236,8 @@
             block([NSArray array], error);
         }
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 - (NSURLSessionDataTask *)programSearchListWithSearchString:(NSString *)searchString WithPageSize:(NSInteger)pageSize WithPageIndex:(NSInteger)pageIndex WithAreaCode:(NSString *)areaCode WithProductCode:(NSString *)productCode completion:(void (^)(NSArray *programs, NSError *error))block {
@@ -254,7 +256,7 @@
                            @"productCode" : productCode
                            };
     
-    return [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -262,6 +264,8 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 
@@ -280,7 +284,7 @@
                            @"sortType" : sortType
                            };
     
-    return [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -288,6 +292,8 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 - (NSURLSessionDataTask *)vodSerchListWithSearchString:(NSString *)searchString WithPageSize:(NSInteger)pageSize WithPageIndex:(NSInteger)pageIndex WithSortType:(NSString *)sortType completion:(void (^)(NSArray *gets, NSError *error))block
@@ -305,7 +311,7 @@
                            @"sortType" : sortType
                            };
     
-    return [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -313,6 +319,8 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 - (NSURLSessionDataTask *)searchWordListWithSearchString:(NSString*)searchString completion:(void (^)(NSArray *gets, NSError *error))block
@@ -327,7 +335,7 @@
                            @"searchKeyword" : searchString,
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -335,6 +343,8 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 @end
@@ -355,7 +365,7 @@
                            @"genreCode" : genreCode
                            };
     
-    return [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSURLSessionDataTask *task = [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -365,6 +375,8 @@
         
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 
@@ -379,11 +391,13 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 // http://58.141.255.69:8080/nscreen/getChannelArea.xml?version=1
@@ -485,11 +499,13 @@
                            @"channelId" : @"1"
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 // http://58.141.255.69:8080/nscreen/searchSchedule.xml?version=1&areaCode=1&searchString=aa
@@ -505,11 +521,13 @@
                            @"searchString" : @"data"
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 
@@ -557,7 +575,7 @@
                            @"categoryId" : categoryId
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -565,6 +583,8 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 - (NSURLSessionDataTask *)vodGetAssetInfoWithAssetId:(NSString *)assetId WithAssetProfile:(NSString *)assetProfile block:(void (^)(NSArray *, NSError *))block
@@ -580,7 +600,7 @@
                           @"assetProfile" : assetProfile
                           };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -588,6 +608,8 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 - (NSURLSessionDataTask *)vodRecommendContentGroupByAssetId:(NSString *)assetId WithContentGroupProfile:(NSString *)contentGroupProfile block:(void (^)(NSArray *gets, NSError *error))block
@@ -603,7 +625,7 @@
                            @"contentGroupProfile" : contentGroupProfile
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -613,6 +635,8 @@
         
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 - (NSURLSessionDataTask *)vodGetBundleProductListWithProductProfile:(NSString *)productProfile block:(void (^)(NSArray *gets, NSError *error))block
@@ -627,7 +651,7 @@
                            @"productProfile" : productProfile
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -637,6 +661,8 @@
         
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 - (NSURLSessionDataTask *)vodGetServicebannerlistBlock:(void(^)(NSArray *vod, NSError *error))block
@@ -646,7 +672,7 @@
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceBannerlist];
     
-    return [self.rumClientVpn GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -656,6 +682,8 @@
         
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 @end
@@ -675,7 +703,7 @@
                            @"authCode" : authCode
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -685,6 +713,8 @@
         
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 - (NSURLSessionDataTask *)pairingAuthenticateDeviceCompletion:(void (^)(NSArray *pairing, NSError *error))block
@@ -698,7 +728,7 @@
                            @"secondDeviceId" : @"1234567899"
                            };
     
-    return [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -708,6 +738,8 @@
         
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 // !! TEST BJK
@@ -724,7 +756,7 @@
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PUBLIC_TERMINAL_KEY,
                            @"deviceId" : @"1234567889"
                            };
-    return [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -734,6 +766,8 @@
         
         block(nil, error);
     }];
+    [self updateActivityIndicator:task];
+    return task;
 }
 
 - (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
@@ -747,7 +781,7 @@
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
                            @"deviceId" : @"739d8470f604cfceb13784ab94fc368256253477"
                            };
-    return [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -758,7 +792,8 @@
         block(nil, error);
     }];
     
-    
+    [self updateActivityIndicator:task];
+    return task;
 //    
 //    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
 //    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
