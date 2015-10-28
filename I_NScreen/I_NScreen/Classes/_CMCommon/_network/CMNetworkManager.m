@@ -44,6 +44,7 @@
 @interface CMNetworkManager() <NSXMLParserDelegate>
 
 @property (nonatomic, strong) NSString* alreadyIndicatorKey;
+@property (nonatomic, unsafe_unretained) BOOL isUsingIndicator;
 @property (nonatomic, strong) UIActivityIndicatorView* indicator;
 
 /**
@@ -125,42 +126,47 @@
     IndicatorView.layer.masksToBounds = YES;
     IndicatorView.tag = 1999;
     self.indicator = IndicatorView;
-//    self.indicator.hidesWhenStopped = YES;
-//    UIView* view = [[UIApplication sharedApplication] delegate].window;
-//    [view addSubview:self.indicator];
-//    self.indicator.center = view.center;
-//    [self.indicator setTranslatesAutoresizingMaskIntoConstraints:YES];
-//    [self.indicator setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin];
+    self.indicator.hidesWhenStopped = YES;
 }
 
 - (void)updateActivityIndicator:(NSURLSessionTask*)task {
-
-    [self.indicator setAnimatingWithStateOfTask:task];
-    
     UIWindow* window = [[UIApplication sharedApplication] delegate].window;
-    UINavigationController* navigationController = (UINavigationController* )window.rootViewController;
-    NSArray* viewControllers = navigationController.viewControllers;
-    UIViewController* topController = viewControllers.firstObject;
-    UIView* view = topController.view;
-    NSString* key = NSStringFromClass([topController class]);
-    if (key == nil) {
-        return;
-    }
-    
-    if (self.alreadyIndicatorKey != nil) {
-
-        if ([self.alreadyIndicatorKey isEqualToString:key]) {
-            return;
-        }
-        
+    if (self.isUsingIndicator == YES) {
         [self.indicator removeFromSuperview];
-        self.alreadyIndicatorKey = nil;
+        self.isUsingIndicator = NO;
     }
-
-    [view addSubview:self.indicator];
+    [window addSubview:self.indicator];
     [self.indicator setTranslatesAutoresizingMaskIntoConstraints:YES];
     [self.indicator setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin];
-    self.alreadyIndicatorKey = NSStringFromClass([topController class]);
+    [self.indicator setAnimatingWithStateOfTask:task];
+    self.isUsingIndicator = YES;
+    
+    return;
+    
+//    UIWindow* window = [[UIApplication sharedApplication] delegate].window;
+//    UINavigationController* navigationController = (UINavigationController* )window.rootViewController;
+//    NSArray* viewControllers = navigationController.viewControllers;
+//    UIViewController* topController = viewControllers.firstObject;
+//    UIView* view = topController.view;
+//    NSString* key = NSStringFromClass([topController class]);
+//    if (key == nil) {
+//        return;
+//    }
+//    
+//    if (self.alreadyIndicatorKey != nil) {
+//
+//        if ([self.alreadyIndicatorKey isEqualToString:key]) {
+//            return;
+//        }
+//        
+//        [self.indicator removeFromSuperview];
+//        self.alreadyIndicatorKey = nil;
+//    }
+//
+//    [view addSubview:self.indicator];
+//    [self.indicator setTranslatesAutoresizingMaskIntoConstraints:YES];
+//    [self.indicator setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin];
+//    self.alreadyIndicatorKey = NSStringFromClass([topController class]);
 }
 
 #pragma mar - from CMGenerator
