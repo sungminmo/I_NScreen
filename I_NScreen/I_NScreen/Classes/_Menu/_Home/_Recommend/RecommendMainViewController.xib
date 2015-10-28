@@ -90,13 +90,13 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-k2-N1j">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-k2-N1j">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="woH-bd-b5V"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-oK-BXE">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-oK-BXE">
                     <rect key="frame" x="260" y="15" width="120" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="nWI-JT-djO"/>
@@ -165,13 +165,13 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fQ-74I">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fQ-74I">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="AJq-bF-L55"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="en3-oS-F2W">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="en3-oS-F2W">
                     <rect key="frame" x="260" y="15" width="120" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="Q5l-O1-WXx"/>
@@ -240,13 +240,13 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vev-KQ-AFE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vev-KQ-AFE">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="Vx5-4m-z9j"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtV-7L-WBf">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtV-7L-WBf">
                     <rect key="frame" x="260" y="15" width="120" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="RtQ-aJ-xL8"/>
@@ -292,7 +292,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUJ-Ts-ho8">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUJ-Ts-ho8">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="vtv-FC-CgS"/>
@@ -301,25 +301,25 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="WUJ-Ts-ho8" firstAttribute="leading" secondItem="K7b-OE-z9F" secondAttribute="leading" id="9ze-wO-USE"/>
-                <constraint firstAttribute="bottom" secondItem="WUJ-Ts-ho8" secondAttribute="bottom" id="ETF-VJ-Zyt"/>
-                <constraint firstAttribute="trailing" secondItem="WUJ-Ts-ho8" secondAttribute="trailing" id="G7v-PM-baL"/>
-                <constraint firstItem="WUJ-Ts-ho8" firstAttribute="top" secondItem="K7b-OE-z9F" secondAttribute="top" id="UAf-Wv-DZ1"/>
+                <constraint firstItem="WUJ-Ts-ho8" firstAttribute="leading" secondItem="K7b-OE-z9F" secondAttribute="leading" id="FEw-h0-h8p"/>
+                <constraint firstAttribute="trailing" secondItem="WUJ-Ts-ho8" secondAttribute="trailing" id="RlG-31-hjL"/>
+                <constraint firstItem="WUJ-Ts-ho8" firstAttribute="top" secondItem="K7b-OE-z9F" secondAttribute="top" id="c7K-Hc-Nhg"/>
+                <constraint firstAttribute="bottom" secondItem="WUJ-Ts-ho8" secondAttribute="bottom" id="fzU-Ns-QDn"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="9ze-wO-USE"/>
-                    <exclude reference="ETF-VJ-Zyt"/>
-                    <exclude reference="G7v-PM-baL"/>
-                    <exclude reference="UAf-Wv-DZ1"/>
+                    <exclude reference="FEw-h0-h8p"/>
+                    <exclude reference="RlG-31-hjL"/>
+                    <exclude reference="c7K-Hc-Nhg"/>
+                    <exclude reference="fzU-Ns-QDn"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="constraints">
-                    <include reference="9ze-wO-USE"/>
-                    <include reference="ETF-VJ-Zyt"/>
-                    <include reference="G7v-PM-baL"/>
-                    <include reference="UAf-Wv-DZ1"/>
+                    <include reference="FEw-h0-h8p"/>
+                    <include reference="RlG-31-hjL"/>
+                    <include reference="c7K-Hc-Nhg"/>
+                    <include reference="fzU-Ns-QDn"/>
                 </mask>
             </variation>
         </view>

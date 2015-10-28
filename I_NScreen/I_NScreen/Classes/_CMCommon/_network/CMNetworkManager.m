@@ -577,6 +577,14 @@
     }];
 }
 
+//- (NSURLSessionDataTask *)vodGetServicebannerlistBlock:(void(^)(NSArray *vod, NSError *error))block
+//{
+//    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+//    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+//    
+//    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", ];
+//}
+
 @end
 
 @implementation CMNetworkManager ( PAIRING )

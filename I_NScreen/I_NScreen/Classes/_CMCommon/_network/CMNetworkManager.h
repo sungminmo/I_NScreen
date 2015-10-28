@@ -91,6 +91,9 @@
 // 묶음 상품
 - (NSURLSessionDataTask *)vodGetBundleProductListWithProductProfile:(NSString *)productProfile block:(void (^)(NSArray *gets, NSError *error))block;
 
+// 배너
+- (NSURLSessionDataTask *)vodGetServicebannerlistBlock:(void(^)(NSArray *vod, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( PAIRING )

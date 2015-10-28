@@ -245,6 +245,9 @@ NSString* const CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId = @"recomm
 // GetBundleProductList
 NSString* const CNM_OPEN_API_INTERFACE_GetBundleProductList = @"getBundleProductList";
 
+// Getservicebannerlist
+//NSString* const CNM_OPEN_API_INTERFACE_GetServiceBann
+
 
 // 6.Service
 // GetGuideCategory
