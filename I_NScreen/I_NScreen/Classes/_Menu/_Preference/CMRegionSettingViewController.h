@@ -2,7 +2,7 @@
 //  CMRegionSettingViewController.h
 //  I_NScreen
 //
-//  Created by kimts on 2015. 10. 9..
+//  Created by 조백근 on 2015. 10. 9..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -13,13 +13,13 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pick.png" translatesAutoresizingMaskIntoConstraints="NO" id="n24-Ja-ik6">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick.png" translatesAutoresizingMaskIntoConstraints="NO" id="n24-Ja-ik6">
                         <rect key="frame" x="16" y="26" width="14" height="13"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyY-qn-4Gv" userLabel="channel Label">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyY-qn-4Gv" userLabel="channel Label">
                         <rect key="frame" x="46" y="9" width="54" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="1se-YL-hZf"/>
@@ -29,7 +29,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-bE-nAs" userLabel="broadcaster Image">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-bE-nAs" userLabel="broadcaster Image">
                         <rect key="frame" x="46" y="34" width="54" height="22"/>
                         <color key="backgroundColor" red="1" green="0.38431372549999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -37,7 +37,7 @@
                             <constraint firstAttribute="width" constant="54" id="ztF-Gh-gfT"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G20-Zd-dia" userLabel="title Label">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="G20-Zd-dia" userLabel="title Label">
                         <rect key="frame" x="108" y="9" width="78" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="9iH-4N-23f"/>
@@ -46,7 +46,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="15:00~16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJK-zn-FaB" userLabel="time Label">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:00~16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJK-zn-FaB" userLabel="time Label">
                         <rect key="frame" x="108" y="31" width="91" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="9dv-fU-xwJ"/>
@@ -55,21 +55,21 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="YD7-1n-3pi" userLabel="ALL image">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YD7-1n-3pi" userLabel="ALL image">
                         <rect key="frame" x="218" y="33" width="29" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="29" id="Lxb-do-PNm"/>
                             <constraint firstAttribute="height" constant="16" id="el6-4K-tOA"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="HbJ-bK-tkX" userLabel="HD image">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="HbJ-bK-tkX" userLabel="HD image">
                         <rect key="frame" x="251" y="33" width="29" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="29" id="RaV-9Y-SLV"/>
                             <constraint firstAttribute="height" constant="16" id="fh0-pI-L16"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nG5-L5-byg" userLabel="progress View">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nG5-L5-byg" userLabel="progress View">
                         <rect key="frame" x="108" y="53" width="186" height="3"/>
                         <color key="backgroundColor" red="0.70196078431372544" green="0.71764705882352942" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -87,6 +87,7 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="YD7-1n-3pi" firstAttribute="leading" secondItem="wJK-zn-FaB" secondAttribute="trailing" constant="19" id="3kr-lB-sJU"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="G20-Zd-dia" secondAttribute="trailing" id="53L-Cj-3LO"/>
                     <constraint firstItem="nG5-L5-byg" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.58" id="6Do-QD-lqQ"/>
                     <constraint firstItem="FyY-qn-4Gv" firstAttribute="leading" secondItem="n24-Ja-ik6" secondAttribute="trailing" constant="16" id="71L-wj-3Aq"/>
                     <constraint firstItem="aCg-bE-nAs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="12.25" id="7kp-mz-yZT"/>
@@ -109,12 +110,18 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bookmarkImageView" destination="n24-Ja-ik6" id="SYS-2q-UOD"/>
+                <outlet property="channelLabel" destination="FyY-qn-4Gv" id="UDA-ea-gU4"/>
+                <outlet property="gradeImageView" destination="YD7-1n-3pi" id="4eD-wa-FTO"/>
+                <outlet property="hmImageView" destination="HbJ-bK-tkX" id="pLB-px-z6C"/>
                 <outlet property="lineView" destination="w9G-wO-51N" id="olF-yu-8nj"/>
+                <outlet property="logoImageView" destination="aCg-bE-nAs" id="HvI-N1-Izb"/>
+                <outlet property="timeLabel" destination="wJK-zn-FaB" id="l4J-yk-n2n"/>
+                <outlet property="titleLabel" destination="G20-Zd-dia" id="bWU-QG-Am6"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="all.png" width="29" height="16"/>
         <image name="hd.png" width="29" height="16"/>
         <image name="pick.png" width="14" height="13"/>
     </resources>

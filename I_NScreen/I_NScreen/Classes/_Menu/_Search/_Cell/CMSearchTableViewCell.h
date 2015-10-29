@@ -11,4 +11,6 @@
 
 @interface CMSearchTableViewCell : BMXSwipableCell
 
+- (void)setData:(NSDictionary*)data;
+
 @end

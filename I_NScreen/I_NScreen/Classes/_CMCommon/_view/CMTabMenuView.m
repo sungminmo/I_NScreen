@@ -120,12 +120,19 @@ static const CGFloat padding = 21;
 
 - (void)buttonWasTouchUpInside:(id)sender withEvent:(UIEvent*)event {
 
+    NSInteger index = 0;
     for (int i = 0; i < self.menuButtonArray.count; i++) {
         UIButton* button = self.menuButtonArray[i];
         if (button == sender) {
-            self.selectedIndex = i;
+            index = i;
             break;
         }
+    }
+    
+    if (self.selectedIndex == index) {
+        return;
+    } else {
+        self.selectedIndex = index;
     }
     
     [self selectTabMenu:self.selectedIndex];

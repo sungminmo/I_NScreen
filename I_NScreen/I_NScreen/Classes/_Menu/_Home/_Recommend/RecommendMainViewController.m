@@ -38,10 +38,10 @@
     [self setDataInit];
     
 //    [self banPageControllerInit];
-    [self requestWithBanner];
-    [self requestWithPopularTopTwenty];
-    [self requestWithThisMonthRecommend];
-    [self requestWithWeekMovie];
+//    [self requestWithBanner];
+//    [self requestWithPopularTopTwenty];
+//    [self requestWithThisMonthRecommend];
+//    [self requestWithWeekMovie];
 }
 
 #pragma mark - 초기화

@@ -13,6 +13,8 @@
 #import "CMConstants.h"
 #import "BMXSwipableCell+ConfigureCell.h"
 #import "NSMutableDictionary+SEARCH.h"
+#import "CMDBDataManager.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 typedef enum : NSInteger {
     VOD_TABMENU_TYPE,
@@ -27,6 +29,7 @@ static NSString* const searchWordList = @"searchWordList";
 static NSString* const searchWord = @"searchWord";
 
 static NSString* const VodSearch_Item = @"VodSearch_Item";
+static NSString* const ScheduleItem = @"scheduleItem";
 
 static const CGFloat pageSize = 28;
 
@@ -234,6 +237,69 @@ static const CGFloat pageSize = 28;
     }];
 }
 
+- (void)requestProgramList {
+    
+    self.isLoading = YES;
+    
+    NSString* searchWord = [self.searchField.text trim];
+    
+    if (searchWord.length == 0) {
+        return;
+    }
+    
+    CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
+    
+    [NSMutableDictionary programScheduleListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithAreaCode:areaInfo.areaCode completion:^(NSArray *programs, NSError *error) {
+
+        self.isLoading = NO;
+        
+        NSDictionary* response = programs[0];
+        
+        NSString* resultCode = response[CNM_OPEN_API_RESULT_CODE_KEY];
+        if ([CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY isEqualToString:resultCode] == false) {
+            
+            [self.dataArray removeAllObjects];
+            [self.programList reloadData];
+            
+            DDLogError(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
+            
+            return;
+        }
+        
+        NSString* totalCount = response[CNM_OPEN_API_RESULT_TOTAL_COUNT];
+        [self setListCount:[totalCount integerValue]];
+        
+        self.totalPage = ceil([totalCount integerValue] / pageSize);
+        
+        NSObject* itemObject = response[ScheduleItem];
+        
+        if ([itemObject isKindOfClass:[NSDictionary class]]) {
+            [self.dataArray addObject:itemObject];
+        } else if ([itemObject isKindOfClass:[NSArray class]]) {
+            [self.dataArray addObjectsFromArray:(NSArray*)itemObject];
+        }
+        
+        [self.programList reloadData];
+    }];
+}
+
+- (void)requestList {
+    
+    TABMENU_TYPE type = [self.tabMenu getTabMenuIndex];
+    switch (type) {
+        case VOD_TABMENU_TYPE: {
+            
+            [self requestVodList];
+        }
+            break;
+        case PROGRAM_TABMENU_TYPE: {
+            
+            [self requestProgramList];
+        }
+            break;
+    }
+}
+
 #pragma mark - Event
 
 - (IBAction)buttonWasTouchUpInside:(id)sender {
@@ -259,19 +325,20 @@ static const CGFloat pageSize = 28;
 
 - (void)tabMenu:(CMTabMenuView *)sender didSelectedTab:(NSInteger)tabIndex {
     
+    [self.searchField resignFirstResponder];
+    [self showAutoCompletList:NO];
+    
+    [self resetData];
+    [self requestList];
+    
     switch (tabIndex) {
         case VOD_TABMENU_TYPE: {
             self.vodList.hidden = false;
-            
-            //  table reset
             self.programList.hidden = true;
         }
             break;
         case PROGRAM_TABMENU_TYPE: {
-            
-            //  collection reset
             self.vodList.hidden = true;
-            
             self.programList.hidden = false;
         }
             break;
@@ -307,7 +374,7 @@ static const CGFloat pageSize = 28;
     if (self.autoCompletList == tableView) {
         return self.searchWordArray.count;
     } else if (self.programList == tableView) {
-        return 100;
+        return self.dataArray.count;
     }
     return 0;
 }
@@ -323,6 +390,9 @@ static const CGFloat pageSize = 28;
     } else if (self.programList == tableView) {
         CMSearchTableViewCell* cell = (CMSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:programCellIdentifier];
         
+        NSDictionary* item = self.dataArray[indexPath.row];
+        
+        [cell setData:item];
         [cell configureCellForItem:@{}];
         
         return cell;
@@ -351,7 +421,7 @@ static const CGFloat pageSize = 28;
         
         self.searchField.text = self.searchWordArray[indexPath.row][searchWord];
         [self resetData];
-        [self requestVodList];
+        [self requestList];
         
         [self showAutoCompletList:NO];
     } else if (self.programList == tableView) {
@@ -375,22 +445,9 @@ static const CGFloat pageSize = 28;
     
     [self resetData];
     
-    TABMENU_TYPE type = [self.tabMenu getTabMenuIndex];
-    switch (type) {
-        case VOD_TABMENU_TYPE: {
-            
-            [self showAutoCompletList:NO];
-            
-            [self requestVodList];
-        }
-            break;
-        case PROGRAM_TABMENU_TYPE: {
-            
-        }
-            
-        default:
-            break;
-    }
+    [self showAutoCompletList:NO];
+    
+    [self requestList];
     
     return YES;
 }
@@ -434,6 +491,16 @@ static const CGFloat pageSize = 28;
             break;
         case PROGRAM_TABMENU_TYPE: {
             
+            CGFloat offsetY = scrollView.contentOffset.y;
+            CGFloat contentHeight = scrollView.contentSize.height;
+            
+            if ( self.isLoading == NO && (offsetY + scrollView.frame.size.height > contentHeight)) {
+                if (self.totalPage > self.pageIndex) {
+                    self.pageIndex++;
+                    
+                    [self requestProgramList];
+                }
+            }
         }
             break;
         default:
