@@ -5,7 +5,35 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodDetailMainViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodDetailMainViewController">
+            <connections>
+                <outlet property="pBackBtn" destination="lUI-8z-6Y5" id="Sml-eu-HPg"/>
+                <outlet property="pBodyView" destination="33X-5k-Xuw" id="VFq-ov-rTD"/>
+                <outlet property="pCastLbl" destination="fHy-tf-PAn" id="NFd-bi-NJH"/>
+                <outlet property="pContentTextView" destination="cFl-L7-V26" id="mfF-dP-fO3"/>
+                <outlet property="pEquipmentImageView" destination="c6F-gA-hq5" id="9N8-Jy-zT2"/>
+                <outlet property="pManagerLbl" destination="qS3-bU-t3G" id="xWP-Gc-XJy"/>
+                <outlet property="pPageControl" destination="UZF-pj-nwT" id="Fjf-hK-Afg"/>
+                <outlet property="pPriceLbl" destination="lnA-ER-afq" id="kK5-Tp-s9y"/>
+                <outlet property="pRatingImageView" destination="6bG-LN-KR6" id="FAN-QJ-Sfo"/>
+                <outlet property="pResolutionImageView" destination="5Pq-an-SqP" id="mjh-8z-MUp"/>
+                <outlet property="pScrollView" destination="Xfy-l9-nwU" id="K93-ly-xOY"/>
+                <outlet property="pStarImage01" destination="PP5-d5-EZx" id="Cmb-3S-7JZ"/>
+                <outlet property="pStarImage02" destination="uzo-DU-9xN" id="aH6-xW-TBG"/>
+                <outlet property="pStarImage03" destination="cqn-g3-RMw" id="9sO-NL-k2s"/>
+                <outlet property="pStarImage04" destination="RVY-nm-IhM" id="FJe-UF-Ng5"/>
+                <outlet property="pStarImage05" destination="ATc-WX-xJf" id="7Eb-ET-Mv8"/>
+                <outlet property="pSummaryLbl" destination="Gnz-UG-ZdX" id="Tpo-Ap-y7a"/>
+                <outlet property="pTermLbl" destination="KIT-KZ-g1J" id="J3P-gR-O6s"/>
+                <outlet property="pThumImageView" destination="FfL-lT-z4x" id="YaT-67-sPY"/>
+                <outlet property="pTitleLbl" destination="x4q-dy-nbm" id="YRE-ji-4zP"/>
+                <outlet property="pView01" destination="L30-bS-enC" id="4tz-EM-QD3"/>
+                <outlet property="pView02" destination="Gfc-fR-XmF" id="oeh-yP-udB"/>
+                <outlet property="pView03" destination="XHe-2m-w8p" id="eHU-jH-k8I"/>
+                <outlet property="pWatchBtn" destination="yrX-07-HNh" id="P9p-yf-tJU"/>
+                <outlet property="view" destination="Cc7-h2-ipl" id="i1I-1G-eif"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Cc7-h2-ipl">
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -25,6 +53,9 @@
                             <state key="normal" image="back.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="fW8-Xg-MR8"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,7 +69,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
             <point key="canvasLocation" x="340" y="375"/>
         </view>
-        <view contentMode="scaleToFill" id="L30-bS-enC">
+        <view contentMode="scaleToFill" id="L30-bS-enC" userLabel="View1">
             <rect key="frame" x="0.0" y="0.0" width="414" height="213"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -48,7 +79,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="6bG-LN-KR6">
                     <rect key="frame" x="155" y="16" width="29" height="16"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="베테랑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4q-dy-nbm">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4q-dy-nbm">
                     <rect key="frame" x="192" y="15" width="202" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -84,7 +115,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-an-SqP">
                     <rect key="frame" x="193" y="65" width="29" height="16"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4,500원 [부가세 별도]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnA-ER-afq">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnA-ER-afq">
                     <rect key="frame" x="230" y="63" width="164" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="highlightedColor"/>
@@ -95,7 +126,7 @@
                     <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="액션,드라마 / 123분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnz-UG-ZdX">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnz-UG-ZdX">
                     <rect key="frame" x="193" y="85" width="164" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="highlightedColor"/>
@@ -106,7 +137,7 @@
                     <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="류승완" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qS3-bU-t3G">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qS3-bU-t3G">
                     <rect key="frame" x="192" y="107" width="164" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="highlightedColor"/>
@@ -117,7 +148,7 @@
                     <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="황정민(서도철),유아인(조태오),유해진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-tf-PAn">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-tf-PAn">
                     <rect key="frame" x="193" y="131" width="221" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="highlightedColor"/>
@@ -128,7 +159,7 @@
                     <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIT-KZ-g1J">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIT-KZ-g1J">
                     <rect key="frame" x="214" y="154" width="164" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="highlightedColor"/>
@@ -142,30 +173,70 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_onlytv.png" translatesAutoresizingMaskIntoConstraints="NO" id="c6F-gA-hq5">
                     <rect key="frame" x="216" y="183" width="28" height="10"/>
                 </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuW-0b-UbV">
+                    <rect key="frame" x="14" y="212" width="386" height="1"/>
+                    <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="825" y="196.5"/>
         </view>
-        <view contentMode="scaleToFill" id="XHe-2m-w8p">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="248"/>
+        <view contentMode="scaleToFill" id="Gfc-fR-XmF" userLabel="View2">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="해당 VOD를 시청하신 분들이 많이 찾는 VOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV6-lY-xgn">
-                    <rect key="frame" x="17" y="18" width="376" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAy-Zj-caP">
-                    <rect key="frame" x="8" y="52" width="95" height="138"/>
-                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFl-L7-V26">
+                    <rect key="frame" x="14" y="0.0" width="386" height="128"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrX-07-HNh">
+                    <rect key="frame" x="14" y="134" width="386" height="46"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="시청하기" backgroundImage="vod1btn_normal.select.png"/>
+                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="CXY-kB-dP2"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="814" y="497"/>
+            <point key="canvasLocation" x="825" y="761"/>
+        </view>
+        <view contentMode="scaleToFill" id="XHe-2m-w8p" userLabel="View3">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="248"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="해당 VOD를 시청하신 분들이 많이 찾는 VOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV6-lY-xgn">
+                    <rect key="frame" x="17" y="27" width="376" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGN-uP-2dw">
+                    <rect key="frame" x="7" y="53" width="400" height="1"/>
+                    <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xfy-l9-nwU">
+                    <rect key="frame" x="7" y="63" width="400" height="158"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="I3n-Un-svx"/>
+                    </connections>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="UZF-pj-nwT">
+                    <rect key="frame" x="166" y="211" width="81" height="37"/>
+                    <color key="pageIndicatorTintColor" red="0.70588235290000001" green="0.71372549019999998" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="825" y="470"/>
         </view>
     </objects>
     <resources>
@@ -175,5 +246,7 @@
         <image name="icon_onlytv.png" width="43" height="15"/>
         <image name="star_empty.png" width="14" height="13"/>
         <image name="star_full.png" width="14" height="13"/>
+        <image name="vod1btn_normal.select.png" width="379" height="46"/>
+        <image name="vod1btn_press.png" width="379" height="46"/>
     </resources>
 </document>

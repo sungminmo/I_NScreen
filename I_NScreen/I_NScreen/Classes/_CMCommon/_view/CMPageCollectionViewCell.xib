@@ -58,18 +58,28 @@
                             <constraint firstAttribute="trailing" secondItem="Dl8-EA-Al5" secondAttribute="trailing" id="qJV-VG-Djq"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRs-iK-eZd">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="158"/>
+                        <connections>
+                            <action selector="onBtnClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="mEx-F2-mfK"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstItem="WDF-9Q-zeC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3Hm-Qx-TkJ"/>
+                <constraint firstItem="lRs-iK-eZd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7A1-ec-F5d"/>
                 <constraint firstItem="QtE-iU-7yY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DEW-WP-Zdt"/>
                 <constraint firstItem="WDF-9Q-zeC" firstAttribute="top" secondItem="hMa-kw-bgp" secondAttribute="bottom" id="EyA-ba-EHq"/>
                 <constraint firstAttribute="trailing" secondItem="hMa-kw-bgp" secondAttribute="trailing" id="Uzd-e0-gSz"/>
+                <constraint firstAttribute="bottom" secondItem="lRs-iK-eZd" secondAttribute="bottom" id="cWe-x3-3s7"/>
                 <constraint firstAttribute="bottom" secondItem="WDF-9Q-zeC" secondAttribute="bottom" id="dwq-wt-JpH"/>
                 <constraint firstItem="QtE-iU-7yY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eZy-Io-5Ie"/>
                 <constraint firstAttribute="trailing" secondItem="WDF-9Q-zeC" secondAttribute="trailing" id="jnz-mU-WFa"/>
                 <constraint firstItem="hMa-kw-bgp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="orN-sQ-otm"/>
+                <constraint firstAttribute="trailing" secondItem="lRs-iK-eZd" secondAttribute="trailing" id="osy-Bu-rWC"/>
+                <constraint firstItem="lRs-iK-eZd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tja-ty-U6c"/>
                 <constraint firstAttribute="trailing" secondItem="rAT-di-knA" secondAttribute="trailing" constant="2" id="xbf-Zr-kuD"/>
                 <constraint firstItem="rAT-di-knA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="yOl-KH-UTg"/>
                 <constraint firstItem="hMa-kw-bgp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ycS-jw-s4f"/>

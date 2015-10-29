@@ -1,31 +1,30 @@
 //
-//  CMPageCollectionViewController.m
+//  CMContentGroupCollectionViewController.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 16..
+//  Created by JUNG KIL BAE on 2015. 10. 29..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "CMPageCollectionViewController.h"
+#import "CMContentGroupCollectionViewController.h"
 
-@interface CMPageCollectionViewController ()
+@interface CMContentGroupCollectionViewController ()
 {
     NSArray *pArr;
     int nPage;
 }
 @end
 
-@implementation CMPageCollectionViewController
+@implementation CMContentGroupCollectionViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
 - (id)initWithData:(NSArray *)arr WithPage:(int)page
 {
-    if ( self = [super initWithNibName:@"CMPageCollectionViewController" bundle:nil])
+    if ( self = [super initWithNibName:@"CMContentGroupCollectionViewController" bundle:nil])
     {
         pArr = arr;
         nPage = page;
@@ -37,7 +36,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UINib *nib = [UINib nibWithNibName:@"CMPageCollectionViewCell" bundle:nil];
+    UINib *nib = [UINib nibWithNibName:@"CMContentGroupCollectionViewCell" bundle:nil];
     [self.pCollectionView registerNib:nib forCellWithReuseIdentifier:@"CellId"];
 }
 
@@ -52,12 +51,12 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CMPageCollectionViewCell *cell = [self.pCollectionView dequeueReusableCellWithReuseIdentifier:@"CellId" forIndexPath:indexPath];
+    CMContentGroupCollectionViewCell *cell = [self.pCollectionView dequeueReusableCellWithReuseIdentifier:@"CellId" forIndexPath:indexPath];
     
     cell.delegate = self;
-//    STCollectionItem *item = [_items objectAtIndex:indexPath.row];
-//    cell.numberLabel.text = [NSString stringWithFormat:@"%d", item.number];
-//    cell.captionLabel.text = item.caption;
+    //    STCollectionItem *item = [_items objectAtIndex:indexPath.row];
+    //    cell.numberLabel.text = [NSString stringWithFormat:@"%d", item.number];
+    //    cell.captionLabel.text = item.caption;
     [cell setListData:[pArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithPage:nPage];
     
     return cell;
@@ -66,7 +65,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGSize size;
-
+    
     if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
     {
         size.width = 95;
@@ -91,10 +90,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    STCollectionItem *item = [_items objectAtIndex:indexPath.row];
-//    NSString *message = [NSString stringWithFormat:@"%d\n%@", item.number, item.caption];
-//    
-  
+    //    STCollectionItem *item = [_items objectAtIndex:indexPath.row];
+    //    NSString *message = [NSString stringWithFormat:@"%d\n%@", item.number, item.caption];
+    //
+    
     
 }
 
@@ -103,9 +102,10 @@
     
 }
 
-- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
+- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
 {
-    [self.delegate CMPageCollectionBtnClicked:nSelect WithAssetId:assetId];
+    [self.delegate CMContentGroupCollectionBtnClicked:nSelect WithAssetId:assetId];
 }
+
 
 @end

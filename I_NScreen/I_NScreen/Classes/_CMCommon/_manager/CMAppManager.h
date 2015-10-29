@@ -43,7 +43,14 @@
  */
 - (NSString *)getDeviceCheck;
 
+/**
+ * @brief 숫자에 , 삽입
+ */
 
+- (NSString *)insertComma:(NSString *)data;
 
-
+/**
+ * @brief 숫자에 , 삭제
+ */
+- (NSString *)deleteComma:(NSString *)data;
 @end

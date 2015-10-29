@@ -11,18 +11,25 @@
 
 @implementation CMPageCollectionViewCell
 @synthesize pTitleLbl, pThumImageView;
+@synthesize nIndex;
+@synthesize delegate;
+@synthesize pAssetIdStr;
 
 - (void)awakeFromNib {
     // Initialization code
 }
 
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index
+- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithPage:(int)nPage
 {
+    self.nIndex = (index + 1) + (nPage * 8);
+    
+    self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetId"]];
+    
     NSString *sImageFileName = [NSString stringWithFormat:@"%@", [dic objectForKey:@"imageFileName"]];
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sImageFileName]];
-    self.pRankingLbl.text = [NSString stringWithFormat:@"%d", index + 1];
+    self.pRankingLbl.text = [NSString stringWithFormat:@"%d", self.nIndex];
     
     if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
     {
@@ -111,6 +118,11 @@
 
     
   
+}
+
+- (IBAction)onBtnClicked:(id)sender
+{
+    [self.delegate CMPageCollectionCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr];
 }
 
 @end

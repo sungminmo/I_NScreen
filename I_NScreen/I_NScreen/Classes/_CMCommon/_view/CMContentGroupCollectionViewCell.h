@@ -1,16 +1,16 @@
 //
-//  CMPageCollectionViewCell.h
+//  CMContentGroupCollectionViewCell.h
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 16..
+//  Created by JUNG KIL BAE on 2015. 10. 29..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@protocol CMPageCollectionViewCellDelegate;
+@protocol CMContentGroupCollectionViewCellDelegate;
 
-@interface CMPageCollectionViewCell : UICollectionViewCell
+@interface CMContentGroupCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic) int nIndex;
 @property (nonatomic, weak) IBOutlet UILabel *pTitleLbl;
@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) NSString  *pAssetIdStr;
 
-@property (nonatomic, weak) id <CMPageCollectionViewCellDelegate>delegate;
+@property (nonatomic, weak) id <CMContentGroupCollectionViewCellDelegate>delegate;
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithPage:(int)nPage;
 
@@ -29,9 +29,9 @@
 @end
 
 
-@protocol CMPageCollectionViewCellDelegate <NSObject>
+@protocol CMContentGroupCollectionViewCellDelegate <NSObject>
 
 @optional
-- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId;
+- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId;
 
 @end

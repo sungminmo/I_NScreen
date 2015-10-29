@@ -118,9 +118,17 @@
 
 // PairingRePwViewController btn tag
 #define PAIRING_RE_PW_VIEW_BTN_01       18001   // BACK 버튼
-#define PAIRING_RE_PW_VIEW_BTN_02       10002   // 설정 취소
-#define PAIRING_RE_PW_VIEW_BTN_03       10003   // 설정 완료
+#define PAIRING_RE_PW_VIEW_BTN_02       18002   // 설정 취소
+#define PAIRING_RE_PW_VIEW_BTN_03       18003   // 설정 완료
 
+// TestPageViewController btn tag
+#define TEST_PAGE_VIEW_BTN_01           19001
+#define TEST_PAGE_VIEW_BTN_02           19002
+#define TEST_PAGE_VIEW_BTN_03           19003
+
+// VodDetailMainViewController btn tag
+#define VOD_DETAIL_MAIN_VIEW_BTN_01     20001   // BACK 버튼
+#define VOD_DETAIL_MAIN_VIEW_BTN_02     20002   // 시청 하기 버튼
 
 //
 

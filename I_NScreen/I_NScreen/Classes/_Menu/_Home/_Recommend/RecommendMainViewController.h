@@ -12,6 +12,8 @@
 #import "CategoryTableViewCell.h"
 #import "BannerTableViewCell.h"
 #import "CMPageCollectionViewController.h"
+#import "TestPageViewController.h"
+#import "VodDetailMainViewController.h"
 
 // 화면 타입
 typedef enum : NSInteger {
@@ -20,7 +22,7 @@ typedef enum : NSInteger {
     TrinfoRecommend
 }TrinfoType;
 
-@interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate, CMPageViewDelegate>
+@interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate, CMPageViewDelegate, CMPageCollectionViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIScrollView *pMainScrollView;
 

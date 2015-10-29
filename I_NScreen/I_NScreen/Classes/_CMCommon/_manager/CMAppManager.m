@@ -121,4 +121,29 @@
     return sVersion;
 }
 
+#pragma mark -숫자에 , 삽입
+-(NSString *)insertComma:(NSString *)data
+{
+    if([data isEqualToString:@"0"] || data == nil ||data.length == 0)
+        return @"0";
+    
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ko_KR"];
+    
+    NSDecimalNumber *tfPriceChange = [NSDecimalNumber decimalNumberWithString:data];
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [currencyFormatter setLocale:locale];
+    
+    return [NSString stringWithFormat:@"%@", [currencyFormatter stringFromNumber:tfPriceChange]];
+}
+
+#pragma mark -숫자에 , 삭제
+-(NSString *)deleteComma:(NSString *)data
+{
+    if([data isEqualToString:@"0"] || data == nil)
+        return @"0";
+    
+    NSMutableString *strBuffer = [NSMutableString stringWithString:data];
+    return [strBuffer stringByReplacingOccurrencesOfString:@"," withString:@""];
+}
 @end

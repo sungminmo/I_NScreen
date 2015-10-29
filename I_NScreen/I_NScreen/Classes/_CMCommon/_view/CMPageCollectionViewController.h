@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMPageCollectionViewCell.h"
 
 @protocol CMPageCollectionViewDelegate;
 
-@interface CMPageCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface CMPageCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, CMPageCollectionViewCellDelegate>
 
 @property (nonatomic, weak) id <CMPageCollectionViewDelegate>delegate;
 @property (nonatomic, weak) IBOutlet UICollectionView *pCollectionView;
@@ -22,5 +23,6 @@
 @protocol CMPageCollectionViewDelegate <NSObject>
 
 @optional
+- (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId;
 
 @end

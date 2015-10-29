@@ -39,10 +39,10 @@
     [self setDataInit];
     
 //    [self banPageControllerInit];
-//    [self requestWithBanner];
-//    [self requestWithPopularTopTwenty];
-//    [self requestWithThisMonthRecommend];
-//    [self requestWithWeekMovie];
+    [self requestWithBanner];
+    [self requestWithPopularTopTwenty];
+    [self requestWithThisMonthRecommend];
+    [self requestWithWeekMovie];
 }
 
 #pragma mark - 초기화
@@ -312,7 +312,7 @@
             if ( (NSNull *)controller == [NSNull null] )
             {
                 controller = [[CMPageCollectionViewController alloc] initWithData:[self.pPopularityArr objectAtIndex:page] WithPage:(int)page];
-//                controller.delegate = self;
+                controller.delegate = self;
                 [self.pPopularityViewController replaceObjectAtIndex:page withObject:controller];
             }
             
@@ -344,7 +344,7 @@
             if ( (NSNull *)controller == [NSNull null] )
             {
                 controller = [[CMPageCollectionViewController alloc] initWithData:[self.pWeekMovieArr objectAtIndex:page] WithPage:(int)page];
-                //                controller.delegate = self;
+                controller.delegate = self;
                 [self.pWeekMovieViewController replaceObjectAtIndex:page withObject:controller];
             }
             
@@ -376,7 +376,7 @@
             if ( (NSNull *)controller == [NSNull null] )
             {
                 controller = [[CMPageCollectionViewController alloc] initWithData:[self.pThisMonthRecommendArr objectAtIndex:page] WithPage:(int)page];
-                //                controller.delegate = self;
+                controller.delegate = self;
                 [self.pThisMonthRecommendViewController replaceObjectAtIndex:page withObject:controller];
             }
             
@@ -562,6 +562,9 @@
             [nDic setObject:[dic objectForKey:@"categoryId"] forKey:@"categoryId"];
             [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
             
+            // 수정
+            [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"assetId"];
+            
 //            [self.pWeekMovieArr addObject:nDic];
             [pArr addObject:nDic];
             
@@ -632,6 +635,8 @@
             [nDic setObject:[dic objectForKey:@"categoryId"] forKey:@"categoryId"];
             [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
             
+            [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"assetId"];
+            
 //            [self.pThisMonthRecommendArr addObject:nDic];
             [pArr addObject:nDic];
             
@@ -668,6 +673,13 @@
        
         DDLogError(@"PAIRAIN = [%@]", pairing);
     }];
+}
+
+- (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
+{
+    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+    pViewController.pAssetIdStr = assetId;
+    [self.navigationController pushViewController:pViewController animated:YES];
 }
 
 @end
