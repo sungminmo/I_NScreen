@@ -15,6 +15,10 @@
 @interface CMSMAppServerClient : AFHTTPSessionManager
 @end
 
+@interface CMSMAppServerClientVPN : AFHTTPSessionManager
+
+@end
+
 @interface CMWebHasServerClient : AFHTTPSessionManager
 @end
 
@@ -32,6 +36,7 @@
 
 @property (nonatomic, strong) CMDRMServerClient* drmClient;
 @property (nonatomic, strong) CMSMAppServerClient* smClient;
+@property (nonatomic, strong) CMSMAppServerClientVPN* smClientVpn;
 @property (nonatomic, strong) CMWebHasServerClient* webClient;
 @property (nonatomic, strong) CMRUMPUSServerClient* rumClient;
 @property (nonatomic, strong) CMRUMPUSServerClientVPN* rumClientVpn;
@@ -75,6 +80,8 @@
 
 - (NSURLSessionDataTask *)epgSearchScheduleAreaCode:(NSString *)areaCode WithSearch:(NSString *)search block:(void (^)(NSArray *gets, NSError *error))block;
 
+- (NSURLSessionDataTask *)epgSetRecordWithChannelId:(NSString *)channeId completion:(void (^)(NSArray *epgs, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager (VOD)
@@ -109,6 +116,8 @@
 // privte 터미널 키 획득
 // 192.168.40.5:8080/HApplicationServer/authenticateDevice.json?version=1&secondDeviceId=6192378192479184
 - (NSURLSessionDataTask *)pairingAuthenticateDeviceCompletion:(void (^)(NSArray *pairing, NSError *error))block;
+
+- (NSURLSessionDataTask *)pairingClientSetTopBoxRegistWithAuthKey:(NSString *)authKey completion:(void (^)(NSArray *pairing, NSError *error))block;
 
 @end
 

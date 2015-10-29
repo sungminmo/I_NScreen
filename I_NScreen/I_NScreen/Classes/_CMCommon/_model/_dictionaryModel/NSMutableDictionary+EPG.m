@@ -36,4 +36,9 @@
     return [[CMNetworkManager sharedInstance] epgSearchScheduleAreaCode:areaCode WithSearch:search block:block];
 }
 
+//+ (NSURLSessionDataTask *)epgSetRecordWithChannelId:(NSString *)channeId completion:(void (^)(NSArray *epgs, NSError *error))block
+//{
+//    
+//}
+
 @end
