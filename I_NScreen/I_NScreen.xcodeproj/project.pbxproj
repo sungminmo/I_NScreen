@@ -763,6 +763,11 @@
 		E5E0DF7B1BDB91EE0049E3F6 /* PairingAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E0DF791BDB91EE0049E3F6 /* PairingAuthViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5E0DF801BDB96A60049E3F6 /* PairingFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E0DF7E1BDB96A60049E3F6 /* PairingFinishViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5E0DF811BDB96A60049E3F6 /* PairingFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E0DF7F1BDB96A60049E3F6 /* PairingFinishViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5E418641BE1AE4900B4DAB3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */; };
+		E5E418651BE1AE5800B4DAB3 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */; };
+		E5E418661BE1AE6000B4DAB3 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FA1BDDBD26005AC701 /* libresolv.tbd */; };
+		E5E418671BE1AE6D00B4DAB3 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FC1BDDBD3A005AC701 /* libSystem.tbd */; };
+		E5E418691BE1AE8200B4DAB3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2F41BDDBC73005AC701 /* libz.tbd */; };
 		E5E5A2B91BD78A6500A99883 /* TestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5E5A2BA1BD78A6500A99883 /* TestMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
@@ -1668,6 +1673,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E418691BE1AE8200B4DAB3 /* libz.tbd in Frameworks */,
+				E5E418671BE1AE6D00B4DAB3 /* libSystem.tbd in Frameworks */,
+				E5E418661BE1AE6000B4DAB3 /* libresolv.tbd in Frameworks */,
+				E5E418651BE1AE5800B4DAB3 /* libxml2.tbd in Frameworks */,
+				E5E418641BE1AE4900B4DAB3 /* libc++.tbd in Frameworks */,
 				E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */,
 				992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */,
 				564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */,
@@ -4354,6 +4364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "I_NScreen/Resources/I_NScreen-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -4382,6 +4393,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: C&M (CR4R5HGD9P)";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "I_NScreen/Resources/I_NScreen-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",

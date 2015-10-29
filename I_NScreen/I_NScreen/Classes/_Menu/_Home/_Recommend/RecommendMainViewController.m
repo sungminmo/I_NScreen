@@ -157,7 +157,8 @@
     // 하드코딩 토탈 카운터 3개만 하자
     NSMutableArray *pControllers = [[NSMutableArray alloc] init];
     
-    int nTotalCount = 3;
+//    int nTotalCount = 3;
+    int nTotalCount = (int)[self.pBnArr count];
     
     for ( NSUInteger i = 0; i < nTotalCount; i++ )
     {
@@ -186,7 +187,9 @@
 #pragma mark - 배너 페이지 전환
 - (void)banLoadScrollViewWithPage:(NSInteger )page
 {
-    int nTotalCount = 3;
+//    int nTotalCount = 3;
+    
+    int nTotalCount = (int)[self.pBnArr count];
     
     // 초기값 리턴
     if ( page >= nTotalCount || page < 0 )
