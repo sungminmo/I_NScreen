@@ -282,6 +282,31 @@
     return task;
 }
 
+- (NSURLSessionDataTask *)programScheduleListWithSearchString:(NSString *)searchString WithPageSize:(NSInteger)pageSize WithPageIndex:(NSInteger)pageIndex WithAreaCode:(NSString *)areaCode completion:(void (^)(NSArray *programs, NSError *error))block {
+    
+    self.acodeClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.acodeClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_SearchSchedule];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           @"searchString" : searchString,
+                           @"limit" : @(pageSize),
+                           @"offset" : @(pageIndex),
+                           @"areaCode" : areaCode
+                           };
+    
+    return [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        block(nil, error);
+    }];
+}
+
 
 - (NSURLSessionDataTask *)epgSearchChannelListWithSearchString:(NSString *)searchString WithPageSize:(NSString *)pageSize WithPageIndex:(NSString *)pageIndex WithSortType:(NSString *)sortType block:(void (^)(NSArray *, NSError *))block
 {
