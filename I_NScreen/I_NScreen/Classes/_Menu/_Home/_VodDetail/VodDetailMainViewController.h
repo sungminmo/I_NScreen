@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "CMBaseViewController.h"
 #import "CMPageViewController.h"
 #import "CMContentGroupCollectionViewController.h"
+#import "PlayerViewController.h"
 
-@interface VodDetailMainViewController : CMBaseViewController <UIScrollViewDelegate, CMContentGroupCollectionViewCellDelegate>
+@interface VodDetailMainViewController : CMBaseViewController <UIScrollViewDelegate, CMContentGroupCollectionViewCellDelegate, PlayerViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pView01;
 @property (nonatomic, strong) IBOutlet UIScrollView *pBodyView;
@@ -44,7 +46,10 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *pScrollView;
 @property (nonatomic, strong) IBOutlet UIPageControl *pPageControl;
 
-@property (nonatomic, strong) NSString *pAssetIdStr;        // 어셋 아이디 
+@property (nonatomic, strong) NSString *pAssetIdStr;        // 어셋 아이디
+@property (nonatomic, strong) NSString *pFileNameStr;       // 파일 name
+
+@property (readwrite, retain) MPMoviePlayerController *pMoviePlayer;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 

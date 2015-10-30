@@ -14,6 +14,9 @@ NSString* const NAVER_SEARCH_API_KEY = @"7868041a52660445b7e1d4bb4f24709c";//발
 // 네이버 검색API(웹문서) 서버 URL.
 NSString* const NAVER_SEARCH_API_SERVER_URL = @"http://openapi.naver.com/search?";
 
+// DRM 호출 URL
+NSString* const DRM_OPEN_API_SERVER_URL = @"https://api.cablevod.co.kr/api/";
+
 // C&M SMApplicationSever openAPI 서버 IP.
 //NSString* const CNM_OPEN_API_SERVER_URL = @"http://58.143.243.91/SMApplicationServer/";
 NSString* const CNM_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";  // 라이브

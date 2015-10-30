@@ -754,6 +754,11 @@
 		E5BE92051BD65F5A00970E16 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92031BD65F5A00970E16 /* BannerTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5BE92091BD65F7100970E16 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE92071BD65F7100970E16 /* CategoryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E5BE920A1BD65F7100970E16 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92081BD65F7100970E16 /* CategoryTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E5C5844E1BE31EC100276EC6 /* libWViPhoneAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C5844C1BE31EC100276EC6 /* libWViPhoneAPI.a */; settings = {ASSET_TAGS = (); }; };
+		E5C5844F1BE31EDB00276EC6 /* libcommonCrypto.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FE1BDDBD45005AC701 /* libcommonCrypto.tbd */; };
+		E5C584521BE33A0E00276EC6 /* NSMutableDictionary+DRM.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */; settings = {ASSET_TAGS = (); }; };
+		E5C584571BE34F4400276EC6 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584551BE34F4400276EC6 /* PlayerViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5C584581BE34F4400276EC6 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C584561BE34F4400276EC6 /* PlayerViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DA6AD21BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -1648,6 +1653,13 @@
 		E5BE92061BD65F7100970E16 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = _Home/_Recommend/_Cell/CategoryTableViewCell.h; sourceTree = "<group>"; };
 		E5BE92071BD65F7100970E16 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = _Home/_Recommend/_Cell/CategoryTableViewCell.m; sourceTree = "<group>"; };
 		E5BE92081BD65F7100970E16 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryTableViewCell.xib; path = _Home/_Recommend/_Cell/CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		E5C5844C1BE31EC100276EC6 /* libWViPhoneAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWViPhoneAPI.a; path = _drmLb/libWViPhoneAPI.a; sourceTree = "<group>"; };
+		E5C5844D1BE31EC100276EC6 /* WViPhoneAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WViPhoneAPI.h; path = _drmLb/WViPhoneAPI.h; sourceTree = "<group>"; };
+		E5C584501BE33A0E00276EC6 /* NSMutableDictionary+DRM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+DRM.h"; sourceTree = "<group>"; };
+		E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+DRM.m"; sourceTree = "<group>"; };
+		E5C584541BE34F4400276EC6 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = _Home/_VodDetail/_Sub/PlayerViewController.h; sourceTree = "<group>"; };
+		E5C584551BE34F4400276EC6 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = _Home/_VodDetail/_Sub/PlayerViewController.m; sourceTree = "<group>"; };
+		E5C584561BE34F4400276EC6 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerViewController.xib; path = _Home/_VodDetail/_Sub/PlayerViewController.xib; sourceTree = "<group>"; };
 		E5DA6AD01BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Pairing.h"; sourceTree = "<group>"; };
 		E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Pairing.m"; sourceTree = "<group>"; };
 		E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainViewController.h; path = _Home/_Adult/AdultMainViewController.h; sourceTree = "<group>"; };
@@ -1688,11 +1700,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C5844F1BE31EDB00276EC6 /* libcommonCrypto.tbd in Frameworks */,
 				E5E418691BE1AE8200B4DAB3 /* libz.tbd in Frameworks */,
 				E5E418671BE1AE6D00B4DAB3 /* libSystem.tbd in Frameworks */,
 				E5E418661BE1AE6000B4DAB3 /* libresolv.tbd in Frameworks */,
 				E5E418651BE1AE5800B4DAB3 /* libxml2.tbd in Frameworks */,
 				E5E418641BE1AE4900B4DAB3 /* libc++.tbd in Frameworks */,
+				E5C5844E1BE31EC100276EC6 /* libWViPhoneAPI.a in Frameworks */,
 				E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */,
 				992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */,
 				564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */,
@@ -2087,6 +2101,8 @@
 				E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */,
 				E570428D1BDF5B3E00057D10 /* NSMutableDictionary+PVR.h */,
 				E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */,
+				E5C584501BE33A0E00276EC6 /* NSMutableDictionary+DRM.h */,
+				E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */,
 			);
 			path = _dictionaryModel;
 			sourceTree = "<group>";
@@ -2282,6 +2298,7 @@
 		E581E38C1BE07915007B8DB7 /* _VodDetail */ = {
 			isa = PBXGroup;
 			children = (
+				E5C584531BE34F1000276EC6 /* _Sub */,
 				E581E38D1BE07946007B8DB7 /* VodDetailMainViewController.h */,
 				E581E38E1BE07946007B8DB7 /* VodDetailMainViewController.m */,
 				E581E38F1BE07946007B8DB7 /* VodDetailMainViewController.xib */,
@@ -2292,6 +2309,8 @@
 		E5A6E2F01BDDBBAE005AC701 /* _drmLb */ = {
 			isa = PBXGroup;
 			children = (
+				E5C5844C1BE31EC100276EC6 /* libWViPhoneAPI.a */,
+				E5C5844D1BE31EC100276EC6 /* WViPhoneAPI.h */,
 			);
 			name = _drmLb;
 			sourceTree = "<group>";
@@ -3224,6 +3243,16 @@
 			name = _Cell;
 			sourceTree = "<group>";
 		};
+		E5C584531BE34F1000276EC6 /* _Sub */ = {
+			isa = PBXGroup;
+			children = (
+				E5C584541BE34F4400276EC6 /* PlayerViewController.h */,
+				E5C584551BE34F4400276EC6 /* PlayerViewController.m */,
+				E5C584561BE34F4400276EC6 /* PlayerViewController.xib */,
+			);
+			name = _Sub;
+			sourceTree = "<group>";
+		};
 		E5DE649B1BCB4BC200FC3122 /* _Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -4111,6 +4140,7 @@
 				E5B553391BD9DD3F00AA02B2 /* genreshopping_normal.png in Resources */,
 				E5A6E3421BDE1CC2005AC701 /* camera.png in Resources */,
 				E5B553761BD9DD3F00AA02B2 /* ch_select.png in Resources */,
+				E5C584581BE34F4400276EC6 /* PlayerViewController.xib in Resources */,
 				E5B554B11BD9DD3F00AA02B2 /* genresports_press@3x.png in Resources */,
 				E5B554F41BD9DD3F00AA02B2 /* fp2btn_ok_press@3x.png in Resources */,
 				E5B555311BD9DD3F00AA02B2 /* 4depth_select@3x.png in Resources */,
@@ -4180,6 +4210,7 @@
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
 				20989CDE1BC7934F009C4418 /* CMCustomNumberPadView.m in Sources */,
 				99478D361BAD4CF200CC99E9 /* CMColor.m in Sources */,
+				E5C584571BE34F4400276EC6 /* PlayerViewController.m in Sources */,
 				99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */,
 				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
 				E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */,
@@ -4209,6 +4240,7 @@
 				99C43C551BA3EDA10035A0A4 /* NSMutableDictionary+Merge.m in Sources */,
 				E52EE5791BD508AF00797251 /* PvrMainTableViewCell.m in Sources */,
 				E58C6AF61BE261660024405D /* CMContentGroupCollectionViewController.m in Sources */,
+				E5C584521BE33A0E00276EC6 /* NSMutableDictionary+DRM.m in Sources */,
 				E5E5A2B91BD78A6500A99883 /* TestMainViewController.m in Sources */,
 				E54CC0AF1BCCA0C6003806C0 /* NSString+SBJSON.m in Sources */,
 				E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */,

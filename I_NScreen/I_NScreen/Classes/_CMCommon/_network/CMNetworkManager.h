@@ -133,3 +133,10 @@
 - (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
 
 @end
+
+@interface CMNetworkManager ( DRM )
+
+// ex) https://api.cablevod.co.kr/api/v1/mso/10/asset/www.hchoice.co.kr%7CM4151006LSG348552901/play
+- (NSURLSessionDataTask *)drmApiWithAsset:(NSString *)asset completion:(void (^)(NSDictionary *drm, NSError *error))block;
+
+@end

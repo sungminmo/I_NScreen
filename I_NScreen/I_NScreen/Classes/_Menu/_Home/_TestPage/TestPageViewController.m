@@ -53,34 +53,36 @@
 //                                        @"markanynhne", WVPortalKey,
 //                                        @",user_id:myjulyyi,content_id:M0431531LFO259395100|www.hchoice.co.kr,device_key:648a16b50911464aaf92801c4ea88b31,so_idx:10", WVCAUserDataKey,
 //                                        NULL];
+////
 //            
-            
-//          NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                      @"http://proxy.video.toast.com/widevine/drm/dls.do", WVDRMServerKey,
-//                                      @"sess4321", WVSessionIdKey,
-//                                      @"cli0123", WVClientIdKey,
-//                                      @"markanynhne", WVPortalKey,
-//                                      @"XXXuser-dataXXX", WVCAUserDataKey,
-//                                      @"XXXclientipXXX", WVClientIPKey,
-//                                      @"http://kir03fcpg174.widevine.net/widevine/cypherpc/cgi-bin/Heartbeat.cgi",
-//                                      WVHeartbeatUrlKey,
-//                                      @"5", WVHeartbeatPeriodKey,
-////                                      ((nativeAdapting_ == YES)?@"1":@"0"),
-////                                      WVPlayerDrivenAdaptationKey,
-////                                      @"0", WVUseJSONKey,
-////                                      @"0", WVUseEncryptedLoopback,
-//                                      NULL];
-            
+////          NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+////                                      @"http://proxy.video.toast.com/widevine/drm/dls.do", WVDRMServerKey,
+////                                      @"sess4321", WVSessionIdKey,
+////                                      @"cli0123", WVClientIdKey,
+////                                      @"markanynhne", WVPortalKey,
+////                                      @"XXXuser-dataXXX", WVCAUserDataKey,
+////                                      @"XXXclientipXXX", WVClientIPKey,
+////                                      @"http://kir03fcpg174.widevine.net/widevine/cypherpc/cgi-bin/Heartbeat.cgi",
+////                                      WVHeartbeatUrlKey,
+////                                      @"5", WVHeartbeatPeriodKey,
+//////                                      ((nativeAdapting_ == YES)?@"1":@"0"),
+//////                                      WVPlayerDrivenAdaptationKey,
+//////                                      @"0", WVUseJSONKey,
+//////                                      @"0", WVUseEncryptedLoopback,
+////                                      NULL];
+//            
 //            WV_Initialize(WViPhoneCallback, dictionary);
+            
         }break;
         case TEST_PAGE_VIEW_BTN_03:
         {
             // play
 //            NSMutableString *responseUrl = [NSMutableString string];
 //            
-//            WV_Play(@"http://cjhv.video.toast.com/aaaaaa/5268a42c-5bfe-46ac-b8f0-9c094ee5327b.wvm", responseUrl, 0);
+//            WV_Play(@"http://cjhv.video.toast.com/aaaaaa/5268a42c-5bfe-46ac-b8f0-9c094ee5327b.wvm", responseUrl, nil);
 //            
 //            NSLog(@"data = [%@]", responseUrl);
+            
         }break;
     }
 }

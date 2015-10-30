@@ -10,16 +10,20 @@
 #import "NSMutableDictionary+VOD.h"
 #import "UIAlertView+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "NSMutableDictionary+DRM.h"
+#import "WViPhoneAPI.h"
 
 @interface VodDetailMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pViewController;
 @property (nonatomic, strong) NSMutableDictionary *pAssetInfoDic;
 @property (nonatomic, strong) NSMutableArray *pContentGroupArr; // 연관 컨텐츠 그룹
+@property (nonatomic, strong) NSMutableDictionary *pDrmDic;
 
 @end
 
 @implementation VodDetailMainViewController
 @synthesize pAssetIdStr;
+@synthesize pFileNameStr;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -33,9 +37,18 @@
     
     [self setTagInit];
     [self setViewInit];
-    return;
+//    return;
     [self requestWithAssetInfo];
     [self requestWithRecommendContentGroupByAssetId];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+//    WV_Stop();
+//    WV_Terminate();
+//    
 }
 
 #pragma mark - 초기화
@@ -78,6 +91,7 @@
 {
     self.pAssetInfoDic = [[NSMutableDictionary alloc] init];
     self.pContentGroupArr = [[NSMutableArray alloc] init];
+    self.pDrmDic = [[NSMutableDictionary alloc] init];
 }
 
 #pragma mark - 액션 이벤트
@@ -92,6 +106,38 @@
         case VOD_DETAIL_MAIN_VIEW_BTN_02:
         {
             // 시청 버튼
+            NSMutableString *responseUrl = [NSMutableString string];
+
+            if ( [[self.pDrmDic objectForKey:@"contentUri"] length] == 0 )
+            {
+                [SIAlertView alert:@"알림" message:@"유효하지 않은 콘텐츠입니다. 고객센터로 문의바랍니다." button:nil];
+            }
+            else
+            {
+                WV_Play([self.pDrmDic objectForKey:@"contentUri"], responseUrl, 0);
+                
+                NSLog(@"responseUrl = [%@]", responseUrl);
+//                
+//                if ( [responseUrl length] != 0 )
+//                {
+//                    NSURL *url = [NSURL URLWithString:responseUrl];
+//                    MPMoviePlayerController *mp = [[MPMoviePlayerController alloc]
+//                                                   initWithContentURL:url];
+//                    self.pMoviePlayer = mp;
+//                    //                    [mp release];
+//                    self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+//                    [self.view addSubview:self.pMoviePlayer.view];
+//                    
+//                    [self.pMoviePlayer play];
+//                }
+
+                
+                PlayerViewController *pViewController = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
+                pViewController.delegate = self;
+                pViewController.pUrlStr = [NSString stringWithFormat:@"%@", responseUrl];
+                [self.navigationController pushViewController:pViewController animated:NO];
+            }
+            
             
         }break;
     }
@@ -200,8 +246,33 @@
         [self.pAssetInfoDic removeAllObjects];
         [self.pAssetInfoDic setDictionary:[vod objectAtIndex:0]];
         
+        self.pFileNameStr = [NSString stringWithFormat:@"%@", [[[vod objectAtIndex:0] objectForKey:@"asset"] objectForKey:@"fileName"]];
+        
+        [self requestWithDrm];
         [self setResponseViewInit];
         
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - drm 전문
+- (void)requestWithDrm
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary drmApiWithAsset:self.pFileNameStr completion:^(NSDictionary *drm, NSError *error) {
+        
+        NSLog(@"drm = [%@]", drm);
+        
+        [self.pDrmDic removeAllObjects];
+        [self.pDrmDic setDictionary:drm];
+        
+        NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [self.pDrmDic objectForKey:@"drmServerUri"], WVDRMServerKey,
+                                    @"markanynhne", WVPortalKey,
+                                    @",user_id:cnmuserid,content_id:cnmcontentid,device_key:1234566,so_idx:10", WVCAUserDataKey,
+                                    NULL];
+        
+        WV_Initialize(WViPhoneCallback, dictionary);
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -214,31 +285,45 @@
         
         DDLogError(@"연관 이미지 데이터 = [%@]", vod);
         [self.pContentGroupArr removeAllObjects];
-//        [self.pContentGroupArr setArray:[[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"]];
-        
+
         int nIndex = 1;
         int nTotal = (int)[[[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] count];
         
         NSMutableArray *pArr = [[NSMutableArray alloc] init];
         
-        for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] )
+        if ( [[[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] isKindOfClass:[NSDictionary class]] )
         {
-            NSMutableDictionary *nDic = [[NSMutableDictionary alloc] init];
+            [self.pContentGroupArr addObject:[[[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] copy]];
             
-            [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
-            [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
-            [pArr addObject:nDic];
-            
-            if ( nIndex % 4 == 0 || nIndex == nTotal)
+            [self banPageControllerInit];
+        }
+        else if ( [[[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] isKindOfClass:[NSArray class]] )
+        {
+            for ( NSDictionary *dic in  [[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] )
             {
-                [self.pContentGroupArr addObject:[pArr copy]];
-                [pArr removeAllObjects];
+                NSMutableDictionary *nDic = [[NSMutableDictionary alloc] init];
+                
+                [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
+                [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
+                [pArr addObject:nDic];
+                
+                if ( nIndex % 4 == 0 || nIndex == nTotal)
+                {
+                    [self.pContentGroupArr addObject:[pArr copy]];
+                    [pArr removeAllObjects];
+                }
+                
+                nIndex++;
             }
             
-            nIndex++;
+            [self banPageControllerInit];
         }
-
-        [self banPageControllerInit];
+        
+//        [arr setArray:[[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"]];
+        
+//        if ( [[[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] is])
+        
+        
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -308,11 +393,60 @@
     NSString *sDay = [NSString stringWithFormat:@"%@", [newSeeDayArr objectAtIndex:(int)([newSeeDayArr count] - 1)]];
     int nDay = [sDay intValue];
     self.pTermLbl.text = [NSString stringWithFormat:@"%d일", nDay];
+    
+    
 }
 
 - (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
 {
     
+}
+
+
+WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
+    NSLog( @"callback %d %@ %@\n", event,
+          NSStringFromWViOsApiEvent( event ), attributes );
+    @autoreleasepool {
+        SEL selector = 0;
+        
+        switch ( event ) {
+            case WViOsApiEvent_SetCurrentBitrate:
+                selector = NSSelectorFromString(@"HandleCurrentBitrate:");
+                break;
+            case WViOsApiEvent_Bitrates:
+                selector = NSSelectorFromString(@"HandleBitrates:");
+                break;
+            case WViOsApiEvent_ChapterTitle:
+                selector = NSSelectorFromString(@"HandleChapterTitle:");
+                break;
+            case WViOsApiEvent_ChapterImage:
+                selector = NSSelectorFromString(@"HandleChapterImage:");
+                break;
+            case WViOsApiEvent_ChapterSetup:
+                NSLog( @"WViOsApiEvent_ChapterSetup\n" );
+                selector = NSSelectorFromString(@"HandleChapterSetup:");
+                break;
+            case WViOsApiEvent_InitializeFailed:
+                NSLog(@"WViOsApiEvent_InitializeFailed:");
+                break;
+            default:
+                break;
+        }
+       
+    }
+    return WViOsApiStatus_OK;
+}
+
+- (void) PlayerViewDrmInit
+{
+    [self requestWithDrm];
+}
+
+- (void) actionBackButton:(id)sender
+{
+    WV_Stop();
+    WV_Terminate();
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

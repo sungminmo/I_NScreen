@@ -95,6 +95,9 @@ extern NSString* const NAVER_SEARCH_API_KEY;
 // 네이버 검색API(웹문서) 서버 URL.
 extern NSString* const NAVER_SEARCH_API_SERVER_URL;
 
+// DRM 호출 URL
+extern NSString* const DRM_OPEN_API_SERVER_URL;
+
 // C&M SMApplicationSever openAPI 서버 IP.
 extern NSString* const CNM_OPEN_API_SERVER_URL;
 

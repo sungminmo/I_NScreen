@@ -46,7 +46,10 @@
 {
     int nCount = (int)[pArr count];
     
-    return nCount;
+    if ( [pArr isKindOfClass:[NSDictionary class]] )
+        return 1;
+    else
+        return nCount;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -57,7 +60,15 @@
     //    STCollectionItem *item = [_items objectAtIndex:indexPath.row];
     //    cell.numberLabel.text = [NSString stringWithFormat:@"%d", item.number];
     //    cell.captionLabel.text = item.caption;
-    [cell setListData:[pArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithPage:nPage];
+    if ( [pArr isKindOfClass:[NSDictionary class]] )
+    {
+        [cell setListData:(NSDictionary *)pArr WithIndex:(int)indexPath.row WithPage:nPage];
+    }
+    else
+    {
+        [cell setListData:[pArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithPage:nPage];
+    }
+    
     
     return cell;
 }

@@ -38,9 +38,6 @@
 
 @end
 
-
-
-
 @interface CMNetworkManager() <NSXMLParserDelegate>
 
 @property (nonatomic, strong) NSString* alreadyIndicatorKey;
@@ -91,7 +88,7 @@
         
         [self settingActivityIndicator];
         
-        self.drmClient = [[CMDRMServerClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
+        self.drmClient = [[CMDRMServerClient alloc] initWithBaseURL:[NSURL URLWithString:DRM_OPEN_API_SERVER_URL]];
         self.drmClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
         
         self.smClient = [[CMSMAppServerClient alloc] initWithBaseURL:[NSURL URLWithString:CNM_OPEN_API_SERVER_URL]];
@@ -881,27 +878,39 @@
     
     [self updateActivityIndicator:task];
     return task;
-//    
-//    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
-//    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-//    
-//    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist];
-//    NSDictionary *dict = @{
-//                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-//                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
-//                           @"deviceId" : @"739d8470f604cfceb13784ab94fc368256253477"
-//                           };
-//    
-//    return [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-//        
-//        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
-//        
-//        block(@[result], nil);
-//    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
-//        block(nil, error);
-//    }];
-
 }
 
 @end
 
+@implementation CMNetworkManager ( DRM )
+
+- (NSURLSessionDataTask *)drmApiWithAsset:(NSString *)asset completion:(void (^)(NSDictionary *drm, NSError *error))block
+{
+    self.drmClient.responseSerializer = [AFJSONResponseSerializer new];
+    self.drmClient.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json", @"text/json", @"text/javascript"]];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"v1/mso/10/asset/%@/play", asset];
+    
+    
+    NSURLSessionDataTask *task = [self.drmClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary *response = [responseObject objectForKey:@"drm"];
+        
+        if (block) {
+            block(response, nil);
+        }
+
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        if (block) {
+            block([NSDictionary dictionary], error);
+        }
+    }];
+    
+    [self updateActivityIndicator:task];
+    return task;
+
+}
+
+@end
