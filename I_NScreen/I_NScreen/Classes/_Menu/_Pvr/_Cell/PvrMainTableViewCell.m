@@ -7,6 +7,7 @@
 //
 
 #import "PvrMainTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation PvrMainTableViewCell
 
@@ -30,6 +31,18 @@
     {
         self.pLineImageView01.hidden = NO;
     }
+    
+    NSString *sLogUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"Channel_logo_img"]];
+    [self.pChannelLogImageView setImageWithURL:[NSURL URLWithString:sLogUrl]];
+    
+    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ProgramName"]];
+    
+    // 일단 녹화 시간으로 적어 놓고 바꿔야 함
+//    NSString *sTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordEndTime"]];
+//    NSArray *timeArr = [sTime componentsSeparatedByString:@" "];
+//    
+//    self.pDayLbl.text = [NSString stringWithFormat:@"%@", [timeArr objectAtIndex:0]];
+//    self.pTimeLbl.text = [NSString stringWithFormat:@"%@", [timeArr objectAtIndex:1]];
 }
 
 @end

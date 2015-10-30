@@ -38,17 +38,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UIImage *pBgImage = [UIImage imageNamed:@"banner_empty.png"];
-   UIImageView *pBgImagView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    pBgImagView.image = pBgImage;
-    [pBgImagView setContentMode:UIViewContentModeScaleAspectFit];
-    [self.view addSubview:pBgImagView];
-    
-//    UIImage *pImage = [UIImage imageNamed:@"banner_sample.png"];
-    UIImageView *pImageView = [[UIImageView alloc] initWithFrame:CGRectMake(1, 0, self.view.frame.size.width - 2, self.view.frame.size.height - 2)];
-    [pImageView setImageWithURL:[NSURL URLWithString:[self getImageUrlSplit]]];
-    [pImageView setContentMode:UIViewContentModeScaleAspectFit];
-    [self.view addSubview:pImageView];
+    [self.pImageView setImageWithURL:[NSURL URLWithString:[self getImageUrlSplit]]];
+//    [self.pImageView setContentMode:UIViewContentModeScaleAspectFit];
+//    [self.view addSubview:self.pImageView];
     
     UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     pBtn.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);

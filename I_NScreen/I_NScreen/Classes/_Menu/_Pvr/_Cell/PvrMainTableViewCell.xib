@@ -19,16 +19,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="08.28 (금)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCk-Gw-nA0" userLabel="Label(체널번호)">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCk-Gw-nA0" userLabel="Label(체널번호)">
                         <rect key="frame" x="0.0" y="25" width="102" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-g1-sHX" userLabel="Label(체널명)">
                         <rect key="frame" x="184" y="42" width="119" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ksp-Uf-8k0" userLabel="ImageView(방송총시간)">
@@ -45,15 +45,15 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_rec.png" translatesAutoresizingMaskIntoConstraints="NO" id="rC1-1N-xhy" userLabel="ImageView(all)">
                         <rect key="frame" x="184" y="22" width="52" height="16"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="16:15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Caw-Nq-bQb" userLabel="Label(체널번호)">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Caw-Nq-bQb" userLabel="Label(체널번호)">
                         <rect key="frame" x="0.0" y="43" width="102" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SU1-gk-ddx" userLabel="ImageView(방송사)">
                         <rect key="frame" x="108" y="34" width="54" height="22"/>
-                        <color key="backgroundColor" red="1" green="0.38431372549999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aHz-VB-vKf" userLabel="Image View(밑라인)">
                         <rect key="frame" x="0.0" y="89" width="414" height="1"/>
@@ -67,8 +67,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="pChannelLogImageView" destination="SU1-gk-ddx" id="NTe-Tc-iK8"/>
+                <outlet property="pDayLbl" destination="uCk-Gw-nA0" id="GTz-ca-vEf"/>
                 <outlet property="pLineImageView01" destination="bIP-Ih-Bag" id="fF2-mI-mhG"/>
                 <outlet property="pLineImageView02" destination="aHz-VB-vKf" id="2ia-Cc-5Dn"/>
+                <outlet property="pTimeLbl" destination="Caw-Nq-bQb" id="Guo-PE-jdh"/>
                 <outlet property="pTitleLbl" destination="KpU-g1-sHX" id="UVy-Nk-JQQ"/>
             </connections>
             <point key="canvasLocation" x="340" y="375"/>

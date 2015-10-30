@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="pBackBtn" destination="aGJ-Lg-JY8" id="Ggr-0h-Bec"/>
                 <outlet property="pListBtn" destination="jco-ic-Voh" id="4HR-GS-wK9"/>
+                <outlet property="pListComentLbl" destination="cmO-RI-avg" id="eeb-8j-uvB"/>
                 <outlet property="pReservationBtn" destination="U0l-TV-tIp" id="Pwg-sh-aVJ"/>
                 <outlet property="pTableView" destination="v5I-PD-Fe2" id="eE0-qr-yYT"/>
                 <outlet property="view" destination="LSy-EZ-Yf9" id="Agb-eO-kXU"/>
@@ -106,7 +107,7 @@
                                 <constraint firstAttribute="bottom" secondItem="U0l-TV-tIp" secondAttribute="bottom" constant="1" id="oqx-Hv-zOl"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 120개의 녹화예약 콘텐트가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmO-RI-avg" userLabel="Label(상세코멘트)">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 0개의 녹화 예약 콘텐트가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmO-RI-avg" userLabel="Label(상세코멘트)">
                             <rect key="frame" x="0.0" y="52" width="414" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="cmO-RI-avg" secondAttribute="height" multiplier="138:7" id="dKy-VY-vpk"/>

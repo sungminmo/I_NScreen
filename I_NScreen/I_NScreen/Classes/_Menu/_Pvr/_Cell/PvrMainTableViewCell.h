@@ -13,6 +13,9 @@
 @property (nonatomic, weak) IBOutlet UIImageView *pLineImageView01;     // 윗라인
 @property (nonatomic, weak) IBOutlet UIImageView *pLineImageView02;     // 밑 라인
 @property (nonatomic, weak) IBOutlet UILabel *pTitleLbl;
+@property (nonatomic, weak) IBOutlet UIImageView *pChannelLogImageView;
+@property (nonatomic, weak) IBOutlet UILabel *pDayLbl;      // 날짜
+@property (nonatomic, weak) IBOutlet UILabel *pTimeLbl;         // 시간
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index;
 

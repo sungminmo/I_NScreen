@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMPageViewController">
             <connections>
+                <outlet property="pBgImageView" destination="hjm-ZS-Zgc" id="sQF-cQ-fag"/>
+                <outlet property="pImageView" destination="ufl-7T-yaD" id="bfb-LP-HMh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,8 +16,61 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="402" height="182"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="hjm-ZS-Zgc">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ufl-7T-yaD">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ufl-7T-yaD" firstAttribute="top" secondItem="hjm-ZS-Zgc" secondAttribute="top" id="5aT-o9-xh5"/>
+                <constraint firstItem="ufl-7T-yaD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="1" id="CDK-Nq-Qxj"/>
+                <constraint firstAttribute="trailing" secondItem="hjm-ZS-Zgc" secondAttribute="trailing" id="O8I-Hx-tcD"/>
+                <constraint firstAttribute="bottom" secondItem="hjm-ZS-Zgc" secondAttribute="bottom" id="Qzk-8D-eGU"/>
+                <constraint firstItem="hjm-ZS-Zgc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZDg-Mz-ICS"/>
+                <constraint firstAttribute="bottom" secondItem="ufl-7T-yaD" secondAttribute="bottom" constant="2" id="cNZ-zz-drt"/>
+                <constraint firstItem="hjm-ZS-Zgc" firstAttribute="centerX" secondItem="ufl-7T-yaD" secondAttribute="centerX" id="hFt-4D-4n3"/>
+                <constraint firstItem="hjm-ZS-Zgc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="u5f-0j-wUS"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="hjm-ZS-Zgc"/>
+                    <exclude reference="ufl-7T-yaD"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="O8I-Hx-tcD"/>
+                    <exclude reference="Qzk-8D-eGU"/>
+                    <exclude reference="ZDg-Mz-ICS"/>
+                    <exclude reference="hFt-4D-4n3"/>
+                    <exclude reference="u5f-0j-wUS"/>
+                    <exclude reference="5aT-o9-xh5"/>
+                    <exclude reference="CDK-Nq-Qxj"/>
+                    <exclude reference="cNZ-zz-drt"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="hjm-ZS-Zgc"/>
+                    <include reference="ufl-7T-yaD"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="O8I-Hx-tcD"/>
+                    <include reference="Qzk-8D-eGU"/>
+                    <include reference="ZDg-Mz-ICS"/>
+                    <include reference="hFt-4D-4n3"/>
+                    <include reference="u5f-0j-wUS"/>
+                    <include reference="5aT-o9-xh5"/>
+                    <include reference="CDK-Nq-Qxj"/>
+                    <include reference="cNZ-zz-drt"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="banner_empty.png" width="396" height="180"/>
+    </resources>
 </document>

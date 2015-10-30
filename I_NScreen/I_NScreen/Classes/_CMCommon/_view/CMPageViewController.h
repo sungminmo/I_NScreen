@@ -13,6 +13,8 @@
 @interface CMPageViewController : UIViewController
 
 @property (nonatomic, weak) id <CMPageViewDelegate>delegate;
+@property (nonatomic, strong) IBOutlet UIImageView *pImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *pBgImageView;
 
 - (id)initWithData:(NSDictionary *)dic WithPage:(int)page;
 

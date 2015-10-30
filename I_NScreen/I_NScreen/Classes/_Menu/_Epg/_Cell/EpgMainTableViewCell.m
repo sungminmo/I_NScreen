@@ -32,8 +32,8 @@
         self.pLineImageView01.hidden = NO;
     }
     
-    self.pChannelLbl.text = [NSString stringWithFormat:@"%d", index];
-    self.pChannelTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
+//    self.pChannelLbl.text = [NSString stringWithFormat:@"%d", index];
+//    self.pChannelTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
     
     ////
     
@@ -76,6 +76,31 @@
         // SD
         self.pChannelInfoImageView.image = [UIImage imageNamed:@"sd.png"];
     }
+    
+    // 체널 시간
+//    pChannelTimeLbl
+    
+    NSString *sStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramOnAirStartTime"]];
+    NSString *sEndTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramOnAirEndTime"]];
+    
+    NSArray *startTimeArr = [sStartTime componentsSeparatedByString:@" "];
+    NSArray *endTimeArr = [sEndTime componentsSeparatedByString:@" "];
+    
+    if ( [startTimeArr count] == 0 )
+        return;
+    if ( [endTimeArr count] == 0 )
+        return;
+    
+    NSString *sStartTime2 = [NSString stringWithFormat:@"%@", [startTimeArr objectAtIndex:1]];
+    NSString *sEndTime2 = [NSString stringWithFormat:@"%@", [endTimeArr objectAtIndex:1]];
+    
+    NSArray *startTimeArr2 = [sStartTime2 componentsSeparatedByString:@":"];
+    NSArray *endTimeArr2 = [sEndTime2 componentsSeparatedByString:@":"];
+    
+    NSString *sNStartTime = [NSString stringWithFormat:@"%@:%@", [startTimeArr2 objectAtIndex:0], [startTimeArr2 objectAtIndex:1]];
+    NSString *sNEndTime = [NSString stringWithFormat:@"%@:%@", [endTimeArr2 objectAtIndex:0], [endTimeArr2 objectAtIndex:1]];
+    
+    self.pChannelTimeLbl.text = [NSString stringWithFormat:@"%@~%@", sNStartTime, sNEndTime];
 }
 
 @end
