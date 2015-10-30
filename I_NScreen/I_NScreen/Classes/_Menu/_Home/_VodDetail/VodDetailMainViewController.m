@@ -23,16 +23,17 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"상세정보";
+    self.isUseNavigationBar = YES;
     
     [self setTagInit];
     [self setViewInit];
-    
+    return;
     [self requestWithAssetInfo];
     [self requestWithRecommendContentGroupByAssetId];
 }
@@ -46,18 +47,37 @@
 }
 
 #pragma mark - 화면 초기화
+
+#pragma mark - 화면초기화
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView02, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+}
+
 - (void)setViewInit
 {
     self.pAssetInfoDic = [[NSMutableDictionary alloc] init];
     self.pContentGroupArr = [[NSMutableArray alloc] init];
-    
-    [self.pBodyView addSubview:self.pView01];
-    [self.pBodyView addSubview:self.pView02];
-    [self.pBodyView addSubview:self.pView03];
-    
-    self.pView01.frame = CGRectMake(0, 0, self.pView01.frame.size.width, self.pView01.frame.size.height);
-    self.pView02.frame = CGRectMake(0, self.pView01.frame.origin.y + self.pView01.frame.size.height, self.pView02.frame.size.width, self.pView02.frame.size.height);
-    self.pView03.frame = CGRectMake(0, self.pView02.frame.origin.y + self.pView02.frame.size.height, self.pView03.frame.size.width, self.pView03.frame.size.height);
 }
 
 #pragma mark - 액션 이벤트

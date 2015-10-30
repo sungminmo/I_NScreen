@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMBaseViewController.h"
 #import "CMPageViewController.h"
 #import "CMContentGroupCollectionViewController.h"
 
-@interface VodDetailMainViewController : UIViewController<UIScrollViewDelegate, CMContentGroupCollectionViewCellDelegate>
+@interface VodDetailMainViewController : CMBaseViewController <UIScrollViewDelegate, CMContentGroupCollectionViewCellDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pView01;
-@property (nonatomic, strong) IBOutlet UIView *pBodyView;
+@property (nonatomic, strong) IBOutlet UIScrollView *pBodyView;
 @property (nonatomic, strong) IBOutlet UIView *pView02;
 @property (nonatomic, strong) IBOutlet UIView *pView03;
 
