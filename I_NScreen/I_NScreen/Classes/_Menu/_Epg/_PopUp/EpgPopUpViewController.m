@@ -14,15 +14,31 @@
 
 @implementation EpgPopUpViewController
 
+- (id)init{
+    self = [super init];
+    if(self){
+        self.isUseNavigationBar = NO;        
+    }
+    return self;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated  {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
     [self setTagInit];
 }
 
