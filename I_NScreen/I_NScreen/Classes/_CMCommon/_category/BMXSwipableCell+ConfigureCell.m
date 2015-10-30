@@ -13,6 +13,7 @@
 - (void)configureCellForItem:(NSDictionary*)item {
     
     CGFloat cellHeight = CGRectGetHeight(self.bounds);
+    self.basementVisibleWidth = cellHeight * 2;
     CGFloat x = self.basementVisibleWidth - cellHeight * 2;
     
     if (!self.basementConfigured) {
@@ -48,6 +49,7 @@
 - (void)configureCellForItem:(NSDictionary *)item WithItemCount:(int)nCount
 {
     CGFloat cellHeight = CGRectGetHeight(self.bounds);
+    self.basementVisibleWidth = cellHeight * 2;
     CGFloat x = self.basementVisibleWidth - cellHeight * 2;
     
     if (!self.basementConfigured) {

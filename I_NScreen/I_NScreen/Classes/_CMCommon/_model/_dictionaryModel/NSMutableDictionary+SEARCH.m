@@ -27,8 +27,8 @@
 
 + (NSURLSessionDataTask*)searchWordListWithSearchString:(NSString*)searchString completion:(void (^)(NSArray *programs, NSError *error))block
 {
+    /*
     // test
-    
     NSArray* data = @[@{
                           CNM_OPEN_API_RESULT_CODE_KEY : CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY,
                           @"searchWordList" : @[ @{@"searchWord":@"가"}, @{@"searchWord":@"나"}, @{@"searchWord":@"다"}, @{@"searchWord":@"라"}]
@@ -36,9 +36,9 @@
     
     block(data, nil);
     
-    return nil;
+    return nil;*/
     
-//    return [[CMNetworkManager sharedInstance] searchWordListWithSearchString:searchString completion:block];
+    return [[CMNetworkManager sharedInstance] searchWordListWithSearchString:searchString completion:block];
 }
 
 @end
