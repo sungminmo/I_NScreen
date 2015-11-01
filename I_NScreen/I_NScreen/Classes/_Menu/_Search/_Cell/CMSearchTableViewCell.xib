@@ -31,7 +31,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-bE-nAs" userLabel="broadcaster Image">
                         <rect key="frame" x="46" y="34" width="54" height="22"/>
-                        <color key="backgroundColor" red="1" green="0.38431372549999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="Wde-fq-RkC"/>
                             <constraint firstAttribute="width" constant="54" id="ztF-Gh-gfT"/>

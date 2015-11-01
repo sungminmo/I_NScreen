@@ -7,74 +7,51 @@
 //
 
 #import "EpgSubViewController.h"
-#import "IDScrollableTabBar.h"
 #import "BMXSwipableCell+ConfigureCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface EpgSubViewController ()
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;   //  네비게이션바 간격
+
+@property (nonatomic, strong) IBOutlet UIView* pSubChannelView;     //  채널 로고 + 날짜 스크롤뷰
+@property (nonatomic, strong) IBOutlet UIImageView* logoImageView;  //  채널 로고
+@property (nonatomic, strong) CMDateScrollView* dateScrollView;     //  날짜 스크롤뷰
+@property (nonatomic, strong) IBOutlet UITableView* pTableView;     //  방송 목록 테이블
+
+@property (nonatomic, strong) NSMutableArray* dataArray;    //  방송 정보
 
 @end
 
 @implementation EpgSubViewController
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
+    self.topConstraint.constant = cmNavigationHeight;
     
-    [self setTagInit];
-    [self setViewInit];
-}
+    self.isUseNavigationBar = YES;
+    
+    self.dataArray = [@[] mutableCopy];
 
-#pragma mark - 초기화
-#pragma mark - 버튼 태그 초기화
-- (void)setTagInit
-{
-    self.pBackBtn.tag = EPG_SUP_VIEW_BTN_01;
+    [self setViewInit];
+    
+    [self setTestData];
 }
 
 #pragma mark - 화면 초기화
+
 - (void)setViewInit
 {
-    IDItem *itemClock = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"clock"] text:@"10.26"];
-    IDItem *itemCamera = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"camera"] text:@"10.27"];
-    IDItem *itemMail = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"mail"] text:@"10.28"];
-    IDItem *itemFave = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"fave"] text:@"10.29"];
-    IDItem *itemGames = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"games"] text:@"10.30"];
-    IDItem *itemSettings = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"settings"] text:@"10.31"];
-    IDItem *itemMusic = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"music"] text:@"11.01"];
-    IDItem *itemZip = [[IDItem alloc] initWithImage:[UIImage imageNamed:@"zip"] text:@"11.02"];
+    CGFloat posX = self.logoImageView.bounds.size.width;
+    self.dateScrollView = [[CMDateScrollView alloc] initWithFrame:CGRectMake(posX, 0, [UIScreen mainScreen].bounds.size.width - posX, self.pSubChannelView.bounds.size.height)];
     
-    IDScrollableTabBar *scrollableTabBarGray = [[IDScrollableTabBar alloc] initWithFrame:CGRectMake(0, 10, [UIScreen mainScreen].bounds.size.width, 0) itemWidth:74 items:itemClock,itemCamera,itemMail,itemFave,itemGames,itemSettings,itemMusic,itemZip, nil];
-    scrollableTabBarGray.delegate = self;
-    scrollableTabBarGray.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
-    //    [scrollableTabBarGray setArchImage:[UIImage imageNamed:@"grayArch"] centerImage:[UIImage imageNamed:@"grayCenter"] backGroundImage:[UIImage imageNamed:@"grayBackground"]];
-    
-    //    _backImageView.backgroundColor = [UIColor colorWithRed:198.0f/255.0f green:179.0f/255.0f blue:221.0f/255.0f alpha:1.0f];
-    //    [scrollableTabBarGray setArchImage:[UIImage imageNamed:@""] centerImage:[UIImage imageNamed:@""] backGroundImage:[UIImage imageNamed:@"blueBackground"]];
-    [scrollableTabBarGray setResizeCoeff:0.2f];
-    //you can hide divider image and shadow images
-    [scrollableTabBarGray setDividerImage:nil];
-    [scrollableTabBarGray setShadowImageRight:nil];
-    [scrollableTabBarGray setShadowImageLeft:nil];
-    [self.pSubChannelView addSubview:scrollableTabBarGray];
-}
-
--(void)scrollTabBarAction : (NSNumber *)selectedNumber sender:(id)sender{
-    DDLogError(@"selectedNumber - %@", selectedNumber);
+    [self.pSubChannelView addSubview:self.dateScrollView];
 }
 
 - (IBAction)onBtnClick:(UIButton *)btn;
 {
     switch ([btn tag]) {
-        case EPG_SUP_VIEW_BTN_01:
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-        }break;
         case EPG_SUP_VIEW_BTN_02:
         {
             // 하트 버튼
@@ -83,10 +60,45 @@
     }
 }
 
+#pragma mark - Privates
+
+/**
+ *  테스트용 데이터 셋팅, 추후 삭제.
+ */
+#warning TEST
+- (void)setTestData {
+    
+    self.title = @"CH.05 KBS";
+    
+    [self.logoImageView setImageWithURL:[NSURL URLWithString:@"http://58.141.255.69:8080/logo/193.png"]];
+    
+    NSMutableArray* dateArray = [@[] mutableCopy];
+    
+    for (int i = 0; i < 20; i++) {
+        [dateArray addObject:[NSString stringWithFormat:@"12월%02d일", i]];
+    }
+    
+    [self.dateScrollView setDateArray:dateArray];
+    
+    for (int i = 0; i < 30; i++) {
+        
+        NSString* grade;
+        if (i%3 == 1)       grade = @"19";
+        else if (i%3 == 2)  grade = @"15";
+        else                grade = @"모두";
+
+        [self.dataArray addObject:@{@"title":@"뉴스파이터", @"time":@"15:00~16:00", @"grade":grade, @"hd":@"Y", @"progress":@(1)}];
+    }
+    
+    [self.pTableView reloadData];
+}
+
+#pragma mark - UITableViewDelegate
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *pCellIn = @"EpgSubTableViewCellIn";
+    static NSString *pCellIn = @"EpgSubTableViewCell";
     
     EpgSubTableViewCell* cell = (EpgSubTableViewCell*)[tableView dequeueReusableCellWithIdentifier:pCellIn];
     
@@ -96,36 +108,26 @@
         cell = [arr objectAtIndex:0];
     }
     
+    cell.delegate = self;
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    cell.delegate = self;
+    NSDictionary* data = self.dataArray[indexPath.row];
+    [cell setData:data];
+
     [cell configureCellForItem:@{@"More":@"TV로 시청", @"Delete":@"녹화중지"} WithItemCount:2];
-    
-//    [pCell setListData:nil WithIndex:(int)indexPath.row];
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     
     return 66;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 24;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+    return self.dataArray.count;
 }
 
 #pragma mark - 델리게이트
@@ -138,6 +140,12 @@
 - (void)EpgSubTableViewDeleteBtn:(int)nIndex
 {
     
+}
+
+#pragma mark - CMDateScrollViewDelegate
+
+- (void)dateScrollView:(CMDateScrollView *)dateScrollView selectedIndex:(NSInteger)index {
+    NSLog(@"dateScrollView : %ld", (long)index);
 }
 
 @end

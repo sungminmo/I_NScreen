@@ -54,7 +54,6 @@
 #define EPG_POPUP_VIEW_BTN_04           10104   // BG 버튼
 
 // EpgSubViewController btn tag
-#define EPG_SUP_VIEW_BTN_01             10201   // back 버튼
 #define EPG_SUP_VIEW_BTN_02             10202   // 하트 버튼
 
 

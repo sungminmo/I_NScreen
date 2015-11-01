@@ -22,6 +22,7 @@
         moreButton.backgroundColor = [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0f];
         moreButton.frame = CGRectMake(x, 0, cellHeight, cellHeight);
         [moreButton setTitle: @"More" forState: UIControlStateNormal];
+        [moreButton.titleLabel setAdjustsFontSizeToFitWidth:true];
         [moreButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
         [moreButton addTarget: self
                        action: @selector(userPressedMoreButton:)
@@ -33,6 +34,7 @@
         deleteButton.backgroundColor = [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0f];
         deleteButton.frame = CGRectMake(x + cellHeight, 0, cellHeight, cellHeight);
         [deleteButton setTitle: @"Delete" forState: UIControlStateNormal];
+        [deleteButton.titleLabel setAdjustsFontSizeToFitWidth:true];
         [deleteButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
         [deleteButton addTarget: self
                          action: @selector(userPressedDeleteButton:)
@@ -64,6 +66,7 @@
             if ( sMore.length == 0 )
                 sMore = @"More";
             [moreButton setTitle: sMore forState: UIControlStateNormal];
+            [moreButton.titleLabel setAdjustsFontSizeToFitWidth:true];
             [moreButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
             [moreButton addTarget: self
                            action: @selector(userPressedMoreButton:)
@@ -82,6 +85,7 @@
             if ( sDelete.length == 0 )
                 sDelete = @"Delete";
             [deleteButton setTitle:sDelete forState: UIControlStateNormal];
+            [deleteButton.titleLabel setAdjustsFontSizeToFitWidth:true];
             [deleteButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
             [deleteButton addTarget: self
                              action: @selector(userPressedDeleteButton:)

@@ -13,14 +13,14 @@
 
 @interface EpgSubTableViewCell : BMXSwipableCell
 
-//@property (nonatomic, weak) IBOutlet UIImageView *pLineImageView01;     // 윗라인
-//@property (nonatomic, weak) IBOutlet UIImageView *pLineImageView02;     // 밑 라인
-//@property (nonatomic, weak) IBOutlet UILabel     *pTitleLbl;            // 타이틀
-//@property (nonatomic, weak) IBOutlet UILabel     *pTimeLbl;             // 시간
-
-//- (void)setListData:(NSDictionary *)dic WithIndex:(int)index;
-
 @property (nonatomic, weak) id <EpgSubTableViewDelegate>delegate;
+
+/**
+ *  데이터 및 화면 정보를 갱신한다.
+ *
+ *  @param data 셀에 표출될 정보
+ */
+- (void)setData:(NSDictionary*)data;
 
 @end
 
