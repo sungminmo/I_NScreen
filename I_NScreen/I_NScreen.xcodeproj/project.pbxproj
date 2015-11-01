@@ -41,6 +41,8 @@
 		994BDB391BA3F6CD000B6260 /* CMSearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BDB371BA3F6CD000B6260 /* CMSearchMainViewController.m */; };
 		994BDB3E1BA3F6E8000B6260 /* CMPreferenceMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994BDB3C1BA3F6E8000B6260 /* CMPreferenceMainViewController.m */; };
 		994BDB3F1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 994BDB3D1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib */; };
+		995C07081BE5F45300E6CDCC /* CMAdultAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995C07061BE5F45300E6CDCC /* CMAdultAuthViewController.m */; };
+		995C07091BE5F45300E6CDCC /* CMAdultAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 995C07071BE5F45300E6CDCC /* CMAdultAuthViewController.xib */; };
 		99C43B801BA3ED980035A0A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C43AE41BA3ED980035A0A4 /* LaunchScreen.xib */; };
 		99C43C051BA3ED980035A0A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99C43B7D1BA3ED980035A0A4 /* Images.xcassets */; };
 		99C43C061BA3ED980035A0A4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99C43B7E1BA3ED980035A0A4 /* Info.plist */; };
@@ -849,6 +851,9 @@
 		994BDB3B1BA3F6E8000B6260 /* CMPreferenceMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPreferenceMainViewController.h; sourceTree = "<group>"; };
 		994BDB3C1BA3F6E8000B6260 /* CMPreferenceMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPreferenceMainViewController.m; sourceTree = "<group>"; };
 		994BDB3D1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPreferenceMainViewController.xib; sourceTree = "<group>"; };
+		995C07051BE5F45300E6CDCC /* CMAdultAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAdultAuthViewController.h; sourceTree = "<group>"; };
+		995C07061BE5F45300E6CDCC /* CMAdultAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAdultAuthViewController.m; sourceTree = "<group>"; };
+		995C07071BE5F45300E6CDCC /* CMAdultAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMAdultAuthViewController.xib; sourceTree = "<group>"; };
 		99C43AE51BA3ED980035A0A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		99C43B7D1BA3ED980035A0A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		99C43B7E1BA3ED980035A0A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
@@ -1842,6 +1847,9 @@
 				20989CE01BC7AE00009C4418 /* CMRegionSettingViewController.h */,
 				20989CE11BC7AE00009C4418 /* CMRegionSettingViewController.m */,
 				20989CE21BC7AE00009C4418 /* CMRegionSettingViewController.xib */,
+				995C07051BE5F45300E6CDCC /* CMAdultAuthViewController.h */,
+				995C07061BE5F45300E6CDCC /* CMAdultAuthViewController.m */,
+				995C07071BE5F45300E6CDCC /* CMAdultAuthViewController.xib */,
 			);
 			path = _Preference;
 			sourceTree = "<group>";
@@ -3544,6 +3552,7 @@
 				E54CC0B41BCCA0E1003806C0 /* contents.json in Resources */,
 				E5B553831BD9DD3F00AA02B2 /* longnormal@2x.png in Resources */,
 				E5B554241BD9DD3F00AA02B2 /* sd@2x.png in Resources */,
+				995C07091BE5F45300E6CDCC /* CMAdultAuthViewController.xib in Resources */,
 				E5B553CE1BD9DD3F00AA02B2 /* vod1btn_normal.select.png in Resources */,
 				E5B5536E1BD9DD3F00AA02B2 /* icon_search_press.png in Resources */,
 				E5B553D91BD9DD3F00AA02B2 /* genredrama_normal@2x.png in Resources */,
@@ -4179,6 +4188,7 @@
 				E5B550C31BD9D9B500AA02B2 /* AnikidsMainTableViewCell.m in Sources */,
 				20A8EFB01BAEB6AA00FA0CFA /* CMSearchCollectionViewCell.m in Sources */,
 				E511818C1BA7ACF900C1E31D /* EpgPopUpViewController.m in Sources */,
+				995C07081BE5F45300E6CDCC /* CMAdultAuthViewController.m in Sources */,
 				994BDB391BA3F6CD000B6260 /* CMSearchMainViewController.m in Sources */,
 				99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */,
 				E5E0DF801BDB96A60049E3F6 /* PairingFinishViewController.m in Sources */,
