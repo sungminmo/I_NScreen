@@ -15,13 +15,6 @@
 
 @interface RemoconMainViewController : CMBaseViewController
 
-@property (nonatomic, weak) IBOutlet UIButton *pBackBtn;        // back 버튼
-@property (nonatomic, weak) IBOutlet UIButton *pPowerBtn;       // 전원 버튼
-@property (nonatomic, weak) IBOutlet UIButton *pChannelBtn;     // 채널 버튼
-@property (nonatomic, weak) IBOutlet UIButton *pVolumeDownBtn;  // 볼륨 다운 버튼
-@property (nonatomic, weak) IBOutlet UIButton *pVoluumeUpBtn;   // 볼륨 업 버튼
-@property (nonatomic, weak) IBOutlet UITableView *pTableView;
-
 - (IBAction)onBtnClick:(UIButton *)btn;
 
 @end
