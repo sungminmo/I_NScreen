@@ -57,7 +57,7 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMRegionSettingViewController", @"icon":@(true), @"title":@"지역설정", @"addedInfo":areaDesc, @"attributedString":@{@"target":@":", @"color":[CMColor colorViolet]}},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMPurchaseCertPasswordViewController", @"icon":@(true), @"title":@"구매인증 비밀번호 관리"},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"icon":@(true), @"title":@"성인검색 제한설정", @"switchEvent":^(UISwitch* swButton, NSIndexPath* indexPath, BOOL isOn){[self switchEventAtIndexPath:indexPath switchButton:swButton value:isOn];}},
-                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"", @"icon":@(true), @"title":@"성인인증", @"addedInfo":@"성인인증이 필요합니다.", @"attributedString":@{@"color":[UIColor redColor]}},
+                       @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMAdultAuthViewController", @"icon":@(true), @"title":@"성인인증", @"addedInfo":@"성인인증이 필요합니다.", @"attributedString":@{@"color":[UIColor redColor]}},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMNoticeListViewController", @"title":@"공지사항"},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMPaytvListViewController", @"title":@"유료채널 안내"},
                        @{@"type":@(SETTING_PREFERENCE_MAIN_CELL), @"class":@"CMContactInfoViewCcontroller", @"title":@"고객센터 안내"}];
@@ -66,6 +66,16 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 #pragma mark - Event
 
 - (void)switchEventAtIndexPath:(NSIndexPath*)indexPath switchButton:(UISwitch*)swButton value:(BOOL)isOn {
+    
+    
+    Class class = NSClassFromString(@"CMAdultAuthViewController");
+    
+    CMBaseViewController* controller = (CMBaseViewController*)[[class alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    
+    return;
+    
     //TODO: 성인인증 제한해제 위한 성인인증 후 상태변경 처리 연동 필요
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     CMContentsRestrictedType type = isOn?CMContentsRestrictedTypeAdult:CMContentsRestrictedTypeNone;
