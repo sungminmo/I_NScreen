@@ -63,6 +63,7 @@
 
 @interface CMBaseViewController ()
 
+@property (strong, nonatomic) UIBarButtonItem* favoriteButton;
 @end
 
 @implementation CMBaseViewController
@@ -132,6 +133,39 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)showFavoriteButton:(BOOL)isShow {
+    
+    if (isShow) {
+        
+        if (self.favoriteButton == nil) {
+            
+            self.favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bigunpic.png"] style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(favoriteButton:)];
+            [self.navigationItem setRightBarButtonItems:@[self.favoriteButton]];
+        }
+    } else {
+        
+        [self.navigationItem setRightBarButtonItems:@[]];
+        self.favoriteButton = nil;
+    }
+}
+
+- (void)setFavoriteButtonToSelectionState:(BOOL)selected {
+    if (self.favoriteButton == nil) {
+        return;
+    }
+    
+    NSString* fileName;
+    if (selected) {
+        fileName = @"bigpic.png";
+    } else {
+        fileName = @"bigunpic.png";
+    }
+    
+    self.favoriteButton.image = [UIImage imageNamed:fileName];
+}
+
 #pragma mark - event
 - (void)actionBackButton:(id)sender {
     [self backCommonAction];
@@ -145,6 +179,9 @@
     //TODO: 팝이벤트가 발생하기 전에 처리할 로직을 기술한다.
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)favoriteButton:(id)sender {
 }
 
 + (void)actionGuide:(NSInteger)buttonTag {

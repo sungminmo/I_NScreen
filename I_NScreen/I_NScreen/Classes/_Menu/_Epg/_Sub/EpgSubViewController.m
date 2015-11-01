@@ -25,6 +25,8 @@
 
 @implementation EpgSubViewController
 
+#pragma mark - Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,11 +34,14 @@
     
     self.isUseNavigationBar = YES;
     
+    [self showFavoriteButton:true];
+    
     self.dataArray = [@[] mutableCopy];
 
     [self setViewInit];
     
     [self setTestData];
+    
 }
 
 #pragma mark - 화면 초기화
@@ -93,6 +98,16 @@
     [self.pTableView reloadData];
 }
 
+#pragma mark - Event
+
+/**
+ *  Override
+ *  네비게이션바 즐겨찾기 버튼 이벤트 함수
+ */
+- (void)favoriteButton:(id)sender {
+    
+}
+
 #pragma mark - UITableViewDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,6 +143,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataArray.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 #pragma mark - 델리게이트

@@ -46,6 +46,25 @@
 - (UITableViewCell *)cellWithTableView:(UITableView *)tableView cellIdentifier:(NSString *)cellIdentifier nibName:(NSString *)nibName;
 
 /**
+ *  네비게이션바 우측에 즐겨찾기 버튼을 표출한다.
+ *
+ *  @param isShow 즐겨찾기 버튼 표출 여부
+ */
+- (void)showFavoriteButton:(BOOL)isShow;
+
+/**
+ *  즐겨찾기 버튼의 이미지를 상태에 따라 변경한다.
+ *
+ *  @param selected 즐겨찾기 상태 여부
+ */
+- (void)setFavoriteButtonToSelectionState:(BOOL)selected;
+
+/**
+ *  즐겨찾기 버튼 이벤트함수.
+ */
+- (void)favoriteButton:(id)sender;
+
+/**
  *  물음표 버튼에 대응해서 가이드 알림창을 호출한다.
  *
  *  @param buttonTag 태그 
