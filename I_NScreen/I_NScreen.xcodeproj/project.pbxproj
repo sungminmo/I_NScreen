@@ -759,6 +759,8 @@
 		E5C584521BE33A0E00276EC6 /* NSMutableDictionary+DRM.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */; settings = {ASSET_TAGS = (); }; };
 		E5C584571BE34F4400276EC6 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584551BE34F4400276EC6 /* PlayerViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5C584581BE34F4400276EC6 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C584561BE34F4400276EC6 /* PlayerViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5D27FE21BE75E6B004ACEB4 /* MovieMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D27FE01BE75E6B004ACEB4 /* MovieMainTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E5D27FE31BE75E6B004ACEB4 /* MovieMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D27FE11BE75E6B004ACEB4 /* MovieMainTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5DA6AD21BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
@@ -1660,6 +1662,9 @@
 		E5C584541BE34F4400276EC6 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = _Home/_VodDetail/_Sub/PlayerViewController.h; sourceTree = "<group>"; };
 		E5C584551BE34F4400276EC6 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = _Home/_VodDetail/_Sub/PlayerViewController.m; sourceTree = "<group>"; };
 		E5C584561BE34F4400276EC6 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerViewController.xib; path = _Home/_VodDetail/_Sub/PlayerViewController.xib; sourceTree = "<group>"; };
+		E5D27FDF1BE75E6B004ACEB4 /* MovieMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieMainTableViewCell.h; path = _Home/_Movie/_Cell/MovieMainTableViewCell.h; sourceTree = "<group>"; };
+		E5D27FE01BE75E6B004ACEB4 /* MovieMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieMainTableViewCell.m; path = _Home/_Movie/_Cell/MovieMainTableViewCell.m; sourceTree = "<group>"; };
+		E5D27FE11BE75E6B004ACEB4 /* MovieMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MovieMainTableViewCell.xib; path = _Home/_Movie/_Cell/MovieMainTableViewCell.xib; sourceTree = "<group>"; };
 		E5DA6AD01BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Pairing.h"; sourceTree = "<group>"; };
 		E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Pairing.m"; sourceTree = "<group>"; };
 		E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainViewController.h; path = _Home/_Adult/AdultMainViewController.h; sourceTree = "<group>"; };
@@ -3253,6 +3258,16 @@
 			name = _Sub;
 			sourceTree = "<group>";
 		};
+		E5D27FDE1BE75E48004ACEB4 /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5D27FDF1BE75E6B004ACEB4 /* MovieMainTableViewCell.h */,
+				E5D27FE01BE75E6B004ACEB4 /* MovieMainTableViewCell.m */,
+				E5D27FE11BE75E6B004ACEB4 /* MovieMainTableViewCell.xib */,
+			);
+			name = _Cell;
+			sourceTree = "<group>";
+		};
 		E5DE649B1BCB4BC200FC3122 /* _Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -3281,10 +3296,11 @@
 		E5DE649D1BCB4BE300FC3122 /* _Movie */ = {
 			isa = PBXGroup;
 			children = (
-				E54CC0931BCC9F8E003806C0 /* _PopUp */,
+				E5D27FDE1BE75E48004ACEB4 /* _Cell */,
 				E5DE64BF1BCB4E4400FC3122 /* MovieMainViewController.h */,
 				E5DE64C01BCB4E4400FC3122 /* MovieMainViewController.m */,
 				E5DE64C11BCB4E4400FC3122 /* MovieMainViewController.xib */,
+				E54CC0931BCC9F8E003806C0 /* _PopUp */,
 			);
 			name = _Movie;
 			sourceTree = "<group>";
@@ -4151,6 +4167,7 @@
 				E5B553EA1BD9DD3F00AA02B2 /* genremusic_select@2x.png in Resources */,
 				E5A6E34A1BDE1CC2005AC701 /* mail.png in Resources */,
 				E5B553D41BD9DD3F00AA02B2 /* allch@2x.png in Resources */,
+				E5D27FE31BE75E6B004ACEB4 /* MovieMainTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4257,6 +4274,7 @@
 				994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */,
 				E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */,
 				99E41C801BD49F3300C64056 /* CMDBDataManager.m in Sources */,
+				E5D27FE21BE75E6B004ACEB4 /* MovieMainTableViewCell.m in Sources */,
 				99C43C691BA3EDA10035A0A4 /* EpgMainViewController.m in Sources */,
 				E5567BB71BA9558B00AB4003 /* MyCMZimListTableViewCell.m in Sources */,
 				E511818E1BA7ACF900C1E31D /* EpgSubTableViewCell.m in Sources */,

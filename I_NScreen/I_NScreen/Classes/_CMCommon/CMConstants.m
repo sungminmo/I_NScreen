@@ -98,6 +98,9 @@ NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID = @"20912";
 // uuid
 NSString* const CNM_OPEN_API_UUID_KEY = @"uuid";
 
+// assetProfile
+NSString* const CNM_OPEN_API_ASSET_PROFILE_KEY = @"assetProfile";
+
 // 구매 비밀 번호 로컬 저장
 NSString* const CNM_OPEN_API_BUY_PW = @"buyPw";
 
@@ -276,8 +279,10 @@ NSString* const CNM_OPEN_API_INTERFACE_GetBundleProductList = @"getBundleProduct
 NSString* const CNM_OPEN_API_INTERFACE_GetServiceBannerlist = @"getservicebannerlist";
 
 // getCateogryTree
-NSString* const CNM_OPEN_API_INTERFACE_GetCategoryTree = @"getCateogryTree";
+NSString* const CNM_OPEN_API_INTERFACE_GetCategoryTree = @"getCategoryTree";
 
+// recommendAssetBySubscriber
+NSString* const CNM_OPEN_API_INTERFACE_RecommendAssetBySubscriber = @"recommendAssetBySubscriber";
 
 // 6.Service
 // GetGuideCategory

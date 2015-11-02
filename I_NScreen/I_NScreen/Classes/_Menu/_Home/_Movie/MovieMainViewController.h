@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
+#import "MovieMainTableViewCell.h"
 
 @protocol MovieMainViewDelegate;
 
@@ -26,6 +27,8 @@
 
 @property (nonatomic, strong) IBOutlet UIView *pView22; // 리스트 뷰만 있는 뷰
 @property (nonatomic, strong) IBOutlet UITableView *pTableView22;
+@property (nonatomic) BOOL isItemCheck;     // 댑스 체크 no 이면 실시간 인기 순위, yes 이면 주간 인기 순위
+@property (nonatomic, strong) NSString *pViewerTypeStr;
 
 @property (nonatomic, weak) id <MovieMainViewDelegate>delegate;
 

@@ -108,6 +108,8 @@
 // ex ) http://192.168.40.5:8080/HApplicationServer/getCategoryTree.xml?version=1&terminalKey=C5E6DBF75F13A2C1D5B2EFDB2BC940&transactionId=135&categoryProfile=4&categoryId=27282&depth=2&traverseType=DFS
 - (NSURLSessionDataTask *)vodGetCategoryTreeWithCategoryId:(NSString *)categoryId WithDepth:(NSString *)depth block:(void (^)(NSArray *vod, NSError *error))block;
 
+- (NSURLSessionDataTask *)vodRecommendAssetBySubscriberWithAssetProfile:(NSString *)assetProfile block:(void (^)(NSArray *vod, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( PAIRING )

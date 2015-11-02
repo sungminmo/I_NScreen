@@ -45,4 +45,9 @@
     return [[CMNetworkManager sharedInstance] vodGetCategoryTreeWithCategoryId:categoryId WithDepth:depth block:block];
 }
 
++ (NSURLSessionDataTask *)vodRecommendAssetBySubscriberWithAssetProfile:(NSString *)assetProfile block:(void (^)(NSArray *vod, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodRecommendAssetBySubscriberWithAssetProfile:assetProfile block:block];
+}
+
 @end

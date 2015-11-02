@@ -69,5 +69,12 @@
  */
 + (NSURLSessionDataTask *)vodGetCategoryTreeWithCategoryId:(NSString *)categoryId WithDepth:(NSString *)depth block:(void (^)(NSArray *vod, NSError *error))block;
 
+/*!<
+
+ 가입자 기반의 추천 asset 리스트 get
+ */
++ (NSURLSessionDataTask *)vodRecommendAssetBySubscriberWithAssetProfile:(NSString *)assetProfile block:(void (^)(NSArray *vod, NSError *error))block;
+
+
 @end
 

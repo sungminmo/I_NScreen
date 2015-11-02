@@ -171,6 +171,9 @@ extern NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID;
 // uuid
 extern NSString* const CNM_OPEN_API_UUID_KEY;
 
+// assetProfile
+extern NSString* const CNM_OPEN_API_ASSET_PROFILE_KEY;
+
 // 구매 비밀번호 로컬 저장
 extern NSString* const CNM_OPEN_API_BUY_PW;
 
@@ -320,6 +323,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetBundleProductList;
 
 // getCateogryTree
 extern NSString* const CNM_OPEN_API_INTERFACE_GetCategoryTree;
+
+// recommendAssetBySubscriber
+extern NSString* const CNM_OPEN_API_INTERFACE_RecommendAssetBySubscriber;
 
 // 5. Search
 // SearchChannel
