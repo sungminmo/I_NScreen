@@ -127,8 +127,15 @@
 #define TEST_PAGE_VIEW_BTN_03           19003
 
 // VodDetailMainViewController btn tag
-#define VOD_DETAIL_MAIN_VIEW_BTN_01     20001   // BACK 버튼
-#define VOD_DETAIL_MAIN_VIEW_BTN_02     20002   // 시청 하기 버튼
+#define VOD_DETAIL_MAIN_VIEW_BTN_01     20001   // 시청 하기 버튼
+#define VOD_DETAIL_MAIN_VIEW_BTN_02     20002   // 미리 보기 버튼
+#define VOD_DETAIL_MAIN_VIEW_BTN_03     20003   // 시청 하기 버튼
+#define VOD_DETAIL_MAIN_VIEW_BTN_04     20004   // 찜 하기 버튼
+#define VOD_DETAIL_MAIN_VIEW_BTN_05     20005   // 미리 보기 버튼
+#define VOD_DETAIL_MAIN_VIEW_BTN_06     20006   // 시청 하기 버튼
+#define VOD_DETAIL_MAIN_VIEW_BTN_07     20007   // 찜 하기 버튼
+#define VOD_DETAIL_MAIN_VIEW_BTN_08     20008   // 시청 하기 버튼
+
 
 //
 

@@ -146,6 +146,22 @@ extern NSString* const MIRRORTV_ERROR;
 // ----------------------------------------------------------------------------------
 // C&M SMApplicationSever openAPI Parameter Key.
 // ----------------------------------------------------------------------------------
+// 영화 애니 tv다시보기 성인 오늘의 추천 categoryId 는 고정으로 박음 됨
+// 오늘의 추천
+extern NSString* const CNM_OPEN_API_RECOMEND_CATEGORY_ID;
+
+// 영화
+extern NSString* const CNM_OPEN_API_MOVIE_CATEGORY_ID;
+
+// 애니
+extern NSString* const CNM_OPEN_API_ANNI_CATEGORY_ID;
+
+// TV다시보기
+extern NSString* const CNM_OPEN_API_TV_REPLAY_CATEGORY_ID;
+
+// 성인
+extern NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID;
+
 // uuid
 extern NSString* const CNM_OPEN_API_UUID_KEY;
 

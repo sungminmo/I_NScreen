@@ -17,11 +17,42 @@
 
 @property (nonatomic, strong) IBOutlet UIView *pView01;
 @property (nonatomic, strong) IBOutlet UIScrollView *pBodyView;
-@property (nonatomic, strong) IBOutlet UIView *pView02;
-@property (nonatomic, strong) IBOutlet UIView *pView03;
 
-@property (nonatomic, strong) IBOutlet UIButton *pBackBtn;  // back 버튼
-@property (nonatomic, strong) IBOutlet UIButton *pWatchBtn; // 시청버튼
+// 중간 View21
+@property (nonatomic, strong) IBOutlet UIView *pView21;
+@property (nonatomic, strong) IBOutlet UITextView *pContentTextView21;    // 컨텐츠 텍스트
+@property (nonatomic, strong) IBOutlet UIButton *pWatchBtn21; // 시청버튼
+
+// 중간 View22
+@property (nonatomic, strong) IBOutlet UIView *pView22;
+@property (nonatomic, strong) IBOutlet UITextView *pContentTextView22;  // 컨텐츠 텍스트
+@property (nonatomic, strong) IBOutlet UIButton *pReviewBtn22;        // 미리보기
+@property (nonatomic, strong) IBOutlet UIButton *pWatchBtn22;       // 시청버튼
+@property (nonatomic, strong) IBOutlet UIButton *pZzimBtn22;        // 찜하기
+
+// 중간 View23
+@property (nonatomic, strong) IBOutlet UIView *pView23;
+@property (nonatomic, strong) IBOutlet UIScrollView *pSeriesScrollView23;   // 시리즈 스크롤 뷰
+@property (nonatomic, strong) IBOutlet UITextView *pContentTextView23;      // 컨텐츠 텍스트
+@property (nonatomic, strong) IBOutlet UIButton *pReviewBtn23;
+@property (nonatomic, strong) IBOutlet UIButton *pWatchBtn23;
+@property (nonatomic, strong) IBOutlet UIButton *pZzimBtn23;
+
+// 중간 View24
+@property (nonatomic, strong) IBOutlet UIView *pView24;
+@property (nonatomic, strong) IBOutlet UIScrollView *pSeriesScrollView24;
+@property (nonatomic, strong) IBOutlet UITextView *pContentTextView24;
+@property (nonatomic, strong) IBOutlet UIButton *pWatchBtn24;
+
+
+// 중간 View25
+@property (nonatomic, strong) IBOutlet UIView *pView25;
+@property (nonatomic, strong) IBOutlet UIScrollView *pSeriesScrollView25;
+@property (nonatomic, strong) IBOutlet UITextView *pContentTextView25;
+@property (nonatomic, strong) IBOutlet UILabel *pCommentLbl25;
+
+
+@property (nonatomic, strong) IBOutlet UIView *pView03;
 
 @property (nonatomic, strong) IBOutlet UIImageView *pThumImageView; // 섬네일 이미지
 @property (nonatomic, strong) IBOutlet UIImageView *pStarImage01;
@@ -41,7 +72,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *pCastLbl;       // 출연자
 @property (nonatomic, strong) IBOutlet UILabel *pTermLbl;   // 시청 기간
 
-@property (nonatomic, strong) IBOutlet UITextView *pContentTextView;    // 컨텐츠 텍스트
+
 
 @property (nonatomic, strong) IBOutlet UIScrollView *pScrollView;
 @property (nonatomic, strong) IBOutlet UIPageControl *pPageControl;

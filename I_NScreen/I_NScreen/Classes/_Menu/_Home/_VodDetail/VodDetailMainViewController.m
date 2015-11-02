@@ -55,8 +55,18 @@
 #pragma mark - 태그 초기화
 - (void)setTagInit
 {
-    self.pBackBtn.tag = VOD_DETAIL_MAIN_VIEW_BTN_01;
-    self.pWatchBtn.tag = VOD_DETAIL_MAIN_VIEW_BTN_02;
+    self.pWatchBtn21.tag = VOD_DETAIL_MAIN_VIEW_BTN_01;
+    
+    self.pReviewBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_02;
+    self.pWatchBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_03;
+    self.pZzimBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_04;
+    
+    self.pReviewBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_05;
+    self.pWatchBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_06;
+    self.pZzimBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_07;
+    
+    self.pWatchBtn24.tag = VOD_DETAIL_MAIN_VIEW_BTN_08;
+    
 }
 
 #pragma mark - 화면 초기화
@@ -65,26 +75,26 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    CGFloat width = self.pBodyView.frame.size.width;
-    CGFloat posY = 0;
-    NSArray* items = @[self.pView01, self.pView02, self.pView03];
-    
-    for (UIView* item in items) {
-        [self.pBodyView addSubview:item];
-        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
-        posY += item.frame.size.height;
-        
-        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:item
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                 multiplier:1.0
-                                                                   constant:0];
-        [self.view addConstraint:layout];
-    }
-    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
-    [self.view updateConstraintsIfNeeded];
+//    CGFloat width = self.pBodyView.frame.size.width;
+//    CGFloat posY = 0;
+//    NSArray* items = @[self.pView01, self.pView21, self.pView03];
+//    
+//    for (UIView* item in items) {
+//        [self.pBodyView addSubview:item];
+//        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+//        posY += item.frame.size.height;
+//        
+//        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+//                                                                  attribute:NSLayoutAttributeWidth
+//                                                                  relatedBy:NSLayoutRelationEqual
+//                                                                     toItem:item
+//                                                                  attribute:NSLayoutAttributeWidth
+//                                                                 multiplier:1.0
+//                                                                   constant:0];
+//        [self.view addConstraint:layout];
+//    }
+//    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+//    [self.view updateConstraintsIfNeeded];
 }
 
 - (void)setViewInit
@@ -100,10 +110,9 @@
 {
     switch ([btn tag]) {
         case VOD_DETAIL_MAIN_VIEW_BTN_01:
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-        }break;
-        case VOD_DETAIL_MAIN_VIEW_BTN_02:
+        case VOD_DETAIL_MAIN_VIEW_BTN_03:
+        case VOD_DETAIL_MAIN_VIEW_BTN_06:
+        case VOD_DETAIL_MAIN_VIEW_BTN_08:
         {
             // 시청 버튼
             NSMutableString *responseUrl = [NSMutableString string];
@@ -117,20 +126,6 @@
                 WV_Play([self.pDrmDic objectForKey:@"contentUri"], responseUrl, 0);
                 
                 NSLog(@"responseUrl = [%@]", responseUrl);
-//                
-//                if ( [responseUrl length] != 0 )
-//                {
-//                    NSURL *url = [NSURL URLWithString:responseUrl];
-//                    MPMoviePlayerController *mp = [[MPMoviePlayerController alloc]
-//                                                   initWithContentURL:url];
-//                    self.pMoviePlayer = mp;
-//                    //                    [mp release];
-//                    self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-//                    [self.view addSubview:self.pMoviePlayer.view];
-//                    
-//                    [self.pMoviePlayer play];
-//                }
-
                 
                 PlayerViewController *pViewController = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
                 pViewController.delegate = self;
@@ -324,8 +319,175 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
+- (void)setViewInit21
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView21, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView21.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
+- (void)setViewInit22
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView22, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView22.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
+- (void)setViewInit23
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView23, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView23.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
+- (void)setViewInit24
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView24, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView24.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
+- (void)setViewInit25
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView25, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
 - (void)setResponseViewInit
 {
+    
+    NSString *sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];     // 시리즈 인지 아닌지
+    BOOL isPurchasedId = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"purchasedId"];      // 구매하기 인지 아닌지
+ 
+    
+    // !! TEST BJK TV 인지 아닌지는 서버에서 안내려오고 있음
+    if ( [sSeriesLink isEqualToString:@"0"] )
+    {
+        // 시리즈가 아니다
+        if ( isPurchasedId == YES )
+        {
+            // 구매 한 사용자인지
+            [self setViewInit21];
+        }
+        else
+        {
+            // 구매 한 사용자가 아닌지
+            [self setViewInit22];
+        }
+    }
+    else
+    {
+        // 시리즈다
+        if ( isPurchasedId == YES )
+        {
+            // 구매한 사용자인지
+            [self setViewInit24];
+        }
+        else
+        {
+            // 구매한 사용자가 아닌지
+            [self setViewInit23];
+        }
+    }
+    
+    
+    
     NSString *sUrl = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"imageFileName"]];
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     
@@ -374,7 +536,7 @@
     
     self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"genre"], nTotalMM];
     
-    self.pContentTextView.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+    
     
     self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"director"]];
     

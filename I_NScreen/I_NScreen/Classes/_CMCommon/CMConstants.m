@@ -79,6 +79,22 @@ NSString* const MIRRORTV_ERROR = @"미러TV 영상이 지연되고 있습니다.
 // ----------------------------------------------------------------------------------
 
 // add by bjk
+// 영화 애니 tv다시보기 성인 오늘의 추천 categoryId 는 고정으로 박음 됨
+// 오늘의 추천
+NSString* const CNM_OPEN_API_RECOMEND_CATEGORY_ID = @"713228";
+
+// 영화
+NSString* const CNM_OPEN_API_MOVIE_CATEGORY_ID = @"27282";
+
+// 애니
+NSString* const CNM_OPEN_API_ANNI_CATEGORY_ID = @"27281";
+
+// TV 다시보기
+NSString* const CNM_OPEN_API_TV_REPLAY_CATEGORY_ID = @"27279";
+
+// 성인
+NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID = @"20912";
+
 // uuid
 NSString* const CNM_OPEN_API_UUID_KEY = @"uuid";
 

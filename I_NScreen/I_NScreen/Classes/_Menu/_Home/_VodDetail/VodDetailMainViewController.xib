@@ -3,20 +3,31 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodDetailMainViewController">
             <connections>
                 <outlet property="pBodyView" destination="33X-5k-Xuw" id="VFq-ov-rTD"/>
                 <outlet property="pCastLbl" destination="fHy-tf-PAn" id="NFd-bi-NJH"/>
-                <outlet property="pContentTextView" destination="cFl-L7-V26" id="mfF-dP-fO3"/>
+                <outlet property="pCommentLbl25" destination="FEM-bn-PH6" id="0iV-6S-sqc"/>
+                <outlet property="pContentTextView21" destination="cFl-L7-V26" id="ji4-7U-jca"/>
+                <outlet property="pContentTextView22" destination="xyb-CE-w70" id="XTm-ln-kw4"/>
+                <outlet property="pContentTextView23" destination="ONX-Rd-I0j" id="iDi-gO-7JL"/>
+                <outlet property="pContentTextView24" destination="qRv-kf-RYs" id="EsZ-tb-Jim"/>
+                <outlet property="pContentTextView25" destination="XIH-9M-Bpf" id="8rj-Ez-elh"/>
                 <outlet property="pEquipmentImageView" destination="c6F-gA-hq5" id="9N8-Jy-zT2"/>
                 <outlet property="pManagerLbl" destination="qS3-bU-t3G" id="xWP-Gc-XJy"/>
                 <outlet property="pPageControl" destination="UZF-pj-nwT" id="Fjf-hK-Afg"/>
                 <outlet property="pPriceLbl" destination="lnA-ER-afq" id="kK5-Tp-s9y"/>
                 <outlet property="pRatingImageView" destination="6bG-LN-KR6" id="FAN-QJ-Sfo"/>
                 <outlet property="pResolutionImageView" destination="5Pq-an-SqP" id="mjh-8z-MUp"/>
+                <outlet property="pReviewBtn22" destination="uu3-Ht-kss" id="tDx-jK-mgs"/>
+                <outlet property="pReviewBtn23" destination="1Z2-Fr-Mpc" id="74b-3e-nR5"/>
                 <outlet property="pScrollView" destination="Xfy-l9-nwU" id="K93-ly-xOY"/>
+                <outlet property="pSeriesScrollView23" destination="qXQ-Kg-3R3" id="xH3-QK-HmG"/>
+                <outlet property="pSeriesScrollView24" destination="8xB-iO-xsL" id="hEg-cf-Kcc"/>
+                <outlet property="pSeriesScrollView25" destination="OaG-ae-P5L" id="kBI-bu-Q2B"/>
                 <outlet property="pStarImage01" destination="PP5-d5-EZx" id="Cmb-3S-7JZ"/>
                 <outlet property="pStarImage02" destination="uzo-DU-9xN" id="aH6-xW-TBG"/>
                 <outlet property="pStarImage03" destination="cqn-g3-RMw" id="9sO-NL-k2s"/>
@@ -27,9 +38,18 @@
                 <outlet property="pThumImageView" destination="FfL-lT-z4x" id="YaT-67-sPY"/>
                 <outlet property="pTitleLbl" destination="x4q-dy-nbm" id="YRE-ji-4zP"/>
                 <outlet property="pView01" destination="L30-bS-enC" id="4tz-EM-QD3"/>
-                <outlet property="pView02" destination="Gfc-fR-XmF" id="oeh-yP-udB"/>
                 <outlet property="pView03" destination="XHe-2m-w8p" id="eHU-jH-k8I"/>
-                <outlet property="pWatchBtn" destination="yrX-07-HNh" id="P9p-yf-tJU"/>
+                <outlet property="pView21" destination="Gfc-fR-XmF" id="NJN-hk-10i"/>
+                <outlet property="pView22" destination="rwV-T8-KpY" id="Vmf-Qv-6Xm"/>
+                <outlet property="pView23" destination="JQu-Sd-ta8" id="oPc-5j-FDl"/>
+                <outlet property="pView24" destination="Trn-qW-gW3" id="8rh-nD-3yY"/>
+                <outlet property="pView25" destination="jA3-5A-5UN" id="PRa-Yi-r6s"/>
+                <outlet property="pWatchBtn21" destination="yrX-07-HNh" id="JMu-pu-tZb"/>
+                <outlet property="pWatchBtn22" destination="F1t-36-sOP" id="wSr-Hv-4Zc"/>
+                <outlet property="pWatchBtn23" destination="CS3-Fe-QzN" id="DPJ-Aq-dIi"/>
+                <outlet property="pWatchBtn24" destination="C0E-cZ-p9I" id="tqZ-AR-MQ1"/>
+                <outlet property="pZzimBtn22" destination="4X0-Vk-ruQ" id="gMF-kR-mca"/>
+                <outlet property="pZzimBtn23" destination="a0I-Od-OVi" id="Z5N-C5-Rto"/>
                 <outlet property="view" destination="Cc7-h2-ipl" id="i1I-1G-eif"/>
             </connections>
         </placeholder>
@@ -801,7 +821,7 @@
             </variation>
             <point key="canvasLocation" x="825" y="196.5"/>
         </view>
-        <view contentMode="scaleToFill" id="Gfc-fR-XmF" userLabel="View2">
+        <view contentMode="scaleToFill" id="Gfc-fR-XmF" userLabel="View2-1">
             <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -842,7 +862,7 @@
                         </mask>
                     </variation>
                     <connections>
-                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="CXY-kB-dP2"/>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="yQP-tH-txS"/>
                     </connections>
                 </button>
             </subviews>
@@ -1014,14 +1034,410 @@
             </variation>
             <point key="canvasLocation" x="825" y="470"/>
         </view>
+        <view contentMode="scaleToFill" id="rwV-T8-KpY" userLabel="View2-2">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyb-CE-w70">
+                    <rect key="frame" x="14" y="0.0" width="386" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="UTq-VF-PpR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="UTq-VF-PpR"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="UTq-VF-PpR"/>
+                        </mask>
+                    </variation>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu3-Ht-kss">
+                    <rect key="frame" x="15" y="134" width="124" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="18i-Zn-MaP"/>
+                        <constraint firstAttribute="width" secondItem="uu3-Ht-kss" secondAttribute="height" multiplier="62:23" id="Ljx-qG-TbL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="미리보기" backgroundImage="vod3btn_normal.png">
+                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="18i-Zn-MaP"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="18i-Zn-MaP"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="VnZ-1n-tAA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1t-36-sOP">
+                    <rect key="frame" x="145" y="134" width="124" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="w5f-SU-oBg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="시청하기" backgroundImage="vod3btn_p_press.png"/>
+                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="w5f-SU-oBg"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="w5f-SU-oBg"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="dgM-nQ-Hxs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-Vk-ruQ">
+                    <rect key="frame" x="275" y="134" width="124" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="4X0-Vk-ruQ" secondAttribute="height" multiplier="62:23" id="BOA-3r-lHC"/>
+                        <constraint firstAttribute="height" constant="46" id="ZSk-zl-CMR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="찜하기" backgroundImage="vod3btn_normal.png">
+                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ZSk-zl-CMR"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="ZSk-zl-CMR"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="uVg-YJ-Xud"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="uu3-Ht-kss" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="OzQ-xI-MEs"/>
+                <constraint firstItem="xyb-CE-w70" firstAttribute="top" secondItem="rwV-T8-KpY" secondAttribute="top" id="QqM-4a-1TA"/>
+                <constraint firstItem="F1t-36-sOP" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="UgP-iV-sqM"/>
+                <constraint firstItem="uu3-Ht-kss" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="15" id="eLw-9f-w1j"/>
+                <constraint firstAttribute="trailing" secondItem="xyb-CE-w70" secondAttribute="trailing" constant="14" id="fwf-lB-zYP"/>
+                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="k9X-e2-ZFr"/>
+                <constraint firstItem="F1t-36-sOP" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="14" id="kFj-Fg-bMz"/>
+                <constraint firstAttribute="trailing" secondItem="4X0-Vk-ruQ" secondAttribute="trailing" constant="15" id="lkc-Bn-rso"/>
+                <constraint firstAttribute="trailing" secondItem="F1t-36-sOP" secondAttribute="trailing" constant="14" id="qYR-an-INq"/>
+                <constraint firstAttribute="bottom" secondItem="F1t-36-sOP" secondAttribute="bottom" id="sUZ-NZ-EGW"/>
+                <constraint firstItem="xyb-CE-w70" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="14" id="tjl-Rt-ZNH"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="QqM-4a-1TA"/>
+                    <exclude reference="fwf-lB-zYP"/>
+                    <exclude reference="tjl-Rt-ZNH"/>
+                    <exclude reference="UgP-iV-sqM"/>
+                    <exclude reference="kFj-Fg-bMz"/>
+                    <exclude reference="qYR-an-INq"/>
+                    <exclude reference="sUZ-NZ-EGW"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="QqM-4a-1TA"/>
+                    <include reference="fwf-lB-zYP"/>
+                    <include reference="tjl-Rt-ZNH"/>
+                    <include reference="UgP-iV-sqM"/>
+                    <include reference="kFj-Fg-bMz"/>
+                    <include reference="qYR-an-INq"/>
+                    <include reference="sUZ-NZ-EGW"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="825" y="987"/>
+        </view>
+        <view contentMode="scaleToFill" id="JQu-Sd-ta8" userLabel="View2-3">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEU-QL-whl">
+                    <rect key="frame" x="14" y="0.0" width="386" height="45"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPp-zb-qvd" userLabel="View(라인1)">
+                            <rect key="frame" x="0.0" y="0.0" width="386" height="1"/>
+                            <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iqd-3K-ZQE" userLabel="View(라인2)">
+                            <rect key="frame" x="0.0" y="44" width="386" height="1"/>
+                            <color key="backgroundColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_l.png" translatesAutoresizingMaskIntoConstraints="NO" id="DWl-Bo-qlh" userLabel="ImageView(왼쪽)">
+                            <rect key="frame" x="2" y="17" width="8" height="10"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_r.png" translatesAutoresizingMaskIntoConstraints="NO" id="AkY-3j-4uF" userLabel="ImageView(오른쪽)">
+                            <rect key="frame" x="374" y="18" width="8" height="10"/>
+                        </imageView>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXQ-Kg-3R3">
+                            <rect key="frame" x="38" y="1" width="308" height="43"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R3-kn-fOO">
+                                    <rect key="frame" x="0.0" y="4" width="47" height="35"/>
+                                    <state key="normal" title="1회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfY-3U-CAX">
+                                    <rect key="frame" x="64" y="4" width="47" height="35"/>
+                                    <state key="normal" title="2회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzQ-fz-e3n">
+                                    <rect key="frame" x="128" y="4" width="47" height="35"/>
+                                    <state key="normal" title="3회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qn-sx-zJm">
+                                    <rect key="frame" x="192" y="4" width="47" height="35"/>
+                                    <state key="normal" title="4회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veM-p1-QKa">
+                                    <rect key="frame" x="256" y="4" width="47" height="35"/>
+                                    <state key="normal" title="5회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94509803921568625" green="0.93333333333333335" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONX-Rd-I0j">
+                    <rect key="frame" x="14" y="42" width="386" height="128"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Z2-Fr-Mpc">
+                    <rect key="frame" x="15" y="176" width="124" height="46"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="미리보기" backgroundImage="vod3btn_normal.png">
+                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="MNS-Uq-LwC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-Fe-QzN">
+                    <rect key="frame" x="145" y="176" width="124" height="46"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="시청하기" backgroundImage="vod3btn_p_press.png"/>
+                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="UsT-wI-k3F"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0I-Od-OVi">
+                    <rect key="frame" x="275" y="176" width="124" height="46"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="찜하기" backgroundImage="vod3btn_normal.png">
+                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="D66-H6-hlD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="825" y="1230"/>
+        </view>
+        <view contentMode="scaleToFill" id="Trn-qW-gW3" userLabel="View2-4">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pfb-lP-U4g">
+                    <rect key="frame" x="14" y="0.0" width="386" height="45"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pIP-OK-WYX" userLabel="View(라인1)">
+                            <rect key="frame" x="0.0" y="0.0" width="386" height="1"/>
+                            <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24b-Hp-Ace" userLabel="View(라인2)">
+                            <rect key="frame" x="0.0" y="44" width="386" height="1"/>
+                            <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_l.png" translatesAutoresizingMaskIntoConstraints="NO" id="xgK-N1-w6f" userLabel="ImageView(왼쪽)">
+                            <rect key="frame" x="2" y="17" width="8" height="10"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_r.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZX0-wv-RBa" userLabel="ImageView(오른쪽)">
+                            <rect key="frame" x="374" y="18" width="8" height="10"/>
+                        </imageView>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8xB-iO-xsL">
+                            <rect key="frame" x="38" y="1" width="308" height="43"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkn-Fs-ULS">
+                                    <rect key="frame" x="0.0" y="4" width="47" height="35"/>
+                                    <state key="normal" title="1회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IK8-0b-Zzv">
+                                    <rect key="frame" x="64" y="4" width="47" height="35"/>
+                                    <state key="normal" title="2회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xid-QY-c2Q">
+                                    <rect key="frame" x="128" y="4" width="47" height="35"/>
+                                    <state key="normal" title="3회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyw-kS-bKY">
+                                    <rect key="frame" x="192" y="4" width="47" height="35"/>
+                                    <state key="normal" title="4회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4n-m9-yg6">
+                                    <rect key="frame" x="256" y="4" width="47" height="35"/>
+                                    <state key="normal" title="5회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.93333333330000001" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRv-kf-RYs">
+                    <rect key="frame" x="14" y="42" width="386" height="128"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0E-cZ-p9I">
+                    <rect key="frame" x="14" y="176" width="386" height="46"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="시청하기" backgroundImage="vod1btn_normal.select.png"/>
+                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="3ES-dx-B0h"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="335" y="841"/>
+        </view>
+        <view contentMode="scaleToFill" id="jA3-5A-5UN" userLabel="View2-5">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ff-gB-YQa">
+                    <rect key="frame" x="14" y="0.0" width="386" height="45"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vIN-Q1-EwP" userLabel="View(라인1)">
+                            <rect key="frame" x="0.0" y="0.0" width="386" height="1"/>
+                            <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ET-Wc-lbZ" userLabel="View(라인2)">
+                            <rect key="frame" x="0.0" y="44" width="386" height="1"/>
+                            <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_l.png" translatesAutoresizingMaskIntoConstraints="NO" id="sZ0-tw-4kT" userLabel="ImageView(왼쪽)">
+                            <rect key="frame" x="2" y="17" width="8" height="10"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_r.png" translatesAutoresizingMaskIntoConstraints="NO" id="pKd-Jg-Xnd" userLabel="ImageView(오른쪽)">
+                            <rect key="frame" x="374" y="18" width="8" height="10"/>
+                        </imageView>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-ae-P5L">
+                            <rect key="frame" x="38" y="1" width="308" height="43"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG7-D6-f3r">
+                                    <rect key="frame" x="0.0" y="4" width="47" height="35"/>
+                                    <state key="normal" title="1회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3e-ui-cOY">
+                                    <rect key="frame" x="64" y="4" width="47" height="35"/>
+                                    <state key="normal" title="2회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LA0-fO-b4x">
+                                    <rect key="frame" x="128" y="4" width="47" height="35"/>
+                                    <state key="normal" title="3회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75N-Sl-S8n">
+                                    <rect key="frame" x="192" y="4" width="47" height="35"/>
+                                    <state key="normal" title="4회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTt-Ra-3E2">
+                                    <rect key="frame" x="256" y="4" width="47" height="35"/>
+                                    <state key="normal" title="5회" backgroundImage="seriesno_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.93333333330000001" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIH-9M-Bpf">
+                    <rect key="frame" x="14" y="42" width="386" height="128"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[막돼먹은 영애씨 시즌14]는 TV에서 시청하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEM-bn-PH6">
+                    <rect key="frame" x="103" y="176" width="208" height="46"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="340" y="1146"/>
+        </view>
     </objects>
     <resources>
         <image name="all.png" width="29" height="16"/>
         <image name="hd.png" width="29" height="16"/>
         <image name="icon_onlytv.png" width="43" height="15"/>
+        <image name="seriesno_indicator_l.png" width="8" height="10"/>
+        <image name="seriesno_indicator_r.png" width="8" height="10"/>
+        <image name="seriesno_press.png" width="47" height="32"/>
         <image name="star_empty.png" width="14" height="13"/>
         <image name="star_full.png" width="14" height="13"/>
         <image name="vod1btn_normal.select.png" width="379" height="46"/>
         <image name="vod1btn_press.png" width="379" height="46"/>
+        <image name="vod3btn_normal.png" width="122" height="46"/>
+        <image name="vod3btn_p_press.png" width="122" height="46"/>
     </resources>
 </document>
