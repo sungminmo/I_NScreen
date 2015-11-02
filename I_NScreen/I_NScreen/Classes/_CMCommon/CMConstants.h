@@ -120,6 +120,12 @@ extern NSString* const CNM_TEST_TERMINAL_KEY;
 // 실서버용 테스트 터미널 Key.
 extern NSString* const CNM_REAL_TEST_TERMINAL_KEY;
 
+// categoryProfile
+extern NSString* const CNM_OPEN_API_CATEGORY_PROFILE_KEY;
+
+// traverseType
+extern NSString* const CNM_OPEN_API_TRAVERSE_TYPE_KEY;
+
 // 기본 정보(지역코드, 상품코드)
 extern NSString* const CNM_DEFAULT_AREA_CODE;
 extern NSString* const CNM_DEFAULT_PRODUCT_CODE;
@@ -311,6 +317,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId;
 
 // GetBundleProductList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetBundleProductList;
+
+// getCateogryTree
+extern NSString* const CNM_OPEN_API_INTERFACE_GetCategoryTree;
 
 // 5. Search
 // SearchChannel

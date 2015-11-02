@@ -104,6 +104,143 @@
     self.pDrmDic = [[NSMutableDictionary alloc] init];
 }
 
+#pragma mark - 중간 화면 초기화
+#pragma mark - 시리즈가 아니고 구매 사용자
+- (void)setViewInit21
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView21, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView21.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
+#pragma mark - 시리즈가 아니고 구매 하지 않은 사용자
+- (void)setViewInit22
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView22, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView22.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
+#pragma mark - 시리즈이고 구매 하지 않은 사용자
+- (void)setViewInit23
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView23, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView23.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
+#pragma mark - 시리즈이고 구매한 사용자
+- (void)setViewInit24
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView24, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView24.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
+#pragma mark  - 시리즈 이고 tv
+- (void)setViewInit25
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView25, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
+
+
 #pragma mark - 액션 이벤트
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
@@ -319,136 +456,8 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
-- (void)setViewInit21
-{
-    CGFloat width = self.pBodyView.frame.size.width;
-    CGFloat posY = 0;
-    NSArray* items = @[self.pView01, self.pView21, self.pView03];
-    
-    for (UIView* item in items) {
-        [self.pBodyView addSubview:item];
-        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
-        posY += item.frame.size.height;
-        
-        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:item
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                 multiplier:1.0
-                                                                   constant:0];
-        [self.view addConstraint:layout];
-    }
-    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
-    [self.view updateConstraintsIfNeeded];
-    
-    self.pContentTextView21.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-}
 
-- (void)setViewInit22
-{
-    CGFloat width = self.pBodyView.frame.size.width;
-    CGFloat posY = 0;
-    NSArray* items = @[self.pView01, self.pView22, self.pView03];
-    
-    for (UIView* item in items) {
-        [self.pBodyView addSubview:item];
-        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
-        posY += item.frame.size.height;
-        
-        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:item
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                 multiplier:1.0
-                                                                   constant:0];
-        [self.view addConstraint:layout];
-    }
-    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
-    [self.view updateConstraintsIfNeeded];
-    
-    self.pContentTextView22.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-}
-
-- (void)setViewInit23
-{
-    CGFloat width = self.pBodyView.frame.size.width;
-    CGFloat posY = 0;
-    NSArray* items = @[self.pView01, self.pView23, self.pView03];
-    
-    for (UIView* item in items) {
-        [self.pBodyView addSubview:item];
-        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
-        posY += item.frame.size.height;
-        
-        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:item
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                 multiplier:1.0
-                                                                   constant:0];
-        [self.view addConstraint:layout];
-    }
-    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
-    [self.view updateConstraintsIfNeeded];
-    
-    self.pContentTextView23.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-}
-
-- (void)setViewInit24
-{
-    CGFloat width = self.pBodyView.frame.size.width;
-    CGFloat posY = 0;
-    NSArray* items = @[self.pView01, self.pView24, self.pView03];
-    
-    for (UIView* item in items) {
-        [self.pBodyView addSubview:item];
-        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
-        posY += item.frame.size.height;
-        
-        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:item
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                 multiplier:1.0
-                                                                   constant:0];
-        [self.view addConstraint:layout];
-    }
-    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
-    [self.view updateConstraintsIfNeeded];
-    
-    self.pContentTextView24.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-}
-
-- (void)setViewInit25
-{
-    CGFloat width = self.pBodyView.frame.size.width;
-    CGFloat posY = 0;
-    NSArray* items = @[self.pView01, self.pView25, self.pView03];
-    
-    for (UIView* item in items) {
-        [self.pBodyView addSubview:item];
-        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
-        posY += item.frame.size.height;
-        
-        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:item
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                 multiplier:1.0
-                                                                   constant:0];
-        [self.view addConstraint:layout];
-    }
-    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
-    [self.view updateConstraintsIfNeeded];
-    
-    self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-}
-
+#pragma mark - 상세 데이터에 따라 화면 셋팅
 - (void)setResponseViewInit
 {
     

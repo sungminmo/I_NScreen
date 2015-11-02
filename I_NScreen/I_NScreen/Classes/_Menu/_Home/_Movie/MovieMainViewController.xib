@@ -7,10 +7,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieMainViewController">
             <connections>
-                <outlet property="pListBtn" destination="uSo-ij-8Hs" id="BoR-xJ-nog"/>
-                <outlet property="pScrollView" destination="IOV-xj-dL4" id="8Yh-0T-uzM"/>
-                <outlet property="pView01" destination="3Eg-cx-9nC" id="Hzu-sG-hAt"/>
-                <outlet property="pView02" destination="pLg-by-1NP" id="Eij-NH-kHq"/>
+                <outlet property="pDepthBtn" destination="q5G-Dr-xYe" id="Hxa-aT-zzJ"/>
+                <outlet property="pLeftLineView" destination="XMv-fc-B9B" id="Uf3-Hh-0Sl"/>
+                <outlet property="pRealTimeBtn" destination="J5G-a7-TVK" id="dOC-rB-vfC"/>
+                <outlet property="pRightLineView" destination="z2h-z3-b9m" id="Hxn-Ew-SwK"/>
+                <outlet property="pTableView21" destination="h8x-60-zjc" id="yYG-sE-Rw6"/>
+                <outlet property="pTableView22" destination="mgp-ke-Lsu" id="VAr-6w-KrF"/>
+                <outlet property="pView01" destination="wMa-x9-SZd" id="BiG-Oo-OsL"/>
+                <outlet property="pView21" destination="L7b-W2-Ze4" id="mSH-Xf-WfT"/>
+                <outlet property="pView22" destination="rw7-EZ-1Xj" id="aWZ-E7-LEI"/>
+                <outlet property="pWeekBtn" destination="UWH-Ua-x2c" id="Hqc-UE-Qfx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,39 +25,89 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IOV-xj-dL4">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
-                </scrollView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wMa-x9-SZd" userLabel="View1">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5G-Dr-xYe">
+                            <rect key="frame" x="17" y="14" width="379" height="46"/>
+                            <state key="normal" title="가족드라마" backgroundImage="allch.png">
+                                <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="MFb-tM-hNH"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rw7-EZ-1Xj" userLabel="View22">
+                    <rect key="frame" x="0.0" y="74" width="414" height="547"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mgp-ke-Lsu">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L7b-W2-Ze4" userLabel="View21">
+                    <rect key="frame" x="0.0" y="74" width="414" height="547"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aV6-3X-GEH">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5G-a7-TVK" userLabel="Button(왼쪽)">
+                                    <rect key="frame" x="18" y="8" width="180" height="27"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="실시간 인기순위" backgroundImage="3depth2btn_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="3depth2btn_press.png"/>
+                                    <connections>
+                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="A5F-HG-eGF"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWH-Ua-x2c" userLabel="Button(오른쪽)">
+                                    <rect key="frame" x="216" y="8" width="180" height="27"/>
+                                    <state key="normal" title="주간 인기순위" backgroundImage="3depth2btn_press.png">
+                                        <color key="titleColor" red="0.54117647058823526" green="0.5490196078431373" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="3depth2btn_press.png"/>
+                                    <connections>
+                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="KeC-Xa-yE5"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XMv-fc-B9B" userLabel="View(왼쪽라인)">
+                                    <rect key="frame" x="7" y="39" width="200" height="2"/>
+                                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2h-z3-b9m" userLabel="View(오른쪽라인)">
+                                    <rect key="frame" x="207" y="40" width="200" height="1"/>
+                                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wd9-Mc-X5t" userLabel="View(중간라인)">
+                                    <rect key="frame" x="207" y="18" width="1" height="8"/>
+                                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h8x-60-zjc">
+                            <rect key="frame" x="0.0" y="53" width="414" height="494"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="398" y="346.5"/>
         </view>
-        <view contentMode="scaleToFill" id="3Eg-cx-9nC" userLabel="View1">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSo-ij-8Hs">
-                    <rect key="frame" x="47" y="23" width="299" height="30"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="GGb-pB-wrr"/>
-                    </connections>
-                </button>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <nil key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="398" y="913"/>
-        </view>
-        <view contentMode="scaleToFill" id="pLg-by-1NP" userLabel="View2">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <nil key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="398" y="1378"/>
-        </view>
     </objects>
+    <resources>
+        <image name="3depth2btn_press.png" width="180" height="27"/>
+        <image name="allch.png" width="379" height="46"/>
+    </resources>
 </document>

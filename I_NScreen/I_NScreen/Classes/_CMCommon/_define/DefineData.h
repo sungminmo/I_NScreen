@@ -97,10 +97,9 @@
 #define ANI_KIDS_MAIN_VIEW_BTN_04       13004   // 그외 순위 버튼
 
 // MovieMainViewController btn tag
-#define MOVIE_MAIN_VIEW_BTN_01          14001   // 인기 순위 버튼
+#define MOVIE_MAIN_VIEW_BTN_01          14001   // 댑스 버튼
 #define MOVIE_MAIN_VIEW_BTN_02          14002   // 실시간 인기 순위 버튼
 #define MOVIE_MAIN_VIEW_BTN_03          14003   // 주간 인기 순위 버튼
-#define MOVIE_MAIN_VIEW_BTN_04          14004   // 그외 순위 버튼
 
 // 페어링
 // PairingMainViewController btn tag

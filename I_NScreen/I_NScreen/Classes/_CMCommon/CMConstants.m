@@ -113,6 +113,12 @@ NSString* const CNM_OPEN_API_TERMINAL_KEY_KEY = @"terminalKey";
 // transactionID
 NSString* const CNM_OPEN_API_TRANSACTION_ID_KEY = @"transactionId";
 
+// categoryProfile
+NSString* const CNM_OPEN_API_CATEGORY_PROFILE_KEY = @"categoryProfile";
+
+// traverseType
+NSString* const CNM_OPEN_API_TRAVERSE_TYPE_KEY = @"traverseType";
+
 // areaCode
 NSString* const CNM_OPEN_API_AREA_CODE_KEY = @"aredCode";
 
@@ -268,6 +274,9 @@ NSString* const CNM_OPEN_API_INTERFACE_GetBundleProductList = @"getBundleProduct
 
 // Getservicebannerlist
 NSString* const CNM_OPEN_API_INTERFACE_GetServiceBannerlist = @"getservicebannerlist";
+
+// getCateogryTree
+NSString* const CNM_OPEN_API_INTERFACE_GetCategoryTree = @"getCateogryTree";
 
 
 // 6.Service
