@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMProgressView.h"
 
 @interface EpgMainTableViewCell : UITableViewCell
 
@@ -21,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet UILabel     *pChannelTitleLbl;     // 체널 타이틀
 @property (nonatomic, weak) IBOutlet UILabel     *pChannelTimeLbl;       // 체널 시간
 @property (nonatomic, weak) IBOutlet UILabel     *pChannelLbl;           // 체널 
+@property (strong, nonatomic) IBOutlet CMProgressView *progressView;
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index;
 

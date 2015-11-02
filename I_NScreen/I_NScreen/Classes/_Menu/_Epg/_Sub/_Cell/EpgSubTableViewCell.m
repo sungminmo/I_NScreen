@@ -7,6 +7,7 @@
 //
 
 #import "EpgSubTableViewCell.h"
+#import "CMProgressView.h"
 
 @interface EpgSubTableViewCell ()
 
@@ -14,9 +15,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *gradeImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *hdImageView;
-@property (strong, nonatomic) IBOutlet UIView *progressBackgroundView;
-@property (strong, nonatomic) IBOutlet UIView *progressView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *progressWidth;
+@property (strong, nonatomic) IBOutlet CMProgressView *progressView;
+
 
 @property (strong, nonatomic) NSDictionary* dataDic;
 
@@ -27,8 +27,6 @@
 - (void)awakeFromNib {
     
     [super awakeFromNib];
-    
-    self.progressView.backgroundColor = [CMColor colorHighlightedFontColor];
     
     [self resetData];
 }
@@ -51,27 +49,6 @@
     self.titleLabel.text = @"";
     self.gradeImageView.image = nil;
     self.hdImageView.hidden = true;
-    self.progressWidth.constant = 0;
-}
-
-/**
- *  진행바 너비를 셋팅한다.
- *  progressBackgroundView의 너비가 확정된 이후에 제대로된 너비를 세팅할수 있기때문에
- *  layoutSubviews 함수 안에서 호출한다.
- *
- *  @param ratio 진행바 너비 비율 (0 ~ 1)
- */
-- (void)setProgressRatio:(CGFloat)ratio {
-    
-    self.progressWidth.constant = self.progressBackgroundView.bounds.size.width * ratio;
-}
-
-- (void)layoutSubviews {
-    
-    [super layoutSubviews];
-    [self layoutIfNeeded];
-    
-    [self setProgressRatio:[self.dataDic[@"progress"] floatValue]];
 }
 
 #pragma mark - Pulbics
@@ -104,6 +81,8 @@
     } else {
         self.hdImageView.hidden = YES;
     }
+    
+    [self.progressView setProgressRatio:.9 animated:YES];
 }
 
 #pragma mark - Event

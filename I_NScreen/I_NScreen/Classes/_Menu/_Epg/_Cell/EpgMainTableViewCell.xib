@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,67 +12,84 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDZ-Ez-DEr" userLabel="Image View(윗라인)">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pick.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xS-dT-gFd" userLabel="ImageView(하트)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xS-dT-gFd" userLabel="ImageView(하트)">
                         <rect key="frame" x="16" y="26" width="14" height="13"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6F-b4-mPP" userLabel="Label(체널번호)">
-                        <rect key="frame" x="46" y="9" width="44" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6F-b4-mPP" userLabel="Label(체널번호)">
+                        <rect key="frame" x="46" y="9" width="19.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-D9-yjk" userLabel="ImageView(방송사)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-D9-yjk" userLabel="ImageView(방송사)">
                         <rect key="frame" x="46" y="34" width="54" height="22"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="54" id="9w0-UC-VpW"/>
+                            <constraint firstAttribute="height" constant="22" id="J4M-ye-YAO"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox3-mQ-9qf" userLabel="Label(체널명)">
-                        <rect key="frame" x="108" y="9" width="283" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ox3-mQ-9qf" userLabel="Label(체널명)">
+                        <rect key="frame" x="109" y="10" width="69.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15:00~16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvC-bE-fIL" userLabel="Label(방송시간)">
-                        <rect key="frame" x="108" y="31" width="119" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:00~16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvC-bE-fIL" userLabel="Label(방송시간)">
+                        <rect key="frame" x="109" y="32" width="76" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tI5-PM-XsJ" userLabel="ImageView(방송총시간)">
-                        <rect key="frame" x="109" y="52" width="260" height="3"/>
-                        <color key="backgroundColor" red="0.70588235294117641" green="0.71372549019607845" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-yI-QDM" userLabel="ImageView(all)">
+                        <rect key="frame" x="192" y="32" width="29" height="16"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWZ-9M-2NR" userLabel="ImageView(방송본시간)">
-                        <rect key="frame" x="109" y="52" width="100" height="3"/>
-                        <color key="backgroundColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-yI-QDM" userLabel="ImageView(all)">
-                        <rect key="frame" x="218" y="32" width="29" height="16"/>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="isx-vz-pGC" userLabel="ImageView(Hd)">
-                        <rect key="frame" x="250" y="32" width="29" height="16"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="isx-vz-pGC" userLabel="ImageView(Hd)">
+                        <rect key="frame" x="225" y="32" width="29" height="16"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-0l-wkh" userLabel="ImageView(화살표)">
                         <rect key="frame" x="393" y="26" width="13" height="22"/>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g44-b1-trP" customClass="CMProgressView">
+                        <rect key="frame" x="109" y="56" width="252" height="3"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="3" id="2DI-cz-4sf"/>
+                        </constraints>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GrO-7y-gc9" userLabel="Image View(밑라인)">
                         <rect key="frame" x="0.0" y="65" width="414" height="1"/>
                         <color key="backgroundColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ZvC-bE-fIL" firstAttribute="leading" secondItem="xfc-D9-yjk" secondAttribute="trailing" constant="9" id="38V-NJ-CX7"/>
+                    <constraint firstItem="Ubp-yI-QDM" firstAttribute="leading" secondItem="ZvC-bE-fIL" secondAttribute="trailing" constant="7" id="3ly-Au-WRl"/>
+                    <constraint firstItem="Ubp-yI-QDM" firstAttribute="centerY" secondItem="ZvC-bE-fIL" secondAttribute="centerY" id="4TA-jq-4oC"/>
+                    <constraint firstItem="g44-b1-trP" firstAttribute="leading" secondItem="ZvC-bE-fIL" secondAttribute="leading" id="74H-CO-8bQ"/>
+                    <constraint firstItem="4xS-dT-gFd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="972-BB-Sgt"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Ox3-mQ-9qf" secondAttribute="trailing" constant="45" id="BVf-cf-VCD"/>
                     <constraint firstAttribute="centerY" secondItem="Pph-0l-wkh" secondAttribute="centerY" id="Eqz-G8-yVb"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="tI5-PM-XsJ" secondAttribute="bottom" constant="2" id="H4D-R5-OPG"/>
+                    <constraint firstItem="isx-vz-pGC" firstAttribute="centerY" secondItem="Ubp-yI-QDM" secondAttribute="centerY" id="J3S-Mn-vlM"/>
                     <constraint firstAttribute="trailing" secondItem="Pph-0l-wkh" secondAttribute="trailing" constant="8" id="JDg-yB-QOm"/>
-                    <constraint firstItem="tI5-PM-XsJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="101" id="MZk-dN-69w"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="tI5-PM-XsJ" secondAttribute="trailing" constant="37" id="TfT-aT-QTK"/>
-                    <constraint firstItem="tI5-PM-XsJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="44" id="jpt-yK-qPc"/>
+                    <constraint firstItem="4xS-dT-gFd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OPA-wE-wsJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="g44-b1-trP" secondAttribute="trailing" constant="45" id="QXc-YS-wAb"/>
+                    <constraint firstItem="ZvC-bE-fIL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="7" id="YEg-G7-wh2"/>
+                    <constraint firstItem="isx-vz-pGC" firstAttribute="leading" secondItem="Ubp-yI-QDM" secondAttribute="trailing" constant="4" id="YYW-Yd-7pe"/>
+                    <constraint firstItem="g44-b1-trP" firstAttribute="top" secondItem="ZvC-bE-fIL" secondAttribute="bottom" constant="8" id="YaB-2r-od7"/>
+                    <constraint firstItem="Ox3-mQ-9qf" firstAttribute="leading" secondItem="ZvC-bE-fIL" secondAttribute="leading" id="cKZ-Gt-nqu"/>
+                    <constraint firstItem="M6F-b4-mPP" firstAttribute="leading" secondItem="4xS-dT-gFd" secondAttribute="trailing" constant="16" id="eJN-yO-s4u"/>
+                    <constraint firstItem="ZvC-bE-fIL" firstAttribute="top" secondItem="Ox3-mQ-9qf" secondAttribute="bottom" constant="2" id="hmC-Ta-qkn"/>
+                    <constraint firstItem="M6F-b4-mPP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-14" id="ocj-3i-H6Q"/>
+                    <constraint firstItem="xfc-D9-yjk" firstAttribute="top" secondItem="M6F-b4-mPP" secondAttribute="bottom" constant="6" id="tRA-cj-oFl"/>
+                    <constraint firstItem="xfc-D9-yjk" firstAttribute="leading" secondItem="M6F-b4-mPP" secondAttribute="leading" id="xfh-we-flC"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -80,13 +97,12 @@
                 <outlet property="pChannelLbl" destination="M6F-b4-mPP" id="1iX-1m-geW"/>
                 <outlet property="pChannelTimeLbl" destination="ZvC-bE-fIL" id="qeI-rX-i8M"/>
                 <outlet property="pChannelTitleLbl" destination="Ox3-mQ-9qf" id="Sjn-1R-sAY"/>
-                <outlet property="pFullStreamImageView" destination="tI5-PM-XsJ" id="1lN-BI-Pzu"/>
                 <outlet property="pGradeImageView" destination="Ubp-yI-QDM" id="pje-Ep-9RW"/>
                 <outlet property="pHeartImgView" destination="4xS-dT-gFd" id="T8T-sL-Mfn"/>
                 <outlet property="pLineImageView01" destination="uDZ-Ez-DEr" id="RYm-Ja-hba"/>
                 <outlet property="pLineImageView02" destination="GrO-7y-gc9" id="0bT-95-mlL"/>
                 <outlet property="pLogoImageView" destination="xfc-D9-yjk" id="gTT-rh-5oB"/>
-                <outlet property="pSeeStreamImageView" destination="HWZ-9M-2NR" id="MyJ-tz-bO6"/>
+                <outlet property="progressView" destination="g44-b1-trP" id="Q0b-5C-fwu"/>
             </connections>
             <point key="canvasLocation" x="340" y="375"/>
         </tableViewCell>

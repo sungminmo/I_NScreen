@@ -76,6 +76,8 @@
         // SD
         self.pChannelInfoImageView.image = [UIImage imageNamed:@"sd.png"];
     }
+    
+    [self.progressView setProgressRatio:.99 animated:YES];
 }
 
 @end

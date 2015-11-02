@@ -41,22 +41,10 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-kA-6bq" userLabel="HD image">
                         <rect key="frame" x="146" y="33" width="29" height="16"/>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjU-zZ-01I" userLabel="progress View">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjU-zZ-01I" userLabel="progress View" customClass="CMProgressView">
                         <rect key="frame" x="112" y="54" width="185.5" height="3"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5q-Df-a0g">
-                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="3"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" id="v81-24-nL6"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" red="0.70196078429999997" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="w5q-Df-a0g" firstAttribute="leading" secondItem="CjU-zZ-01I" secondAttribute="leading" id="CZr-Gf-H2k"/>
-                            <constraint firstItem="w5q-Df-a0g" firstAttribute="top" secondItem="CjU-zZ-01I" secondAttribute="top" id="JV1-Xd-Ay2"/>
-                            <constraint firstAttribute="bottom" secondItem="w5q-Df-a0g" secondAttribute="bottom" id="Le4-LM-5Cp"/>
                             <constraint firstAttribute="height" constant="3" id="u2P-3H-dar"/>
                         </constraints>
                     </view>
@@ -84,9 +72,7 @@
             <connections>
                 <outlet property="gradeImageView" destination="4eO-9v-5jA" id="uju-jP-hS2"/>
                 <outlet property="hdImageView" destination="sv6-kA-6bq" id="yIZ-nk-kcY"/>
-                <outlet property="progressBackgroundView" destination="CjU-zZ-01I" id="cjA-gs-7lS"/>
-                <outlet property="progressView" destination="w5q-Df-a0g" id="Oix-3U-SBH"/>
-                <outlet property="progressWidth" destination="v81-24-nL6" id="XTf-xH-ate"/>
+                <outlet property="progressView" destination="CjU-zZ-01I" id="9oi-RY-aGn"/>
                 <outlet property="timeLabel" destination="Ixh-CX-8Hv" id="Wda-Vf-ehu"/>
                 <outlet property="titleLabel" destination="S1j-of-V0y" id="IQc-6B-u4r"/>
             </connections>
