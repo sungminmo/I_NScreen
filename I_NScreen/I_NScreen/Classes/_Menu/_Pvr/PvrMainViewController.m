@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
+@property (strong, nonatomic) NSMutableArray* dataArray;
+
 - (IBAction)onBtnClick:(UIButton *)btn;
 
 @end
@@ -36,11 +38,17 @@
     self.title = @"녹화관리";
     
     self.isUseNavigationBar = YES;
+    
+    self.dataArray = [@[] mutableCopy];
 
     [self setTagInit];
     [self setViewInit];
     
-    [self setInfoWithCount:10];
+#warning TESt
+    [self setTestData];
+    
+    [self setInfoWithCount:self.dataArray.count];
+    [self.pTableView reloadData];
 }
 
 #pragma mark - 초기화
@@ -60,6 +68,21 @@
 }
 
 #pragma mark - Private
+
+/**
+ *  test용 데이터 셋팅
+ */
+- (void)setTestData {
+    
+    for (int i = 0; i < 20; i++) {
+        
+        NSString* series = i%2 == 0 ? @"Y":@"N";
+        NSString* title = [NSString stringWithFormat:@"뉴스파이터 %d", i];
+        NSString* rec  = i%2 == 0 ? @"Y":@"N";
+        
+        [self.dataArray addObject:@{@"date":@"10.10 (금)", @"time":@"11:11", @"series":series, @"title":title, @"rec":rec, @"rate":@(0.5)}];
+    }
+}
 /**
  *  검색된 목록 수를 표시한다.
  *
@@ -127,7 +150,8 @@
     
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    [pCell setListData:nil WithIndex:(int)indexPath.row];
+    NSDictionary* data = self.dataArray[indexPath.row];
+    [pCell setListData:data WithIndex:(int)indexPath.row];
     
     return pCell;
 }
@@ -140,17 +164,50 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90;
+    NSDictionary* data = self.dataArray[indexPath.row];
+    NSString* rec = data[@"rec"];
+    
+    CGFloat height;
+    if ([rec isEqualToString:@"Y"]) {
+        height = 90;
+    } else {
+        height = 66;
+    }
+    
+    return height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 24;
+    return self.dataArray.count;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        DDLogError(@"delete");
+    }
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 1;
+    NSString* text;
+
+    NSDictionary* data = self.dataArray[indexPath.row];
+    
+    NSString* rec = data[@"rec"];
+    if ([rec isEqualToString:@"Y"]) {
+        
+        text = @"녹화중지";
+    } else {
+        
+        text = @"삭제";
+    }
+
+    return text;
 }
 
 #pragma mark - 전문

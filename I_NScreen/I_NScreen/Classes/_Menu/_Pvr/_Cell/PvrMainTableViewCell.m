@@ -41,8 +41,6 @@
     [self layoutSubviews];
     [self layoutIfNeeded];
     
-#warning TEST
-    //  test
     if ( index != 0 )
     {
         self.pLineImageView01.hidden = YES;
@@ -52,28 +50,35 @@
         self.pLineImageView01.hidden = NO;
     }
     
-    if (index%2 == 0) {
-        
-        self.seriesImageView.hidden = true;
-        self.dateLabel.hidden = false;
-        self.timeLabel.hidden = false;
-        
-        self.recImageView.hidden = true;
-        self.progressView.hidden = true;
-    } else {
+    NSString* series = dic[@"series"];
+    
+    if ([series isEqualToString:@"Y"]) {
         
         self.seriesImageView.hidden = false;
         self.dateLabel.hidden = true;
         self.timeLabel.hidden = true;
+    } else {
+        self.seriesImageView.hidden = true;
+        self.dateLabel.hidden = false;
+        self.timeLabel.hidden = false;
         
-        self.recImageView.hidden = false;
-        self.progressView.hidden = false;
+        self.dateLabel.text = dic[@"date"];
+        self.timeLabel.text = dic[@"time"];
     }
     
-    self.pTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
+    NSString* rec = dic[@"rec"];
+    if ([rec isEqualToString:@"Y"]) {
+        self.recImageView.hidden = false;
+        self.progressView.hidden = false;
+        
+        [self.progressView reset];
+        [self.progressView setProgressRatio:[dic[@"rate"] floatValue] animated:YES];
+    } else {
+        self.recImageView.hidden = true;
+        self.progressView.hidden = true;
+    }
     
-    [self.progressView reset];
-    [self.progressView setProgressRatio:0.5 animated:YES];
+    self.pTitleLbl.text = dic[@"title"];
 }
 
 @end
