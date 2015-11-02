@@ -7,11 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PvrSubViewController">
             <connections>
-                <outlet property="pBackBtn" destination="f0l-2G-rPF" id="sdY-Ap-GFT"/>
                 <outlet property="pTableView" destination="TJp-LD-Obd" id="tqO-Wq-dsm"/>
-                <outlet property="seriesImageView" destination="eea-8z-mjv" id="j0s-Cd-xVo"/>
-                <outlet property="titleBar" destination="ZEg-GU-WdL" id="nl8-3C-sJs"/>
-                <outlet property="titleLabel" destination="0AZ-Dh-l3H" id="VU6-s2-z2S"/>
+                <outlet property="seriesImageView" destination="PKE-PD-kuJ" id="qaD-Ik-k0h"/>
+                <outlet property="titleLabel" destination="M8V-Ir-5aX" id="Wuy-03-cNA"/>
+                <outlet property="titleView" destination="FbI-PK-lTp" id="Lhf-iD-X6c"/>
                 <outlet property="view" destination="DcW-JJ-mY4" id="60E-C8-5MX"/>
             </connections>
         </placeholder>
@@ -20,48 +19,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEg-GU-WdL" userLabel="View(해더)">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0l-2G-rPF">
-                            <rect key="frame" x="0.0" y="20" width="38" height="73"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="38" id="esO-vA-ucc"/>
-                            </constraints>
-                            <state key="normal" image="back.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="Val-lU-gBb"/>
-                            </connections>
-                        </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_serieswhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="eea-8z-mjv">
-                            <rect key="frame" x="108.5" y="44" width="46" height="26"/>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AZ-Dh-l3H">
-                            <rect key="frame" x="159.5" y="43.5" width="95.5" height="26.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="f0l-2G-rPF" firstAttribute="leading" secondItem="ZEg-GU-WdL" secondAttribute="leading" id="0eR-xB-hhd"/>
-                        <constraint firstAttribute="height" constant="93" id="FyG-PR-6Xa"/>
-                        <constraint firstItem="f0l-2G-rPF" firstAttribute="top" secondItem="ZEg-GU-WdL" secondAttribute="top" constant="20" id="Hnk-ze-eLT"/>
-                        <constraint firstAttribute="centerX" secondItem="0AZ-Dh-l3H" secondAttribute="centerX" id="VQ1-U7-BKa"/>
-                        <constraint firstItem="0AZ-Dh-l3H" firstAttribute="centerY" secondItem="f0l-2G-rPF" secondAttribute="centerY" id="WoT-lr-PlS"/>
-                        <constraint firstItem="0AZ-Dh-l3H" firstAttribute="leading" secondItem="eea-8z-mjv" secondAttribute="trailing" constant="5" id="eXj-3f-TwQ"/>
-                        <constraint firstItem="eea-8z-mjv" firstAttribute="centerY" secondItem="0AZ-Dh-l3H" secondAttribute="centerY" id="fti-hF-J5K"/>
-                        <constraint firstAttribute="bottom" secondItem="f0l-2G-rPF" secondAttribute="bottom" id="z5R-6s-tLb"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3W-HO-jbx" userLabel="View(끝)">
-                    <rect key="frame" x="0.0" y="93" width="414" height="643"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TJp-LD-Obd">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="643"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="L6J-jq-MCB"/>
@@ -80,19 +42,42 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ZEg-GU-WdL" secondAttribute="trailing" id="Cnb-eO-nbE"/>
-                <constraint firstItem="ZEg-GU-WdL" firstAttribute="leading" secondItem="DcW-JJ-mY4" secondAttribute="leading" id="Gxi-TI-WfO"/>
+                <constraint firstItem="k3W-HO-jbx" firstAttribute="top" secondItem="DcW-JJ-mY4" secondAttribute="top" id="37G-E7-ytI"/>
                 <constraint firstItem="k3W-HO-jbx" firstAttribute="leading" secondItem="DcW-JJ-mY4" secondAttribute="leading" id="OgJ-fu-Qzy"/>
-                <constraint firstItem="ZEg-GU-WdL" firstAttribute="top" secondItem="DcW-JJ-mY4" secondAttribute="top" id="aeB-LO-OnM"/>
-                <constraint firstItem="k3W-HO-jbx" firstAttribute="top" secondItem="ZEg-GU-WdL" secondAttribute="bottom" id="yY9-nk-lno"/>
                 <constraint firstAttribute="trailing" secondItem="k3W-HO-jbx" secondAttribute="trailing" id="zdS-5q-Z7X"/>
                 <constraint firstAttribute="bottom" secondItem="k3W-HO-jbx" secondAttribute="bottom" id="zuv-kC-te9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
+        <view contentMode="scaleToFill" id="FbI-PK-lTp">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8V-Ir-5aX">
+                    <rect key="frame" x="171.5" y="33" width="95.5" height="26.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_serieswhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="PKE-PD-kuJ">
+                    <rect key="frame" x="115.5" y="33" width="46" height="26"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="M8V-Ir-5aX" firstAttribute="centerX" secondItem="FbI-PK-lTp" secondAttribute="centerX" constant="12" id="34w-OM-Bnn"/>
+                <constraint firstItem="M8V-Ir-5aX" firstAttribute="centerY" secondItem="FbI-PK-lTp" secondAttribute="centerY" id="jDp-Lv-v7W"/>
+                <constraint firstItem="PKE-PD-kuJ" firstAttribute="centerY" secondItem="M8V-Ir-5aX" secondAttribute="centerY" id="o1B-QN-tJd"/>
+                <constraint firstItem="M8V-Ir-5aX" firstAttribute="leading" secondItem="PKE-PD-kuJ" secondAttribute="trailing" constant="10" id="ums-fq-8of"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="735" y="-43.5"/>
+        </view>
     </objects>
     <resources>
-        <image name="back.png" width="9" height="18"/>
         <image name="icon_serieswhite.png" width="46" height="26"/>
     </resources>
 </document>

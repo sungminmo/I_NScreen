@@ -10,13 +10,10 @@
 
 @interface PvrSubViewController ()
 
-@property (nonatomic, weak) IBOutlet UIButton *pBackBtn;
 @property (nonatomic, weak) IBOutlet UITableView *pTableView;
-@property (strong, nonatomic) IBOutlet UIView *titleBar;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *seriesImageView;
-
-- (IBAction)onBtnClick:(UIButton *)btn;
+@property (strong, nonatomic) IBOutlet UIView *titleView;   //  커스텀 타이틀뷰
+@property (strong, nonatomic) IBOutlet UILabel* titleLabel; //  제목 라벨
+@property (strong, nonatomic) IBOutlet UIImageView *seriesImageView;    //  타이틀에 시리즈 이미지
 
 @end
 
@@ -30,32 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.titleBar.backgroundColor = [CMColor colorViolet];
-    self.titleLabel.text = @"타이틀";
+    //  커스텀 네비게이션 타이틀 뷰
+    self.isUseNavigationBar = YES;
+    self.navigationItem.titleView = self.titleView;
     self.seriesImageView.hidden = false;
-    
-    [self setTagInit];
-}
-
-#pragma mark - 초기화
-#pragma mark - 화면 태그값 초기화
-- (void)setTagInit
-{
-    self.pBackBtn.tag = PVR_SUB_VIEW_BTN_01;
-}
-
-#pragma mark - 액션 이벤트
-#pragma mark - 버튼 클릭 이벤트
-- (IBAction)onBtnClick:(UIButton *)btn
-{
-    switch (btn.tag) {
-        case PVR_SUB_VIEW_BTN_01:
-        {
-            // back
-            [self.navigationController popViewControllerAnimated:NO];
-            
-        }break;
-    }
+    self.titleLabel.text = @"뉴스파이터";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,5 +85,10 @@
     }
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return @"녹화예약취소";
+}
 
 @end

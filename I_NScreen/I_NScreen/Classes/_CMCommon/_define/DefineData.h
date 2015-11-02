@@ -80,7 +80,6 @@
 #define PVR_MAIN_VIEW_BTN_03            10903   // 녹화물 목록 버튼
 
 // PvrSubViewController btn tag
-#define PVR_SUB_VIEW_BTN_01             11001   // BACK 버튼
 
 // RemoconMainViewController btn tag
 #define REMOCON_MAIN_VIEW_BTN_01        12001   // BACK 버튼
