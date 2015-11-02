@@ -12,20 +12,38 @@
 
 @interface PvrMainViewController ()
 
+@property (nonatomic, weak) IBOutlet UIButton *pBackBtn;        // back 버튼
+@property (nonatomic, weak) IBOutlet UIButton *pReservationBtn; // 녹화 예약 관리 버튼
+@property (nonatomic, weak) IBOutlet UIButton *pListBtn;        // 녹화물 목록 버튼
+@property (nonatomic, weak) IBOutlet UITableView *pTableView;
+@property (strong, nonatomic) IBOutlet UILabel *infoLabel;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+
+- (IBAction)onBtnClick:(UIButton *)btn;
+
 @end
 
 @implementation PvrMainViewController
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - Life Cycle
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.topConstraint.constant = cmNavigationHeight;
+    
+    self.title = @"녹화관리";
+    
+    self.isUseNavigationBar = YES;
+    
+    [self showFavoriteButton:YES];
+
     [self setTagInit];
     [self setViewInit];
+    
+    [self setInfoWithCount:-1];
 }
 
 #pragma mark - 초기화
@@ -45,8 +63,22 @@
     [self requestWithRecordReservelist];
 }
 
-#pragma mark - 액션 이벤트
-#pragma mark - 버튼 클릭 이벤트
+#pragma mark - Private
+/**
+ *  검색된 목록 수를 표시한다.
+ *
+ *  @param count 목록수, 0보다 작은 경우 메세지를 표출하지 않는다.
+ */
+- (void)setInfoWithCount:(NSInteger)count {
+    
+    if (count < 0) {
+        self.infoLabel.text = @"";
+    } else {
+        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 녹화예약 콘텐트가 있습니다.", (long)count];
+    }
+}
+
+#pragma mark - Event
 - (IBAction)onBtnClick:(UIButton *)btn
 {
     switch (btn.tag) {
@@ -79,6 +111,16 @@
         }break;
     }
 }
+
+/**
+ *  Override
+ *  즐겨찾기 버튼 이벤트
+ */
+- (void)favoriteButton:(id)sender {
+    
+}
+
+#pragma mark - UITableViewDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

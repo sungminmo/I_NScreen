@@ -10,6 +10,14 @@
 
 @interface PvrSubViewController ()
 
+@property (nonatomic, weak) IBOutlet UIButton *pBackBtn;
+@property (nonatomic, weak) IBOutlet UITableView *pTableView;
+@property (strong, nonatomic) IBOutlet UIView *titleBar;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *seriesImageView;
+
+- (IBAction)onBtnClick:(UIButton *)btn;
+
 @end
 
 @implementation PvrSubViewController
@@ -21,7 +29,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.titleBar.backgroundColor = [CMColor colorViolet];
+    self.titleLabel.text = @"타이틀";
+    self.seriesImageView.hidden = false;
+    
     [self setTagInit];
 }
 
@@ -40,7 +52,7 @@
         case PVR_SUB_VIEW_BTN_01:
         {
             // back
-            [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:NO];
             
         }break;
     }
@@ -49,7 +61,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *pCellIn = @"PvrSubTableViewCellIn";
+    static NSString *pCellIn = @"PvrSubTableViewCell";
     
     PvrSubTableViewCell *pCell = (PvrSubTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
     

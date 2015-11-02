@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PvrMainViewController">
             <connections>
-                <outlet property="pBackBtn" destination="aGJ-Lg-JY8" id="Ggr-0h-Bec"/>
+                <outlet property="infoLabel" destination="cmO-RI-avg" id="xYX-Le-1P5"/>
                 <outlet property="pListBtn" destination="jco-ic-Voh" id="4HR-GS-wK9"/>
                 <outlet property="pReservationBtn" destination="U0l-TV-tIp" id="Pwg-sh-aVJ"/>
                 <outlet property="pTableView" destination="v5I-PD-Fe2" id="eE0-qr-yYT"/>
+                <outlet property="topConstraint" destination="gE3-jP-n0e" id="Fu7-oN-GbN"/>
                 <outlet property="view" destination="LSy-EZ-Yf9" id="Agb-eO-kXU"/>
             </connections>
         </placeholder>
@@ -20,46 +21,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAW-MY-a9c" userLabel="View(해더)">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="녹화관리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud9-si-llB">
-                            <rect key="frame" x="0.0" y="45" width="414" height="26"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGJ-Lg-JY8">
-                            <rect key="frame" x="17" y="47" width="9" height="18"/>
-                            <state key="normal" image="back.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="lTN-Mw-UJk"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdS-La-tmV">
-                            <rect key="frame" x="378" y="46" width="24" height="22"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="kdS-La-tmV" secondAttribute="height" multiplier="12:11" id="tn8-Ey-5Hb"/>
-                            </constraints>
-                            <state key="normal" backgroundImage="bigpic.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="centerY" secondItem="kdS-La-tmV" secondAttribute="centerY" id="ALc-jJ-C7C"/>
-                        <constraint firstItem="Ud9-si-llB" firstAttribute="leading" secondItem="PAW-MY-a9c" secondAttribute="leading" id="BDu-bQ-pxr"/>
-                        <constraint firstAttribute="centerY" secondItem="Ud9-si-llB" secondAttribute="centerY" id="EEV-Jm-esG"/>
-                        <constraint firstAttribute="centerY" secondItem="aGJ-Lg-JY8" secondAttribute="centerY" id="G6a-TJ-dk4"/>
-                        <constraint firstItem="aGJ-Lg-JY8" firstAttribute="leading" secondItem="PAW-MY-a9c" secondAttribute="leading" constant="17" id="ITk-h1-eGo"/>
-                        <constraint firstAttribute="width" secondItem="PAW-MY-a9c" secondAttribute="height" multiplier="138:31" id="IxG-E8-mrU"/>
-                        <constraint firstAttribute="trailing" secondItem="kdS-La-tmV" secondAttribute="trailing" constant="12" id="jza-NJ-aJg"/>
-                        <constraint firstAttribute="trailing" secondItem="Ud9-si-llB" secondAttribute="trailing" id="usK-MC-qR4"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiq-uX-uIB" userLabel="View(중간)">
                     <rect key="frame" x="0.0" y="93" width="414" height="82"/>
                     <subviews>
@@ -150,16 +111,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="PAW-MY-a9c" firstAttribute="top" secondItem="LSy-EZ-Yf9" secondAttribute="top" id="0D5-Ny-a0r"/>
-                <constraint firstItem="hiq-uX-uIB" firstAttribute="top" secondItem="PAW-MY-a9c" secondAttribute="bottom" id="3tt-F7-fb4"/>
                 <constraint firstItem="Bqo-hb-cjW" firstAttribute="leading" secondItem="LSy-EZ-Yf9" secondAttribute="leading" id="6r6-iW-RmA"/>
                 <constraint firstAttribute="bottom" secondItem="Bqo-hb-cjW" secondAttribute="bottom" id="FVw-8c-rAK"/>
                 <constraint firstItem="hiq-uX-uIB" firstAttribute="leading" secondItem="LSy-EZ-Yf9" secondAttribute="leading" id="GZu-yb-T2d"/>
                 <constraint firstAttribute="trailing" secondItem="Bqo-hb-cjW" secondAttribute="trailing" id="Mll-SJ-kiZ"/>
                 <constraint firstAttribute="trailing" secondItem="hiq-uX-uIB" secondAttribute="trailing" id="SIn-ka-ouF"/>
                 <constraint firstItem="Bqo-hb-cjW" firstAttribute="top" secondItem="hiq-uX-uIB" secondAttribute="bottom" id="clh-Gw-ZCi"/>
-                <constraint firstAttribute="trailing" secondItem="PAW-MY-a9c" secondAttribute="trailing" id="d5u-0j-Ylu"/>
-                <constraint firstItem="PAW-MY-a9c" firstAttribute="leading" secondItem="LSy-EZ-Yf9" secondAttribute="leading" id="hg6-Ae-BNE"/>
+                <constraint firstItem="hiq-uX-uIB" firstAttribute="top" secondItem="LSy-EZ-Yf9" secondAttribute="top" constant="93" id="gE3-jP-n0e"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
@@ -167,7 +125,5 @@
     <resources>
         <image name="2btn_normal.png" width="195" height="33"/>
         <image name="2btn_select.png" width="195" height="33"/>
-        <image name="back.png" width="9" height="18"/>
-        <image name="bigpic.png" width="24" height="22"/>
     </resources>
 </document>
