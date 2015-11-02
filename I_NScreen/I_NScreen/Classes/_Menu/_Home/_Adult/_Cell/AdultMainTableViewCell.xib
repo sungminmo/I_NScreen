@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="T4A-j9-lkf" customClass="AdultMainTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T4A-j9-lkf" id="fgk-8Q-TQe">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFz-3B-QKh" userLabel="View1">
+                        <rect key="frame" x="7" y="0.0" width="400" height="138"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C3C-wu-BNr" userLabel="View1">
+                                <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Dx-pD-4WG" userLabel="Image View(썸네일)">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eeq-5A-EVW" userLabel="Image View(프로모션)">
+                                        <rect key="frame" x="62" y="0.0" width="33" height="14"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yc9-AD-rl9" userLabel="Image View(tv인지)">
+                                        <rect key="frame" x="62" y="124" width="33" height="14"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-GN-bMM" userLabel="View2">
+                                <rect key="frame" x="102" y="0.0" width="95" height="138"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jTh-vA-ihO" userLabel="Image View2">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Me-EL-eBT" userLabel="Image View(프로모션)">
+                                        <rect key="frame" x="62" y="0.0" width="33" height="14"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZj-xi-W5s" userLabel="Image View(tv인지)">
+                                        <rect key="frame" x="62" y="124" width="33" height="14"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uc3-Hx-AkL" userLabel="View3">
+                                <rect key="frame" x="203" y="0.0" width="95" height="138"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOZ-S2-dUv" userLabel="Image View3">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q2D-BC-nKR" userLabel="Image View(프로모션)">
+                                        <rect key="frame" x="62" y="0.0" width="33" height="14"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J7u-tj-chY" userLabel="Image View(tv인지)">
+                                        <rect key="frame" x="62" y="124" width="33" height="14"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hmc-fQ-VX4" userLabel="View4">
+                                <rect key="frame" x="305" y="0.0" width="95" height="138"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOH-MJ-JWE" userLabel="Image View4">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hkb-le-dBD" userLabel="Image View(프로모션)">
+                                        <rect key="frame" x="62" y="0.0" width="33" height="14"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hlb-4z-W8J" userLabel="Image View(tv인지)">
+                                        <rect key="frame" x="62" y="124" width="33" height="14"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qY5-6i-s4Z" userLabel="View2">
+                        <rect key="frame" x="7" y="138" width="400" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYk-fs-24e">
+                                <rect key="frame" x="0.0" y="0.0" width="95" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkk-fj-5t7">
+                                <rect key="frame" x="102" y="0.0" width="95" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpO-oT-7cu">
+                                <rect key="frame" x="203" y="0.0" width="95" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taJ-oR-v4v">
+                                <rect key="frame" x="305" y="0.0" width="95" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="pPromotionImageView01" destination="eeq-5A-EVW" id="54G-Mn-2Sg"/>
+                <outlet property="pPromotionImageView02" destination="4Me-EL-eBT" id="Bnj-gW-cYe"/>
+                <outlet property="pPromotionImageView03" destination="q2D-BC-nKR" id="zjk-Lk-pGK"/>
+                <outlet property="pPromotionImageView04" destination="hkb-le-dBD" id="HKJ-YH-cvj"/>
+                <outlet property="pThumImageView01" destination="7Dx-pD-4WG" id="REp-cL-bzs"/>
+                <outlet property="pThumImageView02" destination="jTh-vA-ihO" id="Xvc-3Q-03s"/>
+                <outlet property="pThumImageView03" destination="eOZ-S2-dUv" id="1xd-4O-lkl"/>
+                <outlet property="pThumImageView04" destination="FOH-MJ-JWE" id="g8H-5G-0y0"/>
+                <outlet property="pTitleLbl01" destination="pYk-fs-24e" id="wez-tR-16L"/>
+                <outlet property="pTitleLbl02" destination="gkk-fj-5t7" id="zs0-Ow-dZ0"/>
+                <outlet property="pTitleLbl03" destination="rpO-oT-7cu" id="h5K-Tw-wfx"/>
+                <outlet property="pTitleLbl04" destination="taJ-oR-v4v" id="TlW-1v-eU8"/>
+                <outlet property="pTvCheckImageView01" destination="Yc9-AD-rl9" id="KoR-0h-ZKM"/>
+                <outlet property="pTvCheckImageView02" destination="LZj-xi-W5s" id="xNm-gj-Ixy"/>
+                <outlet property="pTvCheckImageView03" destination="J7u-tj-chY" id="Ifc-XI-RO4"/>
+                <outlet property="pTvCheckImageView04" destination="hlb-4z-W8J" id="re8-xa-cKb"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

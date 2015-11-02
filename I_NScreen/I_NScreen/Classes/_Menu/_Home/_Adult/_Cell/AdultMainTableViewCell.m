@@ -1,14 +1,14 @@
 //
-//  AnikidsMainTableViewCell.m
+//  AdultMainTableViewCell.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 23..
+//  Created by JUNG KIL BAE on 2015. 11. 2..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "AnikidsMainTableViewCell.h"
+#import "AdultMainTableViewCell.h"
 
-@implementation AnikidsMainTableViewCell
+@implementation AdultMainTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

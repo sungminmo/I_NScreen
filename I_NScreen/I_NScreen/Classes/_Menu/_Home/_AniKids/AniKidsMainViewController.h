@@ -12,20 +12,22 @@
 
 @interface AniKidsMainViewController : CMBaseViewController
 
-// 인기순위 화면
-@property (nonatomic, strong) IBOutlet UIView *pPopularView;  // 인기순위 뷰
-@property (nonatomic, strong) IBOutlet UIButton *pPopularBtn;  // 인기 순위 버튼
-@property (nonatomic, strong) IBOutlet UIButton *pRealTimePopularBtn;   // 실시간 인기 순위 버튼
-@property (nonatomic, strong) IBOutlet UIButton *pWeekPopularBtn;       // 주간 인기 순위 버튼
-@property (nonatomic, strong) IBOutlet UITableView *pPopularTableView;  // 인기 순위 테이블 뷰
+@property (nonatomic, strong) IBOutlet UIView *pView01; // 버튼 뷰
+@property (nonatomic, strong) IBOutlet UIButton *pDepthBtn; // 댑스 버튼
 
-@property (nonatomic, strong) IBOutlet UIImageView *pPopularLine01;
-@property (nonatomic, strong) IBOutlet UIImageView *pPopularLine02;
+@property (nonatomic, strong) IBOutlet UIView *pView21; // 인기 순위 탭 있는 뷰
+@property (nonatomic, strong) IBOutlet UIButton *pRealTimeBtn;   // 실시간 인기 순위 버튼
+@property (nonatomic, strong) IBOutlet UIButton *pWeekBtn;      // 주간 인기 순위 버튼
+@property (nonatomic, strong) IBOutlet UITableView *pTableView21;
+@property (nonatomic, strong) IBOutlet UIView *pLeftLineView;
+@property (nonatomic, strong) IBOutlet UIView *pRightLineView;
 
-// 그외 화면
-@property (nonatomic, strong) IBOutlet UIView *pElseView;   // 그외 뷰
-@property (nonatomic, strong) IBOutlet UIButton *pElseBtn;  // 그외 버튼
-@property (nonatomic, strong) IBOutlet UITableView *pElseTableView; // 그외 테이블 뷰
+
+@property (nonatomic, strong) IBOutlet UIView *pView22; // 리스트 뷰만 있는 뷰
+@property (nonatomic, strong) IBOutlet UITableView *pTableView22;
+@property (nonatomic) BOOL isItemCheck;     // 댑스 체크 no 이면 실시간 인기 순위, yes 이면 주간 인기 순위
+@property (nonatomic, strong) NSString *pViewerTypeStr;
+
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 

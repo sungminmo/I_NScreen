@@ -1,14 +1,14 @@
 //
-//  AnikidsMainTableViewCell.h
+//  TVReplayTableViewCell.h
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 23..
+//  Created by JUNG KIL BAE on 2015. 11. 2..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface AnikidsMainTableViewCell : UITableViewCell
+@interface TVReplayTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UIImageView *pThumImageView01;
 @property (nonatomic, strong) IBOutlet UIImageView *pThumImageView02;

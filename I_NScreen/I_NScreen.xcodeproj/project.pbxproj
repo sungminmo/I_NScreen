@@ -145,6 +145,10 @@
 		E58C6AF71BE261660024405D /* CMContentGroupCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AF51BE261660024405D /* CMContentGroupCollectionViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E58C6AFB1BE261BB0024405D /* CMContentGroupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		E58C6AFC1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E599052E1BE77AE400B5948E /* TVReplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E599052C1BE77AE400B5948E /* TVReplayTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E599052F1BE77AE400B5948E /* TVReplayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E599052D1BE77AE400B5948E /* TVReplayTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		E59905341BE787F800B5948E /* AdultMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E59905321BE787F800B5948E /* AdultMainTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E59905351BE787F800B5948E /* AdultMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59905331BE787F800B5948E /* AdultMainTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30C1BDE1B4B005AC701 /* IDScrollableTabBar.m */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30F1BDE1B4B005AC701 /* IDScrollableTabBarItem.m */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3331BDE1CC2005AC701 /* defaultArch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3131BDE1CC2005AC701 /* defaultArch.png */; settings = {ASSET_TAGS = (); }; };
@@ -1030,6 +1034,12 @@
 		E58C6AF81BE261BB0024405D /* CMContentGroupCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMContentGroupCollectionViewCell.h; sourceTree = "<group>"; };
 		E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMContentGroupCollectionViewCell.m; sourceTree = "<group>"; };
 		E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMContentGroupCollectionViewCell.xib; sourceTree = "<group>"; };
+		E599052B1BE77AE400B5948E /* TVReplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TVReplayTableViewCell.h; path = _Home/_TVReplay/_Cell/TVReplayTableViewCell.h; sourceTree = "<group>"; };
+		E599052C1BE77AE400B5948E /* TVReplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TVReplayTableViewCell.m; path = _Home/_TVReplay/_Cell/TVReplayTableViewCell.m; sourceTree = "<group>"; };
+		E599052D1BE77AE400B5948E /* TVReplayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TVReplayTableViewCell.xib; path = _Home/_TVReplay/_Cell/TVReplayTableViewCell.xib; sourceTree = "<group>"; };
+		E59905311BE787F800B5948E /* AdultMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainTableViewCell.h; path = _Home/_Adult/_Cell/AdultMainTableViewCell.h; sourceTree = "<group>"; };
+		E59905321BE787F800B5948E /* AdultMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdultMainTableViewCell.m; path = _Home/_Adult/_Cell/AdultMainTableViewCell.m; sourceTree = "<group>"; };
+		E59905331BE787F800B5948E /* AdultMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdultMainTableViewCell.xib; path = _Home/_Adult/_Cell/AdultMainTableViewCell.xib; sourceTree = "<group>"; };
 		E5A6E2F41BDDBC73005AC701 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -2311,6 +2321,26 @@
 			name = _VodDetail;
 			sourceTree = "<group>";
 		};
+		E599052A1BE77A7C00B5948E /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E599052B1BE77AE400B5948E /* TVReplayTableViewCell.h */,
+				E599052C1BE77AE400B5948E /* TVReplayTableViewCell.m */,
+				E599052D1BE77AE400B5948E /* TVReplayTableViewCell.xib */,
+			);
+			name = _Cell;
+			sourceTree = "<group>";
+		};
+		E59905301BE787DE00B5948E /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E59905311BE787F800B5948E /* AdultMainTableViewCell.h */,
+				E59905321BE787F800B5948E /* AdultMainTableViewCell.m */,
+				E59905331BE787F800B5948E /* AdultMainTableViewCell.xib */,
+			);
+			name = _Cell;
+			sourceTree = "<group>";
+		};
 		E5A6E2F01BDDBBAE005AC701 /* _drmLb */ = {
 			isa = PBXGroup;
 			children = (
@@ -3213,6 +3243,7 @@
 		E5B5554C1BD9DFB400AA02B2 /* _TVReplay */ = {
 			isa = PBXGroup;
 			children = (
+				E599052A1BE77A7C00B5948E /* _Cell */,
 				E5B5554D1BD9E00400AA02B2 /* TVReplayViewController.h */,
 				E5B5554E1BD9E00400AA02B2 /* TVReplayViewController.m */,
 				E5B5554F1BD9E00400AA02B2 /* TVReplayViewController.xib */,
@@ -3319,6 +3350,7 @@
 		E5DE64A01BCB4C8100FC3122 /* _Adult */ = {
 			isa = PBXGroup;
 			children = (
+				E59905301BE787DE00B5948E /* _Cell */,
 				E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */,
 				E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */,
 				E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */,
@@ -3513,6 +3545,7 @@
 			files = (
 				E5B554D91BD9DD3F00AA02B2 /* icon_serieswhite@3x.png in Resources */,
 				E5B553FD1BD9DD3F00AA02B2 /* selectdot@2x.png in Resources */,
+				E599052F1BE77AE400B5948E /* TVReplayTableViewCell.xib in Resources */,
 				E5B554431BD9DD3F00AA02B2 /* p3btn_cancel_normal@2x.png in Resources */,
 				E5B5535A1BD9DD3F00AA02B2 /* icon_promotion_02.png in Resources */,
 				E5B553471BD9DD3F00AA02B2 /* 2btn_outline.png in Resources */,
@@ -4061,6 +4094,7 @@
 				E5B5537F1BD9DD3F00AA02B2 /* genre_normal.png in Resources */,
 				20EAA3441BAE9474004DFCA0 /* CMSearchMainViewController.xib in Resources */,
 				E5B554411BD9DD3F00AA02B2 /* p1btn_ok_normal@2x.png in Resources */,
+				E59905351BE787F800B5948E /* AdultMainTableViewCell.xib in Resources */,
 				E5B555491BD9DD3F00AA02B2 /* vod3btn_p_press@3x.png in Resources */,
 				E5B554E21BD9DD3F00AA02B2 /* icon_left_press@3x.png in Resources */,
 				E5B554AF1BD9DD3F00AA02B2 /* genreshopping_select@3x.png in Resources */,
@@ -4251,6 +4285,7 @@
 				E5E0DF7A1BDB91EE0049E3F6 /* PairingAuthViewController.m in Sources */,
 				E52EE57B1BD508AF00797251 /* PvrSubTableViewCell.m in Sources */,
 				2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */,
+				E59905341BE787F800B5948E /* AdultMainTableViewCell.m in Sources */,
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
 				208729AF1BBB90E5009601A4 /* CMTextField.m in Sources */,
 				E54CC0B11BCCA0C6003806C0 /* SBJsonParser.m in Sources */,
@@ -4310,6 +4345,7 @@
 				E5B555501BD9E00400AA02B2 /* TVReplayViewController.m in Sources */,
 				203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */,
 				99C43C5B1BA3EDA10035A0A4 /* UISegmentedControl+Accessibility.m in Sources */,
+				E599052E1BE77AE400B5948E /* TVReplayTableViewCell.m in Sources */,
 				99ECD58B1BD5188B00EABA67 /* CMSearchHistory.m in Sources */,
 				99C43C6D1BA3EDA10035A0A4 /* LeftMenuViewController.m in Sources */,
 				E54CC0A11BCC9F9A003806C0 /* TreeListModel.m in Sources */,

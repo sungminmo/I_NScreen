@@ -1,14 +1,14 @@
 //
-//  AnikidsMainTableViewCell.m
+//  TVReplayTableViewCell.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 23..
+//  Created by JUNG KIL BAE on 2015. 11. 2..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "AnikidsMainTableViewCell.h"
+#import "TVReplayTableViewCell.h"
 
-@implementation AnikidsMainTableViewCell
+@implementation TVReplayTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -49,8 +49,6 @@
             }
         }
     }
-    
-    
 }
 
 @end

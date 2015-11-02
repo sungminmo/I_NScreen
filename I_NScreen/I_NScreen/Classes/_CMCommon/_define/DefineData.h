@@ -91,10 +91,9 @@
 #define REMOCON_MAIN_VIEW_BTN_05        12005   // 볼륨 업
 
 // AniKidsMainViewController btn tag
-#define ANI_KIDS_MAIN_VIEW_BTN_01       13001   // 인기 순위 버튼
+#define ANI_KIDS_MAIN_VIEW_BTN_01       13001   // 댑스 버튼
 #define ANI_KIDS_MAIN_VIEW_BTN_02       13002   // 실시간 인기순위 버튼
 #define ANI_KIDS_MAIN_VIEW_BTN_03       13003   // 주간 인기순위 버튼
-#define ANI_KIDS_MAIN_VIEW_BTN_04       13004   // 그외 순위 버튼
 
 // MovieMainViewController btn tag
 #define MOVIE_MAIN_VIEW_BTN_01          14001   // 댑스 버튼
@@ -135,6 +134,15 @@
 #define VOD_DETAIL_MAIN_VIEW_BTN_07     20007   // 찜 하기 버튼
 #define VOD_DETAIL_MAIN_VIEW_BTN_08     20008   // 시청 하기 버튼
 
+// TVReplayViewController btn tag
+#define TV_REPLAY_VIEW_BTN_01       21001   // 댑스 버튼
+#define TV_REPLAY_VIEW_BTN_02       21002   // 실시간 인기순위 버튼
+#define TV_REPLAY_VIEW_BTN_03       21003   // 주간 인기순위 버튼
+
+// AdultMainViewController btn tag
+#define ADULT_MAIN_VIEW_BTN_01       22001   // 댑스 버튼
+#define ADULT_MAIN_VIEW_BTN_02       22002   // 실시간 인기순위 버튼
+#define ADULT_MAIN_VIEW_BTN_03       22003   // 주간 인기순위 버튼
 
 //
 
