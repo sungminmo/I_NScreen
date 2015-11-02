@@ -47,4 +47,7 @@
     return [UIColor colorWithHexString:@"553977"];
 }
 
++(UIColor*)colorProgressBackground {
+    return [UIColor colorWithHexString:@"B4B6B8"];
+}
 @end

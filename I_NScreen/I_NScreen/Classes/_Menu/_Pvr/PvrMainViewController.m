@@ -12,7 +12,6 @@
 
 @interface PvrMainViewController ()
 
-@property (nonatomic, weak) IBOutlet UIButton *pBackBtn;        // back 버튼
 @property (nonatomic, weak) IBOutlet UIButton *pReservationBtn; // 녹화 예약 관리 버튼
 @property (nonatomic, weak) IBOutlet UIButton *pListBtn;        // 녹화물 목록 버튼
 @property (nonatomic, weak) IBOutlet UITableView *pTableView;
@@ -37,20 +36,17 @@
     self.title = @"녹화관리";
     
     self.isUseNavigationBar = YES;
-    
-    [self showFavoriteButton:YES];
 
     [self setTagInit];
     [self setViewInit];
     
-    [self setInfoWithCount:-1];
+    [self setInfoWithCount:10];
 }
 
 #pragma mark - 초기화
 #pragma mark - 화면 태그값 초기화
 - (void)setTagInit
 {
-    self.pBackBtn.tag = PVR_MAIN_VIEW_BTN_01;
     self.pReservationBtn.tag = PVR_MAIN_VIEW_BTN_02;
     self.pListBtn.tag = PVR_MAIN_VIEW_BTN_03;
 }
@@ -82,12 +78,6 @@
 - (IBAction)onBtnClick:(UIButton *)btn
 {
     switch (btn.tag) {
-        case PVR_MAIN_VIEW_BTN_01:
-        {
-            // back
-            [self.navigationController popViewControllerAnimated:YES];
-            
-        }break;
         case PVR_MAIN_VIEW_BTN_02:
         {
             // 녹화 예약 관리
@@ -150,8 +140,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
     return 90;
 }
 

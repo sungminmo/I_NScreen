@@ -75,7 +75,6 @@
 #define MOVICE_POPUP_VIEW_BTN_01        10801   // 닫기 버튼
 
 // PvrMainViewController btn tag
-#define PVR_MAIN_VIEW_BTN_01            10901   // BACK 버튼
 #define PVR_MAIN_VIEW_BTN_02            10902   // 녹화예약 관리 버튼
 #define PVR_MAIN_VIEW_BTN_03            10903   // 녹화물 목록 버튼
 

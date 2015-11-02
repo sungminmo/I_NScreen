@@ -18,4 +18,5 @@
 +(UIColor*)colorTableSeparator;
 +(UIColor*)colorPlaceHolderColor;
 +(UIColor*)colorHighlightedFontColor;
++(UIColor*)colorProgressBackground;
 @end

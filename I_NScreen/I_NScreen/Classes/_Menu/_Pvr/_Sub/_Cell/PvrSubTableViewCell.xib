@@ -25,7 +25,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs1-q1-Sbg" userLabel="Label(시간)">
                         <rect key="frame" x="36" y="34" width="32" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oF3-HT-NO3" userLabel="ImageView(방송사)">
@@ -39,7 +39,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터 1회" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="PfU-PA-EBa" userLabel="Label(체널명)">
                         <rect key="frame" x="184" y="23" width="220" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HY0-C2-XBe" userLabel="Image View(밑라인)">
@@ -59,7 +59,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08.28 (금)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvw-Dk-Zuo" userLabel="Label(날짜)">
                         <rect key="frame" x="22" y="16" width="59.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -73,7 +73,7 @@
                     <constraint firstAttribute="trailing" secondItem="WCh-8u-Wcg" secondAttribute="trailing" id="cho-5E-r8m"/>
                     <constraint firstItem="xs1-q1-Sbg" firstAttribute="centerX" secondItem="rvw-Dk-Zuo" secondAttribute="centerX" id="dbf-gu-8l1"/>
                     <constraint firstItem="xs1-q1-Sbg" firstAttribute="top" secondItem="rvw-Dk-Zuo" secondAttribute="bottom" constant="2" id="fUP-Zv-dK9"/>
-                    <constraint firstItem="rvw-Dk-Zuo" firstAttribute="centerY" secondItem="tVw-tf-Hk6" secondAttribute="centerY" constant="-8.75" id="gOE-UM-bSM"/>
+                    <constraint firstItem="rvw-Dk-Zuo" firstAttribute="centerY" secondItem="tVw-tf-Hk6" secondAttribute="centerY" constant="-9" id="gOE-UM-bSM"/>
                     <constraint firstItem="IYM-l4-TNp" firstAttribute="centerY" secondItem="tVw-tf-Hk6" secondAttribute="centerY" id="hZn-u9-Dgc"/>
                     <constraint firstItem="IYM-l4-TNp" firstAttribute="leading" secondItem="tVw-tf-Hk6" secondAttribute="leading" constant="29" id="iUh-ya-czl"/>
                     <constraint firstItem="PfU-PA-EBa" firstAttribute="leading" secondItem="oF3-HT-NO3" secondAttribute="trailing" constant="22" id="l9n-pV-ep5"/>

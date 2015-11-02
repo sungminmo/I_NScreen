@@ -11,6 +11,7 @@
 		203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 203ED8571BCBCAC3003C0521 /* CMTextFieldView.m */; };
 		2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2053ED5C1BBCA06E00264FBF /* CMSearchTableViewCell.m */; };
 		2053ED5F1BBCA06E00264FBF /* CMSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2053ED5D1BBCA06E00264FBF /* CMSearchTableViewCell.xib */; };
+		207FA9EB1BE76B6D009F7D8C /* CMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 207FA9EA1BE76B6D009F7D8C /* CMProgressView.m */; };
 		2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2086CD9E1BBA24B50065726E /* CMPreferenceMainTableViewCell.m */; };
 		2086CDA11BBA24B50065726E /* CMPreferenceMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2086CD9F1BBA24B50065726E /* CMPreferenceMainTableViewCell.xib */; };
 		2086CDA51BBA62E20065726E /* CMPurchaseCertPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2086CDA31BBA62E20065726E /* CMPurchaseCertPasswordViewController.m */; };
@@ -802,6 +803,8 @@
 		2053ED5B1BBCA06E00264FBF /* CMSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMSearchTableViewCell.h; path = _Cell/CMSearchTableViewCell.h; sourceTree = "<group>"; };
 		2053ED5C1BBCA06E00264FBF /* CMSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMSearchTableViewCell.m; path = _Cell/CMSearchTableViewCell.m; sourceTree = "<group>"; };
 		2053ED5D1BBCA06E00264FBF /* CMSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMSearchTableViewCell.xib; path = _Cell/CMSearchTableViewCell.xib; sourceTree = "<group>"; };
+		207FA9E91BE76B6D009F7D8C /* CMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMProgressView.h; sourceTree = "<group>"; };
+		207FA9EA1BE76B6D009F7D8C /* CMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMProgressView.m; sourceTree = "<group>"; };
 		2086CD9D1BBA24B50065726E /* CMPreferenceMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPreferenceMainTableViewCell.h; path = _Cell/CMPreferenceMainTableViewCell.h; sourceTree = "<group>"; };
 		2086CD9E1BBA24B50065726E /* CMPreferenceMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPreferenceMainTableViewCell.m; path = _Cell/CMPreferenceMainTableViewCell.m; sourceTree = "<group>"; };
 		2086CD9F1BBA24B50065726E /* CMPreferenceMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMPreferenceMainTableViewCell.xib; path = _Cell/CMPreferenceMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -1815,6 +1818,8 @@
 				E58C6AF81BE261BB0024405D /* CMContentGroupCollectionViewCell.h */,
 				E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */,
 				E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */,
+				207FA9E91BE76B6D009F7D8C /* CMProgressView.h */,
+				207FA9EA1BE76B6D009F7D8C /* CMProgressView.m */,
 			);
 			path = _view;
 			sourceTree = "<group>";
@@ -4185,6 +4190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				207FA9EB1BE76B6D009F7D8C /* CMProgressView.m in Sources */,
 				E5B550C31BD9D9B500AA02B2 /* AnikidsMainTableViewCell.m in Sources */,
 				20A8EFB01BAEB6AA00FA0CFA /* CMSearchCollectionViewCell.m in Sources */,
 				E511818C1BA7ACF900C1E31D /* EpgPopUpViewController.m in Sources */,
