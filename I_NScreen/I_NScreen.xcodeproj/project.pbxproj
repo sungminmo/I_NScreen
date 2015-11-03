@@ -3527,7 +3527,7 @@
 				TargetAttributes = {
 					E5F6C6B31B7AD93B00618970 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 3J9XTSS9W5;
+						DevelopmentTeam = CR4R5HGD9P;
 					};
 					E5F6C6CC1B7AD93B00618970 = {
 						CreatedOnToolsVersion = 6.4;
@@ -4538,7 +4538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_OBJC_ATSYNC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: C&M (CR4R5HGD9P)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "I_NScreen/Resources/I_NScreen-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
