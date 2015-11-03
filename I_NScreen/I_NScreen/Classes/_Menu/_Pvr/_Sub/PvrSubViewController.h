@@ -15,9 +15,5 @@
 
 @interface PvrSubViewController : CMBaseViewController
 
-@property (nonatomic, weak) IBOutlet UIButton *pBackBtn;        // back 버튼
-@property (nonatomic, weak) IBOutlet UITableView *pTableView;
-
-- (IBAction)onBtnClick:(UIButton *)btn;
 
 @end

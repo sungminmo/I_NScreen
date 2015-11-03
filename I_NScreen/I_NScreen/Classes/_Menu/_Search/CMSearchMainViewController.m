@@ -35,26 +35,26 @@ static const CGFloat pageSize = 28;
 
 @interface CMSearchMainViewController ()
 
-@property (nonatomic, strong) IBOutlet CMTextField* searchField;
-@property (nonatomic, strong) IBOutlet UILabel* infoLabel;
-@property (nonatomic, strong) IBOutlet UITableView* autoCompletList;
+@property (nonatomic, strong) IBOutlet CMTextField* searchField;    //  검색어 텍스트 필드
+@property (nonatomic, strong) IBOutlet UILabel* infoLabel;          //  검색갤과 정보 표출 라벨
+@property (nonatomic, strong) IBOutlet UITableView* autoCompletList;//  검색어 테이블
 
-@property (nonatomic, strong) CMTabMenuView* tabMenu;
-@property (nonatomic, strong) IBOutlet UIView* tabMenuContainer;
+@property (nonatomic, strong) CMTabMenuView* tabMenu;               //  vod, 프로그램 탭메뉴
+@property (nonatomic, strong) IBOutlet UIView* tabMenuContainer;    //  vod, 프로그램 탭메뉴
 
-@property (nonatomic, strong) IBOutlet UICollectionView* vodList;
-@property (nonatomic, strong) IBOutlet UITableView* programList;
+@property (nonatomic, strong) IBOutlet UICollectionView* vodList;   //  vod 목록 테이블
+@property (nonatomic, strong) IBOutlet UITableView* programList;    //  프로그램 목록 테이블
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *topConstraint;
 
-@property (nonatomic, strong) NSMutableArray* searchWordArray;   //  검색어 목록
-@property (nonatomic, strong) NSMutableArray* dataArray;    //  vod/프로그램 목록
+@property (nonatomic, strong) NSMutableArray* searchWordArray;  //  검색어 목록
+@property (nonatomic, strong) NSMutableArray* dataArray;        //  vod/프로그램 목록
 
-@property (nonatomic, assign) NSInteger pageIndex;
-@property (nonatomic, assign) NSInteger totalPage;
+@property (nonatomic, assign) NSInteger pageIndex;  //  검색 목록 페이지 인덱스
+@property (nonatomic, assign) NSInteger totalPage;  //  검색 목록 전체 페이지 수
 
-@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, assign) BOOL isLoading;   //  request 진행 여부
 
-@property (nonatomic, strong) NSTimer* searchWordTimer;
+@property (nonatomic, strong) NSTimer* searchWordTimer; //  검색어 요청 타이머
 
 @end
 
@@ -112,6 +112,11 @@ static const CGFloat pageSize = 28;
     self.programList.hidden = true;
 }
 
+/**
+ *  검색어필드 하단에 검색 정보를 표출한다.
+ *
+ *  @param count 검색결과 카운트
+ */
 - (void)setListCount:(NSInteger)count {
     
     if (0 > count) {
@@ -119,10 +124,13 @@ static const CGFloat pageSize = 28;
         self.infoLabel.text = @"성인 콘텐츠를 검색하시려면\n 설정>성인검색 제한 설정을 해제 해주세요.";
     } else {
         
-        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , count];
+        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , (long)count];
     }
 }
 
+/**
+ *  검색된 정보 및 UI를 삭제한다.
+ */
 - (void)resetData {
     
     self.pageIndex = 0;
@@ -134,6 +142,11 @@ static const CGFloat pageSize = 28;
     [self.programList reloadData];
 }
 
+/**
+ *  검색어 테이블을 표출 여부를 설정한다.
+ *
+ *  @param isShow 검색어 테이블 표출 여부
+ */
 - (void)showAutoCompletList:(BOOL)isShow {
     
     if (isShow) {
@@ -157,6 +170,9 @@ static const CGFloat pageSize = 28;
 
 #pragma mark - Request
 
+/**
+ *  검색어 목록을 요청한다.
+ */
 - (void)requestSearchWord {
     
     self.searchWordTimer = nil;
@@ -193,6 +209,9 @@ static const CGFloat pageSize = 28;
     }];
 }
 
+/**
+ *  VOD 목륵을 요청한다.
+ */
 - (void)requestVodList {
     
     self.isLoading = YES;
@@ -237,6 +256,10 @@ static const CGFloat pageSize = 28;
     }];
 }
 
+
+/**
+ *  프로그램 목록을 요청한다.
+ */
 - (void)requestProgramList {
     
     self.isLoading = YES;
@@ -283,6 +306,9 @@ static const CGFloat pageSize = 28;
     }];
 }
 
+/**
+ *  선택된 탭메뉴에 해당되는 VOD/프로그램 목록을 요청한다.
+ */
 - (void)requestList {
     
     TABMENU_TYPE type = [self.tabMenu getTabMenuIndex];
@@ -310,7 +336,13 @@ static const CGFloat pageSize = 28;
     [self.searchField becomeFirstResponder];
 }
 
+/**
+ *  검색어 입력시, 키패드 타이핑시마다 검색어 목록 요청이 들어가는 막고자 딜레이 및 캔슬 추가.
+ */
 - (void)textMessageChanged:(CMTextField*)textField {
+    
+    //  test
+    return;
     
     [self showAutoCompletList:NO];
     
@@ -321,7 +353,7 @@ static const CGFloat pageSize = 28;
     self.searchWordTimer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(requestSearchWord) userInfo:nil repeats:false];
 }
 
-#pragma mark - CMTabMenuViewDelegate
+#pragma mark - CMTabMenuViewDelegate (탭메뉴)
 
 - (void)tabMenu:(CMTabMenuView *)sender didSelectedTab:(NSInteger)tabIndex {
     
@@ -345,7 +377,7 @@ static const CGFloat pageSize = 28;
     }
 }
 
-#pragma mark - UICollectionViewDataSource
+#pragma mark - UICollectionViewDataSource (VOD)
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
@@ -367,7 +399,7 @@ static const CGFloat pageSize = 28;
     
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDataSource (프로그램, 검색어)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -393,6 +425,8 @@ static const CGFloat pageSize = 28;
         NSDictionary* item = self.dataArray[indexPath.row];
         
         [cell setData:item];
+        
+        //  스와이프시, 메뉴 셋팅
         [cell configureCellForItem:@{}];
         
         return cell;
@@ -401,7 +435,7 @@ static const CGFloat pageSize = 28;
     return nil;
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark - UITableViewDelegate (프로그램, 검색어)
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -431,7 +465,7 @@ static const CGFloat pageSize = 28;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - UITextFieldDelegate
+#pragma mark - UITextFieldDelegate (검색어)
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
 
@@ -452,7 +486,7 @@ static const CGFloat pageSize = 28;
     return YES;
 }
 
-#pragma mark - UIScrollViewDelegate
+#pragma mark - UIScrollViewDelegate (VOD, 프로그램)
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
@@ -471,6 +505,9 @@ static const CGFloat pageSize = 28;
     
 }
 
+/**
+ *  검색된 목록의 마지막까지 스크롤 될 경우, 다음 페이지 목록 요청
+ */
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     switch ([self.tabMenu getTabMenuIndex]) {

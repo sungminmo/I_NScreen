@@ -101,6 +101,9 @@
     NSString *sNEndTime = [NSString stringWithFormat:@"%@:%@", [endTimeArr2 objectAtIndex:0], [endTimeArr2 objectAtIndex:1]];
     
     self.pChannelTimeLbl.text = [NSString stringWithFormat:@"%@~%@", sNStartTime, sNEndTime];
+
+    [self.progressView setProgressRatio:.99 animated:YES];
+
 }
 
 @end

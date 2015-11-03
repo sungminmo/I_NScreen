@@ -10,6 +10,16 @@
 
 @interface RemoconMainViewController ()
 
+@property (nonatomic, weak) IBOutlet UIButton *pBackBtn;        // back 버튼
+@property (nonatomic, weak) IBOutlet UIButton *pPowerBtn;       // 전원 버튼
+@property (nonatomic, weak) IBOutlet UIButton *pChannelBtn;     // 채널 버튼
+@property (nonatomic, weak) IBOutlet UIButton *pVolumeDownBtn;  // 볼륨 다운 버튼
+@property (nonatomic, weak) IBOutlet UIButton *pVoluumeUpBtn;   // 볼륨 업 버튼
+@property (nonatomic, weak) IBOutlet UITableView *pTableView;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (strong, nonatomic) IBOutlet UILabel *channelLabel;
+
 @end
 
 @implementation RemoconMainViewController
@@ -22,10 +32,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.isUseNavigationBar = YES;
+    self.topConstraint.constant = cmNavigationHeight;
+    self.title = @"리모컨";
     
     [self setTagInit];
     [self setViewInit];
+    
+#warning TEST
+    //  test
+    [self setChannelNumber:@"15번"];
 }
 
 #pragma mark - 초기화
@@ -64,6 +81,20 @@
         self.pVolumeDownBtn.frame = CGRectMake(14, 20, 154, 64);
         self.pVoluumeUpBtn.frame = CGRectMake(205, 20, 154, 64);
     }
+}
+
+#pragma mark - Private 
+
+- (void)setChannelNumber:(NSString*)channel {
+    NSString* fixedText = @"현재시청채널 :";
+    NSString* desc = [NSString stringWithFormat:@"%@ %@", fixedText, channel];
+    self.channelLabel.text = desc;
+    
+    NSMutableAttributedString* attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:self.channelLabel.attributedText];
+    NSRange range = NSMakeRange(fixedText.length, channel.length + 1);
+    [attributedText addAttributes:@{NSForegroundColorAttributeName : [CMColor colorViolet]} range:range];
+    
+    self.channelLabel.attributedText = attributedText;
 }
 
 #pragma mark - 액션 이벤트

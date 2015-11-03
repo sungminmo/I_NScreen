@@ -19,6 +19,10 @@
     return [UIColor colorWithHexString:@"947bb5"];
 }
 
++(UIColor*)colorLightViolet2 {
+    return [UIColor colorWithHexString:@"C5B4DE"];
+}
+
 +(UIColor*)colorViolet {
     return [UIColor colorWithHexString:@"7b5aa3"];
 }
@@ -39,4 +43,11 @@
     return [UIColor colorWithHexString:@"666666"];
 }
 
++(UIColor*)colorHighlightedFontColor {
+    return [UIColor colorWithHexString:@"553977"];
+}
+
++(UIColor*)colorProgressBackground {
+    return [UIColor colorWithHexString:@"B4B6B8"];
+}
 @end

@@ -12,8 +12,11 @@
 +(UIColor*)colorWhite;
 +(UIColor*)colorLightViolet;
 +(UIColor*)colorViolet;
++(UIColor*)colorLightViolet2;
 +(UIColor*)colorGray;
 +(UIColor*)colorHighlightedGray;
 +(UIColor*)colorTableSeparator;
 +(UIColor*)colorPlaceHolderColor;
++(UIColor*)colorHighlightedFontColor;
++(UIColor*)colorProgressBackground;
 @end

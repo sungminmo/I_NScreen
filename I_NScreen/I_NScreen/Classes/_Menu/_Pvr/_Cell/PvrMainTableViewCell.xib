@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,72 +12,107 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jWZ-sw-ndZ" id="tFv-iv-hLA">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIP-Ih-Bag" userLabel="Image View(윗라인)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bIP-Ih-Bag" userLabel="Image View(윗라인)">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCk-Gw-nA0" userLabel="Label(체널번호)">
-                        <rect key="frame" x="0.0" y="25" width="102" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-g1-sHX" userLabel="Label(체널명)">
-                        <rect key="frame" x="184" y="42" width="119" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ksp-Uf-8k0" userLabel="ImageView(방송총시간)">
-                        <rect key="frame" x="184" y="65" width="185" height="3"/>
-                        <color key="backgroundColor" red="0.70588235290000001" green="0.71372549019999998" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Ksp-Uf-8k0" secondAttribute="height" multiplier="185:3" id="ceb-ZV-P7H"/>
+                            <constraint firstAttribute="height" constant="1" id="OCe-Ek-LFI"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rba-GE-LSI" userLabel="ImageView(방송본시간)">
-                        <rect key="frame" x="184" y="65" width="100" height="3"/>
-                        <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_series.png" translatesAutoresizingMaskIntoConstraints="NO" id="OHp-yh-Op7">
+                        <rect key="frame" x="37" y="32" width="46" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="2Ab-Sk-nLq"/>
+                            <constraint firstAttribute="height" constant="26" id="dRS-wV-aUB"/>
+                        </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_rec.png" translatesAutoresizingMaskIntoConstraints="NO" id="rC1-1N-xhy" userLabel="ImageView(all)">
-                        <rect key="frame" x="184" y="22" width="52" height="16"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Caw-Nq-bQb" userLabel="Label(체널번호)">
-                        <rect key="frame" x="0.0" y="43" width="102" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08.28 (금)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCk-Gw-nA0" userLabel="Label(날짜)">
+                        <rect key="frame" x="22" y="28" width="59.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SU1-gk-ddx" userLabel="ImageView(방송사)">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Caw-Nq-bQb" userLabel="Label(시간)">
+                        <rect key="frame" x="35" y="46" width="32" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SU1-gk-ddx" userLabel="ImageView(방송사)">
                         <rect key="frame" x="108" y="34" width="54" height="22"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.38431372549999998" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="2FK-UQ-Ftc"/>
+                            <constraint firstAttribute="width" constant="54" id="4Tc-2S-OK4"/>
+                        </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aHz-VB-vKf" userLabel="Image View(밑라인)">
-                        <rect key="frame" x="0.0" y="89" width="414" height="1"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-g1-sHX" userLabel="Label(체널명)">
+                        <rect key="frame" x="184" y="36" width="69.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_rec.png" translatesAutoresizingMaskIntoConstraints="NO" id="rC1-1N-xhy" userLabel="ImageView(녹화중)">
+                        <rect key="frame" x="184" y="14" width="52" height="16"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pc-R9-PKO" customClass="CMProgressView">
+                        <rect key="frame" x="184" y="63" width="186" height="3"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="3" id="jor-JP-BkR"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHz-VB-vKf" userLabel="Image View(밑라인)">
+                        <rect key="frame" x="0.0" y="88.5" width="414" height="1"/>
                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="jgN-8N-lQC"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ksp-Uf-8k0" firstAttribute="leading" secondItem="tFv-iv-hLA" secondAttribute="leading" constant="184" id="5lx-vO-Mjt"/>
-                    <constraint firstItem="Ksp-Uf-8k0" firstAttribute="top" secondItem="tFv-iv-hLA" secondAttribute="top" constant="65" id="eAi-QD-UvK"/>
-                    <constraint firstAttribute="trailing" secondItem="Ksp-Uf-8k0" secondAttribute="trailing" constant="45" id="qde-YR-V44"/>
+                    <constraint firstItem="bIP-Ih-Bag" firstAttribute="top" secondItem="tFv-iv-hLA" secondAttribute="top" id="1qr-ue-iRa"/>
+                    <constraint firstItem="0pc-R9-PKO" firstAttribute="top" secondItem="KpU-g1-sHX" secondAttribute="bottom" constant="8" id="9ph-8T-Z6R"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0pc-R9-PKO" secondAttribute="trailing" constant="36" id="DY1-Oa-Tmu"/>
+                    <constraint firstItem="bIP-Ih-Bag" firstAttribute="leading" secondItem="tFv-iv-hLA" secondAttribute="leading" id="FPL-mh-xtQ"/>
+                    <constraint firstItem="rC1-1N-xhy" firstAttribute="leading" secondItem="KpU-g1-sHX" secondAttribute="leading" id="Hfz-bd-pv7"/>
+                    <constraint firstItem="OHp-yh-Op7" firstAttribute="centerY" secondItem="tFv-iv-hLA" secondAttribute="centerY" id="P8G-4U-qSg"/>
+                    <constraint firstItem="0pc-R9-PKO" firstAttribute="leading" secondItem="KpU-g1-sHX" secondAttribute="leading" id="Qh5-GI-5TR"/>
+                    <constraint firstAttribute="trailing" secondItem="aHz-VB-vKf" secondAttribute="trailing" id="Qx2-Ns-hcE"/>
+                    <constraint firstItem="KpU-g1-sHX" firstAttribute="top" secondItem="rC1-1N-xhy" secondAttribute="bottom" constant="6" id="Ttr-6r-wf4"/>
+                    <constraint firstItem="Caw-Nq-bQb" firstAttribute="top" secondItem="uCk-Gw-nA0" secondAttribute="bottom" constant="2" id="VuZ-ws-tpX"/>
+                    <constraint firstAttribute="bottom" secondItem="aHz-VB-vKf" secondAttribute="bottom" id="bRc-kB-IAJ"/>
+                    <constraint firstItem="aHz-VB-vKf" firstAttribute="leading" secondItem="tFv-iv-hLA" secondAttribute="leading" id="dAH-qi-6bz"/>
+                    <constraint firstItem="SU1-gk-ddx" firstAttribute="centerY" secondItem="tFv-iv-hLA" secondAttribute="centerY" id="dPM-52-leX"/>
+                    <constraint firstItem="uCk-Gw-nA0" firstAttribute="centerY" secondItem="tFv-iv-hLA" secondAttribute="centerY" constant="-9" id="dSe-hD-WkR"/>
+                    <constraint firstItem="OHp-yh-Op7" firstAttribute="leading" secondItem="tFv-iv-hLA" secondAttribute="leadingMargin" constant="29" id="evn-8t-f3c"/>
+                    <constraint firstItem="uCk-Gw-nA0" firstAttribute="leading" secondItem="tFv-iv-hLA" secondAttribute="leading" constant="22" id="fVK-Q0-8xd"/>
+                    <constraint firstAttribute="trailing" secondItem="bIP-Ih-Bag" secondAttribute="trailing" id="iWE-48-Rm6"/>
+                    <constraint firstItem="KpU-g1-sHX" firstAttribute="leading" secondItem="SU1-gk-ddx" secondAttribute="trailing" constant="22" id="jrD-nD-jOc"/>
+                    <constraint firstItem="SU1-gk-ddx" firstAttribute="leading" secondItem="tFv-iv-hLA" secondAttribute="leadingMargin" constant="100" id="l0I-0M-5T3"/>
+                    <constraint firstItem="Caw-Nq-bQb" firstAttribute="centerX" secondItem="uCk-Gw-nA0" secondAttribute="centerX" id="nvm-A9-YNr"/>
+                    <constraint firstItem="KpU-g1-sHX" firstAttribute="centerY" secondItem="SU1-gk-ddx" secondAttribute="centerY" id="xJ2-rn-K23"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="pChannelLogImageView" destination="SU1-gk-ddx" id="NTe-Tc-iK8"/>
-                <outlet property="pDayLbl" destination="uCk-Gw-nA0" id="GTz-ca-vEf"/>
+                <outlet property="dateLabel" destination="uCk-Gw-nA0" id="rTJ-Ha-v8d"/>
+                <outlet property="logoImageView" destination="SU1-gk-ddx" id="W4d-Wx-G2E"/>
                 <outlet property="pLineImageView01" destination="bIP-Ih-Bag" id="fF2-mI-mhG"/>
                 <outlet property="pLineImageView02" destination="aHz-VB-vKf" id="2ia-Cc-5Dn"/>
-                <outlet property="pTimeLbl" destination="Caw-Nq-bQb" id="Guo-PE-jdh"/>
-                <outlet property="pTitleLbl" destination="KpU-g1-sHX" id="UVy-Nk-JQQ"/>
+                <outlet property="pTitleLbl" destination="KpU-g1-sHX" id="cYL-Y1-1iS"/>
+                <outlet property="progressView" destination="0pc-R9-PKO" id="Usx-1v-jIW"/>
+                <outlet property="recImageView" destination="rC1-1N-xhy" id="s1W-MH-Jd8"/>
+                <outlet property="seriesImageView" destination="OHp-yh-Op7" id="QeL-HD-6NT"/>
+                <outlet property="timeLabel" destination="Caw-Nq-bQb" id="lhZ-XA-zTo"/>
             </connections>
             <point key="canvasLocation" x="340" y="375"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="icon_rec.png" width="52" height="16"/>
+        <image name="icon_series.png" width="46" height="26"/>
     </resources>
 </document>

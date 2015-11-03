@@ -22,6 +22,11 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -68,6 +73,7 @@
             // 팝업 뷰
             EpgPopUpViewController *pViewController = [[EpgPopUpViewController alloc] initWithNibName:@"EpgPopUpViewController" bundle:nil];
 //            [self.navigationController pushViewController:pViewController animated:NO];
+            pViewController.view.frame = self.view.bounds;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.view addSubview:pViewController.view];

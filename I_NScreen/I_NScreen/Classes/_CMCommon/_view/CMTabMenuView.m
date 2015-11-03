@@ -71,7 +71,7 @@ static const CGFloat padding = 21;
 - (void)setTabButtonAttribute:(UIButton*)button {
     
     UIColor* normalColor = [UIColor colorWithHexString:@"D3C6E1"];
-    UIColor* selectedColor = [UIColor colorWithHexString:@"7B5AA3"];
+    UIColor* selectedColor = [CMColor colorLightViolet];
     
     UIImage* defaultImage = [UIImage clearImageSize:button.frame.size];
     defaultImage = [UIImage setOuterLine:defaultImage direction:HMOuterLineDirectionBottom lineWeight:1 lineColor:normalColor];

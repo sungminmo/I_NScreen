@@ -613,13 +613,16 @@
 #pragma mark - getureRecognizers
 -(void)panGesture:(UIPanGestureRecognizer *)gestureRecognizer {
     if (_frameAnimation) {
+        NSLog(@"velocity _frameAnimation");
         return;
     }
     if (_currentRecognizer != gestureRecognizer && _currentRecognizer) {
+        NSLog(@"velocity _frameAnimation2");
         return;
     }
     CGPoint location = [gestureRecognizer locationInView:gestureRecognizer.view];
     CGPoint velocity = [gestureRecognizer velocityInView:gestureRecognizer.view];
+    NSLog(@"velocity : %@", NSStringFromCGPoint(velocity));
     if(gestureRecognizer.state == UIGestureRecognizerStateBegan){
         _currentRecognizer = gestureRecognizer;
         _touchBeganPoint = location;
@@ -628,6 +631,7 @@
     }
     
     if(gestureRecognizer.state == UIGestureRecognizerStateEnded){
+        NSLog(@"velocity end");
         _currentRecognizer = nil;
         if (ABS(velocity.x) > 100) {
             //speed
@@ -640,6 +644,7 @@
         }
     }
     
+    NSLog(@"velocity last");
     int diff = location.x - _touchBeganPoint.x;
     _touchBeganPoint = location;
     [self scrollViews:diff];
