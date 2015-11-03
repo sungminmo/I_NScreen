@@ -368,6 +368,7 @@
         pCell = [arr objectAtIndex:0];
     }
     
+    pCell.delegate = self;
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     if ( tableView == self.pTableView21 )
@@ -431,5 +432,12 @@
     return 1;
 }
 
+
+- (void)MovieMainTableViewCellBtnClicked:(int)nTag WithSelect:(int)nSelect WithAssetId:(NSString *)assetId
+{
+    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+    pViewController.pAssetIdStr = assetId;
+    [self.navigationController pushViewController:pViewController animated:YES];
+}
 
 @end

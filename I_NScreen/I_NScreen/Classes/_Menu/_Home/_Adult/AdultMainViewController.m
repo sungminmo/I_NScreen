@@ -367,7 +367,7 @@
         NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"AdultMainTableViewCell" owner:nil options:nil];
         pCell = [arr objectAtIndex:0];
     }
-    
+    pCell.delegate = self;
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     if ( tableView == self.pTableView21 )
@@ -431,5 +431,12 @@
     return 1;
 }
 
+- (void)AdultMainTableViewCellBtnClicked:(int)nTag WithSelect:(int)nSelect WithAssetId:(NSString *)assetId
+{
+    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+    pViewController.pAssetIdStr = assetId;
+    [self.navigationController pushViewController:pViewController animated:YES];
+
+}
 
 @end

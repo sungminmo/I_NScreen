@@ -23,6 +23,42 @@
 
 - (void)setListData:(NSArray *)arr WithIndex:(int)index WithViewerType:(NSString *)viewerType
 {
+    self.pAssetIdArr = [[NSMutableArray alloc] init];
+    
+    self.nIndex = index;
+    
+    int nIndexs = 0;
+    for ( NSDictionary *dic in arr )
+    {
+        switch (nIndexs) {
+            case 0:
+            {
+                self.pView01.hidden = NO;
+                
+            }break;
+            case 1:
+            {
+                self.pView02.hidden = NO;
+                
+            }break;
+            case 2:
+            {
+                self.pView03.hidden = NO;
+                
+            }break;
+            case 3:
+            {
+                self.pView04.hidden = NO;
+                
+            }break;
+        }
+        
+        NSString *sAsset = [NSString stringWithFormat:@"%@", [[arr objectAtIndex:nIndexs] objectForKey:@"assetId"]];
+        [self.pAssetIdArr addObject:sAsset];
+        
+        nIndexs++;
+    }
+    
     int nCount = (int)[arr count];
     
     if ( [viewerType isEqualToString:@"200"] )
@@ -54,6 +90,10 @@
     
 }
 
-
+- (IBAction)onBtnClicked:(UIButton *)btn
+{
+    [self.delegate MovieMainTableViewCellBtnClicked:(int)[btn tag] WithSelect:self.nIndex WithAssetId:[self.pAssetIdArr objectAtIndex:[btn tag]]];
+    
+}
 
 @end

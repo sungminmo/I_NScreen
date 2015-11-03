@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
 #import "AdultMainTableViewCell.h"
+#import "VodDetailMainViewController.h"
 
-@interface AdultMainViewController : CMBaseViewController
+@interface AdultMainViewController : CMBaseViewController<AdultMainTableViewCellDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pView01; // 버튼 뷰
 @property (nonatomic, strong) IBOutlet UIButton *pDepthBtn; // 댑스 버튼

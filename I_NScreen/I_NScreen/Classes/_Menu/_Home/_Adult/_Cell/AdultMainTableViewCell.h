@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AdultMainTableViewCellDelegate;
+
 @interface AdultMainTableViewCell : UITableViewCell
+
+@property (nonatomic) int nIndex;
+@property (nonatomic, strong) NSMutableArray *pAssetIdArr;
 
 @property (nonatomic, strong) IBOutlet UIImageView *pThumImageView01;
 @property (nonatomic, strong) IBOutlet UIImageView *pThumImageView02;
@@ -30,6 +35,29 @@
 @property (nonatomic, strong) IBOutlet UILabel *pTitleLbl03;
 @property (nonatomic, strong) IBOutlet UILabel *pTitleLbl04;
 
+@property (nonatomic, strong) IBOutlet UIButton *pBtn01;
+@property (nonatomic, strong) IBOutlet UIButton *pBtn02;
+@property (nonatomic, strong) IBOutlet UIButton *pBtn03;
+@property (nonatomic, strong) IBOutlet UIButton *pBtn04;
+
+@property (nonatomic, strong) IBOutlet UIView *pView01;
+@property (nonatomic, strong) IBOutlet UIView *pView02;
+@property (nonatomic, strong) IBOutlet UIView *pView03;
+@property (nonatomic, strong) IBOutlet UIView *pView04;
+
+@property (nonatomic, weak)id <AdultMainTableViewCellDelegate>delegate;
+
+- (IBAction)onBtnClicked:(UIButton *)btn;
+
 - (void)setListData:(NSArray *)arr WithIndex:(int)index WithViewerType:(NSString *)viewerType;
+
+
+@end
+
+@protocol AdultMainTableViewCellDelegate <NSObject>
+- (void)AdultMainTableViewCellBtnClicked:(int)nTag WithSelect:(int)nSelect WithAssetId:(NSString *)assetId;
+
+@optional
+
 
 @end

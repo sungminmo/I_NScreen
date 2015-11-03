@@ -17,7 +17,7 @@
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PYj-Kg-fvd" userLabel="View1">
                         <rect key="frame" x="7" y="0.0" width="400" height="138"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JmB-fI-yOz" userLabel="View1">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JmB-fI-yOz" userLabel="View1">
                                 <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eW5-Hl-J6l" userLabel="Image View(썸네일)">
@@ -29,10 +29,16 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43z-8t-Zib" userLabel="Image View(tv인지)">
                                         <rect key="frame" x="62" y="124" width="33" height="14"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1h-tD-UBY">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                                        <connections>
+                                            <action selector="onBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nbB-hj-Epm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iAL-Ac-l5S" userLabel="View2">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iAL-Ac-l5S" userLabel="View2">
                                 <rect key="frame" x="102" y="0.0" width="95" height="138"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eXS-Og-O7Q" userLabel="Image View2">
@@ -44,10 +50,16 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-Ne-5GT" userLabel="Image View(tv인지)">
                                         <rect key="frame" x="62" y="124" width="33" height="14"/>
                                     </imageView>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDU-Cg-PJ1">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                                        <connections>
+                                            <action selector="onBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vjb-ky-aP5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qu5-Pv-gwR" userLabel="View3">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qu5-Pv-gwR" userLabel="View3">
                                 <rect key="frame" x="203" y="0.0" width="95" height="138"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22v-UW-Lay" userLabel="Image View3">
@@ -59,10 +71,16 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdR-NN-gtn" userLabel="Image View(tv인지)">
                                         <rect key="frame" x="62" y="124" width="33" height="14"/>
                                     </imageView>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrn-67-OzP">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                                        <connections>
+                                            <action selector="onBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bjD-hA-R7q"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yoT-Rf-vWz" userLabel="View4">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yoT-Rf-vWz" userLabel="View4">
                                 <rect key="frame" x="305" y="0.0" width="95" height="138"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CCx-m6-YtB" userLabel="Image View4">
@@ -74,6 +92,12 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8BH-jU-cpc" userLabel="Image View(tv인지)">
                                         <rect key="frame" x="62" y="124" width="33" height="14"/>
                                     </imageView>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwm-2b-igb">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                                        <connections>
+                                            <action selector="onBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wSc-cH-20P"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -113,6 +137,10 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="pBtn01" destination="B1h-tD-UBY" id="Td9-ts-zoX"/>
+                <outlet property="pBtn02" destination="bDU-Cg-PJ1" id="kjj-HF-eqo"/>
+                <outlet property="pBtn03" destination="hrn-67-OzP" id="FuW-ZI-rWF"/>
+                <outlet property="pBtn04" destination="Uwm-2b-igb" id="m8x-da-X1I"/>
                 <outlet property="pPromotionImageView01" destination="Ye3-YF-rzf" id="EvT-oU-hKF"/>
                 <outlet property="pPromotionImageView02" destination="hs1-eJ-9rG" id="Q3L-uJ-ckq"/>
                 <outlet property="pPromotionImageView03" destination="leO-Mq-r4X" id="n56-5e-tcg"/>
@@ -129,6 +157,10 @@
                 <outlet property="pTvCheckImageView02" destination="IDN-Ne-5GT" id="1z7-us-cWW"/>
                 <outlet property="pTvCheckImageView03" destination="cdR-NN-gtn" id="RaG-Jk-RgN"/>
                 <outlet property="pTvCheckImageView04" destination="8BH-jU-cpc" id="Itl-cV-z5b"/>
+                <outlet property="pView01" destination="JmB-fI-yOz" id="hmw-IU-0fJ"/>
+                <outlet property="pView02" destination="iAL-Ac-l5S" id="Kyq-ZV-teH"/>
+                <outlet property="pView03" destination="Qu5-Pv-gwR" id="MBX-kS-1fd"/>
+                <outlet property="pView04" destination="yoT-Rf-vWz" id="MBn-05-sOQ"/>
             </connections>
         </tableViewCell>
     </objects>
