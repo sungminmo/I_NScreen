@@ -71,6 +71,8 @@
 #define MY_CM_MAIN_VIEW_BTN_02          10502   // VOD 찜목록
 #define MY_CM_MAIN_VIEW_BTN_03          10503   // VOD 시청목록
 #define MY_CM_MAIN_VIEW_BTN_04          10504   // VOD 구매목록
+#define MY_CM_MAIN_VIEW_BTN_05          10505   // 모바일 구맴목록
+#define MY_CM_MAIN_VIEW_BTN_06          10506   // TV 구매목록
 
 // RecommendMainViewController btn tag
 #define RECOMMEND_MAIN_VIEW_BTN_01      10601   // 인기 순위 더보기

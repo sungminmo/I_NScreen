@@ -344,6 +344,14 @@ NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist = @"getrecordlist";
 //NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist = @"dev.getrecordReservelist";
 NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist = @"getrecordReservelist";
 
+
+// 9. MyC&M
+// getValidPurchaseLogList
+NSString* const CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList = @"getValidPurchaseLogList";
+
+// getWishList
+NSString* const CNM_OPEN_API_INTERFACE_GetWishList = @"getWishList";
+
 @implementation STVConstants
 
 @end

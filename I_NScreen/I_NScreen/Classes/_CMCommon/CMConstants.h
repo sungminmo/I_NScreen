@@ -376,7 +376,7 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNInfo;
 extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceNoticeInfo;
 
 
-// Epg
+// 7. Epg
 // getChannelList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelList;
 
@@ -392,7 +392,7 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule;
 // searchSchedule
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchSchedule;
 
-// Pairing
+// 8. Pairing
 
 // addUser
 extern NSString* const CNM_OPEN_API_INTERFACE_AddUser;
@@ -400,12 +400,19 @@ extern NSString* const CNM_OPEN_API_INTERFACE_AddUser;
 // authenticateDevice
 extern NSString* const CNM_OPEN_API_INTERFACE_AuthenticateDevice;
 
-// pvr
+// 9. pvr
 // dev.getrecordlist
 extern NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist;
 
 // dev.getrecordReservelist
 extern NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist;
+
+// 10. MyC&M
+// getValidPurchaseLogList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList;
+
+// getWishList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetWishList;
 
 @interface STVConstants : NSObject
 

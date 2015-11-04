@@ -18,6 +18,20 @@
 @property (nonatomic, weak) IBOutlet UIButton *pTapBtn02;       // vod 시청목록
 @property (nonatomic, weak) IBOutlet UIButton *pTapBtn03;       // vod 구매목록
 
-@property (nonatomic, weak) IBOutlet UITableView *pTableView;
+@property (nonatomic, strong) IBOutlet UIView *pSubView01;      // vod 구매목록 뷰
+@property (nonatomic, strong) IBOutlet UIView *pSubView02;      // vod 시청목록, vod 찜목록 뷰
+
+@property (nonatomic, weak) IBOutlet UIButton *pSubTabBtn01;    // 모바일 구매목록
+@property (nonatomic, weak) IBOutlet UIButton *pSubTabBtn02;    // TV 구매목록
+
+@property (nonatomic, strong) IBOutlet UIView *pLeftLineView;
+@property (nonatomic, strong) IBOutlet UIView *pRightLineView;
+
+@property (nonatomic, weak) IBOutlet UILabel *pTotalExplanLbl01; // 총 목록
+@property (nonatomic, weak) IBOutlet UILabel *pTotalExplanLbl02;
+
+@property (nonatomic, strong) IBOutlet UITableView *pSubTableView01;
+@property (nonatomic, strong) IBOutlet UITableView *pSubTableView02;
+
 
 @end

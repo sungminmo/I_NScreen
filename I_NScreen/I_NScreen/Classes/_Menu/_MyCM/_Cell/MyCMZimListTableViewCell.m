@@ -31,7 +31,7 @@
         self.pLineImageView01.hidden = NO;
     }
     
-    self.pTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
+    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"productName"]];
 }
 
 @end

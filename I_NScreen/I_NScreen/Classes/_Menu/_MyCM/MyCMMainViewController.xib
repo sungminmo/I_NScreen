@@ -8,10 +8,19 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyCMMainViewController">
             <connections>
                 <outlet property="pBackBtn" destination="aiA-Cg-FbR" id="5hY-OF-yNe"/>
-                <outlet property="pTableView" destination="rtd-lF-sf5" id="Fnd-vR-CEi"/>
+                <outlet property="pLeftLineView" destination="a4g-OQ-mVZ" id="zoU-ji-pPU"/>
+                <outlet property="pRightLineView" destination="RV1-2Y-Rl8" id="erf-N1-J8h"/>
+                <outlet property="pSubTabBtn01" destination="2d2-V5-xoH" id="bYt-Lf-TKR"/>
+                <outlet property="pSubTabBtn02" destination="06b-wU-Oqq" id="1cr-2o-enB"/>
+                <outlet property="pSubTableView01" destination="rtd-lF-sf5" id="dTM-FD-Hzg"/>
+                <outlet property="pSubTableView02" destination="ecn-vd-4Wx" id="sfb-5L-o7T"/>
+                <outlet property="pSubView01" destination="hHd-Ul-Cvl" id="Gmc-cc-qUA"/>
+                <outlet property="pSubView02" destination="WG2-qM-34F" id="xYn-8A-ZoZ"/>
                 <outlet property="pTapBtn01" destination="4e1-y6-PO8" id="cF7-ob-FrI"/>
                 <outlet property="pTapBtn02" destination="keF-d6-WBD" id="zRl-Pr-jJq"/>
                 <outlet property="pTapBtn03" destination="mkE-7R-1ta" id="Qyy-Rf-CQ7"/>
+                <outlet property="pTotalExplanLbl01" destination="o1H-AK-inu" id="IHj-gH-L3M"/>
+                <outlet property="pTotalExplanLbl02" destination="0Uf-be-Ang" id="ZCh-NX-IQY"/>
                 <outlet property="view" destination="Qlm-XO-8LL" id="sJl-Vl-N0Z"/>
             </connections>
         </placeholder>
@@ -20,7 +29,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ynV-oj-cwV" userLabel="View(해더)">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ynV-oj-cwV" userLabel="View(해더)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiA-Cg-FbR">
@@ -32,25 +41,16 @@
                                 <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="Cih-7f-DD0"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마이 C&amp;M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-8Z-ZwD">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="마이 C&amp;M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dd-8Z-ZwD">
                             <rect key="frame" x="0.0" y="45" width="414" height="26"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="26" id="Bds-pW-HJK"/>
-                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="93" id="qOY-rO-Ti8"/>
-                        <constraint firstItem="3Dd-8Z-ZwD" firstAttribute="leading" secondItem="ynV-oj-cwV" secondAttribute="leading" id="s5X-Wi-0NE"/>
-                        <constraint firstAttribute="trailing" secondItem="3Dd-8Z-ZwD" secondAttribute="trailing" id="tYD-As-Etj"/>
-                        <constraint firstItem="3Dd-8Z-ZwD" firstAttribute="top" secondItem="ynV-oj-cwV" secondAttribute="top" constant="45" id="ws2-6d-XGg"/>
-                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iy8-ns-BtF" userLabel="View(중간)">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iy8-ns-BtF" userLabel="View(중간)">
                     <rect key="frame" x="0.0" y="93" width="414" height="45"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3btn_outline.png" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-Cd-y9J">
@@ -58,7 +58,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-y6-PO8">
                             <rect key="frame" x="7" y="11" width="131" height="33"/>
-                            <state key="normal" title="VOD찜목록" backgroundImage="3btn_select.png">
+                            <state key="normal" title="VOD구매목록" backgroundImage="3btn_select.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="highlighted" title="VOD찜목록" backgroundImage="3btn_press.png"/>
@@ -79,7 +79,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkE-7R-1ta">
                             <rect key="frame" x="271" y="11" width="131" height="33"/>
-                            <state key="normal" title="VOD구매목록" backgroundImage="3btn_normal.png">
+                            <state key="normal" title="VOD찜목록" backgroundImage="3btn_normal.png">
                                 <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -92,21 +92,63 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="Lec-mU-plE"/>
-                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHd-Ul-Cvl" userLabel="View(구매)">
                     <rect key="frame" x="0.0" y="138" width="414" height="598"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 19개의 찜 VOD가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1H-AK-inu">
-                            <rect key="frame" x="0.0" y="8" width="414" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMb-Y6-8fY">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d2-V5-xoH" userLabel="Button(왼쪽)">
+                                    <rect key="frame" x="18" y="8" width="180" height="27"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="모바일 구매목록" backgroundImage="3depth2btn_press.png">
+                                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="3depth2btn_press.png"/>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="WYG-iD-BWx"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06b-wU-Oqq" userLabel="Button(오른쪽)">
+                                    <rect key="frame" x="216" y="8" width="180" height="27"/>
+                                    <state key="normal" title="TV 구매목록" backgroundImage="3depth2btn_press.png">
+                                        <color key="titleColor" red="0.54117647059999996" green="0.54901960780000003" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="highlighted" backgroundImage="3depth2btn_press.png"/>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="CLH-as-mhp"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4g-OQ-mVZ" userLabel="View(왼쪽라인)">
+                                    <rect key="frame" x="7" y="39" width="200" height="2"/>
+                                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RV1-2Y-Rl8" userLabel="View(오른쪽라인)">
+                                    <rect key="frame" x="207" y="40" width="200" height="1"/>
+                                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k6r-t2-wpi" userLabel="View(중간라인)">
+                                    <rect key="frame" x="207" y="18" width="1" height="8"/>
+                                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1WE-IU-mPp">
+                            <rect key="frame" x="0.0" y="53" width="414" height="27"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 0개의 TV VOD 구매목록이 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1H-AK-inu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="27"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rtd-lF-sf5">
-                            <rect key="frame" x="0.0" y="37" width="414" height="561"/>
+                            <rect key="frame" x="0.0" y="80" width="414" height="518"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="I3m-Rt-YVF"/>
@@ -116,36 +158,34 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D7t-Ky-aBT" userLabel="View(찜)">
-                    <rect key="frame" x="0.0" y="138" width="598" height="600"/>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WG2-qM-34F" userLabel="View(시청목록찜목록)">
+                    <rect key="frame" x="0.0" y="138" width="414" height="598"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ux3-sp-3tB">
-                            <rect key="frame" x="0.0" y="251" width="414" height="347"/>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PDf-J1-Mus">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="27"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 0개의 찜 VOD가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Uf-be-Ang">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="27"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ecn-vd-4Wx">
+                            <rect key="frame" x="0.0" y="27" width="414" height="571"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <outlet property="dataSource" destination="-1" id="vl9-rD-CvO"/>
-                                <outlet property="delegate" destination="-1" id="5EB-ZI-Jl6"/>
+                                <outlet property="dataSource" destination="-1" id="9Y6-hs-rUs"/>
+                                <outlet property="delegate" destination="-1" id="PnX-IL-U6W"/>
                             </connections>
                         </tableView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="총 19개의 찜 VOD가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMd-sI-pve">
-                            <rect key="frame" x="0.0" y="217" width="414" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="ynV-oj-cwV" firstAttribute="top" secondItem="Qlm-XO-8LL" secondAttribute="top" id="DF1-5r-azB"/>
-                <constraint firstAttribute="trailing" secondItem="ynV-oj-cwV" secondAttribute="trailing" id="Jqe-KX-0xl"/>
-                <constraint firstAttribute="trailing" secondItem="Iy8-ns-BtF" secondAttribute="trailing" id="Rpj-Ma-X2v"/>
-                <constraint firstItem="Iy8-ns-BtF" firstAttribute="leading" secondItem="Qlm-XO-8LL" secondAttribute="leading" id="hu8-e8-7bX"/>
-                <constraint firstItem="ynV-oj-cwV" firstAttribute="leading" secondItem="Qlm-XO-8LL" secondAttribute="leading" id="ivz-xj-fTt"/>
-                <constraint firstItem="Iy8-ns-BtF" firstAttribute="top" secondItem="ynV-oj-cwV" secondAttribute="bottom" id="sFH-0J-Yf6"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
@@ -154,6 +194,7 @@
         <image name="3btn_outline.png" width="394" height="34"/>
         <image name="3btn_press.png" width="131" height="33"/>
         <image name="3btn_select.png" width="131" height="33"/>
+        <image name="3depth2btn_press.png" width="180" height="27"/>
         <image name="back.png" width="9" height="18"/>
     </resources>
 </document>

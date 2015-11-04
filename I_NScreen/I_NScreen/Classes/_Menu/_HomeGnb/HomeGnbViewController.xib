@@ -33,7 +33,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nn4-zv-WoW">
                                     <rect key="frame" x="0.0" y="0.0" width="41" height="63"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9w-a6-6Cc" userLabel="Button(더보기)">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9w-a6-6Cc" userLabel="Button(더보기)">
                                             <rect key="frame" x="16" y="38" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="x9w-a6-6Cc" secondAttribute="height" multiplier="1:1" id="xZD-K2-7Mv"/>
