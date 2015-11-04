@@ -762,6 +762,7 @@
 		E5BE92051BD65F5A00970E16 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92031BD65F5A00970E16 /* BannerTableViewCell.xib */; };
 		E5BE92091BD65F7100970E16 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE92071BD65F7100970E16 /* CategoryTableViewCell.m */; };
 		E5BE920A1BD65F7100970E16 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92081BD65F7100970E16 /* CategoryTableViewCell.xib */; };
+		E5BFB4C21BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB4C11BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m */; settings = {ASSET_TAGS = (); }; };
 		E5C5844E1BE31EC100276EC6 /* libWViPhoneAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C5844C1BE31EC100276EC6 /* libWViPhoneAPI.a */; };
 		E5C584521BE33A0E00276EC6 /* NSMutableDictionary+DRM.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */; };
 		E5C584571BE34F4400276EC6 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584551BE34F4400276EC6 /* PlayerViewController.m */; };
@@ -1675,6 +1676,8 @@
 		E5BE92061BD65F7100970E16 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryTableViewCell.h; path = _Home/_Recommend/_Cell/CategoryTableViewCell.h; sourceTree = "<group>"; };
 		E5BE92071BD65F7100970E16 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryTableViewCell.m; path = _Home/_Recommend/_Cell/CategoryTableViewCell.m; sourceTree = "<group>"; };
 		E5BE92081BD65F7100970E16 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryTableViewCell.xib; path = _Home/_Recommend/_Cell/CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		E5BFB4C01BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+REMOCON.h"; sourceTree = "<group>"; };
+		E5BFB4C11BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+REMOCON.m"; sourceTree = "<group>"; };
 		E5C5844C1BE31EC100276EC6 /* libWViPhoneAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWViPhoneAPI.a; path = _drmLb/libWViPhoneAPI.a; sourceTree = "<group>"; };
 		E5C5844D1BE31EC100276EC6 /* WViPhoneAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WViPhoneAPI.h; path = _drmLb/WViPhoneAPI.h; sourceTree = "<group>"; };
 		E5C584501BE33A0E00276EC6 /* NSMutableDictionary+DRM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+DRM.h"; sourceTree = "<group>"; };
@@ -2132,6 +2135,8 @@
 				E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */,
 				E5C584501BE33A0E00276EC6 /* NSMutableDictionary+DRM.h */,
 				E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */,
+				E5BFB4C01BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.h */,
+				E5BFB4C11BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m */,
 			);
 			path = _dictionaryModel;
 			sourceTree = "<group>";
@@ -4377,6 +4382,7 @@
 				E52EE5851BD50AD100797251 /* RemoconMainViewController.m in Sources */,
 				E5DE64C71BCB4E5500FC3122 /* RecommendMainViewController.m in Sources */,
 				99EA17E71BC0D1F8005A958C /* CMVersionViewController.m in Sources */,
+				E5BFB4C21BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m in Sources */,
 				99366ACE1BBA66D00082F8D4 /* CMPaytvTableViewCell.m in Sources */,
 				E5BE92041BD65F5A00970E16 /* BannerTableViewCell.m in Sources */,
 				994BDB3E1BA3F6E8000B6260 /* CMPreferenceMainViewController.m in Sources */,

@@ -7,6 +7,8 @@
 //
 
 #import "RemoconMainViewController.h"
+#import "NSMutableDictionary+REMOCON.h"
+#import "UIAlertView+AFNetworking.h"
 
 @interface RemoconMainViewController ()
 
@@ -111,8 +113,8 @@
         case REMOCON_MAIN_VIEW_BTN_02:
         {
             // 전원 버튼
-            
-            [SIAlertView alert:@"채널변경" message:@"데이터 방송 시청 중에는\n채널이 변경되지 않습니다."];
+//            [SIAlertView alert:@"채널변경" message:@"데이터 방송 시청 중에는\n채널이 변경되지 않습니다."];
+            [self requestWithSetRemoteWithPower:@"ON"];
         }break;
         case REMOCON_MAIN_VIEW_BTN_03:
         {
@@ -122,12 +124,12 @@
         case REMOCON_MAIN_VIEW_BTN_04:
         {
             // 볼륨 다운 버튼
-            
+            [self requestWithSetRemoteWithVolume:@"DOWN"];
         }break;
         case REMOCON_MAIN_VIEW_BTN_05:
         {
             // 볼륨 업 버튼
-            
+            [self requestWithSetRemoteWithVolume:@"UP"];
         }break;
     }
 }
@@ -180,6 +182,29 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         DDLogError(@"delete");
     }
+}
+
+#pragma mark - 전문
+#pragma mark - 볼룸 조절 전문 리스트 UP, DOWN
+- (void)requestWithSetRemoteWithVolume:(NSString *)volume
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary remoconSetRemoteVolumeControlVolume:volume completion:^(NSArray *pvr, NSError *error) {
+        
+        DDLogError(@"볼륨 조절 = [%@]", pvr);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 셋탑 전원 전문 리스트 ON, OFF
+- (void)requestWithSetRemoteWithPower:(NSString *)power
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary remoconSetRemotoePowerControlPower:power completion:^(NSArray *pvr, NSError *error) {
+        
+        DDLogError(@"셋탑 전원 전문 = [%@]", pvr);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end
