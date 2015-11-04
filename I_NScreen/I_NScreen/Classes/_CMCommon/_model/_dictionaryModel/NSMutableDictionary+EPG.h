@@ -22,7 +22,7 @@
 + (NSURLSessionDataTask *)epgGetChannelAreaCompletion:(void (^)(NSArray *epgs, NSError *error))block;
 
 // http://58.141.255.69:8080/nscreen/getChannelSchedule.xml?version=1&channelId=1000
-+ (NSURLSessionDataTask *)epgGetChannelScheduleChannelId:(NSString *)channelId completion:(void (^)(NSArray *epgs, NSError *error))block;
++ (NSURLSessionDataTask *)epgGetChannelScheduleChannelId:(NSString *)channelId WithAreaCode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block;
 
 // http://58.141.255.69:8080/nscreen/searchSchedule.xml?version=1&areaCode=1&searchString=aa
 + (NSURLSessionDataTask *)epgSearchScheduleAreaCode:(NSString *)areaCode WithSearch:(NSString *)search completion:(void (^)(NSArray *epgs, NSError *error))block;

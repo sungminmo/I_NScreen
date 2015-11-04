@@ -106,6 +106,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
+    pViewController.pListDataDic = [self.pListDataArr objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:pViewController animated:YES];
 }
 

@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *gradeImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *sdhdImageView01;
+@property (strong, nonatomic) IBOutlet UIImageView *sdhdImageView02;
 @property (strong, nonatomic) IBOutlet UIImageView *hdImageView;
 @property (strong, nonatomic) IBOutlet CMProgressView *progressView;
 
@@ -48,7 +50,8 @@
     self.timeLabel.text = @"";
     self.titleLabel.text = @"";
     self.gradeImageView.image = nil;
-    self.hdImageView.hidden = true;
+    self.sdhdImageView01.hidden = true;
+    self.sdhdImageView02.hidden = true;
 }
 
 #pragma mark - Pulbics
@@ -64,21 +67,64 @@
     
     self.dataDic = data;
     
-    self.timeLabel.text = data[@"time"];
-    self.titleLabel.text = data[@"title"];
+//    self.timeLabel.text = data[@"time"];
+    self.titleLabel.text = data[@"programTitle"];
     
-    NSString* grade = data[@"grade"];
-    if ([grade hasPrefix:@"19"]) {
-        self.gradeImageView.image = [UIImage imageNamed:@"19.png"];
-    } else if ([grade hasPrefix:@"15"]) {
-        self.gradeImageView.image = [UIImage imageNamed:@"15.png"];
-    } else {
+    NSString* grade = data[@"programGrade"];
+    
+    if ( [grade isEqualToString:@"모두 시청"] )
+    {
         self.gradeImageView.image = [UIImage imageNamed:@"all.png"];
     }
+    else if ( [grade isEqualToString:@"19세 이상"] )
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@"19.png"];
+    }
+    else if ( [grade isEqualToString:@"15세 이상"] )
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@"15.png"];
+    }
+    else
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@""];
+    }
+//    
+//    NSString* channelInfo = data[@"channelInfo"];
+//    NSArray *channelInfoArr = [channelInfo componentsSeparatedByString:@","];
+//    
+//
+//    
+//    if ( [channelInfoArr count] == 2 )
+//    {
+//        self.sdhdImageView01.hidden = NO;
+//        self.sdhdImageView02.hidden = NO;
+//        
+//        self.sdhdImageView01.image = [UIImage imageNamed:@"sd.png"];
+//        self.sdhdImageView02.image = [UIImage imageNamed:@"hd.png"];
+//    }
+//    else if ( [channelInfoArr count] == 1 )
+//    {
+//        if ( [[channelInfoArr objectAtIndex:0] isEqualToString:@"SD"] )
+//        {
+//            self.sdhdImageView01.hidden = NO;
+//            self.sdhdImageView01.image = [UIImage imageNamed:@"sd.png"];
+//        }
+//        else
+//        {
+//            self.sdhdImageView01.hidden = NO;
+//            self.sdhdImageView01.image = [UIImage imageNamed:@"hd.png"];
+//        }
+//    }
+//    
+    NSString *sProgramHD = data[@"programHD"];
     
-    if ([data[@"hd"] isEqualToString:@"Y"]) {
-        self.hdImageView.hidden = FALSE;
-    } else {
+    if ( [sProgramHD isEqualToString:@"YES"] )
+    {
+        self.hdImageView.hidden = NO;
+        self.hdImageView.image = [UIImage imageNamed:@"hd.png"];
+    }
+    else
+    {
         self.hdImageView.hidden = YES;
     }
     

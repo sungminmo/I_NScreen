@@ -14,4 +14,6 @@
 
 @interface EpgSubViewController : CMBaseViewController<EpgSubTableViewDelegate, CMDateScrollViewDelegate>
 
+@property (nonatomic, strong) NSDictionary *pListDataDic;
+
 @end

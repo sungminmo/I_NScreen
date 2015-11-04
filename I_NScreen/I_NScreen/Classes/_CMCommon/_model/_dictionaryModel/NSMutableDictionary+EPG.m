@@ -31,9 +31,9 @@
     return [[CMNetworkManager sharedInstance] epgGetChannelAreaBlock:block];
 }
 
-+ (NSURLSessionDataTask *)epgGetChannelScheduleChannelId:(NSString *)channelId completion:(void (^)(NSArray *epgs, NSError *error))block
++ (NSURLSessionDataTask *)epgGetChannelScheduleChannelId:(NSString *)channelId WithAreaCode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block
 {
-    return [[CMNetworkManager sharedInstance] epgGetChannelScheduleChannelId:channelId block:block];
+    return [[CMNetworkManager sharedInstance] epgGetChannelScheduleChannelId:channelId WithAreaCode:areaCode block:block];
 }
 
 + (NSURLSessionDataTask *)epgSearchScheduleAreaCode:(NSString *)areaCode WithSearch:(NSString *)search completion:(void (^)(NSArray *epgs, NSError *error))block

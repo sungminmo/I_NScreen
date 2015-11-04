@@ -555,22 +555,29 @@
 //    }];
 //}
 
-// http://58.141.255.69:8080/nscreen/getChannelSchedule.xml?version=1&channelId=1000
-- (NSURLSessionDataTask *)epgGetChannelScheduleChannelId:(NSString *)channelId block:(void (^)(NSArray *gets, NSError *error))block
+//http://58.141.255.69:8080/nscreen/getChannelSchedule.xml?version=1&channelId=1&dateIndex=7&areaCode=0
+- (NSURLSessionDataTask *)epgGetChannelScheduleChannelId:(NSString *)channelId WithAreaCode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block
 {
-    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    self.acodeClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.acodeClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelSchedule];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           @"channelId" : @"1"
+                           @"channelId" : channelId,
+                           @"areaCode" : areaCode,
+                           @"dateIndex" : @"7"
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSURLSessionDataTask *task = [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
+        
+        block(@[result], nil);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
+        block(nil, error);
     }];
     [self updateActivityIndicator:task];
     return task;

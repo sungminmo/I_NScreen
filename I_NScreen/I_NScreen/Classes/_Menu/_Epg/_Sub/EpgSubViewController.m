@@ -9,6 +9,8 @@
 #import "EpgSubViewController.h"
 #import "BMXSwipableCell+ConfigureCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "NSMutableDictionary+EPG.h"
+#import "UIAlertView+AFNetworking.h"
 
 @interface EpgSubViewController ()
 
@@ -24,6 +26,7 @@
 @end
 
 @implementation EpgSubViewController
+@synthesize pListDataDic;
 
 #pragma mark - Life Cycle
 
@@ -33,15 +36,14 @@
     self.topConstraint.constant = cmNavigationHeight;
     
     self.isUseNavigationBar = YES;
-    
+   
     [self showFavoriteButton:true];
     
     self.dataArray = [@[] mutableCopy];
 
     [self setViewInit];
     
-    [self setTestData];
-    
+    [self requestWithChannelSchedule];
 }
 
 #pragma mark - 화면 초기화
@@ -52,6 +54,18 @@
     self.dateScrollView = [[CMDateScrollView alloc] initWithFrame:CGRectMake(posX, 0, [UIScreen mainScreen].bounds.size.width - posX, self.pSubChannelView.bounds.size.height)];
     
     [self.pSubChannelView addSubview:self.dateScrollView];
+    
+    NSString *logoImageUrl = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelLogoImg"]];
+    self.title = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelProgramOnAirTitle"]];
+    [self.logoImageView setImageWithURL:[NSURL URLWithString:logoImageUrl]];
+    
+    NSMutableArray* dateArray = [@[] mutableCopy];
+    
+    for (int i = 0; i < 20; i++) {
+        [dateArray addObject:[NSString stringWithFormat:@"12월%02d일", i]];
+    }
+    
+    [self.dateScrollView setDateArray:dateArray];
 }
 
 - (IBAction)onBtnClick:(UIButton *)btn;
@@ -165,6 +179,24 @@
 
 - (void)dateScrollView:(CMDateScrollView *)dateScrollView selectedIndex:(NSInteger)index {
     NSLog(@"dateScrollView : %ld", (long)index);
+}
+
+
+#pragma mark - 전문
+#pragma mark - 한 채널 편성 정보 전문
+- (void)requestWithChannelSchedule
+{
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelScheduleChannelId:sChannelId WithAreaCode:CNM_AREA_CODE block:^(NSArray *gets, NSError *error) {
+        
+        DDLogError(@"한 채널 편성 정보 = [%@]", gets);
+        
+        [self.dataArray setArray:[[gets objectAtIndex:0] objectForKey:@"scheduleItem"]];
+        
+        [self.pTableView reloadData];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end

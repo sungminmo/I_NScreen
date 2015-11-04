@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,17 +12,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n5I-QD-w6m" id="vo9-r2-a1g">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:00~16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixh-CX-8Hv" userLabel="time Label">
-                        <rect key="frame" x="15" y="8" width="86" height="49.5"/>
+                        <rect key="frame" x="15" y="8" width="86" height="49"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="S1j-of-V0y" userLabel="title Label">
-                        <rect key="frame" x="112" y="10" width="78" height="21.5"/>
+                        <rect key="frame" x="112" y="10" width="78" height="22"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,16 +38,19 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="4eO-9v-5jA" userLabel="ALL image">
                         <rect key="frame" x="112" y="33" width="29" height="16"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-kA-6bq" userLabel="HD image">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sd.png" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-kA-6bq" userLabel="SD image">
                         <rect key="frame" x="146" y="33" width="29" height="16"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjU-zZ-01I" userLabel="progress View" customClass="CMProgressView">
-                        <rect key="frame" x="112" y="54" width="185.5" height="3"/>
+                        <rect key="frame" x="112" y="54" width="186" height="3"/>
                         <color key="backgroundColor" red="0.70196078429999997" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="3" id="u2P-3H-dar"/>
                         </constraints>
                     </view>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="b55-ar-sZj" userLabel="HD image">
+                        <rect key="frame" x="181" y="33" width="29" height="16"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -71,8 +74,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="gradeImageView" destination="4eO-9v-5jA" id="uju-jP-hS2"/>
-                <outlet property="hdImageView" destination="sv6-kA-6bq" id="yIZ-nk-kcY"/>
                 <outlet property="progressView" destination="CjU-zZ-01I" id="9oi-RY-aGn"/>
+                <outlet property="sdhdImageView01" destination="sv6-kA-6bq" id="qmY-RL-VPt"/>
+                <outlet property="sdhdImageView02" destination="b55-ar-sZj" id="TbL-70-4Si"/>
                 <outlet property="timeLabel" destination="Ixh-CX-8Hv" id="Wda-Vf-ehu"/>
                 <outlet property="titleLabel" destination="S1j-of-V0y" id="IQc-6B-u4r"/>
             </connections>
@@ -82,5 +86,6 @@
     <resources>
         <image name="all.png" width="29" height="16"/>
         <image name="hd.png" width="29" height="16"/>
+        <image name="sd.png" width="29" height="16"/>
     </resources>
 </document>
