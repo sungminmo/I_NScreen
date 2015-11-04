@@ -37,8 +37,8 @@
     [self setViewInit];
     [self setViewDataInit];
     
-    // 1은 지상판데 전체는 머지
-    [self requestWithChannelListWithGenreCode:@"1"];
+    // 전체
+    [self requestWithChannelListFull];
 }
 
 #pragma mark - 초기화
@@ -127,6 +127,24 @@
 }
 
 #pragma mark - 전문
+#pragma mark - 전체 채널 리스트 전문
+- (void)requestWithChannelListFull
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:CNM_AREA_CODE block:^(NSArray *gets, NSError *error) {
+        DDLogError(@"epg = [%@]", gets);
+        
+        if ( [gets count] == 0 )
+            return;
+        
+        [self.pListDataArr removeAllObjects];
+        [self.pListDataArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
+        
+        [self.pTableView reloadData];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
 #pragma mark - 체널 리스트 전문
 - (void)requestWithChannelListWithGenreCode:(NSString *)genreCode
 {
@@ -159,7 +177,7 @@
         {
             // 전체 채널
             [self.pPopUpBtn setTitle:@"전체채널" forState:UIControlStateNormal];
-            [self requestWithChannelListWithGenreCode:@"1"];    // 전체는 머지
+            [self requestWithChannelListFull];    // 전체
         }
         else
         {

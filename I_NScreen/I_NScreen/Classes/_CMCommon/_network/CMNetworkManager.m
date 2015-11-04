@@ -387,6 +387,33 @@
 
 @implementation CMNetworkManager(EPG)
 
+//http://58.141.255.69:8080/nscreen/getChannelList.xml?version=1&areaCode=0
+- (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block
+{
+    self.acodeClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.acodeClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelList];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           @"areaCode" : areaCode
+                           };
+    
+    NSURLSessionDataTask *task = [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
 // http://58.141.255.69:8080/nscreen/getChannelList.xml?version=1&areaCode=0&genreCode=1
 - (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode WithGenreCode:(NSString *)genreCode block:(void (^)(NSArray *gets, NSError *error))block
 {
@@ -397,7 +424,7 @@
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
-                           @"areaCode" : @"0",
+                           @"areaCode" : areaCode,
                            @"genreCode" : genreCode
                            };
     

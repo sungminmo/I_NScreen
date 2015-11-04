@@ -11,6 +11,11 @@
 
 @implementation NSMutableDictionary (EPG)
 
++ (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] epgGetChannelListAreaCode:areaCode block:block];
+}
+
 + (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode WithGenreCode:(NSString *)genreCode completion:(void (^)(NSArray *epgs, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] epgGetChannelListAreaCode:areaCode WithGenreCode:genreCode block:block];
