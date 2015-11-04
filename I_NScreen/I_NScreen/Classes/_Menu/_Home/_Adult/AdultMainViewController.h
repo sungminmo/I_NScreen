@@ -11,6 +11,8 @@
 #import "AdultMainTableViewCell.h"
 #import "VodDetailMainViewController.h"
 
+@protocol AdultMainViewDelegate;
+
 @interface AdultMainViewController : CMBaseViewController<AdultMainTableViewCellDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pView01; // 버튼 뷰
@@ -28,8 +30,17 @@
 @property (nonatomic, strong) IBOutlet UITableView *pTableView22;
 @property (nonatomic) BOOL isItemCheck;     // 댑스 체크 no 이면 실시간 인기 순위, yes 이면 주간 인기 순위
 @property (nonatomic, strong) NSString *pViewerTypeStr;
+@property (nonatomic, strong) NSDictionary *pDataDic;
 
+@property (nonatomic, weak) id <AdultMainViewDelegate>delegate;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
+
+@end
+
+@protocol AdultMainViewDelegate <NSObject>
+
+@optional
+- (void)AdultMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str;
 
 @end

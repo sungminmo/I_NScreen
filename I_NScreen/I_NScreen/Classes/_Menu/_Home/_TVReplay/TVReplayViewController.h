@@ -11,6 +11,8 @@
 #import "TVReplayTableViewCell.h"
 #import "VodDetailMainViewController.h"
 
+@protocol TVReplayViewDelegate;
+
 @interface TVReplayViewController : CMBaseViewController<TVReplayTableViewCellDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pView01; // 버튼 뷰
@@ -28,9 +30,18 @@
 @property (nonatomic, strong) IBOutlet UITableView *pTableView22;
 @property (nonatomic) BOOL isItemCheck;     // 댑스 체크 no 이면 실시간 인기 순위, yes 이면 주간 인기 순위
 @property (nonatomic, strong) NSString *pViewerTypeStr;
+@property (nonatomic, strong) NSDictionary *pDataDic;
 
+@property (nonatomic, weak) id <TVReplayViewDelegate>delegate;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 
+
+@end
+
+@protocol TVReplayViewDelegate <NSObject>
+
+@optional
+- (void)TVReplayViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str;
 
 @end

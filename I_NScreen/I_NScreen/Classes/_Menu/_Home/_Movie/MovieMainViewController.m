@@ -15,10 +15,15 @@
 @property (nonatomic, strong) NSMutableArray *pThreeDepthDailyDataArr;  // 3댑스에 실시간 데이터 저장
 @property (nonatomic, strong) NSMutableArray *pThreeDepthWeeklyDataArr; // 3댑스에 주간 인기 순위 데이터 저장
 @property (nonatomic, strong) NSMutableArray *pThreeDepthElseDataArr;   // 3댑스에 그외 데이터 저장
+
+// 전체 리스트 전문
+@property (nonatomic, strong) NSString *pFourDepthListJsonStr;
+//
 @end
 
 @implementation MovieMainViewController
 @synthesize delegate;
+@synthesize pDataDic;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -33,6 +38,7 @@
     [self setViewInit];
     
     [self requestWithGetCategoryTree2Depth];
+    [self requestWithGetCateforyTree4Depth];
 }
 
 #pragma mark - 초기화
@@ -63,7 +69,7 @@
     switch ([btn tag]) {
         case MOVIE_MAIN_VIEW_BTN_01:
         {
-            [self.delegate MovieMainViewWithBtnTag:MOVIE_MAIN_VIEW_BTN_01];
+            [self.delegate MovieMainViewWithBtnTag:MOVIE_MAIN_VIEW_BTN_01 WithDataStr:self.pFourDepthListJsonStr];
         }break;
         case MOVIE_MAIN_VIEW_BTN_02:
         {
@@ -97,6 +103,24 @@
 }
 
 #pragma mark - 전문
+#pragma mark - 4댑스 카테고리 tree 리스트 전문
+- (void)requestWithGetCateforyTree4Depth
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:CNM_OPEN_API_MOVIE_CATEGORY_ID WithDepth:@"4" block:^(NSArray *vod, NSError *error) {
+        
+        DDLogError(@"4댑스 카테고리 tree 리스트 = [%@]", vod);
+        
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:[[CMAppManager sharedInstance] getResponseTreeSplitWithData:vod WithCategoryIdSearch:CNM_OPEN_API_MOVIE_CATEGORY_ID]
+                                                           options:NSJSONWritingPrettyPrinted error:&error];
+        self.pFourDepthListJsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+        NSLog(@"jsonString = [%@]", self.pFourDepthListJsonStr);
+    }];
+    
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
 #pragma mark - 2탭스 카테고리 tree 리스트 전문
 - (void)requestWithGetCategoryTree2Depth
 {
@@ -130,24 +154,54 @@
         
         self.pViewerTypeStr = [NSString stringWithString:sViewerType];
         
-        if ( [sViewerType isEqualToString:@"200"] )
+        if ( [self.pDataDic count] != 0 )
         {
-            // 인기순위
-            self.pView21.hidden = NO;
-            self.pView22.hidden = YES;
+            sCategoryId = [NSString stringWithFormat:@"%@", [self.pDataDic objectForKey:@"categoryId"]];
+            sViewerType = [NSString stringWithFormat:@"%@", [self.pDataDic objectForKey:@"viewerType"]];
             
-            
-            self.isItemCheck = NO;
-            [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
+            if ( [sViewerType isEqualToString:@"200"] )
+            {
+                // 인기순위
+                self.pView21.hidden = NO;
+                self.pView22.hidden = YES;
+                
+                
+                self.isItemCheck = NO;
+                [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
+            }
+            else
+            {
+                // 그외
+                self.pView21.hidden = YES;
+                self.pView22.hidden = NO;
+                
+                [self requestWithElse3DepthWithViewerType:sViewerType WithCategoryId:sCategoryId];
+            }
+
         }
         else
         {
-            // 그외
-            self.pView21.hidden = YES;
-            self.pView22.hidden = NO;
-            
-            [self requestWithElse3DepthWithViewerType:sViewerType WithCategoryId:sCategoryId];
+            if ( [sViewerType isEqualToString:@"200"] )
+            {
+                // 인기순위
+                self.pView21.hidden = NO;
+                self.pView22.hidden = YES;
+                
+                
+                self.isItemCheck = NO;
+                [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
+            }
+            else
+            {
+                // 그외
+                self.pView21.hidden = YES;
+                self.pView22.hidden = NO;
+                
+                [self requestWithElse3DepthWithViewerType:sViewerType WithCategoryId:sCategoryId];
+            }
+
         }
+        
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -392,8 +446,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
-    //    [self.navigationController pushViewController:pViewController animated:YES];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

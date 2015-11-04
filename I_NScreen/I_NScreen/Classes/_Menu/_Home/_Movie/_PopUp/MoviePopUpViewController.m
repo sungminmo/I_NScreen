@@ -15,6 +15,8 @@
 @implementation MoviePopUpViewController
 @synthesize pModel;
 @synthesize delegate;
+@synthesize pDataStr;
+@synthesize nViewTag;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -39,9 +41,9 @@
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contents" ofType:@"json"];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contents" ofType:@"json"];
     
-    self.pModel = [[TreeListModel alloc] initWithJSONFilePath:filePath];
+    self.pModel = [[TreeListModel alloc] initWithJSONFilePath:self.pDataStr];
     
     [self.pTableView reloadData];
 }
@@ -100,23 +102,30 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSMutableDictionary *item = [self.pModel itemForRowAtIndexPath:indexPath];
-    int item_count = [[item valueForKeyPath:@"value.@count"] intValue];
+    int item_count = [[item valueForKeyPath:@"subData.@count"] intValue];
     if (item_count<=0)
-        return;
-    
-    BOOL newState = NO;
-    BOOL isOpen = [self.pModel isCellOpenForRowAtIndexPath:indexPath];
-    if (NO == isOpen) {
-        newState = YES;
-    } else {
-        newState = NO;
+    {
+        [self.view removeFromSuperview];
+        [self willMoveToParentViewController:nil];
+        [self removeFromParentViewController];
+        [self.delegate MoviePopUpViewWithBtnData:item WithViewTag:nViewTag];
     }
-    [self.pModel setOpenClose:newState forRowAtIndexPath:indexPath];
-    
-    [tableView beginUpdates];
-    [tableView reloadSections:[NSIndexSet indexSetWithIndex:0]
-             withRowAnimation:UITableViewRowAnimationFade];
-    [tableView endUpdates];
+    else
+    {
+        BOOL newState = NO;
+        BOOL isOpen = [self.pModel isCellOpenForRowAtIndexPath:indexPath];
+        if (NO == isOpen) {
+            newState = YES;
+        } else {
+            newState = NO;
+        }
+        [self.pModel setOpenClose:newState forRowAtIndexPath:indexPath];
+        
+        [tableView beginUpdates];
+        [tableView reloadSections:[NSIndexSet indexSetWithIndex:0]
+                 withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
+    }
 }
 
 @end

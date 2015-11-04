@@ -24,10 +24,20 @@
 #import "PairingMainViewController.h"
 #import "PairingRePwViewController.h"
 
-@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MoviePopUpViewDelegate>
+@protocol RootViewDelegate;
+
+@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MoviePopUpViewDelegate, AniKidsMainViewDelegate, AdultMainViewDelegate, TVReplayViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pGnbView;
 @property (nonatomic, strong) IBOutlet UIView *pBodyView;
 
+@property (nonatomic, weak) id <RootViewDelegate>delegate;
+
+@end
+
+@protocol RootViewDelegate <NSObject>
+
+@optional
+- (void)RootViewWithDataDic:(NSDictionary *)data;
 
 @end

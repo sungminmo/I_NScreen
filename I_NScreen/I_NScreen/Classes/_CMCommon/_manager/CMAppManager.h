@@ -53,4 +53,23 @@
  * @brief 숫자에 , 삭제
  */
 - (NSString *)deleteComma:(NSString *)data;
+
+
+/**
+ * @brief 배열 검색 
+   @param 
+   listArr 검색 배열
+   searchStr 검색 string
+   key 검색할 key
+ */
+- (NSMutableArray *)getSearchWithArr:(NSMutableArray *)listArr WithSearchStr:(NSString *)searchStr WithKey:(NSString *)key;
+
+/**
+ * @brief 트리 리스트 데이터 파싱
+ @param
+ data 트리 리스트
+ categoryIdSearch 파싱할 트리 메뉴
+ */
+- (NSMutableDictionary *)getResponseTreeSplitWithData:(NSArray *)data WithCategoryIdSearch:(NSString *)categoryIdSearch;
+
 @end

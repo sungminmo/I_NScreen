@@ -23,6 +23,7 @@
 @end
 
 @implementation RootViewController
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -100,8 +101,10 @@
             [self bodySubViewsRemove];
             
             MovieMainViewController *pViewController = [[MovieMainViewController alloc] initWithNibName:@"MovieMainViewController" bundle:nil];
-            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
             pViewController.delegate = self;
+            pViewController.pDataDic = nil;
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
@@ -113,7 +116,10 @@
             [self bodySubViewsRemove];
             
             AniKidsMainViewController *pViewController = [[AniKidsMainViewController alloc] initWithNibName:@"AniKidsMainViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = nil;
             pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
@@ -125,6 +131,8 @@
             [self bodySubViewsRemove];
             
             TVReplayViewController *pViewController = [[TVReplayViewController alloc] initWithNibName:@"TVReplayViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = nil;
             pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
@@ -137,6 +145,8 @@
             [self bodySubViewsRemove];
             
             AdultMainViewController *pViewController = [[AdultMainViewController alloc] initWithNibName:@"AdultMainViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = nil;
             pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
@@ -234,13 +244,15 @@
 
 #pragma mark - 델리게이트
 #pragma mark - MovieMainViewController 델리게이트
-- (void) MovieMainViewWithBtnTag:(int)nTag
+- (void) MovieMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str
 {
     switch (nTag) {
         case MOVIE_MAIN_VIEW_BTN_01:
         {
             MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
             pViewController.delegate = self;
+            pViewController.pDataStr = str;
+            pViewController.nViewTag = MOVIE_MAIN_VIEW_BTN_01;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.view addSubview:pViewController.view];
@@ -252,6 +264,110 @@
 - (void)MoviePopUpViewWithBtnTag:(int)nTag
 {
     
+}
+
+- (void)MoviePopUpViewWithBtnData:(NSDictionary *)dataDic WithViewTag:(int)viewTag
+{
+    [self bodySubViewsRemove];
+
+    switch (viewTag) {
+        case MOVIE_MAIN_VIEW_BTN_01:
+        {
+            MovieMainViewController *pViewController = [[MovieMainViewController alloc] initWithNibName:@"MovieMainViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = dataDic;
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+        }break;
+        case ANI_KIDS_MAIN_VIEW_BTN_01:
+        {
+            AniKidsMainViewController *pViewController = [[AniKidsMainViewController alloc] initWithNibName:@"AniKidsMainViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = dataDic;
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+        }break;
+        case ADULT_MAIN_VIEW_BTN_01:
+        {
+            AdultMainViewController *pViewController = [[AdultMainViewController alloc] initWithNibName:@"AdultMainViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = dataDic;
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+        }break;
+        case TV_REPLAY_VIEW_BTN_01:
+        {
+            TVReplayViewController *pViewController = [[TVReplayViewController alloc] initWithNibName:@"TVReplayViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = dataDic;
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+
+        }break;
+    }
+    
+    
+}
+
+#pragma mark - AniKidsMainViewController 델리게이트
+- (void)AniKidsMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str
+{
+    switch (nTag) {
+        case ANI_KIDS_MAIN_VIEW_BTN_01:
+        {
+            MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataStr = str;
+            pViewController.nViewTag = ANI_KIDS_MAIN_VIEW_BTN_01;
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.view addSubview:pViewController.view];
+        }break;
+    }
+
+}
+
+#pragma mark - AdultMainViewController 델리게이트
+- (void)AdultMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str
+{
+    switch (nTag) {
+        case ADULT_MAIN_VIEW_BTN_01:
+        {
+            MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataStr = str;
+            pViewController.nViewTag = ADULT_MAIN_VIEW_BTN_01;
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.view addSubview:pViewController.view];
+        }break;
+    }
+}
+
+#pragma mark - TVReplayMainViewController 델리게이트
+- (void)TVReplayViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str
+{
+    switch (nTag) {
+        case TV_REPLAY_VIEW_BTN_01:
+        {
+            MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataStr = str;
+            pViewController.nViewTag = TV_REPLAY_VIEW_BTN_01;
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.view addSubview:pViewController.view];
+
+        }break;
+    }
 }
 
 @end

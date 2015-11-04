@@ -11,6 +11,7 @@
 #import "MovieMainTableViewCell.h"
 #import "VodDetailMainViewController.h"
 
+
 @protocol MovieMainViewDelegate;
 
 @interface MovieMainViewController : CMBaseViewController<MovieMainTableViewCellDelegate>
@@ -30,6 +31,7 @@
 @property (nonatomic, strong) IBOutlet UITableView *pTableView22;
 @property (nonatomic) BOOL isItemCheck;     // 댑스 체크 no 이면 실시간 인기 순위, yes 이면 주간 인기 순위
 @property (nonatomic, strong) NSString *pViewerTypeStr;
+@property (nonatomic, strong) NSDictionary *pDataDic;
 
 @property (nonatomic, weak) id <MovieMainViewDelegate>delegate;
 
@@ -41,6 +43,7 @@
 @protocol MovieMainViewDelegate <NSObject>
 
 @optional
-- (void)MovieMainViewWithBtnTag:(int)nTag;
+
+- (void)MovieMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str;
 
 @end

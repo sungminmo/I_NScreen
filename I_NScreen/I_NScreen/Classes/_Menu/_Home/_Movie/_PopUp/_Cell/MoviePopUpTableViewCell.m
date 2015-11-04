@@ -10,6 +10,7 @@
 
 @implementation MoviePopUpTableViewCell
 @synthesize pTitleLbl, pArrowImgView;
+@synthesize delegate;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -23,16 +24,33 @@
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithOpen:(BOOL)isOpen
 {
-    if ( isOpen == NO )
+    self.pDic = [[NSDictionary alloc] init];
+    self.pDic = dic;
+    
+    if ( [[dic objectForKey:@"leaf"] isEqualToString:@"0"] )
     {
-        pArrowImgView.image = [UIImage imageNamed:@"icon_2depth_close.png"];
+        
+        if ( isOpen == NO )
+        {
+            pArrowImgView.image = [UIImage imageNamed:@"icon_2depth_close.png"];
+        }
+        else
+        {
+            pArrowImgView.image = [UIImage imageNamed:@"icon_2depth_open.png"];
+        }
     }
     else
     {
-        pArrowImgView.image = [UIImage imageNamed:@"icon_2depth_open.png"];
+        pArrowImgView.image = [UIImage imageNamed:@""];
     }
     
-    pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"key"]];
+    
+    pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"categoryName"]];
+}
+
+- (IBAction)onBtnClicked:(UIButton *)btn
+{
+    [self.delegate MoviePopUpTableViewCellData:self.pDic];
 }
 
 @end

@@ -19,6 +19,10 @@
 
 @property (nonatomic, strong) IBOutlet UIButton *pBgBtn;
 
+@property (nonatomic, strong) NSString *pDataStr;
+
+@property (nonatomic) int nViewTag;
+
 @property (nonatomic, weak) id<MoviePopUpViewDelegate>delegate;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
@@ -29,5 +33,7 @@
 
 @optional
 - (void)MoviePopUpViewWithBtnTag:(int)nTag;
+
+- (void)MoviePopUpViewWithBtnData:(NSDictionary *)dataDic WithViewTag:(int)viewTag;
 
 @end

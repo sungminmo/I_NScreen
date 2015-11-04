@@ -96,6 +96,7 @@ static int dbg = 0;
     self.level = [NSMutableArray array];
     cell_count = [self recalculateWithItem:self.root
                                   andLevel:0] - 1;
+    
 #ifdef DEBUG
     for (id item in self.lookup) {
         //DBG(@"item.key=%@", [item valueForKeyPath:self.keyKeyPath]);
@@ -140,9 +141,9 @@ static int dbg = 0;
 	self = [super init];
 	if (self) {
         // initialize key paths for model access
-        self.keyKeyPath = @"key";
+        self.keyKeyPath = @"categoryName";
         self.isOpenKeyPath = @"isOpen";
-        self.childKeyPath = @"value";
+        self.childKeyPath = @"subData";
 
         self.lookup = [NSMutableArray array];
         self.level = [NSMutableArray array];
@@ -173,7 +174,7 @@ static int dbg = 0;
     NSString *data = [NSString stringWithContentsOfFile:filePath
                                                encoding:NSUTF8StringEncoding
                                                   error:nil];
-    return [self initWithJSONString:data];
+    return [self initWithJSONString:filePath];
 }
 
 -(void)dealloc
