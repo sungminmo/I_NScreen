@@ -416,21 +416,26 @@
 }
 
 
-// http://58.141.255.69:8080/nscreen/getChannelGenre.xml?version=1
-- (NSURLSessionDataTask *)epgGetChannelGenreBlock:(void (^)(NSArray *gets, NSError *error))block
+//http://58.141.255.69:8080/nscreen/getChannelGenre.xml?version=1&areaCode=0
+- (NSURLSessionDataTask *)epgGetChannelGenreArecode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block
 {
-    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
+    self.acodeClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.acodeClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/xml"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetChannelGenre];
     NSDictionary *dict = @{
-                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           @"areaCode" : areaCode
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSURLSessionDataTask *task = [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
+        
+        block(@[result], nil);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+         block(nil, error);
     }];
     [self updateActivityIndicator:task];
     return task;

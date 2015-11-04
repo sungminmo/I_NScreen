@@ -72,7 +72,7 @@
 
 - (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode WithGenreCode:(NSString *)genreCode block:(void (^)(NSArray *gets, NSError *error))block;
 
-- (NSURLSessionDataTask *)epgGetChannelGenreBlock:(void (^)(NSArray *gets, NSError *error))block;
+- (NSURLSessionDataTask *)epgGetChannelGenreArecode:(NSString *)areaCode block:(void (^)(NSArray *gets, NSError *error))block;
 
 - (NSURLSessionDataTask *)epgGetChannelAreaBlock:(void (^)(NSArray *gets, NSError *error))block;
 

@@ -15,11 +15,12 @@
 #import "EpgPopUpViewController.h"
 #import "EpgSubViewController.h"
 
-@interface EpgMainViewController : CMBaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface EpgMainViewController : CMBaseViewController<UITableViewDataSource, UITableViewDelegate, EpgPopUpViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIButton *pBackBtn;
 @property (nonatomic, strong) IBOutlet UIButton *pPopUpBtn;
 @property (nonatomic, strong) IBOutlet UITableView *pTableView;
+
 
 - (IBAction)onBtnClick:(UIButton *)btn;
 

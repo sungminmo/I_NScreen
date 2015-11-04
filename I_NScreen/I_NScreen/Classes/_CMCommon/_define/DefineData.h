@@ -52,6 +52,15 @@
 #define EPG_POPUP_VIEW_BTN_02           10102   // 전체채널 버튼
 #define EPG_POPUP_VIEW_BTN_03           10103   // 선호채널 버튼
 #define EPG_POPUP_VIEW_BTN_04           10104   // BG 버튼
+#define EPG_POPUP_VIEW_BTN_05           10105   // BG 버튼
+#define EPG_POPUP_VIEW_BTN_06           10106   // BG 버튼
+#define EPG_POPUP_VIEW_BTN_07           10107   // BG 버튼
+#define EPG_POPUP_VIEW_BTN_08           10108   // BG 버튼
+#define EPG_POPUP_VIEW_BTN_09           10109   // BG 버튼
+#define EPG_POPUP_VIEW_BTN_10           10110   // BG 버튼
+#define EPG_POPUP_VIEW_BTN_11           10111   // BG 버튼
+#define EPG_POPUP_VIEW_BTN_12           10112   // BG 버튼
+#define EPG_POPUP_VIEW_BTN_13           10113   // BG 버튼
 
 // EpgSubViewController btn tag
 #define EPG_SUP_VIEW_BTN_02             10202   // 하트 버튼

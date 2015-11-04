@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -12,28 +12,37 @@
                 <outlet property="pChannelFavorBtn" destination="VV5-9Y-xG7" id="R0f-sr-XhH"/>
                 <outlet property="pChannelFullBtn" destination="QnJ-CX-TW0" id="flG-jt-xS5"/>
                 <outlet property="pCloseBtn" destination="Luu-TM-Z3s" id="b2w-yf-kxq"/>
+                <outlet property="pSubBtn01" destination="Rvc-77-NUc" id="4KZ-FS-h4U"/>
+                <outlet property="pSubBtn02" destination="HtT-Hd-Kny" id="dxT-JR-QQP"/>
+                <outlet property="pSubBtn03" destination="Duv-9g-wJU" id="2vI-VN-mJF"/>
+                <outlet property="pSubBtn04" destination="cLh-AS-pDA" id="i69-Jk-BuS"/>
+                <outlet property="pSubBtn05" destination="2RF-uN-7Ag" id="ev7-X8-2aL"/>
+                <outlet property="pSubBtn06" destination="ezS-gz-LPg" id="9va-ZD-uls"/>
+                <outlet property="pSubBtn07" destination="lU9-4g-413" id="Ri9-Ju-2up"/>
+                <outlet property="pSubBtn08" destination="V1i-yA-XQL" id="645-2v-Pcj"/>
+                <outlet property="pSubBtn09" destination="BcP-n9-hZh" id="qgV-dY-2Sx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bz8-rj-qWm" userLabel="View(bg)">
+                <view alpha="0.69999999999999996" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bz8-rj-qWm" userLabel="View(bg)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEp-Qg-6oZ" userLabel="Button(bg)">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEp-Qg-6oZ" userLabel="Button(bg)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <connections>
                         <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="WQq-ai-f82"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcq-U1-Fzn">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcq-U1-Fzn">
                     <rect key="frame" x="7" y="104" width="400" height="528"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="시청을 원하시는 채널장르를 선택하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75u-ow-64x">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="시청을 원하시는 채널장르를 선택하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75u-ow-64x">
                             <rect key="frame" x="50" y="8" width="300" height="56"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="QdG-G9-quh"/>
@@ -52,7 +61,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luu-TM-Z3s" userLabel="Button(x)">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luu-TM-Z3s" userLabel="Button(x)">
                             <rect key="frame" x="367" y="15" width="18" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="18" id="7mI-Aj-Kva"/>
@@ -77,14 +86,14 @@
                                 <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="xDu-hm-M9A"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnJ-CX-TW0">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnJ-CX-TW0">
                             <rect key="frame" x="57" y="66" width="286" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="286" id="JoQ-BV-J6G"/>
                                 <constraint firstAttribute="height" constant="44" id="pPT-52-nIj"/>
                             </constraints>
-                            <state key="normal" title="전체채널" backgroundImage="ch_select.png">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="전체채널" backgroundImage="ch_normal.png">
+                                <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <variation key="default">
@@ -103,7 +112,7 @@
                                 <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="Wmi-Eg-drT"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VV5-9Y-xG7">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VV5-9Y-xG7">
                             <rect key="frame" x="57" y="129" width="286" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="286" id="WAd-s2-Vhi"/>
@@ -129,18 +138,20 @@
                                 <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="92y-ed-jVX"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0sO-h3-82h" userLabel="View(체널들)">
+                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0sO-h3-82h" userLabel="View(체널들)">
                             <rect key="frame" x="0.0" y="173" width="400" height="355"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvc-77-NUc" userLabel="Button(1)">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvc-77-NUc" userLabel="Button(1)">
                                     <rect key="frame" x="57" y="32" width="73" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="4Cd-Gu-Y37"/>
                                         <constraint firstAttribute="width" constant="73" id="AM5-SD-cCf"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="genre_press.png">
+                                    <state key="normal" backgroundImage="genreregion_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="selected" backgroundImage="genreregion_select.png"/>
+                                    <state key="highlighted" backgroundImage="genreregion_press.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="4Cd-Gu-Y37"/>
@@ -153,16 +164,21 @@
                                             <include reference="AM5-SD-cCf"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="sG8-FJ-naG"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Duv-9g-wJU" userLabel="Button(3)">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Duv-9g-wJU" userLabel="Button(3)">
                                     <rect key="frame" x="270" y="32" width="73" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="73" id="WrN-UA-0Ma"/>
                                         <constraint firstAttribute="height" constant="74" id="uFO-da-wWW"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="genre_press.png">
+                                    <state key="normal" backgroundImage="genreentertain_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="selected" backgroundImage="genreentertaion_select.png"/>
+                                    <state key="highlighted" backgroundImage="genreentertain_press.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="WrN-UA-0Ma"/>
@@ -175,16 +191,21 @@
                                             <include reference="uFO-da-wWW"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="vX5-nl-Cvf"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU9-4g-413" userLabel="Button(7)">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU9-4g-413" userLabel="Button(7)">
                                     <rect key="frame" x="57" y="244" width="73" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="73" id="FGG-Bz-1XH"/>
                                         <constraint firstAttribute="height" constant="74" id="tv4-Ff-pjd"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="genre_press.png">
+                                    <state key="normal" backgroundImage="genremovie_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="selected" backgroundImage="genremovie_select.png"/>
+                                    <state key="highlighted" backgroundImage="genremovie_press.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="FGG-Bz-1XH"/>
@@ -197,16 +218,21 @@
                                             <include reference="tv4-Ff-pjd"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="2jN-Ff-3Mm"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1i-yA-XQL" userLabel="Button(8)">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1i-yA-XQL" userLabel="Button(8)">
                                     <rect key="frame" x="164" y="244" width="73" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="qhZ-ct-USZ"/>
                                         <constraint firstAttribute="width" constant="73" id="uoq-Sf-jKC"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="genre_press.png">
+                                    <state key="normal" backgroundImage="genredrama_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="selected" backgroundImage="genredrama_select.png"/>
+                                    <state key="highlighted" backgroundImage="genredrama_press.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="qhZ-ct-USZ"/>
@@ -220,16 +246,21 @@
                                             <include reference="uoq-Sf-jKC"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="iOu-gH-r6u"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-n9-hZh" userLabel="Button(9)">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-n9-hZh" userLabel="Button(9)">
                                     <rect key="frame" x="270" y="244" width="73" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="U0n-Nx-LaH"/>
                                         <constraint firstAttribute="width" constant="73" id="Zt6-4a-VYC"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="genre_press.png">
+                                    <state key="normal" backgroundImage="genreshopping_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="selected" backgroundImage="genreshopping_select.png"/>
+                                    <state key="highlighted" backgroundImage="genreshopping_press.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="U0n-Nx-LaH"/>
@@ -242,16 +273,21 @@
                                             <include reference="Zt6-4a-VYC"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="st6-Zc-OOn"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLh-AS-pDA" userLabel="Button(4)">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLh-AS-pDA" userLabel="Button(4)">
                                     <rect key="frame" x="57" y="138" width="73" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="dYB-hE-FRY"/>
                                         <constraint firstAttribute="width" constant="73" id="lIq-65-mtn"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="genre_press.png">
+                                    <state key="normal" backgroundImage="genresports_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="selected" backgroundImage="genresports_select.png"/>
+                                    <state key="highlighted" backgroundImage="genresports_press.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="dYB-hE-FRY"/>
@@ -264,16 +300,21 @@
                                             <include reference="lIq-65-mtn"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="k9l-pS-82K"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RF-uN-7Ag" userLabel="Button(5)">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RF-uN-7Ag" userLabel="Button(5)">
                                     <rect key="frame" x="163" y="138" width="73" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="73" id="HXP-Mk-kjs"/>
                                         <constraint firstAttribute="height" constant="74" id="yA5-xN-zA0"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="genre_press.png">
+                                    <state key="normal" backgroundImage="genrereligion_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="selected" backgroundImage="genrereligion_select.png"/>
+                                    <state key="highlighted" backgroundImage="genrereligion_press.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="HXP-Mk-kjs"/>
@@ -286,16 +327,21 @@
                                             <include reference="yA5-xN-zA0"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="RAd-eT-Pfx"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezS-gz-LPg" userLabel="Button(6)">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezS-gz-LPg" userLabel="Button(6)">
                                     <rect key="frame" x="270" y="138" width="73" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="73" id="13f-fS-AL9"/>
                                         <constraint firstAttribute="height" constant="74" id="ZN1-uX-uKI"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="genre_press.png">
+                                    <state key="normal" backgroundImage="genrenews_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="selected" backgroundImage="genrenews_select.png"/>
+                                    <state key="highlighted" backgroundImage="genrenews_press.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="13f-fS-AL9"/>
@@ -308,16 +354,21 @@
                                             <include reference="ZN1-uX-uKI"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="xwt-hh-iah"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtT-Hd-Kny" userLabel="Button(2)">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtT-Hd-Kny" userLabel="Button(2)">
                                     <rect key="frame" x="163" y="32" width="73" height="74"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="glo-G7-xgl"/>
                                         <constraint firstAttribute="width" constant="73" id="r7M-Pc-3Z7"/>
                                     </constraints>
-                                    <state key="normal" backgroundImage="genre_press.png">
+                                    <state key="normal" backgroundImage="genreedu_normal.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="selected" backgroundImage="genreedu_select.png"/>
+                                    <state key="highlighted" backgroundImage="genreedu_press.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="glo-G7-xgl"/>
@@ -330,6 +381,9 @@
                                             <include reference="r7M-Pc-3Z7"/>
                                         </mask>
                                     </variation>
+                                    <connections>
+                                        <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="K9D-df-QLr"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -492,13 +546,13 @@
                     <exclude reference="JCQ-Ux-INL"/>
                     <exclude reference="dum-PY-5oR"/>
                     <exclude reference="hoZ-k9-qPa"/>
+                    <exclude reference="Asa-RA-YDP"/>
+                    <exclude reference="XGT-Xm-8XB"/>
+                    <exclude reference="q3r-0f-JDI"/>
                     <exclude reference="SXX-1A-b2m"/>
                     <exclude reference="fDs-DE-n48"/>
                     <exclude reference="gFZ-TT-fIS"/>
                     <exclude reference="hYT-KE-cZV"/>
-                    <exclude reference="Asa-RA-YDP"/>
-                    <exclude reference="XGT-Xm-8XB"/>
-                    <exclude reference="q3r-0f-JDI"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -510,21 +564,46 @@
                     <include reference="JCQ-Ux-INL"/>
                     <include reference="dum-PY-5oR"/>
                     <include reference="hoZ-k9-qPa"/>
+                    <include reference="Asa-RA-YDP"/>
+                    <include reference="XGT-Xm-8XB"/>
+                    <include reference="q3r-0f-JDI"/>
                     <include reference="SXX-1A-b2m"/>
                     <include reference="fDs-DE-n48"/>
                     <include reference="gFZ-TT-fIS"/>
                     <include reference="hYT-KE-cZV"/>
-                    <include reference="Asa-RA-YDP"/>
-                    <include reference="XGT-Xm-8XB"/>
-                    <include reference="q3r-0f-JDI"/>
                 </mask>
             </variation>
         </view>
     </objects>
     <resources>
         <image name="ch_normal.png" width="281" height="46"/>
-        <image name="ch_select.png" width="281" height="46"/>
-        <image name="genre_press.png" width="73" height="74"/>
+        <image name="genredrama_normal.png" width="146" height="147"/>
+        <image name="genredrama_press.png" width="146" height="147"/>
+        <image name="genredrama_select.png" width="146" height="147"/>
+        <image name="genreedu_normal.png" width="146" height="147"/>
+        <image name="genreedu_press.png" width="146" height="147"/>
+        <image name="genreedu_select.png" width="146" height="147"/>
+        <image name="genreentertain_normal.png" width="146" height="147"/>
+        <image name="genreentertain_press.png" width="146" height="147"/>
+        <image name="genreentertaion_select.png" width="146" height="147"/>
+        <image name="genremovie_normal.png" width="146" height="147"/>
+        <image name="genremovie_press.png" width="146" height="147"/>
+        <image name="genremovie_select.png" width="146" height="147"/>
+        <image name="genrenews_normal.png" width="146" height="147"/>
+        <image name="genrenews_press.png" width="146" height="147"/>
+        <image name="genrenews_select.png" width="146" height="147"/>
+        <image name="genreregion_normal.png" width="146" height="147"/>
+        <image name="genreregion_press.png" width="146" height="147"/>
+        <image name="genreregion_select.png" width="146" height="147"/>
+        <image name="genrereligion_normal.png" width="146" height="147"/>
+        <image name="genrereligion_press.png" width="146" height="147"/>
+        <image name="genrereligion_select.png" width="146" height="147"/>
+        <image name="genreshopping_normal.png" width="146" height="147"/>
+        <image name="genreshopping_press.png" width="146" height="147"/>
+        <image name="genreshopping_select.png" width="146" height="147"/>
+        <image name="genresports_normal.png" width="146" height="147"/>
+        <image name="genresports_press.png" width="146" height="147"/>
+        <image name="genresports_select.png" width="146" height="147"/>
         <image name="x.png" width="18" height="18"/>
     </resources>
 </document>

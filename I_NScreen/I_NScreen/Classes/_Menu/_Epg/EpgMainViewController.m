@@ -13,7 +13,7 @@
 @interface EpgMainViewController ()
 
 @property (nonatomic, strong) NSMutableArray *pListDataArr;
-
+@property (nonatomic) int nGenreCode;
 @end
 
 @implementation EpgMainViewController
@@ -52,7 +52,7 @@
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
-
+    self.nGenreCode = 0;    // 초기값 전체
 }
 
 #pragma mark - 데이터 초기화
@@ -72,7 +72,8 @@
         {
             // 팝업 뷰
             EpgPopUpViewController *pViewController = [[EpgPopUpViewController alloc] initWithNibName:@"EpgPopUpViewController" bundle:nil];
-//            [self.navigationController pushViewController:pViewController animated:NO];
+            pViewController.delegate = self;
+            pViewController.nGenreCode = self.nGenreCode;
             pViewController.view.frame = self.view.bounds;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
@@ -129,9 +130,7 @@
 #pragma mark - 체널 리스트 전문
 - (void)requestWithChannelListWithGenreCode:(NSString *)genreCode
 {
-    NSString *sAreaCode = @"0";
-    
-    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:sAreaCode WithGenreCode:genreCode completion:^(NSArray *epgs, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:CNM_AREA_CODE WithGenreCode:genreCode completion:^(NSArray *epgs, NSError *error) {
         
         
         DDLogError(@"epg = [%@]", epgs);
@@ -146,6 +145,39 @@
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 댈라개아트
+#pragma mark - EpgPopUpViewController 델리게이트
+- (void)EpgPopUpViewReloadWithGenre:(NSDictionary *)genreDic WithTag:(int)nTag
+{
+    self.nGenreCode = nTag;
+    
+    if ( [genreDic count] == 0 )
+    {
+        if ( nTag == 0 )
+        {
+            // 전체 채널
+            [self.pPopUpBtn setTitle:@"전체채널" forState:UIControlStateNormal];
+            [self requestWithChannelListWithGenreCode:@"1"];    // 전체는 머지
+        }
+        else
+        {
+            // 선호 채널
+            [self.pPopUpBtn setTitle:@"선호채널" forState:UIControlStateNormal];
+        }
+        
+    }
+    else
+    {
+        NSString *sGenreName = [NSString stringWithFormat:@"%@", [genreDic objectForKey:@"genreName"]];
+        NSString *sGenreCode = [NSString stringWithFormat:@"%@", [genreDic objectForKey:@"genreCode"]];
+        
+        [self.pPopUpBtn setTitle:sGenreName forState:UIControlStateNormal];
+        [self requestWithChannelListWithGenreCode:sGenreCode];
+    }
+    
+    
 }
 
 @end

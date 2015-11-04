@@ -13,8 +13,8 @@
 // http://58.141.255.69:8080/nscreen/getChannelList.xml?version=1&areaCode=0&genreCode=1 전체는 머지??
 + (NSURLSessionDataTask *)epgGetChannelListAreaCode:(NSString *)areaCode WithGenreCode:(NSString *)genreCode completion:(void (^)(NSArray *epgs, NSError *error))block;
 
-// http://58.141.255.69:8080/nscreen/getChannelGenre.xml?version=1
-+ (NSURLSessionDataTask *)epgGetChannelGenreCompletion:(void (^)(NSArray *epgs, NSError *error))block;
+//http://58.141.255.69:8080/nscreen/getChannelGenre.xml?version=1&areaCode=0
++ (NSURLSessionDataTask *)epgGetChannelGenreAreCode:(NSString *)arecode Completion:(void (^)(NSArray *epgs, NSError *error))block;
 
 // http://58.141.255.69:8080/nscreen/getChannelArea.xml?version=1
 + (NSURLSessionDataTask *)epgGetChannelAreaCompletion:(void (^)(NSArray *epgs, NSError *error))block;

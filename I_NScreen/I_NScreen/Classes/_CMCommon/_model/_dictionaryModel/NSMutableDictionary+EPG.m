@@ -16,9 +16,9 @@
     return [[CMNetworkManager sharedInstance] epgGetChannelListAreaCode:areaCode WithGenreCode:genreCode block:block];
 }
 
-+ (NSURLSessionDataTask *)epgGetChannelGenreCompletion:(void (^)(NSArray *epgs, NSError *error))block
++ (NSURLSessionDataTask *)epgGetChannelGenreAreCode:(NSString *)arecode Completion:(void (^)(NSArray *epgs, NSError *error))block
 {
-    return [[CMNetworkManager sharedInstance] epgGetChannelGenreBlock:block];
+    return [[CMNetworkManager sharedInstance] epgGetChannelGenreArecode:arecode block:block];
 }
 
 + (NSURLSessionDataTask *)epgGetChannelAreaCompletion:(void (^)(NSArray *epgs, NSError *error))block
