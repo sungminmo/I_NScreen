@@ -677,9 +677,9 @@
 
 - (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
 {
-    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-    pViewController.pAssetIdStr = assetId;
-    [self.navigationController pushViewController:pViewController animated:YES];
+//    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+//    pViewController.pAssetIdStr = assetId;
+//    [self.navigationController pushViewController:pViewController animated:YES];
     
 //        TestPageViewController *pViewController = [[TestPageViewController alloc] initWithNibName:@"TestPageViewController" bundle:nil];
 ////        pViewController.pAssetIdStr = assetId;

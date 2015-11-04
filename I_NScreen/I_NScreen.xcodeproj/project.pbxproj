@@ -143,8 +143,6 @@
 		E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57042891BDF407F00057D10 /* PairingRePwViewController.m */; };
 		E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */; };
 		E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */ = {isa = PBXBuildFile; fileRef = E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */; };
-		E581E3901BE07946007B8DB7 /* VodDetailMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E581E38E1BE07946007B8DB7 /* VodDetailMainViewController.m */; };
-		E581E3911BE07946007B8DB7 /* VodDetailMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E581E38F1BE07946007B8DB7 /* VodDetailMainViewController.xib */; };
 		E58C6AF61BE261660024405D /* CMContentGroupCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF41BE261660024405D /* CMContentGroupCollectionViewController.m */; };
 		E58C6AF71BE261660024405D /* CMContentGroupCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AF51BE261660024405D /* CMContentGroupCollectionViewController.xib */; };
 		E58C6AFB1BE261BB0024405D /* CMContentGroupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */; };
@@ -764,10 +762,7 @@
 		E5BE920A1BD65F7100970E16 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92081BD65F7100970E16 /* CategoryTableViewCell.xib */; };
 		E5BFB4C21BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB4C11BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m */; settings = {ASSET_TAGS = (); }; };
 		E5BFB4C51BEA2375003262D0 /* NSMutableDictionary+MyC_M.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB4C41BEA2375003262D0 /* NSMutableDictionary+MyC_M.m */; settings = {ASSET_TAGS = (); }; };
-		E5C5844E1BE31EC100276EC6 /* libWViPhoneAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C5844C1BE31EC100276EC6 /* libWViPhoneAPI.a */; };
 		E5C584521BE33A0E00276EC6 /* NSMutableDictionary+DRM.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */; };
-		E5C584571BE34F4400276EC6 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584551BE34F4400276EC6 /* PlayerViewController.m */; };
-		E5C584581BE34F4400276EC6 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C584561BE34F4400276EC6 /* PlayerViewController.xib */; };
 		E5D27FE21BE75E6B004ACEB4 /* MovieMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D27FE01BE75E6B004ACEB4 /* MovieMainTableViewCell.m */; };
 		E5D27FE31BE75E6B004ACEB4 /* MovieMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D27FE11BE75E6B004ACEB4 /* MovieMainTableViewCell.xib */; };
 		E5DA6AD21BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */; };
@@ -1037,9 +1032,6 @@
 		E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingRePwViewController.xib; path = _Pairing/PairingRePwViewController.xib; sourceTree = "<group>"; };
 		E570428D1BDF5B3E00057D10 /* NSMutableDictionary+PVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PVR.h"; sourceTree = "<group>"; };
 		E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PVR.m"; sourceTree = "<group>"; };
-		E581E38D1BE07946007B8DB7 /* VodDetailMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VodDetailMainViewController.h; path = _Home/_VodDetail/VodDetailMainViewController.h; sourceTree = "<group>"; };
-		E581E38E1BE07946007B8DB7 /* VodDetailMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VodDetailMainViewController.m; path = _Home/_VodDetail/VodDetailMainViewController.m; sourceTree = "<group>"; };
-		E581E38F1BE07946007B8DB7 /* VodDetailMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VodDetailMainViewController.xib; path = _Home/_VodDetail/VodDetailMainViewController.xib; sourceTree = "<group>"; };
 		E58C6AF31BE261660024405D /* CMContentGroupCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMContentGroupCollectionViewController.h; sourceTree = "<group>"; };
 		E58C6AF41BE261660024405D /* CMContentGroupCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMContentGroupCollectionViewController.m; sourceTree = "<group>"; };
 		E58C6AF51BE261660024405D /* CMContentGroupCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMContentGroupCollectionViewController.xib; sourceTree = "<group>"; };
@@ -1681,13 +1673,8 @@
 		E5BFB4C11BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+REMOCON.m"; sourceTree = "<group>"; };
 		E5BFB4C31BEA2374003262D0 /* NSMutableDictionary+MyC_M.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+MyC_M.h"; sourceTree = "<group>"; };
 		E5BFB4C41BEA2375003262D0 /* NSMutableDictionary+MyC_M.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+MyC_M.m"; sourceTree = "<group>"; };
-		E5C5844C1BE31EC100276EC6 /* libWViPhoneAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWViPhoneAPI.a; path = _drmLb/libWViPhoneAPI.a; sourceTree = "<group>"; };
-		E5C5844D1BE31EC100276EC6 /* WViPhoneAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WViPhoneAPI.h; path = _drmLb/WViPhoneAPI.h; sourceTree = "<group>"; };
 		E5C584501BE33A0E00276EC6 /* NSMutableDictionary+DRM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+DRM.h"; sourceTree = "<group>"; };
 		E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+DRM.m"; sourceTree = "<group>"; };
-		E5C584541BE34F4400276EC6 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = _Home/_VodDetail/_Sub/PlayerViewController.h; sourceTree = "<group>"; };
-		E5C584551BE34F4400276EC6 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerViewController.m; path = _Home/_VodDetail/_Sub/PlayerViewController.m; sourceTree = "<group>"; };
-		E5C584561BE34F4400276EC6 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerViewController.xib; path = _Home/_VodDetail/_Sub/PlayerViewController.xib; sourceTree = "<group>"; };
 		E5D27FDF1BE75E6B004ACEB4 /* MovieMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieMainTableViewCell.h; path = _Home/_Movie/_Cell/MovieMainTableViewCell.h; sourceTree = "<group>"; };
 		E5D27FE01BE75E6B004ACEB4 /* MovieMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieMainTableViewCell.m; path = _Home/_Movie/_Cell/MovieMainTableViewCell.m; sourceTree = "<group>"; };
 		E5D27FE11BE75E6B004ACEB4 /* MovieMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MovieMainTableViewCell.xib; path = _Home/_Movie/_Cell/MovieMainTableViewCell.xib; sourceTree = "<group>"; };
@@ -1736,7 +1723,6 @@
 				E5E418661BE1AE6000B4DAB3 /* libresolv.tbd in Frameworks */,
 				E5E418651BE1AE5800B4DAB3 /* libxml2.tbd in Frameworks */,
 				E5E418641BE1AE4900B4DAB3 /* libc++.tbd in Frameworks */,
-				E5C5844E1BE31EC100276EC6 /* libWViPhoneAPI.a in Frameworks */,
 				E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */,
 				992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */,
 				564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */,
@@ -2336,17 +2322,6 @@
 			name = _Cell;
 			sourceTree = "<group>";
 		};
-		E581E38C1BE07915007B8DB7 /* _VodDetail */ = {
-			isa = PBXGroup;
-			children = (
-				E5C584531BE34F1000276EC6 /* _Sub */,
-				E581E38D1BE07946007B8DB7 /* VodDetailMainViewController.h */,
-				E581E38E1BE07946007B8DB7 /* VodDetailMainViewController.m */,
-				E581E38F1BE07946007B8DB7 /* VodDetailMainViewController.xib */,
-			);
-			name = _VodDetail;
-			sourceTree = "<group>";
-		};
 		E599052A1BE77A7C00B5948E /* _Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2370,8 +2345,6 @@
 		E5A6E2F01BDDBBAE005AC701 /* _drmLb */ = {
 			isa = PBXGroup;
 			children = (
-				E5C5844C1BE31EC100276EC6 /* libWViPhoneAPI.a */,
-				E5C5844D1BE31EC100276EC6 /* WViPhoneAPI.h */,
 			);
 			name = _drmLb;
 			sourceTree = "<group>";
@@ -3305,16 +3278,6 @@
 			name = _Cell;
 			sourceTree = "<group>";
 		};
-		E5C584531BE34F1000276EC6 /* _Sub */ = {
-			isa = PBXGroup;
-			children = (
-				E5C584541BE34F4400276EC6 /* PlayerViewController.h */,
-				E5C584551BE34F4400276EC6 /* PlayerViewController.m */,
-				E5C584561BE34F4400276EC6 /* PlayerViewController.xib */,
-			);
-			name = _Sub;
-			sourceTree = "<group>";
-		};
 		E5D27FDE1BE75E48004ACEB4 /* _Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -3329,7 +3292,6 @@
 			isa = PBXGroup;
 			children = (
 				E5E418801BE1E0A500B4DAB3 /* _TestPage */,
-				E581E38C1BE07915007B8DB7 /* _VodDetail */,
 				E5B5554C1BD9DFB400AA02B2 /* _TVReplay */,
 				E5DE64A01BCB4C8100FC3122 /* _Adult */,
 				E5DE649E1BCB4BFF00FC3122 /* _AniKids */,
@@ -4155,7 +4117,6 @@
 				E5B554631BD9DD3F00AA02B2 /* icon_menu_remotecontrol@2x.png in Resources */,
 				E5B553961BD9DD3F00AA02B2 /* allch.png in Resources */,
 				E5B554901BD9DD3F00AA02B2 /* genreall_press@3x.png in Resources */,
-				E581E3911BE07946007B8DB7 /* VodDetailMainViewController.xib in Resources */,
 				E5B554C61BD9DD3F00AA02B2 /* icon_chpick@3x.png in Resources */,
 				E5B554FF1BD9DD3F00AA02B2 /* p2btn_cancel_press@3x.png in Resources */,
 				E5B554B51BD9DD3F00AA02B2 /* normaldot@3x.png in Resources */,
@@ -4217,7 +4178,6 @@
 				E5B553391BD9DD3F00AA02B2 /* genreshopping_normal.png in Resources */,
 				E5A6E3421BDE1CC2005AC701 /* camera.png in Resources */,
 				E5B553761BD9DD3F00AA02B2 /* ch_select.png in Resources */,
-				E5C584581BE34F4400276EC6 /* PlayerViewController.xib in Resources */,
 				E5B554B11BD9DD3F00AA02B2 /* genresports_press@3x.png in Resources */,
 				E5B554F41BD9DD3F00AA02B2 /* fp2btn_ok_press@3x.png in Resources */,
 				E5B555311BD9DD3F00AA02B2 /* 4depth_select@3x.png in Resources */,
@@ -4290,12 +4250,10 @@
 				E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */,
 				20989CDE1BC7934F009C4418 /* CMCustomNumberPadView.m in Sources */,
 				99478D361BAD4CF200CC99E9 /* CMColor.m in Sources */,
-				E5C584571BE34F4400276EC6 /* PlayerViewController.m in Sources */,
 				99366ACC1BBA66D00082F8D4 /* CMNoticeTableViewCell.m in Sources */,
 				99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */,
 				E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */,
 				2086CDA01BBA24B50065726E /* CMPreferenceMainTableViewCell.m in Sources */,
-				E581E3901BE07946007B8DB7 /* VodDetailMainViewController.m in Sources */,
 				E5DE64BD1BCB4E3300FC3122 /* AniKidsMainViewController.m in Sources */,
 				E5B555561BD9F1D800AA02B2 /* PairingMainViewController.m in Sources */,
 				20AC73311BE49CFA00B7E7EF /* CMDateScrollView.m in Sources */,

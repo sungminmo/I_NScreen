@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
 #import "AnikidsMainTableViewCell.h"
-#import "VodDetailMainViewController.h"
+//#import "VodDetailMainViewController.h"
 
 @protocol AniKidsMainViewDelegate;
 

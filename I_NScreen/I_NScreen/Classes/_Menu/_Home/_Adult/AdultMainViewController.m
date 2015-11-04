@@ -484,9 +484,9 @@
 
 - (void)AdultMainTableViewCellBtnClicked:(int)nTag WithSelect:(int)nSelect WithAssetId:(NSString *)assetId
 {
-    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-    pViewController.pAssetIdStr = assetId;
-    [self.navigationController pushViewController:pViewController animated:YES];
+//    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+//    pViewController.pAssetIdStr = assetId;
+//    [self.navigationController pushViewController:pViewController animated:YES];
 
 }
 
