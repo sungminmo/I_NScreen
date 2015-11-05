@@ -5,34 +5,34 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoviePopUpViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainPopUpViewController">
             <connections>
-                <outlet property="pBgBtn" destination="wDL-Lx-uv7" id="IC6-6J-sis"/>
-                <outlet property="pTableView" destination="tmv-Rl-IxU" id="4ZM-y6-rMg"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="pBgBtn" destination="yKC-ps-vnY" id="MaB-3R-vdn"/>
+                <outlet property="pTableView" destination="7Fj-Zp-Q3T" id="pUF-g5-0ZX"/>
+                <outlet property="view" destination="ZW0-PR-aux" id="4xp-ZX-hKb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ZW0-PR-aux">
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxH-fg-YbC">
+                <view alpha="0.60000002384185791" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-tn-qT7">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDL-Lx-uv7">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKC-ps-vnY">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <connections>
-                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="hOY-85-BpL"/>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="A4F-Tf-QjQ"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tmv-Rl-IxU">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Fj-Zp-Q3T">
                     <rect key="frame" x="26" y="74" width="362" height="588"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="4ij-Dz-U4L"/>
-                        <outlet property="delegate" destination="-1" id="J4M-9D-ypv"/>
+                        <outlet property="dataSource" destination="-1" id="AFc-da-hnw"/>
+                        <outlet property="delegate" destination="-1" id="SDG-JA-smm"/>
                     </connections>
                 </tableView>
             </subviews>

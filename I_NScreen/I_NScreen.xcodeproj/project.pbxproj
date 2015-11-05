@@ -119,10 +119,6 @@
 		E52EE5861BD50AD100797251 /* RemoconMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE5841BD50AD100797251 /* RemoconMainViewController.xib */; };
 		E52EE58B1BD50E5400797251 /* RemoconMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52EE5891BD50E5400797251 /* RemoconMainTableViewCell.m */; };
 		E52EE58C1BD50E5400797251 /* RemoconMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52EE58A1BD50E5400797251 /* RemoconMainTableViewCell.xib */; };
-		E54CC09B1BCC9F8E003806C0 /* MoviePopUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */; };
-		E54CC09C1BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */; };
-		E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0991BCC9F8E003806C0 /* MoviePopUpViewController.m */; };
-		E54CC09E1BCC9F8E003806C0 /* MoviePopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54CC09A1BCC9F8E003806C0 /* MoviePopUpViewController.xib */; };
 		E54CC0A11BCC9F9A003806C0 /* TreeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0A01BCC9F9A003806C0 /* TreeListModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E54CC0AE1BCCA0C6003806C0 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0A51BCCA0C6003806C0 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E54CC0AF1BCCA0C6003806C0 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0A71BCCA0C6003806C0 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -756,6 +752,10 @@
 		E5B555511BD9E00400AA02B2 /* TVReplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B5554F1BD9E00400AA02B2 /* TVReplayViewController.xib */; };
 		E5B555561BD9F1D800AA02B2 /* PairingMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B555541BD9F1D800AA02B2 /* PairingMainViewController.m */; };
 		E5B555571BD9F1D800AA02B2 /* PairingMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B555551BD9F1D800AA02B2 /* PairingMainViewController.xib */; };
+		E5B8BB941BEB12E200B4C3B0 /* MainPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B8BB921BEB12E200B4C3B0 /* MainPopUpViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5B8BB951BEB12E200B4C3B0 /* MainPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B8BB931BEB12E200B4C3B0 /* MainPopUpViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5B8BB991BEB12FF00B4C3B0 /* MainPopUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B8BB971BEB12FF00B4C3B0 /* MainPopUpTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		E5B8BB9A1BEB12FF00B4C3B0 /* MainPopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B8BB981BEB12FF00B4C3B0 /* MainPopUpTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		E5BE92041BD65F5A00970E16 /* BannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE92021BD65F5A00970E16 /* BannerTableViewCell.m */; };
 		E5BE92051BD65F5A00970E16 /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BE92031BD65F5A00970E16 /* BannerTableViewCell.xib */; };
 		E5BE92091BD65F7100970E16 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BE92071BD65F7100970E16 /* CategoryTableViewCell.m */; };
@@ -992,12 +992,6 @@
 		E52EE5881BD50E5400797251 /* RemoconMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoconMainTableViewCell.h; path = _Remocon/_Cell/RemoconMainTableViewCell.h; sourceTree = "<group>"; };
 		E52EE5891BD50E5400797251 /* RemoconMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoconMainTableViewCell.m; path = _Remocon/_Cell/RemoconMainTableViewCell.m; sourceTree = "<group>"; };
 		E52EE58A1BD50E5400797251 /* RemoconMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RemoconMainTableViewCell.xib; path = _Remocon/_Cell/RemoconMainTableViewCell.xib; sourceTree = "<group>"; };
-		E54CC0951BCC9F8E003806C0 /* MoviePopUpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePopUpTableViewCell.h; sourceTree = "<group>"; };
-		E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePopUpTableViewCell.m; sourceTree = "<group>"; };
-		E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviePopUpTableViewCell.xib; sourceTree = "<group>"; };
-		E54CC0981BCC9F8E003806C0 /* MoviePopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePopUpViewController.h; sourceTree = "<group>"; };
-		E54CC0991BCC9F8E003806C0 /* MoviePopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePopUpViewController.m; sourceTree = "<group>"; };
-		E54CC09A1BCC9F8E003806C0 /* MoviePopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviePopUpViewController.xib; sourceTree = "<group>"; };
 		E54CC09F1BCC9F9A003806C0 /* TreeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeListModel.h; sourceTree = "<group>"; };
 		E54CC0A01BCC9F9A003806C0 /* TreeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeListModel.m; sourceTree = "<group>"; };
 		E54CC0A31BCCA0C6003806C0 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -1663,6 +1657,12 @@
 		E5B555531BD9F1D800AA02B2 /* PairingMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PairingMainViewController.h; path = _Pairing/PairingMainViewController.h; sourceTree = "<group>"; };
 		E5B555541BD9F1D800AA02B2 /* PairingMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PairingMainViewController.m; path = _Pairing/PairingMainViewController.m; sourceTree = "<group>"; };
 		E5B555551BD9F1D800AA02B2 /* PairingMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingMainViewController.xib; path = _Pairing/PairingMainViewController.xib; sourceTree = "<group>"; };
+		E5B8BB911BEB12E200B4C3B0 /* MainPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPopUpViewController.h; path = _Home/_PopUp/MainPopUpViewController.h; sourceTree = "<group>"; };
+		E5B8BB921BEB12E200B4C3B0 /* MainPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPopUpViewController.m; path = _Home/_PopUp/MainPopUpViewController.m; sourceTree = "<group>"; };
+		E5B8BB931BEB12E200B4C3B0 /* MainPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainPopUpViewController.xib; path = _Home/_PopUp/MainPopUpViewController.xib; sourceTree = "<group>"; };
+		E5B8BB961BEB12FF00B4C3B0 /* MainPopUpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPopUpTableViewCell.h; path = _Home/_PopUp/_Cell/MainPopUpTableViewCell.h; sourceTree = "<group>"; };
+		E5B8BB971BEB12FF00B4C3B0 /* MainPopUpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPopUpTableViewCell.m; path = _Home/_PopUp/_Cell/MainPopUpTableViewCell.m; sourceTree = "<group>"; };
+		E5B8BB981BEB12FF00B4C3B0 /* MainPopUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainPopUpTableViewCell.xib; path = _Home/_PopUp/_Cell/MainPopUpTableViewCell.xib; sourceTree = "<group>"; };
 		E5BE92011BD65F5A00970E16 /* BannerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BannerTableViewCell.h; path = _Home/_Recommend/_Cell/BannerTableViewCell.h; sourceTree = "<group>"; };
 		E5BE92021BD65F5A00970E16 /* BannerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BannerTableViewCell.m; path = _Home/_Recommend/_Cell/BannerTableViewCell.m; sourceTree = "<group>"; };
 		E5BE92031BD65F5A00970E16 /* BannerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BannerTableViewCell.xib; path = _Home/_Recommend/_Cell/BannerTableViewCell.xib; sourceTree = "<group>"; };
@@ -2253,28 +2253,6 @@
 				E52EE58A1BD50E5400797251 /* RemoconMainTableViewCell.xib */,
 			);
 			name = _Cell;
-			sourceTree = "<group>";
-		};
-		E54CC0931BCC9F8E003806C0 /* _PopUp */ = {
-			isa = PBXGroup;
-			children = (
-				E54CC0941BCC9F8E003806C0 /* _Cell */,
-				E54CC0981BCC9F8E003806C0 /* MoviePopUpViewController.h */,
-				E54CC0991BCC9F8E003806C0 /* MoviePopUpViewController.m */,
-				E54CC09A1BCC9F8E003806C0 /* MoviePopUpViewController.xib */,
-			);
-			name = _PopUp;
-			path = _Home/_Movie/_PopUp;
-			sourceTree = "<group>";
-		};
-		E54CC0941BCC9F8E003806C0 /* _Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E54CC0951BCC9F8E003806C0 /* MoviePopUpTableViewCell.h */,
-				E54CC0961BCC9F8E003806C0 /* MoviePopUpTableViewCell.m */,
-				E54CC0971BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib */,
-			);
-			path = _Cell;
 			sourceTree = "<group>";
 		};
 		E54CC0A21BCCA0C6003806C0 /* _sbjson */ = {
@@ -3265,6 +3243,27 @@
 			name = _Pairing;
 			sourceTree = "<group>";
 		};
+		E5B8BB8A1BEB126200B4C3B0 /* _PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				E5B8BB901BEB12AF00B4C3B0 /* _Cell */,
+				E5B8BB911BEB12E200B4C3B0 /* MainPopUpViewController.h */,
+				E5B8BB921BEB12E200B4C3B0 /* MainPopUpViewController.m */,
+				E5B8BB931BEB12E200B4C3B0 /* MainPopUpViewController.xib */,
+			);
+			name = _PopUp;
+			sourceTree = "<group>";
+		};
+		E5B8BB901BEB12AF00B4C3B0 /* _Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E5B8BB961BEB12FF00B4C3B0 /* MainPopUpTableViewCell.h */,
+				E5B8BB971BEB12FF00B4C3B0 /* MainPopUpTableViewCell.m */,
+				E5B8BB981BEB12FF00B4C3B0 /* MainPopUpTableViewCell.xib */,
+			);
+			name = _Cell;
+			sourceTree = "<group>";
+		};
 		E5BE92001BD65F1D00970E16 /* _Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -3291,6 +3290,7 @@
 		E5DE649B1BCB4BC200FC3122 /* _Home */ = {
 			isa = PBXGroup;
 			children = (
+				E5B8BB8A1BEB126200B4C3B0 /* _PopUp */,
 				E5E418801BE1E0A500B4DAB3 /* _TestPage */,
 				E5B5554C1BD9DFB400AA02B2 /* _TVReplay */,
 				E5DE64A01BCB4C8100FC3122 /* _Adult */,
@@ -3319,7 +3319,6 @@
 				E5DE64BF1BCB4E4400FC3122 /* MovieMainViewController.h */,
 				E5DE64C01BCB4E4400FC3122 /* MovieMainViewController.m */,
 				E5DE64C11BCB4E4400FC3122 /* MovieMainViewController.xib */,
-				E54CC0931BCC9F8E003806C0 /* _PopUp */,
 			);
 			name = _Movie;
 			sourceTree = "<group>";
@@ -3654,7 +3653,6 @@
 				E5B5540B1BD9DD3F00AA02B2 /* hd@2x.png in Resources */,
 				E5B5532C1BD9DD3F00AA02B2 /* genremovie_select.png in Resources */,
 				E5B555351BD9DD3F00AA02B2 /* bullet_3depth@3x.png in Resources */,
-				E54CC09C1BCC9F8E003806C0 /* MoviePopUpTableViewCell.xib in Resources */,
 				E5B553EE1BD9DD3F00AA02B2 /* genreregion_normal@2x.png in Resources */,
 				E5B5541C1BD9DD3F00AA02B2 /* icon_rec@2x.png in Resources */,
 				E5B555251BD9DD3F00AA02B2 /* icon_pairing_before@3x.png in Resources */,
@@ -3674,6 +3672,7 @@
 				E5B5536F1BD9DD3F00AA02B2 /* 3btn_normal.png in Resources */,
 				E5B5545D1BD9DD3F00AA02B2 /* icon_check@2x.png in Resources */,
 				E5B5546B1BD9DD3F00AA02B2 /* icon_qlist_press@2x.png in Resources */,
+				E5B8BB951BEB12E200B4C3B0 /* MainPopUpViewController.xib in Resources */,
 				E5B554EF1BD9DD3F00AA02B2 /* fp1btn_ok_normal@3x.png in Resources */,
 				E5B554DA1BD9DD3F00AA02B2 /* icon_startext@3x.png in Resources */,
 				E5B553621BD9DD3F00AA02B2 /* icon_recrsv.png in Resources */,
@@ -3697,7 +3696,6 @@
 				E5A923121BD13AAA0076AF97 /* CMPageCollectionViewCell.xib in Resources */,
 				E5B5539A1BD9DD3F00AA02B2 /* volumedown_normal.png in Resources */,
 				E5B554361BD9DD3F00AA02B2 /* fp2btn_cancel_normal@2x.png in Resources */,
-				E54CC09E1BCC9F8E003806C0 /* MoviePopUpViewController.xib in Resources */,
 				E5B554F91BD9DD3F00AA02B2 /* longselect@3x.png in Resources */,
 				E5A6E34B1BDE1CC2005AC701 /* mail@2x.png in Resources */,
 				E5B554611BD9DD3F00AA02B2 /* icon_menu_myc_m@2x.png in Resources */,
@@ -3825,6 +3823,7 @@
 				E5B553551BD9DD3F00AA02B2 /* icon_couponpay.png in Resources */,
 				E5B5537D1BD9DD3F00AA02B2 /* fp2btn_ok_normal.png in Resources */,
 				E5B553AD1BD9DD3F00AA02B2 /* icon_pairing_before.png in Resources */,
+				E5B8BB9A1BEB12FF00B4C3B0 /* MainPopUpTableViewCell.xib in Resources */,
 				99EA17E31BC0D1E6005A958C /* CMTermsViewController.xib in Resources */,
 				E5B554081BD9DD3F00AA02B2 /* bigunpic@2x.png in Resources */,
 				E5B553C71BD9DD3F00AA02B2 /* seriesno_indicator_l.png in Resources */,
@@ -4277,13 +4276,13 @@
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
 				208729AF1BBB90E5009601A4 /* CMTextField.m in Sources */,
 				E54CC0B11BCCA0C6003806C0 /* SBJsonParser.m in Sources */,
+				E5B8BB941BEB12E200B4C3B0 /* MainPopUpViewController.m in Sources */,
 				99C43C551BA3EDA10035A0A4 /* NSMutableDictionary+Merge.m in Sources */,
 				E52EE5791BD508AF00797251 /* PvrMainTableViewCell.m in Sources */,
 				E58C6AF61BE261660024405D /* CMContentGroupCollectionViewController.m in Sources */,
 				E5C584521BE33A0E00276EC6 /* NSMutableDictionary+DRM.m in Sources */,
 				E5E5A2B91BD78A6500A99883 /* TestMainViewController.m in Sources */,
 				E54CC0AF1BCCA0C6003806C0 /* NSString+SBJSON.m in Sources */,
-				E54CC09D1BCC9F8E003806C0 /* MoviePopUpViewController.m in Sources */,
 				E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */,
 				99E9EDAC1BBA26B5002FEBF0 /* CMPaytvListViewController.m in Sources */,
 				E54CC0B21BCCA0C6003806C0 /* SBJsonWriter.m in Sources */,
@@ -4317,12 +4316,12 @@
 				99C43C601BA3EDA10035A0A4 /* CMAppManager.m in Sources */,
 				E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */,
 				99C43C071BA3ED980035A0A4 /* main.m in Sources */,
-				E54CC09B1BCC9F8E003806C0 /* MoviePopUpTableViewCell.m in Sources */,
 				99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */,
 				E5BE92091BD65F7100970E16 /* CategoryTableViewCell.m in Sources */,
 				E5567BAC1BA93A7E00AB4003 /* MyCMMainViewController.m in Sources */,
 				E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */,
 				E5BFB4C51BEA2375003262D0 /* NSMutableDictionary+MyC_M.m in Sources */,
+				E5B8BB991BEB12FF00B4C3B0 /* MainPopUpTableViewCell.m in Sources */,
 				99ECD5871BD5188B00EABA67 /* NSMutableDictionary+VOD.m in Sources */,
 				99ECD58A1BD5188B00EABA67 /* CMPurchaseAuthorize.m in Sources */,
 				E52EE58B1BD50E5400797251 /* RemoconMainTableViewCell.m in Sources */,

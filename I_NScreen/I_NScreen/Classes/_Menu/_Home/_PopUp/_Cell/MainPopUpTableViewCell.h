@@ -1,21 +1,21 @@
 //
-//  MoviePopUpTableViewCell.h
+//  MainPopUpTableViewCell.h
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 13..
+//  Created by JUNG KIL BAE on 2015. 11. 5..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@protocol MoviePopUpTableViewCellDelegate;
+@protocol MainPopUpTableViewCellDelegate;
 
-@interface MoviePopUpTableViewCell : UITableViewCell
+@interface MainPopUpTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *pTitleLbl;
 @property (nonatomic, weak) IBOutlet UIImageView *pArrowImgView;
 @property (nonatomic, strong) NSDictionary *pDic;
-@property (nonatomic, weak) id <MoviePopUpTableViewCellDelegate>delegate;
+@property (nonatomic, weak) id <MainPopUpTableViewCellDelegate>delegate;
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithOpen:(BOOL)isOpen;
 
@@ -23,9 +23,9 @@
 
 @end
 
-@protocol MoviePopUpTableViewCellDelegate <NSObject>
+@protocol MainPopUpTableViewCellDelegate <NSObject>
 
 @optional
-- (void)MoviePopUpTableViewCellData:(NSDictionary *)dic;
+- (void)MainPopUpTableViewCellData:(NSDictionary *)dic;
 
 @end

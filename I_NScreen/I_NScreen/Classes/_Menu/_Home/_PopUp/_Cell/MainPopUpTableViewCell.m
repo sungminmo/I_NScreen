@@ -1,14 +1,14 @@
 //
-//  MoviePopUpTableViewCell.m
+//  MainPopUpTableViewCell.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 13..
+//  Created by JUNG KIL BAE on 2015. 11. 5..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "MoviePopUpTableViewCell.h"
+#import "MainPopUpTableViewCell.h"
 
-@implementation MoviePopUpTableViewCell
+@implementation MainPopUpTableViewCell
 @synthesize pTitleLbl, pArrowImgView;
 @synthesize delegate;
 
@@ -50,7 +50,7 @@
 
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    [self.delegate MoviePopUpTableViewCellData:self.pDic];
+    [self.delegate MainPopUpTableViewCellData:self.pDic];
 }
 
 @end

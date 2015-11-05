@@ -16,17 +16,17 @@
 #import "AniKidsMainViewController.h"
 #import "MovieMainViewController.h"
 #import "RecommendMainViewController.h"
-#import "MoviePopUpViewController.h"
 #import "PvrMainViewController.h"
 #import "RemoconMainViewController.h"
 #import "TestMainViewController.h"
 #import "TVReplayViewController.h"
 #import "PairingMainViewController.h"
 #import "PairingRePwViewController.h"
+#import "MainPopUpViewController.h"
 
 @protocol RootViewDelegate;
 
-@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MoviePopUpViewDelegate, AniKidsMainViewDelegate, AdultMainViewDelegate, TVReplayViewDelegate>
+@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MainPopUpViewDelegate, AniKidsMainViewDelegate, AdultMainViewDelegate, TVReplayViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pGnbView;
 @property (nonatomic, strong) IBOutlet UIView *pBodyView;

@@ -243,33 +243,11 @@
 }
 
 #pragma mark - 델리게이트
-#pragma mark - MovieMainViewController 델리게이트
-- (void) MovieMainViewWithBtnTag:(int)nTag
-{
-    switch (nTag) {
-        case MOVIE_MAIN_VIEW_BTN_01:
-        {
-            MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
-            pViewController.delegate = self;
-//            pViewController.pDataStr = str;
-            pViewController.nViewTag = MOVIE_MAIN_VIEW_BTN_01;
-            [self addChildViewController:pViewController];
-            [pViewController didMoveToParentViewController:self];
-            [self.view addSubview:pViewController.view];
-        }break;
-    }
-}
-
-#pragma mark - MoviePopUpViewController 델리게이트
-- (void)MoviePopUpViewWithBtnTag:(int)nTag
-{
-    
-}
-
-- (void)MoviePopUpViewWithBtnData:(NSDictionary *)dataDic WithViewTag:(int)viewTag
+#pragma mark - MainPopUpViewController 델리게이트
+- (void)MainPopUpViewWithBtnData:(NSDictionary *)dataDic WithViewTag:(int)viewTag
 {
     [self bodySubViewsRemove];
-
+    
     switch (viewTag) {
         case MOVIE_MAIN_VIEW_BTN_01:
         {
@@ -310,12 +288,28 @@
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
-
+            
         }break;
     }
-    
-    
 }
+
+#pragma mark - MovieMainViewController 델리게이트
+- (void) MovieMainViewWithBtnTag:(int)nTag
+{
+    switch (nTag) {
+        case MOVIE_MAIN_VIEW_BTN_01:
+        {
+            MainPopUpViewController *pViewController = [[MainPopUpViewController alloc] initWithNibName:@"MainPopUpViewController" bundle:nil];
+            pViewController.delegate = self;
+            //            pViewController.pDataStr = str;
+            pViewController.nViewTag = MOVIE_MAIN_VIEW_BTN_01;
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.view addSubview:pViewController.view];
+        }break;
+    }
+}
+
 
 #pragma mark - AniKidsMainViewController 델리게이트
 - (void)AniKidsMainViewWithBtnTag:(int)nTag
@@ -323,7 +317,7 @@
     switch (nTag) {
         case ANI_KIDS_MAIN_VIEW_BTN_01:
         {
-            MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
+            MainPopUpViewController *pViewController = [[MainPopUpViewController alloc] initWithNibName:@"MainPopUpViewController" bundle:nil];
             pViewController.delegate = self;
 //            pViewController.pDataStr = str;
             pViewController.nViewTag = ANI_KIDS_MAIN_VIEW_BTN_01;
@@ -341,7 +335,7 @@
     switch (nTag) {
         case ADULT_MAIN_VIEW_BTN_01:
         {
-            MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
+            MainPopUpViewController *pViewController = [[MainPopUpViewController alloc] initWithNibName:@"MainPopUpViewController" bundle:nil];
             pViewController.delegate = self;
 //            pViewController.pDataStr = str;
             pViewController.nViewTag = ADULT_MAIN_VIEW_BTN_01;
@@ -358,7 +352,7 @@
     switch (nTag) {
         case TV_REPLAY_VIEW_BTN_01:
         {
-            MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
+            MainPopUpViewController *pViewController = [[MainPopUpViewController alloc] initWithNibName:@"MainPopUpViewController" bundle:nil];
             pViewController.delegate = self;
 //            pViewController.pDataStr = str;
             pViewController.nViewTag = TV_REPLAY_VIEW_BTN_01;

@@ -1,24 +1,25 @@
 //
-//  MoviePopUpViewController.m
+//  MainPopUpViewController.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 10. 12..
+//  Created by JUNG KIL BAE on 2015. 11. 5..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "MoviePopUpViewController.h"
+#import "MainPopUpViewController.h"
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+VOD.h"
 
-@interface MoviePopUpViewController ()
+@interface MainPopUpViewController ()
 @property (nonatomic, strong) NSString *pFourDepthListJsonStr;
 @end
 
-@implementation MoviePopUpViewController
+@implementation MainPopUpViewController
 @synthesize pModel;
 @synthesize delegate;
 @synthesize pDataStr;
 @synthesize nViewTag;
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -39,13 +40,13 @@
 #pragma mark - 태그 초기화
 - (void)setTagInit
 {
-    self.pBgBtn.tag = MOVICE_POPUP_VIEW_BTN_01;
+    self.pBgBtn.tag = MAIN_POPUP_VIEW_BTN_01;
 }
 
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contents" ofType:@"json"];
+    //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contents" ofType:@"json"];
     
     self.pFourDepthListJsonStr = @"";
 }
@@ -55,7 +56,7 @@
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
     switch ([btn tag]) {
-        case MOVICE_POPUP_VIEW_BTN_01:
+        case MAIN_POPUP_VIEW_BTN_01:
         {
             [self.view removeFromSuperview];
             [self willMoveToParentViewController:nil];
@@ -80,23 +81,23 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *pCellIn = @"MoviePopUpTableViewCellIn";
+    static NSString *pCellIn = @"MainPopUpTableViewCellIn";
     
-    MoviePopUpTableViewCell *pCell = (MoviePopUpTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
+    MainPopUpTableViewCell *pCell = (MainPopUpTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
     
     if (pCell == nil)
     {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MoviePopUpTableViewCell" owner:nil options:nil];
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MainPopUpTableViewCell" owner:nil options:nil];
         pCell = [arr objectAtIndex:0];
     }
     
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
-
+    
     
     NSMutableDictionary *item = [self.pModel itemForRowAtIndexPath:indexPath];
     
     BOOL isOpen = [self.pModel isCellOpenForRowAtIndexPath:indexPath];
-
+    
     [pCell setListData:item WithIndex:(int)indexPath.row WithOpen:isOpen];
     return pCell;
 }
@@ -110,7 +111,7 @@
         [self.view removeFromSuperview];
         [self willMoveToParentViewController:nil];
         [self removeFromParentViewController];
-        [self.delegate MoviePopUpViewWithBtnData:item WithViewTag:nViewTag];
+        [self.delegate MainPopUpViewWithBtnData:item WithViewTag:nViewTag];
     }
     else
     {
