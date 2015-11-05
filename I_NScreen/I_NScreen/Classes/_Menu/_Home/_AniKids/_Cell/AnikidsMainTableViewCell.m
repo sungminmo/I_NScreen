@@ -7,6 +7,7 @@
 //
 
 #import "AnikidsMainTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation AnikidsMainTableViewCell
 
@@ -69,24 +70,31 @@
             switch (i) {
                 case 0:
                 {
+                    NSString *sUrl1 = [NSString stringWithFormat:@"%@", [[arr objectAtIndex:i] objectForKey:@"smallImageFileName"]];
+                    [self.pThumImageView01 setImageWithURL:[NSURL URLWithString:sUrl1]];
                     self.pTitleLbl01.text = [NSString stringWithFormat:@"%@", [[arr objectAtIndex:i] objectForKey:@"title"]];
                 }break;
                 case 1:
                 {
+                    NSString *sUrl2 = [NSString stringWithFormat:@"%@", [[arr objectAtIndex:i] objectForKey:@"smallImageFileName"]];
+                    [self.pThumImageView02 setImageWithURL:[NSURL URLWithString:sUrl2]];
                     self.pTitleLbl02.text = [NSString stringWithFormat:@"%@", [[arr objectAtIndex:i] objectForKey:@"title"]];
                 }break;
                 case 2:
                 {
+                    NSString *sUrl3 = [NSString stringWithFormat:@"%@", [[arr objectAtIndex:i] objectForKey:@"smallImageFileName"]];
+                    [self.pThumImageView03 setImageWithURL:[NSURL URLWithString:sUrl3]];
                     self.pTitleLbl03.text = [NSString stringWithFormat:@"%@", [[arr objectAtIndex:i] objectForKey:@"title"]];
                 }break;
                 case 3:
                 {
+                    NSString *sUrl4 = [NSString stringWithFormat:@"%@", [[arr objectAtIndex:i] objectForKey:@"smallImageFileName"]];
+                    [self.pThumImageView04 setImageWithURL:[NSURL URLWithString:sUrl4]];
                     self.pTitleLbl04.text = [NSString stringWithFormat:@"%@", [[arr objectAtIndex:i] objectForKey:@"title"]];
                 }break;
             }
         }
     }
-    
     
 }
 

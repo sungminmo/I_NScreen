@@ -26,7 +26,7 @@
     
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetId"]];
     
-    NSString *sImageFileName = [NSString stringWithFormat:@"%@", [dic objectForKey:@"imageFileName"]];
+    NSString *sImageFileName = [NSString stringWithFormat:@"%@", [dic objectForKey:@"smallImageFileName"]];
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sImageFileName]];
     self.pRankingLbl.text = [NSString stringWithFormat:@"%d", self.nIndex];

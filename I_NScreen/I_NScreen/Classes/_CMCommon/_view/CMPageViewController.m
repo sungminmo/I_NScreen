@@ -38,7 +38,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.pImageView setImageWithURL:[NSURL URLWithString:[self getImageUrlSplit]]];
+//    [self.pImageView setImageWithURL:[NSURL URLWithString:[self getImageUrlSplit]]];
+    NSString *sUrl = [NSString stringWithFormat:@"%@", [pDic objectForKey:@"iphone_imgurl"]];
+        [self.pImageView setImageWithURL:[NSURL URLWithString:sUrl]];
 //    [self.pImageView setContentMode:UIViewContentModeScaleAspectFit];
 //    [self.view addSubview:self.pImageView];
     

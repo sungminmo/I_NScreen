@@ -490,7 +490,8 @@
             [nDic setObject:[dic objectForKey:@"hot"] forKey:@"hot"];
             [nDic setObject:[dic objectForKey:@"ranking"] forKey:@"ranking"];
             [nDic setObject:[dic objectForKey:@"new"] forKey:@"new"];
-            
+            [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
+            [nDic setObject:[dic objectForKey:@"imageFileName"] forKey:@"imageFileName"];
             [pArr addObject:nDic];
             
             if ( nIndex % 8 == 0 || nIndex == nTotal)

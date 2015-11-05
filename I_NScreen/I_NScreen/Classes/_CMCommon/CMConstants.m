@@ -19,7 +19,8 @@ NSString* const DRM_OPEN_API_SERVER_URL = @"https://api.cablevod.co.kr/api/";
 
 // C&M SMApplicationSever openAPI 서버 IP.
 //NSString* const CNM_OPEN_API_SERVER_URL = @"http://58.143.243.91/SMApplicationServer/";
-NSString* const CNM_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";  // 라이브
+//NSString* const CNM_OPEN_API_SERVER_URL = @"http://192.168.40.5:8080/HApplicationServer/";  // 라이브
+NSString* const CNM_OPEN_API_SERVER_URL = @"http://58.141.255.79:8080/HApplicationServer/";  // 라이브
 // private 터미널 키 발급 받을땐 테스트를 통해서 ..
 NSString* const CNM_OPEN_API_SERVER_URL_VPN = @"http://58.141.255.70:8080/HApplicationServer/"; // 테스트
 
