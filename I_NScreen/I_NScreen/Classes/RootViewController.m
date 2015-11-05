@@ -244,14 +244,14 @@
 
 #pragma mark - 델리게이트
 #pragma mark - MovieMainViewController 델리게이트
-- (void) MovieMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str
+- (void) MovieMainViewWithBtnTag:(int)nTag
 {
     switch (nTag) {
         case MOVIE_MAIN_VIEW_BTN_01:
         {
             MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
             pViewController.delegate = self;
-            pViewController.pDataStr = str;
+//            pViewController.pDataStr = str;
             pViewController.nViewTag = MOVIE_MAIN_VIEW_BTN_01;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
@@ -318,14 +318,14 @@
 }
 
 #pragma mark - AniKidsMainViewController 델리게이트
-- (void)AniKidsMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str
+- (void)AniKidsMainViewWithBtnTag:(int)nTag
 {
     switch (nTag) {
         case ANI_KIDS_MAIN_VIEW_BTN_01:
         {
             MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
             pViewController.delegate = self;
-            pViewController.pDataStr = str;
+//            pViewController.pDataStr = str;
             pViewController.nViewTag = ANI_KIDS_MAIN_VIEW_BTN_01;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
@@ -336,14 +336,14 @@
 }
 
 #pragma mark - AdultMainViewController 델리게이트
-- (void)AdultMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str
+- (void)AdultMainViewWithBtnTag:(int)nTag
 {
     switch (nTag) {
         case ADULT_MAIN_VIEW_BTN_01:
         {
             MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
             pViewController.delegate = self;
-            pViewController.pDataStr = str;
+//            pViewController.pDataStr = str;
             pViewController.nViewTag = ADULT_MAIN_VIEW_BTN_01;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
@@ -353,14 +353,14 @@
 }
 
 #pragma mark - TVReplayMainViewController 델리게이트
-- (void)TVReplayViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str
+- (void)TVReplayViewWithBtnTag:(int)nTag
 {
     switch (nTag) {
         case TV_REPLAY_VIEW_BTN_01:
         {
             MoviePopUpViewController *pViewController = [[MoviePopUpViewController alloc] initWithNibName:@"MoviePopUpViewController" bundle:nil];
             pViewController.delegate = self;
-            pViewController.pDataStr = str;
+//            pViewController.pDataStr = str;
             pViewController.nViewTag = TV_REPLAY_VIEW_BTN_01;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];

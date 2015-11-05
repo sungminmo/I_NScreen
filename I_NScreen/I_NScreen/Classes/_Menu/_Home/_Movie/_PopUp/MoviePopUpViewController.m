@@ -7,9 +7,11 @@
 //
 
 #import "MoviePopUpViewController.h"
+#import "UIAlertView+AFNetworking.h"
+#import "NSMutableDictionary+VOD.h"
 
 @interface MoviePopUpViewController ()
-
+@property (nonatomic, strong) NSString *pFourDepthListJsonStr;
 @end
 
 @implementation MoviePopUpViewController
@@ -29,6 +31,8 @@
     
     [self setTagInit];
     [self setViewInit];
+    
+    [self requestWithGetCateforyTree4Depth];
 }
 
 #pragma mark - 초기화
@@ -43,9 +47,7 @@
 {
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contents" ofType:@"json"];
     
-    self.pModel = [[TreeListModel alloc] initWithJSONFilePath:self.pDataStr];
-    
-    [self.pTableView reloadData];
+    self.pFourDepthListJsonStr = @"";
 }
 
 #pragma mark - 액션이벤트
@@ -126,6 +128,28 @@
                  withRowAnimation:UITableViewRowAnimationFade];
         [tableView endUpdates];
     }
+}
+
+#pragma mark - 전문
+#pragma mark - 4댑스 카테고리 tree 리스트 전문
+- (void)requestWithGetCateforyTree4Depth
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:CNM_OPEN_API_MOVIE_CATEGORY_ID WithDepth:@"4" block:^(NSArray *vod, NSError *error) {
+        
+        DDLogError(@"4댑스 카테고리 tree 리스트 = [%@]", vod);
+        
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:[[CMAppManager sharedInstance] getResponseTreeSplitWithData:vod WithCategoryIdSearch:CNM_OPEN_API_MOVIE_CATEGORY_ID]
+                                                           options:NSJSONWritingPrettyPrinted error:&error];
+        self.pFourDepthListJsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"jsonString = [%@]", self.pFourDepthListJsonStr);
+        
+        self.pModel = [[TreeListModel alloc] initWithJSONFilePath:self.pFourDepthListJsonStr];
+        
+        [self.pTableView reloadData];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end

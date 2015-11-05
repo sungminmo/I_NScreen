@@ -44,6 +44,6 @@
 
 @optional
 
-- (void)MovieMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str;
+- (void)MovieMainViewWithBtnTag:(int)nTag;
 
 @end

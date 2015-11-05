@@ -16,8 +16,6 @@
 @property (nonatomic, strong) NSMutableArray *pThreeDepthWeeklyDataArr; // 3댑스에 주간 인기 순위 데이터 저장
 @property (nonatomic, strong) NSMutableArray *pThreeDepthElseDataArr;   // 3댑스에 그외 데이터 저장
 
-// 전체 리스트 전문
-@property (nonatomic, strong) NSString *pFourDepthListJsonStr;
 @end
 
 @implementation AniKidsMainViewController
@@ -37,7 +35,6 @@
     [self setViewInit];
     
     [self requestWithGetCategoryTree2Depth];
-    [self requestWithGetCateforyTree4Depth];
 }
 
 #pragma mark - 초기화
@@ -68,7 +65,7 @@
     switch ([btn tag]) {
         case ANI_KIDS_MAIN_VIEW_BTN_01:
         {
-            [self.delegate AniKidsMainViewWithBtnTag:ANI_KIDS_MAIN_VIEW_BTN_01 WithDataStr:self.pFourDepthListJsonStr];
+            [self.delegate AniKidsMainViewWithBtnTag:ANI_KIDS_MAIN_VIEW_BTN_01];
         }break;
         case ANI_KIDS_MAIN_VIEW_BTN_02:
         {
@@ -102,24 +99,6 @@
 }
 
 #pragma mark - 전문
-#pragma mark - 4댑스 카테고리 tree 리스트 전문
-- (void)requestWithGetCateforyTree4Depth
-{
-    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:CNM_OPEN_API_ANNI_CATEGORY_ID WithDepth:@"4" block:^(NSArray *vod, NSError *error) {
-        
-        DDLogError(@"4댑스 카테고리 tree 리스트 = [%@]", vod);
-        
-        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:[[CMAppManager sharedInstance] getResponseTreeSplitWithData:vod WithCategoryIdSearch:CNM_OPEN_API_ANNI_CATEGORY_ID]
-                                                           options:NSJSONWritingPrettyPrinted error:&error];
-        self.pFourDepthListJsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        
-        NSLog(@"jsonString = [%@]", self.pFourDepthListJsonStr);
-    }];
-    
-    
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-}
-
 #pragma mark - 2탭스 카테고리 tree 리스트 전문
 - (void)requestWithGetCategoryTree2Depth
 {

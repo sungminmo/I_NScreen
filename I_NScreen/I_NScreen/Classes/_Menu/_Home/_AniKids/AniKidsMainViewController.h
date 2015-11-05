@@ -41,6 +41,6 @@
 @protocol AniKidsMainViewDelegate <NSObject>
 
 @optional
-- (void)AniKidsMainViewWithBtnTag:(int)nTag WithDataStr:(NSString *)str;
+- (void)AniKidsMainViewWithBtnTag:(int)nTag;
 
 @end
