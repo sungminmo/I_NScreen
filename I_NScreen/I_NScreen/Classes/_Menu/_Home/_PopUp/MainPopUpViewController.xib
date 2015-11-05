@@ -17,17 +17,17 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.60000002384185791" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-tn-qT7">
+                <view alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYa-tn-qT7">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKC-ps-vnY">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKC-ps-vnY">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <connections>
                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="A4F-Tf-QjQ"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Fj-Zp-Q3T">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Fj-Zp-Q3T">
                     <rect key="frame" x="26" y="74" width="362" height="588"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -37,6 +37,20 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="leading" secondItem="ZW0-PR-aux" secondAttribute="leading" constant="26" id="5zC-gk-QrY"/>
+                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="centerX" secondItem="lYa-tn-qT7" secondAttribute="centerX" id="8E8-CY-DSj"/>
+                <constraint firstAttribute="bottom" secondItem="lYa-tn-qT7" secondAttribute="bottom" id="BtF-3y-C2r"/>
+                <constraint firstItem="yKC-ps-vnY" firstAttribute="leading" secondItem="lYa-tn-qT7" secondAttribute="leading" id="EKZ-AG-PcJ"/>
+                <constraint firstAttribute="trailing" secondItem="yKC-ps-vnY" secondAttribute="trailing" id="FqO-YF-KJq"/>
+                <constraint firstItem="yKC-ps-vnY" firstAttribute="bottom" secondItem="lYa-tn-qT7" secondAttribute="bottom" id="LOe-LI-Cxj"/>
+                <constraint firstItem="yKC-ps-vnY" firstAttribute="top" secondItem="lYa-tn-qT7" secondAttribute="top" id="OcL-jA-PHX"/>
+                <constraint firstItem="lYa-tn-qT7" firstAttribute="top" secondItem="ZW0-PR-aux" secondAttribute="top" id="XDh-Ag-brm"/>
+                <constraint firstItem="yKC-ps-vnY" firstAttribute="trailing" secondItem="lYa-tn-qT7" secondAttribute="trailing" id="blE-dl-kDR"/>
+                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="top" secondItem="ZW0-PR-aux" secondAttribute="top" constant="74" id="dJV-HJ-adK"/>
+                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="centerY" secondItem="yKC-ps-vnY" secondAttribute="centerY" id="gLh-PK-GIU"/>
+                <constraint firstItem="lYa-tn-qT7" firstAttribute="leading" secondItem="ZW0-PR-aux" secondAttribute="leading" id="sfX-lT-QCm"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
