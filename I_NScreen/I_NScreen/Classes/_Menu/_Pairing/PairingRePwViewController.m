@@ -58,10 +58,56 @@
         case PAIRING_RE_PW_VIEW_BTN_03:
         {
             // 다음 단계
-            PairingAuthViewController *pViewController = [[PairingAuthViewController alloc] initWithNibName:@"PairingAuthViewController" bundle:nil];
-            [self.navigationController pushViewController:pViewController animated:YES];
+//            PairingAuthViewController *pViewController = [[PairingAuthViewController alloc] initWithNibName:@"PairingAuthViewController" bundle:nil];
+//            [self.navigationController pushViewController:pViewController animated:YES];
+            if ( [self.pPwTextField.text length] < 4 )
+            {
+                [SIAlertView alert:@"셋탑박스 등록" message:@"구매 비밀번호는 최소 4자리 이상 숫자+영문으로\n최대 20자리 까지 입력 가능 합니다." button:@"확인"];
+                
+            }
+            else
+            {
+                if ( ![self.pPwTextField.text isEqualToString:self.pRePwTextFiled.text] )
+                {
+                    self.pDiscordLbl.hidden = NO;
+                    [self.pRePwTextFiled setTextColor:[UIColor colorWithRed:255.0f/255.0f green:59.0f/255.0f blue:48.0f/255.0f alpha:1.0f]];
+                    [self.pRePwTextFiled setBackground:[UIImage imageNamed:@"pwbox_error.png"]];
+                }
+                else
+                {
+                    self.pDiscordLbl.hidden = YES;
+                    [self.pRePwTextFiled setTextColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f]];
+                    [self.pRePwTextFiled setBackground:[UIImage imageNamed:@"pwbox.png"]];
+                    NSString *sPw = [NSString stringWithFormat:@"%@", self.pPwTextField.text];
+                    //                    [[FXKeychain defaultKeychain] setObject:sPw forKey:CNM_OPEN_API_BUY_PW];  // 이때 저장하면 안됨
+                    // 다음 단계
+                    PairingAuthViewController *pViewController = [[PairingAuthViewController alloc] initWithNibName:@"PairingAuthViewController" bundle:nil];
+                    pViewController.pPwStr = sPw;
+                    [self.navigationController pushViewController:pViewController animated:YES];
+                }
+                
+            }
+
         }break;
     }
 }
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if(textField.text.length > 19)  // 20 자리 까지 입력 가능
+    {
+        if([string length] == 0)
+        {
+            // 뒤로가기 버튼 상태일때는 지우기가 가능해야함
+        }
+        else
+        {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
 
 @end

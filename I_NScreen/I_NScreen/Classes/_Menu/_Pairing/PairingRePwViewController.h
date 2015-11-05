@@ -19,6 +19,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *pCancelBtn;
 @property (nonatomic, strong) IBOutlet UIButton *pOkBtn;
 
+@property (nonatomic, strong) IBOutlet UILabel *pDiscordLbl;    // 불일치 라벨
+
 - (IBAction)onBtnClicked:(UIButton *)btn;
 
 @end

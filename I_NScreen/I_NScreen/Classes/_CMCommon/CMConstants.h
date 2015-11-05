@@ -187,6 +187,9 @@ extern NSString* const CNM_OPEN_API_VERSION_KEY;
 // terminalID
 extern NSString* const CNM_OPEN_API_TERMINAL_ID_KEY;
 
+// private terminalKey
+extern NSString* const CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY;
+
 // terminalKey
 extern NSString* const CNM_OPEN_API_TERMINAL_KEY_KEY;
 

@@ -90,6 +90,45 @@
 
 }
 
+- (void)setInfoDataKey:(NSString *)key Value:(id)value
+{
+    NSUserDefaults* preferences = [NSUserDefaults standardUserDefaults];
+    [preferences setObject:value forKey:key];
+    [preferences synchronize];
+}
+
+
+- (void)setBoolDataKey:(NSString *)key Value:(BOOL)value
+{
+    NSUserDefaults* preferences = [NSUserDefaults standardUserDefaults];
+    [preferences setBool:value forKey:key];
+    [preferences synchronize];
+}
+
+- (void)removeInfoDataKey:(NSString *)key
+{
+    NSUserDefaults* preferences = [NSUserDefaults standardUserDefaults];
+    [preferences removeObjectForKey:key];
+    [preferences synchronize];
+}
+
+- (void)removeBoolDataKey:(NSString *)key
+{
+    NSUserDefaults* preferences = [NSUserDefaults standardUserDefaults];
+    [preferences removeObjectForKey:key];
+    [preferences synchronize];
+}
+
+- (id)getInfoData:(NSString *)key
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+}
+
+- (BOOL)getBoolData:(NSString *)key
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
+}
+
 #pragma mark - 디바이스 체크
 - (NSString *)getDeviceCheck
 {
@@ -147,7 +186,40 @@
     return [strBuffer stringByReplacingOccurrencesOfString:@"," withString:@""];
 }
 
+#pragma mark - uuid 생성
+- (NSString*) getUniqueUuid
+{
+    if([[NSUserDefaults standardUserDefaults] stringForKey:CNM_OPEN_API_UUID_KEY] == NULL){
+        
+        CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+        
+        NSString *string = (NSString *)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuid));
+        
+        [[NSUserDefaults standardUserDefaults] setObject:string forKey:CNM_OPEN_API_UUID_KEY];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    NSString *uniqueid = [[NSUserDefaults standardUserDefaults] stringForKey:CNM_OPEN_API_UUID_KEY];
+    
+    NSLog(@"uuid : %@", uniqueid);
+    
+    return uniqueid;
+}
 
+#pragma mark - private 터미널 키가 없으면 public 터미널 키를 리턴
+- (NSString *)getTerminalKeyCheck
+{
+    NSString *sTerminalKey = CNM_PUBLIC_TERMINAL_KEY;
+    if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY] != NULL )
+    {
+        sTerminalKey = [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY];
+    }
+    
+    return sTerminalKey;
+}
+
+#pragma mark - 배열 검색
 - (NSMutableArray *)getSearchWithArr:(NSMutableArray *)listArr WithSearchStr:(NSString *)searchStr WithKey:(NSString *)key
 {
     

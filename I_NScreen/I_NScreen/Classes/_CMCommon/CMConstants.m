@@ -114,6 +114,9 @@ NSString* const CNM_OPEN_API_VERSION_KEY = @"version";
 // terminalID
 NSString* const CNM_OPEN_API_TERMINAL_ID_KEY = @"terminalId";
 
+// privateKey
+NSString* const CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY = @"privateTerminalKey";
+
 // terminalKey
 NSString* const CNM_OPEN_API_TERMINAL_KEY_KEY = @"terminalKey";
 

@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="pBackBtn" destination="Nid-97-j9n" id="tpQ-gU-ioP"/>
                 <outlet property="pCancelBtn" destination="2Wq-VF-06x" id="0PO-Hk-EdH"/>
+                <outlet property="pDiscordLbl" destination="6RI-35-EuP" id="wfj-MF-axT"/>
                 <outlet property="pOkBtn" destination="zia-gc-Iek" id="wLU-fL-DwK"/>
                 <outlet property="pPwTextField" destination="5D2-ok-NKF" id="t0K-cb-7EV"/>
                 <outlet property="pRePwTextFiled" destination="PmG-lS-JSs" id="7Ke-GC-bCb"/>
@@ -160,6 +161,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="kUh-BZ-Ia5"/>
+                                            </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="pwbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="PmG-lS-JSs" customClass="CMTextField">
                                             <rect key="frame" x="36" y="239" width="315" height="30"/>
@@ -168,8 +172,11 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="LHF-mi-RFM"/>
+                                            </connections>
                                         </textField>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호가 일치하지 않습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RI-35-EuP">
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인증번호가 일치하지 않습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RI-35-EuP">
                                             <rect key="frame" x="0.0" y="285" width="386" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="fkd-dx-6EH"/>

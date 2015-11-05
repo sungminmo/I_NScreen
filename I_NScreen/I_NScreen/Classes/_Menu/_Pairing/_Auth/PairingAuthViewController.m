@@ -16,6 +16,7 @@
 @end
 
 @implementation PairingAuthViewController
+@synthesize pPwStr;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -77,22 +78,6 @@
     }
 }
 
-#pragma mark - 이달의 추천 vod 전문
-//- (void)requestWithThisMonthRecommend
-//{
-//    NSString *sCategoryId = @"713229";
-//    NSString *sContentGroupProfile = @"2";
-//    
-//    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {
-//        
-//        DDLogError(@"이달의 추천 vod = [%@]", vod);
-//        
-//       
-//        
-//    }];
-//    
-//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//}
 #pragma mark - 페어링 전문
 - (void)requestWithPairingAuth
 {
@@ -104,8 +89,13 @@
         
         if ( [sResultCode isEqualToString:@"100"] )
         {
+            [self setDataAuthResponse];
             // 성공이면 터미널 키 획득 전문 날림
             [self requestWithPrivateTerminalKeyGet];
+        }
+        else
+        {
+            [[CMAppManager sharedInstance] removeInfoDataKey:CNM_OPEN_API_UUID_KEY];
         }
         
     }];
@@ -126,6 +116,9 @@
         {
             // 성공이면
             // uuid 및 구매 번호 keychain 에 저장
+            NSString *sTerminal = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"terminalKey"]];
+            [self setDataResponseWithTerminalKey:sTerminal];
+            
             // 받아온 terminalKey 값이 private terminalKey가 됨 현재 private terminal key 받는 api 안됨
             PairingFinishViewController *pViewController = [[PairingFinishViewController alloc] initWithNibName:@"PairingFinishViewController" bundle:nil];
                         [self.navigationController pushViewController:pViewController animated:YES];
@@ -134,6 +127,21 @@
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 페어링 성공후 데이터 저장
+- (void)setDataAuthResponse
+{
+    // 일단 모든 데이터 userdefault 에 저장 나중에 수정
+//    NSString *sUuid = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getUniqueUuid]];
+//    [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_UUID_KEY Value:sUuid];   // uuid   이미 저장 되어 있음
+    [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_BUY_PW Value:self.pPwStr];   // 구매 비밀번호
+}
+
+- (void)setDataResponseWithTerminalKey:(NSString *)terminal
+{
+    //
+    [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY Value:terminal];
 }
 
 @end

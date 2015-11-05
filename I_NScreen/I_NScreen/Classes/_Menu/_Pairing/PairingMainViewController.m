@@ -77,9 +77,10 @@
                     [self.pRePwTextFiled setTextColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f]];
                     [self.pRePwTextFiled setBackground:[UIImage imageNamed:@"pwbox.png"]];
                     NSString *sPw = [NSString stringWithFormat:@"%@", self.pPwTextField.text];
-                    [[FXKeychain defaultKeychain] setObject:sPw forKey:CNM_OPEN_API_BUY_PW];
+//                    [[FXKeychain defaultKeychain] setObject:sPw forKey:CNM_OPEN_API_BUY_PW];  // 이때 저장하면 안됨 
                     // 다음 단계
                     PairingAuthViewController *pViewController = [[PairingAuthViewController alloc] initWithNibName:@"PairingAuthViewController" bundle:nil];
+                    pViewController.pPwStr = sPw;
                     [self.navigationController pushViewController:pViewController animated:YES];
                 }
 

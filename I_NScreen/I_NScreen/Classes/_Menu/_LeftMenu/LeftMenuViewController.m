@@ -36,7 +36,25 @@
     
     [UIView setOuterLine:self.upperView direction:HMOuterLineDirectionTop|HMOuterLineDirectionBottom lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
     [UIView setOuterLine:self.bottomView direction:HMOuterLineDirectionTop lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
+ 
     
+    if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_UUID_KEY] == NULL )
+    {
+        
+        // UUID 값이 없으면
+        self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_before.png"];
+        [self.pairingButton setTitle:@"셋탑박스 연동하기" forState:UIControlStateNormal];
+        self.pairingButton.selected = NO;
+        self.pairingMessageLabel.text = @"원할한 서비스 이용을 위해\n셋탑박스를 연동해주세요.";
+    }
+    else
+    {
+        // UUID 값이 있으면
+        self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_after.png"];
+        [self.pairingButton setTitle:@"셋탑박스 재 연동 " forState:UIControlStateNormal];
+        self.pairingButton.selected = YES;
+        self.pairingMessageLabel.text = @"셋탑박스와 연동중입니다.";
+    }
 }
 
 #pragma mark - ui change
@@ -54,31 +72,10 @@
 //        self.pairingMessageLabel.text = @"셋탑박스와 연동중입니다.";
 //    }
     
-    // add by bjk
-    if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY] length] != 0 )
+//        if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY] length] != 0 ) 일단 테스트라 USERDEFAULT 에 저장하고 나중에 수정
+    if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_UUID_KEY] == NULL )
     {
-        // uuid 값이 있으면
-        self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_after.png"];
-        [self.pairingButton setTitle:@"셋탑박스 재 연동 " forState:UIControlStateNormal];
-        self.pairingButton.selected = YES;
-        self.pairingMessageLabel.text = @"셋탑박스와 연동중입니다.";
-        
-        [SIAlertView alert:@"셋탑박스 재 연동" message:@"셋탑박스 재 연동 시 기존 연동은 해제 되며,\n구매 비밀번호 재설정이 필요합니다.\n\n계속 진행하시겠습니까?"
-                    cancel:@"취소"
-                   buttons:@[@"확인"]
-                completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                   if ( buttonIndex == 1 )
-                   {
-                       // 연동 화면
-                       [[CMAppManager sharedInstance] onLeftMenuListClose:self];
-                       self.nTag = 6;
-                   }
-                }];
-
-    }
-    else
-    {
-        // uuid 값이 없으면
+        // UUID 값이 없으면
         self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_before.png"];
         [self.pairingButton setTitle:@"셋탑박스 연동하기" forState:UIControlStateNormal];
         self.pairingButton.selected = NO;
@@ -88,9 +85,26 @@
         [[CMAppManager sharedInstance] onLeftMenuListClose:self];
         self.nTag = 6;
     }
-    
-    
-    
+    else
+    {
+        // UUID 값이 있으면
+        self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_after.png"];
+        [self.pairingButton setTitle:@"셋탑박스 재 연동 " forState:UIControlStateNormal];
+        self.pairingButton.selected = YES;
+        self.pairingMessageLabel.text = @"셋탑박스와 연동중입니다.";
+        
+        [SIAlertView alert:@"셋탑박스 재 연동" message:@"셋탑박스 재 연동 시 기존 연동은 해제 되며,\n구매 비밀번호 재설정이 필요합니다.\n\n계속 진행하시겠습니까?"
+                    cancel:@"취소"
+                   buttons:@[@"확인"]
+                completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    if ( buttonIndex == 1 )
+                    {
+                        // 연동 화면
+                        [[CMAppManager sharedInstance] onLeftMenuListClose:self];
+                        self.nTag = 6;
+                    }
+                }];
+    }
     
     ///
 }

@@ -639,7 +639,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetPopularityChart];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
                            @"categoryId" : categoryId,
                            @"requestItems" : requestItems
                            };
@@ -666,7 +666,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetContentGroupList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
                            @"contentGroupProfile" : contentGroupProfile,
                            @"categoryId" : categoryId
                            };
@@ -691,7 +691,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetAssetInfo];
     NSDictionary *dict = @{
                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                          CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                          CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
                           @"assetId" : assetId,
                           @"assetProfile" : assetProfile
                           };
@@ -716,7 +716,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
                            @"assetId" : assetId,
                            @"contentGroupProfile" : contentGroupProfile
                            };
@@ -743,7 +743,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetBundleProductList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
                            @"productProfile" : productProfile
                            };
     
@@ -790,12 +790,12 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetCategoryTree];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PUBLIC_TERMINAL_KEY,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
                            CNM_OPEN_API_TRANSACTION_ID_KEY : @"135",
                            CNM_OPEN_API_CATEGORY_PROFILE_KEY : @"4",
                            @"categoryId" : categoryId,
                            @"depth" : depth,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : @"DFS"
+                           CNM_OPEN_API_TRAVERSE_TYPE_KEY : @"DFS"
                            };
     
     NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -853,8 +853,8 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_AddUser];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PUBLIC_TERMINAL_KEY,
-                           @"userId" : @"FFFFFF9234567899F2SSA",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           @"userId" : [[CMAppManager sharedInstance] getUniqueUuid],
                            @"authCode" : authCode
                            };
     
@@ -874,15 +874,16 @@
 
 - (NSURLSessionDataTask *)pairingAuthenticateDeviceCompletion:(void (^)(NSArray *pairing, NSError *error))block
 {
-    self.smClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.smClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_AuthenticateDevice];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            //                           @"secondDeviceId" : @"FFFFFF9234567899F2SSA"
                            // !! TEST BJK
-                           @"secondDeviceId" : @"sangho"
+//                           @"secondDeviceId" : @"sangho"
+                          @"secondDeviceId" : [[CMAppManager sharedInstance]getInfoData:CNM_OPEN_API_UUID_KEY]
                            //
                            };
     
@@ -902,23 +903,25 @@
 
 - (NSURLSessionDataTask *)pairingClientSetTopBoxRegistWithAuthKey:(NSString *)authKey completion:(void (^)(NSArray *pairing, NSError *error))block
 {
-    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_ClientSetTopBoxRegist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           @"deviceId" : @"FFFFFF9234567899F2SSA",
+                           @"deviceId" : [[CMAppManager sharedInstance] getUniqueUuid], // uuid 가 없으면 생성 페어링 실패 하면 데이터 지움
                            @"authKey" : authKey
                            };
     
-    return [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    return [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        [[CMAppManager sharedInstance] removeInfoDataKey:CNM_OPEN_API_UUID_KEY];
         
         block(nil, error);
     }];
@@ -935,8 +938,8 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_Getrecordlist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PUBLIC_TERMINAL_KEY,
-                           @"deviceId" : @"FFFFFF9234567899F2SSA"
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           @"deviceId" : [[CMAppManager sharedInstance] getUniqueUuid]
                            };
     NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
        
@@ -961,7 +964,7 @@
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"1",
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
-                           @"deviceId" : @"FFFFFF9234567899F2SSA"
+                           @"deviceId" : [[CMAppManager sharedInstance]getUniqueUuid]
                            };
     NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
@@ -1024,8 +1027,8 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRemotePowerControl];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PUBLIC_TERMINAL_KEY,
-                           @"deviceId" : @"FFFFFF9234567899F2SSA",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           @"deviceId" : [[CMAppManager sharedInstance] getUniqueUuid],
                            @"power" : power
                            };
     NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1050,8 +1053,8 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRemoteVolumeControl];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PUBLIC_TERMINAL_KEY,
-                           @"deviceId" : @"FFFFFF9234567899F2SSA",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           @"deviceId" : [[CMAppManager sharedInstance] getUniqueUuid],
                            @"volume" : volume
                            };
     NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1080,8 +1083,8 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetWishList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PUBLIC_TERMINAL_KEY,
-                           @"userId" : @"68590725-3b42-4cea-ab80-84c91c01bad2"
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           @"userId" : [[CMAppManager sharedInstance] getUniqueUuid]
                            };
     
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1106,7 +1109,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : @"C5E6DBF75F13A2C1D5B2EFDB2BC940",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
                            @"purchaseLogProfile" : @"2"
                            };
     

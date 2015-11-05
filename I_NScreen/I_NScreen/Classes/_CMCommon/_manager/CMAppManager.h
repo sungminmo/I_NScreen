@@ -38,6 +38,19 @@
  */
 - (void)onLeftMenuListClose:(id)control;
 
+
+- (void)setInfoDataKey:(NSString *)key Value:(id)value;
+
+- (void)removeInfoDataKey:(NSString *)key;
+
+- (void)setBoolDataKey:(NSString *)key Value:(BOOL)value;
+
+- (void)removeBoolDataKey:(NSString *)key;
+
+- (id)getInfoData:(NSString *)key;
+
+- (BOOL)getBoolData:(NSString *)key;
+
 /**
  * @brief 디바이스 체크
  */
@@ -54,6 +67,12 @@
  */
 - (NSString *)deleteComma:(NSString *)data;
 
+- (NSString *)getTerminalKeyCheck;
+
+/**
+ * @brief uuid 생성
+ */
+- (NSString*) getUniqueUuid;
 
 /**
  * @brief 배열 검색 
