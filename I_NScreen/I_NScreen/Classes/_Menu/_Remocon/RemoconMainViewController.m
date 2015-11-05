@@ -8,6 +8,7 @@
 
 #import "RemoconMainViewController.h"
 #import "NSMutableDictionary+REMOCON.h"
+#import "NSMutableDictionary+EPG.h"
 #import "UIAlertView+AFNetworking.h"
 
 @interface RemoconMainViewController ()
@@ -18,9 +19,12 @@
 @property (nonatomic, weak) IBOutlet UIButton *pVolumeDownBtn;  // 볼륨 다운 버튼
 @property (nonatomic, weak) IBOutlet UIButton *pVoluumeUpBtn;   // 볼륨 업 버튼
 @property (nonatomic, weak) IBOutlet UITableView *pTableView;
+@property (nonatomic, strong) NSMutableArray *pChannelListArr;  // 체널 리스트
+@property (nonatomic, strong) NSMutableDictionary *pStatusDic;  // 현재 상태
 
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (strong, nonatomic) IBOutlet UILabel *channelLabel;
+@property (nonatomic) BOOL isOnOff;
 
 @end
 
@@ -41,6 +45,8 @@
     
     [self setTagInit];
     [self setViewInit];
+    [self requestWithChannelListFull];
+    [self requestWithGetSetTopStatus];
     
 #warning TEST
     //  test
@@ -61,6 +67,9 @@
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
+    self.pChannelListArr = [[NSMutableArray alloc] init];
+    self.pStatusDic = [[NSMutableDictionary alloc] init];
+    
     // 화면 해상도 대응
     if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
     {
@@ -114,7 +123,19 @@
         {
             // 전원 버튼
 //            [SIAlertView alert:@"채널변경" message:@"데이터 방송 시청 중에는\n채널이 변경되지 않습니다."];
-            [self requestWithSetRemoteWithPower:@"ON"];
+            
+            
+            if ( self.isOnOff == NO )
+            {
+                // 꺼진 상태 킨다
+                [self requestWithSetRemoteWithPower:@"ON"];
+            }
+            else
+            {
+                // 켜진상태 끈다
+                [self requestWithSetRemoteWithPower:@"OFF"];
+            }
+            
         }break;
         case REMOCON_MAIN_VIEW_BTN_03:
         {
@@ -149,7 +170,7 @@
     
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    [pCell setListData:nil WithIndex:(int)indexPath.row];
+    [pCell setListData:[self.pChannelListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
     
     return pCell;
 }
@@ -166,7 +187,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 24;
+    int nTotal = (int)[self.pChannelListArr count];
+    return nTotal;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -202,6 +224,66 @@
     NSURLSessionDataTask *tesk = [NSMutableDictionary remoconSetRemotoePowerControlPower:power completion:^(NSArray *pvr, NSError *error) {
         
         DDLogError(@"셋탑 전원 전문 = [%@]", pvr);
+        NSString *sResultCode = [NSString stringWithFormat:@"%@", [[pvr objectAtIndex:0] objectForKey:@"resultCode"]];
+        if ( [sResultCode isEqualToString:@"100"] )
+        {
+            self.isOnOff = !self.isOnOff;
+        }
+        
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 전문
+#pragma mark - 전체 채널 리스트 전문
+- (void)requestWithChannelListFull
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:CNM_AREA_CODE block:^(NSArray *gets, NSError *error) {
+        DDLogError(@"epg = [%@]", gets);
+        
+        if ( [gets count] == 0 )
+            return;
+//        
+//        [self.pListDataArr removeAllObjects];
+//        [self.pListDataArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
+        
+        [self.pChannelListArr removeAllObjects];
+        [self.pChannelListArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
+        
+        [self.pTableView reloadData];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 리모컨 상태 체크 전문
+- (void)requestWithGetSetTopStatus
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary remoconGetSetTopStatusCompletion:^(NSArray *pairing, NSError *error) {
+        
+        DDLogError(@"리모컨 상태 체크 = [%@]", pairing);
+        
+        if ( [pairing count] == 0 )
+            return;
+        
+        
+        [self.pStatusDic removeAllObjects];
+        [self.pStatusDic setDictionary:[pairing objectAtIndex:0]];
+        
+        NSString *sStatus = [NSString stringWithFormat:@"%@", [self.pStatusDic objectForKey:@"state"]];
+        
+        if ( [sStatus isEqualToString:@"4"] )
+        {
+            // 꺼진 상태
+            self.isOnOff = NO;
+        }
+        else
+        {
+            // 켜진 상태
+            self.isOnOff = YES;
+        }
+
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];

@@ -111,6 +111,9 @@
 
 - (NSURLSessionDataTask *)vodRecommendAssetBySubscriberWithAssetProfile:(NSString *)assetProfile block:(void (^)(NSArray *vod, NSError *error))block;
 
+// http://58.141.255.80/smapplicationserver/GetAppInitialize.asp?terminalKey=8A5D2E45D3874824FF23EC97F78D358&version=1
+- (NSURLSessionDataTask *)vodGetAppInitializeCompletion:(void (^)(NSArray *pairing, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( PAIRING )
@@ -154,6 +157,10 @@
 
 // http://192.168.44.10/SMApplicationserver/SetRemoteVolumeControl.asp?Version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&deviceId=739d8470f604cfceb13784ab94fc368256253477&volume=UP
 - (NSURLSessionDataTask *)remoconSetRemoteVolumeControlVolume:(NSString *)volume completion:(void (^)(NSArray *pvr, NSError *error))block;
+
+//http://58.141.255.80/smapplicationserver/GetSetTopStatus.asp?deviceId=8e855c79-1aa2-4d65-a230-cfebd4191165
+// 셋탑 상태 체크 전원이나 ...
+- (NSURLSessionDataTask *)remoconGetSetTopStatusCompletion:(void (^)(NSArray *pairing, NSError *error))block;
 
 @end
 

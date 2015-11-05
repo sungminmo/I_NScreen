@@ -50,4 +50,9 @@
     return [[CMNetworkManager sharedInstance] vodRecommendAssetBySubscriberWithAssetProfile:assetProfile block:block];
 }
 
++ (NSURLSessionDataTask *)vodGetAppInitializeCompletion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetAppInitializeCompletion:block];
+}
+
 @end

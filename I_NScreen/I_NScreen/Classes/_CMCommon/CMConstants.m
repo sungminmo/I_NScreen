@@ -108,6 +108,9 @@ NSString* const CNM_OPEN_API_ASSET_PROFILE_KEY = @"assetProfile";
 // 구매 비밀 번호 로컬 저장
 NSString* const CNM_OPEN_API_BUY_PW = @"buyPw";
 
+// 페어링후 셋탑이 PVR 인지 HD 인지 체크 값
+NSString* const CNM_OPEN_API_SET_TOP_BOK_KIND = @"SetTopBoxKind";
+
 // version
 NSString* const CNM_OPEN_API_VERSION_KEY = @"version";
 
@@ -291,6 +294,9 @@ NSString* const CNM_OPEN_API_INTERFACE_GetCategoryTree = @"getCategoryTree";
 // recommendAssetBySubscriber
 NSString* const CNM_OPEN_API_INTERFACE_RecommendAssetBySubscriber = @"recommendAssetBySubscriber";
 
+// getAppInitialize
+NSString* const CNM_OPEN_API_INTERFACE_GetAppInitialize = @"GetAppInitialize";
+
 // 6.Service
 // GetGuideCategory
 NSString* const CNM_OPEN_API_INTERFACE_GetGuideCategory = @"GetGuideCategory";
@@ -355,6 +361,10 @@ NSString* const CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList = @"getValidPurch
 
 // getWishList
 NSString* const CNM_OPEN_API_INTERFACE_GetWishList = @"getWishList";
+
+// remocon
+//GetSetTopStatus
+NSString* const CNM_OPEN_API_INTERFACE_GetSetTopStatus = @"GetSetTopStatus";
 
 @implementation STVConstants
 

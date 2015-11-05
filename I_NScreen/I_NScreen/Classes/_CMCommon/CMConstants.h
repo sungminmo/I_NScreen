@@ -181,6 +181,9 @@ extern NSString* const CNM_OPEN_API_ASSET_PROFILE_KEY;
 // 구매 비밀번호 로컬 저장
 extern NSString* const CNM_OPEN_API_BUY_PW;
 
+// 페어링후 셋탑이 PVR 인지 HD 인지 체크 값
+extern NSString* const CNM_OPEN_API_SET_TOP_BOK_KIND;
+
 // version
 extern NSString* const CNM_OPEN_API_VERSION_KEY;
 
@@ -334,6 +337,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetCategoryTree;
 // recommendAssetBySubscriber
 extern NSString* const CNM_OPEN_API_INTERFACE_RecommendAssetBySubscriber;
 
+// getAppInitialize
+extern NSString* const CNM_OPEN_API_INTERFACE_GetAppInitialize;
+
 // 5. Search
 // SearchChannel
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchChannel;
@@ -416,6 +422,10 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList;
 
 // getWishList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetWishList;
+
+// remocon
+//GetSetTopStatus
+extern NSString* const CNM_OPEN_API_INTERFACE_GetSetTopStatus;
 
 @interface STVConstants : NSObject
 

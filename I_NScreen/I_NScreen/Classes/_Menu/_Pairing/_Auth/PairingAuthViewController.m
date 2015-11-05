@@ -89,6 +89,8 @@
         
         if ( [sResultCode isEqualToString:@"100"] )
         {
+            NSString *sSetTopBoxKind = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"SetTopBoxKind"]];
+            [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_SET_TOP_BOK_KIND Value:sSetTopBoxKind];
             [self setDataAuthResponse];
             // 성공이면 터미널 키 획득 전문 날림
             [self requestWithPrivateTerminalKeyGet];

@@ -8,6 +8,7 @@
 
 #import "RemoconMainTableViewCell.h"
 #import "CMProgressView.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface RemoconMainTableViewCell ()
 
@@ -47,8 +48,11 @@
         self.topLineView.hidden = NO;
     }
     
-    self.pChannelLbl.text = [NSString stringWithFormat:@"%d", index];
-    self.pTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터asdflkajslfkjasdlfkj %d", index];
+    self.pChannelLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelNumber"]];
+    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramOnAirTitle"]];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelLogoImg"]];
+    [self.pChannelLogoImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     
     self.pAllImageView.hidden = index%2 == 0 ? true : false;
     self.pHdImageView.hidden = index%2 == 0 ? true : false;

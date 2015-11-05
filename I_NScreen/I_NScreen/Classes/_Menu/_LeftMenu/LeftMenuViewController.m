@@ -218,10 +218,27 @@ static NSInteger ivTag = 1212;
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 1) {//리모컨
-        if (NO) {//TODO: 서비스 미가입고객여부 체크해서 조건 수정할 것
-            [SIAlertView alert:@"안내" message:@"현재 가입하신 상품으로는 이용할 수 없는\n서비스 기능입니다. 가입상품을 확인해주세요."];
+//        if (NO) {//TODO: 서비스 미가입고객여부 체크해서 조건 수정할 것
+//            [SIAlertView alert:@"안내" message:@"현재 가입하신 상품으로는 이용할 수 없는\n서비스 기능입니다. 가입상품을 확인해주세요."];
+//            return;
+//        }
+        // 리모컨 상태 체크
+        // 페어링이 안됬으면 진입 불가, HD, PVR 이 아니면 진입 불가
+        if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_UUID_KEY] == NULL )
+        {
+            [SIAlertView alert:@"리모컨 미 지원 상품" message:@"고객님의 STB에서는 리모컨 기능을\n지원하지 않습니다."];
             return;
         }
+        else
+        {
+            if ( !([[[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_SET_TOP_BOK_KIND] isEqualToString:@"PVR"] ||
+                   [[[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_SET_TOP_BOK_KIND] isEqualToString:@"HD"] ))
+            {
+                [SIAlertView alert:@"리모컨 미 지원 상품" message:@"고객님의 STB에서는 리모컨 기능을\n지원하지 않습니다."];
+                return;
+            }
+        }
+        
     }
     else if (indexPath.row ==   2) {//녹화
         if (NO) {//TODO: 서비스 미가입고객여부 체크해서 조건 수정할 것

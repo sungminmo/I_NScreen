@@ -75,6 +75,8 @@
  */
 + (NSURLSessionDataTask *)vodRecommendAssetBySubscriberWithAssetProfile:(NSString *)assetProfile block:(void (^)(NSArray *vod, NSError *error))block;
 
+// http://58.141.255.80/smapplicationserver/GetAppInitialize.asp?terminalKey=8A5D2E45D3874824FF23EC97F78D358&version=1
++ (NSURLSessionDataTask *)vodGetAppInitializeCompletion:(void (^)(NSArray *pairing, NSError *error))block;
 
 @end
 

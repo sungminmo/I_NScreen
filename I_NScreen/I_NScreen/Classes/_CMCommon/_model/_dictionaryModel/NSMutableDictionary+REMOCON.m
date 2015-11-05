@@ -22,5 +22,9 @@
     return [[CMNetworkManager sharedInstance] remoconSetRemoteVolumeControlVolume:volume completion:block];
 }
 
++ (NSURLSessionDataTask *)remoconGetSetTopStatusCompletion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] remoconGetSetTopStatusCompletion:block];
+}
 
 @end

@@ -40,6 +40,7 @@
     
 //    [self banPageControllerInit];
     [self requestWithBanner];
+    [self requestWithGetAppInitialze];
     [self requestWithPopularTopTwenty];
     [self requestWithThisMonthRecommend];
     [self requestWithWeekMovie];
@@ -452,6 +453,17 @@
         [self.pBnArr setArray:[[banner objectAtIndex:0] objectForKey:@"BannerList_Item"]];
         
         [self banPageControllerInit];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 카테고리 리스트 
+- (void)requestWithGetAppInitialze
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAppInitializeCompletion:^(NSArray *pairing, NSError *error) {
+        
+        DDLogError(@"%@", pairing);
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
