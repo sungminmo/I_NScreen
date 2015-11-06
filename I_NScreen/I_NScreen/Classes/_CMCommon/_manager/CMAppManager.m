@@ -380,16 +380,6 @@
     return dicInfo;
 }
 
-//NSString *dateString = @"2015-11-12 22:30:00";
-//
-//NSArray *dateArr = [dateString componentsSeparatedByString:@" "];
-//
-//NSArray *dateArr2 = [[dateArr objectAtIndex:1] componentsSeparatedByString:@":"];
-//
-//NSString *s01 = [NSString stringWithFormat:@"%@", [dateArr2 objectAtIndex:0]];
-//NSString *s02 = [NSString stringWithFormat:@"%@", [dateArr2 objectAtIndex:1]];
-//
-
 #pragma mark - 시간 splite ex) 2015-11-12 22:30:00 -> 22:30
 - (NSString *)getSplitTimeWithDateStr:(NSString *)sDate
 {
@@ -399,6 +389,17 @@
     NSString *sTime = [NSString stringWithFormat:@"%@:%@", [dateArr2 objectAtIndex:0], [dateArr2 objectAtIndex:1]];
     
     return sTime;
+}
+
+#pragma mark - 날짜 splite ex) 2015-11-12 21:00:00 -> 11월12일
+- (NSString *)getSplitScrollWithDateStr:(NSString *)sDate
+{
+    NSArray *dateArr = [sDate componentsSeparatedByString:@" "];
+    NSArray *dateArr2 = [[dateArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    
+    NSString *sDay = [NSString stringWithFormat:@"%@월%@일", [dateArr2 objectAtIndex:1], [dateArr2 objectAtIndex:2]];
+    
+    return sDay;
 }
 
 @end

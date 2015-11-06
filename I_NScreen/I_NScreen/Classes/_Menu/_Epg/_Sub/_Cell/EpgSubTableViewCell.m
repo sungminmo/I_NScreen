@@ -18,13 +18,14 @@
 @property (strong, nonatomic) IBOutlet UIImageView *sdhdImageView02;
 @property (strong, nonatomic) IBOutlet UIImageView *hdImageView;
 @property (strong, nonatomic) IBOutlet CMProgressView *progressView;
-
+@property (nonatomic) int nSelect;
 
 @property (strong, nonatomic) NSDictionary* dataDic;
 
 @end
 
 @implementation EpgSubTableViewCell
+@synthesize delegate1;
 
 - (void)awakeFromNib {
     
@@ -46,7 +47,7 @@
 - (void)resetData {
 
     self.dataDic = nil;
-    
+    self.nSelect = 0;
     self.timeLabel.text = @"";
     self.titleLabel.text = @"";
     self.gradeImageView.image = nil;
@@ -61,11 +62,12 @@
  *
  *  @param data 셀에 표출될 정보
  */
-- (void)setData:(NSDictionary*)data {
+- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex {
     
     [self resetData];
     
     self.dataDic = data;
+    self.nSelect = nIndex;
     
     NSString *sStartTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingStartTime"]];
     NSString *sEndTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingEndTime"]];
@@ -139,12 +141,12 @@
 
 - (void)userPressedMoreButton:(id)sender
 {
-    [self.delegate EpgSubTableViewDeleteBtn:0];
+    [self.delegate1 EpgSubTableViewMoreBtn:self.nSelect];
 }
 
 - (void)userPressedDeleteButton:(id)sender
 {
-    [self.delegate EpgSubTableViewDeleteBtn:1];
+    [self.delegate1 EpgSubTableViewDeleteBtn:self.nSelect];
 }
 
 @end

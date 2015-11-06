@@ -96,4 +96,9 @@
  */
 - (NSString *)getSplitTimeWithDateStr:(NSString *)sDate;
 
+/**
+ * @brief 날짜 splite ex) 2015-11-12 21:00:00 -> 11월12일
+ */
+- (NSString *)getSplitScrollWithDateStr:(NSString *)sDate;
+
 @end
