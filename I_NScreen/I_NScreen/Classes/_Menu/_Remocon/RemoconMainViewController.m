@@ -25,7 +25,7 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (strong, nonatomic) IBOutlet UILabel *channelLabel;
 @property (nonatomic) BOOL isOnOff;
-
+@property (nonatomic) int nGenreCode;
 @end
 
 @implementation RemoconMainViewController
@@ -69,6 +69,8 @@
 {
     self.pChannelListArr = [[NSMutableArray alloc] init];
     self.pStatusDic = [[NSMutableDictionary alloc] init];
+    
+    self.nGenreCode = 0;    // 초기값 전체
     
     // 화면 해상도 대응
     if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
@@ -140,7 +142,13 @@
         case REMOCON_MAIN_VIEW_BTN_03:
         {
             // 채널 버튼
-            
+            EpgPopUpViewController *pViewController = [[EpgPopUpViewController alloc] initWithNibName:@"EpgPopUpViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.nGenreCode = self.nGenreCode;
+            pViewController.view.frame = self.view.bounds;
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.view addSubview:pViewController.view];
         }break;
         case REMOCON_MAIN_VIEW_BTN_04:
         {
@@ -196,15 +204,15 @@
     return 1;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        DDLogError(@"delete");
-    }
-}
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
+//
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        DDLogError(@"delete");
+//    }
+//}
 
 #pragma mark - 전문
 #pragma mark - 볼룸 조절 전문 리스트 UP, DOWN
@@ -257,6 +265,26 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
+#pragma mark - 체널 리스트 전문
+- (void)requestWithChannelListWithGenreCode:(NSString *)genreCode
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:CNM_AREA_CODE WithGenreCode:genreCode completion:^(NSArray *epgs, NSError *error) {
+        
+        
+        DDLogError(@"epg = [%@]", epgs);
+        
+        if ( [epgs count] == 0 )
+            return;
+        
+        [self.pChannelListArr removeAllObjects];
+        [self.pChannelListArr setArray:[[epgs objectAtIndex:0] objectForKey:@"channelItem"]];
+        
+        [self.pTableView reloadData];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
 #pragma mark - 리모컨 상태 체크 전문
 - (void)requestWithGetSetTopStatus
 {
@@ -287,6 +315,37 @@
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 델리게이트
+#pragma mark - EpgPopUpView 델리게이트
+- (void)EpgPopUpViewReloadWithGenre:(NSDictionary *)genreDic WithTag:(int)nTag
+{
+    self.nGenreCode = nTag;
+    
+    if ( [genreDic count] == 0 )
+    {
+        if ( nTag == 0 )
+        {
+            // 전체 채널
+            [self.pChannelBtn setTitle:@"전체채널" forState:UIControlStateNormal];
+            [self requestWithChannelListFull];    // 전체
+        }
+        else
+        {
+            // 선호 채널
+            [self.pChannelBtn setTitle:@"선호채널" forState:UIControlStateNormal];
+        }
+        
+    }
+    else
+    {
+        NSString *sGenreName = [NSString stringWithFormat:@"%@", [genreDic objectForKey:@"genreName"]];
+        NSString *sGenreCode = [NSString stringWithFormat:@"%@", [genreDic objectForKey:@"genreCode"]];
+        
+        [self.pChannelBtn setTitle:sGenreName forState:UIControlStateNormal];
+        [self requestWithChannelListWithGenreCode:sGenreCode];
+    }
 }
 
 @end

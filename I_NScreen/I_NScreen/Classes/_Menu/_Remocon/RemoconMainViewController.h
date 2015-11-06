@@ -12,8 +12,9 @@
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
 #import "RemoconMainTableViewCell.h"
+#import "EpgPopUpViewController.h"
 
-@interface RemoconMainViewController : CMBaseViewController
+@interface RemoconMainViewController : CMBaseViewController<EpgPopUpViewDelegate>
 
 - (IBAction)onBtnClick:(UIButton *)btn;
 
