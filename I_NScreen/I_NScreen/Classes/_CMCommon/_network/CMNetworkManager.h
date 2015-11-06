@@ -166,6 +166,9 @@
 // 셋탑 상태 체크 전원이나 ...
 - (NSURLSessionDataTask *)remoconGetSetTopStatusCompletion:(void (^)(NSArray *pairing, NSError *error))block;
 
+//http://192.168.44.10/SMApplicationServer/SetRemoteChannelControl.asp?deviceId=739d8470f604cfceb13784ab94fc368256253477&channelId=10
+- (NSURLSessionDataTask *)remoconSetRemoteChannelControlWithChannelId:(NSString *)channelId completion:(void (^)(NSArray *pairing, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( MyC_M )

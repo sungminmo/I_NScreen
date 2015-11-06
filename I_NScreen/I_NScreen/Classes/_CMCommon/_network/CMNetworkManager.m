@@ -1146,6 +1146,33 @@
     [self updateActivityIndicator:task];
     return task;
 }
+
+
+- (NSURLSessionDataTask *)remoconSetRemoteChannelControlWithChannelId:(NSString *)channelId completion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRemoteChannelControl];
+    NSDictionary *dict = @{
+                           @"deviceId" : [[CMAppManager sharedInstance]getUniqueUuid],
+                           @"channelId" : channelId
+                           };
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    
+    [self updateActivityIndicator:task];
+    return task;
+}
+
 @end
 
 @implementation CMNetworkManager ( MyC_M )

@@ -27,4 +27,9 @@
     return [[CMNetworkManager sharedInstance] remoconGetSetTopStatusCompletion:block];
 }
 
++ (NSURLSessionDataTask *)remoconSetRemoteChannelControlWithChannelId:(NSString *)channelId completion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] remoconSetRemoteChannelControlWithChannelId:channelId completion:block];
+}
+
 @end

@@ -50,7 +50,7 @@
     
 #warning TEST
     //  test
-    [self setChannelNumber:@"15번"];
+    [self setChannelNumber:@"번"];
 }
 
 #pragma mark - 초기화
@@ -185,7 +185,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [self requestWithChannelControlWithSelect:(int)indexPath.row];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -300,6 +300,9 @@
         [self.pStatusDic setDictionary:[pairing objectAtIndex:0]];
         
         NSString *sStatus = [NSString stringWithFormat:@"%@", [self.pStatusDic objectForKey:@"state"]];
+        NSString *sWatchingchannel = [NSString stringWithFormat:@"%@번", [self.pStatusDic objectForKey:@"watchingchannel"]];
+        
+        [self setChannelNumber:sWatchingchannel];
         
         if ( [sStatus isEqualToString:@"4"] )
         {
@@ -312,6 +315,26 @@
             self.isOnOff = YES;
         }
 
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 체널 변경 전문
+- (void)requestWithChannelControlWithSelect:(int)nSelect
+{
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pChannelListArr objectAtIndex:nSelect] objectForKey:@"channelId"]];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary remoconSetRemoteChannelControlWithChannelId:sChannelId completion:^(NSArray *pairing, NSError *error) {
+        
+        DDLogError(@"pairing = [%@]", pairing);
+        
+        if ( [[[pairing objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            // 체널 변경후 상태 값 다시 맵핑
+            NSString *sWatchingchannel = [NSString stringWithFormat:@"%@번", sChannelId];
+            
+            [self setChannelNumber:sWatchingchannel];
+        }
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
