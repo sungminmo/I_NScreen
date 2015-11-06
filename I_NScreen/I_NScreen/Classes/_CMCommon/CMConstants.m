@@ -297,6 +297,9 @@ NSString* const CNM_OPEN_API_INTERFACE_RecommendAssetBySubscriber = @"recommendA
 // getAppInitialize
 NSString* const CNM_OPEN_API_INTERFACE_GetAppInitialize = @"GetAppInitialize";
 
+// searchContentGroup
+NSString* const CNM_OPEN_API_INTERFACE_SearchContentGroup = @"searchContentGroup";
+
 // 6.Service
 // GetGuideCategory
 NSString* const CNM_OPEN_API_INTERFACE_GetGuideCategory = @"GetGuideCategory";

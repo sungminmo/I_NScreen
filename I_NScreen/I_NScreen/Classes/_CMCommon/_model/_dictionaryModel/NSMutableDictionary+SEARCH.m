@@ -25,7 +25,7 @@
     return [[CMNetworkManager sharedInstance] vodSerchListWithSearchString:searchString WithPageSize:pageSize WithPageIndex:pageIndex WithSortType:sortType completion:block];
 }
 
-+ (NSURLSessionDataTask*)searchWordListWithSearchString:(NSString*)searchString completion:(void (^)(NSArray *programs, NSError *error))block
++ (NSURLSessionDataTask*)searchWordListWithSearchString:(NSString*)searchString WithIncludeAdultCategory:(NSString *)adultCategory completion:(void (^)(NSArray *programs, NSError *error))block
 {
     /*
     // test
@@ -38,7 +38,11 @@
     
     return nil;*/
     
-    return [[CMNetworkManager sharedInstance] searchWordListWithSearchString:searchString completion:block];
+    return [[CMNetworkManager sharedInstance] searchWordListWithSearchString:searchString WithIncludeAdultCategory:adultCategory completion:block];
 }
 
++ (NSURLSessionDataTask *)searchContentGroupWithSearchKeyword:(NSString *)searchKeyword WithIncludeAdultCategory:(NSString *)includeAdultCategory completion:(void (^)(NSArray *gets, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] searchContentGroupWithSearchKeyword:searchKeyword WithIncludeAdultCategory:includeAdultCategory completion:block];
+}
 @end

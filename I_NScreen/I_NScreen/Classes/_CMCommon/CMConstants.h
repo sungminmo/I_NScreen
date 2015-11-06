@@ -362,6 +362,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetContentGroupList;
 // Getservicebannerlist
 extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceBannerlist;
 
+// searchContentGroup
+extern NSString* const CNM_OPEN_API_INTERFACE_SearchContentGroup;
+
 // 6.Service
 // GetGuideCategory
 extern NSString* const CNM_OPEN_API_INTERFACE_GetGuideCategory;

@@ -15,6 +15,7 @@
 #import "NSMutableDictionary+SEARCH.h"
 #import "CMDBDataManager.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "UIAlertView+AFNetworking.h"
 
 typedef enum : NSInteger {
     VOD_TABMENU_TYPE,
@@ -76,7 +77,7 @@ static const CGFloat pageSize = 28;
     self.dataArray = [@[] mutableCopy];
     
     [self setListCount:self.dataArray.count];
-    
+//    [self requstWithSearchWorldTest];
     UINib* nib;
     
     nib = [UINib nibWithNibName:@"CMAutoCompletTableViewCell" bundle:nil];
@@ -89,6 +90,69 @@ static const CGFloat pageSize = 28;
     [self.programList registerNib:nib forCellReuseIdentifier:programCellIdentifier];
     
     [self loadUI];
+}
+
+// 키워드 검색 전문
+- (void)requstWithSearchWorldTest
+{
+    // http://58.141.255.79:8080/HApplicationServer/getSearchWord.json?version=1&terminalKey=8A5D2E45D3874824FF23EC97F78D358&includeAdultCategory=0&searchKeyword=%EB%A7%89
+    
+    
+    // includeAdultCategory 1, 0 성인 컨텐츠 포함 여부
+    /*!<
+     {
+     "transactionId":"",
+     "totalCount":35,
+     "searchWordList":[
+     "막걸스",
+     "막달라마리아",
+     "막달레나 크론슈라거",
+     "막돼먹은영애씨1",
+     "막돼먹은영애씨2",
+     "막돼먹은영애씨3",
+     "막돼먹은 영애씨7",
+     "막돼먹은 영애씨8",
+     "막돼먹은영애씨 시즌10",
+     "막돼먹은영애씨 시즌11",
+     "막돼먹은영애씨 시즌12",
+     "막돼먹은 영애씨 시즌13",
+     "막돼먹은 영애씨 시즌14",
+     "막무가내쇼시즌2",
+     "막문위",
+     "막미림",
+     "막부말Rock",
+     "막부말 의인전 로망",
+     "막소기",
+     "막소총",
+     "막스 리멜트",
+     "막스 리에멜트",
+     "막스 마누스",
+     "막스본시도우",
+     "막스 본 시도우",
+     "막스 본 토운",
+     "막스 쇼워터",
+     "막스 오퓔스",
+     "막스 폰 시도우",
+     "막시밀리안 브뤼크너",
+     "막시밀리안 시모니슈에크",
+     "막시밀리언 엘렌바인",
+     "막심 고바레",
+     "막심 스베쉬니코브",
+     "막이래쇼 무작정여행단"
+     ],
+     "resultCode":100,
+     "totalPage":0,
+     "errorString":"",
+     "version":"1"
+     }
+     */
+    
+    
+   NSURLSessionDataTask *tesk = [NSMutableDictionary searchWordListWithSearchString:@"막" WithIncludeAdultCategory:@"0" completion:^(NSArray *programs, NSError *error) {
+      
+       DDLogError(@"%@", programs);
+   }];
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -183,7 +247,7 @@ static const CGFloat pageSize = 28;
         return;
     }
     
-    [NSMutableDictionary searchWordListWithSearchString:searchWord completion:^(NSArray *programs, NSError *error) {
+    [NSMutableDictionary searchWordListWithSearchString:searchWord WithIncludeAdultCategory:@"1" completion:^(NSArray *programs, NSError *error) {
         
         NSDictionary* response = programs[0];
         
@@ -222,30 +286,129 @@ static const CGFloat pageSize = 28;
         return;
     }
     
-    [NSMutableDictionary vodSerchListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithSortType:@"TitleAsc" completion:^(NSArray *programs, NSError *error) {
+//    [NSMutableDictionary vodSerchListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithSortType:@"TitleAsc" completion:^(NSArray *programs, NSError *error) {
+//        
+//        self.isLoading = NO;
+//        
+//        NSDictionary* response = programs[0];
+//        
+//        NSString* resultCode = response[CNM_OPEN_API_RESULT_CODE_KEY];
+//        if ([CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY isEqualToString:resultCode] == false) {
+//            
+//            [self.dataArray removeAllObjects];
+//            [self.vodList reloadData];
+//            
+//            DDLogError(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
+//            
+//            return;
+//        }
+//        
+//        self.totalPage = [(NSString*)response[CNM_OPEN_API_RESULT_TOTAL_PAGE] integerValue];
+//        
+//        NSString* totalCount = response[CNM_OPEN_API_RESULT_TOTAL_COUNT];
+//        [self setListCount:[totalCount integerValue]];
+//        
+//        NSObject* itemObject = response[VodSearch_Item];
+//        
+//        if ([itemObject isKindOfClass:[NSDictionary class]]) {
+//            [self.dataArray addObject:itemObject];
+//        } else if ([itemObject isKindOfClass:[NSArray class]]) {
+//            [self.dataArray addObjectsFromArray:(NSArray*)itemObject];
+//        }
+//
+//        [self.vodList reloadData];
+//    }];
+    
+//    http://58.141.255.79:8080/HApplicationServer/searchContentGroup.json?version=1&terminalKey=8A5D2E45D3874824FF23EC97F78D358&includeAdultCategory=0&searchKeyword=막돼먹은
+    /*!<
+     [(
+     {
+     __name = response;
+     resultCode = 100;
+     searchResultList =     {
+     searchResult =     {
+     contentGroupList =     {
+     contentGroup =     (
+     {
+     assetNew = 0;
+     imageFileName = http://58.141.255.79:8080/PosterImage/big/M0248152LSG188050410.jpg;
+     rating = 15;
+     runningTime = 00:47;
+     smallImageFileName = http://58.141.255.79:8080/PosterImage/normal/M0248152LSG188050410.jpg;
+     primaryAssetId = www.hchoice.co.kr|M0294955LSG282802401;
+     title = 막돼먹은영애씨 시즌12;
+     synopsis = 이직한 영애씨의 막돼먹은 뒷담화.;
+     assetBundle = 0;
+     likedCount = 0;
+     mobilePublicationRight = 0;
+     starring = 김현숙,송민형,윤서현,강예빈;
+     assetFree = 1;
+     episodePeerExistence = 1;
+     assetSeriesLink = 1;
+     isLiked = 0;
+     production = 130708008300020;
+     UHDAssetCount = 0;
+     isFavorite = 0;
+     director = 한상재, 윤재순;
+     HDAssetCount = 21;
+     SDAssetCount = 20;
+     genre = 미니시리즈;
+     promotionSticker = 0;
+     reviewRating = 0.0;
+     assetHot = 0;
+     categoryId = 287092;
+     contentGroupId = 282115;
+     }
+     .
+     .
+     .
+     .
+     .
+     );
+     }
+     ;
+     totalCount = 10;
+     totalPage = 0;
+     searchCategory = title;
+     }
+     ;
+     }
+     ;
+     version = 1;
+     }
+     
+     )]
+     */
+    
+    // IncludeAdultCategory 성인 체크 여부 1 , 0
+    NSURLSessionDataTask *tesk = [NSMutableDictionary searchContentGroupWithSearchKeyword:searchWord WithIncludeAdultCategory:@"0" completion:^(NSArray *gets, NSError *error) {
         
+        DDLogError(@"vod 검색 = [%@]", gets);
+        
+
         self.isLoading = NO;
-        
-        NSDictionary* response = programs[0];
-        
+
+        NSDictionary* response = gets[0];
+
         NSString* resultCode = response[CNM_OPEN_API_RESULT_CODE_KEY];
         if ([CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY isEqualToString:resultCode] == false) {
-            
+
             [self.dataArray removeAllObjects];
             [self.vodList reloadData];
-            
+
             DDLogError(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
-            
+
             return;
         }
-        
-        self.totalPage = [(NSString*)response[CNM_OPEN_API_RESULT_TOTAL_PAGE] integerValue];
-        
-        NSString* totalCount = response[CNM_OPEN_API_RESULT_TOTAL_COUNT];
+
+        self.totalPage = [(NSString *)[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"totalPage"] integerValue];
+
+//        NSString* totalCount = response[CNM_OPEN_API_RESULT_TOTAL_COUNT];
+        NSString* totalCount = (NSString *)[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"totalCount"];
         [self setListCount:[totalCount integerValue]];
-        
-        NSObject* itemObject = response[VodSearch_Item];
-        
+
+        NSObject* itemObject = [[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"];
+
         if ([itemObject isKindOfClass:[NSDictionary class]]) {
             [self.dataArray addObject:itemObject];
         } else if ([itemObject isKindOfClass:[NSArray class]]) {
@@ -253,7 +416,10 @@ static const CGFloat pageSize = 28;
         }
 
         [self.vodList reloadData];
+
     }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 
@@ -272,7 +438,7 @@ static const CGFloat pageSize = 28;
     
     CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
     
-    [NSMutableDictionary programScheduleListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithAreaCode:areaInfo.areaCode completion:^(NSArray *programs, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary programScheduleListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithAreaCode:@"0" completion:^(NSArray *programs, NSError *error) {
 
         self.isLoading = NO;
         
@@ -304,6 +470,8 @@ static const CGFloat pageSize = 28;
         
         [self.programList reloadData];
     }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 /**
@@ -390,7 +558,8 @@ static const CGFloat pageSize = 28;
 
     NSDictionary* data = self.dataArray[indexPath.row];
 
-    [cell setImageUrl:data[@"VOD_IMG"] title:data[@"VOD_Title"]];
+//    [cell setImageUrl:data[@"VOD_IMG"] title:data[@"VOD_Title"]];
+    [cell setImageUrl:data[@"smallImageFileName"] title:data[@"title"]];
 
     return cell;
 }

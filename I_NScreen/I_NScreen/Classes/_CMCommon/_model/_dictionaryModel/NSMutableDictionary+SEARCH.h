@@ -16,6 +16,8 @@
 
 + (NSURLSessionDataTask *)vodSerchListWithSearchString:(NSString *)searchString WithPageSize:(NSInteger)pageSize WithPageIndex:(NSInteger)pageIndex WithSortType:(NSString *)sortType completion:(void (^)(NSArray *programs, NSError *error))block;
 
-+ (NSURLSessionDataTask*)searchWordListWithSearchString:(NSString*)searchString completion:(void (^)(NSArray *programs, NSError *error))block;
++ (NSURLSessionDataTask*)searchWordListWithSearchString:(NSString*)searchString WithIncludeAdultCategory:(NSString *)adultCategory completion:(void (^)(NSArray *programs, NSError *error))block;
+
++ (NSURLSessionDataTask *)searchContentGroupWithSearchKeyword:(NSString *)searchKeyword WithIncludeAdultCategory:(NSString *)includeAdultCategory completion:(void (^)(NSArray *gets, NSError *error))block;
 
 @end

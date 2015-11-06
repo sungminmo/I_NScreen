@@ -64,7 +64,11 @@
 - (NSURLSessionDataTask *)vodSerchListWithSearchString:(NSString *)searchString WithPageSize:(NSInteger)pageSize WithPageIndex:(NSInteger)pageIndex WithSortType:(NSString *)sortType completion:(void (^)(NSArray *gets, NSError *error))block;
 
 // 검색어 목록
-- (NSURLSessionDataTask *)searchWordListWithSearchString:(NSString*)searchString completion:(void (^)(NSArray *gets, NSError *error))block;
+- (NSURLSessionDataTask *)searchWordListWithSearchString:(NSString*)searchString WithIncludeAdultCategory:(NSString *)adultCategory completion:(void (^)(NSArray *gets, NSError *error))block;
+
+// 검색추가 ....
+//http://192.168.40.5:8080/HApplicationServer/searchContentGroup.json?version=1&terminalKey=C5E6DBF75F13A2C1D5B2EFDB2BC940&searchKeyword=%EB%A7%89%EB%8F%BC%EB%A8%B9%EC%9D%80&contentGroupProfile=2
+- (NSURLSessionDataTask *)searchContentGroupWithSearchKeyword:(NSString *)searchKeyword WithIncludeAdultCategory:(NSString *)includeAdultCategory completion:(void (^)(NSArray *gets, NSError *error))block;
 
 @end
 

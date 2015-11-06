@@ -170,7 +170,7 @@
     if (isForce || isEmpty) {
         CMAreaInfo *setting =  [[CMAreaInfo alloc] init];
         // 지역코드/명 기본값.
-        setting.areaCode = @"12";
+        setting.areaCode = @"0";
         setting.areaName = @"송파";
         
         //1-2. 저장

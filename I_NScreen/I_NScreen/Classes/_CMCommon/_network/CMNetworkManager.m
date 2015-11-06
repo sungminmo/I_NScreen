@@ -289,8 +289,8 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
                            @"searchString" : searchString,
-                           @"limit" : @(pageSize),
-                           @"offset" : @(pageIndex),
+//                           @"limit" : @(pageSize),
+//                           @"offset" : @(pageIndex),
                            @"areaCode" : areaCode
                            };
     
@@ -359,16 +359,44 @@
     return task;
 }
 
-- (NSURLSessionDataTask *)searchWordListWithSearchString:(NSString*)searchString completion:(void (^)(NSArray *gets, NSError *error))block
+- (NSURLSessionDataTask *)searchWordListWithSearchString:(NSString*)searchString WithIncludeAdultCategory:(NSString *)adultCategory completion:(void (^)(NSArray *gets, NSError *error))block
 {
     self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_getSearchWord];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
                            @"searchKeyword" : searchString,
+                           @"includeAdultCategory" : adultCategory
+                           };
+    
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
+
+- (NSURLSessionDataTask *)searchContentGroupWithSearchKeyword:(NSString *)searchKeyword  WithIncludeAdultCategory:(NSString *)includeAdultCategory completion:(void (^)(NSArray *gets, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_SearchContentGroup];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           @"searchKeyword" : searchKeyword,
+                           @"includeAdultCategory" : includeAdultCategory,
+                           @"contentGroupProfile" : @"2"
                            };
     
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
