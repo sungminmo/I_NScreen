@@ -91,4 +91,9 @@
  */
 - (NSMutableDictionary *)getResponseTreeSplitWithData:(NSArray *)data WithCategoryIdSearch:(NSString *)categoryIdSearch;
 
+/**
+ * @brief 시간 splite ex) 2015-11-12 22:30:00 -> 22:30
+ */
+- (NSString *)getSplitTimeWithDateStr:(NSString *)sDate;
+
 @end

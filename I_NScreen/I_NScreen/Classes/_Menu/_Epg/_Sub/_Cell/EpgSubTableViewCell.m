@@ -67,7 +67,11 @@
     
     self.dataDic = data;
     
-//    self.timeLabel.text = data[@"time"];
+    NSString *sStartTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingStartTime"]];
+    NSString *sEndTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingEndTime"]];
+    
+    self.timeLabel.text = [NSString stringWithFormat:@"%@~%@", [[CMAppManager sharedInstance] getSplitTimeWithDateStr:sStartTime], [[CMAppManager sharedInstance] getSplitTimeWithDateStr:sEndTime]];
+    
     self.titleLabel.text = data[@"programTitle"];
     
     NSString* grade = data[@"programGrade"];

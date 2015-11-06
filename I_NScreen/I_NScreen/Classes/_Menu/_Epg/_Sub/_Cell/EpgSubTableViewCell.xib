@@ -21,7 +21,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="S1j-of-V0y" userLabel="title Label">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="S1j-of-V0y" userLabel="title Label">
                         <rect key="frame" x="112" y="10" width="78" height="22"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -35,10 +35,10 @@
                             <constraint firstAttribute="height" constant="1" id="ikt-27-0XO"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="4eO-9v-5jA" userLabel="ALL image">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="4eO-9v-5jA" userLabel="ALL image">
                         <rect key="frame" x="112" y="33" width="29" height="16"/>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sd.png" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-kA-6bq" userLabel="SD image">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sd.png" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-kA-6bq" userLabel="SD image">
                         <rect key="frame" x="146" y="33" width="29" height="16"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjU-zZ-01I" userLabel="progress View" customClass="CMProgressView">
