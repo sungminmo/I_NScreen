@@ -134,18 +134,23 @@
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             CMAdultCertificationYN adultYN = [ud adultCertYN];
             if (adultYN == CMAdultCertificationSuccess) {
-                self.preferenceSwitchEvent(self.switchButton, self.indexPath, YES);
+                self.preferenceSwitchEvent(self.switchButton, self.indexPath, NO/*컨텐츠 해제*/);
                 return;
             }
                 
             [SIAlertView alert:@"성인인증 필요" message:@"성인검색 제한 설정을 해제하기 위해서는\n성인인증이 필요합니다.\n\n성인인증을 진행하시겠습니까?" containBoldText:@"성인인증을 진행하시겠습니까?" cancel:@"아니요" buttons:@[@"예"] completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 if (buttonIndex == 1) {//성인인증 진행이동
-                    self.preferenceSwitchEvent(self.switchButton, self.indexPath, YES);
+                    self.preferenceSwitchEvent(self.switchButton, self.indexPath, NO);
                 } else {
                     self.switchButton.on = YES;
                 }
                 self.isSwitchWorking = NO;
             }];
+        }
+        else {
+            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            [ud setRestrictType:CMContentsRestrictedTypeAdult];
+            [ud synchronize];
         }
 
     }

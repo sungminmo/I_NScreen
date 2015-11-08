@@ -27,7 +27,7 @@
 			<string>kr.co.cnm.ncreen</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>cnm_app</string>
+				<string>cnmapp</string>
 			</array>
 		</dict>
 	</array>
