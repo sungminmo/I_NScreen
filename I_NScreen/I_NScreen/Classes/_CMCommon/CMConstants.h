@@ -82,6 +82,20 @@ typedef NS_ENUM(NSInteger, CMContentsRestrictedType) {
     CMContentsRestrictedTypeAdult
 };
 
+/**
+ *  @brief  성인인증 여부.
+ */
+typedef NS_ENUM(NSInteger, CMAdultCertificationYN) {
+    /**
+     *  @brief  성인인증 하지 않음
+     */
+    CMAdultCertificationNone = 0,
+    /**
+     *  @brief  성인인증성공.
+     */
+    CMAdultCertificationSuccess
+};
+
 
 static const CGFloat cmNavigationHeight = 93;//네비게이션 커스텀 높이
 
@@ -429,6 +443,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetWishList;
 // remocon
 //GetSetTopStatus
 extern NSString* const CNM_OPEN_API_INTERFACE_GetSetTopStatus;
+
+//노티피게이션
+extern NSString* const CNMHandleOpenURLNotification;
 
 @interface STVConstants : NSObject
 

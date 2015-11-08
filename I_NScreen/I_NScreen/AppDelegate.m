@@ -54,6 +54,39 @@
     return YES;
 }
 
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    [self application:application openURL:url sourceApplication:nil annotation:nil];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation {
+    if (!url) {
+        return NO;
+    }
+    
+    DDLogInfo(@"url recieved: %@", url);
+    DDLogInfo(@"scheme: %@", [url scheme]);
+    DDLogInfo(@"query string: %@", [url query]);
+    DDLogInfo(@"host: %@", [url host]);
+    DDLogInfo(@"url path: %@", [url path]);
+    NSDictionary *dict = [NSString parseQueryString:[url query]];
+    DDLogInfo(@"query dict: %@", dict);
+    
+    if ([[url host] isEqualToString:@"adult_auth"]) {//성인인증 정보처리 
+        [[NSNotificationCenter defaultCenter] postNotificationName:CNMHandleOpenURLNotification object:[dict copy]];
+    }
+    
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
+    [self application:app openURL:url sourceApplication:nil annotation:nil];
+    return YES;
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application {
 }
 
@@ -72,6 +105,7 @@
 - (void)settingCommonApperance {
     //네비게이션
     [[UINavigationBar appearance] setBarTintColor:[CMColor colorViolet]];
+    [[UINavigationBar appearance] setTranslucent:NO];
     self.m_pNaviCon.navigationBar.height = cmNavigationHeight - 20;
     
     //얼럿뷰
