@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
-#import "AdultMainCollectionViewCell.h"
+#import "CMHomeCommonCollectionViewCell.h"
 
 @protocol AdultMainViewDelegate;
 

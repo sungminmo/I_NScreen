@@ -1,27 +1,27 @@
 //
-//  AdultMainCollectionViewCell.m
+//  CMHomeCommonCollectionViewCell.m
 //  I_NScreen
 //
-//  Created by kimts on 2015. 11. 8..
+//  Created by 조백근 on 2015. 11. 8..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "AdultMainCollectionViewCell.h"
+#import "CMHomeCommonCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface AdultMainCollectionViewCell ()
+@interface CMHomeCommonCollectionViewCell ()
 
 @property (nonatomic, strong) IBOutlet UIImageView* posterImageView;
 @property (nonatomic, strong) IBOutlet UILabel* titleLabel;
 
 @end
 
-@implementation AdultMainCollectionViewCell
+@implementation CMHomeCommonCollectionViewCell
 
 #pragma mark - Life Cycle
 
 - (void)awakeFromNib {
-
+    
 }
 
 #pragma mark - Private
@@ -35,7 +35,7 @@
 #pragma mark - Public
 
 - (void)setListData:(NSDictionary*)data WithViewerType:(NSString*)type {
-
+    
     if ( [type isEqualToString:@"200"] ) {
         
         NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];

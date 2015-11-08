@@ -10,6 +10,8 @@
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+VOD.h"
 
+static NSString* const CollectionViewCell = @"CollectionViewCell";
+
 @interface AniKidsMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pTwoDepthTreeDataArr; // 투댑스 카테고리 데이터 저장
 @property (nonatomic, strong) NSMutableArray *pThreeDepthDailyDataArr;  // 3댑스에 실시간 데이터 저장
@@ -22,14 +24,13 @@
 @synthesize delegate;
 @synthesize pDataDic;
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    UINib* nib;
+    nib = [UINib nibWithNibName:@"CMHomeCommonCollectionViewCell" bundle:nil];
+    [self.pCollectionView21 registerNib:nib forCellWithReuseIdentifier:CollectionViewCell];
+    [self.pCollectionView22 registerNib:nib forCellWithReuseIdentifier:CollectionViewCell];
     
     [self setTagInit];
     [self setViewInit];
@@ -75,8 +76,8 @@
             [self.pRealTimeBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pWeekBtn setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
-            self.pLeftLineView.frame = CGRectMake(self.pLeftLineView.frame.origin.x, 39, self.pLeftLineView.frame.size.width, 2);
-            self.pRightLineView.frame = CGRectMake(self.pRightLineView.frame.origin.x, 40, self.pRightLineView.frame.size.width, 1);
+            self.pLeftLineHeight.constant = 2;
+            self.pRightLineHeight.constant = 1;
             
             [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
             
@@ -89,8 +90,8 @@
             [self.pRealTimeBtn setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pWeekBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
-            self.pLeftLineView.frame = CGRectMake(self.pLeftLineView.frame.origin.x, 40, self.pLeftLineView.frame.size.width, 1);
-            self.pRightLineView.frame = CGRectMake(self.pRightLineView.frame.origin.x, 39, self.pRightLineView.frame.size.width, 2);
+            self.pLeftLineHeight.constant = 1;
+            self.pRightLineHeight.constant = 2;
             
             [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
             
@@ -219,52 +220,24 @@
             // 실시간 인기 순위
             [self.pThreeDepthDailyDataArr removeAllObjects];
             
-            int nIndex = 1;
-            int nTotal = (int)[[[[[vod objectAtIndex:0] objectForKey:@"dailyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"] count];
+            NSArray* popularity = (NSArray*)vod[0][@"dailyChart"][@"popularityList"][@"popularity"];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
+            [self.pThreeDepthDailyDataArr addObjectsFromArray:popularity];
             
-            for ( NSDictionary *dic in [[[[vod objectAtIndex:0] objectForKey:@"dailyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthDailyDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-            }
-            
-            [self.pTableView21 reloadData];
+            [self.pCollectionView21 reloadData];
         }
         else
         {
             // 주간 인기 순위
             [self.pThreeDepthWeeklyDataArr removeAllObjects];
             
+            [self.pThreeDepthWeeklyDataArr removeAllObjects];
             
-            int nIndex = 1;
-            int nTotal = (int)[[[[[vod objectAtIndex:0] objectForKey:@"weeklyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"] count];
+            NSArray* popularity = (NSArray*)vod[0][@"weeklyChart"][@"popularityList"][@"popularity"];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
+            [self.pThreeDepthWeeklyDataArr addObjectsFromArray:popularity];
             
-            for ( NSDictionary *dic in [[[[vod objectAtIndex:0] objectForKey:@"weeklyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthWeeklyDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-            }
-            
-            [self.pTableView21 reloadData];
-            
+            [self.pCollectionView21 reloadData];
         }
         
         
@@ -285,26 +258,11 @@
             
             DDLogError(@"카테고리형 포스터 리스트 = [%@]", vod);
             
-            int nIndex = 1;
-            int nTotal = (int)[[[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] count];
+            NSArray* contentGroup = (NSArray*)vod[0][@"contentGroupList"][@"contentGroup"];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
+            [self.pThreeDepthElseDataArr addObjectsFromArray:contentGroup];
             
-            for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthElseDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-                
-            }
-            
-            [self.pTableView22 reloadData];
+            [self.pCollectionView22 reloadData];
         }];
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -316,25 +274,11 @@
             
             DDLogError(@"묶음 상품 리스트 = [%@]", vod);
             
-            int nIndex = 1;
-            int nTotal = (int)[[[[vod objectAtIndex:0] objectForKey:@"productList"] objectForKey:@"product"] count];
+            NSArray* product = (NSArray*)vod[0][@"productList"][@"product"];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
+            [self.pThreeDepthElseDataArr addObjectsFromArray:product];
             
-            for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"productList"] objectForKey:@"product"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthElseDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-            }
-            
-            [self.pTableView22 reloadData];
+            [self.pCollectionView22 reloadData];
         }];
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -345,26 +289,12 @@
         NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetInfoWithAssetId:categoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
             
             DDLogError(@"마니아 추천 = [%@]", vod);
-            int nIndex = 1;
-            int nTotal = (int)[[[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"] count];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
+            NSArray* asset = (NSArray*)vod[0][@"assetList"][@"asset"];
             
-            for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthElseDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-            }
+            [self.pThreeDepthElseDataArr addObjectsFromArray:asset];
             
-            [self.pTableView22 reloadData];
-            
+            [self.pCollectionView22 reloadData];
         }];
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -388,57 +318,13 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    static NSString *pCellIn = @"AnikidsMainTableViewCellIn";
-    
-    AnikidsMainTableViewCell *pCell = (AnikidsMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
-    
-    if (pCell == nil)
-    {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"AnikidsMainTableViewCell" owner:nil options:nil];
-        pCell = [arr objectAtIndex:0];
-    }
-    pCell.delegate = self;
-    
-    [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    
-    if ( tableView == self.pTableView21 )
-    {
-        if ( self.isItemCheck == NO )
-        {
-            [pCell setListData:[self.pThreeDepthDailyDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
-        }
-        else
-        {
-            [pCell setListData:[self.pThreeDepthWeeklyDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
-        }
-    }
-    else
-    {
-        [pCell setListData:[self.pThreeDepthElseDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
-    }
-    
-    return pCell;
-}
+#pragma mark - UICollectionViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
-    //    [self.navigationController pushViewController:pViewController animated:YES];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 170;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
     int nTotalCount = 0;
     
-    if ( tableView == self.pTableView21 )
+    if ( collectionView == self.pCollectionView21 )
     {
         // 인기순위 테이블 뷰
         if ( self.isItemCheck == NO )
@@ -460,17 +346,54 @@
     return nTotalCount;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CMHomeCommonCollectionViewCell* pCell = (CMHomeCommonCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCell forIndexPath:indexPath];
+    
+    if ( collectionView == self.pCollectionView21 )
+    {
+        if ( self.isItemCheck == NO )
+        {
+            [pCell setListData:self.pThreeDepthDailyDataArr[indexPath.row] WithViewerType:self.pViewerTypeStr];
+        }
+        else
+        {
+            [pCell setListData:self.pThreeDepthWeeklyDataArr[indexPath.row] WithViewerType:self.pViewerTypeStr];
+        }
+    }
+    else
+    {
+        [pCell setListData:self.pThreeDepthElseDataArr[indexPath.row] WithViewerType:self.pViewerTypeStr];
+    }
+    
+    return pCell;
 }
 
-- (void)AnikidsMainTableViewCellBtnClicked:(int)nTag WithSelect:(int)nSelect WithAssetId:(NSString *)assetId
-{
-//    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-//    pViewController.pAssetIdStr = assetId;
-//    [self.navigationController pushViewController:pViewController animated:YES];
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    /*NSDictionary* data;
+     
+     if ( collectionView == self.pCollectionView21 )
+     {
+     if ( self.isItemCheck == NO )
+     {
+     data = self.pThreeDepthDailyDataArr[indexPath.row];
+     
+     }
+     else
+     {
+     data = self.pThreeDepthWeeklyDataArr[indexPath.row];
+     }
+     }
+     else
+     {
+     data = self.pThreeDepthElseDataArr[indexPath.row];
+     }
+     
+     NSString* assetId = data[@"assetId"];
+     
+     VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+     pViewController.pAssetIdStr = assetId;
+     [self.navigationController pushViewController:pViewController animated:YES];*/
 }
-
 @end

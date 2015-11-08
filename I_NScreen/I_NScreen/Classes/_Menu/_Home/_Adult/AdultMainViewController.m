@@ -33,8 +33,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     // Do any additional setup after loading the view from its nib.
     
     UINib* nib;
-    
-    nib = [UINib nibWithNibName:@"AdultMainCollectionViewCell" bundle:nil];
+    nib = [UINib nibWithNibName:@"CMHomeCommonCollectionViewCell" bundle:nil];
     [self.pCollectionView21 registerNib:nib forCellWithReuseIdentifier:CollectionViewCell];
     [self.pCollectionView22 registerNib:nib forCellWithReuseIdentifier:CollectionViewCell];
     
@@ -348,10 +347,8 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    AdultMainCollectionViewCell* pCell = (AdultMainCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCell forIndexPath:indexPath];
-    
-    
-    
+    CMHomeCommonCollectionViewCell* pCell = (CMHomeCommonCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCell forIndexPath:indexPath];
+
     if ( collectionView == self.pCollectionView21 )
     {
         if ( self.isItemCheck == NO )
