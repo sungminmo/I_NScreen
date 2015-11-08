@@ -318,77 +318,6 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     }
 }
 
-/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    static NSString *pCellIn = @"AdultMainTableViewCellIn";
-    
-    AdultMainTableViewCell *pCell = (AdultMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
-    
-    if (pCell == nil)
-    {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"AdultMainTableViewCell" owner:nil options:nil];
-        pCell = [arr objectAtIndex:0];
-    }
-    pCell.delegate = self;
-    [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    
-    if ( tableView == self.pTableView21 )
-    {
-        if ( self.isItemCheck == NO )
-        {
-            [pCell setListData:[self.pThreeDepthDailyDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
-        }
-        else
-        {
-            [pCell setListData:[self.pThreeDepthWeeklyDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
-        }
-    }
-    else
-    {
-        [pCell setListData:[self.pThreeDepthElseDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
-    }
-    
-    return pCell;
-}*/
-
-/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
-    //    [self.navigationController pushViewController:pViewController animated:YES];
-}*/
-
-/*- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 170;
-}*/
-
-/*- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    int nTotalCount = 0;
-    
-    if ( tableView == self.pTableView21 )
-    {
-        // 인기순위 테이블 뷰
-        if ( self.isItemCheck == NO )
-        {
-            // 실시간 인기순위
-            nTotalCount = (int)[self.pThreeDepthDailyDataArr count];
-        }
-        else
-        {
-            // 주간 인기순위
-            nTotalCount = (int)[self.pThreeDepthWeeklyDataArr count];
-        }
-    }
-    else
-    {
-        // 그외 테이블 뷰
-        nTotalCount = (int)[self.pThreeDepthElseDataArr count];
-    }
-    return nTotalCount;
-}*/
-
 #pragma mark - UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -444,9 +373,30 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-//    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-//    pViewController.pAssetIdStr = assetId;
-//    [self.navigationController pushViewController:pViewController animated:YES];
+    /*NSDictionary* data;
+    
+    if ( collectionView == self.pCollectionView21 )
+    {
+        if ( self.isItemCheck == NO )
+        {
+            data = self.pThreeDepthDailyDataArr[indexPath.row];
+
+        }
+        else
+        {
+            data = self.pThreeDepthWeeklyDataArr[indexPath.row];
+        }
+    }
+    else
+    {
+        data = self.pThreeDepthElseDataArr[indexPath.row];
+    }
+    
+    NSString* assetId = data[@"assetId"];
+    
+    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+    pViewController.pAssetIdStr = assetId;
+    [self.navigationController pushViewController:pViewController animated:YES];*/
 }
 
 @end
