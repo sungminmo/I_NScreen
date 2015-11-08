@@ -520,10 +520,7 @@ static const CGFloat pageSize = 28;
  */
 - (void)textMessageChanged:(CMTextField*)textField {
     
-//    //  test
-//    return;
-    
-    [self showAutoCompletList:YES];
+    [self showAutoCompletList:NO];
     
     if (self.searchWordTimer) {
         [self.searchWordTimer invalidate];
