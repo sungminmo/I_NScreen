@@ -22,12 +22,12 @@ typedef enum : NSInteger {
     PROGRAM_TABMENU_TYPE
 } TABMENU_TYPE;
 
-static NSString* const autoCompletCell = @"autoCompletCell";
-static NSString* const vodCellIdentifier = @"vodCell";
-static NSString* const programCellIdentifier = @"programCell";
+static NSString* const AutoCompletCell = @"autoCompletCell";
+static NSString* const VodCellIdentifier = @"vodCell";
+static NSString* const ProgramCellIdentifier = @"programCell";
 
-static NSString* const searchWordList = @"searchWordList";
-static NSString* const searchWord = @"searchWord";
+static NSString* const SearchWordList = @"searchWordList";
+static NSString* const SearchWord = @"searchWord";
 
 static NSString* const VodSearch_Item = @"VodSearch_Item";
 static NSString* const ScheduleItem = @"scheduleItem";
@@ -77,17 +77,17 @@ static const CGFloat pageSize = 28;
     self.dataArray = [@[] mutableCopy];
     
     [self setListCount:self.dataArray.count];
-//    [self requstWithSearchWorldTest];
+
     UINib* nib;
     
     nib = [UINib nibWithNibName:@"CMAutoCompletTableViewCell" bundle:nil];
-    [self.autoCompletList registerNib:nib forCellReuseIdentifier:autoCompletCell];
+    [self.autoCompletList registerNib:nib forCellReuseIdentifier:AutoCompletCell];
     
     nib = [UINib nibWithNibName:@"CMSearchCollectionViewCell" bundle:nil];
-    [self.vodList registerNib:nib forCellWithReuseIdentifier:vodCellIdentifier];
+    [self.vodList registerNib:nib forCellWithReuseIdentifier:VodCellIdentifier];
     
     nib = [UINib nibWithNibName:@"CMSearchTableViewCell" bundle:nil];
-    [self.programList registerNib:nib forCellReuseIdentifier:programCellIdentifier];
+    [self.programList registerNib:nib forCellReuseIdentifier:ProgramCellIdentifier];
     
     [self loadUI];
 }
@@ -270,7 +270,15 @@ static const CGFloat pageSize = 28;
             return;
         }
         
-        NSObject* itemObject = response[searchWordList];
+        NSDictionary* itemDic = (NSDictionary*)response[SearchWordList];
+        NSObject* item = itemDic[SearchWord];
+        if ([item isKindOfClass:[NSArray class]]) {
+            [self.searchWordArray addObjectsFromArray:(NSArray*)item];
+        } else if([item isKindOfClass:[NSString class]]){
+            [self.searchWordArray addObject:item];
+        }
+        
+        /*NSObject* itemObject = response[searchWordList];
         
         if ([itemObject isKindOfClass:[NSDictionary class]]) {
             NSDictionary* dic = (NSDictionary*)itemObject;
@@ -278,7 +286,7 @@ static const CGFloat pageSize = 28;
             [self.searchWordArray addObjectsFromArray:array];
         } else if ([itemObject isKindOfClass:[NSArray class]]) {
             [self.searchWordArray addObjectsFromArray:(NSArray*)itemObject];
-        }
+        }*/
      
         [self showAutoCompletList:YES];
     }];
@@ -562,7 +570,7 @@ static const CGFloat pageSize = 28;
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CMSearchCollectionViewCell* cell = (CMSearchCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:vodCellIdentifier forIndexPath:indexPath];
+    CMSearchCollectionViewCell* cell = (CMSearchCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:VodCellIdentifier forIndexPath:indexPath];
 
     NSDictionary* data = self.dataArray[indexPath.row];
 
@@ -591,13 +599,13 @@ static const CGFloat pageSize = 28;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.autoCompletList == tableView) {
-        CMAutoCompletTableViewCell* cell = (CMAutoCompletTableViewCell*)[tableView dequeueReusableCellWithIdentifier:autoCompletCell];
+        CMAutoCompletTableViewCell* cell = (CMAutoCompletTableViewCell*)[tableView dequeueReusableCellWithIdentifier:AutoCompletCell];
         
         [cell setTitle:self.searchWordArray[indexPath.row]];
         
         return cell;
     } else if (self.programList == tableView) {
-        CMSearchTableViewCell* cell = (CMSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:programCellIdentifier];
+        CMSearchTableViewCell* cell = (CMSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:ProgramCellIdentifier];
         
         NSDictionary* item = self.dataArray[indexPath.row];
         
@@ -630,7 +638,7 @@ static const CGFloat pageSize = 28;
         
         [self.searchField resignFirstResponder];
         
-        self.searchField.text = self.searchWordArray[indexPath.row][searchWord];
+        self.searchField.text = self.searchWordArray[indexPath.row];
         [self resetData];
         [self requestList];
         

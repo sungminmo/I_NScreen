@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
 #import "AdultMainTableViewCell.h"
-//#import "VodDetailMainViewController.h"
+#import "AdultMainCollectionViewCell.h"
 
 @protocol AdultMainViewDelegate;
 
@@ -22,8 +22,9 @@
 @property (nonatomic, strong) IBOutlet UIButton *pRealTimeBtn;   // 실시간 인기 순위 버튼
 @property (nonatomic, strong) IBOutlet UIButton *pWeekBtn;      // 주간 인기 순위 버튼
 @property (nonatomic, strong) IBOutlet UITableView *pTableView21;
-@property (nonatomic, strong) IBOutlet UIView *pLeftLineView;
-@property (nonatomic, strong) IBOutlet UIView *pRightLineView;
+@property (nonatomic, strong) IBOutlet UICollectionView* pCollectionView21;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint* pLeftLineHeight;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint* pRightLineHeight;
 
 
 @property (nonatomic, strong) IBOutlet UIView *pView22; // 리스트 뷰만 있는 뷰

@@ -10,6 +10,8 @@
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+VOD.h"
 
+static NSString* const CollectionView21Cell = @"CollectionView21Cell";
+
 @interface AdultMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pTwoDepthTreeDataArr; // 투댑스 카테고리 데이터 저장
 @property (nonatomic, strong) NSMutableArray *pThreeDepthDailyDataArr;  // 3댑스에 실시간 데이터 저장
@@ -29,6 +31,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    UINib* nib;
+    
+    nib = [UINib nibWithNibName:@"AdultMainCollectionViewCell" bundle:nil];
+    [self.pCollectionView21 registerNib:nib forCellWithReuseIdentifier:CollectionView21Cell];
     
     [self setTagInit];
     [self setViewInit];
@@ -74,8 +81,8 @@
             [self.pRealTimeBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pWeekBtn setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
-            self.pLeftLineView.frame = CGRectMake(self.pLeftLineView.frame.origin.x, 39, self.pLeftLineView.frame.size.width, 2);
-            self.pRightLineView.frame = CGRectMake(self.pRightLineView.frame.origin.x, 40, self.pRightLineView.frame.size.width, 1);
+            self.pLeftLineHeight.constant = 2;
+            self.pRightLineHeight.constant = 1;
             
             [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
             
@@ -88,8 +95,8 @@
             [self.pRealTimeBtn setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pWeekBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
-            self.pLeftLineView.frame = CGRectMake(self.pLeftLineView.frame.origin.x, 40, self.pLeftLineView.frame.size.width, 1);
-            self.pRightLineView.frame = CGRectMake(self.pRightLineView.frame.origin.x, 39, self.pRightLineView.frame.size.width, 2);
+            self.pLeftLineHeight.constant = 1;
+            self.pRightLineHeight.constant = 2;
             
             [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
             
@@ -467,6 +474,63 @@
 //    pViewController.pAssetIdStr = assetId;
 //    [self.navigationController pushViewController:pViewController animated:YES];
 
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
+    int nTotalCount = 0;
+    
+    if ( collectionView == self.pCollectionView21 )
+    {
+        // 인기순위 테이블 뷰
+        if ( self.isItemCheck == NO )
+        {
+            // 실시간 인기순위
+            nTotalCount = (int)[self.pThreeDepthDailyDataArr count];
+        }
+        else
+        {
+            // 주간 인기순위
+            nTotalCount = (int)[self.pThreeDepthWeeklyDataArr count];
+        }
+    }
+    else
+    {
+        // 그외 테이블 뷰
+        nTotalCount = (int)[self.pThreeDepthElseDataArr count];
+    }
+    return nTotalCount;
+}
+
+- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    AdultMainCollectionViewCell* pCell = (AdultMainCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CollectionView21Cell forIndexPath:indexPath];
+    
+    
+    
+    /*if ( collectionView == self.pCollectionView21 )
+    {
+        if ( self.isItemCheck == NO )
+        {
+            [pCell setListData:[self.pThreeDepthDailyDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
+        }
+        else
+        {
+            [pCell setListData:[self.pThreeDepthWeeklyDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
+        }
+    }
+    else
+    {
+        [pCell setListData:[self.pThreeDepthElseDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
+    }*/
+    
+    return pCell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 @end
