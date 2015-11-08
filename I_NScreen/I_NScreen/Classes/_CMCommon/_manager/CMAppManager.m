@@ -36,6 +36,7 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setAppType:CMAppTypePhone];
     [ud setRestrictType:CMContentsRestrictedTypeAdult];
+    [ud setAdultCertYN:CMAdultCertificationNone];
     [ud synchronize];
 }
 

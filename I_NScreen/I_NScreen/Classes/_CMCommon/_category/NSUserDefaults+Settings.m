@@ -10,6 +10,7 @@
 
 NSString* const NSUserDefaultsAppType = @"NSUserDefaultsAppType";
 NSString* const NSUserDefaultsRestrictType = @"NSUserDefaultsRestrictType";
+NSString* const NSUserDefaultsAdultCertYN = @"NSUserDefaultsAdultCertYN";
 
 @implementation NSUserDefaults (Settings)
 
@@ -31,6 +32,13 @@ NSString* const NSUserDefaultsRestrictType = @"NSUserDefaultsRestrictType";
     return [self integerForKey:NSUserDefaultsRestrictType];
 }
 
+- (void)setAdultCertYN:(CMAdultCertificationYN)adultCertYN {
+    [self setInteger:adultCertYN forKey:NSUserDefaultsAdultCertYN];
+}
+
+- (CMAdultCertificationYN)adultCertYN {
+    return [self integerForKey:NSUserDefaultsAdultCertYN];
+}
 
 
 @end

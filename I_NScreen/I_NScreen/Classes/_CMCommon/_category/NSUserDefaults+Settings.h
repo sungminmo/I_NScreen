@@ -13,6 +13,7 @@
  */
 extern NSString * const NSUserDefaultsAppType;
 extern NSString* const NSUserDefaultsRestrictType;
+extern NSString* const NSUserDefaultsAdultCertYN;
 
 @interface NSUserDefaults (Settings)
 
@@ -25,5 +26,10 @@ extern NSString* const NSUserDefaultsRestrictType;
  *  컨텐츠 제한 타입.
  */
 @property (nonatomic, assign) CMContentsRestrictedType restrictType;
+
+/**
+ *  성인인증 여부 .
+ */
+@property (nonatomic, assign) CMAdultCertificationYN adultCertYN;
 
 @end
