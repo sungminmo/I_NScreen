@@ -115,7 +115,7 @@
 }
 
 - (void)settingActivityIndicator {
-    UIActivityIndicatorView* IndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2, 80, 80)];
+    UIActivityIndicatorView* IndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 40, [UIScreen mainScreen].bounds.size.height/2 - 40, 80, 80)];
     IndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
     IndicatorView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     IndicatorView.color = [UIColor whiteColor];
@@ -132,6 +132,7 @@
         [self.indicator removeFromSuperview];
         self.isUsingIndicator = NO;
     }
+    self.indicator.frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2 - 40, [UIScreen mainScreen].bounds.size.height/2 - 40, 80, 80);
     [window addSubview:self.indicator];
     [self.indicator setTranslatesAutoresizingMaskIntoConstraints:YES];
     [self.indicator setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin];
@@ -380,7 +381,7 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         block(nil, error);
     }];
-    [self updateActivityIndicator:task];
+//    [self updateActivityIndicator:task];
     return task;
 }
 

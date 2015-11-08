@@ -247,7 +247,16 @@ static const CGFloat pageSize = 28;
         return;
     }
     
-    [NSMutableDictionary searchWordListWithSearchString:searchWord WithIncludeAdultCategory:@"1" completion:^(NSArray *programs, NSError *error) {
+    //성인컨텐츠 검색여부
+    // includeAdultCategory 1, 0 성인 컨텐츠 포함 여부
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+    CMContentsRestrictedType type = [ud restrictType];
+    NSString* strOn = @"0";
+    if (type == CMContentsRestrictedTypeNone) {
+        strOn = @"1";
+    }
+    
+    [NSMutableDictionary searchWordListWithSearchString:searchWord WithIncludeAdultCategory:strOn completion:^(NSArray *programs, NSError *error) {
         
         NSDictionary* response = programs[0];
         
@@ -264,7 +273,9 @@ static const CGFloat pageSize = 28;
         NSObject* itemObject = response[searchWordList];
         
         if ([itemObject isKindOfClass:[NSDictionary class]]) {
-            [self.searchWordArray addObject:itemObject];
+            NSDictionary* dic = (NSDictionary*)itemObject;
+            NSArray* array = dic[@"searchWord"];
+            [self.searchWordArray addObjectsFromArray:array];
         } else if ([itemObject isKindOfClass:[NSArray class]]) {
             [self.searchWordArray addObjectsFromArray:(NSArray*)itemObject];
         }
@@ -509,10 +520,10 @@ static const CGFloat pageSize = 28;
  */
 - (void)textMessageChanged:(CMTextField*)textField {
     
-    //  test
-    return;
+//    //  test
+//    return;
     
-    [self showAutoCompletList:NO];
+    [self showAutoCompletList:YES];
     
     if (self.searchWordTimer) {
         [self.searchWordTimer invalidate];
@@ -585,7 +596,7 @@ static const CGFloat pageSize = 28;
     if (self.autoCompletList == tableView) {
         CMAutoCompletTableViewCell* cell = (CMAutoCompletTableViewCell*)[tableView dequeueReusableCellWithIdentifier:autoCompletCell];
         
-        [cell setTitle:self.searchWordArray[indexPath.row][searchWord]];
+        [cell setTitle:self.searchWordArray[indexPath.row]];
         
         return cell;
     } else if (self.programList == tableView) {
