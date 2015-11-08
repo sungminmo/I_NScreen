@@ -44,7 +44,7 @@
     
     if (recognizer.view != nil && recognizer.state == UIGestureRecognizerStateEnded )
     {
-        if (self.viewControllers.count > 1)
+        if (self.viewControllers.count > 2)
         {
             UIViewController *controller = self.viewControllers[self.viewControllers.count - 1];
             if ([controller isKindOfClass:NSClassFromString(@"CMBaseViewController")])
@@ -62,7 +62,7 @@
 
 
 @interface CMBaseViewController ()
-
+@property (nonatomic, unsafe_unretained) BOOL isLoadWillAppear;
 @property (strong, nonatomic) UIBarButtonItem* favoriteButton;
 @end
 
@@ -78,12 +78,16 @@
 - (void)viewDidLoad {
     [self setupLayout];
     [super viewDidLoad];
-    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
-    [self.navigationController.interactivePopGestureRecognizer addTarget:self action:@selector(actionForGesture:)];
+    
+    if (self.isLoadWillAppear && [self.navigationController.viewControllers count] > 1) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+        [self.navigationController.interactivePopGestureRecognizer addTarget:self action:@selector(actionForGesture:)];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.isLoadWillAppear = YES;
     if (self.isUseNavigationBar) {
         [self.navigationController setNavigationBarHidden:NO animated:NO];
     }
@@ -113,6 +117,10 @@
     float h_padding = (cmNavigationHeight - 44)/2;
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
     
+    
+    self.navigationController.navigationBar.alpha = 1.0;
+    self.navigationController.navigationBar.opaque = NO;
+    self.extendedLayoutIncludesOpaqueBars = YES;
     
     // 네비게이션바 백버튼.
     self.navigationItem.hidesBackButton = YES;
@@ -177,7 +185,6 @@
 
 - (void)backCommonAction {
     //TODO: 팝이벤트가 발생하기 전에 처리할 로직을 기술한다.
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

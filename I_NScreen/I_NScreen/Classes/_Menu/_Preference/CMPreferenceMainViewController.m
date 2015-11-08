@@ -107,7 +107,7 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 
 #pragma mark - Event
 - (void)adultAuthorizationSuccessAfterEventWithSwitchButton:(UISwitch*)swButton value:(BOOL)isOn {
-    //TODO: 성인인증 제한해제 위한 성인인증 후 상태변경 처리 연동 필요
+
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     CMContentsRestrictedType type = isOn?CMContentsRestrictedTypeAdult:CMContentsRestrictedTypeNone;
     [ud setRestrictType:type];

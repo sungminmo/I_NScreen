@@ -97,8 +97,9 @@
 
 - (void)settingCommonApperance {
     //네비게이션
-    [[UINavigationBar appearance] setBarTintColor:[CMColor colorViolet]];
     [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setBackgroundColor:[CMColor colorViolet]];
+    [[UINavigationBar appearance] setBarTintColor:[CMColor colorViolet]];
     self.m_pNaviCon.navigationBar.height = cmNavigationHeight - 20;
     
     //얼럿뷰
