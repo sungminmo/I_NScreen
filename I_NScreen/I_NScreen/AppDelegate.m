@@ -54,6 +54,27 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation {
+    if (!url) {
+        return NO;
+    }
+    
+    DDLogInfo(@"url recieved: %@", url);
+    DDLogInfo(@"scheme: %@", [url scheme]);
+    DDLogInfo(@"query string: %@", [url query]);
+    DDLogInfo(@"host: %@", [url host]);
+    DDLogInfo(@"url path: %@", [url path]);
+    NSDictionary *dict = [NSString parseQueryString:[url query]];
+    DDLogInfo(@"query dict: %@", dict);
+    
+    if ([[url host] isEqualToString:@"adult_auth"]) {//성인인증 정보처리 
+        [[NSNotificationCenter defaultCenter] postNotificationName:CNMHandleOpenURLNotification object:[dict copy]];
+    }
+    
+    
+    return YES;
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
 }
 

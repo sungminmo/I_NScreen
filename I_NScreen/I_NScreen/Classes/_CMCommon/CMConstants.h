@@ -430,6 +430,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetWishList;
 //GetSetTopStatus
 extern NSString* const CNM_OPEN_API_INTERFACE_GetSetTopStatus;
 
+//노티피게이션
+extern NSString* const CNMHandleOpenURLNotification;
+
 @interface STVConstants : NSObject
 
 @end
