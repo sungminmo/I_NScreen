@@ -231,8 +231,6 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             // 주간 인기 순위
             [self.pThreeDepthWeeklyDataArr removeAllObjects];
             
-            [self.pThreeDepthWeeklyDataArr removeAllObjects];
-            
             NSArray* popularity = (NSArray*)vod[0][@"weeklyChart"][@"popularityList"][@"popularity"];
             
             [self.pThreeDepthWeeklyDataArr addObjectsFromArray:popularity];
