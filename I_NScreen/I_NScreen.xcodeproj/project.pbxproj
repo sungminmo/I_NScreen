@@ -145,10 +145,6 @@
 		E58C6AF71BE261660024405D /* CMContentGroupCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AF51BE261660024405D /* CMContentGroupCollectionViewController.xib */; };
 		E58C6AFB1BE261BB0024405D /* CMContentGroupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */; };
 		E58C6AFC1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */; };
-		E599052E1BE77AE400B5948E /* TVReplayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E599052C1BE77AE400B5948E /* TVReplayTableViewCell.m */; };
-		E599052F1BE77AE400B5948E /* TVReplayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E599052D1BE77AE400B5948E /* TVReplayTableViewCell.xib */; };
-		E59905341BE787F800B5948E /* AdultMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E59905321BE787F800B5948E /* AdultMainTableViewCell.m */; };
-		E59905351BE787F800B5948E /* AdultMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59905331BE787F800B5948E /* AdultMainTableViewCell.xib */; };
 		E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30C1BDE1B4B005AC701 /* IDScrollableTabBar.m */; };
 		E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30F1BDE1B4B005AC701 /* IDScrollableTabBarItem.m */; };
 		E5A6E3331BDE1CC2005AC701 /* defaultArch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3131BDE1CC2005AC701 /* defaultArch.png */; };
@@ -186,8 +182,6 @@
 		E5A9230D1BD137200076AF97 /* CMPageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */; };
 		E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */; };
 		E5A923121BD13AAA0076AF97 /* CMPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */; };
-		E5B550C31BD9D9B500AA02B2 /* AnikidsMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B550C11BD9D9B500AA02B2 /* AnikidsMainTableViewCell.m */; };
-		E5B550C41BD9D9B500AA02B2 /* AnikidsMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B550C21BD9D9B500AA02B2 /* AnikidsMainTableViewCell.xib */; };
 		E5B553191BD9DD3F00AA02B2 /* allch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B550C71BD9DD3E00AA02B2 /* allch.png */; };
 		E5B5531A1BD9DD3F00AA02B2 /* allch_press.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B550C81BD9DD3E00AA02B2 /* allch_press.png */; };
 		E5B5531B1BD9DD3F00AA02B2 /* genreall_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B550C91BD9DD3E00AA02B2 /* genreall_normal.png */; };
@@ -765,8 +759,6 @@
 		E5BFB4C21BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB4C11BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m */; };
 		E5BFB4C51BEA2375003262D0 /* NSMutableDictionary+MyC_M.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB4C41BEA2375003262D0 /* NSMutableDictionary+MyC_M.m */; };
 		E5C584521BE33A0E00276EC6 /* NSMutableDictionary+DRM.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */; };
-		E5D27FE21BE75E6B004ACEB4 /* MovieMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D27FE01BE75E6B004ACEB4 /* MovieMainTableViewCell.m */; };
-		E5D27FE31BE75E6B004ACEB4 /* MovieMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D27FE11BE75E6B004ACEB4 /* MovieMainTableViewCell.xib */; };
 		E5DA6AD21BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */; };
 		E5DE64B31BCB4E0C00FC3122 /* AdultMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */; };
 		E5DE64B41BCB4E0C00FC3122 /* AdultMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */; };
@@ -1037,12 +1029,6 @@
 		E58C6AF81BE261BB0024405D /* CMContentGroupCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMContentGroupCollectionViewCell.h; sourceTree = "<group>"; };
 		E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMContentGroupCollectionViewCell.m; sourceTree = "<group>"; };
 		E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMContentGroupCollectionViewCell.xib; sourceTree = "<group>"; };
-		E599052B1BE77AE400B5948E /* TVReplayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TVReplayTableViewCell.h; path = _Home/_TVReplay/_Cell/TVReplayTableViewCell.h; sourceTree = "<group>"; };
-		E599052C1BE77AE400B5948E /* TVReplayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TVReplayTableViewCell.m; path = _Home/_TVReplay/_Cell/TVReplayTableViewCell.m; sourceTree = "<group>"; };
-		E599052D1BE77AE400B5948E /* TVReplayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TVReplayTableViewCell.xib; path = _Home/_TVReplay/_Cell/TVReplayTableViewCell.xib; sourceTree = "<group>"; };
-		E59905311BE787F800B5948E /* AdultMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainTableViewCell.h; path = _Home/_Adult/_Cell/AdultMainTableViewCell.h; sourceTree = "<group>"; };
-		E59905321BE787F800B5948E /* AdultMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdultMainTableViewCell.m; path = _Home/_Adult/_Cell/AdultMainTableViewCell.m; sourceTree = "<group>"; };
-		E59905331BE787F800B5948E /* AdultMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdultMainTableViewCell.xib; path = _Home/_Adult/_Cell/AdultMainTableViewCell.xib; sourceTree = "<group>"; };
 		E5A6E2F41BDDBC73005AC701 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -1091,9 +1077,6 @@
 		E5A9230E1BD13AAA0076AF97 /* CMPageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageCollectionViewCell.h; sourceTree = "<group>"; };
 		E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageCollectionViewCell.m; sourceTree = "<group>"; };
 		E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageCollectionViewCell.xib; sourceTree = "<group>"; };
-		E5B550C01BD9D9B500AA02B2 /* AnikidsMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnikidsMainTableViewCell.h; path = _Home/_AniKids/_Cell/AnikidsMainTableViewCell.h; sourceTree = "<group>"; };
-		E5B550C11BD9D9B500AA02B2 /* AnikidsMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnikidsMainTableViewCell.m; path = _Home/_AniKids/_Cell/AnikidsMainTableViewCell.m; sourceTree = "<group>"; };
-		E5B550C21BD9D9B500AA02B2 /* AnikidsMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnikidsMainTableViewCell.xib; path = _Home/_AniKids/_Cell/AnikidsMainTableViewCell.xib; sourceTree = "<group>"; };
 		E5B550C71BD9DD3E00AA02B2 /* allch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch.png; sourceTree = "<group>"; };
 		E5B550C81BD9DD3E00AA02B2 /* allch_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch_press.png; sourceTree = "<group>"; };
 		E5B550C91BD9DD3E00AA02B2 /* genreall_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = genreall_normal.png; sourceTree = "<group>"; };
@@ -1680,9 +1663,6 @@
 		E5BFB4C41BEA2375003262D0 /* NSMutableDictionary+MyC_M.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+MyC_M.m"; sourceTree = "<group>"; };
 		E5C584501BE33A0E00276EC6 /* NSMutableDictionary+DRM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+DRM.h"; sourceTree = "<group>"; };
 		E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+DRM.m"; sourceTree = "<group>"; };
-		E5D27FDF1BE75E6B004ACEB4 /* MovieMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieMainTableViewCell.h; path = _Home/_Movie/_Cell/MovieMainTableViewCell.h; sourceTree = "<group>"; };
-		E5D27FE01BE75E6B004ACEB4 /* MovieMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieMainTableViewCell.m; path = _Home/_Movie/_Cell/MovieMainTableViewCell.m; sourceTree = "<group>"; };
-		E5D27FE11BE75E6B004ACEB4 /* MovieMainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MovieMainTableViewCell.xib; path = _Home/_Movie/_Cell/MovieMainTableViewCell.xib; sourceTree = "<group>"; };
 		E5DA6AD01BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Pairing.h"; sourceTree = "<group>"; };
 		E5DA6AD11BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Pairing.m"; sourceTree = "<group>"; };
 		E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdultMainViewController.h; path = _Home/_Adult/AdultMainViewController.h; sourceTree = "<group>"; };
@@ -2315,26 +2295,6 @@
 			name = _Cell;
 			sourceTree = "<group>";
 		};
-		E599052A1BE77A7C00B5948E /* _Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E599052B1BE77AE400B5948E /* TVReplayTableViewCell.h */,
-				E599052C1BE77AE400B5948E /* TVReplayTableViewCell.m */,
-				E599052D1BE77AE400B5948E /* TVReplayTableViewCell.xib */,
-			);
-			name = _Cell;
-			sourceTree = "<group>";
-		};
-		E59905301BE787DE00B5948E /* _Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E59905311BE787F800B5948E /* AdultMainTableViewCell.h */,
-				E59905321BE787F800B5948E /* AdultMainTableViewCell.m */,
-				E59905331BE787F800B5948E /* AdultMainTableViewCell.xib */,
-			);
-			name = _Cell;
-			sourceTree = "<group>";
-		};
 		E5A6E2F01BDDBBAE005AC701 /* _drmLb */ = {
 			isa = PBXGroup;
 			children = (
@@ -2397,16 +2357,6 @@
 				E5A6E3321BDE1CC2005AC701 /* zip@2x.png */,
 			);
 			path = icons;
-			sourceTree = "<group>";
-		};
-		E5B550BF1BD9D97100AA02B2 /* _Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E5B550C01BD9D9B500AA02B2 /* AnikidsMainTableViewCell.h */,
-				E5B550C11BD9D9B500AA02B2 /* AnikidsMainTableViewCell.m */,
-				E5B550C21BD9D9B500AA02B2 /* AnikidsMainTableViewCell.xib */,
-			);
-			name = _Cell;
 			sourceTree = "<group>";
 		};
 		E5B550C51BD9DD3E00AA02B2 /* @1x */ = {
@@ -3235,7 +3185,6 @@
 		E5B5554C1BD9DFB400AA02B2 /* _TVReplay */ = {
 			isa = PBXGroup;
 			children = (
-				E599052A1BE77A7C00B5948E /* _Cell */,
 				E5B5554D1BD9E00400AA02B2 /* TVReplayViewController.h */,
 				E5B5554E1BD9E00400AA02B2 /* TVReplayViewController.m */,
 				E5B5554F1BD9E00400AA02B2 /* TVReplayViewController.xib */,
@@ -3292,16 +3241,6 @@
 			name = _Cell;
 			sourceTree = "<group>";
 		};
-		E5D27FDE1BE75E48004ACEB4 /* _Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E5D27FDF1BE75E6B004ACEB4 /* MovieMainTableViewCell.h */,
-				E5D27FE01BE75E6B004ACEB4 /* MovieMainTableViewCell.m */,
-				E5D27FE11BE75E6B004ACEB4 /* MovieMainTableViewCell.xib */,
-			);
-			name = _Cell;
-			sourceTree = "<group>";
-		};
 		E5DE649B1BCB4BC200FC3122 /* _Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -3331,7 +3270,6 @@
 		E5DE649D1BCB4BE300FC3122 /* _Movie */ = {
 			isa = PBXGroup;
 			children = (
-				E5D27FDE1BE75E48004ACEB4 /* _Cell */,
 				E5DE64BF1BCB4E4400FC3122 /* MovieMainViewController.h */,
 				E5DE64C01BCB4E4400FC3122 /* MovieMainViewController.m */,
 				E5DE64C11BCB4E4400FC3122 /* MovieMainViewController.xib */,
@@ -3342,7 +3280,6 @@
 		E5DE649E1BCB4BFF00FC3122 /* _AniKids */ = {
 			isa = PBXGroup;
 			children = (
-				E5B550BF1BD9D97100AA02B2 /* _Cell */,
 				E5DE64BA1BCB4E3300FC3122 /* AniKidsMainViewController.h */,
 				E5DE64BB1BCB4E3300FC3122 /* AniKidsMainViewController.m */,
 				E5DE64BC1BCB4E3300FC3122 /* AniKidsMainViewController.xib */,
@@ -3353,7 +3290,6 @@
 		E5DE64A01BCB4C8100FC3122 /* _Adult */ = {
 			isa = PBXGroup;
 			children = (
-				E59905301BE787DE00B5948E /* _Cell */,
 				E5DE64B01BCB4E0C00FC3122 /* AdultMainViewController.h */,
 				E5DE64B11BCB4E0C00FC3122 /* AdultMainViewController.m */,
 				E5DE64B21BCB4E0C00FC3122 /* AdultMainViewController.xib */,
@@ -3548,7 +3484,6 @@
 			files = (
 				E5B554D91BD9DD3F00AA02B2 /* icon_serieswhite@3x.png in Resources */,
 				E5B553FD1BD9DD3F00AA02B2 /* selectdot@2x.png in Resources */,
-				E599052F1BE77AE400B5948E /* TVReplayTableViewCell.xib in Resources */,
 				E5B554431BD9DD3F00AA02B2 /* p3btn_cancel_normal@2x.png in Resources */,
 				E5B5535A1BD9DD3F00AA02B2 /* icon_promotion_02.png in Resources */,
 				E5B553471BD9DD3F00AA02B2 /* 2btn_outline.png in Resources */,
@@ -3731,7 +3666,6 @@
 				E5B553B21BD9DD3F00AA02B2 /* icon_qlist_press.png in Resources */,
 				E5B554211BD9DD3F00AA02B2 /* icon_watchrsv@2x.png in Resources */,
 				99366ACF1BBA66D00082F8D4 /* CMPaytvTableViewCell.xib in Resources */,
-				E5B550C41BD9D9B500AA02B2 /* AnikidsMainTableViewCell.xib in Resources */,
 				E5B553411BD9DD3F00AA02B2 /* normaldot.png in Resources */,
 				E5B554B91BD9DD3F00AA02B2 /* 19@3x.png in Resources */,
 				E5B554351BD9DD3F00AA02B2 /* fp1btn_ok_press@2x.png in Resources */,
@@ -4099,7 +4033,6 @@
 				E5B5537F1BD9DD3F00AA02B2 /* genre_normal.png in Resources */,
 				20EAA3441BAE9474004DFCA0 /* CMSearchMainViewController.xib in Resources */,
 				E5B554411BD9DD3F00AA02B2 /* p1btn_ok_normal@2x.png in Resources */,
-				E59905351BE787F800B5948E /* AdultMainTableViewCell.xib in Resources */,
 				E5B555491BD9DD3F00AA02B2 /* vod3btn_p_press@3x.png in Resources */,
 				E5B554E21BD9DD3F00AA02B2 /* icon_left_press@3x.png in Resources */,
 				E5B554AF1BD9DD3F00AA02B2 /* genreshopping_select@3x.png in Resources */,
@@ -4204,7 +4137,6 @@
 				E5B553EA1BD9DD3F00AA02B2 /* genremusic_select@2x.png in Resources */,
 				E5A6E34A1BDE1CC2005AC701 /* mail.png in Resources */,
 				E5B553D41BD9DD3F00AA02B2 /* allch@2x.png in Resources */,
-				E5D27FE31BE75E6B004ACEB4 /* MovieMainTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4256,7 +4188,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				207FA9EB1BE76B6D009F7D8C /* CMProgressView.m in Sources */,
-				E5B550C31BD9D9B500AA02B2 /* AnikidsMainTableViewCell.m in Sources */,
 				20A8EFB01BAEB6AA00FA0CFA /* CMSearchCollectionViewCell.m in Sources */,
 				E511818C1BA7ACF900C1E31D /* EpgPopUpViewController.m in Sources */,
 				995C07081BE5F45300E6CDCC /* CMAdultAuthViewController.m in Sources */,
@@ -4289,7 +4220,6 @@
 				E5E0DF7A1BDB91EE0049E3F6 /* PairingAuthViewController.m in Sources */,
 				E52EE57B1BD508AF00797251 /* PvrSubTableViewCell.m in Sources */,
 				2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */,
-				E59905341BE787F800B5948E /* AdultMainTableViewCell.m in Sources */,
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
 				208729AF1BBB90E5009601A4 /* CMTextField.m in Sources */,
 				E54CC0B11BCCA0C6003806C0 /* SBJsonParser.m in Sources */,
@@ -4314,7 +4244,6 @@
 				994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */,
 				E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */,
 				99E41C801BD49F3300C64056 /* CMDBDataManager.m in Sources */,
-				E5D27FE21BE75E6B004ACEB4 /* MovieMainTableViewCell.m in Sources */,
 				99C43C691BA3EDA10035A0A4 /* EpgMainViewController.m in Sources */,
 				E5567BB71BA9558B00AB4003 /* MyCMZimListTableViewCell.m in Sources */,
 				E511818E1BA7ACF900C1E31D /* EpgSubTableViewCell.m in Sources */,
@@ -4351,7 +4280,6 @@
 				E5B555501BD9E00400AA02B2 /* TVReplayViewController.m in Sources */,
 				203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */,
 				99C43C5B1BA3EDA10035A0A4 /* UISegmentedControl+Accessibility.m in Sources */,
-				E599052E1BE77AE400B5948E /* TVReplayTableViewCell.m in Sources */,
 				99ECD58B1BD5188B00EABA67 /* CMSearchHistory.m in Sources */,
 				99C43C6D1BA3EDA10035A0A4 /* LeftMenuViewController.m in Sources */,
 				E54CC0A11BCC9F9A003806C0 /* TreeListModel.m in Sources */,
