@@ -75,11 +75,9 @@
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self handleOpenUrlForAdultCertSuccess];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
@@ -88,7 +86,7 @@
 
 #pragma mark - 
 - (void)handleOpenUrlForAdultCertSuccess {
-    NSURL *url = [NSURL URLWithString:@"cnm_app://adult_auth?result=Y"];
+    NSURL *url = [NSURL URLWithString:@"cnmapp://adult_auth?result=Y"];
     [[UIApplication sharedApplication] openURL:url];
 }
 

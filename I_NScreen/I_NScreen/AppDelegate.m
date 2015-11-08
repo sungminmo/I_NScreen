@@ -54,12 +54,6 @@
     return YES;
 }
 
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    [self application:application openURL:url sourceApplication:nil annotation:nil];
-    return YES;
-}
-
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation {
     if (!url) {
         return NO;
@@ -76,7 +70,6 @@
     if ([[url host] isEqualToString:@"adult_auth"]) {//성인인증 정보처리 
         [[NSNotificationCenter defaultCenter] postNotificationName:CNMHandleOpenURLNotification object:[dict copy]];
     }
-    
     
     return YES;
 }
