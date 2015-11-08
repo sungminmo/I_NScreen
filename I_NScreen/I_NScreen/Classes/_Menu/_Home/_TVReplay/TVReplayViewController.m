@@ -218,8 +218,6 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             // 실시간 인기 순위
             [self.pThreeDepthDailyDataArr removeAllObjects];
             
-            [self.pThreeDepthDailyDataArr removeAllObjects];
-            
             NSArray* popularity = (NSArray*)vod[0][@"dailyChart"][@"popularityList"][@"popularity"];
             
             [self.pThreeDepthDailyDataArr addObjectsFromArray:popularity];
