@@ -781,6 +781,12 @@
 		E5E418851BE1E0C100B4DAB3 /* TestPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E418831BE1E0C100B4DAB3 /* TestPageViewController.xib */; };
 		E5E5A2B91BD78A6500A99883 /* TestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */; };
 		E5E5A2BA1BD78A6500A99883 /* TestMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */; };
+		E5E7B5C41BF000D700B78341 /* libWViPhoneAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E7B5C21BF000D700B78341 /* libWViPhoneAPI.a */; settings = {ASSET_TAGS = (); }; };
+		E5E7B5C51BF0019000B78341 /* libcommonCrypto.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FE1BDDBD45005AC701 /* libcommonCrypto.tbd */; };
+		E5E7B5CE1BF001AB00B78341 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B5C91BF001AB00B78341 /* PlayerViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5E7B5CF1BF001AB00B78341 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E7B5CA1BF001AB00B78341 /* PlayerViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5E7B5D01BF001AB00B78341 /* VodDetailMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B5CC1BF001AB00B78341 /* VodDetailMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5E7B5D11BF001AB00B78341 /* VodDetailMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E7B5CD1BF001AB00B78341 /* VodDetailMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5F6C6BD1B7AD93B00618970 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */; };
 		E5F6C6D41B7AD93B00618970 /* I_NScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F6C6D31B7AD93B00618970 /* I_NScreenTests.m */; };
 		E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6DDEB1BB0EBB7006C4DD4 /* UIKit.framework */; };
@@ -1689,6 +1695,14 @@
 		E5E5A2B61BD78A6500A99883 /* TestMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestMainViewController.h; path = _Test/TestMainViewController.h; sourceTree = "<group>"; };
 		E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestMainViewController.m; path = _Test/TestMainViewController.m; sourceTree = "<group>"; };
 		E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TestMainViewController.xib; path = _Test/TestMainViewController.xib; sourceTree = "<group>"; };
+		E5E7B5C21BF000D700B78341 /* libWViPhoneAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWViPhoneAPI.a; path = _drmLb/libWViPhoneAPI.a; sourceTree = "<group>"; };
+		E5E7B5C31BF000D700B78341 /* WViPhoneAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WViPhoneAPI.h; path = _drmLb/WViPhoneAPI.h; sourceTree = "<group>"; };
+		E5E7B5C81BF001AB00B78341 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		E5E7B5C91BF001AB00B78341 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		E5E7B5CA1BF001AB00B78341 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		E5E7B5CB1BF001AB00B78341 /* VodDetailMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VodDetailMainViewController.h; sourceTree = "<group>"; };
+		E5E7B5CC1BF001AB00B78341 /* VodDetailMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VodDetailMainViewController.m; sourceTree = "<group>"; };
+		E5E7B5CD1BF001AB00B78341 /* VodDetailMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VodDetailMainViewController.xib; sourceTree = "<group>"; };
 		E5F6C6B41B7AD93B00618970 /* I_NScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = I_NScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F6C6BB1B7AD93B00618970 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E5F6C6BC1B7AD93B00618970 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1703,11 +1717,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E7B5C51BF0019000B78341 /* libcommonCrypto.tbd in Frameworks */,
 				E5E418691BE1AE8200B4DAB3 /* libz.tbd in Frameworks */,
 				E5E418671BE1AE6D00B4DAB3 /* libSystem.tbd in Frameworks */,
 				E5E418661BE1AE6000B4DAB3 /* libresolv.tbd in Frameworks */,
 				E5E418651BE1AE5800B4DAB3 /* libxml2.tbd in Frameworks */,
 				E5E418641BE1AE4900B4DAB3 /* libc++.tbd in Frameworks */,
+				E5E7B5C41BF000D700B78341 /* libWViPhoneAPI.a in Frameworks */,
 				E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */,
 				992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */,
 				564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */,
@@ -2298,6 +2314,8 @@
 		E5A6E2F01BDDBBAE005AC701 /* _drmLb */ = {
 			isa = PBXGroup;
 			children = (
+				E5E7B5C21BF000D700B78341 /* libWViPhoneAPI.a */,
+				E5E7B5C31BF000D700B78341 /* WViPhoneAPI.h */,
 			);
 			name = _drmLb;
 			sourceTree = "<group>";
@@ -3244,6 +3262,7 @@
 		E5DE649B1BCB4BC200FC3122 /* _Home */ = {
 			isa = PBXGroup;
 			children = (
+				E5E7B5C61BF001AB00B78341 /* _VodDetail */,
 				2076EC1C1BEF6BE700504AEB /* _Cell */,
 				E5B8BB8A1BEB126200B4C3B0 /* _PopUp */,
 				E5E418801BE1E0A500B4DAB3 /* _TestPage */,
@@ -3335,6 +3354,28 @@
 				E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */,
 			);
 			name = _Test;
+			sourceTree = "<group>";
+		};
+		E5E7B5C61BF001AB00B78341 /* _VodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E5E7B5C71BF001AB00B78341 /* _Sub */,
+				E5E7B5CB1BF001AB00B78341 /* VodDetailMainViewController.h */,
+				E5E7B5CC1BF001AB00B78341 /* VodDetailMainViewController.m */,
+				E5E7B5CD1BF001AB00B78341 /* VodDetailMainViewController.xib */,
+			);
+			name = _VodDetail;
+			path = _Home/_VodDetail;
+			sourceTree = "<group>";
+		};
+		E5E7B5C71BF001AB00B78341 /* _Sub */ = {
+			isa = PBXGroup;
+			children = (
+				E5E7B5C81BF001AB00B78341 /* PlayerViewController.h */,
+				E5E7B5C91BF001AB00B78341 /* PlayerViewController.m */,
+				E5E7B5CA1BF001AB00B78341 /* PlayerViewController.xib */,
+			);
+			path = _Sub;
 			sourceTree = "<group>";
 		};
 		E5F6C6AB1B7AD93B00618970 = {
@@ -3601,6 +3642,7 @@
 				E5B555081BD9DD3F00AA02B2 /* x@3x.png in Resources */,
 				E5B554C81BD9DD3F00AA02B2 /* icon_complexpay@3x.png in Resources */,
 				E5B5552E1BD9DD3F00AA02B2 /* smallbtn_press@3x.png in Resources */,
+				E5E7B5D11BF001AB00B78341 /* VodDetailMainViewController.xib in Resources */,
 				E5B5540B1BD9DD3F00AA02B2 /* hd@2x.png in Resources */,
 				E5B5532C1BD9DD3F00AA02B2 /* genremovie_select.png in Resources */,
 				E5B555351BD9DD3F00AA02B2 /* bullet_3depth@3x.png in Resources */,
@@ -4127,6 +4169,7 @@
 				E5B553391BD9DD3F00AA02B2 /* genreshopping_normal.png in Resources */,
 				E5A6E3421BDE1CC2005AC701 /* camera.png in Resources */,
 				E5B553761BD9DD3F00AA02B2 /* ch_select.png in Resources */,
+				E5E7B5CF1BF001AB00B78341 /* PlayerViewController.xib in Resources */,
 				E5B554B11BD9DD3F00AA02B2 /* genresports_press@3x.png in Resources */,
 				E5B554F41BD9DD3F00AA02B2 /* fp2btn_ok_press@3x.png in Resources */,
 				E5B555311BD9DD3F00AA02B2 /* 4depth_select@3x.png in Resources */,
@@ -4205,6 +4248,7 @@
 				E5B555561BD9F1D800AA02B2 /* PairingMainViewController.m in Sources */,
 				20AC73311BE49CFA00B7E7EF /* CMDateScrollView.m in Sources */,
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
+				E5E7B5D01BF001AB00B78341 /* VodDetailMainViewController.m in Sources */,
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
 				99C43C581BA3EDA10035A0A4 /* NSUserDefaults+Settings.m in Sources */,
 				E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */,
@@ -4216,6 +4260,7 @@
 				99EA17E21BC0D1E6005A958C /* CMTermsViewController.m in Sources */,
 				99ECD5851BD5188B00EABA67 /* NSMutableDictionary+Network.m in Sources */,
 				99ECD5891BD5188B00EABA67 /* CMAreaInfo.m in Sources */,
+				E5E7B5CE1BF001AB00B78341 /* PlayerViewController.m in Sources */,
 				99E9EDB61BBA26D2002FEBF0 /* CMContactInfoViewCcontroller.m in Sources */,
 				E5E0DF7A1BDB91EE0049E3F6 /* PairingAuthViewController.m in Sources */,
 				E52EE57B1BD508AF00797251 /* PvrSubTableViewCell.m in Sources */,

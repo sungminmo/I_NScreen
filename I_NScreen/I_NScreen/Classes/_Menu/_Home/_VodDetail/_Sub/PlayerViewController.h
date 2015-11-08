@@ -17,13 +17,13 @@
 @property (nonatomic, weak) id <PlayerViewDelegate>delegate;
 
 @property (readwrite, retain) MPMoviePlayerController *pMoviePlayer;
-@property (nonatomic, strong) NSString *pUrlStr;
+@property (nonatomic, strong) NSString *pFileNameStr;
 
 @end
 
 @protocol PlayerViewDelegate <NSObject>
 
 @optional
-- (void) PlayerViewDrmInit;
+//- (void) PlayerViewDrmInit;
 
 @end

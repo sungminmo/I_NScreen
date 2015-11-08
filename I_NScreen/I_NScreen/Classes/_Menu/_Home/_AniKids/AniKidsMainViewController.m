@@ -348,6 +348,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     
     CMHomeCommonCollectionViewCell* pCell = (CMHomeCommonCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCell forIndexPath:indexPath];
     
+    pCell.delegate = self;
     if ( collectionView == self.pCollectionView21 )
     {
         if ( self.isItemCheck == NO )
@@ -394,4 +395,12 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
      pViewController.pAssetIdStr = assetId;
      [self.navigationController pushViewController:pViewController animated:YES];*/
 }
+
+- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId
+{
+    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+    pViewController.pAssetIdStr = sAssetId;
+    [self.navigationController pushViewController:pViewController animated:YES];
+}
+
 @end

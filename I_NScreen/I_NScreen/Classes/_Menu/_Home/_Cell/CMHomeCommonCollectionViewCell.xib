@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -26,14 +26,24 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Gs-y2-3X2">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zK-Gu-2Km">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="164"/>
+                        <connections>
+                            <action selector="onBtnClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JcF-Q4-A3G"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstItem="3zK-Gu-2Km" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Eo7-02-YkT"/>
                 <constraint firstItem="qLi-r7-dtZ" firstAttribute="top" secondItem="8Gs-y2-3X2" secondAttribute="bottom" id="Kyi-XW-VZI"/>
                 <constraint firstItem="8Gs-y2-3X2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Px6-MI-gKc"/>
+                <constraint firstAttribute="trailing" secondItem="3zK-Gu-2Km" secondAttribute="trailing" id="Vfg-sD-YY7"/>
                 <constraint firstItem="8Gs-y2-3X2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WHC-RA-2ej"/>
+                <constraint firstAttribute="bottom" secondItem="3zK-Gu-2Km" secondAttribute="bottom" id="ZFq-C2-fBK"/>
                 <constraint firstItem="qLi-r7-dtZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="c4E-sw-QJp"/>
+                <constraint firstItem="3zK-Gu-2Km" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lYh-sP-QrU"/>
                 <constraint firstAttribute="bottom" secondItem="qLi-r7-dtZ" secondAttribute="bottom" id="rC8-TX-bhX"/>
                 <constraint firstAttribute="trailing" secondItem="qLi-r7-dtZ" secondAttribute="trailing" id="rXO-ch-okz"/>
                 <constraint firstAttribute="trailing" secondItem="8Gs-y2-3X2" secondAttribute="trailing" id="z1A-Il-tvx"/>

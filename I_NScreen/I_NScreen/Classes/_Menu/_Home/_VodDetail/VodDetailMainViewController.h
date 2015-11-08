@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import "CMBaseViewController.h"
 #import "CMPageViewController.h"
 #import "CMContentGroupCollectionViewController.h"

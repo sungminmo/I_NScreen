@@ -8,7 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CMHomeCommonCollectionViewCellDelegate;
+
 @interface CMHomeCommonCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, weak) id <CMHomeCommonCollectionViewCellDelegate>delegate;
+
 - (void)setListData:(NSDictionary*)data WithViewerType:(NSString*)type;
+
+- (IBAction)onBtnClicked:(UIButton *)btn;
+
+@end
+
+@protocol CMHomeCommonCollectionViewCellDelegate <NSObject>
+
+@optional
+- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId;
+
 @end
