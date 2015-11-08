@@ -7,11 +7,42 @@
 //
 
 #import "AdultMainCollectionViewCell.h"
+#import "UIImageView+AFNetworking.h"
+
+@interface AdultMainCollectionViewCell ()
+
+@property (nonatomic, strong) IBOutlet UIImageView* posterImageView;
+@property (nonatomic, strong) IBOutlet UILabel* titleLabel;
+
+@end
 
 @implementation AdultMainCollectionViewCell
 
+#pragma mark - Life Cycle
+
 - (void)awakeFromNib {
-    // Initialization code
+
+}
+
+#pragma mark - Private
+
+- (void)reset {
+    
+    self.posterImageView.image = nil;
+    self.titleLabel.text = @"";
+}
+
+#pragma mark - Public
+
+- (void)setListData:(NSDictionary*)data WithViewerType:(NSString*)type {
+
+    if ( [type isEqualToString:@"200"] ) {
+        
+        NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];
+        [self.posterImageView setImageWithURL:imageUrl];
+        
+        self.titleLabel.text = data[@"title"];
+    }
 }
 
 @end

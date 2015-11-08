@@ -8,12 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdultMainViewController">
             <connections>
                 <outlet property="pCollectionView21" destination="n2W-YS-tTj" id="DyW-6K-lTJ"/>
+                <outlet property="pCollectionView22" destination="qF1-Na-f4t" id="PVK-o4-5nZ"/>
                 <outlet property="pDepthBtn" destination="QQM-F9-X3E" id="fYU-q5-imo"/>
                 <outlet property="pLeftLineHeight" destination="gVW-Ek-1SR" id="33m-oc-ZOg"/>
                 <outlet property="pRealTimeBtn" destination="FkC-s1-hYr" id="7KA-Q9-lfr"/>
                 <outlet property="pRightLineHeight" destination="mW6-E6-ex8" id="Vks-48-tic"/>
-                <outlet property="pTableView21" destination="0Ef-mf-JNe" id="1ng-HL-vx6"/>
-                <outlet property="pTableView22" destination="5we-ey-2kO" id="Rem-pX-wet"/>
                 <outlet property="pView01" destination="xL1-5I-8Lb" id="vRR-O0-h1d"/>
                 <outlet property="pView21" destination="afo-Ld-dAh" id="WZj-hB-PDg"/>
                 <outlet property="pView22" destination="hFL-cR-o4b" id="oJo-gx-Xua"/>
@@ -52,21 +51,23 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFL-cR-o4b" userLabel="View22">
                     <rect key="frame" x="0.0" y="74" width="414" height="547"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5we-ey-2kO">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qF1-Na-f4t">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="UUb-nv-GTh"/>
-                                <outlet property="delegate" destination="-1" id="G8k-kj-qTA"/>
-                            </connections>
-                        </tableView>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="6" id="uvF-zi-za9">
+                                <size key="itemSize" width="95" height="164"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="7" minY="0.0" maxX="7" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="5we-ey-2kO" firstAttribute="top" secondItem="hFL-cR-o4b" secondAttribute="top" id="HEu-rH-Qlv"/>
-                        <constraint firstAttribute="bottom" secondItem="5we-ey-2kO" secondAttribute="bottom" id="UDn-sl-xbp"/>
-                        <constraint firstAttribute="trailing" secondItem="5we-ey-2kO" secondAttribute="trailing" id="dLl-Qv-2a9"/>
-                        <constraint firstItem="5we-ey-2kO" firstAttribute="leading" secondItem="hFL-cR-o4b" secondAttribute="leading" id="p25-xZ-x2f"/>
+                        <constraint firstItem="qF1-Na-f4t" firstAttribute="top" secondItem="hFL-cR-o4b" secondAttribute="top" id="9NK-yu-Ben"/>
+                        <constraint firstAttribute="bottom" secondItem="qF1-Na-f4t" secondAttribute="bottom" id="Aks-Pp-0Fs"/>
+                        <constraint firstAttribute="trailing" secondItem="qF1-Na-f4t" secondAttribute="trailing" id="Tqz-Mu-NCv"/>
+                        <constraint firstItem="qF1-Na-f4t" firstAttribute="leading" secondItem="hFL-cR-o4b" secondAttribute="leading" id="by9-AS-p0E"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afo-Ld-dAh" userLabel="View21">
@@ -115,7 +116,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kc3-J8-DqN" userLabel="View(중간라인)">
-                                    <rect key="frame" x="207" y="17.5" width="1" height="8"/>
+                                    <rect key="frame" x="207" y="17" width="1" height="8"/>
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="8" id="9fe-gM-edh"/>
@@ -143,16 +144,9 @@
                                 <constraint firstAttribute="bottom" secondItem="Mqg-fq-TBo" secondAttribute="bottom" constant="12" id="wAh-7Y-oEk"/>
                             </constraints>
                         </view>
-                        <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Ef-mf-JNe">
-                            <rect key="frame" x="0.0" y="53" width="414" height="494"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="Pfy-am-GMJ"/>
-                                <outlet property="delegate" destination="-1" id="udg-HM-E53"/>
-                            </connections>
-                        </tableView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="n2W-YS-tTj">
                             <rect key="frame" x="0.0" y="53" width="414" height="494"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="6" id="mGk-ly-OCD">
                                 <size key="itemSize" width="95" height="164"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -169,11 +163,7 @@
                     <constraints>
                         <constraint firstItem="n2W-YS-tTj" firstAttribute="leading" secondItem="afo-Ld-dAh" secondAttribute="leading" id="1qT-60-0OB"/>
                         <constraint firstItem="n2W-YS-tTj" firstAttribute="top" secondItem="uRt-e7-KeB" secondAttribute="bottom" id="DbM-sH-qNv"/>
-                        <constraint firstAttribute="bottom" secondItem="0Ef-mf-JNe" secondAttribute="bottom" id="X33-IU-Qta"/>
-                        <constraint firstItem="0Ef-mf-JNe" firstAttribute="top" secondItem="uRt-e7-KeB" secondAttribute="bottom" id="Ywm-VS-St6"/>
-                        <constraint firstItem="0Ef-mf-JNe" firstAttribute="leading" secondItem="afo-Ld-dAh" secondAttribute="leading" id="aVG-gb-Ag3"/>
                         <constraint firstItem="uRt-e7-KeB" firstAttribute="leading" secondItem="afo-Ld-dAh" secondAttribute="leading" id="dvn-e1-mm8"/>
-                        <constraint firstAttribute="trailing" secondItem="0Ef-mf-JNe" secondAttribute="trailing" id="i32-on-qIw"/>
                         <constraint firstAttribute="trailing" secondItem="n2W-YS-tTj" secondAttribute="trailing" id="uIY-8N-ARx"/>
                         <constraint firstAttribute="trailing" secondItem="uRt-e7-KeB" secondAttribute="trailing" id="vIT-uO-MpV"/>
                         <constraint firstAttribute="bottom" secondItem="n2W-YS-tTj" secondAttribute="bottom" id="z71-wq-uxs"/>

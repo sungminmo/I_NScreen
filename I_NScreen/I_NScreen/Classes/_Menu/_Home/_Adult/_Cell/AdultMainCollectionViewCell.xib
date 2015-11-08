@@ -14,7 +14,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="95" height="164"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYD-MR-yat">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYD-MR-yat">
                         <rect key="frame" x="0.0" y="132" width="95" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="MYD-MR-yat" secondAttribute="height" multiplier="95:32" id="F2U-rh-rqX"/>
@@ -38,6 +38,10 @@
                 <constraint firstAttribute="trailing" secondItem="MYD-MR-yat" secondAttribute="trailing" id="FG4-Ok-Ucy"/>
                 <constraint firstItem="MYD-MR-yat" firstAttribute="top" secondItem="oLF-Yy-utY" secondAttribute="bottom" id="qTJ-28-Cn5"/>
             </constraints>
+            <connections>
+                <outlet property="posterImageView" destination="oLF-Yy-utY" id="XYB-yY-3Ck"/>
+                <outlet property="titleLabel" destination="MYD-MR-yat" id="HVd-nG-LKT"/>
+            </connections>
             <point key="canvasLocation" x="327.5" y="305"/>
         </collectionViewCell>
     </objects>

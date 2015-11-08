@@ -10,4 +10,5 @@
 
 @interface AdultMainCollectionViewCell : UICollectionViewCell
 
+- (void)setListData:(NSDictionary*)data WithViewerType:(NSString*)type;
 @end

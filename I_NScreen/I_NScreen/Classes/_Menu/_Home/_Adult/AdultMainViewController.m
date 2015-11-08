@@ -10,7 +10,7 @@
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+VOD.h"
 
-static NSString* const CollectionView21Cell = @"CollectionView21Cell";
+static NSString* const CollectionViewCell = @"CollectionViewCell";
 
 @interface AdultMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pTwoDepthTreeDataArr; // 투댑스 카테고리 데이터 저장
@@ -35,7 +35,8 @@ static NSString* const CollectionView21Cell = @"CollectionView21Cell";
     UINib* nib;
     
     nib = [UINib nibWithNibName:@"AdultMainCollectionViewCell" bundle:nil];
-    [self.pCollectionView21 registerNib:nib forCellWithReuseIdentifier:CollectionView21Cell];
+    [self.pCollectionView21 registerNib:nib forCellWithReuseIdentifier:CollectionViewCell];
+    [self.pCollectionView22 registerNib:nib forCellWithReuseIdentifier:CollectionViewCell];
     
     [self setTagInit];
     [self setViewInit];
@@ -223,55 +224,23 @@ static NSString* const CollectionView21Cell = @"CollectionView21Cell";
             // 실시간 인기 순위
             [self.pThreeDepthDailyDataArr removeAllObjects];
             
-            int nIndex = 1;
-            int nTotal = (int)[[[[[vod objectAtIndex:0] objectForKey:@"dailyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"] count];
+            NSArray* popularity = (NSArray*)vod[0][@"dailyChart"][@"popularityList"][@"popularity"];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
+            [self.pThreeDepthDailyDataArr addObjectsFromArray:popularity];
             
-            for ( NSDictionary *dic in [[[[vod objectAtIndex:0] objectForKey:@"dailyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthDailyDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-            }
-            
-            [self.pTableView21 reloadData];
+            [self.pCollectionView21 reloadData];
         }
         else
         {
             // 주간 인기 순위
             [self.pThreeDepthWeeklyDataArr removeAllObjects];
             
+            NSArray* popularity = (NSArray*)vod[0][@"weeklyChart"][@"popularityList"][@"popularity"];
             
-            int nIndex = 1;
-            int nTotal = (int)[[[[[vod objectAtIndex:0] objectForKey:@"weeklyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"] count];
+            [self.pThreeDepthWeeklyDataArr addObjectsFromArray:popularity];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
-            
-            for ( NSDictionary *dic in [[[[vod objectAtIndex:0] objectForKey:@"weeklyChart"] objectForKey:@"popularityList"] objectForKey:@"popularity"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthWeeklyDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-            }
-            
-            [self.pTableView21 reloadData];
-            
+            [self.pCollectionView21 reloadData];
         }
-        
-        
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -289,26 +258,11 @@ static NSString* const CollectionView21Cell = @"CollectionView21Cell";
             
             DDLogError(@"카테고리형 포스터 리스트 = [%@]", vod);
             
-            int nIndex = 1;
-            int nTotal = (int)[[[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] count];
+            NSArray* contentGroup = (NSArray*)vod[0][@"contentGroupList"][@"contentGroup"];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
+            [self.pThreeDepthElseDataArr addObjectsFromArray:contentGroup];
             
-            for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthElseDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-                
-            }
-            
-            [self.pTableView22 reloadData];
+            [self.pCollectionView22 reloadData];
         }];
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -320,25 +274,11 @@ static NSString* const CollectionView21Cell = @"CollectionView21Cell";
             
             DDLogError(@"묶음 상품 리스트 = [%@]", vod);
             
-            int nIndex = 1;
-            int nTotal = (int)[[[[vod objectAtIndex:0] objectForKey:@"productList"] objectForKey:@"product"] count];
+            NSArray* product = (NSArray*)vod[0][@"productList"][@"product"];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
+            [self.pThreeDepthElseDataArr addObjectsFromArray:product];
             
-            for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"productList"] objectForKey:@"product"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthElseDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-            }
-            
-            [self.pTableView22 reloadData];
+            [self.pCollectionView22 reloadData];
         }];
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -349,26 +289,12 @@ static NSString* const CollectionView21Cell = @"CollectionView21Cell";
         NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetInfoWithAssetId:categoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
             
             DDLogError(@"마니아 추천 = [%@]", vod);
-            int nIndex = 1;
-            int nTotal = (int)[[[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"] count];
             
-            NSMutableArray *pArr = [[NSMutableArray alloc] init];
+            NSArray* asset = (NSArray*)vod[0][@"assetList"][@"asset"];
+
+            [self.pThreeDepthElseDataArr addObjectsFromArray:asset];
             
-            for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"] )
-            {
-                [pArr addObject:dic];
-                
-                if ( nIndex % 4 == 0 || nIndex == nTotal)
-                {
-                    [self.pThreeDepthElseDataArr addObject:[pArr copy]];
-                    [pArr removeAllObjects];
-                }
-                
-                nIndex++;
-            }
-            
-            [self.pTableView22 reloadData];
-            
+            [self.pCollectionView22 reloadData];
         }];
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -392,7 +318,7 @@ static NSString* const CollectionView21Cell = @"CollectionView21Cell";
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     static NSString *pCellIn = @"AdultMainTableViewCellIn";
@@ -424,20 +350,20 @@ static NSString* const CollectionView21Cell = @"CollectionView21Cell";
     }
     
     return pCell;
-}
+}*/
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //    EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
     //    [self.navigationController pushViewController:pViewController animated:YES];
-}
+}*/
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 170;
-}
+}*/
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+/*- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int nTotalCount = 0;
     
@@ -461,20 +387,7 @@ static NSString* const CollectionView21Cell = @"CollectionView21Cell";
         nTotalCount = (int)[self.pThreeDepthElseDataArr count];
     }
     return nTotalCount;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (void)AdultMainTableViewCellBtnClicked:(int)nTag WithSelect:(int)nSelect WithAssetId:(NSString *)assetId
-{
-//    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-//    pViewController.pAssetIdStr = assetId;
-//    [self.navigationController pushViewController:pViewController animated:YES];
-
-}
+}*/
 
 #pragma mark - UICollectionViewDelegate
 
@@ -506,31 +419,34 @@ static NSString* const CollectionView21Cell = @"CollectionView21Cell";
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    AdultMainCollectionViewCell* pCell = (AdultMainCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CollectionView21Cell forIndexPath:indexPath];
+    AdultMainCollectionViewCell* pCell = (AdultMainCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCell forIndexPath:indexPath];
     
     
     
-    /*if ( collectionView == self.pCollectionView21 )
+    if ( collectionView == self.pCollectionView21 )
     {
         if ( self.isItemCheck == NO )
         {
-            [pCell setListData:[self.pThreeDepthDailyDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
+            [pCell setListData:self.pThreeDepthDailyDataArr[indexPath.row] WithViewerType:self.pViewerTypeStr];
         }
         else
         {
-            [pCell setListData:[self.pThreeDepthWeeklyDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
+            [pCell setListData:self.pThreeDepthWeeklyDataArr[indexPath.row] WithViewerType:self.pViewerTypeStr];
         }
     }
     else
     {
-        [pCell setListData:[self.pThreeDepthElseDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewerType:self.pViewerTypeStr];
-    }*/
+        [pCell setListData:self.pThreeDepthElseDataArr[indexPath.row] WithViewerType:self.pViewerTypeStr];
+    }
     
     return pCell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+//    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+//    pViewController.pAssetIdStr = assetId;
+//    [self.navigationController pushViewController:pViewController animated:YES];
 }
 
 @end
