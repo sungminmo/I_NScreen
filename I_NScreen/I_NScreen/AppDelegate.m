@@ -54,6 +54,12 @@
     return YES;
 }
 
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    [self application:application openURL:url sourceApplication:nil annotation:nil];
+    return YES;
+}
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation {
     if (!url) {
         return NO;
