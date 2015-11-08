@@ -11,6 +11,7 @@
 @interface CMAdultAuthViewController () <UIWebViewDelegate>
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *topConstraint;
 @property (nonatomic, weak) IBOutlet UIWebView* webView;
+@property (nonatomic, unsafe_unretained) BOOL isWorking;
 
 @end
 
@@ -27,6 +28,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://58.141.255.80/CheckPlusSafe_ASP/checkplus_main.asp"]]];
+    self.isWorking = YES;
 }
 
 
@@ -78,14 +80,19 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self handleOpenUrlForAdultCertSuccess];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
-
 }
 
 #pragma mark - 
 - (void)handleOpenUrlForAdultCertSuccess {
+    if (self.isWorking == NO) {
+        return;
+    }
+    [self backCommonAction];
+    self.isWorking = NO;
     NSURL *url = [NSURL URLWithString:@"cnmapp://adult_auth?result=Y"];
     [[UIApplication sharedApplication] openURL:url];
 }

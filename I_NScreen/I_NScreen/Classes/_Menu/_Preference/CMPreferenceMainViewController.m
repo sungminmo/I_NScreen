@@ -119,7 +119,7 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 //    }
     
     self.switchButton = nil;
-    self.isSwitchOn = NO;
+    self.isSwitchOn = isOn;
 }
 
 
@@ -177,7 +177,21 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
             
             CMBaseViewController* controller = (CMBaseViewController*)[[class alloc] init];
             [self.navigationController pushViewController:controller animated:YES];
-        } else {
+        }
+        else if ([className isEqualToString:@"CMAdultAuthViewController"]) {//성인인증이 된상태면 건너뜀
+            
+            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+            CMAdultCertificationYN adultYN = [ud adultCertYN];
+            if (adultYN == CMAdultCertificationSuccess) {
+                return;
+            }
+            
+            Class class = NSClassFromString(className);
+            
+            CMBaseViewController* controller = (CMBaseViewController*)[[class alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+        else {
             Class class = NSClassFromString(className);
             
             CMBaseViewController* controller = (CMBaseViewController*)[[class alloc] init];
