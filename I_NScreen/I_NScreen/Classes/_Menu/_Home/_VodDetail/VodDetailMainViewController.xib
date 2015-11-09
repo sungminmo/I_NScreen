@@ -1134,15 +1134,19 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="leading" secondItem="F1t-36-sOP" secondAttribute="trailing" constant="6" id="GAm-IQ-oqU"/>
                 <constraint firstItem="uu3-Ht-kss" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="OzQ-xI-MEs"/>
+                <constraint firstItem="F1t-36-sOP" firstAttribute="leading" secondItem="uu3-Ht-kss" secondAttribute="trailing" constant="6" id="Qjt-dx-vEa"/>
                 <constraint firstItem="xyb-CE-w70" firstAttribute="top" secondItem="rwV-T8-KpY" secondAttribute="top" id="QqM-4a-1TA"/>
                 <constraint firstItem="F1t-36-sOP" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="UgP-iV-sqM"/>
+                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="leading" secondItem="F1t-36-sOP" secondAttribute="trailing" constant="6" id="Vuf-o3-DGh"/>
                 <constraint firstItem="uu3-Ht-kss" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="15" id="eLw-9f-w1j"/>
                 <constraint firstAttribute="trailing" secondItem="xyb-CE-w70" secondAttribute="trailing" constant="14" id="fwf-lB-zYP"/>
                 <constraint firstItem="4X0-Vk-ruQ" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="k9X-e2-ZFr"/>
                 <constraint firstItem="F1t-36-sOP" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="14" id="kFj-Fg-bMz"/>
                 <constraint firstAttribute="trailing" secondItem="4X0-Vk-ruQ" secondAttribute="trailing" constant="15" id="lkc-Bn-rso"/>
                 <constraint firstAttribute="trailing" secondItem="F1t-36-sOP" secondAttribute="trailing" constant="14" id="qYR-an-INq"/>
+                <constraint firstItem="F1t-36-sOP" firstAttribute="leading" secondItem="uu3-Ht-kss" secondAttribute="trailing" constant="6" id="sFF-pS-v97"/>
                 <constraint firstAttribute="bottom" secondItem="F1t-36-sOP" secondAttribute="bottom" id="sUZ-NZ-EGW"/>
                 <constraint firstItem="xyb-CE-w70" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="14" id="tjl-Rt-ZNH"/>
             </constraints>
@@ -1411,7 +1415,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.93333333330000001" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XIH-9M-Bpf">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIH-9M-Bpf">
                     <rect key="frame" x="14" y="42" width="386" height="128"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1432,7 +1436,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wV2-H0-W6H">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV2-H0-W6H">
                     <rect key="frame" x="14" y="0.0" width="386" height="128"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

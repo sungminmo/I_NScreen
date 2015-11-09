@@ -24,6 +24,7 @@
 @end
 
 @implementation RecommendMainViewController
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -38,7 +39,6 @@
     [self setViewInit];
     [self setDataInit];
     
-//    [self banPageControllerInit];
     [self requestWithBanner];
     [self requestWithGetAppInitialze];
     [self requestWithPopularTopTwenty];
@@ -136,7 +136,7 @@
         case RECOMMEND_MAIN_VIEW_BTN_01:
         {
             // 인기 순위
-            
+            [self.delegate RecommendMainViewWithTag:RECOMMEND_MAIN_VIEW_BTN_01];
         }break;
         case RECOMMEND_MAIN_VIEW_BTN_02:
         {

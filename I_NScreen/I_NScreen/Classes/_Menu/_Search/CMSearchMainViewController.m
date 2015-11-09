@@ -420,7 +420,9 @@ static const CGFloat pageSize = 28;
             return;
         }
 
-        self.totalPage = [(NSString *)[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"totalPage"] integerValue];
+//        self.totalPage = [(NSString *)[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"totalPage"] integerValue];
+        // test
+        self.totalPage = 0;
 
 //        NSString* totalCount = response[CNM_OPEN_API_RESULT_TOTAL_COUNT];
         NSString* totalCount = (NSString *)[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"totalCount"];

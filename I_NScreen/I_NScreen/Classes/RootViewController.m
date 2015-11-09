@@ -63,6 +63,7 @@
     // 추천 add
     RecommendMainViewController *pRecommendViewController = [[RecommendMainViewController alloc] initWithNibName:@"RecommendMainViewController" bundle:nil];
     pRecommendViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+    pRecommendViewController.delegate = self;
     [self addChildViewController:pRecommendViewController];
     [pRecommendViewController didMoveToParentViewController:self];
     [self.pBodyView addSubview:pRecommendViewController.view];
@@ -90,6 +91,7 @@
             
             RecommendMainViewController *pViewController = [[RecommendMainViewController alloc] initWithNibName:@"RecommendMainViewController" bundle:nil];
             pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            pViewController.delegate = self;
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
@@ -362,6 +364,12 @@
 
         }break;
     }
+}
+
+#pragma mark - RecommendMainViewController 델리게이트
+- (void)RecommendMainViewWithTag:(int)nTag
+{
+    
 }
 
 @end

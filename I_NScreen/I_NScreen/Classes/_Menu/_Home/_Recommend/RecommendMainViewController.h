@@ -22,6 +22,8 @@ typedef enum : NSInteger {
     TrinfoRecommend
 }TrinfoType;
 
+@protocol RecommendMainViewDelegate;
+
 @interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate, CMPageViewDelegate, CMPageCollectionViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIScrollView *pMainScrollView;
@@ -49,8 +51,15 @@ typedef enum : NSInteger {
 @property (nonatomic, strong) IBOutlet UIPageControl *pRecommendPgControl;
 @property (nonatomic, strong) IBOutlet UIButton *pMoreRecommendBtn;
 
-
+@property (nonatomic, weak) id <RecommendMainViewDelegate>delegate;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
+
+@end
+
+@protocol RecommendMainViewDelegate <NSObject>
+
+@optional
+- (void)RecommendMainViewWithTag:(int)nTag; // 더보기 갱신
 
 @end
