@@ -12,7 +12,7 @@
 #import "CMContentGroupCollectionViewController.h"
 #import "PlayerViewController.h"
 
-@interface VodDetailMainViewController : CMBaseViewController <UIScrollViewDelegate, CMContentGroupCollectionViewCellDelegate, PlayerViewDelegate>
+@interface VodDetailMainViewController : CMBaseViewController <UIScrollViewDelegate, CMContentGroupCollectionViewDelegate, PlayerViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pView01;
 @property (nonatomic, strong) IBOutlet UIScrollView *pBodyView;

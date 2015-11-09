@@ -23,6 +23,7 @@
 {
     self.nIndex = (index + 1) + (nPage * 4);
     
+    self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"primaryAssetId"]];
     NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"smallImageFileName"]];
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     

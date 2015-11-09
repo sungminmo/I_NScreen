@@ -327,7 +327,6 @@
     if ( (NSNull *)controller == [NSNull null] )
     {
         controller = [[CMContentGroupCollectionViewController alloc] initWithData:[self.pContentGroupArr objectAtIndex:page] WithPage:(int)page];
-//        controller = [[CMPageViewController alloc] initWithData:nil WithPage:(int)page];
         controller.delegate = self;
         [self.pViewController replaceObjectAtIndex:page withObject:controller];
     }
@@ -410,6 +409,7 @@
                 
                 [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
                 [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
+                [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"primaryAssetId"];
                 [pArr addObject:nDic];
                 
                 if ( nIndex % 4 == 0 || nIndex == nTotal)
@@ -651,7 +651,10 @@
 
 - (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
 {
+    self.pAssetIdStr = [NSString stringWithFormat:@"%@", assetId];
     
+    [self requestWithAssetInfo];
+    [self requestWithRecommendContentGroupByAssetId];
 }
 
 - (void)setReviewRatingWithTotalCount:(int)nTotal WithCount:(int)nCount
