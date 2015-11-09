@@ -66,7 +66,7 @@
     [self.pSubChannelView addSubview:self.dateScrollView];
     
     NSString *logoImageUrl = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelLogoImg"]];
-    self.title = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelProgramOnAirTitle"]];
+    self.title = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelName"]];
     [self.logoImageView setImageWithURL:[NSURL URLWithString:logoImageUrl]];
     
 //    NSMutableArray* dateArray = [@[] mutableCopy];

@@ -40,7 +40,7 @@
     
     NSString *sChannelLog = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelLogoImg"]];
     NSString *sChannelNumber = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelNumber"]];
-    NSString *sChannelProgramOnAirTitle = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramOnAirTitle"]];
+    NSString *sChannelProgramOnAirTitle = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelName"]];
     NSString *sProgramGrade = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramGrade"]];
     NSString *sChannelInfo = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelInfo"]];
     
@@ -86,9 +86,9 @@
     NSArray *startTimeArr = [sStartTime componentsSeparatedByString:@" "];
     NSArray *endTimeArr = [sEndTime componentsSeparatedByString:@" "];
     
-    if ( [startTimeArr count] == 0 )
+    if ( [startTimeArr count] < 2 )
         return;
-    if ( [endTimeArr count] == 0 )
+    if ( [endTimeArr count] < 2 )
         return;
     
     NSString *sStartTime2 = [NSString stringWithFormat:@"%@", [startTimeArr objectAtIndex:1]];
@@ -102,7 +102,7 @@
     
     self.pChannelTimeLbl.text = [NSString stringWithFormat:@"%@~%@", sNStartTime, sNEndTime];
 
-    [self.progressView setProgressRatio:.99 animated:YES];
+    [self.progressView setProgressRatio:[[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sNStartTime WithEndTime:sNEndTime] animated:YES];
 
 }
 

@@ -106,4 +106,16 @@
  */
 - (NSString *)getSplitTermWithDateStr:(NSString *)sDate;
 
+- (CGFloat)getProgressViewBufferWithStartTime:(NSString *)startTime WithEndTime:(NSString *)endTime;
+
+/**
+ * @brief 요일을 리턴한다
+ */
+- (NSString *)GetDayOfWeek:(NSString *)strDay;
+
+/**
+ * @brief 남은 시간 구하기 2015-11-10 23:59:59 -> 몇시간 남음
+ */
+- (NSString *)getLicenseEndDate:(NSString *)endDate;
+
 @end

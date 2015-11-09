@@ -155,13 +155,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *pCellIn = @"MyCMZimListTableViewCell";
+    static NSString *pCellIn = @"MyCMBuyListTableViewCellIn";
     
-    MyCMZimListTableViewCell *pCell = (MyCMZimListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
+    MyCMBuyListTableViewCell *pCell = (MyCMBuyListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
     
     if (pCell == nil)
     {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MyCMZimListTableViewCell" owner:nil options:nil];
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MyCMBuyListTableViewCell" owner:nil options:nil];
         pCell = [arr objectAtIndex:0];
     }
     

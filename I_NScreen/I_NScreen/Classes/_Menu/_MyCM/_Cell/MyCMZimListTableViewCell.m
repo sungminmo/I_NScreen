@@ -32,6 +32,7 @@
     }
     
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"productName"]];
+    
 }
 
 @end

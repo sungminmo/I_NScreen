@@ -468,4 +468,201 @@
     return sViewablePeriod;
 }
 
+#pragma mark - startTime 시작 시간 23:29 , endTime 끝시간 02:09
+- (CGFloat)getProgressViewBufferWithStartTime:(NSString *)startTime WithEndTime:(NSString *)endTime
+{
+    NSArray *startArr = [startTime componentsSeparatedByString:@":"];
+    NSArray *endArr = [endTime componentsSeparatedByString:@":"];
+    
+    NSString *sStartTime01 = [NSString stringWithFormat:@"%@", [startArr objectAtIndex:0]];
+    NSString *sStartTime02 = [NSString stringWithFormat:@"%@", [startArr objectAtIndex:1]];
+    
+    NSString *sEndTime01 = [NSString stringWithFormat:@"%@", [endArr objectAtIndex:0]];
+    NSString *sEndTime02 = [NSString stringWithFormat:@"%@", [endArr objectAtIndex:1]];
+    
+    int nStartTime01 = [sStartTime01 intValue];
+    int nStartTime02 = [sStartTime02 intValue];
+    
+    int nEndTime01 = [sEndTime01 intValue];
+    int nEndTime02 = [sEndTime02 intValue];
+    
+    int nStartTotal = nStartTime01 * 60 + nStartTime02;
+    int nEndTotal = nEndTime01 * 60 + nEndTime02;
+    
+    int nFullTotal = 24 * 60;
+    
+    CGFloat nHap = 0;
+    
+    if ( nStartTotal > nEndTotal )
+    {
+        nHap = nFullTotal - nStartTotal + nEndTotal;
+    }
+    else
+    {
+        nHap = nEndTotal - nStartTotal;
+    }
+
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
+    
+    [dateFormatter setDateFormat:@"HH"];
+    int nHour = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    [dateFormatter setDateFormat:@"mm"];
+    int nMin = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    
+    int nToday = nHour * 60 + nMin;
+    CGFloat nToHap = 0;
+    
+    if ( nStartTotal > nToday )
+    {
+        nToHap = nFullTotal - nStartTotal + nToday;
+    }
+    else
+    {
+        nToHap = nToday - nStartTotal;
+    }
+    
+    CGFloat nProgress = nToHap / nHap;
+    
+    if ( nProgress > 1 )
+        nProgress = 1;
+    
+    if ( nStartTotal < nEndTotal )
+    {
+        if ( nStartTotal > nToday )
+        {
+            nProgress = 0;
+        }
+    }
+    
+    return nProgress;
+}
+
+#pragma mark -요일을 리턴한다.
+- (NSString *)GetDayOfWeek:(NSString *)strDay
+{
+    int nDayFromYear = [[strDay substringWithRange:NSMakeRange(0, 4)] intValue];
+    int nDayFromMohth = [[strDay substringWithRange:NSMakeRange(4, 2)] intValue];
+    int nDayFromDay = [[strDay substringWithRange:NSMakeRange(6, 2)] intValue];
+    
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setYear:nDayFromYear];
+    [dateComponents setMonth:nDayFromMohth];
+    [dateComponents setDay:nDayFromDay];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate *date = [gregorian dateFromComponents:dateComponents];
+    NSDateComponents *weekdayComponents = [gregorian components:NSWeekdayCalendarUnit fromDate:date];
+    
+    switch ([weekdayComponents weekday]) {
+        case 1:
+        {
+            return @"일";
+        }break;
+        case 2:
+        {
+            return @"월";
+        }break;
+        case 3:
+        {
+            return @"화";
+        }break;
+        case 4:
+        {
+            return @"수";
+        }break;
+        case 5:
+        {
+            return @"목";
+        }break;
+        case 6:
+        {
+            return @"금";
+        }break;
+    }
+    
+    return @"토";
+}
+
+#pragma mark - 남은 시간 구하기 2015-11-10 23:59:59 -> 몇시간 남음
+- (NSString *)getLicenseEndDate:(NSString *)endDate
+{
+    NSString *sComment = @"";
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
+    [dateFormatter setDateFormat:@"yyyy"];
+    int year = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    [dateFormatter setDateFormat:@"MM"];
+    int month = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    [dateFormatter setDateFormat:@"dd"];
+    int day = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    [dateFormatter setDateFormat:@"HH"];
+    int hour = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    [dateFormatter setDateFormat:@"mm"];
+    int min = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    [dateFormatter setDateFormat:@"ss"];
+    int sec = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    
+    NSArray *endArr = [endDate componentsSeparatedByString:@" "];
+    NSArray *endArr2 = [[endArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    NSArray *endArr3 = [[endArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSString *sEndYear = [NSString stringWithFormat:@"%@", [endArr2 objectAtIndex:0]];
+    NSString *sEndMonth = [NSString stringWithFormat:@"%@", [endArr2 objectAtIndex:1]];
+    NSString *sEndDay = [NSString stringWithFormat:@"%@", [endArr2 objectAtIndex:2]];
+    
+    NSString *sEndHour = [NSString stringWithFormat:@"%@", [endArr3 objectAtIndex:0]];
+    NSString *sEndMin = [NSString stringWithFormat:@"%@", [endArr3 objectAtIndex:1]];
+    NSString *sEndSec = [NSString stringWithFormat:@"%@", [endArr3 objectAtIndex:2]];
+    
+    int nEndYear = [sEndYear intValue];
+    int nEndMonth = [sEndMonth intValue];
+    int nEndDay = [sEndDay intValue];
+    int nEndHour = [sEndHour intValue];
+    int nEndMin = [sEndMin intValue];
+    int nEndSec = [sEndSec intValue];
+    
+    if ( nEndYear > year )
+    {
+        sComment = [NSString stringWithFormat:@"%d년 남음", nEndYear - year];
+    }
+    else
+    {
+        if ( nEndMonth > month )
+        {
+            sComment = [NSString stringWithFormat:@"%d월 남음", nEndMonth - month];
+        }
+        else
+        {
+            if ( nEndDay > day )
+            {
+                sComment = [NSString stringWithFormat:@"%d일 남음", nEndDay - day];
+            }
+            else
+            {
+                if ( nEndHour > hour )
+                {
+                    sComment = [NSString stringWithFormat:@"%d시간 남음", nEndHour - hour];
+                }
+                else
+                {
+                    if ( nEndMin > min )
+                    {
+                        sComment = [NSString stringWithFormat:@"%d분 남음", nEndMin - min];
+                    }
+                    else
+                    {
+                        sComment = [NSString stringWithFormat:@"%d초 남음", nEndSec - sec];
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    return sComment;
+}
+
 @end

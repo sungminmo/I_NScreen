@@ -134,7 +134,37 @@
         self.hdImageView.hidden = YES;
     }
     
-    [self.progressView setProgressRatio:.9 animated:YES];
+//    [self.progressView setProgressRatio:.9 animated:YES];
+    
+    
+    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingStartTime"]];
+    NSString *sProgramBroadcastingEndTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingEndTime"]];
+    
+    NSArray *startArr = [sProgramBroadcastingStartTime componentsSeparatedByString:@" "];
+    NSArray *startArr2 = [[startArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSArray *endArr = [sProgramBroadcastingEndTime componentsSeparatedByString:@" "];
+    NSArray *endArr2 = [[endArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSString *sStart = [NSString stringWithFormat:@"%@:%@", [startArr2 objectAtIndex:0], [startArr2 objectAtIndex:1]];
+    
+    NSString *sEnd = [NSString stringWithFormat:@"%@:%@", [endArr2 objectAtIndex:0], [endArr2 objectAtIndex:1]];
+    
+    [self.progressView setProgressRatio:[[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd] animated:YES];
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
+    
+    [dateFormatter setDateFormat:@"dd"];
+    int nDay = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    
+    NSArray *startArr3 = [[startArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    NSString *sStartDD = [NSString stringWithFormat:@"%@", [startArr3 objectAtIndex:2]];
+    
+    if ( nDay != [sStartDD intValue] )
+    {
+        [self.progressView setProgressRatio:.0 animated:YES];
+    }
 }
 
 #pragma mark - Event

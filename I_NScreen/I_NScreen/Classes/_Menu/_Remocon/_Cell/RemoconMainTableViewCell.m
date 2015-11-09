@@ -57,7 +57,29 @@
     self.pAllImageView.hidden = index%2 == 0 ? true : false;
     self.pHdImageView.hidden = index%2 == 0 ? true : false;
     
-    [self.progressView setProgressRatio:.5 animated:YES];
+    
+    
+    
+    NSString *sChannelProgramOnAirStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramOnAirStartTime"]];
+    NSString *sChannelProgramOnAirEndTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramOnAirEndTime"]];
+    
+    self.pTimeLbl.text = [NSString stringWithFormat:@"%@~%@", [[CMAppManager sharedInstance] getSplitTimeWithDateStr:sChannelProgramOnAirStartTime], [[CMAppManager sharedInstance] getSplitTimeWithDateStr:sChannelProgramOnAirEndTime]];
+    
+    
+    NSArray *startArr = [sChannelProgramOnAirStartTime componentsSeparatedByString:@" "];
+    NSArray *startArr2 = [[startArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSArray *endArr = [sChannelProgramOnAirEndTime componentsSeparatedByString:@" "];
+    NSArray *endArr2 = [[endArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSString *sStart = [NSString stringWithFormat:@"%@:%@", [startArr2 objectAtIndex:0], [startArr2 objectAtIndex:1]];
+    
+    NSString *sEnd = [NSString stringWithFormat:@"%@:%@", [endArr2 objectAtIndex:0], [endArr2 objectAtIndex:1]];
+    
+    [self.progressView setProgressRatio:[[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd] animated:YES];
+    
+    
+//    [self.progressView setProgressRatio:.5 animated:YES];
 }
 
 @end
