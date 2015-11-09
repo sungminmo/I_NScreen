@@ -133,20 +133,20 @@ static const CGFloat selectedFontSize = 17;
         CGRect rect = arrowImageView.frame;
         arrowImageView.frame = CGRectMake( CGRectGetMidX(self.bounds) - rect.size.width/2, 10, rect.size.width, rect.size.height);
         
-        UIView* vLineView = [[UIView alloc] init];
-        vLineView.backgroundColor = [CMColor colorHighlightedFontColor];
-        
-        CGFloat height = self.bounds.size.height * 0.3;
-        vLineView.frame = CGRectMake(CGRectGetMidX(self.bounds) - self.dateWidth/2 + 1, (self.bounds.size.height - height)/2, 1, height);
-        
-        [self.decorationView addSubview:vLineView];
-        
-        vLineView = [[UIView alloc] init];
-        vLineView.backgroundColor = [CMColor colorHighlightedFontColor];
-        
-        vLineView.frame = CGRectMake(CGRectGetMidX(self.bounds) + self.dateWidth/2 - 2, (self.bounds.size.height - height)/2, 1, height);
-        
-        [self.decorationView addSubview:vLineView];
+//        UIView* vLineView = [[UIView alloc] init];
+//        vLineView.backgroundColor = [CMColor colorHighlightedFontColor];
+//        
+//        CGFloat height = self.bounds.size.height * 0.3;
+//        vLineView.frame = CGRectMake(CGRectGetMidX(self.bounds) - self.dateWidth/2 + 1, (self.bounds.size.height - height)/2, 1, height);
+//        
+//        [self.decorationView addSubview:vLineView];
+//        
+//        vLineView = [[UIView alloc] init];
+//        vLineView.backgroundColor = [CMColor colorHighlightedFontColor];
+//        
+//        vLineView.frame = CGRectMake(CGRectGetMidX(self.bounds) + self.dateWidth/2 - 2, (self.bounds.size.height - height)/2, 1, height);
+//        
+//        [self.decorationView addSubview:vLineView];
         
     }
     return self;

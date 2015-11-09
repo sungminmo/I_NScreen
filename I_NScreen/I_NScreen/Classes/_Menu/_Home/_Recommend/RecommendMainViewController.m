@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSMutableArray *pWeekMovieArr;        // 금주의 신작 영화
 @property (nonatomic, strong) NSMutableArray *pThisMonthRecommendArr;   // 이달의 추천
 @property (nonatomic, strong) NSMutableArray *pBnArr;           // 배너 배열
-
+@property (nonatomic, strong) NSMutableArray *pGetAppInitialzeArr;  // 카테고리 배열
 @end
 
 @implementation RecommendMainViewController
@@ -41,9 +41,6 @@
     
     [self requestWithBanner];
     [self requestWithGetAppInitialze];
-    [self requestWithPopularTopTwenty];
-    [self requestWithThisMonthRecommend];
-    [self requestWithWeekMovie];
 }
 
 #pragma mark - 초기화
@@ -126,6 +123,7 @@
     self.pWeekMovieArr = [[NSMutableArray alloc] init];
     self.pThisMonthRecommendArr = [[NSMutableArray alloc] init];
     self.pBnArr = [[NSMutableArray alloc] init];
+    self.pGetAppInitialzeArr = [[NSMutableArray alloc] init];
 }
 
 #pragma mark - 액션 이벤트
@@ -464,6 +462,17 @@
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAppInitializeCompletion:^(NSArray *pairing, NSError *error) {
         
         DDLogError(@"%@", pairing);
+        [self.pGetAppInitialzeArr removeAllObjects];
+        [self.pGetAppInitialzeArr setArray:[[pairing objectAtIndex:0] objectForKey:@"Category_Item"]];
+        
+        self.pPopularityTitleLbl.text = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:0] objectForKey:@"category_title"]];
+        self.pNewWorkLbl.text = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:1] objectForKey:@"category_title"]];
+        self.pRecommendLbl.text = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:2] objectForKey:@"category_title"]];
+        
+        // 3개 데이터 고정으로 내려옴
+        [self requestWithPopularTopTwenty];
+        [self requestWithThisMonthRecommend];
+        [self requestWithWeekMovie];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -472,7 +481,8 @@
 #pragma mark - 인기순위 Top 20 전문
 - (void)requestWithPopularTopTwenty
 {
-    NSString *sCategoryId = @"713230";
+//    NSString *sCategoryId = @"713230";
+    NSString *sCategoryId = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:0] objectForKey:@"categoryId"]];
     NSString *sRequestItems = @"weekly";
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPopularityChartWithCategoryId:sCategoryId WithRequestItems:sRequestItems completion:^(NSArray *vod, NSError *error) {
@@ -527,7 +537,8 @@
 #pragma mark - 금주의 신작 영화 전문
 - (void)requestWithWeekMovie
 {
-    NSString *sCategoryId = @"723049";
+//    NSString *sCategoryId = @"723049";
+    NSString *sCategoryId = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:1] objectForKey:@"categoryId"]];
     NSString *sContentGroupProfile = @"2";  // 이건 무슨값??
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {
@@ -600,7 +611,8 @@
 #pragma mark - 이달의 추천 vod 전문
 - (void)requestWithThisMonthRecommend
 {
-    NSString *sCategoryId = @"713229";
+//    NSString *sCategoryId = @"713229";
+    NSString *sCategoryId = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:2] objectForKey:@"categoryId"]];
     NSString *sContentGroupProfile = @"2";
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {

@@ -14,12 +14,15 @@
                 <outlet property="pMoreNewWorkBtn" destination="9J1-dw-xxb" id="9vG-ca-6SR"/>
                 <outlet property="pMorePopulariryBtn" destination="5YY-cq-9UW" id="dRe-am-GKe"/>
                 <outlet property="pMoreRecommendBtn" destination="5t0-jn-CfG" id="0qH-hp-omR"/>
+                <outlet property="pNewWorkLbl" destination="3cH-gl-1oh" id="XKT-OS-S8H"/>
                 <outlet property="pNewWorkPgControl" destination="NGP-hA-yHd" id="PvF-Ji-Mgy"/>
                 <outlet property="pNewWorkScrollView" destination="Yce-hd-Q85" id="eZ3-tv-PyQ"/>
                 <outlet property="pNewWorkView" destination="Swe-s2-wc5" id="jP3-oO-Dy8"/>
                 <outlet property="pPopularityPgControl" destination="63D-FH-hcZ" id="7Hg-Ad-jCE"/>
                 <outlet property="pPopularityScrollView" destination="pfW-BZ-nmR" id="T8S-v9-61B"/>
+                <outlet property="pPopularityTitleLbl" destination="vxF-k2-iQa" id="ruy-w5-Y6F"/>
                 <outlet property="pPopularityView" destination="0FO-Gm-6YD" id="Ieh-D9-mL1"/>
+                <outlet property="pRecommendLbl" destination="pK1-q6-NS1" id="hkx-eV-4tR"/>
                 <outlet property="pRecommendPgControl" destination="CtP-7X-5tJ" id="ZsI-Kv-Qq2"/>
                 <outlet property="pRecommendScrollView" destination="osO-X1-yNP" id="Ai7-H4-fN4"/>
                 <outlet property="pRecommendView" destination="kiT-5H-LNJ" id="xhv-DA-GaW"/>
