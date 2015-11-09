@@ -104,7 +104,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 - (void)requestWithGetCategoryTree2Depth
 {
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:CNM_OPEN_API_MOVIE_CATEGORY_ID WithDepth:@"2" block:^(NSArray *vod, NSError *error) {
-        
+
         DDLogError(@"2탭스 카테고리 tree 리스트 = [%@]", vod);
         [self.pTwoDepthTreeDataArr removeAllObjects];
         
@@ -138,6 +138,10 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             sCategoryId = [NSString stringWithFormat:@"%@", [self.pDataDic objectForKey:@"categoryId"]];
             sViewerType = [NSString stringWithFormat:@"%@", [self.pDataDic objectForKey:@"viewerType"]];
             
+            NSString *sCategoryName = [NSString stringWithFormat:@"%@", [self.pDataDic objectForKey:@"categoryName"]];
+            
+            [self.pDepthBtn setTitle:sCategoryName forState:UIControlStateNormal];
+            
             if ( [sViewerType isEqualToString:@"200"] )
             {
                 // 인기순위
@@ -160,6 +164,10 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         }
         else
         {
+            NSString *sCategoryName = [NSString stringWithFormat:@"%@", [[self.pTwoDepthTreeDataArr objectAtIndex:0] objectForKey:@"categoryName"]];
+            
+            [self.pDepthBtn setTitle:sCategoryName forState:UIControlStateNormal];
+            
             if ( [sViewerType isEqualToString:@"200"] )
             {
                 // 인기순위

@@ -700,4 +700,11 @@
 //        [self.navigationController pushViewController:pViewController animated:YES];
 }
 
+- (void)CMPageViewWithAssetId:(NSString *)sAssetId
+{
+    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+    pViewController.pAssetIdStr = sAssetId;
+    [self.navigationController pushViewController:pViewController animated:YES];
+}
+
 @end

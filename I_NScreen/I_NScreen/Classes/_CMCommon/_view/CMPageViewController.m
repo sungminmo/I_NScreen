@@ -54,7 +54,8 @@
 #pragma mark - 버튼 액션 이벤트
 - (void)onBtnClicked:(UIButton *)btn
 {
-    
+    NSString *sAssetId = [NSString stringWithFormat:@"%@", [pDic objectForKey:@"assetId"]];
+    [self.delegate CMPageViewWithAssetId:sAssetId];
 }
 
 #pragma mark - url split

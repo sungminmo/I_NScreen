@@ -135,6 +135,10 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         
         if ( [self.pDataDic count] != 0 )
         {
+            NSString *sCategoryName = [NSString stringWithFormat:@"%@", [self.pDataDic objectForKey:@"categoryName"]];
+            
+            [self.pDepthBtn setTitle:sCategoryName forState:UIControlStateNormal];
+            
             sCategoryId = [NSString stringWithFormat:@"%@", [self.pDataDic objectForKey:@"categoryId"]];
             sViewerType = [NSString stringWithFormat:@"%@", [self.pDataDic objectForKey:@"viewerType"]];
             
@@ -160,6 +164,10 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         }
         else
         {
+            NSString *sCategoryName = [NSString stringWithFormat:@"%@", [[self.pTwoDepthTreeDataArr objectAtIndex:0] objectForKey:@"categoryName"]];
+            
+            [self.pDepthBtn setTitle:sCategoryName forState:UIControlStateNormal];
+            
             if ( [sViewerType isEqualToString:@"200"] )
             {
                 // 인기순위

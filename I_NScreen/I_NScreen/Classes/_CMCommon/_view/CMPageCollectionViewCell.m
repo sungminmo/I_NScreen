@@ -88,13 +88,13 @@
     }
     else if ( [sPromotionSticker isEqualToString:@"17"] )
     {
-        // 선물 팡팡
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
+        // 쿠폰 증정
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_04.png"]];
     }
     else if ( [sPromotionSticker isEqualToString:@"18"] )
     {
-        // 쿠폰 할인
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_04.png"]];
+        // 랭킹1위
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_05.png"]];
     }
     else
     {
