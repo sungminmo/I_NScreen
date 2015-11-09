@@ -17,12 +17,23 @@
 
 @implementation CMAdultAuthViewController
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:CNMHandleOpenURLNotification object:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"성인인증";
     self.isUseNavigationBar = YES;
     self.topConstraint.constant = cmNavigationHeight;
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:CNMHandleOpenURLNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue currentQueue]
+                                                  usingBlock:^(__unused NSNotification *note) {
+                                                      [self backCommonAction];                                                      
+                                                  }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,11 +77,11 @@
     }
     
 
-    if ([url.absoluteString rangeOfString:@"checkplus_success"].location != NSNotFound) {
-        [self performSelector:@selector(handleOpenUrlForAdultCertSuccess) withObject:nil afterDelay:1];
-        return YES;
-    }
-    //실패시 재시도 하게 되어 있음으로 그냥 유지하자...
+//    if ([url.absoluteString rangeOfString:@"checkplus_success"].location != NSNotFound) {
+//        [self performSelector:@selector(handleOpenUrlForAdultCertSuccess) withObject:nil afterDelay:1];
+//        return YES;
+//    }
+//    //실패시 재시도 하게 되어 있음으로 그냥 유지하자...
     
     
     return YES;
@@ -80,7 +91,6 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self handleOpenUrlForAdultCertSuccess];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
@@ -93,7 +103,7 @@
     }
     [self backCommonAction];
     self.isWorking = NO;
-    NSURL *url = [NSURL URLWithString:@"cnmapp://adult_auth?result=Y"];
+    NSURL *url = [NSURL URLWithString:@"cnmApp://adult_auth?result=Y"];
     [[UIApplication sharedApplication] openURL:url];
 }
 
