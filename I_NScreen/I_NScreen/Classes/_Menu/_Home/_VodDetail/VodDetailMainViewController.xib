@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodDetailMainViewController">
@@ -63,12 +62,14 @@
             <subviews>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="33X-5k-Xuw" userLabel="View(바디)" customClass="UIScrollView">
                     <rect key="frame" x="0.0" y="93" width="414" height="643"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="OFW-75-2f3"/>
                     </connections>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" red="0.69019607839999997" green="0.7843137255" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="33X-5k-Xuw" secondAttribute="bottom" id="aT0-yz-y4X"/>
@@ -102,6 +103,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FfL-lT-z4x">
                     <rect key="frame" x="14" y="16" width="128" height="187"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="187" id="B3z-Nz-ngu"/>
                         <constraint firstAttribute="width" constant="128" id="FvT-pB-sP2"/>
@@ -121,6 +123,7 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="6bG-LN-KR6">
                     <rect key="frame" x="155" y="16" width="29" height="16"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="CSM-P7-1wd"/>
                         <constraint firstAttribute="width" constant="29" id="MUX-CI-vUT"/>
@@ -140,6 +143,7 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4q-dy-nbm">
                     <rect key="frame" x="192" y="15" width="202" height="18"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="ygs-MM-Htr"/>
                     </constraints>
@@ -159,6 +163,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="별점" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqb-Bc-Mpx">
                     <rect key="frame" x="155" y="39" width="35" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="HRM-Hi-ZbL"/>
                         <constraint firstAttribute="height" constant="21" id="dJ5-CG-QsZ"/>
@@ -181,6 +186,7 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="star_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="PP5-d5-EZx">
                     <rect key="frame" x="193" y="43" width="14" height="13"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="61h-KN-FZV"/>
                         <constraint firstAttribute="width" constant="14" id="AyM-UW-YcY"/>
@@ -200,6 +206,7 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="star_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="uzo-DU-9xN">
                     <rect key="frame" x="208" y="43" width="14" height="13"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="KEg-KB-e1G"/>
                         <constraint firstAttribute="width" constant="14" id="rO4-06-X3a"/>
@@ -219,6 +226,7 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="star_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="cqn-g3-RMw">
                     <rect key="frame" x="223" y="43" width="14" height="13"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="14" id="2aq-xG-fGQ"/>
                         <constraint firstAttribute="height" constant="13" id="VRV-De-5pX"/>
@@ -238,6 +246,7 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="star_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="ATc-WX-xJf">
                     <rect key="frame" x="253" y="43" width="14" height="13"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="0ii-V8-NC4"/>
                         <constraint firstAttribute="width" constant="14" id="5Dd-eh-hlc"/>
@@ -257,6 +266,7 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="가격" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THg-sk-8vF">
                     <rect key="frame" x="155" y="63" width="35" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="b5U-lr-S0M"/>
                         <constraint firstAttribute="height" constant="21" id="yRh-Gu-cbH"/>
@@ -279,6 +289,7 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-an-SqP">
                     <rect key="frame" x="193" y="65" width="29" height="16"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="393-pi-db9"/>
                         <constraint firstAttribute="width" constant="29" id="Tcc-Gv-hb9"/>
@@ -298,6 +309,7 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnA-ER-afq">
                     <rect key="frame" x="230" y="63" width="164" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="884-Ly-Qvs"/>
                     </constraints>
@@ -316,6 +328,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="개요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FV1-hN-mcz">
                     <rect key="frame" x="155" y="85" width="35" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Pik-54-Enx"/>
                         <constraint firstAttribute="width" constant="35" id="WIy-ik-1qc"/>
@@ -338,6 +351,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnz-UG-ZdX">
                     <rect key="frame" x="193" y="85" width="164" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="hYR-Va-pOR"/>
                     </constraints>
@@ -356,6 +370,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="감독" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJE-Lx-wEC">
                     <rect key="frame" x="155" y="107" width="35" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="35" id="Lyd-Sn-oth"/>
                         <constraint firstAttribute="height" constant="21" id="yt0-Tf-azM"/>
@@ -378,6 +393,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qS3-bU-t3G">
                     <rect key="frame" x="192" y="107" width="164" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="9RS-nW-Ccr"/>
                     </constraints>
@@ -396,6 +412,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="출연" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP7-zu-1nc">
                     <rect key="frame" x="155" y="131" width="35" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="5s2-mr-Oax"/>
                         <constraint firstAttribute="width" constant="35" id="iDq-xJ-U8A"/>
@@ -418,6 +435,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-tf-PAn">
                     <rect key="frame" x="193" y="131" width="221" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="yC6-TU-a1T"/>
                     </constraints>
@@ -436,6 +454,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="시청기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c41-Ba-7c9">
                     <rect key="frame" x="155" y="154" width="52" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="BEz-QI-AXG"/>
                         <constraint firstAttribute="width" constant="52" id="eSl-ci-oy1"/>
@@ -458,6 +477,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIT-KZ-g1J">
                     <rect key="frame" x="214" y="154" width="164" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Q62-ze-rTg"/>
                     </constraints>
@@ -476,6 +496,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="시청기기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZg-Tl-7Qc">
                     <rect key="frame" x="155" y="178" width="52" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Azv-W2-r6t"/>
                         <constraint firstAttribute="height" constant="21" id="lXL-fh-Pay"/>
@@ -501,6 +522,7 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_onlytv.png" translatesAutoresizingMaskIntoConstraints="NO" id="c6F-gA-hq5">
                     <rect key="frame" x="216" y="183" width="28" height="10"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="28" id="lA9-KX-sz2"/>
                         <constraint firstAttribute="height" constant="10" id="yhC-pP-Xc7"/>
@@ -520,10 +542,12 @@
                 </imageView>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuW-0b-UbV">
                     <rect key="frame" x="14" y="212" width="386" height="1"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="star_empty.png" translatesAutoresizingMaskIntoConstraints="NO" id="RVY-nm-IhM">
                     <rect key="frame" x="238" y="43" width="14" height="13"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="14" id="1i8-ed-eES"/>
                         <constraint firstAttribute="height" constant="13" id="cU6-cZ-RwZ"/>
@@ -542,6 +566,7 @@
                     </variation>
                 </imageView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="FV1-hN-mcz" firstAttribute="top" secondItem="THg-sk-8vF" secondAttribute="bottom" constant="1" id="0AI-j8-Ahy"/>
@@ -830,6 +855,7 @@
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFl-L7-V26">
                     <rect key="frame" x="14" y="0.0" width="386" height="128"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="8cs-Ox-fGb"/>
                     </constraints>
@@ -848,6 +874,7 @@
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrX-07-HNh">
                     <rect key="frame" x="14" y="134" width="386" height="46"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="FoZ-sz-PTh"/>
                     </constraints>
@@ -869,6 +896,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="yrX-07-HNh" secondAttribute="bottom" id="3C2-Bj-0Yk"/>
@@ -911,6 +939,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="해당 VOD를 시청하신 분들이 많이 찾는 VOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV6-lY-xgn">
                     <rect key="frame" x="17" y="27" width="376" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="eeB-G1-tAt"/>
                     </constraints>
@@ -930,6 +959,7 @@
                 </label>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGN-uP-2dw">
                     <rect key="frame" x="7" y="53" width="400" height="1"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="5UG-Al-gTe"/>
@@ -947,6 +977,7 @@
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xfy-l9-nwU">
                     <rect key="frame" x="7" y="63" width="400" height="158"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="158" id="6vD-y2-aTl"/>
                     </constraints>
@@ -966,6 +997,7 @@
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="UZF-pj-nwT">
                     <rect key="frame" x="166" y="211" width="81" height="37"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="37" id="KYb-qD-Dmb"/>
                         <constraint firstAttribute="width" constant="81" id="LlX-kd-j3v"/>
@@ -986,6 +1018,7 @@
                     </variation>
                 </pageControl>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Xfy-l9-nwU" firstAttribute="top" secondItem="qGN-uP-2dw" secondAttribute="bottom" constant="9" id="2Wf-Ch-ilR"/>
@@ -1043,27 +1076,28 @@
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyb-CE-w70">
                     <rect key="frame" x="14" y="0.0" width="386" height="128"/>
+                    <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="128" id="UTq-VF-PpR"/>
+                        <constraint firstAttribute="height" constant="128" id="XWg-Ez-ceH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="UTq-VF-PpR"/>
+                            <exclude reference="XWg-Ez-ceH"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
-                            <include reference="UTq-VF-PpR"/>
+                            <include reference="XWg-Ez-ceH"/>
                         </mask>
                     </variation>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu3-Ht-kss">
                     <rect key="frame" x="15" y="134" width="124" height="46"/>
+                    <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="46" id="18i-Zn-MaP"/>
-                        <constraint firstAttribute="width" secondItem="uu3-Ht-kss" secondAttribute="height" multiplier="62:23" id="Ljx-qG-TbL"/>
+                        <constraint firstAttribute="height" constant="46" id="LHn-EX-CEd"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="미리보기" backgroundImage="vod3btn_normal.png">
@@ -1072,12 +1106,12 @@
                     <state key="highlighted" backgroundImage="vod1btn_press.png"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="18i-Zn-MaP"/>
+                            <exclude reference="LHn-EX-CEd"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
-                            <include reference="18i-Zn-MaP"/>
+                            <include reference="LHn-EX-CEd"/>
                         </mask>
                     </variation>
                     <connections>
@@ -1086,31 +1120,32 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1t-36-sOP">
                     <rect key="frame" x="145" y="134" width="124" height="46"/>
+                    <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="46" id="w5f-SU-oBg"/>
+                        <constraint firstAttribute="height" constant="46" id="b3B-5c-hte"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="구매하기" backgroundImage="vod3btn_p_press.png"/>
                     <state key="highlighted" backgroundImage="vod1btn_press.png"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="w5f-SU-oBg"/>
+                            <exclude reference="b3B-5c-hte"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
-                            <include reference="w5f-SU-oBg"/>
+                            <include reference="b3B-5c-hte"/>
                         </mask>
                     </variation>
                     <connections>
                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="dgM-nQ-Hxs"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-Vk-ruQ">
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-Vk-ruQ">
                     <rect key="frame" x="275" y="134" width="124" height="46"/>
+                    <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="4X0-Vk-ruQ" secondAttribute="height" multiplier="62:23" id="BOA-3r-lHC"/>
-                        <constraint firstAttribute="height" constant="46" id="ZSk-zl-CMR"/>
+                        <constraint firstAttribute="height" constant="46" id="ycB-9s-AeW"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="찜하기" backgroundImage="vod3btn_normal.png">
@@ -1119,12 +1154,12 @@
                     <state key="highlighted" backgroundImage="vod1btn_press.png"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="ZSk-zl-CMR"/>
+                            <exclude reference="ycB-9s-AeW"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
-                            <include reference="ZSk-zl-CMR"/>
+                            <include reference="ycB-9s-AeW"/>
                         </mask>
                     </variation>
                     <connections>
@@ -1132,46 +1167,60 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="leading" secondItem="F1t-36-sOP" secondAttribute="trailing" constant="6" id="GAm-IQ-oqU"/>
-                <constraint firstItem="uu3-Ht-kss" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="OzQ-xI-MEs"/>
-                <constraint firstItem="F1t-36-sOP" firstAttribute="leading" secondItem="uu3-Ht-kss" secondAttribute="trailing" constant="6" id="Qjt-dx-vEa"/>
-                <constraint firstItem="xyb-CE-w70" firstAttribute="top" secondItem="rwV-T8-KpY" secondAttribute="top" id="QqM-4a-1TA"/>
-                <constraint firstItem="F1t-36-sOP" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="UgP-iV-sqM"/>
-                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="leading" secondItem="F1t-36-sOP" secondAttribute="trailing" constant="6" id="Vuf-o3-DGh"/>
-                <constraint firstItem="uu3-Ht-kss" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="15" id="eLw-9f-w1j"/>
-                <constraint firstAttribute="trailing" secondItem="xyb-CE-w70" secondAttribute="trailing" constant="14" id="fwf-lB-zYP"/>
-                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="k9X-e2-ZFr"/>
-                <constraint firstItem="F1t-36-sOP" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="14" id="kFj-Fg-bMz"/>
-                <constraint firstAttribute="trailing" secondItem="4X0-Vk-ruQ" secondAttribute="trailing" constant="15" id="lkc-Bn-rso"/>
-                <constraint firstAttribute="trailing" secondItem="F1t-36-sOP" secondAttribute="trailing" constant="14" id="qYR-an-INq"/>
-                <constraint firstItem="F1t-36-sOP" firstAttribute="leading" secondItem="uu3-Ht-kss" secondAttribute="trailing" constant="6" id="sFF-pS-v97"/>
-                <constraint firstAttribute="bottom" secondItem="F1t-36-sOP" secondAttribute="bottom" id="sUZ-NZ-EGW"/>
-                <constraint firstItem="xyb-CE-w70" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="14" id="tjl-Rt-ZNH"/>
+                <constraint firstItem="uu3-Ht-kss" firstAttribute="centerY" secondItem="F1t-36-sOP" secondAttribute="centerY" id="24D-N2-qMc"/>
+                <constraint firstAttribute="bottom" secondItem="F1t-36-sOP" secondAttribute="bottom" id="3ct-Ak-iAl"/>
+                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="leading" secondItem="F1t-36-sOP" secondAttribute="trailing" constant="6" id="8ha-n5-nT6"/>
+                <constraint firstAttribute="trailing" secondItem="4X0-Vk-ruQ" secondAttribute="trailing" constant="15" id="CmD-P7-pkm"/>
+                <constraint firstItem="xyb-CE-w70" firstAttribute="top" secondItem="rwV-T8-KpY" secondAttribute="top" id="HHK-ix-BkG"/>
+                <constraint firstItem="xyb-CE-w70" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="14" id="JTP-Wd-y54"/>
+                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="baseline" secondItem="F1t-36-sOP" secondAttribute="baseline" id="OMs-Nh-iJE"/>
+                <constraint firstItem="uu3-Ht-kss" firstAttribute="leading" secondItem="rwV-T8-KpY" secondAttribute="leading" constant="15" id="TgS-qn-moy"/>
+                <constraint firstItem="F1t-36-sOP" firstAttribute="leading" secondItem="uu3-Ht-kss" secondAttribute="trailing" constant="6" id="Xph-M0-fis"/>
+                <constraint firstAttribute="trailing" secondItem="xyb-CE-w70" secondAttribute="trailing" constant="14" id="dRE-9m-M9r"/>
+                <constraint firstItem="F1t-36-sOP" firstAttribute="leading" secondItem="uu3-Ht-kss" secondAttribute="trailing" constant="6" id="gMA-qW-RUs"/>
+                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="leading" secondItem="F1t-36-sOP" secondAttribute="trailing" constant="6" id="kr6-gW-Ttv"/>
+                <constraint firstItem="4X0-Vk-ruQ" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="l9b-PT-cko"/>
+                <constraint firstItem="F1t-36-sOP" firstAttribute="top" secondItem="xyb-CE-w70" secondAttribute="bottom" constant="6" id="ylk-VF-fMp"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="QqM-4a-1TA"/>
-                    <exclude reference="fwf-lB-zYP"/>
-                    <exclude reference="tjl-Rt-ZNH"/>
-                    <exclude reference="UgP-iV-sqM"/>
-                    <exclude reference="kFj-Fg-bMz"/>
-                    <exclude reference="qYR-an-INq"/>
-                    <exclude reference="sUZ-NZ-EGW"/>
+                    <exclude reference="HHK-ix-BkG"/>
+                    <exclude reference="JTP-Wd-y54"/>
+                    <exclude reference="dRE-9m-M9r"/>
+                    <exclude reference="24D-N2-qMc"/>
+                    <exclude reference="TgS-qn-moy"/>
+                    <exclude reference="3ct-Ak-iAl"/>
+                    <exclude reference="Xph-M0-fis"/>
+                    <exclude reference="gMA-qW-RUs"/>
+                    <exclude reference="ylk-VF-fMp"/>
+                    <exclude reference="8ha-n5-nT6"/>
+                    <exclude reference="CmD-P7-pkm"/>
+                    <exclude reference="OMs-Nh-iJE"/>
+                    <exclude reference="kr6-gW-Ttv"/>
+                    <exclude reference="l9b-PT-cko"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="constraints">
-                    <include reference="QqM-4a-1TA"/>
-                    <include reference="fwf-lB-zYP"/>
-                    <include reference="tjl-Rt-ZNH"/>
-                    <include reference="UgP-iV-sqM"/>
-                    <include reference="kFj-Fg-bMz"/>
-                    <include reference="qYR-an-INq"/>
-                    <include reference="sUZ-NZ-EGW"/>
+                    <include reference="HHK-ix-BkG"/>
+                    <include reference="JTP-Wd-y54"/>
+                    <include reference="dRE-9m-M9r"/>
+                    <include reference="24D-N2-qMc"/>
+                    <include reference="TgS-qn-moy"/>
+                    <include reference="3ct-Ak-iAl"/>
+                    <include reference="Xph-M0-fis"/>
+                    <include reference="gMA-qW-RUs"/>
+                    <include reference="ylk-VF-fMp"/>
+                    <include reference="8ha-n5-nT6"/>
+                    <include reference="CmD-P7-pkm"/>
+                    <include reference="OMs-Nh-iJE"/>
+                    <include reference="kr6-gW-Ttv"/>
+                    <include reference="l9b-PT-cko"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="825" y="987"/>
@@ -1185,63 +1234,76 @@
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPp-zb-qvd" userLabel="View(라인1)">
                             <rect key="frame" x="0.0" y="0.0" width="386" height="1"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iqd-3K-ZQE" userLabel="View(라인2)">
                             <rect key="frame" x="0.0" y="44" width="386" height="1"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_l.png" translatesAutoresizingMaskIntoConstraints="NO" id="DWl-Bo-qlh" userLabel="ImageView(왼쪽)">
                             <rect key="frame" x="2" y="17" width="8" height="10"/>
+                            <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_r.png" translatesAutoresizingMaskIntoConstraints="NO" id="AkY-3j-4uF" userLabel="ImageView(오른쪽)">
                             <rect key="frame" x="374" y="18" width="8" height="10"/>
+                            <animations/>
                         </imageView>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXQ-Kg-3R3">
                             <rect key="frame" x="38" y="1" width="308" height="43"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R3-kn-fOO">
                                     <rect key="frame" x="0.0" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="1회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfY-3U-CAX">
                                     <rect key="frame" x="64" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="2회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzQ-fz-e3n">
                                     <rect key="frame" x="128" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="3회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qn-sx-zJm">
                                     <rect key="frame" x="192" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="4회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veM-p1-QKa">
                                     <rect key="frame" x="256" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="5회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                             </subviews>
+                            <animations/>
                         </scrollView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" red="0.94509803921568625" green="0.93333333333333335" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONX-Rd-I0j">
                     <rect key="frame" x="14" y="42" width="386" height="128"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Z2-Fr-Mpc">
                     <rect key="frame" x="15" y="176" width="124" height="46"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="미리보기" backgroundImage="vod3btn_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1253,6 +1315,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-Fe-QzN">
                     <rect key="frame" x="145" y="176" width="124" height="46"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="구매하기" backgroundImage="vod3btn_p_press.png"/>
                     <state key="highlighted" backgroundImage="vod1btn_press.png"/>
@@ -1262,6 +1325,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0I-Od-OVi">
                     <rect key="frame" x="275" y="176" width="124" height="46"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="찜하기" backgroundImage="vod3btn_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1272,6 +1336,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -1286,63 +1351,76 @@
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pIP-OK-WYX" userLabel="View(라인1)">
                             <rect key="frame" x="0.0" y="0.0" width="386" height="1"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24b-Hp-Ace" userLabel="View(라인2)">
                             <rect key="frame" x="0.0" y="44" width="386" height="1"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_l.png" translatesAutoresizingMaskIntoConstraints="NO" id="xgK-N1-w6f" userLabel="ImageView(왼쪽)">
                             <rect key="frame" x="2" y="17" width="8" height="10"/>
+                            <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_r.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZX0-wv-RBa" userLabel="ImageView(오른쪽)">
                             <rect key="frame" x="374" y="18" width="8" height="10"/>
+                            <animations/>
                         </imageView>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8xB-iO-xsL">
                             <rect key="frame" x="38" y="1" width="308" height="43"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkn-Fs-ULS">
                                     <rect key="frame" x="0.0" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="1회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IK8-0b-Zzv">
                                     <rect key="frame" x="64" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="2회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xid-QY-c2Q">
                                     <rect key="frame" x="128" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="3회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyw-kS-bKY">
                                     <rect key="frame" x="192" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="4회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4n-m9-yg6">
                                     <rect key="frame" x="256" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="5회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                             </subviews>
+                            <animations/>
                         </scrollView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.93333333330000001" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRv-kf-RYs">
                     <rect key="frame" x="14" y="42" width="386" height="128"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0E-cZ-p9I">
                     <rect key="frame" x="14" y="176" width="386" height="46"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="시청하기" backgroundImage="vod1btn_normal.select.png"/>
                     <state key="highlighted" backgroundImage="vod1btn_press.png"/>
@@ -1351,6 +1429,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -1365,68 +1444,82 @@
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vIN-Q1-EwP" userLabel="View(라인1)">
                             <rect key="frame" x="0.0" y="0.0" width="386" height="1"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ET-Wc-lbZ" userLabel="View(라인2)">
                             <rect key="frame" x="0.0" y="44" width="386" height="1"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_l.png" translatesAutoresizingMaskIntoConstraints="NO" id="sZ0-tw-4kT" userLabel="ImageView(왼쪽)">
                             <rect key="frame" x="2" y="17" width="8" height="10"/>
+                            <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seriesno_indicator_r.png" translatesAutoresizingMaskIntoConstraints="NO" id="pKd-Jg-Xnd" userLabel="ImageView(오른쪽)">
                             <rect key="frame" x="374" y="18" width="8" height="10"/>
+                            <animations/>
                         </imageView>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-ae-P5L">
                             <rect key="frame" x="38" y="1" width="308" height="43"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG7-D6-f3r">
                                     <rect key="frame" x="0.0" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="1회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3e-ui-cOY">
                                     <rect key="frame" x="64" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="2회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LA0-fO-b4x">
                                     <rect key="frame" x="128" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="3회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75N-Sl-S8n">
                                     <rect key="frame" x="192" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="4회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTt-Ra-3E2">
                                     <rect key="frame" x="256" y="4" width="47" height="35"/>
+                                    <animations/>
                                     <state key="normal" title="5회" backgroundImage="seriesno_press.png">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
                             </subviews>
+                            <animations/>
                         </scrollView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.93333333330000001" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIH-9M-Bpf">
                     <rect key="frame" x="14" y="42" width="386" height="128"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[막돼먹은 영애씨 시즌14]는(은) TV에서 시청하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEM-bn-PH6">
                     <rect key="frame" x="97" y="176" width="221" height="46"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -1438,16 +1531,19 @@
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV2-H0-W6H">
                     <rect key="frame" x="14" y="0.0" width="386" height="128"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[막돼먹은 영애씨 시즌14]는(은) TV에서 시청하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sl-2K-DsH">
                     <rect key="frame" x="98" y="134" width="218" height="46"/>
+                    <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
