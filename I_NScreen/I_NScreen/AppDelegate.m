@@ -102,6 +102,27 @@
     [[UINavigationBar appearance] setBarTintColor:[CMColor colorViolet]];
     self.m_pNaviCon.navigationBar.height = cmNavigationHeight - 20;
     
+    // 네비게이션바 타이틀 커스텀폰트, 컬러 설정.
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    
+//    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+//    [style setAlignment:NSTextAlignmentCenter];
+//    [style setLineBreakMode:NSLineBreakByWordWrapping];
+    
+    NSDictionary *dict = @{
+                           NSForegroundColorAttributeName:[UIColor whiteColor],
+                           NSFontAttributeName:[UIFont boldSystemFontOfSize:22],
+//                           NSParagraphStyleAttributeName: [style copy],
+                           NSShadowAttributeName : shadow.copy
+                           };
+    [[UINavigationBar appearance] setTitleTextAttributes:dict];
+    
+    float h_padding = (cmNavigationHeight - 44)/2;
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
+    
+    
     //얼럿뷰
     [[SIAlertView appearance] setMessageFont:[UIFont systemFontOfSize:13]];
     [[SIAlertView appearance] setTitleColor:[CMColor colorViolet]];

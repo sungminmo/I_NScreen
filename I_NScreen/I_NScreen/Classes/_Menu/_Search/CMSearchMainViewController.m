@@ -36,16 +36,16 @@ static const CGFloat pageSize = 28;
 
 @interface CMSearchMainViewController ()
 
-@property (nonatomic, strong) IBOutlet CMTextField* searchField;    //  검색어 텍스트 필드
-@property (nonatomic, strong) IBOutlet UILabel* infoLabel;          //  검색갤과 정보 표출 라벨
-@property (nonatomic, strong) IBOutlet UITableView* autoCompletList;//  검색어 테이블
+@property (nonatomic, weak) IBOutlet CMTextField* searchField;    //  검색어 텍스트 필드
+@property (nonatomic, weak) IBOutlet UILabel* infoLabel;          //  검색갤과 정보 표출 라벨
+@property (nonatomic, weak) IBOutlet UITableView* autoCompletList;//  검색어 테이블
 
 @property (nonatomic, strong) CMTabMenuView* tabMenu;               //  vod, 프로그램 탭메뉴
-@property (nonatomic, strong) IBOutlet UIView* tabMenuContainer;    //  vod, 프로그램 탭메뉴
+@property (nonatomic, weak) IBOutlet UIView* tabMenuContainer;    //  vod, 프로그램 탭메뉴
 
-@property (nonatomic, strong) IBOutlet UICollectionView* vodList;   //  vod 목록 테이블
-@property (nonatomic, strong) IBOutlet UITableView* programList;    //  프로그램 목록 테이블
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *topConstraint;
+@property (nonatomic, weak) IBOutlet UICollectionView* vodList;   //  vod 목록 테이블
+@property (nonatomic, weak) IBOutlet UITableView* programList;    //  프로그램 목록 테이블
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *topConstraint;
 
 @property (nonatomic, strong) NSMutableArray* searchWordArray;  //  검색어 목록
 @property (nonatomic, strong) NSMutableArray* dataArray;        //  vod/프로그램 목록

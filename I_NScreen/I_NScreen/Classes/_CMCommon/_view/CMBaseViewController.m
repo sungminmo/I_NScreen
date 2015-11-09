@@ -99,25 +99,6 @@
 }
 
 - (void)setupLayout {
-    // 네비게이션바 타이틀 커스텀폰트, 컬러 설정.
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-    shadow.shadowOffset = CGSizeMake(0, 1);
-    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    [style setAlignment:NSTextAlignmentCenter];
-    [style setLineBreakMode:NSLineBreakByWordWrapping];
-    NSDictionary *dict = @{
-                           NSFontAttributeName:[UIFont boldSystemFontOfSize:22],
-                           NSForegroundColorAttributeName:[UIColor whiteColor],
-                           NSParagraphStyleAttributeName:style,
-                           NSShadowAttributeName : shadow
-                           };
-    [[UINavigationBar appearance] setTitleTextAttributes:dict];
-
-    float h_padding = (cmNavigationHeight - 44)/2;
-    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
-    
-    
     self.navigationController.navigationBar.alpha = 1.0;
     self.navigationController.navigationBar.opaque = NO;
     self.extendedLayoutIncludesOpaqueBars = YES;
