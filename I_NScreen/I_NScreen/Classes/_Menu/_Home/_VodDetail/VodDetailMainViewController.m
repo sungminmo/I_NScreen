@@ -416,6 +416,34 @@
     NSString *sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];     // 시리즈 인지 아닌지
     BOOL isPurchasedId = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"purchasedId"];      // 구매하기 인지 아닌지
  
+    NSString *sRating = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"rating"];    // 시청 등급
+    
+    NSString *sReviewRatingTotal = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"reviewRatingTotal"];  // 전체 별표
+    NSString *sReviewRatingCount =  [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"reviewRatingCount"]; // 현재 별표
+    
+    int nReviewRatingTotal = [sReviewRatingTotal intValue];
+    int nReviewRatingCount = [sReviewRatingCount intValue];
+    
+    [self setReviewRatingWithTotalCount:nReviewRatingTotal WithCount:nReviewRatingCount];
+    
+    if ( [sRating isEqualToString:@"19"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"19.png"]];
+    }
+    else if ( [sRating isEqualToString:@"15"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"15.png"]];
+    }
+    else if ( [sRating isEqualToString:@"12"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"12.png"]];
+    }
+    else
+    {
+        // all?
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"all.png"]];
+    }
+    
     
     // !! TEST BJK TV 인지 아닌지는 서버에서 안내려오고 있음
     if ( [sSeriesLink isEqualToString:@"0"] )
@@ -469,8 +497,53 @@
         self.pResolutionImageView.image = [UIImage imageNamed:@"hd.png"];
     }
     
-//    NSString *sPrice = [NSString stringWithFormat:@"%@", [[[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"listPrice"]];
-//    self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sPrice]];
+    // 배열로 단독 아님 패키지 가격이 내려 오는데 패키지 일땐 어떻하지???
+    NSObject *productObj = [[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+    
+    if ( [productObj isKindOfClass:[NSDictionary class]] )
+    {
+        // 단독
+        NSString *sProduct = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"price"]];
+        self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+        
+        // 평생 소장인지 체크
+        NSString *sViewablePeriodState = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"viewablePeriodState"]];
+        
+        NSString *sViewablePeriod = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"viewablePeriod"]];
+        
+        if ( [sViewablePeriodState isEqualToString:@"0"] )
+        {
+            // 평생 소장 아님
+            self.pTermLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getSplitTermWithDateStr:sViewablePeriod]];
+        }
+        else
+        {
+            // 평생 소장
+            self.pTermLbl.text = @"평생소장";
+        }
+    }
+    else if ( [productObj isKindOfClass:[NSArray class]] )
+    {
+        // 패키지
+        NSString *sProduct = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"price"]];
+        self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+        
+        // 평생 소장인지 체크
+        NSString *sViewablePeriodState = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"viewablePeriodState"]];
+        
+        NSString *sViewablePeriod = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"viewablePeriod"]];
+        
+        if ( [sViewablePeriodState isEqualToString:@"0"] )
+        {
+            // 평생 소장 아님
+            self.pTermLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getSplitTermWithDateStr:sViewablePeriod]];
+        }
+        else
+        {
+            // 평생 소장
+            self.pTermLbl.text = @"평생소장";
+        }
+    }
     
     
     // 러닝 타임
@@ -518,6 +591,113 @@
 - (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
 {
     
+}
+
+- (void)setReviewRatingWithTotalCount:(int)nTotal WithCount:(int)nCount
+{
+    int nTotals = nTotal * 10;
+    
+    int nStar = nTotals / nCount;
+    
+    if ( nStar >= 50 )
+    {
+        // 별 5개
+        self.pStarImage01.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_full.png"];
+    }
+    else if ( nStar < 50 && nStar >= 45 )
+    {
+        // 별 4개반
+        self.pStarImage01.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_full.png"];
+    }
+    else if ( nStar < 45 && nStar >= 40 )
+    {
+        // 별 4개
+        self.pStarImage01.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
+    }
+    else if ( nStar < 40 && nStar >= 35 )
+    {
+        // 별 3개반
+        self.pStarImage01.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_half.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
+    }
+    else if ( nStar < 35 && nStar >= 30 )
+    {
+        // 별 3개
+        self.pStarImage01.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
+    }
+    else if ( nStar < 30 && nStar >= 25 )
+    {
+        // 별 2개반
+        self.pStarImage01.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_half.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
+    }
+    else if ( nStar < 25 && nStar >= 20 )
+    {
+        // 별 2개
+        self.pStarImage01.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
+    }
+    else if ( nStar < 20 && nStar >= 15 )
+    {
+        // 별 1개반
+        self.pStarImage01.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_half.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
+    }
+    else if ( nStar < 15 && nStar >= 10 )
+    {
+        // 별 1개
+        self.pStarImage01.image = [UIImage imageNamed:@"star_full.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
+    }
+    else if ( nStar < 10 && nStar >= 5 )
+    {
+        // 별 반개
+        self.pStarImage01.image = [UIImage imageNamed:@"star_half.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
+    }
+    else
+    {
+        // 별없음
+        self.pStarImage01.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage02.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage03.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage04.image = [UIImage imageNamed:@"star_empty.png"];
+        self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
+    }
 }
 
 @end

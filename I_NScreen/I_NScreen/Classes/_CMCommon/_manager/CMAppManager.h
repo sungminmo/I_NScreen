@@ -101,4 +101,9 @@
  */
 - (NSString *)getSplitScrollWithDateStr:(NSString *)sDate;
 
+/**
+ * @brief 날짜 splite ex) 0000-00-03 00:00:00 -> 몇일 남았는지 몇시간 남았는지
+ */
+- (NSString *)getSplitTermWithDateStr:(NSString *)sDate;
+
 @end

@@ -403,4 +403,69 @@
     return sDay;
 }
 
+#pragma mark - 날짜 splite ex) 0000-00-03 00:00:00 -> 몇일 남았는지 몇시간 남았는지
+- (NSString *)getSplitTermWithDateStr:(NSString *)sDate
+{
+    NSString *sViewablePeriod = @"";
+    
+    NSArray *dateArr = [sDate componentsSeparatedByString:@" "];
+    NSArray *fDateArr = [[dateArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    NSArray *eDateArr = [[dateArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSString *sYear = [NSString stringWithFormat:@"%@", [fDateArr objectAtIndex:0]];
+    NSString *sMonth = [NSString stringWithFormat:@"%@", [fDateArr objectAtIndex:1]];
+    NSString *sDay = [NSString stringWithFormat:@"%@", [fDateArr objectAtIndex:2]];
+    
+    NSString *sHour = [NSString stringWithFormat:@"%@", [eDateArr objectAtIndex:0]];
+    NSString *sMinute = [NSString stringWithFormat:@"%@", [eDateArr objectAtIndex:1]];
+    NSString *sSecond = [NSString stringWithFormat:@"%@", [eDateArr objectAtIndex:2]];
+    
+    int nYear = [sYear intValue];
+    int nMonth = [sMonth intValue];
+    int nDay = [sDay intValue];
+    
+    int nHour = [sHour intValue];
+    int nMinute = [sMinute intValue];
+    int nSecond = [sSecond intValue];
+    
+    if ( nYear > 0 )
+    {
+        sViewablePeriod = [NSString stringWithFormat:@"%d년", nYear];
+    }
+    else
+    {
+        if ( nMonth > 0 )
+        {
+            sViewablePeriod = [NSString stringWithFormat:@"%d월", nMonth];
+        }
+        else
+        {
+            if ( nDay > 0 )
+            {
+                sViewablePeriod = [NSString stringWithFormat:@"%d일", nDay];
+            }
+            else
+            {
+                if ( nHour > 0 )
+                {
+                    sViewablePeriod = [NSString stringWithFormat:@"%d시", nHour];
+                }
+                else
+                {
+                    if ( nMinute > 0 )
+                    {
+                        sViewablePeriod = [NSString stringWithFormat:@"%d분", nMinute];
+                    }
+                    else
+                    {
+                        sViewablePeriod = [NSString stringWithFormat:@"%d초", nSecond];
+                    }
+                }
+            }
+        }
+    }
+    
+    return sViewablePeriod;
+}
+
 @end
