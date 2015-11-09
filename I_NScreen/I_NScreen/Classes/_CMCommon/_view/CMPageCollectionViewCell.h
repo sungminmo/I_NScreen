@@ -17,6 +17,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *pThumImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *pStickerImageView;
 @property (nonatomic, weak) IBOutlet UILabel *pRankingLbl;
+@property (nonatomic, weak) IBOutlet UIImageView *pDimImageView;
 
 @property (nonatomic, strong) NSString  *pAssetIdStr;
 

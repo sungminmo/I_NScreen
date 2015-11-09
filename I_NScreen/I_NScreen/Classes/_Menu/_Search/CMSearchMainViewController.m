@@ -338,7 +338,7 @@ static const CGFloat pageSize = 28;
 //        [self.vodList reloadData];
 //    }];
     
-//    http://58.141.255.79:8080/HApplicationServer/searchContentGroup.json?version=1&terminalKey=8A5D2E45D3874824FF23EC97F78D358&includeAdultCategory=0&searchKeyword=막돼먹은
+//    http://58.141.255.79:8080/HApplicationServer/searchContentGroup.json?version=1&terminalKey=8A5D2E45D3874824FF23EC97F78D358&includeAdultCategory=0&searchKeyword=막돼먹은&contentGroupProfile=2
     /*!<
      [(
      {

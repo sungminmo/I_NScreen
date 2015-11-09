@@ -504,6 +504,7 @@
             [nDic setObject:[dic objectForKey:@"new"] forKey:@"new"];
             [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
             [nDic setObject:[dic objectForKey:@"imageFileName"] forKey:@"imageFileName"];
+            [nDic setObject:[dic objectForKey:@"promotionSticker"] forKey:@"promotionSticker"];
             [pArr addObject:nDic];
             
             if ( nIndex % 8 == 0 || nIndex == nTotal)

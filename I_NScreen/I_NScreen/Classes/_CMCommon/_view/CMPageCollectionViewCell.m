@@ -44,81 +44,87 @@
         [self.pTitleLbl setFont:[UIFont systemFontOfSize:12.0f]];
     }
     
-//    if ( [[dic allKeys] ])
+    // promotionSticker > isNew > hot 우선순위
+    NSString *sPromotionSticker = [NSString stringWithFormat:@"%@", [dic objectForKey:@"promotionSticker"]];
+    NSString *sIsNew = [NSString stringWithFormat:@"%@", [dic objectForKey:@"isNew"]];
+    NSString *sHot = [NSString stringWithFormat:@"%@", [dic objectForKey:@"hot"]];
     
-    if ( [[dic objectForKey:@"isNew"] isEqualToString:@"1"] )
-    {
-        // new 스티커
-        self.pStickerImageView.image = [UIImage imageNamed:@"icon_promotion_01.png"];
-    }
-    else
-    {
-        if ( [[dic objectForKey:@"hot"] isEqualToString:@"1"] )
-        {
-            // hot 스티커
-            self.pStickerImageView.image = [UIImage imageNamed:@"icon_promotion_02.png"];
-        }
-    }
+    [self.pStickerImageView setImage:[UIImage imageNamed:@""]];
     
-    if ( [[dic objectForKey:@"assetNew"] isEqualToString:@"1"] ||
-        [[dic objectForKey:@"assetNew"] isEqualToString:@"2"] )
-    {
-        // new 스티커
-        self.pStickerImageView.image = [UIImage imageNamed:@"icon_promotion_01.png"];
-    }
-    else
-    {
-        if ( [[dic objectForKey:@"assetHot"] isEqualToString:@"1"] ||
-            [dic objectForKey:@"2"] )
-        {
-            // hot 스티커
-            self.pStickerImageView.image = [UIImage imageNamed:@"icon_promotion_02.png"];
-        }
-    }
-    
-    if ( [[dic objectForKey:@"promotionSticker"] isEqualToString:@"11"] )
-    {
+//    if ( [sPromotionSticker isEqualToString:@"0"] )
+//    {
+//        // new
+//        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
+//    }
+//    if ( [sPromotionSticker isEqualToString:@"11"] )
+//    {
         // 반값
-        self.pStickerImageView.image = [UIImage imageNamed:@""];
-    }
-    else if ( [[dic objectForKey:@"promotionSticker"] isEqualToString:@"12"] )
+//        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];    //
+//    }
+    if ( [sPromotionSticker isEqualToString:@"12"] )
     {
         // 추천
-        self.pStickerImageView.image = [UIImage imageNamed:@""];
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_06.png"]];
     }
-    else if ( [[dic objectForKey:@"promotionSticker"] isEqualToString:@"13"] )
+    else if ( [sPromotionSticker isEqualToString:@"13"] )
     {
         // 이벤트
-        self.pStickerImageView.image = [UIImage imageNamed:@"icon_promotion_03.png"];
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_03.png"]];
     }
-    else if ( [[dic objectForKey:@"promotionSticker"] isEqualToString:@"14"] )
+    else if ( [sPromotionSticker isEqualToString:@"14"] )
     {
-        // 극장동시
-        self.pStickerImageView.image = [UIImage imageNamed:@""];
+        // 극장 동시
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_07.png"]];
     }
-    else if ( [[dic objectForKey:@"promotionSticker"] isEqualToString:@"15"] )
+    else if ( [sPromotionSticker isEqualToString:@"15"] )
     {
         // 할인
-        self.pStickerImageView.image = [UIImage imageNamed:@""];
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_09.png"]];    //
     }
-    else if ( [[dic objectForKey:@"promotionSticker"] isEqualToString:@"16"] )
+    else if ( [sPromotionSticker isEqualToString:@"16"] )
     {
         // HOT
-        self.pStickerImageView.image = [UIImage imageNamed:@"icon_promotion_02.png"];
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_02.png"]];
     }
-    else if ( [[dic objectForKey:@"promotionSticker"] isEqualToString:@"17"] )
+    else if ( [sPromotionSticker isEqualToString:@"17"] )
     {
         // 선물 팡팡
-        self.pStickerImageView.image = [UIImage imageNamed:@""];
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
     }
-    else if ( [[dic objectForKey:@"promotionSticker"] isEqualToString:@"18"] )
+    else if ( [sPromotionSticker isEqualToString:@"18"] )
     {
         // 쿠폰 할인
-        self.pStickerImageView.image = [UIImage imageNamed:@""];
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_04.png"]];
     }
-
+    else
+    {
+        if ( [sIsNew isEqualToString:@"1"] )
+        {
+            // new
+            [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
+        }
+        else
+        {
+            //
+            if ( [sHot isEqualToString:@"1"] )
+            {
+                // hot
+                [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_02.png"]];
+            }
+        }
+    }
     
-  
+    // 19금 딤 처리
+    NSString *sRating = [NSString stringWithFormat:@"%@", [dic objectForKey:@"rating"]];
+    
+    if ( [sRating isEqualToString:@"19"] )
+    {
+        self.pDimImageView.hidden = NO;
+    }
+    else
+    {
+        self.pDimImageView.hidden = YES;
+    }
 }
 
 - (IBAction)onBtnClicked:(id)sender

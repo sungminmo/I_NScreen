@@ -14,6 +14,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView* posterImageView;
 @property (nonatomic, strong) IBOutlet UILabel* titleLabel;
 @property (nonatomic, strong) NSString *sAssetId;
+@property (nonatomic, strong) IBOutlet UIImageView *pDimImageView;  // 성인 딤 처리 이미지
 
 @end
 
@@ -47,6 +48,13 @@
         [self.posterImageView setImageWithURL:imageUrl];
         
         self.titleLabel.text = data[@"title"];
+        
+        NSString *sRating = [NSString stringWithFormat:@"%@", [data objectForKey:@"rating"]];
+        
+        if ( [sRating isEqualToString:@"19"] )
+        {
+            self.pDimImageView.hidden = NO;
+        }
     }
 }
 

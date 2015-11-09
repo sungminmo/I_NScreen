@@ -20,6 +20,13 @@
                             <constraint firstAttribute="width" secondItem="hMa-kw-bgp" secondAttribute="height" multiplier="95:138" id="QPY-Un-FjL"/>
                         </constraints>
                     </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_19dim.png" translatesAutoresizingMaskIntoConstraints="NO" id="tdt-vw-DQD">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="tdt-vw-DQD" secondAttribute="height" multiplier="95:138" id="JuY-2x-Tnf"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="베테랑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDF-9Q-zeC">
                         <rect key="frame" x="0.0" y="138" width="95" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -70,13 +77,17 @@
             <constraints>
                 <constraint firstItem="WDF-9Q-zeC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3Hm-Qx-TkJ"/>
                 <constraint firstItem="lRs-iK-eZd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7A1-ec-F5d"/>
+                <constraint firstItem="tdt-vw-DQD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9Mq-gg-hPl"/>
                 <constraint firstItem="QtE-iU-7yY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DEW-WP-Zdt"/>
+                <constraint firstItem="tdt-vw-DQD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ELP-FU-klq"/>
                 <constraint firstItem="WDF-9Q-zeC" firstAttribute="top" secondItem="hMa-kw-bgp" secondAttribute="bottom" id="EyA-ba-EHq"/>
+                <constraint firstItem="WDF-9Q-zeC" firstAttribute="top" secondItem="tdt-vw-DQD" secondAttribute="bottom" id="KzB-b2-Ycb"/>
                 <constraint firstAttribute="trailing" secondItem="hMa-kw-bgp" secondAttribute="trailing" id="Uzd-e0-gSz"/>
                 <constraint firstAttribute="bottom" secondItem="lRs-iK-eZd" secondAttribute="bottom" id="cWe-x3-3s7"/>
                 <constraint firstAttribute="bottom" secondItem="WDF-9Q-zeC" secondAttribute="bottom" id="dwq-wt-JpH"/>
                 <constraint firstItem="QtE-iU-7yY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eZy-Io-5Ie"/>
                 <constraint firstAttribute="trailing" secondItem="WDF-9Q-zeC" secondAttribute="trailing" id="jnz-mU-WFa"/>
+                <constraint firstAttribute="trailing" secondItem="tdt-vw-DQD" secondAttribute="trailing" id="mNf-C8-mB1"/>
                 <constraint firstItem="hMa-kw-bgp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="orN-sQ-otm"/>
                 <constraint firstAttribute="trailing" secondItem="lRs-iK-eZd" secondAttribute="trailing" id="osy-Bu-rWC"/>
                 <constraint firstItem="lRs-iK-eZd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tja-ty-U6c"/>
@@ -86,6 +97,7 @@
             </constraints>
             <size key="customSize" width="229" height="313"/>
             <connections>
+                <outlet property="pDimImageView" destination="tdt-vw-DQD" id="G2v-xL-HPr"/>
                 <outlet property="pRankingLbl" destination="sjg-0M-53e" id="cYO-c4-m3r"/>
                 <outlet property="pStickerImageView" destination="rAT-di-knA" id="4VQ-Zh-6HI"/>
                 <outlet property="pThumImageView" destination="hMa-kw-bgp" id="z7C-Wv-7HB"/>
@@ -96,6 +108,7 @@
     </objects>
     <resources>
         <image name="genreall_select.png" width="146" height="147"/>
+        <image name="icon_19dim.png" width="94" height="136"/>
         <image name="icon_rank.png" width="24" height="27"/>
     </resources>
 </document>

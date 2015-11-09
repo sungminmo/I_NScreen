@@ -26,6 +26,10 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Gs-y2-3X2">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
                     </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_19dim.png" translatesAutoresizingMaskIntoConstraints="NO" id="SIU-8T-EHH">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zK-Gu-2Km">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="164"/>
                         <connections>
@@ -49,10 +53,14 @@
                 <constraint firstAttribute="trailing" secondItem="8Gs-y2-3X2" secondAttribute="trailing" id="z1A-Il-tvx"/>
             </constraints>
             <connections>
+                <outlet property="pDimImageView" destination="SIU-8T-EHH" id="TT2-of-B8Q"/>
                 <outlet property="posterImageView" destination="8Gs-y2-3X2" id="KXs-mQ-wUD"/>
                 <outlet property="titleLabel" destination="qLi-r7-dtZ" id="tVR-0y-14X"/>
             </connections>
             <point key="canvasLocation" x="327.5" y="328"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="icon_19dim.png" width="94" height="136"/>
+    </resources>
 </document>

@@ -552,7 +552,7 @@
     NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"publicationRight"]];
     NSString *sPreviewPeriod = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"previewPeriod"]];
     
-    // !! TEST BJK TV 인지 아닌지는 서버에서 안내려오고 있음
+    
     if ( [sSeriesLink isEqualToString:@"0"] )
     {
         // 시리즈가 아니다
