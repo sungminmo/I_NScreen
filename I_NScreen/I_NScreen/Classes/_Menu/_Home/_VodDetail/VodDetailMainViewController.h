@@ -26,7 +26,8 @@
 @property (nonatomic, strong) IBOutlet UIView *pView22;
 @property (nonatomic, strong) IBOutlet UITextView *pContentTextView22;  // 컨텐츠 텍스트
 @property (nonatomic, strong) IBOutlet UIButton *pReviewBtn22;        // 미리보기
-@property (nonatomic, strong) IBOutlet UIButton *pWatchBtn22;       // 시청버튼
+//@property (nonatomic, strong) IBOutlet UIButton *pWatchBtn22;       // 시청버튼
+@property (nonatomic, strong) IBOutlet UIButton *pBuyBtn22;         // 구매하기
 @property (nonatomic, strong) IBOutlet UIButton *pZzimBtn22;        // 찜하기
 
 // 중간 View23
@@ -34,7 +35,8 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *pSeriesScrollView23;   // 시리즈 스크롤 뷰
 @property (nonatomic, strong) IBOutlet UITextView *pContentTextView23;      // 컨텐츠 텍스트
 @property (nonatomic, strong) IBOutlet UIButton *pReviewBtn23;
-@property (nonatomic, strong) IBOutlet UIButton *pWatchBtn23;
+//@property (nonatomic, strong) IBOutlet UIButton *pWatchBtn23;
+@property (nonatomic, strong) IBOutlet UIButton *pBuyBtn23;             // 구매하기
 @property (nonatomic, strong) IBOutlet UIButton *pZzimBtn23;
 
 // 중간 View24

@@ -18,6 +18,7 @@
 @implementation PlayerViewController
 @synthesize delegate;
 @synthesize pFileNameStr;
+@synthesize pStyleStr;
 
 static PlayerViewController *playerViewCtr;
 
@@ -60,7 +61,7 @@ static PlayerViewController *playerViewCtr;
 #pragma mark - drm 전문
 - (void)requestWithDrm
 {
-    NSURLSessionDataTask *tesk = [NSMutableDictionary drmApiWithAsset:self.pFileNameStr completion:^(NSDictionary *drm, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary drmApiWithAsset:self.pFileNameStr WithPlayStyle:self.pStyleStr completion:^(NSDictionary *drm, NSError *error) {
         
         NSLog(@"drm = [%@]", drm);
         

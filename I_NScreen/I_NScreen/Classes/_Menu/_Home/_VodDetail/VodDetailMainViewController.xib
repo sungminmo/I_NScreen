@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodDetailMainViewController">
             <connections>
                 <outlet property="pBodyView" destination="33X-5k-Xuw" id="VFq-ov-rTD"/>
+                <outlet property="pBuyBtn22" destination="F1t-36-sOP" id="q5V-ol-auh"/>
+                <outlet property="pBuyBtn23" destination="CS3-Fe-QzN" id="n2J-Ig-ukM"/>
                 <outlet property="pCastLbl" destination="fHy-tf-PAn" id="NFd-bi-NJH"/>
                 <outlet property="pCommentLbl25" destination="FEM-bn-PH6" id="0iV-6S-sqc"/>
                 <outlet property="pCommentLbl26" destination="7sl-2K-DsH" id="lxi-Ts-tPw"/>
@@ -47,8 +49,6 @@
                 <outlet property="pView25" destination="jA3-5A-5UN" id="PRa-Yi-r6s"/>
                 <outlet property="pView26" destination="zsj-Ga-YIe" id="38U-ix-5N2"/>
                 <outlet property="pWatchBtn21" destination="yrX-07-HNh" id="JMu-pu-tZb"/>
-                <outlet property="pWatchBtn22" destination="F1t-36-sOP" id="wSr-Hv-4Zc"/>
-                <outlet property="pWatchBtn23" destination="CS3-Fe-QzN" id="DPJ-Aq-dIi"/>
                 <outlet property="pWatchBtn24" destination="C0E-cZ-p9I" id="tqZ-AR-MQ1"/>
                 <outlet property="pZzimBtn22" destination="4X0-Vk-ruQ" id="gMF-kR-mca"/>
                 <outlet property="pZzimBtn23" destination="a0I-Od-OVi" id="Z5N-C5-Rto"/>
@@ -1103,7 +1103,7 @@
                     <state key="normal" title="미리보기" backgroundImage="vod3btn_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <state key="highlighted" backgroundImage="vod3btn_normal.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="LHn-EX-CEd"/>
@@ -1126,7 +1126,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="구매하기" backgroundImage="vod3btn_p_press.png"/>
-                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <state key="highlighted" backgroundImage="vod3btn_p_press.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="b3B-5c-hte"/>
@@ -1138,7 +1138,7 @@
                         </mask>
                     </variation>
                     <connections>
-                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="dgM-nQ-Hxs"/>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="3TL-Yk-rOP"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-Vk-ruQ">
@@ -1151,7 +1151,7 @@
                     <state key="normal" title="찜하기" backgroundImage="vod3btn_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <state key="highlighted" backgroundImage="vod3btn_normal.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="ycB-9s-AeW"/>
@@ -1308,7 +1308,7 @@
                     <state key="normal" title="미리보기" backgroundImage="vod3btn_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <state key="highlighted" backgroundImage="vod3btn_normal.png"/>
                     <connections>
                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="MNS-Uq-LwC"/>
                     </connections>
@@ -1318,9 +1318,9 @@
                     <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="구매하기" backgroundImage="vod3btn_p_press.png"/>
-                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <state key="highlighted" backgroundImage="vod3btn_p_press.png"/>
                     <connections>
-                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="UsT-wI-k3F"/>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="dgM-rS-PMt"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0I-Od-OVi">
@@ -1330,7 +1330,7 @@
                     <state key="normal" title="찜하기" backgroundImage="vod3btn_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <state key="highlighted" backgroundImage="vod1btn_press.png"/>
+                    <state key="highlighted" backgroundImage="vod3btn_normal.png"/>
                     <connections>
                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="D66-H6-hlD"/>
                     </connections>

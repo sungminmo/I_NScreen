@@ -10,9 +10,9 @@
 
 @implementation NSMutableDictionary (DRM)
 
-+ (NSURLSessionDataTask *)drmApiWithAsset:(NSString *)asset completion:(void (^)(NSDictionary *drm, NSError *error))block
++ (NSURLSessionDataTask *)drmApiWithAsset:(NSString *)asset WithPlayStyle:(NSString *)style completion:(void (^)(NSDictionary *drm, NSError *error))block
 {
-    return [[CMNetworkManager sharedInstance] drmApiWithAsset:asset completion:block];
+    return [[CMNetworkManager sharedInstance] drmApiWithAsset:asset WithPlayStyle:style completion:block];
 }
 
 @end

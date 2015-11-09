@@ -18,6 +18,7 @@
 
 @property (readwrite, retain) MPMoviePlayerController *pMoviePlayer;
 @property (nonatomic, strong) NSString *pFileNameStr;
+@property (nonatomic, strong) NSString *pStyleStr;  // play, preview
 
 @end
 

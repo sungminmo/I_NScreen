@@ -44,53 +44,68 @@
 #pragma mark - 태그 초기화
 - (void)setTagInit
 {
-    self.pWatchBtn21.tag = VOD_DETAIL_MAIN_VIEW_BTN_01;
+    self.pWatchBtn21.tag = VOD_DETAIL_MAIN_VIEW_BTN_01;    // 시청하기
     
-    self.pReviewBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_02;
-    self.pWatchBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_03;
-    self.pZzimBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_04;
+    self.pReviewBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_02;   // 미리보기
+//    self.pWatchBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_03;    // 시청하기
+    self.pBuyBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_03;       // 구매하기
+    self.pZzimBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_04;     // 찜하기
     
-    self.pReviewBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_05;
-    self.pWatchBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_06;
-    self.pZzimBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_07;
+    self.pReviewBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_05;   // 미리보기
+//    self.pWatchBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_06;    // 시청하기
+    self.pBuyBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_06;       // 구매하기
+    self.pZzimBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_07;     // 찜하기
     
-    self.pWatchBtn24.tag = VOD_DETAIL_MAIN_VIEW_BTN_08;
+    self.pWatchBtn24.tag = VOD_DETAIL_MAIN_VIEW_BTN_08;     // 시청하기
     
 }
 
 #pragma mark - 화면 초기화
-
-#pragma mark - 화면초기화
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    
-//    CGFloat width = self.pBodyView.frame.size.width;
-//    CGFloat posY = 0;
-//    NSArray* items = @[self.pView01, self.pView21, self.pView03];
-//    
-//    for (UIView* item in items) {
-//        [self.pBodyView addSubview:item];
-//        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
-//        posY += item.frame.size.height;
-//        
-//        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
-//                                                                  attribute:NSLayoutAttributeWidth
-//                                                                  relatedBy:NSLayoutRelationEqual
-//                                                                     toItem:item
-//                                                                  attribute:NSLayoutAttributeWidth
-//                                                                 multiplier:1.0
-//                                                                   constant:0];
-//        [self.view addConstraint:layout];
-//    }
-//    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
-//    [self.view updateConstraintsIfNeeded];
-}
-
 - (void)setViewInit
 {
     self.pAssetInfoDic = [[NSMutableDictionary alloc] init];
     self.pContentGroupArr = [[NSMutableArray alloc] init];
     self.pDrmDic = [[NSMutableDictionary alloc] init];
+}
+
+#pragma mark - 액션 이벤트
+#pragma mark - 버튼 액션 이벤트
+- (IBAction)onBtnClicked:(UIButton *)btn
+{
+    switch ([btn tag]) {
+        case VOD_DETAIL_MAIN_VIEW_BTN_02:
+        case VOD_DETAIL_MAIN_VIEW_BTN_05:
+        {
+            // 미리보기
+            PlayerViewController *pViewController = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pStyleStr = @"preview";
+            pViewController.pFileNameStr = self.pFileNameStr;
+            [self.navigationController pushViewController:pViewController animated:NO];
+        }break;
+        case VOD_DETAIL_MAIN_VIEW_BTN_03:
+        case VOD_DETAIL_MAIN_VIEW_BTN_06:
+        {
+            // 구매하기
+            
+        }break;
+        case VOD_DETAIL_MAIN_VIEW_BTN_04:
+        case VOD_DETAIL_MAIN_VIEW_BTN_07:
+        {
+            // 찜하기
+            
+        }break;
+        case VOD_DETAIL_MAIN_VIEW_BTN_01:
+        case VOD_DETAIL_MAIN_VIEW_BTN_08:
+        {
+            // 시청하기
+            PlayerViewController *pViewController = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pStyleStr = @"play";
+            pViewController.pFileNameStr = self.pFileNameStr;
+            [self.navigationController pushViewController:pViewController animated:NO];
+        }break;
+    }
 }
 
 #pragma mark - 중간 화면 초기화
@@ -254,26 +269,6 @@
     [self.view updateConstraintsIfNeeded];
     
     self.pContentTextView26.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-}
-
-#pragma mark - 액션 이벤트
-#pragma mark - 버튼 액션 이벤트
-- (IBAction)onBtnClicked:(UIButton *)btn
-{
-    switch ([btn tag]) {
-        case VOD_DETAIL_MAIN_VIEW_BTN_01:
-        case VOD_DETAIL_MAIN_VIEW_BTN_03:
-        case VOD_DETAIL_MAIN_VIEW_BTN_06:
-        case VOD_DETAIL_MAIN_VIEW_BTN_08:
-        {
-            // 시청 버튼
-            PlayerViewController *pViewController = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
-            pViewController.delegate = self;
-            pViewController.pFileNameStr = self.pFileNameStr;
-            [self.navigationController pushViewController:pViewController animated:NO];
-            
-        }break;
-    }
 }
 
 #pragma mark - 배너

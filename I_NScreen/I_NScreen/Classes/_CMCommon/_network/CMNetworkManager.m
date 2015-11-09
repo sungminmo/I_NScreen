@@ -1039,12 +1039,12 @@
 
 @implementation CMNetworkManager ( DRM )
 
-- (NSURLSessionDataTask *)drmApiWithAsset:(NSString *)asset completion:(void (^)(NSDictionary *drm, NSError *error))block
+- (NSURLSessionDataTask *)drmApiWithAsset:(NSString *)asset WithPlayStyle:(NSString *)style completion:(void (^)(NSDictionary *drm, NSError *error))block
 {
     self.drmClient.responseSerializer = [AFJSONResponseSerializer new];
     self.drmClient.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json", @"text/json", @"text/javascript"]];
     
-    NSString *sUrl = [NSString stringWithFormat:@"v1/mso/10/asset/%@/play", asset];
+    NSString *sUrl = [NSString stringWithFormat:@"v1/mso/10/asset/%@/%@", asset, style];
     
     
     NSURLSessionDataTask *task = [self.drmClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
