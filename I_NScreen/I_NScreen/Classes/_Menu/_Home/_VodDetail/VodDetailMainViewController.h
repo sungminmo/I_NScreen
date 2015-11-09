@@ -50,6 +50,10 @@
 @property (nonatomic, strong) IBOutlet UITextView *pContentTextView25;
 @property (nonatomic, strong) IBOutlet UILabel *pCommentLbl25;
 
+// 중간 View26
+@property (nonatomic, strong) IBOutlet UIView *pView26;
+@property (nonatomic, strong) IBOutlet UITextView *pContentTextView26;
+@property (nonatomic, strong) IBOutlet UILabel *pCommentLbl26;
 
 @property (nonatomic, strong) IBOutlet UIView *pView03;
 

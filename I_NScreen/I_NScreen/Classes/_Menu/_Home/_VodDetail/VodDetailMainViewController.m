@@ -229,6 +229,32 @@
     self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
 }
 
+#pragma mark - 단일 이고 TV시청
+- (void)setViewInit26
+{
+    CGFloat width = self.pBodyView.frame.size.width;
+    CGFloat posY = 0;
+    NSArray* items = @[self.pView01, self.pView26, self.pView03];
+    
+    for (UIView* item in items) {
+        [self.pBodyView addSubview:item];
+        item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+        posY += item.frame.size.height;
+        
+        NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:item
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.0
+                                                                   constant:0];
+        [self.view addConstraint:layout];
+    }
+    [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+    [self.view updateConstraintsIfNeeded];
+    
+    self.pContentTextView26.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+}
 
 #pragma mark - 액션 이벤트
 #pragma mark - 버튼 액션 이벤트
@@ -445,36 +471,6 @@
     }
     
     
-    // !! TEST BJK TV 인지 아닌지는 서버에서 안내려오고 있음
-    if ( [sSeriesLink isEqualToString:@"0"] )
-    {
-        // 시리즈가 아니다
-        if ( isPurchasedId == YES )
-        {
-            // 구매 한 사용자인지
-            [self setViewInit21];
-        }
-        else
-        {
-            // 구매 한 사용자가 아닌지
-            [self setViewInit22];
-        }
-    }
-    else
-    {
-        // 시리즈다
-        if ( isPurchasedId == YES )
-        {
-            // 구매한 사용자인지
-            [self setViewInit24];
-        }
-        else
-        {
-            // 구매한 사용자가 아닌지
-            [self setViewInit23];
-        }
-    }
-    
     
     
     NSString *sUrl = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"imageFileName"]];
@@ -497,11 +493,16 @@
         self.pResolutionImageView.image = [UIImage imageNamed:@"hd.png"];
     }
     
+    
     // 배열로 단독 아님 패키지 가격이 내려 오는데 패키지 일땐 어떻하지???
     NSObject *productObj = [[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+    NSString *sPurchasedTime = @"";
+    
     
     if ( [productObj isKindOfClass:[NSDictionary class]] )
     {
+        sPurchasedTime = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"purchasedTime"]];
+        
         // 단독
         NSString *sProduct = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"price"]];
         self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
@@ -524,6 +525,9 @@
     }
     else if ( [productObj isKindOfClass:[NSArray class]] )
     {
+        sPurchasedTime = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"purchasedTime"]];
+        
+        
         // 패키지
         NSString *sProduct = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"price"]];
         self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
@@ -545,6 +549,68 @@
         }
     }
     
+    NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"publicationRight"]];
+    NSString *sPreviewPeriod = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"previewPeriod"]];
+    
+    // !! TEST BJK TV 인지 아닌지는 서버에서 안내려오고 있음
+    if ( [sSeriesLink isEqualToString:@"0"] )
+    {
+        // 시리즈가 아니다
+        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+        {
+            // 구매 안한 사용자
+            [self setViewInit22];
+            if ( [sPreviewPeriod isEqualToString:@"0"] )
+            {
+                // 미리보기 없음
+                self.pReviewBtn22.hidden = YES;
+            }
+        }
+        else
+        {
+            // 구매 한 사용자
+            if ( [sPublicationRight isEqualToString:@"2"] )
+            {
+                // 모바일 시청 가능
+                [self setViewInit21];
+            }
+            else
+            {
+                // 1 tv 시청 가능
+                [self setViewInit26];
+            }
+        }
+    }
+    else
+    {
+        // 시리즈다
+        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+        {
+            // 구매안한 사용자
+            [self setViewInit23];
+            if ( [sPreviewPeriod isEqualToString:@"0"] )
+            {
+                // 미리보기 없음
+                self.pReviewBtn23.hidden = YES;
+            }
+        }
+        else
+        {
+            // 구매한 사용자
+            
+            if ( [sPublicationRight isEqualToString:@"2"] )
+            {
+                // 모바일 시청 가능
+                [self setViewInit24];
+                
+            }
+            else
+            {
+                // 1 tv 시청 가능
+                [self setViewInit25];
+            }
+        }
+    }
     
     // 러닝 타임
     NSString *sRunningTime = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"runningTime"]];

@@ -670,7 +670,8 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
                            @"categoryId" : categoryId,
-                           @"requestItems" : requestItems
+                           @"requestItems" : requestItems,
+                           @"assetProfile" : @"9"
                            };
     
     NSURLSessionDataTask* task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

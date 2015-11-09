@@ -11,11 +11,13 @@
                 <outlet property="pBodyView" destination="33X-5k-Xuw" id="VFq-ov-rTD"/>
                 <outlet property="pCastLbl" destination="fHy-tf-PAn" id="NFd-bi-NJH"/>
                 <outlet property="pCommentLbl25" destination="FEM-bn-PH6" id="0iV-6S-sqc"/>
+                <outlet property="pCommentLbl26" destination="7sl-2K-DsH" id="lxi-Ts-tPw"/>
                 <outlet property="pContentTextView21" destination="cFl-L7-V26" id="ji4-7U-jca"/>
                 <outlet property="pContentTextView22" destination="xyb-CE-w70" id="XTm-ln-kw4"/>
                 <outlet property="pContentTextView23" destination="ONX-Rd-I0j" id="iDi-gO-7JL"/>
                 <outlet property="pContentTextView24" destination="qRv-kf-RYs" id="EsZ-tb-Jim"/>
                 <outlet property="pContentTextView25" destination="XIH-9M-Bpf" id="8rj-Ez-elh"/>
+                <outlet property="pContentTextView26" destination="wV2-H0-W6H" id="KwN-c7-Bbf"/>
                 <outlet property="pEquipmentImageView" destination="c6F-gA-hq5" id="9N8-Jy-zT2"/>
                 <outlet property="pManagerLbl" destination="qS3-bU-t3G" id="xWP-Gc-XJy"/>
                 <outlet property="pPageControl" destination="UZF-pj-nwT" id="Fjf-hK-Afg"/>
@@ -44,6 +46,7 @@
                 <outlet property="pView23" destination="JQu-Sd-ta8" id="oPc-5j-FDl"/>
                 <outlet property="pView24" destination="Trn-qW-gW3" id="8rh-nD-3yY"/>
                 <outlet property="pView25" destination="jA3-5A-5UN" id="PRa-Yi-r6s"/>
+                <outlet property="pView26" destination="zsj-Ga-YIe" id="38U-ix-5N2"/>
                 <outlet property="pWatchBtn21" destination="yrX-07-HNh" id="JMu-pu-tZb"/>
                 <outlet property="pWatchBtn22" destination="F1t-36-sOP" id="wSr-Hv-4Zc"/>
                 <outlet property="pWatchBtn23" destination="CS3-Fe-QzN" id="DPJ-Aq-dIi"/>
@@ -1087,7 +1090,7 @@
                         <constraint firstAttribute="height" constant="46" id="w5f-SU-oBg"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                    <state key="normal" title="시청하기" backgroundImage="vod3btn_p_press.png"/>
+                    <state key="normal" title="구매하기" backgroundImage="vod3btn_p_press.png"/>
                     <state key="highlighted" backgroundImage="vod1btn_press.png"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -1247,7 +1250,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-Fe-QzN">
                     <rect key="frame" x="145" y="176" width="124" height="46"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                    <state key="normal" title="시청하기" backgroundImage="vod3btn_p_press.png"/>
+                    <state key="normal" title="구매하기" backgroundImage="vod3btn_p_press.png"/>
                     <state key="highlighted" backgroundImage="vod1btn_press.png"/>
                     <connections>
                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="UsT-wI-k3F"/>
@@ -1408,13 +1411,13 @@
                     </subviews>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.93333333330000001" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIH-9M-Bpf">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XIH-9M-Bpf">
                     <rect key="frame" x="14" y="42" width="386" height="128"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[막돼먹은 영애씨 시즌14]는 TV에서 시청하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEM-bn-PH6">
-                    <rect key="frame" x="103" y="176" width="208" height="46"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[막돼먹은 영애씨 시즌14]는(은) TV에서 시청하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEM-bn-PH6">
+                    <rect key="frame" x="97" y="176" width="221" height="46"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -1424,6 +1427,27 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="340" y="1146"/>
+        </view>
+        <view contentMode="scaleToFill" id="zsj-Ga-YIe" userLabel="View2-6">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wV2-H0-W6H">
+                    <rect key="frame" x="14" y="0.0" width="386" height="128"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[막돼먹은 영애씨 시즌14]는(은) TV에서 시청하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sl-2K-DsH">
+                    <rect key="frame" x="98" y="134" width="218" height="46"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="347" y="1414"/>
         </view>
     </objects>
     <resources>

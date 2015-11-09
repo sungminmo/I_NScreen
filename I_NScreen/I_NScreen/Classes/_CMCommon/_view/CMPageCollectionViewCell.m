@@ -44,6 +44,7 @@
         [self.pTitleLbl setFont:[UIFont systemFontOfSize:12.0f]];
     }
     
+//    if ( [[dic allKeys] ])
     
     if ( [[dic objectForKey:@"isNew"] isEqualToString:@"1"] )
     {
