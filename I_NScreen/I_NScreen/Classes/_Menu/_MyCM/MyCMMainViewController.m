@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSMutableArray *pWishListArr;
 @property (nonatomic) int nTapTag;
 @property (nonatomic) int nSubTabTag;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftTabLayout;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightTabLayout;
 
 @end
 
@@ -59,6 +61,8 @@
     self.pWishListArr = [[NSMutableArray alloc] init];
     self.nTapTag = MY_CM_MAIN_VIEW_BTN_02;
     self.nSubTabTag = 0;
+    self.leftTabLayout.constant = 2;
+    self.rightTabLayout.constant = 1;
 }
 
 #pragma mark - 액션 이벤트
@@ -126,11 +130,11 @@
             [self.pSubTabBtn01 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pSubTabBtn02 setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
-            self.pLeftLineView.frame = CGRectMake(self.pLeftLineView.frame.origin.x, 39, self.pLeftLineView.frame.size.width, 2);
-            self.pRightLineView.frame = CGRectMake(self.pRightLineView.frame.origin.x, 40, self.pRightLineView.frame.size.width, 1);
-            
             int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
             self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+            
+            self.leftTabLayout.constant = 2;
+            self.rightTabLayout.constant = 1;
             
             [self.pSubTableView01 reloadData];
         }break;
@@ -142,12 +146,12 @@
             [self.pSubTabBtn01 setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pSubTabBtn02 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
-            self.pLeftLineView.frame = CGRectMake(self.pLeftLineView.frame.origin.x, 40, self.pLeftLineView.frame.size.width, 1);
-            self.pRightLineView.frame = CGRectMake(self.pRightLineView.frame.origin.x, 39, self.pRightLineView.frame.size.width, 2);
-            
             int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
             self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
 
+            self.leftTabLayout.constant = 1;
+            self.rightTabLayout.constant = 2;
+            
             [self.pSubTableView01 reloadData];
         }break;
     }
