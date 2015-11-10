@@ -24,4 +24,8 @@
 
 + (NSURLSessionDataTask *)pairingClientSetTopBoxRegistWithAuthKey:(NSString *)authKey completion:(void (^)(NSArray *pairing, NSError *error))block;
 
+// 셋탑쪽 페어링 기기 삭제(앱 -> 웹하스 -> 럼퍼스 )
+//http://58.141.255.79:8080/HApplicationServer/removeUser.json?version=1&terminalKey=169724612379813789123&userId=712893712893712893
++ (NSURLSessionDataTask *)pairingRemoveUserCompletion:(void (^)(NSArray *pairing, NSError *error))block;
+
 @end

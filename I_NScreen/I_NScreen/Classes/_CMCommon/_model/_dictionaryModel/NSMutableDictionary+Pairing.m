@@ -26,4 +26,9 @@
     return [[CMNetworkManager sharedInstance] pairingClientSetTopBoxRegistWithAuthKey:authKey completion:block];
 }
 
++ (NSURLSessionDataTask *)pairingRemoveUserCompletion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] pairingRemoveUserCompletion:block];
+}
+
 @end

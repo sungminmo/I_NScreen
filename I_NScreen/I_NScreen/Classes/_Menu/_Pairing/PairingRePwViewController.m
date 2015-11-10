@@ -8,6 +8,8 @@
 
 #import "PairingRePwViewController.h"
 #import "PairingAuthViewController.h"
+#import "NSMutableDictionary+Pairing.h"
+#import "UIAlertView+AFNetworking.h"
 
 @interface PairingRePwViewController ()
 
@@ -25,6 +27,7 @@
     // Do any additional setup after loading the view from its nib.
     [self setTagInit];
     [self setViewInit];
+    [self requestWithRemoveUser];
 }
 
 #pragma mark - 초기화
@@ -109,5 +112,16 @@
     return YES;
 }
 
+#pragma mark - 전문
+#pragma mark - 셋탑쪽 페어링 정보 삭제
+- (void)requestWithRemoveUser
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary pairingRemoveUserCompletion:^(NSArray *pairing, NSError *error) {
+        
+        DDLogError(@"pairing = [%@]", pairing);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
 
 @end

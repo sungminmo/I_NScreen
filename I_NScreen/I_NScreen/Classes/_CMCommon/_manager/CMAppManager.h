@@ -118,4 +118,14 @@
  */
 - (NSString *)getLicenseEndDate:(NSString *)endDate;
 
+/**
+ * @brief 유니크 uuid keychain 등록
+ */
+- (void)setKeychainUniqueUuid;
+
+/**
+ * @brief 유니크 keychain uuid get
+ */
+- (NSString *)getKeychainUniqueUuid;
+
 @end

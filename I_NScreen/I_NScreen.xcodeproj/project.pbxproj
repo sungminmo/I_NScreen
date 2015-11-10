@@ -190,6 +190,8 @@
 		E5A9230D1BD137200076AF97 /* CMPageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */; };
 		E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */; };
 		E5A923121BD13AAA0076AF97 /* CMPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */; };
+		E5AF9F5A1BF23BC80030ECDE /* CMPairingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AF9F571BF23BC80030ECDE /* CMPairingInfo.m */; settings = {ASSET_TAGS = (); }; };
+		E5AF9F5B1BF23BC80030ECDE /* CMPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AF9F591BF23BC80030ECDE /* CMPrivateKey.m */; settings = {ASSET_TAGS = (); }; };
 		E5B553191BD9DD3F00AA02B2 /* allch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B550C71BD9DD3E00AA02B2 /* allch.png */; };
 		E5B5531A1BD9DD3F00AA02B2 /* allch_press.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B550C81BD9DD3E00AA02B2 /* allch_press.png */; };
 		E5B5531B1BD9DD3F00AA02B2 /* genreall_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B550C91BD9DD3E00AA02B2 /* genreall_normal.png */; };
@@ -1108,6 +1110,10 @@
 		E5A9230E1BD13AAA0076AF97 /* CMPageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageCollectionViewCell.h; sourceTree = "<group>"; };
 		E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageCollectionViewCell.m; sourceTree = "<group>"; };
 		E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		E5AF9F561BF23BC80030ECDE /* CMPairingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPairingInfo.h; sourceTree = "<group>"; };
+		E5AF9F571BF23BC80030ECDE /* CMPairingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPairingInfo.m; sourceTree = "<group>"; };
+		E5AF9F581BF23BC80030ECDE /* CMPrivateKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPrivateKey.h; sourceTree = "<group>"; };
+		E5AF9F591BF23BC80030ECDE /* CMPrivateKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPrivateKey.m; sourceTree = "<group>"; };
 		E5B550C71BD9DD3E00AA02B2 /* allch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch.png; sourceTree = "<group>"; };
 		E5B550C81BD9DD3E00AA02B2 /* allch_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch_press.png; sourceTree = "<group>"; };
 		E5B550C91BD9DD3E00AA02B2 /* genreall_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = genreall_normal.png; sourceTree = "<group>"; };
@@ -2175,6 +2181,10 @@
 		99ECD57C1BD5188B00EABA67 /* _realmModel */ = {
 			isa = PBXGroup;
 			children = (
+				E5AF9F561BF23BC80030ECDE /* CMPairingInfo.h */,
+				E5AF9F571BF23BC80030ECDE /* CMPairingInfo.m */,
+				E5AF9F581BF23BC80030ECDE /* CMPrivateKey.h */,
+				E5AF9F591BF23BC80030ECDE /* CMPrivateKey.m */,
 				99ECD57D1BD5188B00EABA67 /* CMAreaInfo.h */,
 				99ECD57E1BD5188B00EABA67 /* CMAreaInfo.m */,
 				99ECD57F1BD5188B00EABA67 /* CMPurchaseAuthorize.h */,
@@ -4315,6 +4325,7 @@
 				99EA17E21BC0D1E6005A958C /* CMTermsViewController.m in Sources */,
 				99ECD5851BD5188B00EABA67 /* NSMutableDictionary+Network.m in Sources */,
 				99ECD5891BD5188B00EABA67 /* CMAreaInfo.m in Sources */,
+				E5AF9F5B1BF23BC80030ECDE /* CMPrivateKey.m in Sources */,
 				E5E7B5CE1BF001AB00B78341 /* PlayerViewController.m in Sources */,
 				99E9EDB61BBA26D2002FEBF0 /* CMContactInfoViewCcontroller.m in Sources */,
 				E5E0DF7A1BDB91EE0049E3F6 /* PairingAuthViewController.m in Sources */,
@@ -4340,6 +4351,7 @@
 				E54CC0B01BCCA0C6003806C0 /* SBJsonBase.m in Sources */,
 				99C43C561BA3EDA10035A0A4 /* NSString+Hash.m in Sources */,
 				E58C6AFB1BE261BB0024405D /* CMContentGroupCollectionViewCell.m in Sources */,
+				E5AF9F5A1BF23BC80030ECDE /* CMPairingInfo.m in Sources */,
 				E5E418841BE1E0C100B4DAB3 /* TestPageViewController.m in Sources */,
 				E51181901BA7ACF900C1E31D /* EpgSubViewController.m in Sources */,
 				994BDB301BA3F5E9000B6260 /* CMBaseViewController.m in Sources */,

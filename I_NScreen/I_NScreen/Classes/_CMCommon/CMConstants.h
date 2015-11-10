@@ -426,6 +426,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_AddUser;
 // authenticateDevice
 extern NSString* const CNM_OPEN_API_INTERFACE_AuthenticateDevice;
 
+// removeUser
+extern NSString* const CNM_OPEN_API_INTERFACE_RemoveUser;
+
 // 9. pvr
 // dev.getrecordlist
 extern NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist;

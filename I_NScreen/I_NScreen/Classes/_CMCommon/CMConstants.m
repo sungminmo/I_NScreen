@@ -347,6 +347,9 @@ NSString* const CNM_OPEN_API_INTERFACE_AddUser = @"addUser";
 // authenticateDevice
 NSString* const CNM_OPEN_API_INTERFACE_AuthenticateDevice = @"authenticateDevice";
 
+// removeUser
+NSString* const CNM_OPEN_API_INTERFACE_RemoveUser = @"removeUser";
+
 // 8. pvr
 // dev.getrecordlist
 //NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist = @"dev.getrecordlist";

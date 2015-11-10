@@ -37,6 +37,8 @@
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
     
+    // 앱 실행시 keychain uuid 가 없으면 생성
+    [[CMAppManager sharedInstance] setKeychainUniqueUuid];
     
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

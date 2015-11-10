@@ -10,6 +10,8 @@
 #import "NSMutableDictionary+VOD.h"
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+Pairing.h"
+#import "CMDBDataManager.h"
+#import "FXKeychain.h"
 
 @interface RecommendMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pBnViewController;    // 배너 컨트롤
@@ -456,7 +458,64 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
-#pragma mark - 카테고리 리스트 
+- (void)isPariringCheckWithSetTopBoxItem:(NSDictionary *)item
+{
+    // 셋탑 정보가 내려오는데 페어링 했던 정보가 없으면 앱만 삭제 한거이므로 remove user api 호출해서 셋탑에도 삭제 해주고 uuid 는 키체인에 저장 되어 있으므로 uuid 도 삭제
+    NSArray *keyArr = [item allKeys];
+    
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    
+    BOOL isCheck = NO;
+    for ( int i = 0; i < [keyArr count]; i++ )
+    {
+        if ( [[keyArr objectAtIndex:i] isEqualToString:@"SetTopBox_Item"] )
+            isCheck = YES;
+    }
+    
+    if ( isCheck == YES )
+    {
+        if ( [manager getPairingCheck] == NO )
+        {
+            // 앱만 삭제 한거임 앱을 삭제 했기 때문에 터미널 키 값은 널로 던지는데 터미널 키 없단 애러가 날라옴 하지만 셋탑쪽 페어링은 삭제 성공 한 상태임
+            [self requestWithRemoveUser];
+            
+            // uuid 삭제후 재 등록
+            [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_UUID_KEY];
+            [[CMAppManager sharedInstance] setKeychainUniqueUuid];
+        }
+        else
+        {
+            // 기존에 페어링시 정보가 있어서 저장 안해줘도 되는데 안정화 코딩 굳이 없어도됨
+            [manager setSetTopBoxKind:[[item objectForKey:@"SetTopBox_Item"] objectForKey:@"SetTopBoxKind"]];
+        }
+    }
+    else
+    {
+        // 셋탑엔 페어링 안되어 있는 경우
+        if ( [manager getPairingCheck] == YES )
+        {
+            // 셋탑에서만 페어링 지운 경우
+            // uuid 삭제후 재 등록
+            [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_UUID_KEY];
+            [[CMAppManager sharedInstance] setKeychainUniqueUuid];
+            // 로컬 디비 삭제...................................................추후 디비 다른 정보도 삭제 !! test bjk
+            [manager setPariringCheck:NO];
+        }
+    }
+}
+
+#pragma mark - 셋탑쪽 페어링 정보 삭제
+- (void)requestWithRemoveUser
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary pairingRemoveUserCompletion:^(NSArray *pairing, NSError *error) {
+        
+        DDLogError(@"pairing = [%@]", pairing);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 카테고리 리스트
 - (void)requestWithGetAppInitialze
 {
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAppInitializeCompletion:^(NSArray *pairing, NSError *error) {
@@ -464,6 +523,11 @@
         DDLogError(@"%@", pairing);
         [self.pGetAppInitialzeArr removeAllObjects];
         [self.pGetAppInitialzeArr setArray:[[pairing objectAtIndex:0] objectForKey:@"Category_Item"]];
+        
+        ///
+        [self isPariringCheckWithSetTopBoxItem:[pairing objectAtIndex:0]];
+        ///
+        
         
         self.pPopularityTitleLbl.text = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:0] objectForKey:@"category_title"]];
         self.pNewWorkLbl.text = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:1] objectForKey:@"category_title"]];

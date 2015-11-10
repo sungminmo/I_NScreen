@@ -10,6 +10,7 @@
 #import "PairingFinishViewController.h"
 #import "NSMutableDictionary+Pairing.h"
 #import "UIAlertView+AFNetworking.h"
+#import "CMDBDataManager.h"
 
 @interface PairingAuthViewController ()
 
@@ -90,7 +91,9 @@
         if ( [sResultCode isEqualToString:@"100"] )
         {
             NSString *sSetTopBoxKind = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"SetTopBoxKind"]];
-            [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_SET_TOP_BOK_KIND Value:sSetTopBoxKind];
+//            [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_SET_TOP_BOK_KIND Value:sSetTopBoxKind];
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            [manager setSetTopBoxKind:sSetTopBoxKind];
             [self setDataAuthResponse];
             // 성공이면 터미널 키 획득 전문 날림
             [self requestWithPrivateTerminalKeyGet];
@@ -121,7 +124,7 @@
             NSString *sTerminal = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"terminalKey"]];
             [self setDataResponseWithTerminalKey:sTerminal];
             
-            // 받아온 terminalKey 값이 private terminalKey가 됨 현재 private terminal key 받는 api 안됨
+            // 받아온 terminalKey 값이 private terminalKey가 됨
             PairingFinishViewController *pViewController = [[PairingFinishViewController alloc] initWithNibName:@"PairingFinishViewController" bundle:nil];
                         [self.navigationController pushViewController:pViewController animated:YES];
         }
@@ -137,13 +140,20 @@
     // 일단 모든 데이터 userdefault 에 저장 나중에 수정
 //    NSString *sUuid = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getUniqueUuid]];
 //    [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_UUID_KEY Value:sUuid];   // uuid   이미 저장 되어 있음
-    [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_BUY_PW Value:self.pPwStr];   // 구매 비밀번호
+//    [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_BUY_PW Value:self.pPwStr];   // 구매 비밀번호
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    [manager savePurchaseAuthorizedNumber:self.pPwStr];
+    
 }
 
 - (void)setDataResponseWithTerminalKey:(NSString *)terminal
 {
     //
-    [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY Value:terminal];
+//    [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY Value:terminal];
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    [manager savePrivateTerminalKey:terminal];
+    
+    [manager setPariringCheck:YES];
 }
 
 @end

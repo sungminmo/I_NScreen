@@ -133,6 +133,10 @@
 
 - (NSURLSessionDataTask *)pairingClientSetTopBoxRegistWithAuthKey:(NSString *)authKey completion:(void (^)(NSArray *pairing, NSError *error))block;
 
+// 페어링 셋탑쪽 삭제
+- (NSURLSessionDataTask *)pairingRemoveUserCompletion:(void (^)(NSArray *pairing, NSError *error))block;
+
+
 @end
 
 @interface CMNetworkManager ( PVR )

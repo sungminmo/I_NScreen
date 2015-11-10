@@ -11,6 +11,8 @@
 #import <Realm/Realm.h>
 #import "CMPurchaseAuthorize.h"
 #import "CMAreaInfo.h"
+#import "CMPairingInfo.h"
+#import "CMPrivateKey.h"
 
 @implementation CMDBDataManager
 
@@ -147,6 +149,101 @@
     [realm beginWriteTransaction];
     [realm addObject:pa];
     [realm commitWriteTransaction];
+}
+
+#pragma mark - 프라이빗 터미널 키 저장
+- (void)savePrivateTerminalKey:(NSString *)terminalKey
+{
+    RLMRealm *realm = [self cmRealm];
+
+    if ( [[self getPrivateTerminalKey] length] > 0 )
+    {
+        RLMArray *all = (RLMArray *)[CMPrivateKey allObjects];
+        [realm beginWriteTransaction];
+        [realm deleteObjects:all];
+        [realm commitWriteTransaction];
+    }
+    
+    CMPrivateKey *pa = [[CMPrivateKey alloc] init];
+    pa.authPrivateTerminalKey = terminalKey;
+    
+    [realm beginWriteTransaction];
+    [realm addObject:pa];
+    [realm commitWriteTransaction];
+}
+
+#pragma mark - 프라이빗 터미널 키 관리
+- (NSString *)getPrivateTerminalKey
+{
+    RLMArray *rs = (RLMArray *)[CMPrivateKey allObjects];
+    if ( rs.count > 0 )
+        return [((CMPrivateKey *)rs.lastObject).authPrivateTerminalKey copy];
+    return @"";
+}
+
+#pragma mark - 페어링 유무 저장 
+- (void)setPariringCheck:(BOOL)isParing
+{
+    RLMRealm *realm = [self cmRealm];
+    
+    NSString *sSetopbox = [NSString stringWithFormat:@"%@", [self getSetTopBoxKind]];
+    
+    RLMArray* all = (RLMArray*)[CMPairingInfo allObjects];
+    if (all.count > 0) {
+        [realm beginWriteTransaction];
+        [realm deleteObjects:all];
+        [realm commitWriteTransaction];
+    }
+    
+    CMPairingInfo *pa = [[CMPairingInfo alloc] init];
+    pa.isPairing = isParing;
+    pa.sSetTopBoxKind = sSetopbox;
+    
+    [realm beginWriteTransaction];
+    [realm addObject:pa];
+    [realm commitWriteTransaction];
+}
+
+#pragma mark - 페어링 유무 체크
+- (BOOL)getPairingCheck
+{
+    RLMArray *rs = (RLMArray *)[CMPairingInfo allObjects];
+    if ( rs.count > 0 )
+        return [((CMPairingInfo *)rs.lastObject) isPairing];
+    return NO;
+}
+
+#pragma mark - 페어링 셋탑 종류 저장
+- (void)setSetTopBoxKind:(NSString *)kind
+{
+    RLMRealm *realm = [self cmRealm];
+    
+    RLMArray* all = (RLMArray*)[CMPairingInfo allObjects];
+    if (all.count > 0) {
+        [realm beginWriteTransaction];
+        [realm deleteObjects:all];
+        [realm commitWriteTransaction];
+    }
+
+    CMPairingInfo *pairing =  [[CMPairingInfo alloc] init];
+    // 지역코드/명 기본값.
+    pairing.isPairing = YES;
+    pairing.sSetTopBoxKind = kind;
+    
+    //1-2. 저장
+    [realm beginWriteTransaction];
+    [realm addObject:pairing];
+    [realm commitWriteTransaction];
+
+}
+
+#pragma mark - 페어링 셋탑 종류 체크
+- (NSString *)getSetTopBoxKind
+{
+    RLMArray *rs = (RLMArray *)[CMPairingInfo allObjects];
+    if ( rs.count > 0 )
+        return [((CMPairingInfo *)rs.lastObject).sSetTopBoxKind copy];
+    return @"";
 }
 
 #pragma mark - 지역/상품 설정 관련 기본세팅

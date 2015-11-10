@@ -9,6 +9,7 @@
 #import "CMNetworkManager.h"
 #import "XMLDictionary.h"
 #import "UIActivityIndicatorView+AFNetworking.h"
+#import "CMDBDataManager.h"
 
 @implementation CMDRMServerClient
 
@@ -873,13 +874,17 @@
 
 - (NSURLSessionDataTask *)vodGetAppInitializeCompletion:(void (^)(NSArray *pairing, NSError *error))block
 {
+//    http://112.168.232.147:8033/smapplicationserver/getappinitialize.asp?apptype=A&appId=002cc6d42269f3143470c116a3de51aa6128737c
+    
     self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetAppInitialize];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck]
+                           @"apptype" : @"I",
+                           @"appId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
+//                           @"appId" : @"11223344556677889900"
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
@@ -937,7 +942,7 @@
                            //                           @"secondDeviceId" : @"FFFFFF9234567899F2SSA"
                            // !! TEST BJK
 //                           @"secondDeviceId" : @"sangho"
-                          @"secondDeviceId" : [[CMAppManager sharedInstance]getInfoData:CNM_OPEN_API_UUID_KEY]
+                          @"secondDeviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            //
                            };
     
@@ -963,7 +968,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_ClientSetTopBoxRegist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           @"deviceId" : [[CMAppManager sharedInstance] getUniqueUuid], // uuid 가 없으면 생성 페어링 실패 하면 데이터 지움
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid], // uuid 가 없으면 생성 페어링 실패 하면 데이터 지움
                            @"authKey" : authKey
                            };
     
@@ -1034,6 +1039,36 @@
     [self updateActivityIndicator:task];
     return task;
 }
+
+- (NSURLSessionDataTask *)pairingRemoveUserCompletion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RemoveUser];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [manager getPrivateTerminalKey],
+                           @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
+                           };
+    
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+
+}
+
 
 @end
 

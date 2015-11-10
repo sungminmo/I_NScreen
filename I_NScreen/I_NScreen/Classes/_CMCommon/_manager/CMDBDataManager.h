@@ -48,5 +48,47 @@
  */
 - (CMAreaInfo*)currentAreaInfo;
 
+/**
+ *  프라이빗 터미널 키 저장
+ *
+ *  @param terminalKey 프라이빗 터미널 키
+ */
+- (void)savePrivateTerminalKey:(NSString *)terminalKey;
+
+
+/**
+ *  프라이빗 터미널 키 반환
+ *
+ *  @return 프라이빗 터미널 키
+ */
+- (NSString *)getPrivateTerminalKey;
+
+/**
+ *  페어링 유무 체크 반환
+ *
+ *  @return 페어링 유무 체크
+ */
+- (BOOL)getPairingCheck;
+
+/**
+ *  페어링 유무 저장
+ *
+ *  @return 페어링 유무
+ */
+- (void)setPariringCheck:(BOOL)isParing;
+
+/**
+ *  페어링 셋탑 종류 저장
+ *
+ *  @return 페어링 유무
+ */
+- (void)setSetTopBoxKind:(NSString *)kind;
+
+/**
+ *  페어링 셋탑 종류 체크
+ *
+ *  @return 페어링 유무
+ */
+- (NSString *)getSetTopBoxKind;
 
 @end

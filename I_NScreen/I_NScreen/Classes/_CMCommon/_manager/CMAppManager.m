@@ -8,6 +8,8 @@
 
 #import "CMAppManager.h"
 #import "LeftMenuViewController.h"
+#import "FXKeychain.h"
+#import "CMDBDataManager.h"
 
 @implementation CMAppManager
 
@@ -208,13 +210,40 @@
     return uniqueid;
 }
 
+#pragma mark - 유니크 uuid keychain 등록
+- (void)setKeychainUniqueUuid
+{
+//    [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_UUID_KEY];
+    
+    if ( [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY] == NULL )
+    {
+        CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+        
+        NSString *sUuid = (NSString *)CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, uuid));
+        
+        [[FXKeychain defaultKeychain] setObject:sUuid forKey:CNM_OPEN_API_UUID_KEY];
+    }
+}
+
+
+#pragma mark - 유니크 keychain uuid get
+- (NSString *)getKeychainUniqueUuid
+{
+    return [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY];
+}
+
+
+////
+
 #pragma mark - private 터미널 키가 없으면 public 터미널 키를 리턴
 - (NSString *)getTerminalKeyCheck
 {
     NSString *sTerminalKey = CNM_PUBLIC_TERMINAL_KEY;
-    if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY] != NULL )
+    CMDBDataManager* manager= [CMDBDataManager sharedInstance];
+    
+    if ( [[manager getPrivateTerminalKey] length] != 0 )
     {
-        sTerminalKey = [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY];
+        sTerminalKey = [manager getPrivateTerminalKey];
     }
     
     return sTerminalKey;

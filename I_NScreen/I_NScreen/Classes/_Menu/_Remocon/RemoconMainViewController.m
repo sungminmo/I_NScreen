@@ -302,7 +302,16 @@
         NSString *sStatus = [NSString stringWithFormat:@"%@", [self.pStatusDic objectForKey:@"state"]];
         NSString *sWatchingchannel = [NSString stringWithFormat:@"%@번", [self.pStatusDic objectForKey:@"watchingchannel"]];
         
-        [self setChannelNumber:sWatchingchannel];
+        if ( [sWatchingchannel isEqualToString:@"(null)"] || [sWatchingchannel length] == 0 )
+        {
+             [self setChannelNumber:@""];
+        }
+        else
+        {
+             [self setChannelNumber:sWatchingchannel];
+        }
+        
+       
         
         if ( [sStatus isEqualToString:@"4"] )
         {

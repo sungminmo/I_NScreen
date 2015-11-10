@@ -11,6 +11,7 @@
 #import "CMTermsViewController.h"
 #import "CMVersionViewController.h"
 #import "FXKeychain.h"
+#import "CMDBDataManager.h"
 
 @interface LeftMenuViewController ()
 
@@ -38,9 +39,10 @@
     [UIView setOuterLine:self.bottomView direction:HMOuterLineDirectionTop lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
  
     
-    if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_UUID_KEY] == NULL )
+//    if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_UUID_KEY] == NULL )
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    if ( [manager getPairingCheck] == NO )
     {
-        
         // UUID 값이 없으면
         self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_before.png"];
         [self.pairingButton setTitle:@"셋탑박스 연동하기" forState:UIControlStateNormal];
@@ -73,26 +75,17 @@
 //    }
     
 //        if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY] length] != 0 ) 일단 테스트라 USERDEFAULT 에 저장하고 나중에 수정
-    if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_UUID_KEY] == NULL )
+
+    CMDBDataManager* manager= [CMDBDataManager sharedInstance];
+    
+    if ( [manager getPairingCheck] == YES )
     {
-        // UUID 값이 없으면
-        self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_before.png"];
-        [self.pairingButton setTitle:@"셋탑박스 연동하기" forState:UIControlStateNormal];
-        self.pairingButton.selected = NO;
-        self.pairingMessageLabel.text = @"원할한 서비스 이용을 위해\n셋탑박스를 연동해주세요.";
-        
-        // 연동 화면
-        [[CMAppManager sharedInstance] onLeftMenuListClose:self];
-        self.nTag = 6;
-    }
-    else
-    {
-        // UUID 값이 있으면
+        // 페어링이 되어 있으면
         self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_after.png"];
         [self.pairingButton setTitle:@"셋탑박스 재 연동 " forState:UIControlStateNormal];
         self.pairingButton.selected = YES;
         self.pairingMessageLabel.text = @"셋탑박스와 연동중입니다.";
-        
+
         [SIAlertView alert:@"셋탑박스 재 연동" message:@"셋탑박스 재 연동 시 기존 연동은 해제 되며,\n구매 비밀번호 재설정이 필요합니다.\n\n계속 진행하시겠습니까?"
                     cancel:@"취소"
                    buttons:@[@"확인"]
@@ -104,6 +97,18 @@
                         self.nTag = 6;
                     }
                 }];
+    }
+    else
+    {
+        // 페어링이 안되어 있으면
+        self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_before.png"];
+        [self.pairingButton setTitle:@"셋탑박스 연동하기" forState:UIControlStateNormal];
+        self.pairingButton.selected = NO;
+        self.pairingMessageLabel.text = @"원할한 서비스 이용을 위해\n셋탑박스를 연동해주세요.";
+
+        // 연동 화면
+        [[CMAppManager sharedInstance] onLeftMenuListClose:self];
+        self.nTag = 6;
     }
     
     ///
@@ -217,6 +222,9 @@ static NSInteger ivTag = 1212;
 {
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    // 리모컨은 pvr hd 이외엔 막고, 녹화는 pvr 이외만 막고, my c&m 은 페어링안되어 있을때만 막음
+    CMDBDataManager* manager= [CMDBDataManager sharedInstance];
+    
     if (indexPath.row == 1) {//리모컨
 //        if (NO) {//TODO: 서비스 미가입고객여부 체크해서 조건 수정할 것
 //            [SIAlertView alert:@"안내" message:@"현재 가입하신 상품으로는 이용할 수 없는\n서비스 기능입니다. 가입상품을 확인해주세요."];
@@ -224,15 +232,18 @@ static NSInteger ivTag = 1212;
 //        }
         // 리모컨 상태 체크
         // 페어링이 안됬으면 진입 불가, HD, PVR 이 아니면 진입 불가
-        if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_UUID_KEY] == NULL )
+       
+        if ( [manager getPairingCheck] == NO )
         {
             [SIAlertView alert:@"리모컨 미 지원 상품" message:@"고객님의 STB에서는 리모컨 기능을\n지원하지 않습니다."];
             return;
         }
         else
         {
-            if ( !([[[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_SET_TOP_BOK_KIND] isEqualToString:@"PVR"] ||
-                   [[[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_SET_TOP_BOK_KIND] isEqualToString:@"HD"] ))
+//            if ( !([[[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_SET_TOP_BOK_KIND] isEqualToString:@"PVR"] ||
+//                   [[[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_SET_TOP_BOK_KIND] isEqualToString:@"HD"] ))
+            if ( !([[manager getSetTopBoxKind] isEqualToString:@"PVR"] ||
+                   [[manager getSetTopBoxKind] isEqualToString:@"HD"] ))
             {
                 [SIAlertView alert:@"리모컨 미 지원 상품" message:@"고객님의 STB에서는 리모컨 기능을\n지원하지 않습니다."];
                 return;
@@ -240,9 +251,29 @@ static NSInteger ivTag = 1212;
         }
         
     }
-    else if (indexPath.row ==   2) {//녹화
-        if (NO) {//TODO: 서비스 미가입고객여부 체크해서 조건 수정할 것
+    
+    else if (indexPath.row == 2) {//녹화
+
+        if ( [manager getPairingCheck] == NO )
+        {
             [SIAlertView alert:@"안내" message:@"녹화는 PVR STB에서만 제공되는 기능입니다. 가입상품을 확인해주세요."];
+             return;
+        }
+        else
+        {
+            if ( ![[manager getSetTopBoxKind] isEqualToString:@"PVR"] )
+            {
+                [SIAlertView alert:@"안내" message:@"녹화는 PVR STB에서만 제공되는 기능입니다. 가입상품을 확인해주세요."];
+                return;
+            }
+        }
+    }
+    
+    else if ( indexPath.row == 3 ) // my c&m
+    {
+        if ( [manager getPairingCheck] == NO )
+        {
+            [SIAlertView alert:@"안내" message:@"MY C&M은 셋탑박스 연동 후에서만 제공되는 기능입니다."];
             return;
         }
     }
