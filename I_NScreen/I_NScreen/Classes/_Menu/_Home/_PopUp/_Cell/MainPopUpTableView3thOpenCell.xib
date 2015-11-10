@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="msC-3F-Usl" customClass="MainPopUpTableView3thOpenCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="msC-3F-Usl" id="Odz-Ev-EvD">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51u-nx-7o3" userLabel="View3댑스(Open)">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhC-ht-wed">
+                                <rect key="frame" x="88" y="18" width="215" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Bcc-QJ-GvG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_2depth_close.png" translatesAutoresizingMaskIntoConstraints="NO" id="ef4-de-ptw">
+                                <rect key="frame" x="337" y="24" width="14" height="8"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="14" id="bw9-u6-Zo1"/>
+                                    <constraint firstAttribute="height" constant="8" id="pKX-hW-mdw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oxn-9o-rr8">
+                                <rect key="frame" x="50" y="55" width="301" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.54117647059999996" green="0.54901960780000003" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="cNc-fM-waU"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bullet_3depth.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cnt-w6-14Q">
+                                <rect key="frame" x="50" y="18" width="13" height="13"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="KHp-xY-GIp"/>
+                                    <constraint firstAttribute="width" constant="13" id="RjN-Ov-Vj8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Oxn-9o-rr8" firstAttribute="leading" secondItem="51u-nx-7o3" secondAttribute="leading" constant="50" id="601-Bu-yVY"/>
+                            <constraint firstItem="ef4-de-ptw" firstAttribute="top" secondItem="51u-nx-7o3" secondAttribute="top" constant="24" id="AdZ-8i-vgk"/>
+                            <constraint firstItem="BhC-ht-wed" firstAttribute="leading" secondItem="Cnt-w6-14Q" secondAttribute="trailing" constant="25" id="BSO-vd-uDJ"/>
+                            <constraint firstAttribute="height" constant="56" id="JND-HG-t5g"/>
+                            <constraint firstItem="Cnt-w6-14Q" firstAttribute="leading" secondItem="51u-nx-7o3" secondAttribute="leading" constant="50" id="KB4-t7-vrb"/>
+                            <constraint firstItem="Oxn-9o-rr8" firstAttribute="top" secondItem="Cnt-w6-14Q" secondAttribute="bottom" constant="24" id="L4a-jO-XxF"/>
+                            <constraint firstItem="Oxn-9o-rr8" firstAttribute="top" secondItem="ef4-de-ptw" secondAttribute="bottom" constant="23" id="TEh-zb-JqM"/>
+                            <constraint firstItem="BhC-ht-wed" firstAttribute="top" secondItem="51u-nx-7o3" secondAttribute="top" constant="18" id="TjG-Iy-Dut"/>
+                            <constraint firstItem="Oxn-9o-rr8" firstAttribute="top" secondItem="BhC-ht-wed" secondAttribute="bottom" constant="16" id="g9u-L0-uvj"/>
+                            <constraint firstAttribute="trailing" secondItem="Oxn-9o-rr8" secondAttribute="trailing" constant="63" id="m8v-Xh-8JH"/>
+                            <constraint firstAttribute="trailing" secondItem="ef4-de-ptw" secondAttribute="trailing" constant="63" id="mn3-ee-mFe"/>
+                            <constraint firstItem="Cnt-w6-14Q" firstAttribute="top" secondItem="51u-nx-7o3" secondAttribute="top" constant="18" id="tRf-I7-qMO"/>
+                            <constraint firstAttribute="bottom" secondItem="Oxn-9o-rr8" secondAttribute="bottom" id="xY3-ou-dfF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="51u-nx-7o3" firstAttribute="leading" secondItem="Odz-Ev-EvD" secondAttribute="leading" id="IVX-IE-EoD"/>
+                    <constraint firstAttribute="bottom" secondItem="51u-nx-7o3" secondAttribute="bottom" constant="0.5" id="PJi-QP-cyW"/>
+                    <constraint firstItem="51u-nx-7o3" firstAttribute="top" secondItem="Odz-Ev-EvD" secondAttribute="top" id="uV6-Fi-Yye"/>
+                    <constraint firstAttribute="trailing" secondItem="51u-nx-7o3" secondAttribute="trailing" id="zHc-rR-Hen"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="pThreeDepthOpenImg" destination="ef4-de-ptw" id="B6w-O7-Coe"/>
+                <outlet property="pThreeDepthOpenLbl" destination="BhC-ht-wed" id="QrE-jO-UjC"/>
+                <outlet property="pThreeDepthOpenView" destination="51u-nx-7o3" id="sK0-VX-KgG"/>
+            </connections>
+            <point key="canvasLocation" x="403" y="694"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bullet_3depth.png" width="13" height="13"/>
+        <image name="icon_2depth_close.png" width="15" height="8"/>
+    </resources>
+</document>

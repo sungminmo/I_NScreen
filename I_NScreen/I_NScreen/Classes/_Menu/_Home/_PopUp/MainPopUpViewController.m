@@ -10,6 +10,13 @@
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+VOD.h"
 
+#import "MainPopUpTableViewCell.h"
+#import "MainPopUpTableView2thOpenCell.h"
+#import "MainPopUpTableView2thCloseCell.h"
+#import "MainPopUpTableView3thOpenCell.h"
+#import "MainPopUpTableView3thCloseCell.h"
+
+
 @interface MainPopUpViewController ()
 @property (nonatomic, strong) NSString *pFourDepthListJsonStr;
 @end
@@ -35,6 +42,23 @@
     [self setViewInit];
     
     [self requestWithGetCateforyTree4Depth];
+    
+    UINib* nib = nil;
+    nib = [UINib nibWithNibName:@"MainPopUpTableViewCell" bundle:nil];
+    [self.pTableView registerNib:nib forCellReuseIdentifier:@"viewCell"];
+
+    nib = [UINib nibWithNibName:@"MainPopUpTableView2thOpenCell" bundle:nil];
+    [self.pTableView registerNib:nib forCellReuseIdentifier:@"view2oCell"];
+    
+    nib = [UINib nibWithNibName:@"MainPopUpTableView2thCloseCell" bundle:nil];
+    [self.pTableView registerNib:nib forCellReuseIdentifier:@"view2cCell"];
+    
+    nib = [UINib nibWithNibName:@"MainPopUpTableView3thOpenCell" bundle:nil];
+    [self.pTableView registerNib:nib forCellReuseIdentifier:@"view3oCell"];
+    
+    nib = [UINib nibWithNibName:@"MainPopUpTableView3thCloseCell" bundle:nil];
+    [self.pTableView registerNib:nib forCellReuseIdentifier:@"view3cCell"];
+    
 }
 
 #pragma mark - 초기화
@@ -82,24 +106,95 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *pCellIn = @"MainPopUpTableViewCellIn";
+    NSMutableDictionary *item = [self.pModel itemForRowAtIndexPath:indexPath];
+    BOOL isOpen = [self.pModel isCellOpenForRowAtIndexPath:indexPath];
     
-    MainPopUpTableViewCell *pCell = (MainPopUpTableViewCell *)[tableView dequeueReusableCellWithIdentifier:pCellIn];
+    
+    NSString* identifier = @"";
+    
+    NSString *sLeaf = [NSString stringWithFormat:@"%@", item[@"leaf"]];
+    NSString *sDepth = [NSString stringWithFormat:@"%@", item[@"depth"]];
+    
+    if ( [sDepth isEqualToString:@"2"] )
+    {
+        // 2댑스
+        if ( [sLeaf isEqualToString:@"0"] )
+        {
+            // 하위 댑스 있음
+            if ( isOpen == NO )
+            {
+                // 닫힘
+                identifier = @"view2cCell";
+            }
+            else
+            {
+                // 열림
+                identifier = @"view2oCell";
+            }
+        }
+        else
+        {
+            // 하위 댑스 없음 // 닫힘
+            identifier = @"view2cCell";
+        }
+    }
+    else if ( [sDepth isEqualToString:@"3"] )
+    {
+        // 3댑스
+        if ( [sLeaf isEqualToString:@"0"] )
+        {
+            // 하위 댑스 있음
+            if ( isOpen == NO )
+            {
+                // 닫힘
+                identifier = @"view3cCell";
+            }
+            else
+            {
+                // 열림
+                identifier = @"view3oCell";
+            }
+        }
+        else
+        {
+            // 하위 댑스 없음
+            identifier = @"view3cCell";
+        }
+    }
+    else
+    {
+        // 4댑스
+            identifier = @"viewCell";
+    }
+    
+    UITableViewCell *pCell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
     
     if (pCell == nil)
     {
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"MainPopUpTableViewCell" owner:nil options:nil];
+        NSString* cellName = nil;
+        if ([identifier isEqualToString:@"viewCell"]) {
+            cellName = @"MainPopUpTableViewCell";
+        }
+        else if ([identifier isEqualToString:@"view2oCell"]) {
+            cellName = @"MainPopUpTableView2thOpenCell";
+        }
+        else if ([identifier isEqualToString:@"view2cCell"]) {
+            cellName = @"MainPopUpTableView2thCloseCell";
+        }
+        else if ([identifier isEqualToString:@"view3oCell"]) {
+            cellName = @"MainPopUpTableView3thOpenCell";
+        }
+        else if ([identifier isEqualToString:@"view3cCell"]) {
+            cellName = @"MainPopUpTableView3thCloseCell";
+        }
+        
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:cellName owner:nil options:nil];
         pCell = [arr objectAtIndex:0];
     }
     
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [(MainPopUpTableViewCell* )pCell setListData:item WithIndex:(int)indexPath.row WithOpen:isOpen];
     
-    
-    NSMutableDictionary *item = [self.pModel itemForRowAtIndexPath:indexPath];
-    
-    BOOL isOpen = [self.pModel isCellOpenForRowAtIndexPath:indexPath];
-    
-    [pCell setListData:item WithIndex:(int)indexPath.row WithOpen:isOpen];
     return pCell;
 }
 

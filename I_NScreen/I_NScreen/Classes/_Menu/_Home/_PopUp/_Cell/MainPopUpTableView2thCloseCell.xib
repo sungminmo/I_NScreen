@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="msC-3F-Usl" customClass="MainPopUpTableView2thCloseCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="msC-3F-Usl" id="Odz-Ev-EvD">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnf-aF-66d" userLabel="View2댑스(Close)">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQB-ZS-m4o">
+                                <rect key="frame" x="36" y="18" width="304" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="phL-bk-2Km"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_2depth_open.png" translatesAutoresizingMaskIntoConstraints="NO" id="D1m-iW-3sP">
+                                <rect key="frame" x="380" y="25" width="14" height="8"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="14" id="BMe-iv-MDD"/>
+                                    <constraint firstAttribute="height" constant="8" id="d3M-dd-e5i"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mj4-u4-4OF">
+                                <rect key="frame" x="18" y="55" width="378" height="1"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.54117647059999996" green="0.54901960780000003" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="FO2-5s-q9z"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hQB-ZS-m4o" firstAttribute="leading" secondItem="Vnf-aF-66d" secondAttribute="leading" constant="36" id="EwT-Tl-1te"/>
+                            <constraint firstAttribute="trailing" secondItem="Mj4-u4-4OF" secondAttribute="trailing" constant="18" id="O4j-qe-UFk"/>
+                            <constraint firstAttribute="height" constant="56" id="YGn-Bg-GI8"/>
+                            <constraint firstAttribute="trailing" secondItem="D1m-iW-3sP" secondAttribute="trailing" constant="20" id="cPf-Bg-K4h"/>
+                            <constraint firstItem="D1m-iW-3sP" firstAttribute="top" secondItem="Vnf-aF-66d" secondAttribute="top" constant="25" id="j6V-V9-N2p"/>
+                            <constraint firstAttribute="bottom" secondItem="Mj4-u4-4OF" secondAttribute="bottom" id="lN6-ng-a4T"/>
+                            <constraint firstItem="hQB-ZS-m4o" firstAttribute="top" secondItem="Vnf-aF-66d" secondAttribute="top" constant="18" id="pM0-Ec-0Zj"/>
+                            <constraint firstItem="Mj4-u4-4OF" firstAttribute="leading" secondItem="Vnf-aF-66d" secondAttribute="leading" constant="18" id="uhe-M8-Pcq"/>
+                            <constraint firstItem="Mj4-u4-4OF" firstAttribute="top" secondItem="hQB-ZS-m4o" secondAttribute="bottom" constant="16" id="xCk-5p-yw4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Vnf-aF-66d" secondAttribute="bottom" constant="0.5" id="5v3-Rm-gC2"/>
+                    <constraint firstItem="Vnf-aF-66d" firstAttribute="top" secondItem="Odz-Ev-EvD" secondAttribute="top" id="HPt-u0-ncd"/>
+                    <constraint firstItem="Vnf-aF-66d" firstAttribute="leading" secondItem="Odz-Ev-EvD" secondAttribute="leading" id="cBA-EZ-0l5"/>
+                    <constraint firstAttribute="trailing" secondItem="Vnf-aF-66d" secondAttribute="trailing" id="umj-1e-5bf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="pTwoDepthCloseImg" destination="D1m-iW-3sP" id="u1u-Nf-eMK"/>
+                <outlet property="pTwoDepthCloseLbl" destination="hQB-ZS-m4o" id="ndY-Y0-4BP"/>
+                <outlet property="pTwoDepthCloseView" destination="Vnf-aF-66d" id="ZLj-iT-Fy4"/>
+            </connections>
+            <point key="canvasLocation" x="403" y="694"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_2depth_open.png" width="15" height="8"/>
+    </resources>
+</document>
