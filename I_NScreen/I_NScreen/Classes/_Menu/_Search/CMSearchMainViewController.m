@@ -238,9 +238,7 @@ static const CGFloat pageSize = 28;
  *  검색어 목록을 요청한다.
  */
 - (void)requestSearchWord {
-    
-    self.searchWordTimer = nil;
-    
+
     NSString* searchWord = [self.searchField.text trim];
     
     if (searchWord.length == 0) {
@@ -257,6 +255,12 @@ static const CGFloat pageSize = 28;
     }
     
     [NSMutableDictionary searchWordListWithSearchString:searchWord WithIncludeAdultCategory:strOn completion:^(NSArray *programs, NSError *error) {
+        
+        if (self.searchWordTimer == nil) {
+            return;
+        }
+
+        self.searchWordTimer = nil;
         
         NSDictionary* response = programs[0];
         
@@ -519,6 +523,7 @@ static const CGFloat pageSize = 28;
 
 - (IBAction)buttonWasTouchUpInside:(id)sender {
 
+    //  검색필드에 X 버튼 터치시
     [self resetData];
     
     self.searchField.text = @"";
@@ -663,6 +668,11 @@ static const CGFloat pageSize = 28;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (self.searchWordTimer) {
+        [self.searchWordTimer invalidate];
+        self.searchWordTimer = nil;
+    }
     
     [self resetData];
     
