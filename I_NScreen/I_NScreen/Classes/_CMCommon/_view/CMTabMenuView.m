@@ -57,6 +57,7 @@ static const CGFloat padding = 21;
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(buttonWidth * i + padding, 0, buttonWidth, tabHeight);
         button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
+        button.titleLabel.adjustsFontSizeToFitWidth = YES;
         [button setTitle:self.menuTitleArray[i] forState:UIControlStateNormal];
         [self.menuButtonArray addObject:button];
         
