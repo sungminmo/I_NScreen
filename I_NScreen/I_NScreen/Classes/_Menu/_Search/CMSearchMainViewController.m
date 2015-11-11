@@ -425,15 +425,42 @@ static const CGFloat pageSize = 28;
         self.totalPage = 0;
 
 //        NSString* totalCount = response[CNM_OPEN_API_RESULT_TOTAL_COUNT];
-        NSString* totalCount = (NSString *)[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"totalCount"];
-        [self setListCount:[totalCount integerValue]];
+        
+//        NSString* totalCount = (NSString *)[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"totalCount"];
+//        [self setListCount:[totalCount integerValue]];
+        
+        NSDictionary* searchResult = [[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"];
+        id countObj = [searchResult valueForKeyPath:@"totalCount"];
+        NSInteger total = 0;
+        
+        if ([countObj isKindOfClass:[NSArray class]]) {
+            for (NSString* strCount in (NSArray*)countObj) {
+                total += [strCount integerValue];
+            }
+        }
+        else {
+            total = [(NSString*)countObj integerValue];
+        }
+        [self setListCount:total];
 
-        NSObject* itemObject = [[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"];
+//        NSObject* itemObject = [[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"];
+        NSObject* itemObject = [searchResult valueForKeyPath:@"contentGroupList.contentGroup"];
 
         if ([itemObject isKindOfClass:[NSDictionary class]]) {
             [self.dataArray addObject:itemObject];
         } else if ([itemObject isKindOfClass:[NSArray class]]) {
-            [self.dataArray addObjectsFromArray:(NSArray*)itemObject];
+//            [self.dataArray addObjectsFromArray:(NSArray*)itemObject];            
+            NSArray* array = (NSArray* )itemObject;
+            if ([array.lastObject isKindOfClass:[NSArray class]]) {
+                
+                for (NSArray* subItems in array) {
+                    [self.dataArray addObjectsFromArray:subItems];
+                }
+                
+            }
+            else {
+                [self.dataArray addObjectsFromArray:(NSArray*)itemObject];
+            }
         }
 
         [self.vodList reloadData];
