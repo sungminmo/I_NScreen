@@ -17,6 +17,7 @@
 #import "NSMutableDictionary+VOD.h"
 #import "NSMutableDictionary+EPG_SEARCH.h"
 #import "FXKeychain.h"
+#import "CMDBDataManager.h"
 
 @interface RootViewController ()
 
@@ -213,7 +214,10 @@
         case 6:
         {
             // 페어링
-            if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY] length] != 0 )
+//            if ( [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY]  != NULL )
+            CMDBDataManager* manager= [CMDBDataManager sharedInstance];
+            
+            if ( [manager getPairingCheck] == YES )
             {
                 PairingRePwViewController *controller = [[PairingRePwViewController alloc] initWithNibName:@"PairingRePwViewController" bundle:nil];
                 [self.navigationController pushViewController:controller animated:YES];

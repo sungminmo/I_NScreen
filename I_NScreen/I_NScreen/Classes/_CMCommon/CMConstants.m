@@ -220,7 +220,7 @@ NSString* const CNM_OPEN_API_INTERFACE_SetRemoteChannelControl = @"SetRemoteChan
 NSString* const CNM_OPEN_API_INTERFACE_SetRemoteVolumeControl = @"SetRemoteVolumeControl";
 
 // SetRemotePowerControl
-NSString* const CNM_OPEN_API_INTERFACE_SetRemotePowerControl = @"SetRemotePowerControl";
+NSString* const CNM_OPEN_API_INTERFACE_SetRemotePowerControl = @"SetRemoteVolumeControl";
 
 // SetRemoteMessage
 NSString* const CNM_OPEN_API_INTERFACE_SetRemoteMessage = @"SetRemoteMessage";
