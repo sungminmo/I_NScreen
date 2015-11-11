@@ -56,7 +56,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="642"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xa-wf-KRb" userLabel="View(바디)" customClass="UIScrollView">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xa-wf-KRb" userLabel="View(바디)" customClass="UIScrollView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="642"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhP-r6-Av7" userLabel="View1">
@@ -341,31 +341,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.69019607839999997" green="0.7843137255" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="0Xa-wf-KRb" secondAttribute="bottom" id="7o3-bQ-GgV"/>
-                <constraint firstItem="0Xa-wf-KRb" firstAttribute="top" secondItem="Usf-9Z-bl7" secondAttribute="top" constant="93" id="fbk-rp-MKx">
-                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                </constraint>
-                <constraint firstAttribute="trailing" secondItem="0Xa-wf-KRb" secondAttribute="trailing" id="gU3-I2-9av"/>
-                <constraint firstItem="0Xa-wf-KRb" firstAttribute="leading" secondItem="Usf-9Z-bl7" secondAttribute="leading" id="jzs-vB-Zs7"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="7o3-bQ-GgV"/>
-                    <exclude reference="fbk-rp-MKx"/>
-                    <exclude reference="gU3-I2-9av"/>
-                    <exclude reference="jzs-vB-Zs7"/>
-                </mask>
-            </variation>
-            <variation key="heightClass=regular-widthClass=compact">
-                <mask key="constraints">
-                    <include reference="7o3-bQ-GgV"/>
-                    <include reference="fbk-rp-MKx"/>
-                    <include reference="gU3-I2-9av"/>
-                    <include reference="jzs-vB-Zs7"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="340" y="375"/>
         </view>
     </objects>
