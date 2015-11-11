@@ -45,7 +45,7 @@
     
     CGRect rect = CGRectMake(0, 0, CGRectGetWidth(self.bounds),  CGRectGetHeight(self.bounds));
     self.selectedBackgroundView = [[UIView alloc] initWithFrame: rect];
-    self.selectedBackgroundView.backgroundColor = [UIColor yellowColor];
+    self.selectedBackgroundView.backgroundColor = [UIColor lightGrayColor];
 }
 
 - (void)configureCellForItem:(NSDictionary *)item WithItemCount:(int)nCount
@@ -98,7 +98,7 @@
     
     CGRect rect = CGRectMake(0, 0, CGRectGetWidth(self.bounds),  CGRectGetHeight(self.bounds));
     self.selectedBackgroundView = [[UIView alloc] initWithFrame: rect];
-    self.selectedBackgroundView.backgroundColor = [UIColor yellowColor];
+    self.selectedBackgroundView.backgroundColor = [UIColor lightGrayColor];
 }
 
 - (void)userPressedMoreButton:(id)sender
