@@ -87,6 +87,8 @@
         case VOD_DETAIL_MAIN_VIEW_BTN_06:
         {
             // 구매하기
+            VodBuyViewController *pViewController = [[VodBuyViewController alloc] initWithNibName:@"VodBuyViewController" bundle:nil];
+            [self.navigationController pushViewController:pViewController animated:YES];
             
         }break;
         case VOD_DETAIL_MAIN_VIEW_BTN_04:

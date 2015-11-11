@@ -11,6 +11,7 @@
 #import "CMPageViewController.h"
 #import "CMContentGroupCollectionViewController.h"
 #import "PlayerViewController.h"
+#import "VodBuyViewController.h"
 
 @interface VodDetailMainViewController : CMBaseViewController <UIScrollViewDelegate, CMContentGroupCollectionViewDelegate, PlayerViewDelegate>
 

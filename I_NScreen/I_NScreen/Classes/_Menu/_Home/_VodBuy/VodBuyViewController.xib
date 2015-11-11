@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodBuyViewController">
+            <connections>
+                <outlet property="pBtnView" destination="pha-rL-sib" id="Yhw-FU-JQh"/>
+                <outlet property="pCancelBtn" destination="HXE-2d-vkQ" id="ffD-fE-Hba"/>
+                <outlet property="pNoBuyLbl01" destination="uQK-ey-GZa" id="T3C-bR-xaw"/>
+                <outlet property="pNoBuyLbl02" destination="yJ5-uU-4f9" id="y4o-je-0u0"/>
+                <outlet property="pNoBuyLbl03" destination="gYR-qH-ska" id="aYl-wU-aar"/>
+                <outlet property="pNoBuyLbl04" destination="6A1-s4-4jB" id="IbD-4z-qP1"/>
+                <outlet property="pNoBuyLbl05" destination="eWr-Q2-lcB" id="Oep-Z3-Kib"/>
+                <outlet property="pOkBtn" destination="5EB-Wd-Mfo" id="jm4-5Y-jjB"/>
+                <outlet property="pStep1SubView01" destination="DGx-wn-Sd6" id="loM-bG-Yya"/>
+                <outlet property="pStep1SubView02" destination="aw7-l9-K72" id="Lal-Lb-exJ"/>
+                <outlet property="pStep1SubView02Btn" destination="kr8-XL-wbb" id="DHI-cX-lEP"/>
+                <outlet property="pStep1SubView02MoneyLbl" destination="edS-GN-0RM" id="ufx-xI-4MJ"/>
+                <outlet property="pStep1SubView02TitleLbl" destination="Wch-KX-bBq" id="G2D-Oh-gQg"/>
+                <outlet property="pStep1SubView03" destination="jBs-zM-IKi" id="KKo-ze-CId"/>
+                <outlet property="pStep1SubView03Btn" destination="g1l-5j-BOA" id="27I-vZ-tbD"/>
+                <outlet property="pStep1SubView03MoneyLbl" destination="vaJ-Gv-C5F" id="PgY-zG-8nT"/>
+                <outlet property="pStep1SubView03TitleLbl" destination="6Pc-rw-fnz" id="Tn6-Le-xUx"/>
+                <outlet property="pStep1SubView04" destination="G3W-tE-wh7" id="6pW-6a-tnj"/>
+                <outlet property="pStep1SubView04Btn" destination="Jwi-OM-kI5" id="VBP-hG-qYJ"/>
+                <outlet property="pStep1SubView04MoneyLbl" destination="gyH-5F-PO9" id="JRZ-4x-1az"/>
+                <outlet property="pStep1SubView04TitleLbl" destination="5Uo-Qa-4Y9" id="XXc-si-di2"/>
+                <outlet property="pStep1View" destination="nhP-r6-Av7" id="v9q-NY-rXu"/>
+                <outlet property="pStep2SubView01" destination="fgP-p9-w4X" id="gv6-pZ-jyC"/>
+                <outlet property="pStep2SubView02" destination="zeb-1G-9Nl" id="47d-dI-95d"/>
+                <outlet property="pStep2SubView02Btn" destination="1Jv-ib-a4H" id="ALe-Rg-dI8"/>
+                <outlet property="pStep2SubView02ContentLbl" destination="A2F-B6-da3" id="fEB-pq-pjG"/>
+                <outlet property="pStep2SubView02MoneyLbl" destination="RCb-IY-C83" id="u6a-Rz-3ex"/>
+                <outlet property="pStep2SubView02TitleLbl" destination="qOJ-FC-b7d" id="Kd2-EC-Gu7"/>
+                <outlet property="pStep2SubView03" destination="ubZ-Yp-6dv" id="qQc-5j-UDi"/>
+                <outlet property="pStep2SubView03Btn" destination="Npq-2X-pXG" id="AcZ-9O-YdP"/>
+                <outlet property="pStep2SubView03ContentLbl01" destination="r7D-gO-bYr" id="8uB-Yd-wm4"/>
+                <outlet property="pStep2SubView03ContentLbl02" destination="DVV-YK-QXS" id="lcD-je-uIf"/>
+                <outlet property="pStep2SubView03MoneyLbl" destination="IKW-6q-rcg" id="aUm-eH-mCZ"/>
+                <outlet property="pStep2SubView03TitleLbl" destination="iYz-Yr-ZfM" id="jgS-Rd-r9e"/>
+                <outlet property="pStep2SubView04" destination="n2P-JZ-rbH" id="akc-bX-4lm"/>
+                <outlet property="pStep2SubView04Btn" destination="qsJ-EI-L6j" id="XmD-qi-2Wy"/>
+                <outlet property="pStep2SubView04ContentLbl01" destination="pcr-oX-qyS" id="xpc-Qk-oXy"/>
+                <outlet property="pStep2SubView04ContentLbl02" destination="5qK-RX-8jW" id="Hvm-A0-t9A"/>
+                <outlet property="pStep2SubView04MoneyLbl" destination="9op-CW-PRg" id="mDd-N9-mCB"/>
+                <outlet property="pStep2SubView04TitleLbl" destination="Nb0-eg-Icq" id="Bo8-DN-MJp"/>
+                <outlet property="pStep2View" destination="AHb-OT-KHj" id="vmV-ao-Gfp"/>
+                <outlet property="view" destination="Usf-9Z-bl7" id="g9Q-Y0-pUT"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Usf-9Z-bl7">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="642"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Xa-wf-KRb" userLabel="View(바디)" customClass="UIScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="642"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhP-r6-Av7" userLabel="View1">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="286"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBL-eZ-jgj">
+                                    <rect key="frame" x="14" y="31" width="386" height="234"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGx-wn-Sd6">
+                                            <rect key="frame" x="0.0" y="0.0" width="386" height="26"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="STEP1. 구매상품선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2O-VT-5V9">
+                                                    <rect key="frame" x="14" y="3" width="370" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.77647058823529413" green="0.70196078431372544" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aw7-l9-K72">
+                                            <rect key="frame" x="14" y="40" width="358" height="56"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kr8-XL-wbb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
+                                                    <state key="normal" backgroundImage="purchase_select.jpg"/>
+                                                    <connections>
+                                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="muV-eG-tb9"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="단일 회차 구매" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wch-KX-bBq">
+                                                    <rect key="frame" x="46" y="9" width="117" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edS-GN-0RM">
+                                                    <rect key="frame" x="46" y="34" width="96" height="13"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-zM-IKi">
+                                            <rect key="frame" x="14" y="99" width="358" height="56"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1l-5j-BOA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
+                                                    <state key="normal" backgroundImage="purchase_normal.png"/>
+                                                    <connections>
+                                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="JUZ-ie-Hee"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="월정액 #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pc-rw-fnz">
+                                                    <rect key="frame" x="46" y="9" width="96" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12,000원 / 월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaJ-Gv-C5F">
+                                                    <rect key="frame" x="46" y="34" width="111" height="13"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G3W-tE-wh7">
+                                            <rect key="frame" x="14" y="158" width="358" height="56"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwi-OM-kI5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
+                                                    <state key="normal" backgroundImage="purchase_normal.png"/>
+                                                    <connections>
+                                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="1L7-Uw-s0S"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="통합 월정액 #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uo-Qa-4Y9">
+                                                    <rect key="frame" x="46" y="9" width="96" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12,000원 / 월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyH-5F-PO9">
+                                                    <rect key="frame" x="46" y="34" width="111" height="13"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHb-OT-KHj" userLabel="View2">
+                            <rect key="frame" x="0.0" y="286" width="414" height="291"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K9c-8r-WM9">
+                                    <rect key="frame" x="14" y="0.0" width="386" height="234"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-p9-w4X">
+                                            <rect key="frame" x="0.0" y="0.0" width="386" height="26"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="STEP2. 결제방법선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-Rx-w28">
+                                                    <rect key="frame" x="14" y="3" width="370" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.77647058820000003" green="0.70196078429999997" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="매월 자동 결제되는 월정액 상품을 가입 하시면" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQK-ey-GZa">
+                                            <rect key="frame" x="43" y="69" width="300" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="무제한 시청이 가능합니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ5-uU-4f9">
+                                            <rect key="frame" x="43" y="91" width="300" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가입 후 1개월 내 해지 시 한달 요금이 청구될 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYR-qH-ska">
+                                            <rect key="frame" x="23" y="114" width="340" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(쿠폰 결제 불가)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6A1-s4-4jB">
+                                            <rect key="frame" x="43" y="138" width="300" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="가입 및 해지 문의 : 1644-1100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWr-Q2-lcB">
+                                            <rect key="frame" x="43" y="177" width="300" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-1G-9Nl">
+                                            <rect key="frame" x="14" y="40" width="358" height="56"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Jv-ib-a4H">
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
+                                                    <state key="normal" backgroundImage="purchase_select.jpg"/>
+                                                    <connections>
+                                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="AD1-DM-QBm"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="일반결제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOJ-FC-b7d">
+                                                    <rect key="frame" x="46" y="9" width="117" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCb-IY-C83">
+                                                    <rect key="frame" x="46" y="34" width="96" height="13"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="씨앤앰 청구서 포함결제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2F-B6-da3">
+                                                    <rect key="frame" x="181" y="18" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ubZ-Yp-6dv">
+                                            <rect key="frame" x="14" y="99" width="358" height="56"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Npq-2X-pXG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
+                                                    <state key="normal" backgroundImage="purchase_normal.png"/>
+                                                    <connections>
+                                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="vRv-C2-pyY"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="쿠폰결제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYz-Yr-ZfM">
+                                                    <rect key="frame" x="46" y="9" width="96" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12,000원 / 월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKW-6q-rcg">
+                                                    <rect key="frame" x="46" y="34" width="111" height="13"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="보유 쿠폰 차감결제" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7D-gO-bYr">
+                                                    <rect key="frame" x="181" y="9" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(잔액부족-복합결제 가능)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVV-YK-QXS">
+                                                    <rect key="frame" x="181" y="29" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n2P-JZ-rbH">
+                                            <rect key="frame" x="14" y="158" width="358" height="56"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsJ-EI-L6j">
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="56"/>
+                                                    <state key="normal" backgroundImage="purchase_dimmed.png"/>
+                                                    <connections>
+                                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="vre-6T-uEh"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TV포인트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nb0-eg-Icq">
+                                                    <rect key="frame" x="46" y="8" width="111" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액0원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9op-CW-PRg">
+                                                    <rect key="frame" x="46" y="35" width="111" height="13"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TV포인트 회원가입 필요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcr-oX-qyS">
+                                                    <rect key="frame" x="181" y="8" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TV에서 가입 가능합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qK-RX-8jW">
+                                                    <rect key="frame" x="181" y="27" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pha-rL-sib" userLabel="View3">
+                            <rect key="frame" x="0.0" y="577" width="414" height="65"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXE-2d-vkQ">
+                                    <rect key="frame" x="14" y="0.0" width="189" height="45"/>
+                                    <state key="normal" title="구매취소" backgroundImage="fp2btn_cancel_normal.png"/>
+                                    <state key="highlighted" title="구매취소" backgroundImage="fp2btn_cancel_press.png"/>
+                                    <connections>
+                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="ILM-Py-Ios"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EB-Wd-Mfo">
+                                    <rect key="frame" x="211" y="0.0" width="189" height="45"/>
+                                    <state key="normal" title="결제하기" backgroundImage="fp2btn_ok_normal.png"/>
+                                    <state key="highlighted" title="결제하기" backgroundImage="fp2btn_ok_press.png"/>
+                                    <connections>
+                                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="iOv-1a-yTO"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.69019607839999997" green="0.7843137255" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="0Xa-wf-KRb" secondAttribute="bottom" id="7o3-bQ-GgV"/>
+                <constraint firstItem="0Xa-wf-KRb" firstAttribute="top" secondItem="Usf-9Z-bl7" secondAttribute="top" constant="93" id="fbk-rp-MKx">
+                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="0Xa-wf-KRb" secondAttribute="trailing" id="gU3-I2-9av"/>
+                <constraint firstItem="0Xa-wf-KRb" firstAttribute="leading" secondItem="Usf-9Z-bl7" secondAttribute="leading" id="jzs-vB-Zs7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7o3-bQ-GgV"/>
+                    <exclude reference="fbk-rp-MKx"/>
+                    <exclude reference="gU3-I2-9av"/>
+                    <exclude reference="jzs-vB-Zs7"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="7o3-bQ-GgV"/>
+                    <include reference="fbk-rp-MKx"/>
+                    <include reference="gU3-I2-9av"/>
+                    <include reference="jzs-vB-Zs7"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="340" y="375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fp2btn_cancel_normal.png" width="372" height="89"/>
+        <image name="fp2btn_cancel_press.png" width="372" height="89"/>
+        <image name="fp2btn_ok_normal.png" width="372" height="89"/>
+        <image name="fp2btn_ok_press.png" width="372" height="89"/>
+        <image name="purchase_dimmed.png" width="350" height="56"/>
+        <image name="purchase_normal.png" width="350" height="56"/>
+        <image name="purchase_select.jpg" width="355" height="56"/>
+    </resources>
+</document>

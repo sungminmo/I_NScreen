@@ -762,6 +762,8 @@
 		E5B8BB951BEB12E200B4C3B0 /* MainPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B8BB931BEB12E200B4C3B0 /* MainPopUpViewController.xib */; };
 		E5B8BB991BEB12FF00B4C3B0 /* MainPopUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B8BB971BEB12FF00B4C3B0 /* MainPopUpTableViewCell.m */; };
 		E5B8BB9A1BEB12FF00B4C3B0 /* MainPopUpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5B8BB981BEB12FF00B4C3B0 /* MainPopUpTableViewCell.xib */; };
+		E5BBF3AA1BF323390017D152 /* VodBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BBF3A81BF323390017D152 /* VodBuyViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5BBF3AB1BF323390017D152 /* VodBuyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5BBF3A91BF323390017D152 /* VodBuyViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5BC148A1BF01EDA00DC3553 /* star_half.png in Resources */ = {isa = PBXBuildFile; fileRef = E5BC14891BF01EDA00DC3553 /* star_half.png */; };
 		E5BC148C1BF05FC900DC3553 /* icon_promotion_09.png in Resources */ = {isa = PBXBuildFile; fileRef = E5BC148B1BF05FC900DC3553 /* icon_promotion_09.png */; };
 		E5BC148E1BF05FDD00DC3553 /* icon_promotion_09@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5BC148D1BF05FDD00DC3553 /* icon_promotion_09@2x.png */; };
@@ -1688,6 +1690,9 @@
 		E5B8BB961BEB12FF00B4C3B0 /* MainPopUpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPopUpTableViewCell.h; path = _Home/_PopUp/_Cell/MainPopUpTableViewCell.h; sourceTree = "<group>"; };
 		E5B8BB971BEB12FF00B4C3B0 /* MainPopUpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPopUpTableViewCell.m; path = _Home/_PopUp/_Cell/MainPopUpTableViewCell.m; sourceTree = "<group>"; };
 		E5B8BB981BEB12FF00B4C3B0 /* MainPopUpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainPopUpTableViewCell.xib; path = _Home/_PopUp/_Cell/MainPopUpTableViewCell.xib; sourceTree = "<group>"; };
+		E5BBF3A71BF323390017D152 /* VodBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VodBuyViewController.h; path = _Home/_VodBuy/VodBuyViewController.h; sourceTree = "<group>"; };
+		E5BBF3A81BF323390017D152 /* VodBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VodBuyViewController.m; path = _Home/_VodBuy/VodBuyViewController.m; sourceTree = "<group>"; };
+		E5BBF3A91BF323390017D152 /* VodBuyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VodBuyViewController.xib; path = _Home/_VodBuy/VodBuyViewController.xib; sourceTree = "<group>"; };
 		E5BC14891BF01EDA00DC3553 /* star_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_half.png; sourceTree = "<group>"; };
 		E5BC148B1BF05FC900DC3553 /* icon_promotion_09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_promotion_09.png; sourceTree = "<group>"; };
 		E5BC148D1BF05FDD00DC3553 /* icon_promotion_09@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_promotion_09@2x.png"; sourceTree = "<group>"; };
@@ -3302,6 +3307,16 @@
 			name = _Cell;
 			sourceTree = "<group>";
 		};
+		E5BBF3A61BF322D70017D152 /* _VodBuy */ = {
+			isa = PBXGroup;
+			children = (
+				E5BBF3A71BF323390017D152 /* VodBuyViewController.h */,
+				E5BBF3A81BF323390017D152 /* VodBuyViewController.m */,
+				E5BBF3A91BF323390017D152 /* VodBuyViewController.xib */,
+			);
+			name = _VodBuy;
+			sourceTree = "<group>";
+		};
 		E5BE92001BD65F1D00970E16 /* _Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -3318,6 +3333,7 @@
 		E5DE649B1BCB4BC200FC3122 /* _Home */ = {
 			isa = PBXGroup;
 			children = (
+				E5BBF3A61BF322D70017D152 /* _VodBuy */,
 				E5E7B5C61BF001AB00B78341 /* _VodDetail */,
 				2076EC1C1BEF6BE700504AEB /* _Cell */,
 				E5B8BB8A1BEB126200B4C3B0 /* _PopUp */,
@@ -3630,6 +3646,7 @@
 				E5B553F61BD9DD3F00AA02B2 /* genreshopping_select@2x.png in Resources */,
 				E5B554681BD9DD3F00AA02B2 /* icon_q_normal@2x.png in Resources */,
 				E5B554451BD9DD3F00AA02B2 /* p3btn_ok_normal@2x.png in Resources */,
+				E5BBF3AB1BF323390017D152 /* VodBuyViewController.xib in Resources */,
 				E5B553291BD9DD3F00AA02B2 /* genrefavorite_select.png in Resources */,
 				E5B554061BD9DD3F00AA02B2 /* back@2x.png in Resources */,
 				E5B554BD1BD9DD3F00AA02B2 /* 2btn_select@3x.png in Resources */,
@@ -4399,6 +4416,7 @@
 				99C43C6D1BA3EDA10035A0A4 /* LeftMenuViewController.m in Sources */,
 				E54CC0A11BCC9F9A003806C0 /* TreeListModel.m in Sources */,
 				99C43C5F1BA3EDA10035A0A4 /* UIViewController+DebuggingViewInjector.m in Sources */,
+				E5BBF3AA1BF323390017D152 /* VodBuyViewController.m in Sources */,
 				E567629E1BCF361B00221AF8 /* CMPageViewController.m in Sources */,
 				99C43C671BA3EDA10035A0A4 /* EpgMainTableViewCell.m in Sources */,
 				99C43C6B1BA3EDA10035A0A4 /* HomeGnbViewController.m in Sources */,
@@ -4568,7 +4586,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_OBJC_ATSYNC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: C&M (CR4R5HGD9P)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "I_NScreen/Resources/I_NScreen-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (

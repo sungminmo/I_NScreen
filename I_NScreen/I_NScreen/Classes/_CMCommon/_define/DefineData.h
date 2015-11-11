@@ -154,6 +154,16 @@
 #define ADULT_MAIN_VIEW_BTN_02       22002   // 실시간 인기순위 버튼
 #define ADULT_MAIN_VIEW_BTN_03       22003   // 주간 인기순위 버튼
 
+// VodBuyViewController btn tag
+#define VOD_BUY_VIEW_BTN_01         23001
+#define VOD_BUY_VIEW_BTN_02         23002
+#define VOD_BUY_VIEW_BTN_03         23003
+#define VOD_BUY_VIEW_BTN_04         23004
+#define VOD_BUY_VIEW_BTN_05         23005
+#define VOD_BUY_VIEW_BTN_06         23006
+#define VOD_BUY_VIEW_BTN_07         23007
+#define VOD_BUY_VIEW_BTN_08         23008
+
 //
 
 /*
