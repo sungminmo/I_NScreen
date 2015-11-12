@@ -29,7 +29,8 @@
 }
 
 - (void)settingInfo:(NSDictionary*)item {
-    self.title = @"";
+    self.title = [NSString stringWithFormat:@"%@", [item objectForKey:@"Joy_Title"]];
+    self.detailView.text = [NSString stringWithFormat:@"%@", [item objectForKey:@"Joy_Content"]];
 }
 
 - (IBAction)actionDoneButton:(id)sender {

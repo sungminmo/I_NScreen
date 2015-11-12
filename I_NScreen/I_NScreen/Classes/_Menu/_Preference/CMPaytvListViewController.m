@@ -9,11 +9,14 @@
 #import "CMPaytvListViewController.h"
 #import "CMPaytvTableViewCell.h"
 #import "CMPaytvGuideViewController.h"
+#import "NSMutableDictionary+Preference.h"
+#import "UIAlertView+AFNetworking.h"
 
 @interface CMPaytvListViewController ()
 @property (nonatomic, strong) NSArray* paytvList;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMargin;
 @property (weak, nonatomic) IBOutlet UITableView *contentsTable;
+@property (nonatomic, strong) NSMutableArray *pPayListArr;
 @end
 
 @implementation CMPaytvListViewController
@@ -26,6 +29,8 @@
     
     //임시
     self.paytvList = @[@"", @"", @"", @""];
+    self.pPayListArr = [[NSMutableArray alloc] init];
+    [self requestWithGetServiceJoinList];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +39,7 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.paytvList.count;
+    return self.pPayListArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -43,7 +48,8 @@
     NSString* text = @"";
     //    text = self.noticeList[indexPath.row][@"title"];
     text = @"channel title";//임시로 박음.
-    cell.titleLabel.text = text;
+//    cell.titleLabel.text = text;
+    cell.titleLabel.text = [NSString stringWithFormat:@"%@", [[self.pPayListArr objectAtIndex:indexPath.row] objectForKey:@"Joy_Title"]];
     cell.imageView.image = [UIImage imageNamed:@"testimg.png"];
     return cell;
 }
@@ -53,11 +59,29 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSDictionary* item = nil;
-    item = self.paytvList[indexPath.row];
+    item = self.pPayListArr[indexPath.row];
     
     CMPaytvGuideViewController* controller = [[CMPaytvGuideViewController alloc] initWithNibName:@"CMPaytvGuideViewController" bundle:nil];
     [self.navigationController pushViewController:controller animated:YES];
     [controller settingInfo:item];
+}
+
+#pragma mark - 전문
+#pragma mark - 유료체널 전문
+- (void)requestWithGetServiceJoinList
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary preferenceGetServiceJoinNListCompletion:^(NSArray *preference, NSError *error) {
+        
+        DDLogError(@"%@", preference);
+        for ( NSDictionary *dic in [[preference objectAtIndex:0] objectForKey:@"JoyList_Item"] )
+        {
+            [self.pPayListArr addObject:dic];
+        }
+        
+        [self.contentsTable reloadData];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end

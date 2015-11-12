@@ -148,6 +148,8 @@
 		E567629F1BCF361B00221AF8 /* CMPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E567629D1BCF361B00221AF8 /* CMPageViewController.xib */; };
 		E56ACC081BF42F1400B28FA0 /* NSMutableDictionary+Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = E56ACC071BF42F1400B28FA0 /* NSMutableDictionary+Preference.m */; settings = {ASSET_TAGS = (); }; };
 		E56ACC0B1BF43EA100B28FA0 /* NSMutableDictionary+Payment.m in Sources */ = {isa = PBXBuildFile; fileRef = E56ACC0A1BF43EA100B28FA0 /* NSMutableDictionary+Payment.m */; settings = {ASSET_TAGS = (); }; };
+		E56ACC101BF4CFBD00B28FA0 /* VodPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56ACC0E1BF4CFBD00B28FA0 /* VodPopUpViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E56ACC111BF4CFBD00B28FA0 /* VodPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56ACC0F1BF4CFBD00B28FA0 /* VodPopUpViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57042891BDF407F00057D10 /* PairingRePwViewController.m */; };
 		E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */; };
 		E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */ = {isa = PBXBuildFile; fileRef = E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */; };
@@ -1059,6 +1061,9 @@
 		E56ACC071BF42F1400B28FA0 /* NSMutableDictionary+Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Preference.m"; sourceTree = "<group>"; };
 		E56ACC091BF43EA100B28FA0 /* NSMutableDictionary+Payment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Payment.h"; sourceTree = "<group>"; };
 		E56ACC0A1BF43EA100B28FA0 /* NSMutableDictionary+Payment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Payment.m"; sourceTree = "<group>"; };
+		E56ACC0D1BF4CFBD00B28FA0 /* VodPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VodPopUpViewController.h; path = _Home/_VodBuy/_VodPopUp/VodPopUpViewController.h; sourceTree = "<group>"; };
+		E56ACC0E1BF4CFBD00B28FA0 /* VodPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VodPopUpViewController.m; path = _Home/_VodBuy/_VodPopUp/VodPopUpViewController.m; sourceTree = "<group>"; };
+		E56ACC0F1BF4CFBD00B28FA0 /* VodPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VodPopUpViewController.xib; path = _Home/_VodBuy/_VodPopUp/VodPopUpViewController.xib; sourceTree = "<group>"; };
 		E57042881BDF407F00057D10 /* PairingRePwViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PairingRePwViewController.h; path = _Pairing/PairingRePwViewController.h; sourceTree = "<group>"; };
 		E57042891BDF407F00057D10 /* PairingRePwViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PairingRePwViewController.m; path = _Pairing/PairingRePwViewController.m; sourceTree = "<group>"; };
 		E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingRePwViewController.xib; path = _Pairing/PairingRePwViewController.xib; sourceTree = "<group>"; };
@@ -2365,6 +2370,16 @@
 			name = _Cell;
 			sourceTree = "<group>";
 		};
+		E56ACC0C1BF4CF9600B28FA0 /* _VodPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				E56ACC0D1BF4CFBD00B28FA0 /* VodPopUpViewController.h */,
+				E56ACC0E1BF4CFBD00B28FA0 /* VodPopUpViewController.m */,
+				E56ACC0F1BF4CFBD00B28FA0 /* VodPopUpViewController.xib */,
+			);
+			name = _VodPopUp;
+			sourceTree = "<group>";
+		};
 		E5A6E2F01BDDBBAE005AC701 /* _drmLb */ = {
 			isa = PBXGroup;
 			children = (
@@ -3320,6 +3335,7 @@
 		E5BBF3A61BF322D70017D152 /* _VodBuy */ = {
 			isa = PBXGroup;
 			children = (
+				E56ACC0C1BF4CF9600B28FA0 /* _VodPopUp */,
 				E5BBF3A71BF323390017D152 /* VodBuyViewController.h */,
 				E5BBF3A81BF323390017D152 /* VodBuyViewController.m */,
 				E5BBF3A91BF323390017D152 /* VodBuyViewController.xib */,
@@ -4077,6 +4093,7 @@
 				E5B554461BD9DD3F00AA02B2 /* p3btn_ok_press@2x.png in Resources */,
 				E5B5536B1BD9DD3F00AA02B2 /* icon_left_normal.png in Resources */,
 				E5B553641BD9DD3F00AA02B2 /* icon_serieswhite.png in Resources */,
+				E56ACC111BF4CFBD00B28FA0 /* VodPopUpViewController.xib in Resources */,
 				E5B553341BD9DD3F00AA02B2 /* genreregion_press.png in Resources */,
 				E5B5533B1BD9DD3F00AA02B2 /* genreshopping_select.png in Resources */,
 				E5B553D61BD9DD3F00AA02B2 /* genreall_normal@2x.png in Resources */,
@@ -4425,6 +4442,7 @@
 				203ED8581BCBCAC3003C0521 /* CMTextFieldView.m in Sources */,
 				99C43C5B1BA3EDA10035A0A4 /* UISegmentedControl+Accessibility.m in Sources */,
 				99ECD58B1BD5188B00EABA67 /* CMSearchHistory.m in Sources */,
+				E56ACC101BF4CFBD00B28FA0 /* VodPopUpViewController.m in Sources */,
 				99C43C6D1BA3EDA10035A0A4 /* LeftMenuViewController.m in Sources */,
 				E54CC0A11BCC9F9A003806C0 /* TreeListModel.m in Sources */,
 				99C43C5F1BA3EDA10035A0A4 /* UIViewController+DebuggingViewInjector.m in Sources */,

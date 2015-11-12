@@ -10,6 +10,7 @@
 #import "NSMutableDictionary+VOD.h"
 #import "UIAlertView+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "CMDBDataManager.h"
 
 @interface VodDetailMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pViewController;
@@ -87,8 +88,17 @@
         case VOD_DETAIL_MAIN_VIEW_BTN_06:
         {
             // 구매하기
-            VodBuyViewController *pViewController = [[VodBuyViewController alloc] initWithNibName:@"VodBuyViewController" bundle:nil];
-            [self.navigationController pushViewController:pViewController animated:YES];
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            if ( [manager getPairingCheck] == NO )
+            {
+                [SIAlertView alert:@"알림" message:@"셋탑박스와 연결한 후 이용하실 수 있습니다." button:nil];
+            }
+            else
+            {
+                VodBuyViewController *pViewController = [[VodBuyViewController alloc] initWithNibName:@"VodBuyViewController" bundle:nil];
+                pViewController.pDetailDataDic = self.pAssetInfoDic;
+                [self.navigationController pushViewController:pViewController animated:YES];
+            }
             
         }break;
         case VOD_DETAIL_MAIN_VIEW_BTN_04:
@@ -449,7 +459,7 @@
     
     [self setReviewRatingWithTotalCount:nReviewRatingTotal WithCount:nReviewRatingCount];
     
-    if ( [sRating isEqualToString:@"19"] )
+    if ( [sRating isEqualToString:@"19"] || [sRating isEqualToString:@"19세"])
     {
         [self.pRatingImageView setImage:[UIImage imageNamed:@"19.png"]];
     }

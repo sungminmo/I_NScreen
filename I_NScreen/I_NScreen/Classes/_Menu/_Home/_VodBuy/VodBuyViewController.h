@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
+#import "VodPopUpViewController.h"
+
+// 구매 타입
+typedef enum : NSInteger {
+    BuySingleChapter = 1000000,  // 단일 회차 구매
+    BuySingleProduct,           // 단일상품 구매
+    BuySeriesFullChapter,       // 시리즈 전체회차 구매
+    BuyBundleSale,              // 묶음 할인상품 구매
+    BuyMonthRate,               // 월정액
+    BuyTotalRate                // 통합 월정액
+}BuyType;
+
 
 @interface VodBuyViewController : CMBaseViewController
 
@@ -66,6 +78,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *pNoBuyLbl03;
 @property (nonatomic, weak) IBOutlet UILabel *pNoBuyLbl04;
 @property (nonatomic, weak) IBOutlet UILabel *pNoBuyLbl05;
+
+
+@property (nonatomic, strong) NSMutableDictionary *pDetailDataDic;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 

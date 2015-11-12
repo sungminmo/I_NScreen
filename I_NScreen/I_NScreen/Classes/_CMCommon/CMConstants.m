@@ -95,7 +95,7 @@ NSString* const CNM_OPEN_API_MOVIE_CATEGORY_ID = @"27282";
 NSString* const CNM_OPEN_API_ANNI_CATEGORY_ID = @"27281";
 
 // TV 다시보기
-NSString* const CNM_OPEN_API_TV_REPLAY_CATEGORY_ID = @"27279";
+NSString* const CNM_OPEN_API_TV_REPLAY_CATEGORY_ID = @"1579723";
 
 // 성인
 NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID = @"20912";
@@ -315,10 +315,10 @@ NSString* const CNM_OPEN_API_INTERFACE_GetServiceGuideInfo = @"GetServiceGuideIn
 NSString* const CNM_OPEN_API_INTERFACE_GetServiceGuideImage = @"GetServiceGuideImage";
 
 // GetServiceJoinNList
-NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNList = @"GetServiceJoinNList";
+NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNList = @"GetServiceJoyNList";
 
 // GetServiceJoinNInfo
-NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNInfo = @"GetServiceJoinNInfo";
+NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNInfo = @"GetServiceJoyNInfo";
 
 // GetServiceNoticeInfo
 NSString* const CNM_OPEN_API_INTERFACE_GetServiceNoticeInfo = @"GetServiceNoticeInfo";
@@ -383,6 +383,9 @@ NSString* const CNM_OPEN_API_INTERFACE_GetAvailablePaymentType = @"getAvailableP
 
 // PurchaseByPoint
 NSString* const CNM_OPEN_API_INTERFACE_PurchaseByPoint = @"purchaseByPoint";
+
+// PurchaseAssetEx2
+NSString* const CNM_OPEN_API_INTERFACE_PurchaseAssetEx2 = @"purchaseAssetEx2";
 
 @implementation STVConstants
 

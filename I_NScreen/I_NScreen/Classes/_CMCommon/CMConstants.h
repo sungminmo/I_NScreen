@@ -457,6 +457,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetAvailablePaymentType;
 // PurchaseByPoint
 extern NSString* const CNM_OPEN_API_INTERFACE_PurchaseByPoint;
 
+// PurchaseAssetEx2
+extern NSString* const CNM_OPEN_API_INTERFACE_PurchaseAssetEx2;
+
 @interface STVConstants : NSObject
 
 @end

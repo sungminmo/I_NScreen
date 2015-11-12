@@ -20,4 +20,9 @@
     return [[CMNetworkManager sharedInstance] paymentPurchaseByPointWithDomainId:domainId WithAssetId:assetId WithProductId:productId WithGoodId:goodId WithPrice:price WithCategoryId:categoryId completion:block];
 }
 
++ (NSURLSessionDataTask *)paymentPurchaseAssetEx2WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithUiComponentDomain:(NSString *)uiComponentDomain WithUiComponentId:(NSString *)uiComponentId WithPrice:(NSString *)price completion:(void (^)(NSArray *preference, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] paymentPurchaseAssetEx2WithProductId:productId WithGoodId:goodId WithUiComponentDomain:uiComponentDomain WithUiComponentId:uiComponentId WithPrice:price completion:block];
+}
+
 @end

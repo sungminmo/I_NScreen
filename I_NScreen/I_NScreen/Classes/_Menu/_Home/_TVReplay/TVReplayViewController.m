@@ -103,7 +103,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 #pragma mark - 2탭스 카테고리 tree 리스트 전문
 - (void)requestWithGetCategoryTree2Depth
 {
-    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:CNM_OPEN_API_ADULT_CATEGORY_ID WithDepth:@"2" block:^(NSArray *vod, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:CNM_OPEN_API_TV_REPLAY_CATEGORY_ID WithDepth:@"2" block:^(NSArray *vod, NSError *error) {
         
         DDLogError(@"2탭스 카테고리 tree 리스트 = [%@]", vod);
         [self.pTwoDepthTreeDataArr removeAllObjects];
