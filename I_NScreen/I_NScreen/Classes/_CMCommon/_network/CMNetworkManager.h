@@ -184,3 +184,16 @@
 // 구매목록
 - (NSURLSessionDataTask *)myCmGetValidPurchaseLogListCompletion:(void (^)(NSArray *myCm, NSError *error))block;
 @end
+
+@interface CMNetworkManager ( Preference )
+// 유료체널 리스트 정보
+- (NSURLSessionDataTask *)preferenceGetServiceJoinNListCompletion:(void (^)(NSArray *preference, NSError *error))block;
+
+// 특정 유료체널 상세 정보
+- (NSURLSessionDataTask *)preferenceGetServiceJoinNInfoCompletion:(void (^)(NSArray *preference, NSError *error))block;
+
+// 공지사항 리스트 및 상세 정보 ex)areaCode = 0 , productCode = 11
+- (NSURLSessionDataTask *)preferenceGetServiceNoticeInfoWithAreaCode:(NSString *)areaCode WithProductCode:(NSString *)productCode completion:(void (^)(NSArray *preference, NSError *error))block;
+
+
+@end
