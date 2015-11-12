@@ -7,6 +7,8 @@
 //
 
 #import "VodBuyViewController.h"
+#import "NSMutableDictionary+Payment.h"
+#import "UIAlertView+AFNetworking.h"
 
 @interface VodBuyViewController ()
 
@@ -89,6 +91,18 @@
             
         }break;
     }
+}
+
+#pragma mark - 전문
+#pragma mark - 결제 타입
+- (void)requestWithPaymenetGetAvailablePaymentType
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentGetAvailablePaymentTypeWithDomainId:@"CnM" completion:^(NSArray *preference, NSError *error) {
+        
+        DDLogError(@"결제 타입 = %@]", preference);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end

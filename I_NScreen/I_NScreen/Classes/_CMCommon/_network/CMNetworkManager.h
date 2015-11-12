@@ -197,3 +197,15 @@
 
 
 @end
+
+@interface CMNetworkManager ( Payment )
+// 요청한 가입자에 대해 지원 가능한 결제 방식 // 도메인 id = CnM, HCN, Tbroad
+- (NSURLSessionDataTask  *)paymentGetAvailablePaymentTypeWithDomainId:(NSString *)domainId completion:(void (^)(NSArray *preference, NSError *error))block;
+
+// 포인트를 이용한 구매요청 RVOD,SVOD, Package 상품 타입에 대한 구매 지원
+// assetId = RVOD 상품인 경우 필수 값, SVOD 나 PACKAGE 상품인 경우 옵션
+// RVOD, SVOD, Package 상품 타입인 경우 <productId, goodId> 쌍으로 상품 id 를 표현하므로 goodId 값이 반드시 있어야 한다.
+- (NSURLSessionDataTask *)paymentPurchaseByPointWithDomainId:(NSString *)domainId WithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCategoryId:(NSString *)categoryId completion:(void (^)(NSArray *preference, NSError *error))block;
+
+
+@end

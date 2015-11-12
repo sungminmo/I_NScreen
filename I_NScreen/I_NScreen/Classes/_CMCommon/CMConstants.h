@@ -450,6 +450,13 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetSetTopStatus;
 //노티피게이션
 extern NSString* const CNMHandleOpenURLNotification;
 
+// 10. payment
+// GetAvailablePaymentType
+extern NSString* const CNM_OPEN_API_INTERFACE_GetAvailablePaymentType;
+
+// PurchaseByPoint
+extern NSString* const CNM_OPEN_API_INTERFACE_PurchaseByPoint;
+
 @interface STVConstants : NSObject
 
 @end

@@ -377,6 +377,13 @@ NSString* const CNM_OPEN_API_INTERFACE_GetSetTopStatus = @"GetSetTopStatus";
 //노티피케이션 네임
 NSString* const CNMHandleOpenURLNotification = @"CNMHandleOpenURLNotification";
 
+// 10.payment
+// GetAvailablePaymentType
+NSString* const CNM_OPEN_API_INTERFACE_GetAvailablePaymentType = @"getAvailablePaymentType";
+
+// PurchaseByPoint
+NSString* const CNM_OPEN_API_INTERFACE_PurchaseByPoint = @"purchaseByPoint";
+
 @implementation STVConstants
 
 @end

@@ -147,6 +147,7 @@
 		E567629E1BCF361B00221AF8 /* CMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E567629C1BCF361B00221AF8 /* CMPageViewController.m */; };
 		E567629F1BCF361B00221AF8 /* CMPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E567629D1BCF361B00221AF8 /* CMPageViewController.xib */; };
 		E56ACC081BF42F1400B28FA0 /* NSMutableDictionary+Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = E56ACC071BF42F1400B28FA0 /* NSMutableDictionary+Preference.m */; settings = {ASSET_TAGS = (); }; };
+		E56ACC0B1BF43EA100B28FA0 /* NSMutableDictionary+Payment.m in Sources */ = {isa = PBXBuildFile; fileRef = E56ACC0A1BF43EA100B28FA0 /* NSMutableDictionary+Payment.m */; settings = {ASSET_TAGS = (); }; };
 		E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57042891BDF407F00057D10 /* PairingRePwViewController.m */; };
 		E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */; };
 		E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */ = {isa = PBXBuildFile; fileRef = E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */; };
@@ -1056,6 +1057,8 @@
 		E567629D1BCF361B00221AF8 /* CMPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageViewController.xib; sourceTree = "<group>"; };
 		E56ACC061BF42F1400B28FA0 /* NSMutableDictionary+Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Preference.h"; sourceTree = "<group>"; };
 		E56ACC071BF42F1400B28FA0 /* NSMutableDictionary+Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Preference.m"; sourceTree = "<group>"; };
+		E56ACC091BF43EA100B28FA0 /* NSMutableDictionary+Payment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Payment.h"; sourceTree = "<group>"; };
+		E56ACC0A1BF43EA100B28FA0 /* NSMutableDictionary+Payment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Payment.m"; sourceTree = "<group>"; };
 		E57042881BDF407F00057D10 /* PairingRePwViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PairingRePwViewController.h; path = _Pairing/PairingRePwViewController.h; sourceTree = "<group>"; };
 		E57042891BDF407F00057D10 /* PairingRePwViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PairingRePwViewController.m; path = _Pairing/PairingRePwViewController.m; sourceTree = "<group>"; };
 		E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingRePwViewController.xib; path = _Pairing/PairingRePwViewController.xib; sourceTree = "<group>"; };
@@ -2184,6 +2187,8 @@
 				E5BFB4C41BEA2375003262D0 /* NSMutableDictionary+MyC_M.m */,
 				E56ACC061BF42F1400B28FA0 /* NSMutableDictionary+Preference.h */,
 				E56ACC071BF42F1400B28FA0 /* NSMutableDictionary+Preference.m */,
+				E56ACC091BF43EA100B28FA0 /* NSMutableDictionary+Payment.h */,
+				E56ACC0A1BF43EA100B28FA0 /* NSMutableDictionary+Payment.m */,
 			);
 			path = _dictionaryModel;
 			sourceTree = "<group>";
@@ -4338,6 +4343,7 @@
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
 				99C43C581BA3EDA10035A0A4 /* NSUserDefaults+Settings.m in Sources */,
 				E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */,
+				E56ACC0B1BF43EA100B28FA0 /* NSMutableDictionary+Payment.m in Sources */,
 				20100C0F1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m in Sources */,
 				99CCC5531BF1E50B00CD9447 /* MainPopUpTableView3thOpenCell.m in Sources */,
 				E5567BBC1BA955A500AB4003 /* MyCMBuyListTableViewCell.m in Sources */,
