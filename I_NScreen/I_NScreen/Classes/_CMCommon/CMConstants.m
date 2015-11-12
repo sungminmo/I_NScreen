@@ -377,5 +377,6 @@ NSString* const CNM_OPEN_API_INTERFACE_GetSetTopStatus = @"GetSetTopStatus";
 //노티피케이션 네임
 NSString* const CNMHandleOpenURLNotification = @"CNMHandleOpenURLNotification";
 
+@implementation STVConstants
 
 @end
