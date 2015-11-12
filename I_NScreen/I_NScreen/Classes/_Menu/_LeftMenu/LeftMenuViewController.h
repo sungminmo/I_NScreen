@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *pairingLabel;
 @property (weak, nonatomic) IBOutlet UIButton *pairingButton;
 
-@property (nonatomic, strong) IBOutlet UITableView *pTableView;
+@property (nonatomic, weak) IBOutlet UITableView *pTableView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIView *termsButton;
 @property (weak, nonatomic) IBOutlet UIView *versionButton;

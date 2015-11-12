@@ -24,11 +24,11 @@ static NSString* const CellIdentifier = @"regionSettingCell";
 
 @interface CMRegionSettingViewController ()
 
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *topConstraint;
-@property (nonatomic, strong) IBOutlet UILabel* resionLabel;
-@property (nonatomic, strong) IBOutlet UITableView* tableView;
-@property (nonatomic, strong) IBOutlet UIButton* cancelButton;
-@property (nonatomic, strong) IBOutlet UIButton* completeButton;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *topConstraint;
+@property (nonatomic, weak) IBOutlet UILabel* resionLabel;
+@property (nonatomic, weak) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) IBOutlet UIButton* cancelButton;
+@property (nonatomic, weak) IBOutlet UIButton* completeButton;
 
 @property (nonatomic, strong) NSMutableArray* regionData;
 

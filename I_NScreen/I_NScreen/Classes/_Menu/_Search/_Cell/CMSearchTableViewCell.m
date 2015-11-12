@@ -11,14 +11,14 @@
 
 @interface CMSearchTableViewCell ()
 
-@property (strong, nonatomic) IBOutlet UIImageView *bookmarkImageView;
-@property (strong, nonatomic) IBOutlet UILabel *channelLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *logoImageView;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *gradeImageView;
-@property (strong, nonatomic) IBOutlet UIImageView *hmImageView;
-@property (nonatomic, strong) IBOutlet UIView* lineView;
+@property (weak, nonatomic) IBOutlet UIImageView *bookmarkImageView;
+@property (weak, nonatomic) IBOutlet UILabel *channelLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *gradeImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *hmImageView;
+@property (nonatomic, weak) IBOutlet UIView* lineView;
 
 @end
 

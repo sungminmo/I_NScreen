@@ -11,8 +11,8 @@
 
 @interface CMSearchCollectionViewCell()
 
-@property (nonatomic, strong) IBOutlet UIImageView* posterImageView;
-@property (nonatomic, strong) IBOutlet UILabel* titleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView* posterImageView;
+@property (nonatomic, weak) IBOutlet UILabel* titleLabel;
 
 @end
 

@@ -9,7 +9,7 @@
 #import "CMAdultAuthViewController.h"
 
 @interface CMAdultAuthViewController () <UIWebViewDelegate>
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *topConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *topConstraint;
 @property (nonatomic, weak) IBOutlet UIWebView* webView;
 @property (nonatomic, unsafe_unretained) BOOL isWorking;
 

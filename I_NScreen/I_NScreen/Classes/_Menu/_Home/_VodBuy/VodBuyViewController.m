@@ -21,7 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     [self setTagInit];
     [self setViewInit];
@@ -49,6 +48,7 @@
 {
     self.title = @"상세정보";
     self.isUseNavigationBar = YES;
+    self.scrollContainer.contentSize = CGSizeMake(self.view.bounds.size.width, 642);
 }
 
 #pragma mark - 액션 이벤트

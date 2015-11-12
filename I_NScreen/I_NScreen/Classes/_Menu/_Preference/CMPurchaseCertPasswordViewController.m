@@ -18,12 +18,12 @@ typedef enum : NSInteger {
 
 @interface CMPurchaseCertPasswordViewController ()
 
-@property (nonatomic, strong) IBOutlet CMTextField* textField1;
-@property (nonatomic, strong) IBOutlet CMTextField* textField2;
-@property (nonatomic, strong) IBOutlet UILabel* infoLabel;
+@property (nonatomic, weak) IBOutlet CMTextField* textField1;
+@property (nonatomic, weak) IBOutlet CMTextField* textField2;
+@property (nonatomic, weak) IBOutlet UILabel* infoLabel;
 
-@property (nonatomic, strong) IBOutlet UIButton* cancelButton;
-@property (nonatomic, strong) IBOutlet UIButton* completButton;
+@property (nonatomic, weak) IBOutlet UIButton* cancelButton;
+@property (nonatomic, weak) IBOutlet UIButton* completButton;
 
 @end
 

@@ -10,9 +10,9 @@
 
 @interface CMAutoCompletTableViewCell ()
 
-@property (nonatomic, strong) IBOutlet UILabel* titleLabel;
-@property (nonatomic, strong) IBOutlet UIButton* closeButton;
-@property (nonatomic, strong) IBOutlet UIView* lineView;
+@property (nonatomic, weak) IBOutlet UILabel* titleLabel;
+@property (nonatomic, weak) IBOutlet UIButton* closeButton;
+@property (nonatomic, weak) IBOutlet UIView* lineView;
 
 @end
 

@@ -13,8 +13,8 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 
 @interface CMPreferenceMainViewController ()
 
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
-@property (nonatomic, strong) IBOutlet UITableView* tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
 
 @property (nonatomic, strong) NSArray* tableList;
 
