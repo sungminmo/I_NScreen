@@ -128,7 +128,7 @@
         
         if (self.favoriteButton == nil) {
             
-            self.favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bigunpic.png"] style:UIBarButtonItemStyleDone
+            self.favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ch_unpick.png"] style:UIBarButtonItemStyleDone
                                                                   target:self
                                                                   action:@selector(favoriteButton:)];
             [self.navigationItem setRightBarButtonItems:@[self.favoriteButton]];

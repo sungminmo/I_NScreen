@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xS-dT-gFd" userLabel="ImageView(하트)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unpick.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xS-dT-gFd" userLabel="ImageView(하트)">
                         <rect key="frame" x="16" y="26" width="14" height="13"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6F-b4-mPP" userLabel="Label(체널번호)">
@@ -111,6 +111,6 @@
         <image name="all.png" width="29" height="16"/>
         <image name="hd.png" width="29" height="16"/>
         <image name="indicator.png" width="7" height="13"/>
-        <image name="pick.png" width="14" height="13"/>
+        <image name="unpick.png" width="14" height="13"/>
     </resources>
 </document>

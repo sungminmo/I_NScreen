@@ -21,11 +21,22 @@
     self.pDic = [dic copy];
     self.pThreeDepthCloseLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"categoryName"]];
     
-    NSString *sDepth = [NSString stringWithFormat:@"%@", dic[@"depth"]];
-    if ([sDepth isEqualToString:@"0"]) {
+//    NSString *sDepth = [NSString stringWithFormat:@"%@", dic[@"depth"]];
+//    if ([sDepth isEqualToString:@"0"]) {
+//        self.pThreeDepthCloseImg.hidden = NO;
+//    }
+//    else {
+//        self.pThreeDepthCloseImg.hidden = YES;
+//    }
+    if ( [[dic objectForKeyedSubscript:@"leaf"] isEqualToString:@"0"] )
+    {
         self.pThreeDepthCloseImg.hidden = NO;
+        
+        // 하위댑스 있음
     }
-    else {
+    else
+    {
+        // 하위댑스 없음
         self.pThreeDepthCloseImg.hidden = YES;
     }
     
