@@ -33,7 +33,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nn4-zv-WoW">
                                     <rect key="frame" x="0.0" y="0.0" width="41" height="63"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9w-a6-6Cc" userLabel="Button(더보기)">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9w-a6-6Cc" userLabel="Button(더보기)">
                                             <rect key="frame" x="16" y="38" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="x9w-a6-6Cc" secondAttribute="height" multiplier="1:1" id="xZD-K2-7Mv"/>
@@ -57,12 +57,6 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgV-Bc-d5K">
                                     <rect key="frame" x="41" y="0.0" width="341" height="63"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="씨앤앰 모바일 TV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTv-Bz-IkL">
-                                            <rect key="frame" x="104" y="30" width="133" height="23"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwz-f0-gEp">
                                             <rect key="frame" x="0.0" y="22" width="74" height="41"/>
                                             <color key="backgroundColor" red="0.1333333333" green="0.53333333329999999" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,11 +65,14 @@
                                                 <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="qaf-ck-Phw"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bi.png" translatesAutoresizingMaskIntoConstraints="NO" id="091-Cl-5XJ">
+                                            <rect key="frame" x="107" y="25" width="127" height="33"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="YTv-Bz-IkL" firstAttribute="centerY" secondItem="vgV-Bc-d5K" secondAttribute="centerY" constant="10" id="AXK-4n-4iA"/>
-                                        <constraint firstItem="YTv-Bz-IkL" firstAttribute="centerX" secondItem="vgV-Bc-d5K" secondAttribute="centerX" id="jJM-EW-n1u"/>
+                                        <constraint firstItem="091-Cl-5XJ" firstAttribute="centerY" secondItem="vgV-Bc-d5K" secondAttribute="centerY" constant="10" id="7Td-3G-UTF"/>
+                                        <constraint firstItem="091-Cl-5XJ" firstAttribute="centerX" secondItem="vgV-Bc-d5K" secondAttribute="centerX" id="QiP-FT-ecV"/>
                                         <constraint firstAttribute="width" secondItem="vgV-Bc-d5K" secondAttribute="height" multiplier="341:63" id="seU-gx-4gY"/>
                                     </constraints>
                                 </view>
@@ -285,6 +282,7 @@
         </view>
     </objects>
     <resources>
+        <image name="bi.png" width="127" height="33"/>
         <image name="icon_left_normal.png" width="25" height="25"/>
         <image name="icon_left_press.png" width="25" height="25"/>
         <image name="icon_search_normal.png" width="25" height="25"/>

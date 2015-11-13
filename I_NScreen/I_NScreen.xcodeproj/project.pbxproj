@@ -157,6 +157,9 @@
 		E58C6AF71BE261660024405D /* CMContentGroupCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AF51BE261660024405D /* CMContentGroupCollectionViewController.xib */; };
 		E58C6AFB1BE261BB0024405D /* CMContentGroupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */; };
 		E58C6AFC1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */; };
+		E599DFD61BF5DAB2004B486B /* bi.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD51BF5DAB2004B486B /* bi.png */; settings = {ASSET_TAGS = (); }; };
+		E599DFD81BF5DAC4004B486B /* bi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD71BF5DAC4004B486B /* bi@2x.png */; settings = {ASSET_TAGS = (); }; };
+		E599DFDA1BF5DAD2004B486B /* bi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD91BF5DAD2004B486B /* bi@3x.png */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30C1BDE1B4B005AC701 /* IDScrollableTabBar.m */; };
 		E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30F1BDE1B4B005AC701 /* IDScrollableTabBarItem.m */; };
 		E5A6E3331BDE1CC2005AC701 /* defaultArch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3131BDE1CC2005AC701 /* defaultArch.png */; };
@@ -1075,6 +1078,9 @@
 		E58C6AF81BE261BB0024405D /* CMContentGroupCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMContentGroupCollectionViewCell.h; sourceTree = "<group>"; };
 		E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMContentGroupCollectionViewCell.m; sourceTree = "<group>"; };
 		E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMContentGroupCollectionViewCell.xib; sourceTree = "<group>"; };
+		E599DFD51BF5DAB2004B486B /* bi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bi.png; sourceTree = "<group>"; };
+		E599DFD71BF5DAC4004B486B /* bi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bi@2x.png"; sourceTree = "<group>"; };
+		E599DFD91BF5DAD2004B486B /* bi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bi@3x.png"; sourceTree = "<group>"; };
 		E5A6E2F41BDDBC73005AC701 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -2516,6 +2522,7 @@
 		E5B550F21BD9DD3E00AA02B2 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				E599DFD51BF5DAB2004B486B /* bi.png */,
 				E5BC148B1BF05FC900DC3553 /* icon_promotion_09.png */,
 				E5B550F31BD9DD3E00AA02B2 /* 15.png */,
 				E5B550F41BD9DD3E00AA02B2 /* 19.png */,
@@ -2791,6 +2798,7 @@
 		E5B551B81BD9DD3E00AA02B2 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				E599DFD71BF5DAC4004B486B /* bi@2x.png */,
 				E5BC148D1BF05FDD00DC3553 /* icon_promotion_09@2x.png */,
 				E5B551B91BD9DD3E00AA02B2 /* 15@2x.png */,
 				E5B551BA1BD9DD3E00AA02B2 /* 19@2x.png */,
@@ -3064,6 +3072,7 @@
 		E5B5527C1BD9DD3E00AA02B2 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				E599DFD91BF5DAD2004B486B /* bi@3x.png */,
 				E5BC148F1BF05FEF00DC3553 /* icon_promotion_09@3x.png */,
 				E5B5527D1BD9DD3E00AA02B2 /* 15@3x.png */,
 				E5B5527E1BD9DD3E00AA02B2 /* 19@3x.png */,
@@ -3653,6 +3662,7 @@
 				E5B5547B1BD9DD3F00AA02B2 /* icon_3depth_close@2x.png in Resources */,
 				E5A6E3361BDE1CC2005AC701 /* defaultBackground@2x.png in Resources */,
 				E5B553BF1BD9DD3F00AA02B2 /* contentsno_n.png in Resources */,
+				E599DFD81BF5DAC4004B486B /* bi@2x.png in Resources */,
 				E5B553361BD9DD3F00AA02B2 /* genrereligion_normal.png in Resources */,
 				E5A9230D1BD137200076AF97 /* CMPageCollectionViewController.xib in Resources */,
 				E5B5539F1BD9DD3F00AA02B2 /* close_s.png in Resources */,
@@ -3861,6 +3871,7 @@
 				E5B553D01BD9DD3F00AA02B2 /* vod3btn_normal.png in Resources */,
 				E5B553A11BD9DD3F00AA02B2 /* serchbox.png in Resources */,
 				E5B554131BD9DD3F00AA02B2 /* icon_onlytv@2x.png in Resources */,
+				E599DFD61BF5DAB2004B486B /* bi.png in Resources */,
 				E5B553421BD9DD3F00AA02B2 /* selectdot.png in Resources */,
 				E5B553691BD9DD3F00AA02B2 /* sd.png in Resources */,
 				E5B5547A1BD9DD3F00AA02B2 /* icon_2depth_open@2x.png in Resources */,
@@ -4267,6 +4278,7 @@
 				E5B553B81BD9DD3F00AA02B2 /* stbpairingbtn_press.png in Resources */,
 				E5B553AC1BD9DD3F00AA02B2 /* icon_pairing_after.png in Resources */,
 				E5BC14901BF05FEF00DC3553 /* icon_promotion_09@3x.png in Resources */,
+				E599DFDA1BF5DAD2004B486B /* bi@3x.png in Resources */,
 				E5B554CB1BD9DD3F00AA02B2 /* icon_monthly.png in Resources */,
 				E5B554A21BD9DD3F00AA02B2 /* genremusic_press@3x.png in Resources */,
 				E5B5537E1BD9DD3F00AA02B2 /* fp2btn_ok_press.png in Resources */,

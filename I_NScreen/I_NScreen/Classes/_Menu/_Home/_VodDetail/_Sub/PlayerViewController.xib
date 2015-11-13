@@ -31,18 +31,18 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="hJa-yd-54w"/>
                     <exclude reference="CDg-4T-NfQ"/>
-                    <exclude reference="ZAh-MW-lsA"/>
                     <exclude reference="XsX-4f-IBr"/>
+                    <exclude reference="ZAh-MW-lsA"/>
+                    <exclude reference="hJa-yd-54w"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="constraints">
-                    <include reference="hJa-yd-54w"/>
                     <include reference="CDg-4T-NfQ"/>
-                    <include reference="ZAh-MW-lsA"/>
                     <include reference="XsX-4f-IBr"/>
+                    <include reference="ZAh-MW-lsA"/>
+                    <include reference="hJa-yd-54w"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="340" y="375"/>
