@@ -11,21 +11,32 @@
 @implementation NSMutableDictionary (Preference)
 
 // 유료체널 리스트 정보
-+ (NSURLSessionDataTask *)preferenceGetServiceJoinNListCompletion:(void (^)(NSArray *preference, NSError *error))block
++ (NSURLSessionDataTask *)preferenceGetServiceJoyNListCompletion:(void (^)(NSArray *preference, NSError *error))block
 {
-    return [[CMNetworkManager sharedInstance] preferenceGetServiceJoinNListCompletion:block];
+    return [[CMNetworkManager sharedInstance] preferenceGetServiceJoyNListCompletion:block];
 }
 
 // 특정 유료체널 상세 정보
-+ (NSURLSessionDataTask *)preferenceGetServiceJoinNInfoCompletion:(void (^)(NSArray *preference, NSError *error))block
++ (NSURLSessionDataTask *)preferenceGetServiceJoyNInfoCode:(NSString*)code completion:(void (^)(NSArray *preference, NSError *error))block
 {
-    return [[CMNetworkManager sharedInstance] preferenceGetServiceJoinNInfoCompletion:block];
+    return [[CMNetworkManager sharedInstance] preferenceGetServiceJoyNInfoCode:code completion:block];
 }
 
 // 공지사항 리스트 및 상세 정보 ex)areaCode = 0 , productCode = 11
-+ (NSURLSessionDataTask *)perferenceGetServiceNoticeInfoWithAreaCode:(NSString *)areaCode WithProductCode:(NSString *)productCode completion:(void (^)(NSArray *preference, NSError *error))block
++ (NSURLSessionDataTask *)perferenceGetServiceNoticeInfoCompletion:(void (^)(NSArray *preference, NSError *error))block
 {
-    return [[CMNetworkManager sharedInstance] preferenceGetServiceNoticeInfoWithAreaCode:areaCode WithProductCode:productCode completion:block];
+    return [[CMNetworkManager sharedInstance] preferenceGetServiceNoticeInfoCompletion:block];
+}
+
+//서비스 이용약관/고객센터
++ (NSURLSessionDataTask *)perferenceGetServiceguideInfoWithCode:(NSString*)code completion:(void (^)(NSArray *preference, NSError *error))block {
+    return [[CMNetworkManager sharedInstance] perferenceGetServiceguideInfoWithCode:code completion:block];
+}
+
+
+//버전정보
++ (NSURLSessionDataTask *)perferenceGetAppVersionInfoCompletion:(void (^)(NSArray *preference, NSError *error))block {
+    return [[CMNetworkManager sharedInstance] perferenceGetAppVersionInfoCompletion:block];
 }
 
 @end

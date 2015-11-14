@@ -234,6 +234,9 @@ extern NSString* const CNM_OPEN_API_RESULT_TOTAL_COUNT;
 // 사용자 정보.
 extern NSString* const CNM_OPEN_API_USER_INFO_KEY;
 
+//공지사항 리스트 및 상세의 서비스이용약관, 고객센터안내 분기키 
+extern NSString* const CNM_OPEN_API_PREF_GUIDEID_KEY;
+
 // errorString
 extern NSString* const CNM_OPEN_API_RESULT_ERROR_STRING_KEY;
 extern NSString* const CNM_OPEN_API_RESULT_ERR_STRING_KEY;
@@ -386,20 +389,20 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetGuideCategory;
 // GetServiceGuideList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceGuideList;
 
-// GetServiceGuideInfo
-extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceGuideInfo;
-
 // GetServiceGuideImage
 extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceGuideImage;
 
 // GetServiceJoinNList
-extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNList;
+extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoyNList;
 
 // GetServiceJoinNInfo
-extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNInfo;
+extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoyNInfo;
 
 // GetServiceNoticeInfo
 extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceNoticeInfo;
+
+//GetServiceguideInfo 고객센터, 이용약관
+extern NSString* const CNM_OPEN_API_INTERFACE_GetServiceguideInfo;
 
 
 // 7. Epg

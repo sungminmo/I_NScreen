@@ -101,6 +101,14 @@ unsigned char strToChar (char a, char b) {
     return NO;
 }
 
+- (NSString*)emptyCheck {
+    if ([self isEmpty]) {
+        return @"";
+    }
+    return self;
+}
+
+
 // 트림.
 - (NSString *)trim {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];

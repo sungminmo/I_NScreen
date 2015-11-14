@@ -10,6 +10,6 @@
 
 @interface CMNoticeDetailViewController : CMBaseViewController
 
-- (void)settingInfo:(NSDictionary*)item;
+- (id)initWithInfo:(NSDictionary*)item;
 
 @end

@@ -60,6 +60,12 @@
 - (BOOL)isEmpty;
 
 /**
+ *  문자열 널체크 후 널이면 빈문자열 반환
+ *
+ */
+- (NSString*)emptyCheck;
+
+/**
  *  @brief  트림.
  *
  *  @return NSString.

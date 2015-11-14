@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CMPaytvTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView* imageView;
+@property (weak, nonatomic) IBOutlet UIImageView* thumbView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end

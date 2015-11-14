@@ -154,6 +154,9 @@ NSString* const CNM_OPEN_API_RESULT_TOTAL_COUNT = @"totalCount";
 // 사용자 정보.
 NSString* const CNM_OPEN_API_USER_INFO_KEY = @"UserInfo";
 
+//공지사항 리스트 및 상세의 서비스이용약관, 고객센터안내 분기키
+NSString* const CNM_OPEN_API_PREF_GUIDEID_KEY = @"guideID";
+
 // errorString
 NSString* const CNM_OPEN_API_RESULT_ERROR_STRING_KEY = @"errorString";
 NSString* const CNM_OPEN_API_RESULT_ERR_STRING_KEY = @"errString";
@@ -308,20 +311,22 @@ NSString* const CNM_OPEN_API_INTERFACE_GetGuideCategory = @"GetGuideCategory";
 // GetServiceGuideList
 NSString* const CNM_OPEN_API_INTERFACE_GetServiceGuideList = @"GetServiceGuideList";
 
-// GetServiceGuideInfo
-NSString* const CNM_OPEN_API_INTERFACE_GetServiceGuideInfo = @"GetServiceGuideInfo";
-
 // GetServiceGuideImage
 NSString* const CNM_OPEN_API_INTERFACE_GetServiceGuideImage = @"GetServiceGuideImage";
 
 // GetServiceJoinNList
-NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNList = @"GetServiceJoyNList";
+NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoyNList = @"GetServiceJoyNList";
 
 // GetServiceJoinNInfo
-NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoinNInfo = @"GetServiceJoyNInfo";
+NSString* const CNM_OPEN_API_INTERFACE_GetServiceJoyNInfo = @"GetServiceJoyNInfo";
 
 // GetServiceNoticeInfo
 NSString* const CNM_OPEN_API_INTERFACE_GetServiceNoticeInfo = @"GetServiceNoticeInfo";
+
+
+//GetServiceguideInfo 고객센터, 이용약관
+NSString* const CNM_OPEN_API_INTERFACE_GetServiceguideInfo = @"GetServiceguideInfo";
+
 
 // Add By BJK
 // 6. Epg

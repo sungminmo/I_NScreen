@@ -1271,12 +1271,12 @@
 @implementation CMNetworkManager ( Preference )
 
 // 유료체널 리스트 정보
-- (NSURLSessionDataTask *)preferenceGetServiceJoinNListCompletion:(void (^)(NSArray *preference, NSError *error))block
+- (NSURLSessionDataTask *)preferenceGetServiceJoyNListCompletion:(void (^)(NSArray *preference, NSError *error))block
 {
     self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
-    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceJoinNList];
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceJoyNList];
     
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
@@ -1291,36 +1291,14 @@
 }
 
 // 특정 유료체널 상세 정보
-- (NSURLSessionDataTask *)preferenceGetServiceJoinNInfoCompletion:(void (^)(NSArray *preference, NSError *error))block
+- (NSURLSessionDataTask *)preferenceGetServiceJoyNInfoCode:(NSString*)code completion:(void (^)(NSArray *preference, NSError *error))block
 {
     self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
-    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceJoinNInfo];
-    
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        
-        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
-        
-        block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
-        block(nil, error);
-    }];
-    [self updateActivityIndicator:task];
-    return task;
-}
-
-// 공지사항 리스트 및 상세 정보 ex)areaCode = 0 , productCode = 11
-- (NSURLSessionDataTask *)preferenceGetServiceNoticeInfoWithAreaCode:(NSString *)areaCode WithProductCode:(NSString *)productCode completion:(void (^)(NSArray *, NSError *))block
-{
-    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    
-    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceNoticeInfo];
-    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceJoyNInfo];
     NSDictionary *dict = @{
-                           @"AreaCode" : areaCode,
-                           @"ProductCode" :productCode
+                           @"joyNId" : code,
                            };
     
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1334,6 +1312,68 @@
     [self updateActivityIndicator:task];
     return task;
 }
+
+// 공지사항 리스트 및 상세 정보 ex)areaCode = 0 , productCode = 11
+- (NSURLSessionDataTask *)preferenceGetServiceNoticeInfoCompletion:(void (^)(NSArray *, NSError *))block
+{
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceNoticeInfo];
+    
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
+//고객센터, 이용약관
+- (NSURLSessionDataTask *)perferenceGetServiceguideInfoWithCode:(NSString*)code completion:(void (^)(NSArray *preference, NSError *error))block {
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceguideInfo];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_PREF_GUIDEID_KEY : code,
+                           };
+    
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
+//버전정보
+- (NSURLSessionDataTask *)perferenceGetAppVersionInfoCompletion:(void (^)(NSArray *preference, NSError *error))block {
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetAppVersionInfo];
+    
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
 
 @end
 
