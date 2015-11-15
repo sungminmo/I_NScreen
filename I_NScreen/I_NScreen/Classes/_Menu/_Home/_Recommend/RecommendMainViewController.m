@@ -521,6 +521,9 @@
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAppInitializeCompletion:^(NSArray *pairing, NSError *error) {
         
         DDLogError(@"%@", pairing);
+        
+        if ( [pairing count] == 0 )
+            return;
         [self.pGetAppInitialzeArr removeAllObjects];
         [self.pGetAppInitialzeArr setArray:[[pairing objectAtIndex:0] objectForKey:@"Category_Item"]];
         
