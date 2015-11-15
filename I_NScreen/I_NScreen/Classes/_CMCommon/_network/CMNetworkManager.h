@@ -109,6 +109,9 @@
 // 배너
 - (NSURLSessionDataTask *)vodGetServicebannerlistBlock:(void(^)(NSArray *vod, NSError *error))block;
 
+//http://58.141.255.79:8080/HApplicationServer/getCategoryTree.xml?version=1&terminalKey=D049DBBA897611A7F6B6454471B5B6&categoryProfile=1&categoryId=0&depth=2&traverseType=DFS
+- (NSURLSessionDataTask *)vodGetCategoryTreeBlock:(void (^)(NSArray *vod, NSError *error))block;
+
 // 댑스별 카테고리 id 추출 전문
 // ex ) http://192.168.40.5:8080/HApplicationServer/getCategoryTree.xml?version=1&terminalKey=C5E6DBF75F13A2C1D5B2EFDB2BC940&transactionId=135&categoryProfile=4&categoryId=27282&depth=2&traverseType=DFS
 - (NSURLSessionDataTask *)vodGetCategoryTreeWithCategoryId:(NSString *)categoryId WithDepth:(NSString *)depth block:(void (^)(NSArray *vod, NSError *error))block;

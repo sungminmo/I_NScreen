@@ -35,7 +35,8 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     [self setTagInit];
     [self setViewInit];
     
-    [self requestWithGetCategoryTree2Depth];
+    [self requestWithGetCategoryTree];
+//    [self requestWithGetCategoryTree2Depth];
 }
 
 #pragma mark - 초기화
@@ -100,10 +101,36 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 }
 
 #pragma mark - 전문
-#pragma mark - 2탭스 카테고리 tree 리스트 전문
-- (void)requestWithGetCategoryTree2Depth
+#pragma mark - 2탭스 카테고리 id 가져옴
+- (void)requestWithGetCategoryTree
 {
-    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:CNM_OPEN_API_MOVIE_CATEGORY_ID WithDepth:@"2" block:^(NSArray *vod, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeBlock:^(NSArray *vod, NSError *error) {
+        
+        DDLogError(@"카테고리 id = [%@]", vod);
+        
+        if ( [vod count] == 0 )
+            return;
+        
+        NSString *sCategoryId = @"";
+        
+        for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"categoryList"] objectForKey:@"category"] )
+        {
+            if ( [[dic objectForKey:@"description"] isEqualToString:@"movie"] )
+            {
+                sCategoryId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"categoryId"]];
+            }
+        }
+        
+        [self requestWithGetCategoryTree2DepthWithCategoryId:sCategoryId];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 2탭스 카테고리 tree 리스트 전문
+- (void)requestWithGetCategoryTree2DepthWithCategoryId:(NSString *)categoryId
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:categoryId WithDepth:@"2" block:^(NSArray *vod, NSError *error) {
 
         DDLogError(@"2탭스 카테고리 tree 리스트 = [%@]", vod);
         [self.pTwoDepthTreeDataArr removeAllObjects];

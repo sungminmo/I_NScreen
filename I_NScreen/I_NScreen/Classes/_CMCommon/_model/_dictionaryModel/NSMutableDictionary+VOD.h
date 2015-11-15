@@ -62,6 +62,7 @@
 
 + (NSURLSessionDataTask *)vodGetServicebannerlistCompletion:(void (^)(NSArray *banner, NSError *error))block;
 
++ (NSURLSessionDataTask *)vodGetCategoryTreeBlock:(void (^)(NSArray *vod, NSError *error))block;
 
 /*!<
  ex) 

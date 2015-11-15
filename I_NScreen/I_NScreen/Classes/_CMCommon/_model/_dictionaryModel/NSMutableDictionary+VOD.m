@@ -40,6 +40,11 @@
     return [[CMNetworkManager sharedInstance] vodGetServicebannerlistBlock:block];
 }
 
++ (NSURLSessionDataTask *)vodGetCategoryTreeBlock:(void (^)(NSArray *vod, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetCategoryTreeBlock:block];
+}
+
 + (NSURLSessionDataTask *)vodGetCategoryTreeWithCategoryId:(NSString *)categoryId WithDepth:(NSString *)depth block:(void (^)(NSArray *vod, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] vodGetCategoryTreeWithCategoryId:categoryId WithDepth:depth block:block];

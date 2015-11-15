@@ -90,15 +90,18 @@ NSString* const CNM_OPEN_API_RECOMEND_CATEGORY_ID = @"713228";
 
 // 영화
 NSString* const CNM_OPEN_API_MOVIE_CATEGORY_ID = @"27282";
+//NSString* const CNM_OPEN_API_MOVIE_CATEGORY_ID = @"1579721";
 
 // 애니
 NSString* const CNM_OPEN_API_ANNI_CATEGORY_ID = @"27281";
+//NSString* const CNM_OPEN_API_ANNI_CATEGORY_ID = @"1579722";
 
 // TV 다시보기
 NSString* const CNM_OPEN_API_TV_REPLAY_CATEGORY_ID = @"1579723";
 
 // 성인
 NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID = @"20912";
+//NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID = @"1579724";
 
 // uuid
 NSString* const CNM_OPEN_API_UUID_KEY = @"uuid";
