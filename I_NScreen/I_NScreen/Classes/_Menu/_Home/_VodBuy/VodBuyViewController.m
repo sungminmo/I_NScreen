@@ -10,6 +10,7 @@
 #import "NSMutableDictionary+Payment.h"
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+Payment.h"
+#import "RootViewController.h"
 
 @interface VodBuyViewController ()
 @property (nonatomic, strong) NSMutableArray *pPaymentTypeArr;
@@ -18,6 +19,7 @@
 
 @implementation VodBuyViewController
 @synthesize pDetailDataDic;
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -412,8 +414,8 @@
 //
             // 결제 테스트
 //            [self requestWithPurchaseAssetEx2];
-            [SIAlertView alert:@"알림" message:@"일반 결제 테스트 중입니다." button:nil];
-            
+//            [SIAlertView alert:@"알림" message:@"일반 결제 테스트 중입니다." button:nil];
+//            
         }break;
         case VOD_BUY_VIEW_BTN_05:
         {
@@ -454,7 +456,17 @@
         }break;
         case VOD_BUY_VIEW_BTN_08:
         {
-            // 결제 완료
+            // 결제 하기
+
+            // add 잘 안됨 담에 고치자
+            VodPopUpViewController *pViewController = [[VodPopUpViewController alloc] initWithNibName:@"VodPopUpViewController" bundle:nil];
+            pViewController.pBuyStr = [[self.pBuyTypeArr objectAtIndex:0] objectForKey:@"price"];
+            pViewController.pBuyDic = self.pDetailDataDic;
+            pViewController.delegate = self;
+            [self presentViewController:pViewController animated:NO completion:^{
+                
+            }];
+
             
         }break;
     }
@@ -517,6 +529,12 @@
     }
     
     
+}
+
+- (void)VodPopUpViewWithTag:(int)nTag
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate VodBuyViewWithTag:0];
 }
 
 @end

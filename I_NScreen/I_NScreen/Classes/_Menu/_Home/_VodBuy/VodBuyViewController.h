@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CMBaseViewController.h"
 #import "VodPopUpViewController.h"
+#import "VodPopUpViewController.h"
 
 // 구매 타입
 typedef enum : NSInteger {
@@ -20,8 +21,9 @@ typedef enum : NSInteger {
     BuyTotalRate                // 통합 월정액
 }BuyType;
 
+@protocol VodBuyViewDelegate;
 
-@interface VodBuyViewController : CMBaseViewController
+@interface VodBuyViewController : CMBaseViewController<VodPopUpViewDelegate>
 
 /**
  *  전체 스크롤 뷰 
@@ -82,6 +84,15 @@ typedef enum : NSInteger {
 
 @property (nonatomic, strong) NSMutableDictionary *pDetailDataDic;
 
+@property (nonatomic, weak) id <VodBuyViewDelegate>delegate;
+
 - (IBAction)onBtnClicked:(UIButton *)btn;
+
+@end
+
+@protocol VodBuyViewDelegate <NSObject>
+
+@optional
+- (void)VodBuyViewWithTag:(int)nTag;
 
 @end

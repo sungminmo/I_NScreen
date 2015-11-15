@@ -13,7 +13,9 @@
 #import "PlayerViewController.h"
 #import "VodBuyViewController.h"
 
-@interface VodDetailMainViewController : CMBaseViewController <UIScrollViewDelegate, CMContentGroupCollectionViewDelegate, PlayerViewDelegate>
+@protocol VodDetailMainViewDelegate;
+
+@interface VodDetailMainViewController : CMBaseViewController <UIScrollViewDelegate, CMContentGroupCollectionViewDelegate, PlayerViewDelegate, VodBuyViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pView01;
 @property (nonatomic, strong) IBOutlet UIScrollView *pBodyView;
@@ -88,6 +90,15 @@
 
 @property (readwrite, retain) MPMoviePlayerController *pMoviePlayer;
 
+@property (nonatomic, weak) id<VodDetailMainViewDelegate>delegate;
+
 - (IBAction)onBtnClicked:(UIButton *)btn;
+
+@end
+
+@protocol VodDetailMainViewDelegate <NSObject>
+
+@optional
+- (void)VodDetailMainViewWithTag:(int)nTag;
 
 @end

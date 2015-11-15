@@ -8,6 +8,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodPopUpViewController">
             <connections>
+                <outlet property="pBgBtn" destination="93O-D4-0qh" id="nTG-Ew-mxQ"/>
+                <outlet property="pCancelBtn" destination="dSY-Gr-QdO" id="ZCm-XY-Lp1"/>
+                <outlet property="pOkBtn" destination="72J-Bh-erG" id="0qt-Zx-maZ"/>
+                <outlet property="pPriceLbl" destination="7bL-F1-DYA" id="G8L-8O-aq3"/>
+                <outlet property="pTextField" destination="TJr-ZA-tsm" id="xEJ-mK-gLg"/>
                 <outlet property="view" destination="Ogb-v6-nMb" id="SRB-1Z-2xk"/>
             </connections>
         </placeholder>
@@ -16,12 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.69999998807907104" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NbE-qj-hJK" userLabel="View(bg)">
+                <view alpha="0.10000000000000001" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NbE-qj-hJK" userLabel="View(bg)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93O-D4-0qh" userLabel="Button(bg)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="VlA-EN-663"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5X4-Q4-MGx">
                     <rect key="frame" x="7" y="104" width="400" height="309"/>
@@ -57,18 +66,27 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJr-ZA-tsm">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJr-ZA-tsm" customClass="CMTextField">
                             <rect key="frame" x="36" y="217" width="327" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="eFo-q6-a6N"/>
+                            </connections>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSY-Gr-QdO">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSY-Gr-QdO">
                             <rect key="frame" x="20" y="264" width="153" height="30"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="취소" backgroundImage="p2btn_cancel_normal.png"/>
+                            <connections>
+                                <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="3tB-0m-AT3"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72J-Bh-erG">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72J-Bh-erG">
                             <rect key="frame" x="225" y="264" width="148" height="30"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="구매하기" backgroundImage="p2btn_ok_normal.png"/>
+                            <connections>
+                                <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="5aP-BT-YGr"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,4 +163,8 @@
             </variation>
         </view>
     </objects>
+    <resources>
+        <image name="p2btn_cancel_normal.png" width="172" height="45"/>
+        <image name="p2btn_ok_normal.png" width="172" height="45"/>
+    </resources>
 </document>

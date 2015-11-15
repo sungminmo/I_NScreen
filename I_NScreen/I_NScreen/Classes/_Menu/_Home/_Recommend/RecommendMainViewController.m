@@ -748,30 +748,11 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
-- (void)requestWithTest
-{
-//    NSString *sCategoryId = @"713229";
-//    NSString *sContentGroupProfile = @"2";
-//    
-//    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:sContentGroupProfile WithCategoryId:sCategoryId completion:^(NSArray *vod, NSError *error) {
-//        
-//        DDLogError(@"이달의 추천 vod = [%@]", vod);
-//        
-//       
-//    }];
-    
-    
-//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-    NSURLSessionDataTask *tesk = [NSMutableDictionary pairingAuthenticateDeviceCompletion:^(NSArray *pairing, NSError *error) {
-       
-        DDLogError(@"PAIRAIN = [%@]", pairing);
-    }];
-}
-
 - (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
 {
     VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
     pViewController.pAssetIdStr = assetId;
+    pViewController.delegate = self;
     [self.navigationController pushViewController:pViewController animated:YES];
 //    
 //        TestPageViewController *pViewController = [[TestPageViewController alloc] initWithNibName:@"TestPageViewController" bundle:nil];
@@ -783,7 +764,21 @@
 {
     VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
     pViewController.pAssetIdStr = sAssetId;
+    pViewController.delegate = self;
     [self.navigationController pushViewController:pViewController animated:YES];
+}
+
+#pragma mark - 델리게이트
+#pragma mark - VodDetailViewController 델리게이트
+- (void)VodDetailMainViewWithTag:(int)nTag
+{
+    switch (nTag) {
+        case VOD_BUY_VIEW_BTN_08:
+        {
+            [self.delegate RecommendMainViewWithTag:VOD_BUY_VIEW_BTN_08];
+        }break;
+         
+    }
 }
 
 @end

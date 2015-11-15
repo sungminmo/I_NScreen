@@ -164,6 +164,11 @@
 #define VOD_BUY_VIEW_BTN_07         23007
 #define VOD_BUY_VIEW_BTN_08         23008
 
+// VodPopUpViewController btn tag
+#define VOD_POP_UP_VIEW_BTN_01      24001   //BG
+#define VOD_POP_UP_VIEW_BTN_02      24002   // CANCEL
+#define VOD_POP_UP_VIEW_BTN_03      24003   // OK
+
 //
 
 /*

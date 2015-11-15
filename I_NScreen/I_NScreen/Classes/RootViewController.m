@@ -373,7 +373,17 @@
 #pragma mark - RecommendMainViewController 델리게이트
 - (void)RecommendMainViewWithTag:(int)nTag
 {
-    
+    switch (nTag) {
+        case VOD_BUY_VIEW_BTN_08:
+        {
+            VodPopUpViewController *pViewController = [[VodPopUpViewController alloc] initWithNibName:@"VodPopUpViewController" bundle:nil];
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+            
+        }break;
+    }
 }
 
 @end

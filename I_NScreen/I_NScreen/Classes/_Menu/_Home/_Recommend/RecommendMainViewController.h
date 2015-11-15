@@ -24,7 +24,7 @@ typedef enum : NSInteger {
 
 @protocol RecommendMainViewDelegate;
 
-@interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate, CMPageViewDelegate, CMPageCollectionViewDelegate>
+@interface RecommendMainViewController : CMBaseViewController<UIScrollViewDelegate, CMPageViewDelegate, CMPageCollectionViewDelegate, VodDetailMainViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIScrollView *pMainScrollView;
 

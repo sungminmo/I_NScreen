@@ -23,6 +23,7 @@
 #import "PairingMainViewController.h"
 #import "PairingRePwViewController.h"
 #import "MainPopUpViewController.h"
+#import "VodPopUpViewController.h"
 
 @protocol RootViewDelegate;
 

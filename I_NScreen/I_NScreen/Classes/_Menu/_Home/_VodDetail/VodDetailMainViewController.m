@@ -23,6 +23,7 @@
 @implementation VodDetailMainViewController
 @synthesize pAssetIdStr;
 @synthesize pFileNameStr;
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -97,6 +98,7 @@
             {
                 VodBuyViewController *pViewController = [[VodBuyViewController alloc] initWithNibName:@"VodBuyViewController" bundle:nil];
                 pViewController.pDetailDataDic = self.pAssetInfoDic;
+                pViewController.delegate = self;
                 [self.navigationController pushViewController:pViewController animated:YES];
             }
             
@@ -774,6 +776,21 @@
         self.pStarImage04.image = [UIImage imageNamed:@"star_empty.png"];
         self.pStarImage05.image = [UIImage imageNamed:@"star_empty.png"];
     }
+}
+
+#pragma mark - 델리게이트
+#pragma mark - VodBuyViewController 델리게이트
+-(void)VodBuyViewWithTag:(int)nTag
+{
+//    switch (nTag) {
+//        case VOD_BUY_VIEW_BTN_08:
+//        {
+//            [self.delegate VodDetailMainViewWithTag:VOD_BUY_VIEW_BTN_08];
+//        }break;
+//    }
+    // reload
+    [self requestWithAssetInfo];
+    [self requestWithRecommendContentGroupByAssetId];
 }
 
 @end
