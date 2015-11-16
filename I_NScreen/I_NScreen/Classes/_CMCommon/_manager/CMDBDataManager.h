@@ -78,6 +78,13 @@
 - (void)setPariringCheck:(BOOL)isParing;
 
 /**
+ *   프라이빗 터미널 키 삭제
+ *
+ *  @return  프라이빗 터미널 키 삭제
+ */
+- (void)removePrivateTerminalKey;
+
+/**
  *  페어링 셋탑 종류 저장
  *
  *  @return 페어링 유무

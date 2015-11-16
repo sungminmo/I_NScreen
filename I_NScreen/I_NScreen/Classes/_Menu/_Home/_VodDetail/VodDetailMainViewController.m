@@ -424,6 +424,7 @@
                 [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
                 [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
                 [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"primaryAssetId"];
+                [nDic setObject:[dic objectForKey:@"assetSeriesLink"] forKey:@"assetSeriesLink"];
                 [pArr addObject:nDic];
                 
                 if ( nIndex % 4 == 0 || nIndex == nTotal)
@@ -663,12 +664,26 @@
     
 }
 
-- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
+- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint
 {
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", assetId];
     
-    [self requestWithAssetInfo];
-    [self requestWithRecommendContentGroupByAssetId];
+    if ( [seriesLint isEqualToString:@"0"] )
+    {
+        // 시리즈가 아니다
+        VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+        pViewController.pAssetIdStr = assetId;
+        [self.navigationController pushViewController:pViewController animated:YES];
+        
+    }
+    else
+    {
+        // 시리즈다
+        [self requestWithAssetInfo];
+        [self requestWithRecommendContentGroupByAssetId];
+
+    }
+    
 }
 
 - (void)setReviewRatingWithTotalCount:(int)nTotal WithCount:(int)nCount

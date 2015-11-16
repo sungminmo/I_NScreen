@@ -24,6 +24,19 @@
 {
     self.nIndex = (index + 1) + (nPage * 8);
     
+    // tv 전용인지 아닌지
+    if ( [[dic objectForKey:@"publicationRight"] isEqualToString:@"2"] )
+    {
+        // tv모바일
+        self.pOnlyTvImageView.hidden = YES;
+    }
+    else
+    {
+        // tv
+        self.pOnlyTvImageView.hidden = NO;
+    }
+    
+    
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetId"]];
     
     NSString *sImageFileName = [NSString stringWithFormat:@"%@", [dic objectForKey:@"smallImageFileName"]];

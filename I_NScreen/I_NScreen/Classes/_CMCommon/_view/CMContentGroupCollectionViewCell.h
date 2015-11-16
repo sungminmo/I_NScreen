@@ -18,7 +18,10 @@
 @property (nonatomic, weak) IBOutlet UIImageView *pStickerImageView;
 @property (nonatomic, weak) IBOutlet UILabel *pRankingLbl;
 
+@property (nonatomic, strong) NSString *pSeriesLintStr;
 @property (nonatomic, strong) NSString  *pAssetIdStr;
+
+@property (nonatomic, weak) IBOutlet UIImageView *pOnlyTvImageView; // tv 전용인지 아닌지
 
 @property (nonatomic, weak) id <CMContentGroupCollectionViewCellDelegate>delegate;
 
@@ -32,6 +35,6 @@
 @protocol CMContentGroupCollectionViewCellDelegate <NSObject>
 
 @optional
-- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId;
+- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint;
 
 @end

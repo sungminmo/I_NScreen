@@ -65,6 +65,12 @@
                             <constraint firstAttribute="trailing" secondItem="Dl8-EA-Al5" secondAttribute="trailing" id="qJV-VG-Djq"/>
                         </constraints>
                     </view>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_onlytv.png" translatesAutoresizingMaskIntoConstraints="NO" id="kDv-4s-vhr">
+                        <rect key="frame" x="63" y="125" width="32" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="kDv-4s-vhr" secondAttribute="height" multiplier="16:5" id="LGc-9E-R8i"/>
+                        </constraints>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRs-iK-eZd">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="158"/>
                         <connections>
@@ -81,8 +87,10 @@
                 <constraint firstItem="QtE-iU-7yY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DEW-WP-Zdt"/>
                 <constraint firstItem="tdt-vw-DQD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ELP-FU-klq"/>
                 <constraint firstItem="WDF-9Q-zeC" firstAttribute="top" secondItem="hMa-kw-bgp" secondAttribute="bottom" id="EyA-ba-EHq"/>
+                <constraint firstItem="WDF-9Q-zeC" firstAttribute="top" secondItem="kDv-4s-vhr" secondAttribute="bottom" constant="3" id="KyJ-er-ZX4"/>
                 <constraint firstItem="WDF-9Q-zeC" firstAttribute="top" secondItem="tdt-vw-DQD" secondAttribute="bottom" id="KzB-b2-Ycb"/>
                 <constraint firstAttribute="trailing" secondItem="hMa-kw-bgp" secondAttribute="trailing" id="Uzd-e0-gSz"/>
+                <constraint firstAttribute="trailing" secondItem="kDv-4s-vhr" secondAttribute="trailing" id="blA-NZ-y1C"/>
                 <constraint firstAttribute="bottom" secondItem="lRs-iK-eZd" secondAttribute="bottom" id="cWe-x3-3s7"/>
                 <constraint firstAttribute="bottom" secondItem="WDF-9Q-zeC" secondAttribute="bottom" id="dwq-wt-JpH"/>
                 <constraint firstItem="QtE-iU-7yY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eZy-Io-5Ie"/>
@@ -98,6 +106,7 @@
             <size key="customSize" width="229" height="313"/>
             <connections>
                 <outlet property="pDimImageView" destination="tdt-vw-DQD" id="G2v-xL-HPr"/>
+                <outlet property="pOnlyTvImageView" destination="kDv-4s-vhr" id="bOg-9M-xi4"/>
                 <outlet property="pRankingLbl" destination="sjg-0M-53e" id="cYO-c4-m3r"/>
                 <outlet property="pStickerImageView" destination="rAT-di-knA" id="4VQ-Zh-6HI"/>
                 <outlet property="pThumImageView" destination="hMa-kw-bgp" id="z7C-Wv-7HB"/>
@@ -109,6 +118,7 @@
     <resources>
         <image name="genreall_select.png" width="146" height="147"/>
         <image name="icon_19dim.png" width="94" height="136"/>
+        <image name="icon_onlytv.png" width="43" height="15"/>
         <image name="icon_rank.png" width="24" height="27"/>
     </resources>
 </document>

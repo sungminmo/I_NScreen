@@ -23,6 +23,6 @@
 @protocol CMContentGroupCollectionViewDelegate <NSObject>
 
 @optional
-- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId;
+- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint;
 
 @end

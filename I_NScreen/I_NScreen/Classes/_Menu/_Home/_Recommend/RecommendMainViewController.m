@@ -482,6 +482,7 @@
             // uuid 삭제후 재 등록
             [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_UUID_KEY];
             [[CMAppManager sharedInstance] setKeychainUniqueUuid];
+            [manager removePrivateTerminalKey];
         }
         else
         {
@@ -498,6 +499,7 @@
             // uuid 삭제후 재 등록
             [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_UUID_KEY];
             [[CMAppManager sharedInstance] setKeychainUniqueUuid];
+            [manager removePrivateTerminalKey];
             // 로컬 디비 삭제...................................................추후 디비 다른 정보도 삭제 !! test bjk
             [manager setPariringCheck:NO];
         }
@@ -582,6 +584,7 @@
             [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
             [nDic setObject:[dic objectForKey:@"imageFileName"] forKey:@"imageFileName"];
             [nDic setObject:[dic objectForKey:@"promotionSticker"] forKey:@"promotionSticker"];
+            [nDic setObject:[dic objectForKey:@"publicationRight"] forKey:@"publicationRight"];
             [pArr addObject:nDic];
             
             if ( nIndex % 8 == 0 || nIndex == nTotal)
@@ -653,7 +656,7 @@
             [nDic setObject:[dic objectForKey:@"assetHot"] forKey:@"assetHot"];
             [nDic setObject:[dic objectForKey:@"categoryId"] forKey:@"categoryId"];
             [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
-            
+            [nDic setObject:[dic objectForKey:@"mobilePublicationRight"] forKey:@"publicationRight"];
             // 수정
             [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"assetId"];
             
@@ -729,6 +732,7 @@
             [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
             
             [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"assetId"];
+            [nDic setObject:[dic objectForKey:@"mobilePublicationRight"] forKey:@"publicationRight"];
             
 //            [self.pThisMonthRecommendArr addObject:nDic];
             [pArr addObject:nDic];

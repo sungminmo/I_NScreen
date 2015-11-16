@@ -172,6 +172,20 @@
     [realm commitWriteTransaction];
 }
 
+#pragma mark - 프라이빗 터미널 키 삭제
+- (void)removePrivateTerminalKey
+{
+    RLMRealm *realm = [self cmRealm];
+    
+    if ( [[self getPrivateTerminalKey] length] > 0 )
+    {
+        RLMArray *all = (RLMArray *)[CMPrivateKey allObjects];
+        [realm beginWriteTransaction];
+        [realm deleteObjects:all];
+        [realm commitWriteTransaction];
+    }
+}
+
 #pragma mark - 프라이빗 터미널 키 관리
 - (NSString *)getPrivateTerminalKey
 {
@@ -180,6 +194,8 @@
         return [((CMPrivateKey *)rs.lastObject).authPrivateTerminalKey copy];
     return @"";
 }
+
+
 
 #pragma mark - 페어링 유무 저장 
 - (void)setPariringCheck:(BOOL)isParing

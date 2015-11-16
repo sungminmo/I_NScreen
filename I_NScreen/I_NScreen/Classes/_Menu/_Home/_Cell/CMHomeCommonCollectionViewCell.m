@@ -44,6 +44,10 @@
     
         self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"assetId"]];
         
+        NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [data objectForKey:@"publicationRight"]];
+        
+        
+        
         NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];
         [self.posterImageView setImageWithURL:imageUrl];
         

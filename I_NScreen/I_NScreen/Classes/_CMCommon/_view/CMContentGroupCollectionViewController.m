@@ -113,9 +113,9 @@
     
 }
 
-- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
+- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint
 {
-    [self.delegate CMContentGroupCollectionBtnClicked:nSelect WithAssetId:assetId];
+    [self.delegate CMContentGroupCollectionBtnClicked:nSelect WithAssetId:assetId WithSeriesLink:seriesLint];
 }
 
 

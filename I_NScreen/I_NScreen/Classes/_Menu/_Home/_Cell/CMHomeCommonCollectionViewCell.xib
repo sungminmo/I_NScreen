@@ -14,6 +14,12 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="95" height="164"/>
                 <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zK-Gu-2Km">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="164"/>
+                        <connections>
+                            <action selector="onBtnClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JcF-Q4-A3G"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLi-r7-dtZ">
                         <rect key="frame" x="0.0" y="132" width="95" height="32"/>
                         <constraints>
@@ -30,12 +36,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zK-Gu-2Km">
-                        <rect key="frame" x="0.0" y="0.0" width="95" height="164"/>
-                        <connections>
-                            <action selector="onBtnClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JcF-Q4-A3G"/>
-                        </connections>
-                    </button>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_onlytv.png" translatesAutoresizingMaskIntoConstraints="NO" id="oBt-No-TP4">
+                        <rect key="frame" x="63" y="120" width="32" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="oBt-No-TP4" secondAttribute="height" multiplier="16:5" id="q1B-8e-OfM"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -43,10 +49,12 @@
                 <constraint firstItem="3zK-Gu-2Km" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Eo7-02-YkT"/>
                 <constraint firstItem="qLi-r7-dtZ" firstAttribute="top" secondItem="8Gs-y2-3X2" secondAttribute="bottom" id="Kyi-XW-VZI"/>
                 <constraint firstItem="8Gs-y2-3X2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Px6-MI-gKc"/>
+                <constraint firstItem="qLi-r7-dtZ" firstAttribute="top" secondItem="oBt-No-TP4" secondAttribute="bottom" constant="2" id="V0n-Lc-D8L"/>
                 <constraint firstAttribute="trailing" secondItem="3zK-Gu-2Km" secondAttribute="trailing" id="Vfg-sD-YY7"/>
                 <constraint firstItem="8Gs-y2-3X2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WHC-RA-2ej"/>
                 <constraint firstAttribute="bottom" secondItem="3zK-Gu-2Km" secondAttribute="bottom" id="ZFq-C2-fBK"/>
                 <constraint firstItem="qLi-r7-dtZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="c4E-sw-QJp"/>
+                <constraint firstAttribute="trailing" secondItem="oBt-No-TP4" secondAttribute="trailing" id="cTy-O9-xLU"/>
                 <constraint firstItem="3zK-Gu-2Km" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lYh-sP-QrU"/>
                 <constraint firstAttribute="bottom" secondItem="qLi-r7-dtZ" secondAttribute="bottom" id="rC8-TX-bhX"/>
                 <constraint firstAttribute="trailing" secondItem="qLi-r7-dtZ" secondAttribute="trailing" id="rXO-ch-okz"/>
@@ -54,6 +62,7 @@
             </constraints>
             <connections>
                 <outlet property="pDimImageView" destination="SIU-8T-EHH" id="TT2-of-B8Q"/>
+                <outlet property="pOnlyTvImageView" destination="oBt-No-TP4" id="EKv-K3-vbZ"/>
                 <outlet property="posterImageView" destination="8Gs-y2-3X2" id="KXs-mQ-wUD"/>
                 <outlet property="titleLabel" destination="qLi-r7-dtZ" id="tVR-0y-14X"/>
             </connections>
@@ -62,5 +71,6 @@
     </objects>
     <resources>
         <image name="icon_19dim.png" width="94" height="136"/>
+        <image name="icon_onlytv.png" width="43" height="15"/>
     </resources>
 </document>

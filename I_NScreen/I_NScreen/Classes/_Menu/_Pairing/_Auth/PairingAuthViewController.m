@@ -7,7 +7,6 @@
 //
 
 #import "PairingAuthViewController.h"
-#import "PairingFinishViewController.h"
 #import "NSMutableDictionary+Pairing.h"
 #import "UIAlertView+AFNetworking.h"
 #import "CMDBDataManager.h"
@@ -18,6 +17,7 @@
 
 @implementation PairingAuthViewController
 @synthesize pPwStr;
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -128,6 +128,7 @@
             
             // 받아온 terminalKey 값이 private terminalKey가 됨
             PairingFinishViewController *pViewController = [[PairingFinishViewController alloc] initWithNibName:@"PairingFinishViewController" bundle:nil];
+            pViewController.delegate = self;
                         [self.navigationController pushViewController:pViewController animated:YES];
         }
         else
@@ -179,4 +180,17 @@
     
     return YES;
 }
+
+#pragma mark - 델리게이트
+#pragma mark - PairingFinshViewController 델리게이트
+- (void)PairingFinishViewWithTag:(int)nTag
+{
+    switch (nTag) {
+        case PAIRING_FINISH_VIEW_BTN_01:
+        {
+            [self.delegate PairingAuthViewWithTag:PAIRING_FINISH_VIEW_BTN_01];
+        }break;
+    }
+}
+
 @end

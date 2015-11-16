@@ -12,6 +12,7 @@
 
 @interface CMHomeCommonCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, weak) IBOutlet UIImageView *pOnlyTvImageView;
 @property (nonatomic, weak) id <CMHomeCommonCollectionViewCellDelegate>delegate;
 
 - (void)setListData:(NSDictionary*)data WithViewerType:(NSString*)type;

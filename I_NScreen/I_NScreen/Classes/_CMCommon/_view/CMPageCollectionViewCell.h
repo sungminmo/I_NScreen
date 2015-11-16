@@ -18,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *pStickerImageView;
 @property (nonatomic, weak) IBOutlet UILabel *pRankingLbl;
 @property (nonatomic, weak) IBOutlet UIImageView *pDimImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *pOnlyTvImageView; // tv 전용인지 아닌지
 
 @property (nonatomic, strong) NSString  *pAssetIdStr;
 

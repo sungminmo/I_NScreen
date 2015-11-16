@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CMTextField.h"
 #import "CMBaseViewController.h"
+#import "PairingFinishViewController.h"
 
-@interface PairingAuthViewController : CMBaseViewController<UITextFieldDelegate>
+@protocol PairingAuthViewDelegate;
+
+@interface PairingAuthViewController : CMBaseViewController<UITextFieldDelegate, PairingFinishViewDelegate>
 
 @property (nonatomic, strong) IBOutlet CMTextField *pAuthTextField;
 
@@ -20,6 +23,15 @@
 
 @property (nonatomic, strong) NSString *pPwStr;
 
+@property (nonatomic, weak) id <PairingAuthViewDelegate>delegate;
+
 - (IBAction)onBtnClicked:(UIButton *)btn;
+
+@end
+
+@protocol PairingAuthViewDelegate <NSObject>
+
+@optional
+- (void)PairingAuthViewWithTag:(int)nTag;
 
 @end

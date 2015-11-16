@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -40,6 +41,12 @@
                             <constraint firstAttribute="width" constant="24" id="uBa-Zy-1KK"/>
                         </constraints>
                     </view>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_onlytv.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hs0-CU-qqM">
+                        <rect key="frame" x="63" y="126" width="32" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Hs0-CU-qqM" secondAttribute="height" multiplier="16:5" id="sJl-ME-FID"/>
+                        </constraints>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-No-1Ph">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="158"/>
                         <connections>
@@ -54,7 +61,9 @@
                 <constraint firstItem="UxA-No-1Ph" firstAttribute="top" secondItem="cwk-y4-Di4" secondAttribute="top" id="Amf-oP-kvb"/>
                 <constraint firstAttribute="bottom" secondItem="UxA-No-1Ph" secondAttribute="bottom" id="NgK-br-7kc"/>
                 <constraint firstItem="rU8-TY-oAp" firstAttribute="leading" secondItem="cwk-y4-Di4" secondAttribute="leading" id="PPk-Io-vMN"/>
+                <constraint firstItem="rU8-TY-oAp" firstAttribute="top" secondItem="Hs0-CU-qqM" secondAttribute="bottom" constant="2" id="UAo-Fe-bl2"/>
                 <constraint firstItem="Hdm-ei-b0q" firstAttribute="top" secondItem="cwk-y4-Di4" secondAttribute="top" id="UK5-wI-Eva"/>
+                <constraint firstAttribute="trailing" secondItem="Hs0-CU-qqM" secondAttribute="trailing" id="UVL-Am-4Iq"/>
                 <constraint firstItem="T83-On-Hig" firstAttribute="leading" secondItem="cwk-y4-Di4" secondAttribute="leading" id="eT7-j2-PoJ"/>
                 <constraint firstItem="Hdm-ei-b0q" firstAttribute="leading" secondItem="cwk-y4-Di4" secondAttribute="leading" id="fpf-ER-9qU"/>
                 <constraint firstAttribute="trailing" secondItem="rU8-TY-oAp" secondAttribute="trailing" id="k9z-rg-UoK"/>
@@ -68,6 +77,7 @@
             </constraints>
             <size key="customSize" width="229" height="313"/>
             <connections>
+                <outlet property="pOnlyTvImageView" destination="Hs0-CU-qqM" id="zM5-xO-VzZ"/>
                 <outlet property="pStickerImageView" destination="Puc-YT-YSR" id="OlJ-ov-pid"/>
                 <outlet property="pThumImageView" destination="Hdm-ei-b0q" id="K4h-5O-dhV"/>
                 <outlet property="pTitleLbl" destination="rU8-TY-oAp" id="JqK-9F-YWl"/>
@@ -77,5 +87,6 @@
     </objects>
     <resources>
         <image name="genreall_select.png" width="146" height="147"/>
+        <image name="icon_onlytv.png" width="43" height="15"/>
     </resources>
 </document>

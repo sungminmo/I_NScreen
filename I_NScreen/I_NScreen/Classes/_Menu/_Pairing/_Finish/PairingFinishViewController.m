@@ -13,6 +13,7 @@
 @end
 
 @implementation PairingFinishViewController
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,12 +46,12 @@
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    
     switch ([btn tag]) {
         case PAIRING_FINISH_VIEW_BTN_01:
         {
             // 완료
             [self.navigationController popToRootViewControllerAnimated:YES];
+            [self.delegate PairingFinishViewWithTag:PAIRING_FINISH_VIEW_BTN_01];
         }break;
     }
 }
