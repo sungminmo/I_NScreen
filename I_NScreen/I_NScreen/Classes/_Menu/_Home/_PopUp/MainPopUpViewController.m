@@ -26,6 +26,7 @@
 @synthesize delegate;
 @synthesize pDataStr;
 @synthesize nViewTag;
+@synthesize pCategoryId;
 
 
 - (void)didReceiveMemoryWarning {
@@ -236,11 +237,11 @@
 #pragma mark - 4댑스 카테고리 tree 리스트 전문
 - (void)requestWithGetCateforyTree4Depth
 {
-    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:CNM_OPEN_API_MOVIE_CATEGORY_ID WithDepth:@"4" block:^(NSArray *vod, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:self.pCategoryId WithDepth:@"4" block:^(NSArray *vod, NSError *error) {
         
         DDLogError(@"4댑스 카테고리 tree 리스트 = [%@]", vod);
         
-        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:[[CMAppManager sharedInstance] getResponseTreeSplitWithData:vod WithCategoryIdSearch:CNM_OPEN_API_MOVIE_CATEGORY_ID]
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:[[CMAppManager sharedInstance] getResponseTreeSplitWithData:vod WithCategoryIdSearch:self.pCategoryId]
                                                            options:NSJSONWritingPrettyPrinted error:&error];
         self.pFourDepthListJsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         

@@ -357,6 +357,17 @@ extern NSString* const CNM_OPEN_API_INTERFACE_RecommendAssetBySubscriber;
 // getAppInitialize
 extern NSString* const CNM_OPEN_API_INTERFACE_GetAppInitialize;
 
+/// getEventList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetEventList;
+
+// getAssetList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetAssetList;
+
+// getPurchaseLogList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetPurchaseLogList;
+
+///
+
 // 5. Search
 // SearchChannel
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchChannel;

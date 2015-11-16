@@ -41,6 +41,6 @@
 @protocol AdultMainViewDelegate <NSObject>
 
 @optional
-- (void)AdultMainViewWithBtnTag:(int)nTag;
+- (void)AdultMainViewWithBtnTag:(int)nTag WithCategoryId:(NSString *)categoryId;
 
 @end

@@ -46,4 +46,6 @@
 
 - (void)MovieMainViewWithBtnTag:(int)nTag;
 
+- (void)MovieMainViewWithBtnTag:(int)nTag WithCategoryId:(NSString *)categoryId;
+
 @end

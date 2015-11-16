@@ -273,6 +273,21 @@ NSString* const CNM_OPEN_API_INTERFACE_GetContentGroupList = @"getContentGroupLi
 // getAssetInfo
 NSString* const CNM_OPEN_API_INTERFACE_GetAssetInfo = @"getAssetInfo";
 
+
+///
+// getEventList
+NSString* const CNM_OPEN_API_INTERFACE_GetEventList = @"getEventList";
+
+// getAssetList
+NSString* const CNM_OPEN_API_INTERFACE_GetAssetList = @"getAssetList";
+
+// getPurchaseLogList
+NSString* const CNM_OPEN_API_INTERFACE_GetPurchaseLogList = @"getPurchaseLogList";
+
+// 
+///
+
+
 // 5. Search
 // SearchChannel
 NSString* const CNM_OPEN_API_INTERFACE_SearchChannel = @"SearchChannel";

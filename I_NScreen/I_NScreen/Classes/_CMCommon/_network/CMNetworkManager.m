@@ -822,7 +822,6 @@
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
-                           CNM_OPEN_API_TRANSACTION_ID_KEY : @"135",
                            CNM_OPEN_API_CATEGORY_PROFILE_KEY : @"1",
                            @"categoryId" : @"0",
                            @"depth" : @"2",
@@ -854,7 +853,7 @@
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
-                           CNM_OPEN_API_TRANSACTION_ID_KEY : @"135",
+//                           CNM_OPEN_API_TRANSACTION_ID_KEY : @"135",
                            CNM_OPEN_API_CATEGORY_PROFILE_KEY : @"4",
                            @"categoryId" : categoryId,
                            @"depth" : depth,
@@ -931,6 +930,70 @@
     [self updateActivityIndicator:task];
     return task;
 }
+
+/// 이벤트 카테고리 
+- (NSURLSessionDataTask *)vodGetEventListCompletion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetEventList];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PRIVATE_TERMINAL_KEY
+                           };
+    
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    
+    [self updateActivityIndicator:tesk];
+    
+    return tesk;
+}
+
+// 베너
+- (NSURLSessionDataTask *)vodGetAssetListWithCategoryId:(NSString *)categoryId WithAssetProfile:(NSString *)assetProfile completion:(void (^)(NSArray *vod, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetAssetList];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PRIVATE_TERMINAL_KEY,
+                           @"categoryId" : categoryId,
+                           @"assetProfile" : assetProfile
+                           };
+    
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    
+    [self updateActivityIndicator:tesk];
+    
+    return tesk;
+}
+
+// vod 구매 목록
+
+
+///
+
 
 @end
 

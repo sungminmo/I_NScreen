@@ -60,4 +60,14 @@
     return [[CMNetworkManager sharedInstance] vodGetAppInitializeCompletion:block];
 }
 
++ (NSURLSessionDataTask *)vodGetEventListCompletion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetEventListCompletion:block];
+}
+
++ (NSURLSessionDataTask *)vodGetAssetListWithCategoryId:(NSString *)categoryId WithAssetProfile:(NSString *)assetProfile completion:(void (^)(NSArray *vod, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetAssetInfoWithAssetId:categoryId WithAssetProfile:assetProfile block:block];
+}
+
 @end

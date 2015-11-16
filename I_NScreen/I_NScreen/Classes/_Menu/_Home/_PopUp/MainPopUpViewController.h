@@ -22,6 +22,8 @@
 
 @property (nonatomic, strong) NSString *pDataStr;
 
+@property (nonatomic, strong) NSString *pCategoryId;
+
 @property (nonatomic) int nViewTag;
 
 @property (nonatomic, weak) id<MainPopUpViewDelegate>delegate;

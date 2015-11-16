@@ -40,6 +40,7 @@
 @protocol AniKidsMainViewDelegate <NSObject>
 
 @optional
-- (void)AniKidsMainViewWithBtnTag:(int)nTag;
+//- (void)AniKidsMainViewWithBtnTag:(int)nTag;
+- (void)AniKidsMainViewWithBtnTag:(int)nTag WithCategoryId:(NSString *)categoryId;
 
 @end

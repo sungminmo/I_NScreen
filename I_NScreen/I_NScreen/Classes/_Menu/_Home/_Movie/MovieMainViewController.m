@@ -17,6 +17,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 @property (nonatomic, strong) NSMutableArray *pThreeDepthWeeklyDataArr; // 3댑스에 주간 인기 순위 데이터 저장
 @property (nonatomic, strong) NSMutableArray *pThreeDepthElseDataArr;   // 3댑스에 그외 데이터 저장
 
+@property (nonatomic, strong) NSString *pCategoryId;
 //
 @end
 
@@ -67,7 +68,8 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     switch ([btn tag]) {
         case MOVIE_MAIN_VIEW_BTN_01:
         {
-            [self.delegate MovieMainViewWithBtnTag:MOVIE_MAIN_VIEW_BTN_01];
+//            [self.delegate MovieMainViewWithBtnTag:MOVIE_MAIN_VIEW_BTN_01];
+            [self.delegate MovieMainViewWithBtnTag:MOVIE_MAIN_VIEW_BTN_01 WithCategoryId:self.pCategoryId];
         }break;
         case MOVIE_MAIN_VIEW_BTN_02:
         {
@@ -115,7 +117,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         
         for ( NSDictionary *dic in [[[vod objectAtIndex:0] objectForKey:@"categoryList"] objectForKey:@"category"] )
         {
-            if ( [[dic objectForKey:@"description"] isEqualToString:@"movie"] )
+            if ( [[dic objectForKey:@"description"] isEqualToString:@"mobileTV_01"] )
             {
                 sCategoryId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"categoryId"]];
             }
@@ -130,6 +132,8 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 #pragma mark - 2탭스 카테고리 tree 리스트 전문
 - (void)requestWithGetCategoryTree2DepthWithCategoryId:(NSString *)categoryId
 {
+    self.pCategoryId = [NSString stringWithFormat:@"%@", categoryId];
+    
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCategoryTreeWithCategoryId:categoryId WithDepth:@"2" block:^(NSArray *vod, NSError *error) {
 
         DDLogError(@"2탭스 카테고리 tree 리스트 = [%@]", vod);
@@ -283,7 +287,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 {
     [self.pThreeDepthElseDataArr removeAllObjects];
     
-    if ( [viewerType isEqualToString:@"30"] )
+    if ( [viewerType isEqualToString:@"20"] || [viewerType isEqualToString:@"30"] || [viewerType isEqualToString:@"1031"] )
     {
         // 카테고리형 포스터 리스트 getContentGroupList
         NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:@"2" WithCategoryId:categoryId completion:^(NSArray *vod, NSError *error) {
@@ -299,7 +303,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     }
-    else if ( [viewerType isEqualToString:@"41"] )
+    if ( [viewerType isEqualToString:@"41"] )
     {
         // 묶음 리스트 getBundleProductList
         NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetBundleProductListWithProductProfile:@"1" completion:^(NSArray *vod, NSError *error) {
@@ -315,7 +319,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     }
-    else if ( [viewerType isEqualToString:@"1021"] )
+    if ( [viewerType isEqualToString:@"1021"] || [viewerType isEqualToString:@"60"] )
     {
         // 마니아 추천 vod getAssetList
         NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetInfoWithAssetId:categoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
@@ -331,23 +335,66 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     }
-    else if ( [viewerType isEqualToString:@"1311"] )
+    if ( [viewerType isEqualToString:@"1311"] )
     {
         // 맞춤형 추천 리스트 recommendAssetBySubscriber
         NSURLSessionDataTask *tesk = [NSMutableDictionary vodRecommendAssetBySubscriberWithAssetProfile:@"7" block:^(NSArray *vod, NSError *error) {
            
             DDLogError(@"맞춤형 추천 리스트 = [%@]", vod);
             // 샘플 데이터 없음
+            NSArray* recommend = (NSArray*)vod[0][@"assetList"][@"asset"];
+            
+            [self.pThreeDepthElseDataArr addObjectsFromArray:recommend];
+            
+            [self.pCollectionView22 reloadData];
         }];
         
         [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     
     }
-    else
+    if ( [viewerType isEqualToString:@"50"] )
     {
-        // !! TEST BJK error 테스트
-       [SIAlertView alert:@"에러" message:@"없는 viewerType 입니다." button:@"확인"];
+        // 이벤트
+        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetEventListCompletion:^(NSArray *pairing, NSError *error) {
+            
+            DDLogError(@"이벤트 = [%@]", pairing);
+            NSArray* event = (NSArray*)pairing[0][@"eventList"][@"event"];
+            
+            [self.pThreeDepthElseDataArr addObjectsFromArray:event];
+            
+            [self.pCollectionView22 reloadData];
+        }];
+        
+        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     }
+    if ( [viewerType isEqualToString:@"60"] || [viewerType isEqualToString:@"1021"] )
+    {
+        // 베너 md 추천
+        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetListWithCategoryId:self.pCategoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
+            
+            DDLogError(@"베너 = [%@]", vod);
+            
+            NSArray* banner = (NSArray*)vod[0][@"assetList"][@"asset"];
+            
+            [self.pThreeDepthElseDataArr addObjectsFromArray:banner];
+            
+            [self.pCollectionView22 reloadData];
+        }];
+        
+        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    }
+    
+//    if ( [viewerType isEqualToString:@"1051"] )
+//    {
+//        // 종료 이벤트
+//        
+//    }
+    // vod 구매목록, vod 시청목록 안했음,,,연관추천(구매)문서에 없음....연관 추천(가입자)문서에 없음 종료 이벤트 안함
+//    else
+//    {
+//        // !! TEST BJK error 테스트
+//       [SIAlertView alert:@"에러" message:@"없는 viewerType 입니다." button:@"확인"];
+//    }
 }
 
 #pragma mark - UICollectionViewDelegate

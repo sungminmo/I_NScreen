@@ -42,6 +42,6 @@
 @protocol TVReplayViewDelegate <NSObject>
 
 @optional
-- (void)TVReplayViewWithBtnTag:(int)nTag;
+- (void)TVReplayViewWithBtnTag:(int)nTag WithCategoryId:(NSString *)categoryId;
 
 @end
