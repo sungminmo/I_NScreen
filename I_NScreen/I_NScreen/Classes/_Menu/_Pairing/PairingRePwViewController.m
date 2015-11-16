@@ -105,9 +105,53 @@
         }
         else
         {
+            
             return NO;
         }
     }
+    else
+    {
+        if ( [string rangeOfString:@"-"].location != NSNotFound ||
+            [string rangeOfString:@"/"].location != NSNotFound ||
+            [string rangeOfString:@":"].location != NSNotFound ||
+            [string rangeOfString:@";"].location != NSNotFound ||
+            [string rangeOfString:@"("].location != NSNotFound ||
+            [string rangeOfString:@")"].location != NSNotFound ||
+            [string rangeOfString:@"₩"].location != NSNotFound ||
+            [string rangeOfString:@"&"].location != NSNotFound ||
+            [string rangeOfString:@"@"].location != NSNotFound ||
+            [string rangeOfString:@"\""].location != NSNotFound ||
+            [string rangeOfString:@"."].location != NSNotFound ||
+            [string rangeOfString:@","].location != NSNotFound ||
+            [string rangeOfString:@"?"].location != NSNotFound ||
+            [string rangeOfString:@"!"].location != NSNotFound ||
+            [string rangeOfString:@"'"].location != NSNotFound ||
+            [string rangeOfString:@"["].location != NSNotFound ||
+            [string rangeOfString:@"]"].location != NSNotFound ||
+            [string rangeOfString:@"{"].location != NSNotFound ||
+            [string rangeOfString:@"}"].location != NSNotFound ||
+            [string rangeOfString:@"#"].location != NSNotFound ||
+            [string rangeOfString:@"%"].location != NSNotFound ||
+            [string rangeOfString:@"^"].location != NSNotFound ||
+            [string rangeOfString:@"*"].location != NSNotFound ||
+            [string rangeOfString:@"+"].location != NSNotFound ||
+            [string rangeOfString:@"="].location != NSNotFound ||
+            [string rangeOfString:@"-"].location != NSNotFound ||
+            [string rangeOfString:@"_"].location != NSNotFound ||
+            [string rangeOfString:@"\\"].location != NSNotFound ||
+            [string rangeOfString:@"|"].location != NSNotFound ||
+            [string rangeOfString:@"~"].location != NSNotFound ||
+            [string rangeOfString:@"<"].location != NSNotFound ||
+            [string rangeOfString:@">"].location != NSNotFound ||
+            [string rangeOfString:@"$"].location != NSNotFound )
+        {
+            NSLog(@"입력 되었으면");
+            
+            return NO;
+        }
+        
+    }
+
     
     return YES;
 }

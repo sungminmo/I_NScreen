@@ -100,7 +100,9 @@
         }
         else
         {
-            [[CMAppManager sharedInstance] removeInfoDataKey:CNM_OPEN_API_UUID_KEY];
+            NSString *sMessage = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"errorString"]];
+//            [[CMAppManager sharedInstance] removeInfoDataKey:CNM_OPEN_API_UUID_KEY];
+            [SIAlertView alert:@"error" message:sMessage button:nil];
         }
         
     }];
@@ -128,7 +130,11 @@
             PairingFinishViewController *pViewController = [[PairingFinishViewController alloc] initWithNibName:@"PairingFinishViewController" bundle:nil];
                         [self.navigationController pushViewController:pViewController animated:YES];
         }
-        
+        else
+        {
+            NSString *sMessage = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"errorString"]];
+            [SIAlertView alert:@"error" message:sMessage button:nil];
+        }
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -156,4 +162,21 @@
     [manager setPariringCheck:YES];
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if(textField.text.length > 5)  // 6 자리 까지 입력 가능
+    {
+        if([string length] == 0)
+        {
+            // 뒤로가기 버튼 상태일때는 지우기가 가능해야함
+        }
+        else
+        {
+            
+            return NO;
+        }
+    }
+    
+    return YES;
+}
 @end

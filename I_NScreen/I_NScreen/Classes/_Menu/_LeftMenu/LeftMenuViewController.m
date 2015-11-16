@@ -235,7 +235,7 @@ static NSInteger ivTag = 1212;
        
         if ( [manager getPairingCheck] == NO )
         {
-            [SIAlertView alert:@"리모컨 미 지원 상품" message:@"고객님의 STB에서는 리모컨 기능을\n지원하지 않습니다."];
+            [SIAlertView alert:@"리모컨 미 지원 상품" message:@"리모콘 기능은 HD/PVR 셋탑박스와 연동 시에만\n사용하실 수 있습니다."];
             return;
         }
         else
@@ -245,7 +245,7 @@ static NSInteger ivTag = 1212;
             if ( !([[manager getSetTopBoxKind] isEqualToString:@"PVR"] ||
                    [[manager getSetTopBoxKind] isEqualToString:@"HD"] ))
             {
-                [SIAlertView alert:@"리모컨 미 지원 상품" message:@"고객님의 STB에서는 리모컨 기능을\n지원하지 않습니다."];
+                [SIAlertView alert:@"리모컨 미 지원 상품" message:@"리모콘 기능은 HD/PVR 셋탑박스와 연동 시에만\n사용하실 수 있습니다."];
                 return;
             }
         }
@@ -256,14 +256,14 @@ static NSInteger ivTag = 1212;
 
         if ( [manager getPairingCheck] == NO )
         {
-            [SIAlertView alert:@"안내" message:@"녹화는 PVR STB에서만 제공되는 기능입니다. 가입상품을 확인해주세요."];
+            [SIAlertView alert:@"녹화 미 지원 상품" message:@"녹화 기능은 PVR 셋탑박스와 연동 시에만 사용하실 수 있습니다."];
              return;
         }
         else
         {
             if ( ![[manager getSetTopBoxKind] isEqualToString:@"PVR"] )
             {
-                [SIAlertView alert:@"안내" message:@"녹화는 PVR STB에서만 제공되는 기능입니다. 가입상품을 확인해주세요."];
+                [SIAlertView alert:@"녹화 미 지원 상품" message:@"녹화 기능은 PVR 셋탑박스와 연동 시에만 사용하실 수 있습니다."];
                 return;
             }
         }
@@ -273,7 +273,7 @@ static NSInteger ivTag = 1212;
     {
         if ( [manager getPairingCheck] == NO )
         {
-            [SIAlertView alert:@"안내" message:@"MY C&M은 셋탑박스 연동 후에서만 제공되는 기능입니다."];
+            [SIAlertView alert:@"마이 C&M 미 지원 상품" message:@"마이 C&M은 셋탑박스와 연동 시에만\n사용하실 수 있습니다."];
             return;
         }
     }

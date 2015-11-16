@@ -10,6 +10,8 @@
 #import "PairingAuthViewController.h"
 #import "FXKeychain.h"
 
+#define LEGAL_TEXT	@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+
 @interface PairingMainViewController ()
 @end
 
@@ -91,7 +93,6 @@
     }
 }
 
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if(textField.text.length > 19)  // 20 자리 까지 입력 가능
@@ -102,8 +103,51 @@
         }
         else
         {
+            
             return NO;
         }
+    }
+    else
+    {
+        if ( [string rangeOfString:@"-"].location != NSNotFound ||
+            [string rangeOfString:@"/"].location != NSNotFound ||
+            [string rangeOfString:@":"].location != NSNotFound ||
+            [string rangeOfString:@";"].location != NSNotFound ||
+            [string rangeOfString:@"("].location != NSNotFound ||
+            [string rangeOfString:@")"].location != NSNotFound ||
+            [string rangeOfString:@"₩"].location != NSNotFound ||
+            [string rangeOfString:@"&"].location != NSNotFound ||
+            [string rangeOfString:@"@"].location != NSNotFound ||
+            [string rangeOfString:@"\""].location != NSNotFound ||
+            [string rangeOfString:@"."].location != NSNotFound ||
+            [string rangeOfString:@","].location != NSNotFound ||
+            [string rangeOfString:@"?"].location != NSNotFound ||
+            [string rangeOfString:@"!"].location != NSNotFound ||
+            [string rangeOfString:@"'"].location != NSNotFound ||
+            [string rangeOfString:@"["].location != NSNotFound ||
+            [string rangeOfString:@"]"].location != NSNotFound ||
+            [string rangeOfString:@"{"].location != NSNotFound ||
+            [string rangeOfString:@"}"].location != NSNotFound ||
+            [string rangeOfString:@"#"].location != NSNotFound ||
+            [string rangeOfString:@"%"].location != NSNotFound ||
+            [string rangeOfString:@"^"].location != NSNotFound ||
+            [string rangeOfString:@"*"].location != NSNotFound ||
+            [string rangeOfString:@"+"].location != NSNotFound ||
+            [string rangeOfString:@"="].location != NSNotFound ||
+            [string rangeOfString:@"-"].location != NSNotFound ||
+            [string rangeOfString:@"_"].location != NSNotFound ||
+            [string rangeOfString:@"\\"].location != NSNotFound ||
+            [string rangeOfString:@"|"].location != NSNotFound ||
+            [string rangeOfString:@"~"].location != NSNotFound ||
+            [string rangeOfString:@"<"].location != NSNotFound ||
+            [string rangeOfString:@">"].location != NSNotFound ||
+            [string rangeOfString:@"$"].location != NSNotFound )
+        {
+            NSLog(@"입력 되었으면");
+            
+            return NO;
+        }
+        
     }
     
     return YES;

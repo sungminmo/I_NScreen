@@ -394,7 +394,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 //    {
 //        // !! TEST BJK error 테스트
 //       [SIAlertView alert:@"에러" message:@"없는 viewerType 입니다." button:@"확인"];
-//    }
+//    }ㄴ
 }
 
 #pragma mark - UICollectionViewDelegate
