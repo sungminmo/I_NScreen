@@ -412,6 +412,30 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     return nTotalCount;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSize size;
+    
+    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
+    {
+        size.width = 95;
+        size.height = 158;
+    }
+    else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
+    {
+        size.width = 85;
+        size.height = 138;
+    }
+    else
+    {
+        size.width = 70;
+        size.height = 113;
+    }
+    
+    
+    return size;
+}
+
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CMHomeCommonCollectionViewCell* pCell = (CMHomeCommonCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCell forIndexPath:indexPath];

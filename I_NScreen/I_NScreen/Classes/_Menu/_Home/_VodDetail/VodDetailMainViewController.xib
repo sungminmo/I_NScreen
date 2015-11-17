@@ -521,7 +521,7 @@
                     </variation>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_onlytv.png" translatesAutoresizingMaskIntoConstraints="NO" id="c6F-gA-hq5">
-                    <rect key="frame" x="216" y="183" width="28" height="10"/>
+                    <rect key="frame" x="216" y="182" width="41" height="14"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="28" id="lA9-KX-sz2"/>
