@@ -39,7 +39,7 @@
                             <constraint firstAttribute="width" secondItem="rAT-di-knA" secondAttribute="height" multiplier="16:5" id="Nya-rY-oE9"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtE-iU-7yY">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtE-iU-7yY">
                         <rect key="frame" x="0.0" y="0.0" width="24" height="27"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_rank.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-EA-Al5">
@@ -108,6 +108,7 @@
                 <outlet property="pDimImageView" destination="tdt-vw-DQD" id="G2v-xL-HPr"/>
                 <outlet property="pOnlyTvImageView" destination="kDv-4s-vhr" id="bOg-9M-xi4"/>
                 <outlet property="pRankingLbl" destination="sjg-0M-53e" id="cYO-c4-m3r"/>
+                <outlet property="pRankingView" destination="QtE-iU-7yY" id="fu8-kk-jlq"/>
                 <outlet property="pStickerImageView" destination="rAT-di-knA" id="4VQ-Zh-6HI"/>
                 <outlet property="pThumImageView" destination="hMa-kw-bgp" id="z7C-Wv-7HB"/>
                 <outlet property="pTitleLbl" destination="WDF-9Q-zeC" id="Rb3-fX-x73"/>

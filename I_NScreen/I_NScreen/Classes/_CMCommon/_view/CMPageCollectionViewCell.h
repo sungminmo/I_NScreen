@@ -20,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *pDimImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *pOnlyTvImageView; // tv 전용인지 아닌지
 @property (nonatomic) BOOL isAdultCheck;      // 성인인지 아닌지
+@property (nonatomic, weak) IBOutlet UIView *pRankingView;
 
 @property (nonatomic, strong) NSString  *pAssetIdStr;
 

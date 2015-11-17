@@ -657,7 +657,7 @@
             [nDic setObject:[dic objectForKey:@"assetHot"] forKey:@"assetHot"];
             [nDic setObject:[dic objectForKey:@"categoryId"] forKey:@"categoryId"];
             [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
-            [nDic setObject:[dic objectForKey:@"mobilePublicationRight"] forKey:@"publicationRight"];
+            [nDic setObject:[dic objectForKey:@"mobilePublicationRight"] forKey:@"mobilePublicationRight"];
             // 수정
             [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"assetId"];
             
@@ -733,7 +733,7 @@
             [nDic setObject:[dic objectForKey:@"contentGroupId"] forKey:@"contentGroupId"];
             
             [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"assetId"];
-            [nDic setObject:[dic objectForKey:@"mobilePublicationRight"] forKey:@"publicationRight"];
+            [nDic setObject:[dic objectForKey:@"mobilePublicationRight"] forKey:@"mobilePublicationRight"];
             
 //            [self.pThisMonthRecommendArr addObject:nDic];
             [pArr addObject:nDic];
