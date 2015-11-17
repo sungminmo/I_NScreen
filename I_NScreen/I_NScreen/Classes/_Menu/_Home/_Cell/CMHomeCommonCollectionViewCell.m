@@ -46,6 +46,17 @@
         
         NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [data objectForKey:@"publicationRight"]];
         
+        // tv 전용인지 아닌지
+        if ( [sPublicationRight isEqualToString:@"2"] )
+        {
+            // tv모바일
+            self.pOnlyTvImageView.hidden = YES;
+        }
+        else
+        {
+            // tv
+            self.pOnlyTvImageView.hidden = NO;
+        }
         
         
         NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];

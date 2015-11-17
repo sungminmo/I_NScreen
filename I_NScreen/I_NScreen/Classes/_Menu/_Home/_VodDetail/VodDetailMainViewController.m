@@ -556,6 +556,16 @@
     NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"publicationRight"]];
     NSString *sPreviewPeriod = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"previewPeriod"]];
     
+    if ( [sPublicationRight isEqualToString:@"2"] )
+    {
+        // tv 모바일
+        self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_mobile.png"];
+    }
+    else
+    {
+        // tv 전용
+        self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_tv.png"];
+    }
     
     if ( [sSeriesLink isEqualToString:@"0"] )
     {
