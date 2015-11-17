@@ -366,6 +366,8 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetAssetList;
 // getPurchaseLogList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetPurchaseLogList;
 
+// getSeriesAssetList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetSeriesAssetList;
 ///
 
 // 5. Search

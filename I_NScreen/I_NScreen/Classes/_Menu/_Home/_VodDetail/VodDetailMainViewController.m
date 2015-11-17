@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSMutableDictionary *pAssetInfoDic;
 @property (nonatomic, strong) NSMutableArray *pContentGroupArr; // 연관 컨텐츠 그룹
 @property (nonatomic, strong) NSMutableDictionary *pDrmDic;
+@property (nonatomic, strong) NSMutableArray *pSeriesDataArr;
 
 @end
 
@@ -68,6 +69,7 @@
     self.pAssetInfoDic = [[NSMutableDictionary alloc] init];
     self.pContentGroupArr = [[NSMutableArray alloc] init];
     self.pDrmDic = [[NSMutableDictionary alloc] init];
+    self.pSeriesDataArr = [[NSMutableArray alloc] init];
 }
 
 #pragma mark - 액션 이벤트
@@ -201,7 +203,11 @@
     [self.pBodyView setContentSize:CGSizeMake(width, posY)];
     [self.view updateConstraintsIfNeeded];
     
+    
+    
     self.pContentTextView23.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+    
+    
 }
 
 #pragma mark - 시리즈이고 구매한 사용자
@@ -229,6 +235,8 @@
     [self.view updateConstraintsIfNeeded];
     
     self.pContentTextView24.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+    
+  
 }
 
 #pragma mark  - 시리즈 이고 tv
@@ -256,7 +264,10 @@
     [self.view updateConstraintsIfNeeded];
     
     self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+    
+    self.pCommentLbl25.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productName"]];
 }
+
 
 #pragma mark - 단일 이고 TV시청
 - (void)setViewInit26
@@ -283,7 +294,9 @@
     [self.view updateConstraintsIfNeeded];
     
     self.pContentTextView26.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+    self.pCommentLbl26.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productName"]];
 }
+
 
 #pragma mark - 배너
 #pragma mark - 배너 페이지 컨트롤 초기화
@@ -369,6 +382,164 @@
 }
 
 #pragma mark - 전문
+- (void)requestWithGetSeriesAssetListWithViewTag:(int)nTag
+{
+    NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"seriesId"]];
+    NSString *sCategoryId = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"categoryId"]];
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetSeriesAssetListWithSeriesId:sSeriesId WithCategoryId:sCategoryId WithAssetProfile:@"3" completion:^(NSArray *vod, NSError *error) {
+        
+        DDLogError(@"시리즈 어셋 = [%@]", vod);
+        
+        if ( [vod count] == 0 )
+            return;
+        
+        [self.pSeriesDataArr removeAllObjects];
+        [self.pSeriesDataArr setArray:[[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"]];
+        
+        NSString *sSeriesEndIndex = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"seriesEndIndex"]];
+        NSString *sTotalCount = [NSString stringWithFormat:@"%@", [[vod objectAtIndex:0] objectForKey:@"totalAssetCount"]];
+        
+        int nSeriesEndIndex = [sSeriesEndIndex intValue];
+        int nTotalCount = [sTotalCount intValue];
+        
+        if ( [sSeriesEndIndex isEqualToString:sTotalCount] )
+        {
+            // 같으면 종료된 시리즈 1회부터 보여줌
+            
+        }
+        else
+        {
+            // 다르면 종료되지 않음 최신회차 보여줌
+            
+        }
+        
+        [self createSeriesButtonWithTag:nTag WithTotalCount:nTotalCount];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+- (void)onSeriesBtnClicked:(UIButton *)btn
+{
+    NSLog(@"btn tag = [%d]", (int)[btn tag]);
+    
+    NSString *sIndex = [NSString stringWithFormat:@"%d", (int)[btn tag]];
+    
+    for ( NSDictionary *dic in self.pSeriesDataArr )
+    {
+        if  ( [[dic objectForKey:@"seriesCurIndex"] isEqualToString:sIndex] )
+        {
+            self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetId"]];
+            [self requestWithAssetInfo];
+            [self requestWithRecommendContentGroupByAssetId];
+        }
+    }
+}
+
+- (void)createSeriesButtonWithTag:(int)nTag WithTotalCount:(int)nTotalCount
+{
+    
+    NSString *sSeriesCurIndex = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"seriesCurIndex"]];
+    int nSeriesCurIndex = [sSeriesCurIndex intValue];
+    
+    switch (nTag) {
+        case 23:
+        {
+            for ( id button in [self.pSeriesScrollView23 subviews] )
+            {
+                if ( [button isKindOfClass:[UIButton class]] )
+                {
+                    [button removeFromSuperview];
+                }
+            }
+            
+            int nPosX = 0;
+            
+            for ( int i = 0; i < nTotalCount; i++ )
+            {
+                nPosX = i * 64;
+                UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [pBtn setTitle:[NSString stringWithFormat:@"%d회", i+1] forState:UIControlStateNormal];
+                [pBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+                if ( i + 1 == nSeriesCurIndex )
+                {
+                    // 선택 버튼
+                    [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
+                }
+                pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
+                pBtn.tag = i + 1;
+                [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+                [self.pSeriesScrollView23 addSubview:pBtn];
+            }
+            self.pSeriesScrollView23.contentSize = CGSizeMake((nTotalCount - 1) * 64 + 47, CGRectGetHeight(self.pSeriesScrollView23.frame));
+        }break;
+        case 24:
+        {
+            for ( id button in [self.pSeriesScrollView24 subviews] )
+            {
+                if ( [button isKindOfClass:[UIButton class]] )
+                {
+                    [button removeFromSuperview];
+                }
+            }
+            
+            int nPosX = 0;
+            
+            for ( int i = 0; i < nTotalCount; i++ )
+            {
+                nPosX = i * 64;
+                UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [pBtn setTitle:[NSString stringWithFormat:@"%d회", i+1] forState:UIControlStateNormal];
+                [pBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+                if ( i + 1 == nSeriesCurIndex )
+                {
+                    // 선택 버튼
+                    [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
+                }
+                pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
+                pBtn.tag = i;
+                [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+                [self.pSeriesScrollView24 addSubview:pBtn];
+            }
+            
+            self.pSeriesScrollView24.contentSize = CGSizeMake((nTotalCount - 1) * 64 + 47, CGRectGetHeight(self.pSeriesScrollView24.frame));
+
+        }break;
+        case 25:
+        {
+            for ( id button in [self.pSeriesScrollView25 subviews] )
+            {
+                if ( [button isKindOfClass:[UIButton class]] )
+                {
+                    [button removeFromSuperview];
+                }
+            }
+            
+            int nPosX = 0;
+            
+            for ( int i = 0; i < nTotalCount; i++ )
+            {
+                nPosX = i * 64;
+                UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [pBtn setTitle:[NSString stringWithFormat:@"%d회", i+1] forState:UIControlStateNormal];
+                [pBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+                if ( i + 1 == nSeriesCurIndex )
+                {
+                    // 선택 버튼
+                    [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
+                }
+                pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
+                pBtn.tag = i;
+                [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+                [self.pSeriesScrollView25 addSubview:pBtn];
+            }
+
+            self.pSeriesScrollView25.contentSize = CGSizeMake((nTotalCount - 1) * 64 + 47, CGRectGetHeight(self.pSeriesScrollView25.frame));
+        }break;
+    }
+}
+
 #pragma mark - vod 상세
 - (void)requestWithAssetInfo
 {
@@ -559,13 +730,43 @@
     if ( [sPublicationRight isEqualToString:@"2"] )
     {
         // tv 모바일
-        self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_mobile.png"];
+        self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_tv.png"];
+        self.pEquipmentImageView02.image = [UIImage imageNamed:@"icon_mobile.png"];
     }
     else
     {
         // tv 전용
         self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_tv.png"];
+        self.pEquipmentImageView02.image = [UIImage imageNamed:@""];
     }
+    
+    // 러닝 타임
+    NSString *sRunningTime = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"runningTime"]];
+    
+    NSArray *runningTimeArr = [sRunningTime componentsSeparatedByString:@":"];
+    
+    NSString *sRunningHH = @""; // 시
+    NSString *sRunningMM = @""; // 분
+    int nRunningHH = 0;
+    int nRunningMM = 0;
+    int nTotalMM = 0;
+    
+    if ( [runningTimeArr count] == 2 )
+    {
+        sRunningHH = [NSString stringWithFormat:@"%@", [runningTimeArr objectAtIndex:0]];
+        sRunningMM = [NSString stringWithFormat:@"%@", [runningTimeArr objectAtIndex:1]];
+        
+        nRunningHH = [sRunningHH intValue];
+        nRunningMM = [sRunningMM intValue];
+        
+        nTotalMM = nRunningHH * 60 + nRunningMM;
+    }
+    
+    self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"genre"], nTotalMM];
+    
+    
+    
+    self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"director"]];
     
     if ( [sSeriesLink isEqualToString:@"0"] )
     {
@@ -597,10 +798,12 @@
     }
     else
     {
+        int nTag = 0;
         // 시리즈다
         if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
         {
             // 구매안한 사용자
+            nTag = 23;
             [self setViewInit23];
             if ( [sPreviewPeriod isEqualToString:@"0"] )
             {
@@ -614,45 +817,23 @@
             
             if ( [sPublicationRight isEqualToString:@"2"] )
             {
+                nTag = 24;
                 // 모바일 시청 가능
                 [self setViewInit24];
                 
             }
             else
             {
+                nTag = 25;
                 // 1 tv 시청 가능
                 [self setViewInit25];
             }
         }
+        
+        [self requestWithGetSeriesAssetListWithViewTag:nTag];
     }
     
-    // 러닝 타임
-    NSString *sRunningTime = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"runningTime"]];
-
-    NSArray *runningTimeArr = [sRunningTime componentsSeparatedByString:@":"];
     
-    NSString *sRunningHH = @""; // 시
-    NSString *sRunningMM = @""; // 분
-    int nRunningHH = 0;
-    int nRunningMM = 0;
-    int nTotalMM = 0;
-    
-    if ( [runningTimeArr count] == 2 )
-    {
-        sRunningHH = [NSString stringWithFormat:@"%@", [runningTimeArr objectAtIndex:0]];
-        sRunningMM = [NSString stringWithFormat:@"%@", [runningTimeArr objectAtIndex:1]];
-        
-        nRunningHH = [sRunningHH intValue];
-        nRunningMM = [sRunningMM intValue];
-        
-        nTotalMM = nRunningHH * 60 + nRunningMM;
-    }
-    
-    self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"genre"], nTotalMM];
-    
-    
-    
-    self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"director"]];
     
     // 시청기간 다시 봐야 함
 //    NSString *sSeeDay = [NSString stringWithFormat:@"%@", [[[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"viewablePeriod"]];

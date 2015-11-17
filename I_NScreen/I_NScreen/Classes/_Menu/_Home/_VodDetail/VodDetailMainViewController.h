@@ -72,6 +72,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *pRatingImageView;   // 시청 등급 이미지
 @property (nonatomic, strong) IBOutlet UIImageView *pResolutionImageView;   // hd sd 해상도
 @property (nonatomic, strong) IBOutlet UIImageView *pEquipmentImageView;    // 시청 기기
+@property (nonatomic, strong) IBOutlet UIImageView *pEquipmentImageView02;
 
 @property (nonatomic, strong) IBOutlet UILabel *pTitleLbl;  // 이름
 @property (nonatomic, strong) IBOutlet UILabel *pPriceLbl;  // 가격

@@ -124,6 +124,8 @@
 // 이벤트
 - (NSURLSessionDataTask *)vodGetEventListCompletion:(void (^)(NSArray *pairing, NSError *error))block;
 
+- (NSURLSessionDataTask *)vodGetSeriesAssetListWithSeriesId:(NSString *)seriesId WithCategoryId:(NSString *)categoryId WithAssetProfile:(NSString *)assetProfile completion:(void (^)(NSArray *vod, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( PAIRING )

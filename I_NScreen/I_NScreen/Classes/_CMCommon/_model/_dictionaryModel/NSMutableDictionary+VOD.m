@@ -70,4 +70,9 @@
     return [[CMNetworkManager sharedInstance] vodGetAssetInfoWithAssetId:categoryId WithAssetProfile:assetProfile block:block];
 }
 
++ (NSURLSessionDataTask *)vodGetSeriesAssetListWithSeriesId:(NSString *)seriesId WithCategoryId:(NSString *)categoryId WithAssetProfile:(NSString *)assetProfile completion:(void (^)(NSArray *vod, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetSeriesAssetListWithSeriesId:seriesId WithCategoryId:categoryId WithAssetProfile:assetProfile completion:block];
+}
+
 @end

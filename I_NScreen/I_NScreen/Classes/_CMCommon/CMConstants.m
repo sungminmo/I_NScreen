@@ -284,6 +284,9 @@ NSString* const CNM_OPEN_API_INTERFACE_GetAssetList = @"getAssetList";
 // getPurchaseLogList
 NSString* const CNM_OPEN_API_INTERFACE_GetPurchaseLogList = @"getPurchaseLogList";
 
+
+// getSeriesAssetList
+NSString* const CNM_OPEN_API_INTERFACE_GetSeriesAssetList = @"getSeriesAssetList";
 // 
 ///
 
