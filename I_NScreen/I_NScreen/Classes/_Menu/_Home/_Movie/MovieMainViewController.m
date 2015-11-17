@@ -287,102 +287,116 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 {
     [self.pThreeDepthElseDataArr removeAllObjects];
     
-    if ( [viewerType isEqualToString:@"20"] || [viewerType isEqualToString:@"30"] || [viewerType isEqualToString:@"1031"] )
-    {
-        // 카테고리형 포스터 리스트 getContentGroupList
-        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:@"2" WithCategoryId:categoryId completion:^(NSArray *vod, NSError *error) {
-            
-            DDLogError(@"카테고리형 포스터 리스트 = [%@]", vod);
-            
-            NSArray* contentGroup = (NSArray*)vod[0][@"contentGroupList"][@"contentGroup"];
-            
-            [self.pThreeDepthElseDataArr addObjectsFromArray:contentGroup];
-            
-            [self.pCollectionView22 reloadData];
-        }];
-        
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-    }
-    if ( [viewerType isEqualToString:@"41"] )
-    {
-        // 묶음 리스트 getBundleProductList
-        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetBundleProductListWithProductProfile:@"1" completion:^(NSArray *vod, NSError *error) {
-            
-            DDLogError(@"묶음 상품 리스트 = [%@]", vod);
-            
-            NSArray* product = (NSArray*)vod[0][@"productList"][@"product"];
-            
-            [self.pThreeDepthElseDataArr addObjectsFromArray:product];
-            
-            [self.pCollectionView22 reloadData];
-        }];
-        
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-    }
-    if ( [viewerType isEqualToString:@"1021"] || [viewerType isEqualToString:@"60"] )
-    {
-        // 마니아 추천 vod getAssetList
-        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetInfoWithAssetId:categoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
-            
-            DDLogError(@"마니아 추천 = [%@]", vod);
-            
-            NSArray* asset = (NSArray*)vod[0][@"assetList"][@"asset"];
-            
-            [self.pThreeDepthElseDataArr addObjectsFromArray:asset];
-            
-            [self.pCollectionView22 reloadData];
-        }];
-        
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-    }
-    if ( [viewerType isEqualToString:@"1311"] )
-    {
-        // 맞춤형 추천 리스트 recommendAssetBySubscriber
-        NSURLSessionDataTask *tesk = [NSMutableDictionary vodRecommendAssetBySubscriberWithAssetProfile:@"7" block:^(NSArray *vod, NSError *error) {
-           
-            DDLogError(@"맞춤형 추천 리스트 = [%@]", vod);
-            // 샘플 데이터 없음
-            NSArray* recommend = (NSArray*)vod[0][@"assetList"][@"asset"];
-            
-            [self.pThreeDepthElseDataArr addObjectsFromArray:recommend];
-            
-            [self.pCollectionView22 reloadData];
-        }];
-        
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    if ( [viewerType isEqualToString:@"20"] || [viewerType isEqualToString:@"30"] || [viewerType isEqualToString:@"1031"] )
+//    {
+//        // 카테고리형 포스터 리스트 getContentGroupList
+//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:@"2" WithCategoryId:categoryId completion:^(NSArray *vod, NSError *error) {
+//            
+//            DDLogError(@"카테고리형 포스터 리스트 = [%@]", vod);
+//            
+//            NSArray* contentGroup = (NSArray*)vod[0][@"contentGroupList"][@"contentGroup"];
+//            
+//            [self.pThreeDepthElseDataArr addObjectsFromArray:contentGroup];
+//            
+//            [self.pCollectionView22 reloadData];
+//        }];
+//        
+//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    }
+//    if ( [viewerType isEqualToString:@"41"] )
+//    {
+//        // 묶음 리스트 getBundleProductList
+//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetBundleProductListWithProductProfile:@"1" completion:^(NSArray *vod, NSError *error) {
+//            
+//            DDLogError(@"묶음 상품 리스트 = [%@]", vod);
+//            
+//            NSArray* product = (NSArray*)vod[0][@"productList"][@"product"];
+//            
+//            [self.pThreeDepthElseDataArr addObjectsFromArray:product];
+//            
+//            [self.pCollectionView22 reloadData];
+//        }];
+//        
+//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    }
+//    if ( [viewerType isEqualToString:@"1021"] || [viewerType isEqualToString:@"60"] )
+//    {
+//        // 마니아 추천 vod getAssetList
+//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetInfoWithAssetId:categoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
+//            
+//            DDLogError(@"마니아 추천 = [%@]", vod);
+//            
+//            NSArray* asset = (NSArray*)vod[0][@"assetList"][@"asset"];
+//            
+//            [self.pThreeDepthElseDataArr addObjectsFromArray:asset];
+//            
+//            [self.pCollectionView22 reloadData];
+//        }];
+//        
+//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    }
+//    if ( [viewerType isEqualToString:@"1311"] )
+//    {
+//        // 맞춤형 추천 리스트 recommendAssetBySubscriber
+//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodRecommendAssetBySubscriberWithAssetProfile:@"7" block:^(NSArray *vod, NSError *error) {
+//           
+//            DDLogError(@"맞춤형 추천 리스트 = [%@]", vod);
+//            // 샘플 데이터 없음
+//            NSArray* recommend = (NSArray*)vod[0][@"assetList"][@"asset"];
+//            
+//            [self.pThreeDepthElseDataArr addObjectsFromArray:recommend];
+//            
+//            [self.pCollectionView22 reloadData];
+//        }];
+//        
+//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    
+//    }
+//    if ( [viewerType isEqualToString:@"50"] )
+//    {
+//        // 이벤트
+//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetEventListCompletion:^(NSArray *pairing, NSError *error) {
+//            
+//            DDLogError(@"이벤트 = [%@]", pairing);
+//            NSArray* event = (NSArray*)pairing[0][@"eventList"][@"event"];
+//            
+//            [self.pThreeDepthElseDataArr addObjectsFromArray:event];
+//            
+//            [self.pCollectionView22 reloadData];
+//        }];
+//        
+//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    }
+//    if ( [viewerType isEqualToString:@"60"] || [viewerType isEqualToString:@"1021"] )
+//    {
+//        // 베너 md 추천
+//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetListWithCategoryId:self.pCategoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
+//            
+//            DDLogError(@"베너 = [%@]", vod);
+//            
+//            NSArray* banner = (NSArray*)vod[0][@"assetList"][@"asset"];
+//            
+//            [self.pThreeDepthElseDataArr addObjectsFromArray:banner];
+//            
+//            [self.pCollectionView22 reloadData];
+//        }];
+//        
+//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    }
+    // 카테고리형 포스터 리스트 getContentGroupList
     
-    }
-    if ( [viewerType isEqualToString:@"50"] )
-    {
-        // 이벤트
-        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetEventListCompletion:^(NSArray *pairing, NSError *error) {
-            
-            DDLogError(@"이벤트 = [%@]", pairing);
-            NSArray* event = (NSArray*)pairing[0][@"eventList"][@"event"];
-            
-            [self.pThreeDepthElseDataArr addObjectsFromArray:event];
-            
-            [self.pCollectionView22 reloadData];
-        }];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:@"2" WithCategoryId:categoryId completion:^(NSArray *vod, NSError *error) {
         
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-    }
-    if ( [viewerType isEqualToString:@"60"] || [viewerType isEqualToString:@"1021"] )
-    {
-        // 베너 md 추천
-        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetListWithCategoryId:self.pCategoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
-            
-            DDLogError(@"베너 = [%@]", vod);
-            
-            NSArray* banner = (NSArray*)vod[0][@"assetList"][@"asset"];
-            
-            [self.pThreeDepthElseDataArr addObjectsFromArray:banner];
-            
-            [self.pCollectionView22 reloadData];
-        }];
+        DDLogError(@"카테고리형 포스터 리스트 = [%@]", vod);
         
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-    }
+        NSArray* contentGroup = (NSArray*)vod[0][@"contentGroupList"][@"contentGroup"];
+        
+        [self.pThreeDepthElseDataArr addObjectsFromArray:contentGroup];
+        
+        [self.pCollectionView22 reloadData];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     
 //    if ( [viewerType isEqualToString:@"1051"] )
 //    {
