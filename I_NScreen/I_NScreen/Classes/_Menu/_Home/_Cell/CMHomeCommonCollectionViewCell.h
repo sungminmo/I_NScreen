@@ -24,6 +24,6 @@
 @protocol CMHomeCommonCollectionViewCellDelegate <NSObject>
 
 @optional
-- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId;
+- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult;
 
 @end

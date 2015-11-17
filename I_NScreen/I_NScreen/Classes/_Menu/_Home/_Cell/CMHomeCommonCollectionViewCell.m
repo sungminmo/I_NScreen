@@ -15,7 +15,7 @@
 @property (nonatomic, strong) IBOutlet UILabel* titleLabel;
 @property (nonatomic, strong) NSString *sAssetId;
 @property (nonatomic, strong) IBOutlet UIImageView *pDimImageView;  // 성인 딤 처리 이미지
-
+@property (nonatomic) BOOL isAdultCheck;
 @end
 
 @implementation CMHomeCommonCollectionViewCell
@@ -58,13 +58,19 @@
         if ( [sRating isEqualToString:@"19"] )
         {
             self.pDimImageView.hidden = NO;
+            self.isAdultCheck = YES;
+        }
+        else
+        {
+            self.pDimImageView.hidden = YES;
+            self.isAdultCheck = NO;
         }
     }
 }
 
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    [self.delegate CMHomeCommonCollectionViewDidItemSelectWithAssetId:self.sAssetId];
+    [self.delegate CMHomeCommonCollectionViewDidItemSelectWithAssetId:self.sAssetId WithAdultCheck:self.isAdultCheck];
 }
 
 @end

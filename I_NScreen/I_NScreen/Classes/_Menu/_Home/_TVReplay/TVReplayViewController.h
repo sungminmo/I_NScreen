@@ -10,6 +10,7 @@
 #import "CMBaseViewController.h"
 #import "CMHomeCommonCollectionViewCell.h"
 #import "VodDetailMainViewController.h"
+#import "CMPreferenceMainViewController.h"
 
 @protocol TVReplayViewDelegate;
 

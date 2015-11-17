@@ -465,11 +465,40 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     [self.navigationController pushViewController:pViewController animated:YES];*/
 }
 
-- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId
+- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult
 {
-    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-    pViewController.pAssetIdStr = sAssetId;
-    [self.navigationController pushViewController:pViewController animated:YES];
+    if ( isAdult == YES )
+    {
+        // 성인 컨첸츠이면
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        CMAdultCertificationYN adultYN = [userDefault adultCertYN];
+        if ( adultYN == CMAdultCertificationSuccess )
+        {
+            // 인증 받았으면
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = sAssetId;
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }
+        else
+        {
+            [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            // 설정 창으로 이동
+                            CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                            [self.navigationController pushViewController:controller animated:YES];
+                        }
+                    }];
+        }
+    }
+    else
+    {
+        VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+        pViewController.pAssetIdStr = sAssetId;
+        [self.navigationController pushViewController:pViewController animated:YES];
+    }
 }
 
 @end
