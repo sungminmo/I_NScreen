@@ -146,7 +146,14 @@ static const CGFloat pageSize = 28;
      "version":"1"
      }
      */
+    NSString *sIncludeAdultCategory = @"0"; // 0이 성인인가?
     
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    CMAdultCertificationYN adultYN = [userDefault adultCertYN];
+    if ( adultYN == CMAdultCertificationNone )
+    {
+        sIncludeAdultCategory = @"1";
+    }
     
    NSURLSessionDataTask *tesk = [NSMutableDictionary searchWordListWithSearchString:@"막" WithIncludeAdultCategory:@"0" completion:^(NSArray *programs, NSError *error) {
       
@@ -404,7 +411,16 @@ static const CGFloat pageSize = 28;
      */
     
     // IncludeAdultCategory 성인 체크 여부 1 , 0
-    NSURLSessionDataTask *tesk = [NSMutableDictionary searchContentGroupWithSearchKeyword:searchWord WithIncludeAdultCategory:@"0" completion:^(NSArray *gets, NSError *error) {
+    NSString *sIncludeAdultCategory = @"0"; // 0이 성인인가?
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    CMAdultCertificationYN adultYN = [userDefault adultCertYN];
+    if ( adultYN == CMAdultCertificationNone )
+    {
+        sIncludeAdultCategory = @"1";
+    }
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary searchContentGroupWithSearchKeyword:searchWord WithIncludeAdultCategory:sIncludeAdultCategory completion:^(NSArray *gets, NSError *error) {
         
         DDLogError(@"vod 검색 = [%@]", gets);
         
