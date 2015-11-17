@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PairingAuthViewController.h"
 #import "CMTextField.h"
 #import "CMBaseViewController.h"
 
-@interface PairingRePwViewController : CMBaseViewController<UITextFieldDelegate>
+@protocol PairingRePwViewDelegate;
+
+@interface PairingRePwViewController : CMBaseViewController<UITextFieldDelegate, PairingAuthViewDelegate>
 
 @property (nonatomic, strong) IBOutlet CMTextField *pPwTextField;
 @property (nonatomic, strong) IBOutlet CMTextField *pRePwTextFiled;
@@ -21,6 +24,15 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *pDiscordLbl;    // 불일치 라벨
 
+@property (nonatomic, weak) id <PairingRePwViewDelegate>delegate;
+
 - (IBAction)onBtnClicked:(UIButton *)btn;
+
+@end
+
+@protocol PairingRePwViewDelegate <NSObject>
+
+@optional
+- (void)PairingRePwViewWithTag:(int)nTag;
 
 @end

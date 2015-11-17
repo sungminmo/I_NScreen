@@ -220,11 +220,13 @@
             if ( [manager getPairingCheck] == YES )
             {
                 PairingRePwViewController *controller = [[PairingRePwViewController alloc] initWithNibName:@"PairingRePwViewController" bundle:nil];
+                controller.delegate = self;
                 [self.navigationController pushViewController:controller animated:YES];
             }
             else
             {
                 PairingMainViewController *controller = [[PairingMainViewController alloc] initWithNibName:@"PairingMainViewController" bundle:nil];
+                controller.delegate = self;
                 [self.navigationController pushViewController:controller animated:YES];
 
             }
@@ -386,6 +388,30 @@
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
             
+        }break;
+    }
+}
+
+#pragma mark - PairingMainViewController 델리게이트
+- (void)PairingMainViewWithTag:(int)nTag
+{
+    switch (nTag) {
+        case PAIRING_FINISH_VIEW_BTN_01:
+        {
+            // 메인 리로딩
+            [self onHomeGnbViewMenuList:HOME_GNB_VIEW_BTN_03];
+        }break;
+    }
+}
+
+#pragma mark - PairingRePwViewController 델리게이트
+- (void)PairingRePwViewWithTag:(int)nTag
+{
+    switch (nTag) {
+        case PAIRING_FINISH_VIEW_BTN_01:
+        {
+            // 메인 리로딩
+            [self onHomeGnbViewMenuList:HOME_GNB_VIEW_BTN_03];
         }break;
     }
 }

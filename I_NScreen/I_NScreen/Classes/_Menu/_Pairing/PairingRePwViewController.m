@@ -7,7 +7,6 @@
 //
 
 #import "PairingRePwViewController.h"
-#import "PairingAuthViewController.h"
 #import "NSMutableDictionary+Pairing.h"
 #import "UIAlertView+AFNetworking.h"
 
@@ -16,6 +15,7 @@
 @end
 
 @implementation PairingRePwViewController
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -85,6 +85,7 @@
                     //                    [[FXKeychain defaultKeychain] setObject:sPw forKey:CNM_OPEN_API_BUY_PW];  // 이때 저장하면 안됨
                     // 다음 단계
                     PairingAuthViewController *pViewController = [[PairingAuthViewController alloc] initWithNibName:@"PairingAuthViewController" bundle:nil];
+                    pViewController.delegate = self;
                     pViewController.pPwStr = sPw;
                     [self.navigationController pushViewController:pViewController animated:YES];
                 }
@@ -166,6 +167,18 @@
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 델리게이트
+#pragma mark - PairingAuthViewController 델리게이트
+- (void)PairingAuthViewWithTag:(int)nTag
+{
+    switch (nTag) {
+        case PAIRING_FINISH_VIEW_BTN_01:
+        {
+            [self.delegate PairingRePwViewWithTag:PAIRING_FINISH_VIEW_BTN_01];
+        }break;
+    }
 }
 
 @end

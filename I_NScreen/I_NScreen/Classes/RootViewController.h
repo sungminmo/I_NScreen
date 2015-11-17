@@ -27,7 +27,7 @@
 
 @protocol RootViewDelegate;
 
-@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MainPopUpViewDelegate, AniKidsMainViewDelegate, AdultMainViewDelegate, TVReplayViewDelegate, RecommendMainViewDelegate>
+@interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MainPopUpViewDelegate, AniKidsMainViewDelegate, AdultMainViewDelegate, TVReplayViewDelegate, RecommendMainViewDelegate, PairingRePwViewDelegate, PairingMainViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pGnbView;
 @property (nonatomic, strong) IBOutlet UIView *pBodyView;
