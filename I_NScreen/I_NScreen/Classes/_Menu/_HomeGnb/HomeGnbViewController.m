@@ -113,11 +113,17 @@
         {
             // 성인
             
-            [self.pMenu01 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            [self.pMenu02 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            [self.pMenu03 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            [self.pMenu04 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            [self.pMenu05 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+            CMAdultCertificationYN adultYN = [userDefault adultCertYN];
+            if ( adultYN == CMAdultCertificationSuccess )
+            {
+                [self.pMenu01 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+                [self.pMenu02 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+                [self.pMenu03 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+                [self.pMenu04 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+                [self.pMenu05 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            }
+            
         }break;
         case HOME_GNB_VIEW_BTN_08:
         {

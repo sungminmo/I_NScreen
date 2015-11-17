@@ -368,12 +368,6 @@
     [self banLoadScrollViewWithPage:page + 1];
 }
 
-- (void)CMPageCollectionBtnClicked:(int)nSelect 
-{
-    
-}
-
-
 #pragma mark - 전문
 #pragma mark - vod 상세
 - (void)requestWithAssetInfo

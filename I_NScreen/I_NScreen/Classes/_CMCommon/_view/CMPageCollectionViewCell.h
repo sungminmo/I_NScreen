@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *pRankingLbl;
 @property (nonatomic, weak) IBOutlet UIImageView *pDimImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *pOnlyTvImageView; // tv 전용인지 아닌지
+@property (nonatomic) BOOL isAdultCheck;      // 성인인지 아닌지
 
 @property (nonatomic, strong) NSString  *pAssetIdStr;
 
@@ -34,6 +35,6 @@
 @protocol CMPageCollectionViewCellDelegate <NSObject>
 
 @optional
-- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId;
+- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult;
 
 @end

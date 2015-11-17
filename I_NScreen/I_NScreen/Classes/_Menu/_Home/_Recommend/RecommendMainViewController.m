@@ -585,6 +585,7 @@
             [nDic setObject:[dic objectForKey:@"imageFileName"] forKey:@"imageFileName"];
             [nDic setObject:[dic objectForKey:@"promotionSticker"] forKey:@"promotionSticker"];
             [nDic setObject:[dic objectForKey:@"publicationRight"] forKey:@"publicationRight"];
+            [nDic setObject:[dic objectForKey:@"rating"] forKey:@"rating"];
             [pArr addObject:nDic];
             
             if ( nIndex % 8 == 0 || nIndex == nTotal)
@@ -752,24 +753,53 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
-- (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
+- (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult
 {
-    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-    pViewController.pAssetIdStr = assetId;
-    pViewController.delegate = self;
-    [self.navigationController pushViewController:pViewController animated:YES];
-//    
-//        TestPageViewController *pViewController = [[TestPageViewController alloc] initWithNibName:@"TestPageViewController" bundle:nil];
-//        pViewController.pAssetIdStr = assetId;
-//        [self.navigationController pushViewController:pViewController animated:YES];
+    if ( isAdult == YES )
+    {
+        // 성인 여부 컨텐츠이면
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        CMAdultCertificationYN adultYN = [userDefault adultCertYN];
+        if ( adultYN == CMAdultCertificationSuccess )
+        {
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = assetId;
+            pViewController.delegate = self;
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }
+        else
+        {
+            [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            // 설정 창으로 이동
+                            CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                            [self.navigationController pushViewController:controller animated:YES];
+                        }
+                    }];
+        }
+
+    }
+    else
+    {
+        VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+        pViewController.pAssetIdStr = assetId;
+        pViewController.delegate = self;
+        [self.navigationController pushViewController:pViewController animated:YES];
+
+    }
 }
 
-- (void)CMPageViewWithAssetId:(NSString *)sAssetId
+- (void)CMPageViewWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult
 {
+    // 배너는 성인 컨텐츠가 안내려오는가보네 구분 데이터가 없네
     VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
     pViewController.pAssetIdStr = sAssetId;
     pViewController.delegate = self;
     [self.navigationController pushViewController:pViewController animated:YES];
+
 }
 
 #pragma mark - 델리게이트

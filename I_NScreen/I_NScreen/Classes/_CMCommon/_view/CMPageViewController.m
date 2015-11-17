@@ -55,7 +55,8 @@
 - (void)onBtnClicked:(UIButton *)btn
 {
     NSString *sAssetId = [NSString stringWithFormat:@"%@", [pDic objectForKey:@"assetId"]];
-    [self.delegate CMPageViewWithAssetId:sAssetId];
+    // 배너는 성인 컨텐츠 데이터가 안내려오넹~
+    [self.delegate CMPageViewWithAssetId:sAssetId WithAdultCheck:NO];
 }
 
 #pragma mark - url split

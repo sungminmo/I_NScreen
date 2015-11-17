@@ -14,6 +14,7 @@
 #import "CMPageCollectionViewController.h"
 #import "TestPageViewController.h"
 #import "VodDetailMainViewController.h"
+#import "CMPreferenceMainViewController.h"
 
 // 화면 타입
 typedef enum : NSInteger {

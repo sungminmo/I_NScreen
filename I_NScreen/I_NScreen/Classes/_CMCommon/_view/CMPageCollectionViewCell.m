@@ -14,6 +14,7 @@
 @synthesize nIndex;
 @synthesize delegate;
 @synthesize pAssetIdStr;
+@synthesize isAdultCheck;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -132,17 +133,19 @@
     
     if ( [sRating isEqualToString:@"19"] )
     {
+        self.isAdultCheck = YES;
         self.pDimImageView.hidden = NO;
     }
     else
     {
+        self.isAdultCheck = NO;
         self.pDimImageView.hidden = YES;
     }
 }
 
 - (IBAction)onBtnClicked:(id)sender
 {
-    [self.delegate CMPageCollectionCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr];
+    [self.delegate CMPageCollectionCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithAdultCheck:self.isAdultCheck];
 }
 
 @end

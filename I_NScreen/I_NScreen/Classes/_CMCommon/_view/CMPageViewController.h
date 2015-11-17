@@ -24,6 +24,6 @@
 
 @optional
 - (void)CMPageViewWithPage:(int)page;
-- (void)CMPageViewWithAssetId:(NSString *)sAssetId;
+- (void)CMPageViewWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult;
 
 @end

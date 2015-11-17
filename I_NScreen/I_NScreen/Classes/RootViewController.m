@@ -40,27 +40,6 @@
     [pGnbViewController didMoveToParentViewController:self];
     [self.pGnbView addSubview:pGnbViewController.view];
     
-    // !! test bjk
-//    NSURLSessionTask *tesk = [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
-//        id obj = [epgs valueForKeyPath:@"areaItem"];
-//    }];
-//
-//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//    [self.refreshControl setRefreshingWithStateOfTask:tesk];
-    
-//    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPopularityChartWithCategoryId:@"713230"
-//                                                                         WithRequestItems:@"all"
-//                                                                               completion:^(NSArray *vod, NSError *error) {
-//                                                                                   id obj = [vod valueForKeyPath:@"weeklyChart"];
-//                                                                                   NSLog(@"obj = [%@]", obj);
-//                                                                               }];
-//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSearchSearchChannelWithSearchString:@"MBC" WithPageSize:@"3" WithPageIndex:@"0" WithSortType:@"ChannelNoDesc" completion:^(NSArray *epgs, NSError *error) {
-//        
-//    }];
-//
-//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-    
     // 추천 add
     RecommendMainViewController *pRecommendViewController = [[RecommendMainViewController alloc] initWithNibName:@"RecommendMainViewController" bundle:nil];
     pRecommendViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
@@ -145,15 +124,36 @@
         case HOME_GNB_VIEW_BTN_07:
         {
             // 성인
-            [self bodySubViewsRemove];
+            NSUserDefaults *userDefualt = [NSUserDefaults standardUserDefaults];
+            CMAdultCertificationYN adultYN = [userDefualt adultCertYN];
+            if ( adultYN == CMAdultCertificationSuccess )
+            {
+                [self bodySubViewsRemove];
+                
+                AdultMainViewController *pViewController = [[AdultMainViewController alloc] initWithNibName:@"AdultMainViewController" bundle:nil];
+                pViewController.delegate = self;
+                pViewController.pDataDic = nil;
+                pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+                [self addChildViewController:pViewController];
+                [pViewController didMoveToParentViewController:self];
+                [self.pBodyView addSubview:pViewController.view];
+            }
+            else
+            {
+                [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                        completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    
+                            if ( buttonIndex == 1 )
+                            {
+                                // 설정 창으로 이동
+                                CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                                [self.navigationController pushViewController:controller animated:YES];
+                            }
+                }];
+            }
             
-            AdultMainViewController *pViewController = [[AdultMainViewController alloc] initWithNibName:@"AdultMainViewController" bundle:nil];
-            pViewController.delegate = self;
-            pViewController.pDataDic = nil;
-            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
-            [self addChildViewController:pViewController];
-            [pViewController didMoveToParentViewController:self];
-            [self.pBodyView addSubview:pViewController.view];
+            
+            
             
         }break;
         case HOME_GNB_VIEW_BTN_08:

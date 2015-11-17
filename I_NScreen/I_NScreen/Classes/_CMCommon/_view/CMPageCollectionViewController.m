@@ -103,9 +103,9 @@
     
 }
 
-- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId
+- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult
 {
-    [self.delegate CMPageCollectionBtnClicked:nSelect WithAssetId:assetId];
+    [self.delegate CMPageCollectionBtnClicked:nSelect WithAssetId:assetId WithAdultCheck:isAdult];
 }
 
 @end

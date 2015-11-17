@@ -23,6 +23,6 @@
 @protocol CMPageCollectionViewDelegate <NSObject>
 
 @optional
-- (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId;
+- (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult;
 
 @end
