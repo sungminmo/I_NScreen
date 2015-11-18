@@ -17,6 +17,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *pThumImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *pStickerImageView;
 @property (nonatomic, weak) IBOutlet UILabel *pRankingLbl;
+@property (nonatomic, weak) IBOutlet UIImageView *pDimImageView;
+@property (nonatomic) BOOL isAdultCheck;
 
 @property (nonatomic, strong) NSString *pSeriesLintStr;
 @property (nonatomic, strong) NSString  *pAssetIdStr;
@@ -35,6 +37,6 @@
 @protocol CMContentGroupCollectionViewCellDelegate <NSObject>
 
 @optional
-- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint;
+- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint WithAdultCheck:(BOOL)isAdult;
 
 @end

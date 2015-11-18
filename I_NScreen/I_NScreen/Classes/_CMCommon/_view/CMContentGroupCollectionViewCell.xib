@@ -47,6 +47,13 @@
                             <constraint firstAttribute="width" secondItem="Hs0-CU-qqM" secondAttribute="height" multiplier="16:5" id="sJl-ME-FID"/>
                         </constraints>
                     </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_19dim.png" translatesAutoresizingMaskIntoConstraints="NO" id="AGU-ZF-Iqa">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="136"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="AGU-ZF-Iqa" secondAttribute="height" multiplier="95:136" id="NR1-fq-RUa"/>
+                        </constraints>
+                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-No-1Ph">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="158"/>
                         <connections>
@@ -61,9 +68,11 @@
                 <constraint firstItem="UxA-No-1Ph" firstAttribute="top" secondItem="cwk-y4-Di4" secondAttribute="top" id="Amf-oP-kvb"/>
                 <constraint firstAttribute="bottom" secondItem="UxA-No-1Ph" secondAttribute="bottom" id="NgK-br-7kc"/>
                 <constraint firstItem="rU8-TY-oAp" firstAttribute="leading" secondItem="cwk-y4-Di4" secondAttribute="leading" id="PPk-Io-vMN"/>
+                <constraint firstItem="AGU-ZF-Iqa" firstAttribute="top" secondItem="cwk-y4-Di4" secondAttribute="top" id="QQg-D0-adh"/>
                 <constraint firstItem="rU8-TY-oAp" firstAttribute="top" secondItem="Hs0-CU-qqM" secondAttribute="bottom" constant="2" id="UAo-Fe-bl2"/>
                 <constraint firstItem="Hdm-ei-b0q" firstAttribute="top" secondItem="cwk-y4-Di4" secondAttribute="top" id="UK5-wI-Eva"/>
                 <constraint firstAttribute="trailing" secondItem="Hs0-CU-qqM" secondAttribute="trailing" id="UVL-Am-4Iq"/>
+                <constraint firstAttribute="trailing" secondItem="AGU-ZF-Iqa" secondAttribute="trailing" id="Wug-gH-cjc"/>
                 <constraint firstItem="T83-On-Hig" firstAttribute="leading" secondItem="cwk-y4-Di4" secondAttribute="leading" id="eT7-j2-PoJ"/>
                 <constraint firstItem="Hdm-ei-b0q" firstAttribute="leading" secondItem="cwk-y4-Di4" secondAttribute="leading" id="fpf-ER-9qU"/>
                 <constraint firstAttribute="trailing" secondItem="rU8-TY-oAp" secondAttribute="trailing" id="k9z-rg-UoK"/>
@@ -71,12 +80,14 @@
                 <constraint firstItem="Puc-YT-YSR" firstAttribute="top" secondItem="cwk-y4-Di4" secondAttribute="top" constant="2" id="p2i-ov-9Ks"/>
                 <constraint firstItem="UxA-No-1Ph" firstAttribute="leading" secondItem="cwk-y4-Di4" secondAttribute="leading" id="p3S-fo-4oR"/>
                 <constraint firstItem="rU8-TY-oAp" firstAttribute="top" secondItem="Hdm-ei-b0q" secondAttribute="bottom" id="pgN-bz-Ug3"/>
+                <constraint firstItem="AGU-ZF-Iqa" firstAttribute="leading" secondItem="cwk-y4-Di4" secondAttribute="leading" id="ucu-IL-ueo"/>
                 <constraint firstAttribute="bottom" secondItem="rU8-TY-oAp" secondAttribute="bottom" id="vXc-SI-ENo"/>
                 <constraint firstAttribute="trailing" secondItem="Puc-YT-YSR" secondAttribute="trailing" constant="2" id="xBe-dK-mAX"/>
                 <constraint firstAttribute="trailing" secondItem="UxA-No-1Ph" secondAttribute="trailing" id="zJu-Cm-u4F"/>
             </constraints>
             <size key="customSize" width="229" height="313"/>
             <connections>
+                <outlet property="pDimImageView" destination="AGU-ZF-Iqa" id="3CU-Jj-hy6"/>
                 <outlet property="pOnlyTvImageView" destination="Hs0-CU-qqM" id="zM5-xO-VzZ"/>
                 <outlet property="pStickerImageView" destination="Puc-YT-YSR" id="OlJ-ov-pid"/>
                 <outlet property="pThumImageView" destination="Hdm-ei-b0q" id="K4h-5O-dhV"/>
@@ -87,6 +98,7 @@
     </objects>
     <resources>
         <image name="genreall_select.png" width="146" height="147"/>
+        <image name="icon_19dim.png" width="94" height="136"/>
         <image name="icon_onlytv.png" width="43" height="15"/>
     </resources>
 </document>

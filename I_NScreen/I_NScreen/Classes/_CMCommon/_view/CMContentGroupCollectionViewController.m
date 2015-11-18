@@ -113,9 +113,9 @@
     
 }
 
-- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint
+- (void)CMContentGroupCollectionViewCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint WithAdultCheck:(BOOL)isAdult
 {
-    [self.delegate CMContentGroupCollectionBtnClicked:nSelect WithAssetId:assetId WithSeriesLink:seriesLint];
+    [self.delegate CMContentGroupCollectionBtnClicked:nSelect WithAssetId:assetId WithSeriesLink:seriesLint WithAdultCheck:isAdult];
 }
 
 

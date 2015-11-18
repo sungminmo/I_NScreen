@@ -404,7 +404,21 @@
             return;
         
         [self.pSeriesDataArr removeAllObjects];
-        [self.pSeriesDataArr setArray:[[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"]];
+        
+        NSObject* itemObject = [[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"];
+        
+//        [self.pSeriesDataArr setArray:[[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"]];
+        if ([itemObject isKindOfClass:[NSDictionary class]]) {
+            
+            [self.pSeriesDataArr addObject:(NSDictionary *)itemObject];
+            
+        } else if ([itemObject isKindOfClass:[NSArray class]]) {
+            
+           [self.pSeriesDataArr setArray:(NSArray *)itemObject];
+            
+        }
+        
+
         
         NSString *sSeriesEndIndex = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"seriesEndIndex"]];
         NSString *sTotalCount = [NSString stringWithFormat:@"%@", [[vod objectAtIndex:0] objectForKey:@"totalAssetCount"]];
@@ -599,6 +613,7 @@
                 [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
                 [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"primaryAssetId"];
                 [nDic setObject:[dic objectForKey:@"assetSeriesLink"] forKey:@"assetSeriesLink"];
+                [nDic setObject:[dic objectForKey:@"rating"] forKey:@"rating"];
                 [pArr addObject:nDic];
                 
                 if ( nIndex % 4 == 0 || nIndex == nTotal)
@@ -811,7 +826,20 @@
         if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
         {
             // 구매안한 사용자
-            NSString *sProductType = [NSString stringWithFormat:@"%@", [[[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productType"]]; // 무료시청 체크 FOD 이면 무료 시청
+            NSString *sProductType = @"";
+            NSObject* itemObject = [[[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+            
+            if ([itemObject isKindOfClass:[NSDictionary class]]) {
+                
+                sProductType = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObject objectForKey:@"productType"]];
+            
+            } else if ([itemObject isKindOfClass:[NSArray class]]) {
+                
+                sProductType = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObject objectAtIndex:0] objectForKey:@"productType"]];
+                
+            }
+            
+//            NSString *sProductType = [NSString stringWithFormat:@"%@", [[[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productType"]]; // 무료시청 체크 FOD 이면 무료 시청
    
             
             if ( [sProductType isEqualToString:@"FOD"] )
@@ -870,25 +898,69 @@
     
 }
 
-- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint
+- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint WithAdultCheck:(BOOL)isAdult
 {
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", assetId];
     
-    if ( [seriesLint isEqualToString:@"0"] )
+    if ( isAdult == YES )
     {
-        // 시리즈가 아니다
-        VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-        pViewController.pAssetIdStr = assetId;
-        [self.navigationController pushViewController:pViewController animated:YES];
-        
+        // 성인 컨첸츠이면
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        CMAdultCertificationYN adultYN = [userDefault adultCertYN];
+        if ( adultYN == CMAdultCertificationSuccess )
+        {
+            // 인증 받았으면
+            if ( [seriesLint isEqualToString:@"0"] )
+            {
+                // 시리즈가 아니다
+                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                pViewController.pAssetIdStr = assetId;
+                [self.navigationController pushViewController:pViewController animated:YES];
+                
+            }
+            else
+            {
+                // 시리즈다
+                [self requestWithAssetInfo];
+                [self requestWithRecommendContentGroupByAssetId];
+                
+            }
+
+        }
+        else
+        {
+            [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            // 설정 창으로 이동
+                            CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                            [self.navigationController pushViewController:controller animated:YES];
+                        }
+                    }];
+        }
     }
     else
     {
-        // 시리즈다
-        [self requestWithAssetInfo];
-        [self requestWithRecommendContentGroupByAssetId];
+        if ( [seriesLint isEqualToString:@"0"] )
+        {
+            // 시리즈가 아니다
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = assetId;
+            [self.navigationController pushViewController:pViewController animated:YES];
+            
+        }
+        else
+        {
+            // 시리즈다
+            [self requestWithAssetInfo];
+            [self requestWithRecommendContentGroupByAssetId];
+            
+        }
 
     }
+
     
 }
 

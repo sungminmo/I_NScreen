@@ -140,6 +140,38 @@
     }
 }
 
+- (void)showFavoriteButton2:(BOOL)isShow {
+    
+    if (isShow) {
+        
+        if (self.favoriteButton == nil) {
+            
+            self.favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ch_pick.png"] style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(favoriteButton:)];
+            [self.navigationItem setRightBarButtonItems:@[self.favoriteButton]];
+        }
+        else
+        {
+            [self.favoriteButton setImage:[UIImage imageNamed:@"ch_pick.png"]];
+        }
+    } else {
+        
+        if ( self.favoriteButton == nil )
+        {
+            self.favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ch_unpick.png"] style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(favoriteButton:)];
+            [self.navigationItem setRightBarButtonItems:@[self.favoriteButton]];
+        }
+        else
+        {
+            [self.favoriteButton setImage:[UIImage imageNamed:@"ch_unpick.png"]];
+        }
+
+    }
+}
+
 - (void)setFavoriteButtonToSelectionState:(BOOL)selected {
     if (self.favoriteButton == nil) {
         return;
@@ -147,9 +179,9 @@
     
     NSString* fileName;
     if (selected) {
-        fileName = @"bigpic.png";
+        fileName = @"ch_pick.png";
     } else {
-        fileName = @"bigunpic.png";
+        fileName = @"ch_unpick.png";
     }
     
     self.favoriteButton.image = [UIImage imageNamed:fileName];

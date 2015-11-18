@@ -71,4 +71,6 @@
  */
 + (void)actionGuide:(NSInteger)buttonTag;
 
+- (void)showFavoriteButton2:(BOOL)isShow;
+
 @end

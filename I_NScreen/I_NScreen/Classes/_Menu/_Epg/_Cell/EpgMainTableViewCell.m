@@ -8,8 +8,11 @@
 
 #import "EpgMainTableViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "CMDBDataManager.h"
+#import "CMFavorChannelInfo.h"
 
 @implementation EpgMainTableViewCell
+@synthesize delegate;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -21,7 +24,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index
+- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar
 {
     if ( index != 0 )
     {
@@ -32,11 +35,13 @@
         self.pLineImageView01.hidden = NO;
     }
     
+    self.nIndex = index;
+    
 //    self.pChannelLbl.text = [NSString stringWithFormat:@"%d", index];
 //    self.pChannelTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
     
     ////
-    
+    self.pData = dic;
     
     NSString *sChannelLog = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelLogoImg"]];
     NSString *sChannelNumber = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelNumber"]];
@@ -101,9 +106,46 @@
     NSString *sNEndTime = [NSString stringWithFormat:@"%@:%@", [endTimeArr2 objectAtIndex:0], [endTimeArr2 objectAtIndex:1]];
     
     self.pChannelTimeLbl.text = [NSString stringWithFormat:@"%@~%@", sNStartTime, sNEndTime];
+    
+    if ( isStar == YES )
+    {
+        self.pStarImageView.image = [UIImage imageNamed:@"ch_pick.png"];
+    }
+    else
+    {
+        self.pStarImageView.image = [UIImage imageNamed:@"ch_unpick.png"];
+    }
 
     [self.progressView setProgressRatio:[[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sNStartTime WithEndTime:sNEndTime] animated:YES];
 
+}
+
+- (IBAction)onBtnClicked:(UIButton *)btn
+{
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pData objectForKey:@"channelId"]];
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    RLMArray *ramArr = [manager getFavorChannel];
+    BOOL isCheck = NO;
+    
+    int nCount = 0;
+    for ( CMFavorChannelInfo *info in ramArr )
+    {
+        if ( [info.pChannelId isEqualToString:sChannelId] )
+        {
+            isCheck = YES;
+            [manager removeFavorChannel:nCount];
+        }
+        nCount++;
+    }
+    
+    if ( isCheck == NO )
+    {
+        [manager setFavorChannel:self.pData];
+    }
+    
+    [self.delegate EpgMainTableViewWithTag:self.nIndex];
+    NSLog(@"[manager getFavorChannel] = [%@]", [manager getFavorChannel]);
+    
 }
 
 @end

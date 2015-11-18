@@ -12,8 +12,18 @@
 #import "CMSearchTableViewCell.h"
 #import "CMDateScrollView.h"
 
+@protocol EpgSubViewDelegate;
+
 @interface EpgSubViewController : CMBaseViewController<EpgSubTableViewDelegate, CMDateScrollViewDelegate>
 
 @property (nonatomic, strong) NSDictionary *pListDataDic;
+@property (nonatomic, weak) id <EpgSubViewDelegate>delegate;
+
+@end
+
+@protocol EpgSubViewDelegate <NSObject>
+
+@optional
+- (void)EpgSubViewWithTag:(int)nTag;
 
 @end

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -74,6 +75,15 @@
                             <constraint firstAttribute="height" constant="1" id="OdL-2g-vPB"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUp-WI-nlq">
+                        <rect key="frame" x="3" y="0.0" width="46" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="qUp-WI-nlq" secondAttribute="height" multiplier="46:65" id="0ea-pM-Thl"/>
+                        </constraints>
+                        <connections>
+                            <action selector="onBtnClicked:" destination="gbk-08-g76" eventType="touchUpInside" id="khj-4y-Rmm"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Yl2-Lt-fYr" firstAttribute="leading" secondItem="ojV-yP-qI0" secondAttribute="leading" id="15W-RD-rDa"/>
@@ -87,11 +97,14 @@
                     <constraint firstItem="S5N-SY-Tzk" firstAttribute="top" secondItem="ojV-yP-qI0" secondAttribute="bottom" constant="8" id="L3v-Os-OJI"/>
                     <constraint firstItem="oCW-SG-ptv" firstAttribute="leading" secondItem="ojV-yP-qI0" secondAttribute="trailing" constant="7" id="QGr-ni-KGa"/>
                     <constraint firstAttribute="trailing" secondItem="h5F-5l-Rff" secondAttribute="trailing" id="QO0-AW-oNq"/>
+                    <constraint firstItem="eBQ-Rl-FEr" firstAttribute="top" secondItem="qUp-WI-nlq" secondAttribute="bottom" id="R8u-h1-iQb"/>
                     <constraint firstItem="h5F-5l-Rff" firstAttribute="leading" secondItem="5nC-1r-DDN" secondAttribute="leading" id="Rzq-1T-BHX"/>
                     <constraint firstItem="ZSN-7F-l2U" firstAttribute="leading" secondItem="oCW-SG-ptv" secondAttribute="trailing" constant="4" id="Sha-vv-dto"/>
+                    <constraint firstItem="qUp-WI-nlq" firstAttribute="leading" secondItem="5nC-1r-DDN" secondAttribute="leading" constant="3" id="TBW-Me-Vwz"/>
                     <constraint firstAttribute="trailing" secondItem="eBQ-Rl-FEr" secondAttribute="trailing" id="VYU-HD-lt8"/>
                     <constraint firstItem="f9l-eO-79O" firstAttribute="leading" secondItem="5nC-1r-DDN" secondAttribute="leading" constant="13" id="WrX-rl-O6K"/>
                     <constraint firstItem="S5N-SY-Tzk" firstAttribute="leading" secondItem="ojV-yP-qI0" secondAttribute="leading" id="XeV-32-Uiz"/>
+                    <constraint firstItem="qUp-WI-nlq" firstAttribute="top" secondItem="5nC-1r-DDN" secondAttribute="top" id="aCX-Es-CE3"/>
                     <constraint firstItem="ojV-yP-qI0" firstAttribute="leading" secondItem="ig9-3e-Hzi" secondAttribute="trailing" constant="9" id="eEy-J0-RiO"/>
                     <constraint firstItem="h5F-5l-Rff" firstAttribute="top" secondItem="5nC-1r-DDN" secondAttribute="top" id="eIQ-XM-6Pt"/>
                     <constraint firstItem="ig9-3e-Hzi" firstAttribute="leading" secondItem="oMP-Fh-Yy9" secondAttribute="leading" id="fIc-B9-5CJ"/>

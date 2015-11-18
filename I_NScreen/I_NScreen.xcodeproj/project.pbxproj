@@ -157,6 +157,7 @@
 		E58C6AF71BE261660024405D /* CMContentGroupCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AF51BE261660024405D /* CMContentGroupCollectionViewController.xib */; };
 		E58C6AFB1BE261BB0024405D /* CMContentGroupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */; };
 		E58C6AFC1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */; };
+		E599896C1BFCA22C00015E73 /* CMFavorChannelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E599896B1BFCA22C00015E73 /* CMFavorChannelInfo.m */; settings = {ASSET_TAGS = (); }; };
 		E599DFD61BF5DAB2004B486B /* bi.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD51BF5DAB2004B486B /* bi.png */; settings = {ASSET_TAGS = (); }; };
 		E599DFD81BF5DAC4004B486B /* bi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD71BF5DAC4004B486B /* bi@2x.png */; settings = {ASSET_TAGS = (); }; };
 		E599DFDA1BF5DAD2004B486B /* bi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD91BF5DAD2004B486B /* bi@3x.png */; settings = {ASSET_TAGS = (); }; };
@@ -1078,6 +1079,8 @@
 		E58C6AF81BE261BB0024405D /* CMContentGroupCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMContentGroupCollectionViewCell.h; sourceTree = "<group>"; };
 		E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMContentGroupCollectionViewCell.m; sourceTree = "<group>"; };
 		E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMContentGroupCollectionViewCell.xib; sourceTree = "<group>"; };
+		E599896A1BFCA22C00015E73 /* CMFavorChannelInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMFavorChannelInfo.h; sourceTree = "<group>"; };
+		E599896B1BFCA22C00015E73 /* CMFavorChannelInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMFavorChannelInfo.m; sourceTree = "<group>"; };
 		E599DFD51BF5DAB2004B486B /* bi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bi.png; sourceTree = "<group>"; };
 		E599DFD71BF5DAC4004B486B /* bi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bi@2x.png"; sourceTree = "<group>"; };
 		E599DFD91BF5DAD2004B486B /* bi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bi@3x.png"; sourceTree = "<group>"; };
@@ -2217,6 +2220,8 @@
 				99ECD5801BD5188B00EABA67 /* CMPurchaseAuthorize.m */,
 				99ECD5811BD5188B00EABA67 /* CMSearchHistory.h */,
 				99ECD5821BD5188B00EABA67 /* CMSearchHistory.m */,
+				E599896A1BFCA22C00015E73 /* CMFavorChannelInfo.h */,
+				E599896B1BFCA22C00015E73 /* CMFavorChannelInfo.m */,
 			);
 			path = _realmModel;
 			sourceTree = "<group>";
@@ -4408,6 +4413,7 @@
 				E54CC0B01BCCA0C6003806C0 /* SBJsonBase.m in Sources */,
 				99C43C561BA3EDA10035A0A4 /* NSString+Hash.m in Sources */,
 				E58C6AFB1BE261BB0024405D /* CMContentGroupCollectionViewCell.m in Sources */,
+				E599896C1BFCA22C00015E73 /* CMFavorChannelInfo.m in Sources */,
 				E5AF9F5A1BF23BC80030ECDE /* CMPairingInfo.m in Sources */,
 				E5E418841BE1E0C100B4DAB3 /* TestPageViewController.m in Sources */,
 				E51181901BA7ACF900C1E31D /* EpgSubViewController.m in Sources */,

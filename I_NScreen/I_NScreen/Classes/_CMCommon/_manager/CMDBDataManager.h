@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "CMAreaInfo.h"
-
+#import "CMFavorChannelInfo.h"
+#import <Realm/Realm.h>
 
 @interface CMDBDataManager : NSObject
 
@@ -97,5 +98,20 @@
  *  @return 페어링 유무
  */
 - (NSString *)getSetTopBoxKind;
+
+/**
+ *  선호체널 데이터 저장
+ */
+- (void)setFavorChannel:(NSDictionary *)data;
+
+/**
+ *  @return 선호체널 데이터 호출
+ */
+- (RLMArray *)getFavorChannel;
+
+/**
+ *  선호체널 삭제
+ */
+- (void)removeFavorChannel:(int)index;
 
 @end

@@ -32,15 +32,15 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Gs-y2-3X2">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_19dim.png" translatesAutoresizingMaskIntoConstraints="NO" id="SIU-8T-EHH">
-                        <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_onlytv.png" translatesAutoresizingMaskIntoConstraints="NO" id="oBt-No-TP4">
                         <rect key="frame" x="63" y="120" width="32" height="10"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="oBt-No-TP4" secondAttribute="height" multiplier="16:5" id="q1B-8e-OfM"/>
                         </constraints>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_19dim.png" translatesAutoresizingMaskIntoConstraints="NO" id="SIU-8T-EHH">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

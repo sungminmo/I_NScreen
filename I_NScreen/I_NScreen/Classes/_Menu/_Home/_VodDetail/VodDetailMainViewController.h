@@ -12,6 +12,7 @@
 #import "CMContentGroupCollectionViewController.h"
 #import "PlayerViewController.h"
 #import "VodBuyViewController.h"
+#import "CMPreferenceMainViewController.h"
 
 @protocol VodDetailMainViewDelegate;
 

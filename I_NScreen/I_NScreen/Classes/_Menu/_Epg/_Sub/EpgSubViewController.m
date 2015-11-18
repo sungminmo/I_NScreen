@@ -12,6 +12,7 @@
 #import "NSMutableDictionary+EPG.h"
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+REMOCON.h"
+#import "CMDBDataManager.h"
 
 @interface EpgSubViewController ()
 
@@ -32,6 +33,7 @@
 
 @implementation EpgSubViewController
 @synthesize pListDataDic;
+@synthesize delegate;
 
 #pragma mark - Life Cycle
 
@@ -42,7 +44,7 @@
     
     self.isUseNavigationBar = YES;
    
-    [self showFavoriteButton:true];
+    
     
     self.dataArray = [@[] mutableCopy];
     self.todayNewDateArr = [@[] mutableCopy];
@@ -76,6 +78,30 @@
 //    }
 //    
 //    [self.dateScrollView setDateArray:dateArray];
+    
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    RLMArray *ramArr = [manager getFavorChannel];
+    
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
+    
+    BOOL isCheck = NO;
+    for ( CMFavorChannelInfo *info in ramArr )
+    {
+        if ( [info.pChannelId isEqualToString:sChannelId] )
+        {
+            // 선호체널
+            isCheck = YES;
+        }
+    }
+    
+    if ( isCheck == YES )
+    {
+        [self showFavoriteButton2:true];
+    }
+    else
+    {
+        [self showFavoriteButton2:false];
+    }
 }
 
 - (IBAction)onBtnClick:(UIButton *)btn;
@@ -87,6 +113,33 @@
             
         }break;
     }
+}
+
+- (void)favoriteButton:(id)sender
+{
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    RLMArray *ramArr = [manager getFavorChannel];
+    BOOL isCheck = NO;
+    
+    int nCount = 0;
+    for ( CMFavorChannelInfo *info in ramArr )
+    {
+        if ( [info.pChannelId isEqualToString:sChannelId] )
+        {
+            isCheck = YES;
+            [manager removeFavorChannel:nCount];
+            [self showFavoriteButton2:false];
+        }
+        nCount++;
+    }
+    
+    if ( isCheck == NO )
+    {
+        [manager setFavorChannel:self.pListDataDic];
+        [self showFavoriteButton2:true];
+    }
+
 }
 
 #pragma mark - Privates
@@ -120,16 +173,6 @@
     }
     
     [self.pTableView reloadData];
-}
-
-#pragma mark - Event
-
-/**
- *  Override
- *  네비게이션바 즐겨찾기 버튼 이벤트 함수
- */
-- (void)favoriteButton:(id)sender {
-    
 }
 
 #pragma mark - UITableViewDelegate
@@ -329,6 +372,12 @@
     }
     
     
+}
+
+- (void)backCommonAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate EpgSubViewWithTag:0];
 }
 
 @end

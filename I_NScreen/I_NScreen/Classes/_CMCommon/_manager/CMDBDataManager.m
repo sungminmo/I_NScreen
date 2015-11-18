@@ -8,7 +8,6 @@
 
 #import "CMDBDataManager.h"
 
-#import <Realm/Realm.h>
 #import "CMPurchaseAuthorize.h"
 #import "CMAreaInfo.h"
 #import "CMPairingInfo.h"
@@ -322,6 +321,41 @@
         return all.lastObject;
     }
     return nil;
+}
+
+- (void)setFavorChannel:(NSDictionary *)data
+{
+    RLMRealm *realm = [self cmRealm];
+    CMFavorChannelInfo *favorChannel = [[CMFavorChannelInfo alloc] init];
+
+    favorChannel.pChannelId = [NSString stringWithFormat:@"%@", [data objectForKey:@"channelId"]];
+    favorChannel.pChannelName = [NSString stringWithFormat:@"%@", [data objectForKey:@"channelName"]];
+    favorChannel.pChannelNumber = [NSString stringWithFormat:@"%@", [data objectForKey:@"channelNumber"]];
+    
+    [realm beginWriteTransaction];
+    [realm addObject:favorChannel];
+    [realm commitWriteTransaction];
+}
+
+- (RLMArray *)getFavorChannel
+{
+    RLMArray *rs = (RLMArray *)[CMFavorChannelInfo allObjects];
+    
+    return rs;
+}
+
+- (void)removeFavorChannel:(int)index
+{
+    RLMRealm *realm = [self cmRealm];
+    
+    if ( [[self getFavorChannel] count] > 0 )
+    {
+        RLMArray *all = (RLMArray *)[CMFavorChannelInfo allObjects];
+        [realm beginWriteTransaction];
+        [realm deleteObject:[all objectAtIndex:index]];
+        [realm commitWriteTransaction];
+    }
+
 }
 
 @end

@@ -43,11 +43,36 @@
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
+    
+    NSString *sRating = [NSString stringWithFormat:@"%@", [dic objectForKey:@"rating"]];
+    
+    if ( [sRating isEqualToString:@"19"] )
+    {
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        CMAdultCertificationYN adultYN = [userDefault adultCertYN];
+        if ( adultYN == CMAdultCertificationSuccess )
+        {
+            // 성인 인증을 받았으면 딤 해제
+            self.isAdultCheck = NO;
+            self.pDimImageView.hidden = YES;
+        }
+        else
+        {
+            self.isAdultCheck = YES;
+            self.pDimImageView.hidden = NO;
+        }
+        
+    }
+    else
+    {
+        self.pDimImageView.hidden = YES;
+        self.isAdultCheck = NO;
+    }
 }
 
 - (IBAction)onBtnClicked:(id)sender
 {
-    [self.delegate CMContentGroupCollectionViewCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithSeriesLink:self.pSeriesLintStr];
+    [self.delegate CMContentGroupCollectionViewCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithSeriesLink:self.pSeriesLintStr WithAdultCheck:self.isAdultCheck];
 }
 
 @end

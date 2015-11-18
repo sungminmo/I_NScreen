@@ -9,6 +9,7 @@
 #import "EpgMainViewController.h"
 #import "NSMutableDictionary+EPG.h"
 #import "UIAlertView+AFNetworking.h"
+#import "CMDBDataManager.h"
 
 @interface EpgMainViewController ()
 
@@ -95,17 +96,35 @@
         NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"EpgMainTableViewCell" owner:nil options:nil];
         pCell = [arr objectAtIndex:0];
     }
+    pCell.delegate = self;
     
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    [pCell setListData:[self.pListDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    RLMArray *ramArr = [manager getFavorChannel];
+    
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:indexPath.row] objectForKey:@"channelId"]];
+    
+    BOOL isCheck = NO;
+    for ( CMFavorChannelInfo *info in ramArr )
+    {
+        if ( [info.pChannelId isEqualToString:sChannelId] )
+        {
+            // 선호체널
+            isCheck = YES;
+        }
+    }
+
+    
+    [pCell setListData:[self.pListDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithStar:isCheck];
     
     return pCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{    
     EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
+    pViewController.delegate = self;
     pViewController.pListDataDic = [self.pListDataArr objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:pViewController animated:YES];
 }
@@ -137,8 +156,31 @@
         if ( [gets count] == 0 )
             return;
         
-        [self.pListDataArr removeAllObjects];
-        [self.pListDataArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
+        if ( self.nGenreCode == 0 )
+        {
+            [self.pListDataArr removeAllObjects];
+            [self.pListDataArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
+        }
+        else
+        {
+            [self.pListDataArr removeAllObjects];
+            
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            RLMArray *ramArr = [manager getFavorChannel];
+            
+            for ( NSDictionary *dic in [[gets objectAtIndex:0] objectForKey:@"channelItem"] )
+            {
+                NSString *sChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+                
+                for ( CMFavorChannelInfo *info in ramArr )
+                {
+                    if ( [info.pChannelId isEqualToString:sChannelId] )
+                    {
+                        [self.pListDataArr addObject:dic];
+                    }
+                }
+            }
+        }
         
         [self.pTableView reloadData];
     }];
@@ -184,6 +226,8 @@
         {
             // 선호 채널
             [self.pPopUpBtn setTitle:@"선호채널" forState:UIControlStateNormal];
+            
+            [self requestWithChannelListFull];
         }
         
     }
@@ -197,6 +241,26 @@
     }
     
     
+}
+
+#pragma mark - EpgMainTableViewCell 델리게이트
+- (void)EpgMainTableViewWithTag:(int)nTag
+{
+    if ( self.nGenreCode == 1 )
+    {
+        // 선호 체널이면
+//        CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+        
+        [self.pListDataArr removeObjectAtIndex:nTag];
+        
+    }
+    [self.pTableView reloadData];
+}
+
+#pragma mark - EpgSubView 델리게이트
+- (void)EpgSubViewWithTag:(int)nTag
+{
+    [self requestWithChannelListFull];
 }
 
 @end

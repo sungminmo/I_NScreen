@@ -10,6 +10,7 @@
 #import "NSMutableDictionary+REMOCON.h"
 #import "NSMutableDictionary+EPG.h"
 #import "UIAlertView+AFNetworking.h"
+#import "CMDBDataManager.h"
 
 @interface RemoconMainViewController ()
 
@@ -177,8 +178,23 @@
     }
     
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    pCell.delegate = self;
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    RLMArray *ramArr = [manager getFavorChannel];
     
-    [pCell setListData:[self.pChannelListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pChannelListArr objectAtIndex:indexPath.row] objectForKey:@"channelId"]];
+    
+    BOOL isCheck = NO;
+    for ( CMFavorChannelInfo *info in ramArr )
+    {
+        if ( [info.pChannelId isEqualToString:sChannelId] )
+        {
+            // 선호체널
+            isCheck = YES;
+        }
+    }
+    
+    [pCell setListData:[self.pChannelListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithStar:isCheck];
     
     return pCell;
 }
@@ -256,8 +272,34 @@
 //        [self.pListDataArr removeAllObjects];
 //        [self.pListDataArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
         
-        [self.pChannelListArr removeAllObjects];
-        [self.pChannelListArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
+        
+        if ( self.nGenreCode == 0 )
+        {
+            [self.pChannelListArr removeAllObjects];
+            [self.pChannelListArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
+            
+        }
+        else
+        {
+            [self.pChannelListArr removeAllObjects];
+            
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            RLMArray *ramArr = [manager getFavorChannel];
+            
+            for ( NSDictionary *dic in [[gets objectAtIndex:0] objectForKey:@"channelItem"] )
+            {
+                NSString *sChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+                
+                for ( CMFavorChannelInfo *info in ramArr )
+                {
+                    if ( [info.pChannelId isEqualToString:sChannelId] )
+                    {
+                        [self.pChannelListArr addObject:dic];
+                    }
+                }
+            }
+
+        }
         
         [self.pTableView reloadData];
     }];
@@ -302,7 +344,7 @@
         NSString *sStatus = [NSString stringWithFormat:@"%@", [self.pStatusDic objectForKey:@"state"]];
         NSString *sWatchingchannel = [NSString stringWithFormat:@"%@번", [self.pStatusDic objectForKey:@"watchingchannel"]];
         
-        if ( [sWatchingchannel isEqualToString:@"(null)"] || [sWatchingchannel length] == 0 )
+        if ( [sWatchingchannel isEqualToString:@"(null)번"] || [sWatchingchannel length] == 0 )
         {
              [self setChannelNumber:@""];
         }
@@ -367,6 +409,8 @@
         {
             // 선호 채널
             [self.pChannelBtn setTitle:@"선호채널" forState:UIControlStateNormal];
+            
+            [self requestWithChannelListFull];
         }
         
     }
@@ -378,6 +422,20 @@
         [self.pChannelBtn setTitle:sGenreName forState:UIControlStateNormal];
         [self requestWithChannelListWithGenreCode:sGenreCode];
     }
+}
+
+#pragma mark - RemoconMainTableViewCell 델리게이트
+- (void)RemoconMainTableViewCellWithTag:(int)nTag
+{
+    if ( self.nGenreCode == 1 )
+    {
+        // 선호 체널이면
+        //        CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+        
+        [self.pChannelListArr removeObjectAtIndex:nTag];
+        
+    }
+    [self.pTableView reloadData];
 }
 
 @end

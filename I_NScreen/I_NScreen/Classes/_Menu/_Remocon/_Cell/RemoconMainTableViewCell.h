@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol RemoconMainTableViewDelegate;
+
 @interface RemoconMainTableViewCell : UITableViewCell
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index;
+@property (nonatomic, weak) id <RemoconMainTableViewDelegate>delegate;
+
+- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar;
+- (IBAction)onBtnClicked:(UIButton *)btn;
+
+@end
+
+@protocol RemoconMainTableViewDelegate <NSObject>
+
+@optional
+- (void)RemoconMainTableViewCellWithTag:(int)nTag;
 
 @end
