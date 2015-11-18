@@ -174,14 +174,18 @@
     
     UINavigationController* navigationController = (UINavigationController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
     CGRect rootViewFrame = navigationController.view.frame;
-
+    
+    if (navigationController.visibleViewController) {//모달뷰 대응
+        rootViewFrame = navigationController.visibleViewController.view.frame;
+    }
+    
     NSDictionary* keyboardInfo = [notification userInfo];
     CGRect keyboardFrame = [[keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
 
     CGRect frame = [self.window convertRect:self.frame fromView:self.superview];
     
     CGFloat bottomPadding = 3;
-    if (keyboardFrame.origin.y < frame.origin.y + bottomPadding) {
+    if (keyboardFrame.origin.y < frame.origin.y + frame.size.height + bottomPadding) {
         
         CGFloat calcY;
         
@@ -193,7 +197,14 @@
         
         rootViewFrame.origin.y -= calcY;
         [UIView animateWithDuration:.4 animations:^{
-            navigationController.view.frame = rootViewFrame;
+            
+            if (navigationController.visibleViewController) {//모달뷰 대응
+                navigationController.visibleViewController.view.frame = rootViewFrame;
+            }
+            else {
+                navigationController.view.frame = rootViewFrame;
+            }
+            
         }];
     }
 }
@@ -201,11 +212,23 @@
 - (void)keyboardWillHide:(NSNotification*)noti {
     
     UINavigationController* navigationController = (UINavigationController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    
     CGRect rootViewFrame = navigationController.view.frame;
+    if (navigationController.visibleViewController) {//모달뷰 대응
+        rootViewFrame = navigationController.visibleViewController.view.frame;
+    }
+    
     rootViewFrame.origin.y = 0;
     
     [UIView animateWithDuration:.4 animations:^{
-        navigationController.view.frame = rootViewFrame;
+        
+        if (navigationController.visibleViewController) {//모달뷰 대응
+            navigationController.visibleViewController.view.frame = rootViewFrame;
+        }
+        else {
+            navigationController.view.frame = rootViewFrame;
+        }
+        
     }];
 }
 
