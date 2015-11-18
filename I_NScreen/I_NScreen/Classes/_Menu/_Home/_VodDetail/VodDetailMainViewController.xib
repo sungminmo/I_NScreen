@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodDetailMainViewController">
@@ -143,7 +143,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4q-dy-nbm">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4q-dy-nbm">
                     <rect key="frame" x="192" y="15" width="202" height="18"/>
                     <animations/>
                     <constraints>
@@ -680,6 +680,12 @@
                     <exclude reference="24f-4m-1cg"/>
                     <exclude reference="KqM-g2-TQ1"/>
                     <exclude reference="ftb-El-HK4"/>
+                    <exclude reference="gpy-wx-1uY"/>
+                    <exclude reference="hpz-3a-has"/>
+                    <exclude reference="xOR-1s-8CF"/>
+                    <exclude reference="zx6-pS-yVJ"/>
+                    <exclude reference="c2p-9x-DP1"/>
+                    <exclude reference="de3-gA-BCz"/>
                     <exclude reference="CQX-R0-ba6"/>
                     <exclude reference="FIL-bO-PIm"/>
                     <exclude reference="MnP-L5-y01"/>
@@ -687,12 +693,6 @@
                     <exclude reference="RcB-gR-DUb"/>
                     <exclude reference="V2s-mz-p52"/>
                     <exclude reference="tP1-GO-l3b"/>
-                    <exclude reference="gpy-wx-1uY"/>
-                    <exclude reference="hpz-3a-has"/>
-                    <exclude reference="xOR-1s-8CF"/>
-                    <exclude reference="zx6-pS-yVJ"/>
-                    <exclude reference="c2p-9x-DP1"/>
-                    <exclude reference="de3-gA-BCz"/>
                     <exclude reference="80c-70-LkY"/>
                     <exclude reference="XMW-GU-bz6"/>
                     <exclude reference="1Ph-Es-CBT"/>
@@ -745,6 +745,12 @@
                     <include reference="24f-4m-1cg"/>
                     <include reference="KqM-g2-TQ1"/>
                     <include reference="ftb-El-HK4"/>
+                    <include reference="gpy-wx-1uY"/>
+                    <include reference="hpz-3a-has"/>
+                    <include reference="xOR-1s-8CF"/>
+                    <include reference="zx6-pS-yVJ"/>
+                    <include reference="c2p-9x-DP1"/>
+                    <include reference="de3-gA-BCz"/>
                     <include reference="CQX-R0-ba6"/>
                     <include reference="FIL-bO-PIm"/>
                     <include reference="MnP-L5-y01"/>
@@ -752,12 +758,6 @@
                     <include reference="RcB-gR-DUb"/>
                     <include reference="V2s-mz-p52"/>
                     <include reference="tP1-GO-l3b"/>
-                    <include reference="gpy-wx-1uY"/>
-                    <include reference="hpz-3a-has"/>
-                    <include reference="xOR-1s-8CF"/>
-                    <include reference="zx6-pS-yVJ"/>
-                    <include reference="c2p-9x-DP1"/>
-                    <include reference="de3-gA-BCz"/>
                     <include reference="80c-70-LkY"/>
                     <include reference="XMW-GU-bz6"/>
                     <include reference="1Ph-Es-CBT"/>

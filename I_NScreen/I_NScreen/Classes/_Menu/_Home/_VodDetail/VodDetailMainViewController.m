@@ -76,6 +76,15 @@
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
+    CMDBDataManager* manager= [CMDBDataManager sharedInstance];
+    
+    if ( [manager getPairingCheck] == NO )
+    {
+        // 미 페어링시
+        [SIAlertView alert:@"셋탑박스 연동 필요" message:@"셋탑박스와 연결한 후 이용하실 수 있습니다.\n메인 화면 좌측상단 아이콘을 눌러 안내에 따라\n쉽고 편리하게 셋탑박스를 연동해보세요."];
+        
+        return;
+    }
     switch ([btn tag]) {
         case VOD_DETAIL_MAIN_VIEW_BTN_02:
         case VOD_DETAIL_MAIN_VIEW_BTN_05:
@@ -498,7 +507,7 @@
                     [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
                 }
                 pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
-                pBtn.tag = i;
+                pBtn.tag = i + 1;
                 [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [self.pSeriesScrollView24 addSubview:pBtn];
             }
@@ -530,7 +539,7 @@
                     [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
                 }
                 pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
-                pBtn.tag = i;
+                pBtn.tag = i + 1;
                 [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [self.pSeriesScrollView25 addSubview:pBtn];
             }
@@ -764,9 +773,8 @@
     
     self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"genre"], nTotalMM];
     
-    
-    
     self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"director"]];
+    
     
     if ( [sSeriesLink isEqualToString:@"0"] )
     {
@@ -803,8 +811,21 @@
         if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
         {
             // 구매안한 사용자
-            nTag = 23;
-            [self setViewInit23];
+            NSString *sProductType = [NSString stringWithFormat:@"%@", [[[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productType"]]; // 무료시청 체크 FOD 이면 무료 시청
+   
+            
+            if ( [sProductType isEqualToString:@"FOD"] )
+            {
+                // 무료시청
+                nTag = 24;
+                [self setViewInit24];
+            }
+            else
+            {
+                nTag = 23;
+                [self setViewInit23];
+            }
+            
             if ( [sPreviewPeriod isEqualToString:@"0"] )
             {
                 // 미리보기 없음

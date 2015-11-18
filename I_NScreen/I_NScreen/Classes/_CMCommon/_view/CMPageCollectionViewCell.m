@@ -162,8 +162,20 @@
     
     if ( [sRating isEqualToString:@"19"] )
     {
-        self.isAdultCheck = YES;
-        self.pDimImageView.hidden = NO;
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        CMAdultCertificationYN adultYN = [userDefault adultCertYN];
+        if ( adultYN == CMAdultCertificationSuccess )
+        {
+            // 성인 인증을 받았으면 딤 해제
+            self.isAdultCheck = NO;
+            self.pDimImageView.hidden = YES;
+        }
+        else
+        {
+            self.isAdultCheck = YES;
+            self.pDimImageView.hidden = NO;
+        }
+        
     }
     else
     {
