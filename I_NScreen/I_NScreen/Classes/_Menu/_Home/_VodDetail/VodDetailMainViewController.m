@@ -875,7 +875,10 @@
 {
     int nTotals = nTotal * 10;
     
-    int nStar = nTotals / nCount;
+    int nStar = 0;
+    if (nTotals > 0 && nCount > 0) {
+        nStar = nTotals / nCount;
+    }
     
     if ( nStar >= 50 )
     {
