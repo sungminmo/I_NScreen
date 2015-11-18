@@ -458,8 +458,12 @@
         {
             // 결제 하기
 
-            // add 잘 안됨 담에 고치자
             VodPopUpViewController *pViewController = [[VodPopUpViewController alloc] initWithNibName:@"VodPopUpViewController" bundle:nil];
+            self.navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+            pViewController.navigationController.modalPresentationStyle= UIModalPresentationCurrentContext;
+            if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f) {
+                pViewController.modalPresentationStyle= UIModalPresentationOverCurrentContext;
+            }
             pViewController.pBuyStr = [[self.pBuyTypeArr objectAtIndex:0] objectForKey:@"price"];
             pViewController.pBuyDic = self.pDetailDataDic;
             pViewController.delegate = self;

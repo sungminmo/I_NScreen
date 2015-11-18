@@ -12,6 +12,7 @@
 #import "CMDBDataManager.h"
 
 @interface VodPopUpViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *lineView;
 
 @end
 
@@ -31,6 +32,8 @@
 
     [self setViewInit];
     [self setViewTagInit];
+
+    self.lineView.image = [UIImage imageWithColor:[UIColor lightGrayColor] withAlpha:1 withSize:self.lineView.bounds.size];
 }
 
 #pragma mark - 초기화
