@@ -52,13 +52,20 @@ static NSString* const CellIdentifier = @"regionSettingCell";
     //  test
 //    self.regionData = [@[@"노원구", @"마포구", @"동대문구", @"서대문구", @"서초구", @"성북구", @"성동구", @"가나다라마바사아차카"] mutableCopy];
 //    self.selectedIdx = 0;
+    self.regionData = [@[] mutableCopy];
     [self loadAreaList];
 }
 
 - (void)loadAreaList {
-    NSURLSessionTask *tesk = [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
-        NSArray* obj = [epgs valueForKeyPath:@"areaItem"];
-        self.regionData = [obj.lastObject copy];
+    [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
+        id obj = [epgs valueForKeyPath:@"areaItem"];
+        if ([obj isKindOfClass:[NSArray class]]) {
+            [self.regionData addObjectsFromArray:[(NSArray*)obj copy]];
+        }
+        else {
+            [self.regionData addObject:(NSDictionary*)obj];
+        }
+
         DDLogInfo(@"%@", [obj description]);
         [self loadSelectedRegion];
     }];
