@@ -12,6 +12,7 @@
 #import "CMDBDataManager.h"
 
 @interface PairingAuthViewController ()
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *guideLabels;
 
 @end
 
@@ -27,7 +28,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    if ([UIScreen mainScreen].bounds.size.width == 320) {
+        for (id obj in self.guideLabels) {
+            UILabel* lb = (UILabel*)obj;
+            lb.font = [UIFont systemFontOfSize:12];
+        }
+    }
     
     [self setTagInit];
     [self setViewInit];
