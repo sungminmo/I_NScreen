@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMTermsViewController">
@@ -42,7 +42,7 @@
                         <action selector="actionDoneButton:" destination="-1" eventType="touchUpInside" id="Jae-h3-fhj"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-2K-Q9b">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-2K-Q9b">
                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                     <animations/>
                     <constraints>
@@ -72,7 +72,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="saZ-Ob-x6o" secondAttribute="trailing" constant="14" id="2xo-OT-cyP"/>
-                <constraint firstItem="NKy-X3-xjI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="163" id="5J7-q8-V0T"/>
+                <constraint firstItem="NKy-X3-xjI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="163" id="5J7-q8-V0T">
+                    <variation key="heightClass=regular-widthClass=compact" constant="113"/>
+                </constraint>
                 <constraint firstItem="NKy-X3-xjI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="CeS-GX-cdl"/>
                 <constraint firstAttribute="bottom" secondItem="saZ-Ob-x6o" secondAttribute="bottom" constant="8" id="Jyw-yw-sol"/>
                 <constraint firstItem="saZ-Ob-x6o" firstAttribute="top" secondItem="NKy-X3-xjI" secondAttribute="bottom" constant="8" id="LXM-KC-9VX"/>
@@ -88,15 +90,15 @@
                     <exclude reference="NKy-X3-xjI"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="5J7-q8-V0T"/>
-                    <exclude reference="CeS-GX-cdl"/>
-                    <exclude reference="QXS-jb-zsf"/>
-                    <exclude reference="c9c-FO-OQv"/>
-                    <exclude reference="gtD-6v-rPU"/>
                     <exclude reference="2xo-OT-cyP"/>
                     <exclude reference="Jyw-yw-sol"/>
                     <exclude reference="LXM-KC-9VX"/>
                     <exclude reference="hlX-jZ-rwE"/>
+                    <exclude reference="c9c-FO-OQv"/>
+                    <exclude reference="gtD-6v-rPU"/>
+                    <exclude reference="5J7-q8-V0T"/>
+                    <exclude reference="CeS-GX-cdl"/>
+                    <exclude reference="QXS-jb-zsf"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -106,15 +108,15 @@
                     <include reference="NKy-X3-xjI"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="5J7-q8-V0T"/>
-                    <include reference="CeS-GX-cdl"/>
-                    <include reference="QXS-jb-zsf"/>
-                    <include reference="c9c-FO-OQv"/>
-                    <include reference="gtD-6v-rPU"/>
                     <include reference="2xo-OT-cyP"/>
                     <include reference="Jyw-yw-sol"/>
                     <include reference="LXM-KC-9VX"/>
                     <include reference="hlX-jZ-rwE"/>
+                    <include reference="c9c-FO-OQv"/>
+                    <include reference="gtD-6v-rPU"/>
+                    <include reference="5J7-q8-V0T"/>
+                    <include reference="CeS-GX-cdl"/>
+                    <include reference="QXS-jb-zsf"/>
                 </mask>
             </variation>
         </view>
