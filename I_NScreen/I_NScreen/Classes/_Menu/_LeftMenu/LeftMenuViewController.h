@@ -25,7 +25,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *pairingImageView;
 @property (weak, nonatomic) IBOutlet UILabel *pairingMessageLabel;
-
+//actionVersionButton
+@property (weak, nonatomic) IBOutlet UIButton *pVerionBtn;
 
 
 @property (nonatomic) int nTag;

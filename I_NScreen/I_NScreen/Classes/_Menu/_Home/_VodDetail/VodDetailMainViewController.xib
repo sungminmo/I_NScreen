@@ -1258,7 +1258,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXQ-Kg-3R3">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXQ-Kg-3R3">
                             <rect key="frame" x="38" y="1" width="308" height="43"/>
                             <animations/>
                             <constraints>
@@ -1586,7 +1586,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8xB-iO-xsL">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xB-iO-xsL">
                             <rect key="frame" x="38" y="1" width="308" height="43"/>
                             <animations/>
                             <constraints>
@@ -1846,7 +1846,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-ae-P5L">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-ae-P5L">
                             <rect key="frame" x="38" y="1" width="308" height="43"/>
                             <animations/>
                             <constraints>

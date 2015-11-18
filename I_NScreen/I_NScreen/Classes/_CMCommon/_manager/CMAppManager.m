@@ -132,6 +132,15 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:key];
 }
 
+#pragma mark - 앱 버전
+- (NSString *)getAppVersion
+{
+    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+    NSString *majorVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
+    
+    return [NSString stringWithFormat:@"%@", majorVersion];
+}
+
 #pragma mark - 디바이스 체크
 - (NSString *)getDeviceCheck
 {

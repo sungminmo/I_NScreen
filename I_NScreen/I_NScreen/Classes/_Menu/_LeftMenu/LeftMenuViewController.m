@@ -31,6 +31,9 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    // 앱 버전 라벨
+    NSString *sVerion = [NSString stringWithFormat:@"현재 버전 %@", [[CMAppManager sharedInstance] getAppVersion]];
+    [self.pVerionBtn setTitle:sVerion forState:UIControlStateNormal];
     
     [self.upperView clearSubOutLineLayers];
     [self.bottomView clearSubOutLineLayers];
@@ -135,8 +138,11 @@
 }
 
 - (IBAction)actionVersionButton:(id)sender {
+    /*!<
+     앱 버전 정보 버튼 비활성화로 수정됨
     CMVersionViewController *controller = [[CMVersionViewController alloc] initWithNibName:@"CMVersionViewController" bundle:nil];
     [self.navigationController pushViewController:controller animated:YES];
+     */
 }
 - (IBAction)actionPairingGuide:(id)sender {
     NSString* title = @"셋탑박스 연동이란?";

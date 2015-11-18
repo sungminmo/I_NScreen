@@ -52,6 +52,11 @@
 - (BOOL)getBoolData:(NSString *)key;
 
 /**
+ * @brief 앱 버전
+ */
+- (NSString *)getAppVersion;
+
+/**
  * @brief 디바이스 체크
  */
 - (NSString *)getDeviceCheck;

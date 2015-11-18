@@ -186,6 +186,12 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
                 self.pView21.hidden = YES;
                 self.pView22.hidden = NO;
                 
+                
+                // 시리즈 1, 뷰 타입 20 getSeries 에피소드 1
+                // 시리즈 0, 뷰 타입이 20
+//                NSString *sSeries
+                
+                
                 [self requestWithElse3DepthWithViewerType:sViewerType WithCategoryId:sCategoryId];
             }
             
@@ -220,6 +226,31 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
+
+
+///
+//- (void)requestWithAssetInfo
+//{
+//    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetInfoWithAssetId:self.pAssetIdStr WithAssetProfile:@"9" completion:^(NSArray *vod, NSError *error) {
+//        
+//        DDLogError(@"vod 상세 = [%@]", vod);
+//        
+//        if ( [vod count] == 0 )
+//            return;
+//        [self.pAssetInfoDic removeAllObjects];
+//        [self.pAssetInfoDic setDictionary:[vod objectAtIndex:0]];
+//        
+//        self.pFileNameStr = [NSString stringWithFormat:@"%@", [[[vod objectAtIndex:0] objectForKey:@"asset"] objectForKey:@"fileName"]];
+//        
+//        [self setResponseViewInit];
+//        
+//    }];
+//    
+//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//}
+
+
+///
 
 #pragma mark - 인기순위 3댑스 리스트 뿌려줌   daily, weekly, all
 - (void)requestWithGetPopularityChart3DepthWithItem:(BOOL)isItemCheck

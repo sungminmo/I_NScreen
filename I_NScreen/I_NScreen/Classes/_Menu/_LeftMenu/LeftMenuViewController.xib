@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="bottomView" destination="en7-uG-gnL" id="iC1-u5-brn"/>
                 <outlet property="pTableView" destination="kNq-uG-6KS" id="zj3-mW-cy9"/>
+                <outlet property="pVerionBtn" destination="zkQ-k5-QBn" id="fGc-ll-SBA"/>
                 <outlet property="pairingButton" destination="a3B-JC-4YT" id="ED9-Lb-exx"/>
                 <outlet property="pairingImageView" destination="qXl-Iq-lgS" id="RY1-sL-vNW"/>
                 <outlet property="pairingLabel" destination="6gg-p6-egN" id="kSp-3g-DC8"/>

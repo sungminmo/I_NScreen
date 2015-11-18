@@ -1111,17 +1111,17 @@
 // 현재 privte 터미널 키를 서버 이슈로 못받고 있기 때문에 public 터미널 키를 박음 수정 해야함
 - (NSURLSessionDataTask *)pvrGetrecordlistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
 {
-
-    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_Getrecordlist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
-                           @"deviceId" : [[CMAppManager sharedInstance] getUniqueUuid]
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [manager getPrivateTerminalKey],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
-    NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -1137,16 +1137,18 @@
 
 - (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block
 {
-    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+                           
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"1",
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_REAL_TEST_TERMINAL_KEY,
-                           @"deviceId" : [[CMAppManager sharedInstance]getUniqueUuid]
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [manager getPrivateTerminalKey],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
-    NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
