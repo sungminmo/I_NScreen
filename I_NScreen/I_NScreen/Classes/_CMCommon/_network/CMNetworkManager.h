@@ -87,6 +87,14 @@
 
 - (NSURLSessionDataTask *)epgSetRecordWithChannelId:(NSString *)channeId completion:(void (^)(NSArray *epgs, NSError *error))block;
 
+- (NSURLSessionDataTask *)epgSetRecordStopWithChannelId:(NSString *)channeId completion:(void (^)(NSArray *epgs, NSError *error))block;
+
+- (NSURLSessionDataTask *)epgSetRecordReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime completion:(void (^)(NSArray *epgs, NSError *error))block;
+
+- (NSURLSessionDataTask *)epgSetRecordSeriesReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithSeriesId:(NSString *)seriesId completion:(void (^)(NSArray *epgs, NSError *error))block;
+
+- (NSURLSessionDataTask *)epgSetRecordCancelReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithSeriesId:(NSString *)seriesId WithReserveCancel:(NSString *)reserveCancel completion:(void (^)(NSArray *epgs, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager (VOD)

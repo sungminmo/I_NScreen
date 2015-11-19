@@ -637,20 +637,162 @@
 
 - (NSURLSessionDataTask *)epgSetRecordWithChannelId:(NSString *)channeId completion:(void (^)(NSArray *epgs, NSError *error))block
 {
-    self.rumClientVpn.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.rumClientVpn.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
-    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SearchSchedule];
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecord];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           @"areaCode" : @"1",
-                           @"searchString" : @"data"
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"ChannelId" : channeId
                            };
     
-    NSURLSessionDataTask *task = [self.rumClientVpn GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
+        
+        block(@[result], nil);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
+- (NSURLSessionDataTask *)epgSetRecordStopWithChannelId:(NSString *)channeId completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordStop];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"ChannelId" : channeId
+                           };
+    
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
+- (NSURLSessionDataTask *)epgSetRecordReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordReserve];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"ChannelId" : channeId,
+                           @"StartTime" : startTime
+                           };
+    
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
+- (NSURLSessionDataTask *)epgSetRecordSeriesReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithSeriesId:(NSString *)seriesId completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordSeriesReserve];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"ChannelId" : channeId,
+                           @"StartTime" : startTime,
+                           @"seriesId" : seriesId
+                           };
+    
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
+- (NSURLSessionDataTask *)epgSetRecordCancelReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithSeriesId:(NSString *)seriesId WithReserveCancel:(NSString *)reserveCancel completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSDictionary *dict = nil;
+    
+    if ( [reserveCancel isEqualToString:@"1"] )
+    {
+        // 시리즈
+        
+        dict = @{
+                 CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                 CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                 @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                 @"ChannelId" : channeId,
+                 @"StartTime" : startTime,
+                 @"seriesId" : seriesId,
+                 @"ReserveCancel" : reserveCancel
+                 };
+        
+    }
+    else
+    {
+        // 단편
+        dict = @{
+                 CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                 CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                 @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                 @"ChannelId" : channeId,
+                 @"StartTime" : startTime,
+                 @"ReserveCancel" : reserveCancel
+                 };
+        
+    }
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordCancelReserve];
+    
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        block(nil, error);
     }];
     [self updateActivityIndicator:task];
     return task;
@@ -1240,7 +1382,7 @@
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
-                           @"deviceId" : [[CMAppManager sharedInstance] getUniqueUuid],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"power" : power
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1266,7 +1408,7 @@
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
-                           @"deviceId" : [[CMAppManager sharedInstance] getUniqueUuid],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"volume" : volume
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1290,7 +1432,7 @@
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetSetTopStatus];
     NSDictionary *dict = @{
-                           @"deviceId" : [[CMAppManager sharedInstance]getUniqueUuid]
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
@@ -1315,7 +1457,7 @@
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRemoteChannelControl];
     NSDictionary *dict = @{
-                           @"deviceId" : [[CMAppManager sharedInstance]getUniqueUuid],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"channelId" : channelId
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

@@ -361,6 +361,11 @@
     
         [self.pWishListArr removeAllObjects];
         
+        if ( [[[myCm objectAtIndex:0] objectForKey:@"errorString"] isEqualToString:@"WishList Not Found"] )
+        {
+            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"찜 한 VOD 가 없습니다."];
+        }
+        
         NSObject *itemObject = [[[myCm objectAtIndex:0] objectForKey:@"wishItemList"] objectForKey:@"wishItem"];
         
         if ( [itemObject isKindOfClass:[NSDictionary class]] )
@@ -369,7 +374,7 @@
             [self.pWishListArr addObject:(NSDictionary *)itemObject];
             
             self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 1개의 찜 VOD가 있습니다."];
-
+            
         }
         else
         {
@@ -432,7 +437,14 @@
             [self.pWishListArr removeObjectAtIndex:index];
             
             int nTotal = (int)[self.pWishListArr count];
-            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 찜 VOD가 있습니다.", nTotal];
+            if ( nTotal == 0 )
+            {
+               self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"찜 한 VOD 가 없습니다."];
+            }
+            else
+            {
+                self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 찜 VOD가 있습니다.", nTotal];
+            }
             
             [self.pSubTableView02 reloadData];
         }

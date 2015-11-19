@@ -368,6 +368,20 @@ NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule = @"getChannelSchedule
 // searchSchedule
 NSString* const CNM_OPEN_API_INTERFACE_SearchSchedule = @"searchSchedule";
 
+// SetRecord
+NSString* const CNM_OPEN_API_INTERFACE_SetRecord = @"SetRecord";
+
+// SetRecordStop
+NSString* const CNM_OPEN_API_INTERFACE_SetRecordStop = @"SetRecordStop";
+
+// SetRecordReserve
+NSString* const CNM_OPEN_API_INTERFACE_SetRecordReserve = @"SetRecordReserve";
+
+// SetRecordSeriesReserve
+NSString* const CNM_OPEN_API_INTERFACE_SetRecordSeriesReserve = @"SetRecordSeriesReserve";
+
+// SetRecordCancelReserve
+NSString* const CNM_OPEN_API_INTERFACE_SetRecordCancelReserve = @"SetRecordCancelReserve";
 
 // 7. Pairing
 // addUser

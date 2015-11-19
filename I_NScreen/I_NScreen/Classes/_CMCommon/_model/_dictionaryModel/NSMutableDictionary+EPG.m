@@ -41,9 +41,30 @@
     return [[CMNetworkManager sharedInstance] epgSearchScheduleAreaCode:areaCode WithSearch:search block:block];
 }
 
-//+ (NSURLSessionDataTask *)epgSetRecordWithChannelId:(NSString *)channeId completion:(void (^)(NSArray *epgs, NSError *error))block
-//{
-//    
-//}
++ (NSURLSessionDataTask *)epgSetRecordWithChannelId:(NSString *)channeId completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] epgSetRecordWithChannelId:channeId completion:block];
+}
+
++ (NSURLSessionDataTask *)epgSetRecordStopWithChannelId:(NSString *)channeId completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] epgSetRecordStopWithChannelId:channeId completion:block];
+}
+
++ (NSURLSessionDataTask *)epgSetRecordReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] epgSetRecordReserveWithChannelId:channeId WithStartTime:startTime completion:block];
+}
+
++ (NSURLSessionDataTask *)epgSetRecordSeriesReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithSeriesId:(NSString *)seriesId completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] epgSetRecordSeriesReserveWithChannelId:channeId WithStartTime:startTime WithSeriesId:seriesId completion:block];
+}
+
++ (NSURLSessionDataTask *)epgSetRecordCancelReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithSeriesId:(NSString *)seriesId WithReserveCancel:(NSString *)reserveCancel completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] epgSetRecordCancelReserveWithChannelId:channeId WithStartTime:startTime WithSeriesId:seriesId WithReserveCancel:reserveCancel completion:block];
+}
+
 
 @end

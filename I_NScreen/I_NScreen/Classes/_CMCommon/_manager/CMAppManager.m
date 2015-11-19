@@ -563,7 +563,8 @@
     CGFloat nProgress = nToHap / nHap;
     
     if ( nProgress > 1 )
-        nProgress = 1;
+//        nProgress = 1;
+        nProgress = 0;
     
     if ( nStartTotal < nEndTotal )
     {

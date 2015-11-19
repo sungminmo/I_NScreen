@@ -35,6 +35,34 @@
     if ( viewType == MY_CM_MAIN_VIEW_BTN_02 )
     {
         // 구매목록
+        // 결제 스티커
+        NSString *sPaymentType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"paymentType"]];
+        
+        if ( [sPaymentType isEqualToString:@"normal"] )
+        {
+            // 일반결제
+            [self.pCouponImageView setImage:[UIImage imageNamed:@"icon_generalpay.png"]];
+        }
+        else if ( [sPaymentType isEqualToString:@"coupon"] )
+        {
+            // 쿠폰
+            [self.pCouponImageView setImage:[UIImage imageNamed:@"icon_couponpay.png"]];
+        }
+        else if ( [sPaymentType isEqualToString:@"point"] )
+        {
+            // point
+            [self.pCouponImageView setImage:[UIImage imageNamed:@"icon_tvpointpay.png"]];
+        }
+        else if ( [sPaymentType isEqualToString:@"complex"] )
+        {
+            // 복합 결제
+            [self.pCouponImageView setImage:[UIImage imageNamed:@"icon_complexpay.png"]];
+        }
+        else
+        {
+            [self.pCouponImageView setImage:[UIImage imageNamed:@""]];
+        }
+        
         self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetTitle"]]; // 타이틀
         self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] insertComma:[dic objectForKey:@"price"]]];
         

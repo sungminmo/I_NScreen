@@ -436,6 +436,21 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetChannelSchedule;
 // searchSchedule
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchSchedule;
 
+// SetRecord
+extern NSString* const CNM_OPEN_API_INTERFACE_SetRecord;
+
+// SetRecordStop
+extern NSString* const CNM_OPEN_API_INTERFACE_SetRecordStop;
+
+// SetRecordReserve
+extern NSString* const CNM_OPEN_API_INTERFACE_SetRecordReserve;
+
+// SetRecordSeriesReserve
+extern NSString* const CNM_OPEN_API_INTERFACE_SetRecordSeriesReserve;
+
+// SetRecordCancelReserve
+extern NSString* const CNM_OPEN_API_INTERFACE_SetRecordCancelReserve;
+
 // 8. Pairing
 
 // addUser
