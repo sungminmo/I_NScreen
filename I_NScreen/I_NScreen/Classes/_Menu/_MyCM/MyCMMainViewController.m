@@ -9,6 +9,7 @@
 #import "MyCMMainViewController.h"
 #import "NSMutableDictionary+MyC_M.h"
 #import "UIAlertView+AFNetworking.h"
+#import "NSMutableDictionary+WISH.h"
 
 @interface MyCMMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pValidPurchaseLogListMoblieArr;   // vod 찜 목록 모바일 구매 목록
@@ -178,23 +179,23 @@
         if ( self.nSubTabTag == 0 )
         {
             // 모바일 구매목록
-            [pCell setListData:[self.pValidPurchaseLogListMoblieArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+            [pCell setListData:[self.pValidPurchaseLogListMoblieArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewType:self.nTapTag];
         }
         else
         {
             // tv 수매목록
-            [pCell setListData:[self.pValidPurchaseLogListTvArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+            [pCell setListData:[self.pValidPurchaseLogListTvArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewType:self.nTapTag];
         }
     }
     else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_03 )
     {
         // 시청목록
-        [pCell setListData:nil WithIndex:(int)indexPath.row];
+        [pCell setListData:nil WithIndex:(int)indexPath.row WithViewType:self.nTapTag];
     }
     else
     {
         // 찜목록
-        [pCell setListData:[self.pWishListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+        [pCell setListData:[self.pWishListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewType:self.nTapTag];
     }
     
     return pCell;
@@ -204,6 +205,51 @@
 {
     //    EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
     //    [self.navigationController pushViewController:pViewController animated:YES];
+    
+    if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_04 )
+    {
+        // 찜목록
+        NSString *sRating = [NSString stringWithFormat:@"%@", [[[self.pWishListArr objectAtIndex:indexPath.row] objectForKey:@"asset"] objectForKey:@"rating"]];
+        NSString *sAssetId = [NSString stringWithFormat:@"%@", [[[self.pWishListArr objectAtIndex:indexPath.row] objectForKey:@"asset"] objectForKey:@"assetId"]];
+        
+        if ( [sRating isEqualToString:@"19"] )
+        {
+            // 성인 여부 컨텐츠이면
+            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+            CMAdultCertificationYN adultYN = [userDefault adultCertYN];
+            if ( adultYN == CMAdultCertificationSuccess )
+            {
+                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                pViewController.pAssetIdStr = sAssetId;
+                pViewController.delegate = self;
+                [self.navigationController pushViewController:pViewController animated:YES];
+            }
+            else
+            {
+                [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                        completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                            
+                            if ( buttonIndex == 1 )
+                            {
+                                // 설정 창으로 이동
+                                CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                                [self.navigationController pushViewController:controller animated:YES];
+                            }
+                        }];
+            }
+            
+        }
+        else
+        {
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = sAssetId;
+            pViewController.delegate = self;
+            [self.navigationController pushViewController:pViewController animated:YES];
+            
+        }
+        
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -309,11 +355,92 @@
     NSURLSessionDataTask *tesk = [NSMutableDictionary myCmGetWishListCompletion:^(NSArray *myCm, NSError *error) {
         
         DDLogError(@"찜목록 = [%@]", myCm);
-        // 타이틀이 안내려옴 패치해서 보자
+        
+        if ( [myCm count] == 0 )
+            return;
+    
+        [self.pWishListArr removeAllObjects];
+        
+        NSObject *itemObject = [[[myCm objectAtIndex:0] objectForKey:@"wishItemList"] objectForKey:@"wishItem"];
+        
+        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        {
+            // dictionary
+            [self.pWishListArr addObject:(NSDictionary *)itemObject];
+            
+            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 1개의 찜 VOD가 있습니다."];
+
+        }
+        else
+        {
+            // array
+            [self.pWishListArr setArray:(NSArray *)itemObject];
+            
+            int nTotal = (int)[self.pWishListArr count];
+            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 찜 VOD가 있습니다.", nTotal];
+        }
+        
+        
+        [self.pSubTableView02 reloadData];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        DDLogError(@"delete");
+        
+        NSString *sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[[self.pWishListArr objectAtIndex:indexPath.row] objectForKey:@"asset"] objectForKey:@"title"]];
+        
+        [SIAlertView alert:@"VOD 찜 목록 삭제" message:sTitle cancel:@"취소" buttons:@[@"확인"]
+                completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    
+                    if ( buttonIndex == 1 )
+                    {
+                         [self requestWithRemoveWishItemWithIndex:(int)indexPath.row];
+                    }
+            }];
+        
+       
+    }
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"찜 해제";
+}
+
+#pragma mark - 찜해제
+- (void)requestWithRemoveWishItemWithIndex:(int)index
+{
+    NSString *sAssetId = [NSString stringWithFormat:@"%@", [[[self.pWishListArr objectAtIndex:index] objectForKey:@"asset"] objectForKey:@"assetId"]];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary wishRemoveWishWithAssetId:sAssetId completion:^(NSArray *wish, NSError *error) {
+        
+        DDLogError(@"찜해제 = [%@]", wish);
+        
+        if ( [wish count] == 0 )
+            return;
+        
+        if ( [[[wish objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            // 성공이면
+            [self.pWishListArr removeObjectAtIndex:index];
+            
+            int nTotal = (int)[self.pWishListArr count];
+            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 찜 VOD가 있습니다.", nTotal];
+            
+            [self.pSubTableView02 reloadData];
+        }
+        
+        
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
 
 @end

@@ -369,6 +369,8 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetPurchaseLogList;
 // getSeriesAssetList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetSeriesAssetList;
 ///
+// addWishItem
+extern NSString* const CNM_OPEN_API_INTERFACE_AddWishItem;
 
 // 5. Search
 // SearchChannel
@@ -458,6 +460,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList;
 
 // getWishList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetWishList;
+
+// removeWishItem
+extern NSString* const CNM_OPEN_API_INTERFACE_RemoveWishItem;
 
 // remocon
 //GetSetTopStatus

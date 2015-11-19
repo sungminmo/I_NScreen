@@ -1346,7 +1346,8 @@
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
-                           @"userId" : [[CMAppManager sharedInstance] getUniqueUuid]
+                           @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"assetProfile" : @"1"
                            };
     
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1592,5 +1593,94 @@
     return task;
 
 }
+
+@end
+
+@implementation CMNetworkManager ( WISH )
+
+- (NSURLSessionDataTask *)wishGetWishListCompletion:(void (^)(NSArray *wish, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetWishList];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : @"1",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
+                         };
+    
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+
+}
+
+// 찜하기
+- (NSURLSessionDataTask *)wishAddWishItemWithAssetId:(NSString *)assetId completion:(void (^)(NSArray *wish, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_AddWishItem];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : @"1",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"assetId" : assetId
+                           };
+    
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+
+}
+
+// 찜삭제하기
+- (NSURLSessionDataTask *)wishRemoveWishWithAssetId:(NSString *)assetId completion:(void (^)(NSArray *wish, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RemoveWishItem];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : @"1",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"assetId" : assetId
+                           };
+    
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
 
 @end

@@ -11,6 +11,7 @@
 #import "UIAlertView+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 #import "CMDBDataManager.h"
+#import "NSMutableDictionary+WISH.h"
 
 @interface VodDetailMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pViewController;
@@ -18,6 +19,8 @@
 @property (nonatomic, strong) NSMutableArray *pContentGroupArr; // 연관 컨텐츠 그룹
 @property (nonatomic, strong) NSMutableDictionary *pDrmDic;
 @property (nonatomic, strong) NSMutableArray *pSeriesDataArr;
+@property (nonatomic, strong) NSMutableArray *pGetWishListArr;
+@property (nonatomic) BOOL isZzimCheck;
 
 @end
 
@@ -39,6 +42,7 @@
     [self setTagInit];
     [self setViewInit];
 //    return;
+    [self requestWithGetWithList];
     [self requestWithAssetInfo];
     [self requestWithRecommendContentGroupByAssetId];
 }
@@ -70,6 +74,7 @@
     self.pContentGroupArr = [[NSMutableArray alloc] init];
     self.pDrmDic = [[NSMutableDictionary alloc] init];
     self.pSeriesDataArr = [[NSMutableArray alloc] init];
+    self.pGetWishListArr = [[NSMutableArray alloc] init];
 }
 
 #pragma mark - 액션 이벤트
@@ -118,6 +123,27 @@
         case VOD_DETAIL_MAIN_VIEW_BTN_07:
         {
             // 찜하기
+            if ( self.isZzimCheck == YES )
+            {
+                // 찜하기 되어 있으면 찜하기 해제
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
+                [self.pZzimBtn22 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+                [self.pZzimBtn23 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+
+                [self requestWithRemoveWishItem];
+            }
+            else
+            {
+                // 찜하기 안되어 있으면 찜하기
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
+                [self.pZzimBtn22 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [self.pZzimBtn23 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+                [self requestWithAddWishItem];
+            }
+
             
         }break;
         case VOD_DETAIL_MAIN_VIEW_BTN_01:
@@ -391,6 +417,84 @@
 }
 
 #pragma mark - 전문
+#pragma mark - 찜목록 가져오기
+- (void)requestWithGetWithList
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary wishGetWishListCompletion:^(NSArray *wish, NSError *error) {
+        
+        DDLogError(@"찜목록 가져오기 = [%@]", wish);
+        
+        if ( [wish count] == 0 )
+            return;
+        
+        [self.pGetWishListArr removeAllObjects];
+        
+        NSObject *itemObject = [[[wish objectAtIndex:0] objectForKey:@"wishItemList"] objectForKey:@"wishItem"];
+        
+        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        {
+            [self.pGetWishListArr addObject:(NSDictionary *)itemObject];
+        }
+        else
+        {
+            [self.pGetWishListArr setArray:(NSArray *)itemObject];
+        }
+        
+        self.isZzimCheck = NO;
+        for ( NSDictionary *dic in self.pGetWishListArr )
+        {
+//            NSString *sAssetId = [NSString stringWithFormat:@"%@", [[[[dic objectForKey:@"wishItemList"] objectForKey:@"wishItem"] objectForKey:@"asset"] objectForKey:@"assetId"]];
+            NSString *sAssetId = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"asset"] objectForKey:@"assetId"]];
+            
+            if ( [self.pAssetIdStr isEqualToString:sAssetId] )
+                self.isZzimCheck = YES;
+        }
+        
+        if ( self.isZzimCheck == YES )
+        {
+            // 찜하기 되어 있으면 123 90 163
+            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
+            [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
+            [self.pZzimBtn22 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [self.pZzimBtn23 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        }
+        else
+        {
+            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
+            [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
+            [self.pZzimBtn22 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            [self.pZzimBtn23 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+        }
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 찜하기
+- (void)requestWithAddWishItem
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary wishAddWishItemWithAssetId:self.pAssetIdStr completion:^(NSArray *wish, NSError *error) {
+        
+        DDLogError(@"찜하기 = %@]", wish);
+        self.isZzimCheck = YES;
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 찜해제
+- (void)requestWithRemoveWishItem
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary wishRemoveWishWithAssetId:self.pAssetIdStr completion:^(NSArray *wish, NSError *error) {
+        
+        DDLogError(@"찜해제 = [%@]", wish);
+        self.isZzimCheck = NO;
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 시리즈 갯수 가져오는 전문
 - (void)requestWithGetSeriesAssetListWithViewTag:(int)nTag
 {
     NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"seriesId"]];

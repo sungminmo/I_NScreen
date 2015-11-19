@@ -61,11 +61,10 @@
         }
         else
         {
-            // tv
+            // tv\\
             self.pOnlyTvImageView.hidden = NO;
         }
     }
-    
     
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetId"]];
     

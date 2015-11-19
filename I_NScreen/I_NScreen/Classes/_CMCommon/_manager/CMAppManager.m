@@ -279,10 +279,10 @@
     
     for ( NSDictionary *twoDic in [self getSearchWithArr:totalArr WithSearchStr:categoryIdSearch WithKey:@"parentCategoryId"] )
     {
-        NSString *sViewerType = [NSString stringWithFormat:@"%@", [twoDic objectForKey:@"viewerType"]];
+//        NSString *sViewerType = [NSString stringWithFormat:@"%@", [twoDic objectForKey:@"viewerType"]];
         
-        if ( ![sViewerType isEqualToString:@"60"] ) // 뷰 타입 60 제외
-        {
+//        if ( ![sViewerType isEqualToString:@"60"] ) // 뷰 타입 60 제외 60 이제 안버려도됨 
+//        {
             NSString *sTwoDepthLeaf = [NSString stringWithFormat:@"%@", [twoDic objectForKey:@"leaf"]];
             NSString *sCategoryId = [NSString stringWithFormat:@"%@", [twoDic objectForKey:@"categoryId"]];
             
@@ -398,7 +398,7 @@
             [fourDepthTreeListArr addObject:twoDepthDic];
         }
         
-    }
+//    }
     
     NSMutableArray *arrayOfDicts = [[NSMutableArray alloc] init];
     

@@ -289,6 +289,8 @@ NSString* const CNM_OPEN_API_INTERFACE_GetPurchaseLogList = @"getPurchaseLogList
 NSString* const CNM_OPEN_API_INTERFACE_GetSeriesAssetList = @"getSeriesAssetList";
 // 
 ///
+// addWishItem
+NSString* const CNM_OPEN_API_INTERFACE_AddWishItem = @"addWishItem";
 
 
 // 5. Search
@@ -394,6 +396,9 @@ NSString* const CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList = @"getValidPurch
 
 // getWishList
 NSString* const CNM_OPEN_API_INTERFACE_GetWishList = @"getWishList";
+
+// removeWishItem
+NSString* const CNM_OPEN_API_INTERFACE_RemoveWishItem = @"removeWishItem";
 
 // remocon
 //GetSetTopStatus

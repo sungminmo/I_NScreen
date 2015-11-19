@@ -67,13 +67,17 @@
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bi.png" translatesAutoresizingMaskIntoConstraints="NO" id="091-Cl-5XJ">
                                             <rect key="frame" x="107" y="25" width="127" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="091-Cl-5XJ" secondAttribute="height" multiplier="127:33" id="TmL-zm-wSO"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="091-Cl-5XJ" firstAttribute="centerY" secondItem="vgV-Bc-d5K" secondAttribute="centerY" constant="10" id="7Td-3G-UTF"/>
-                                        <constraint firstItem="091-Cl-5XJ" firstAttribute="centerX" secondItem="vgV-Bc-d5K" secondAttribute="centerX" id="QiP-FT-ecV"/>
+                                        <constraint firstItem="091-Cl-5XJ" firstAttribute="centerX" secondItem="vgV-Bc-d5K" secondAttribute="centerX" id="UNy-An-fZb"/>
+                                        <constraint firstItem="091-Cl-5XJ" firstAttribute="top" secondItem="vgV-Bc-d5K" secondAttribute="top" constant="25" id="XoX-hG-yga"/>
                                         <constraint firstAttribute="width" secondItem="vgV-Bc-d5K" secondAttribute="height" multiplier="341:63" id="seU-gx-4gY"/>
+                                        <constraint firstAttribute="bottom" secondItem="091-Cl-5XJ" secondAttribute="bottom" constant="5" id="udS-hP-EyP"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCo-A0-Uk2">

@@ -1091,10 +1091,10 @@
                         <constraint firstAttribute="height" constant="46" id="ycB-9s-AeW"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                    <state key="normal" title="찜하기" backgroundImage="vod3btn_normal.png">
+                    <state key="normal" title="찜하기     " backgroundImage="vod3btn_pick_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <state key="highlighted" backgroundImage="vod3btn_normal.png"/>
+                    <state key="highlighted" title="찜하기     "/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="ycB-9s-AeW"/>
@@ -1416,10 +1416,9 @@
                         <constraint firstAttribute="height" constant="46" id="MmR-sg-imD"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                    <state key="normal" title="찜하기" backgroundImage="vod3btn_normal.png">
+                    <state key="normal" title="찜하기     " backgroundImage="vod3btn_pick_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
-                    <state key="highlighted" backgroundImage="vod3btn_normal.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="MmR-sg-imD"/>
@@ -1668,25 +1667,6 @@
                         </mask>
                     </variation>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRv-kf-RYs">
-                    <rect key="frame" x="14" y="42" width="386" height="128"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="128" id="7b7-l3-gFV"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="7b7-l3-gFV"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="7b7-l3-gFV"/>
-                        </mask>
-                    </variation>
-                </textView>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0E-cZ-p9I">
                     <rect key="frame" x="14" y="176" width="386" height="46"/>
                     <animations/>
@@ -1710,6 +1690,25 @@
                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="3ES-dx-B0h"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRv-kf-RYs">
+                    <rect key="frame" x="14" y="40" width="386" height="128"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="7b7-l3-gFV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="7b7-l3-gFV"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="7b7-l3-gFV"/>
+                        </mask>
+                    </variation>
+                </textView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2111,5 +2110,6 @@
         <image name="vod1btn_press.png" width="379" height="46"/>
         <image name="vod3btn_normal.png" width="122" height="46"/>
         <image name="vod3btn_p_press.png" width="122" height="46"/>
+        <image name="vod3btn_pick_normal.png" width="122" height="46"/>
     </resources>
 </document>
