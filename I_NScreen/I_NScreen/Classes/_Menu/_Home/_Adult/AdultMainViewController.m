@@ -82,6 +82,8 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             [self.pRealTimeBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pWeekBtn setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
+            self.pRealTimeBtn.selected = YES;
+            self.pWeekBtn.selected = NO;
             self.pLeftLineHeight.constant = 2;
             self.pRightLineHeight.constant = 1;
             
@@ -96,6 +98,8 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             [self.pRealTimeBtn setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pWeekBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
+            self.pRealTimeBtn.selected = NO;
+            self.pWeekBtn.selected = YES;
             self.pLeftLineHeight.constant = 1;
             self.pRightLineHeight.constant = 2;
             
