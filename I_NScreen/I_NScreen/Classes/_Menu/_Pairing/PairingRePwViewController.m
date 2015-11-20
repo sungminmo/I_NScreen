@@ -24,7 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"비밀번호 등록";
+    self.isUseNavigationBar = YES;
+    
     [self setTagInit];
     [self setViewInit];
     [self requestWithRemoveUser];

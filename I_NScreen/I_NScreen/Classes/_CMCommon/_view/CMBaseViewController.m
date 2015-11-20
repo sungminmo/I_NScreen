@@ -110,7 +110,7 @@
 }
 
 - (void)loadCustomBackButton {
-    float h_padding = (cmNavigationHeight - 44)/2;
+    float h_padding = (cmNavigationHeight - 44)/2 - 10;
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearance] setBackgroundVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
     

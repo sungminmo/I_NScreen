@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PairingRePwViewController">
             <connections>
-                <outlet property="pBackBtn" destination="Nid-97-j9n" id="tpQ-gU-ioP"/>
                 <outlet property="pCancelBtn" destination="2Wq-VF-06x" id="0PO-Hk-EdH"/>
                 <outlet property="pDiscordLbl" destination="6RI-35-EuP" id="wfj-MF-axT"/>
                 <outlet property="pOkBtn" destination="zia-gc-Iek" id="wLU-fL-DwK"/>
@@ -21,39 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ub8-eE-qh8" userLabel="View(해더)">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nid-97-j9n">
-                            <rect key="frame" x="17" y="47" width="9" height="18"/>
-                            <animations/>
-                            <state key="normal" image="back.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="e7D-cQ-Bdb"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK3-q2-iYd">
-                            <rect key="frame" x="0.0" y="45" width="414" height="26"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <animations/>
-                    <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="JK3-q2-iYd" secondAttribute="trailing" id="3zs-UW-AQ5"/>
-                        <constraint firstAttribute="bottom" secondItem="Nid-97-j9n" secondAttribute="bottom" constant="28" id="NdW-i7-8GX"/>
-                        <constraint firstAttribute="bottom" secondItem="JK3-q2-iYd" secondAttribute="bottom" constant="22" id="WiW-5H-p9L"/>
-                        <constraint firstItem="JK3-q2-iYd" firstAttribute="leading" secondItem="ub8-eE-qh8" secondAttribute="leading" id="c5i-f2-iYx"/>
-                        <constraint firstItem="Nid-97-j9n" firstAttribute="leading" secondItem="ub8-eE-qh8" secondAttribute="leading" constant="17" id="hNz-IL-mEq"/>
-                        <constraint firstItem="JK3-q2-iYd" firstAttribute="top" secondItem="ub8-eE-qh8" secondAttribute="top" constant="45" id="j8L-Tb-14v"/>
-                        <constraint firstItem="Nid-97-j9n" firstAttribute="top" secondItem="ub8-eE-qh8" secondAttribute="top" constant="47" id="s6e-3T-h3D"/>
-                    </constraints>
-                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPZ-6T-EO1">
                     <rect key="frame" x="0.0" y="93" width="414" height="643"/>
                     <subviews>
@@ -307,21 +273,18 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ub8-eE-qh8" firstAttribute="top" secondItem="fKf-b1-xA0" secondAttribute="top" id="Ca0-Hk-hC8"/>
+                <constraint firstAttribute="trailing" secondItem="RPZ-6T-EO1" secondAttribute="trailing" id="59P-C8-U1I"/>
+                <constraint firstAttribute="bottom" secondItem="RPZ-6T-EO1" secondAttribute="bottom" id="9By-8W-v0g"/>
                 <constraint firstItem="RPZ-6T-EO1" firstAttribute="top" secondItem="fKf-b1-xA0" secondAttribute="top" constant="93" id="OUR-U9-g6I"/>
-                <constraint firstItem="ub8-eE-qh8" firstAttribute="leading" secondItem="RPZ-6T-EO1" secondAttribute="leading" id="Pca-tV-mrO"/>
                 <constraint firstAttribute="bottom" secondItem="RPZ-6T-EO1" secondAttribute="bottom" id="Ufl-s5-13p"/>
-                <constraint firstAttribute="trailing" secondItem="ub8-eE-qh8" secondAttribute="trailing" id="VKM-uG-1Hn"/>
-                <constraint firstItem="RPZ-6T-EO1" firstAttribute="trailing" secondItem="ub8-eE-qh8" secondAttribute="trailing" id="XAI-gg-cbr"/>
-                <constraint firstItem="RPZ-6T-EO1" firstAttribute="top" secondItem="ub8-eE-qh8" secondAttribute="bottom" id="l5b-pF-T4K"/>
-                <constraint firstItem="ub8-eE-qh8" firstAttribute="leading" secondItem="fKf-b1-xA0" secondAttribute="leading" id="wO9-e3-F7n"/>
+                <constraint firstItem="RPZ-6T-EO1" firstAttribute="top" secondItem="fKf-b1-xA0" secondAttribute="top" constant="93" id="bF6-L3-nNr"/>
+                <constraint firstItem="RPZ-6T-EO1" firstAttribute="leading" secondItem="fKf-b1-xA0" secondAttribute="leading" id="ewg-or-vow"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="560" y="280"/>
         </view>
     </objects>
     <resources>
-        <image name="back.png" width="9" height="18"/>
         <image name="p2btn_cancel_normal.png" width="172" height="45"/>
         <image name="p2btn_cancel_press.png" width="172" height="45"/>
         <image name="p2btn_ok_normal.png" width="172" height="45"/>

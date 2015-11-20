@@ -121,7 +121,7 @@
                            };
     [[UINavigationBar appearance] setTitleTextAttributes:dict];
     
-    float h_padding = (cmNavigationHeight - 44)/2;
+    float h_padding = (cmNavigationHeight - 44)/2 - 10;
     [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:-h_padding forBarMetrics:UIBarMetricsDefault];
     
     
