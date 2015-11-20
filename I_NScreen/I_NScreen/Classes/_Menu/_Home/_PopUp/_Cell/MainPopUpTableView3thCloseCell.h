@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MainPopUpTableViewCellDelegate.h"
+#import "MainPopUpViewController.h"
 
 @protocol MainPopUpTableViewCellDelegate;
 
 @interface MainPopUpTableView3thCloseCell : UITableViewCell
 
 @property (nonatomic, strong) NSDictionary *pDic;
-
 @property (nonatomic, weak) IBOutlet UIView *pThreeDepthCloseView;
 @property (nonatomic, weak) IBOutlet UILabel *pThreeDepthCloseLbl;
 @property (nonatomic, weak) IBOutlet UIImageView *pThreeDepthCloseImg;

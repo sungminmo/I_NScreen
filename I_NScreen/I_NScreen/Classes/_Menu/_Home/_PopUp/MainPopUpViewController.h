@@ -11,7 +11,12 @@
 #import "MainPopUpTableViewCell.h"
 #import "CMBaseViewController.h"
 
+
 @protocol MainPopUpViewDelegate;
+
+@interface CMDotLineView : UIView
+- (void)updateLine;
+@end
 
 @interface MainPopUpViewController : CMBaseViewController
 

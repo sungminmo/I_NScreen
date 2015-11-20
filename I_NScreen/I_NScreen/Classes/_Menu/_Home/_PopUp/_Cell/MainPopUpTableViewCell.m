@@ -15,6 +15,9 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    if (selected) {
+        self.pressEffectView.hidden = NO;
+    }
 }
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithOpen:(BOOL)isOpen {
@@ -27,7 +30,7 @@
     // 4댑스
     self.pFourDepthView.hidden = NO;
     self.pFourDepthLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"categoryName"]];
-    
+ 
 }
 
 - (IBAction)onBtnClicked:(UIButton *)btn {

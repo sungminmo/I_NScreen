@@ -9,14 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MainPopUpTableViewCellDelegate.h"
 
+
 @protocol MainPopUpTableViewCellDelegate;
 
 @interface MainPopUpTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSDictionary *pDic;
-
 @property (nonatomic, weak) IBOutlet UIView *pFourDepthView;
 @property (nonatomic, weak) IBOutlet UILabel *pFourDepthLbl;
+@property (nonatomic, weak) IBOutlet UIImageView* pressEffectView;
 
 @property (nonatomic, weak) id <MainPopUpTableViewCellDelegate>delegate;
 

@@ -16,6 +16,40 @@
 #import "MainPopUpTableView3thOpenCell.h"
 #import "MainPopUpTableView3thCloseCell.h"
 
+@implementation CMDotLineView
+
+- (void)awakeFromNib {
+    [self updateLine];
+}
+
+-(void)updateLine{
+    // Important, otherwise we will be adding multiple sub layers
+    if ([[[self layer] sublayers] objectAtIndex:0])
+    {
+        self.layer.sublayers = nil;
+    }
+    
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    [shapeLayer setBounds:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    [shapeLayer setPosition:CGPointMake(self.frame.origin.x *2, 0)];
+    [shapeLayer setFillColor:[[UIColor clearColor] CGColor]];
+    [shapeLayer setStrokeColor:[[UIColor colorWithHexString:@"3c3c3c"] CGColor]];
+    [shapeLayer setLineWidth:.3];
+    [shapeLayer setLineJoin:kCALineJoinRound];
+    [shapeLayer setLineDashPattern:@[@2, @1]];
+    
+    // Setup the path
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, self.frame.origin.x, 0);
+    CGPathAddLineToPoint(path, NULL,  self.frame.origin.x + self.frame.size.width, 0);
+    
+    [shapeLayer setPath:path];
+    CGPathRelease(path);
+    
+    [[self layer] addSublayer:shapeLayer];
+}
+
+@end
 
 @interface MainPopUpViewController ()
 @property (nonatomic, strong) NSString *pFourDepthListJsonStr;
@@ -201,12 +235,38 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 56;
+    NSMutableDictionary *item = [self.pModel itemForRowAtIndexPath:indexPath];
+    NSString *sDepth = [NSString stringWithFormat:@"%@", item[@"depth"]];
+    if ([@[@"2"] containsObject:sDepth]) {
+        return 56;
+    }
+    return 44;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSMutableDictionary *item = [self.pModel itemForRowAtIndexPath:indexPath];
+    
+    //셀 하이라이트 이팩트 대체 꼼수
+    NSString *sDepth = [NSString stringWithFormat:@"%@", item[@"depth"]];
+
+    if ([@[@"2", @"3"] containsObject:sDepth] == NO) {
+        MainPopUpTableViewCell* cell = (MainPopUpTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+        if (cell) {
+            __block BOOL isFinish = NO;
+
+            [UIView animateWithDuration:0.8 animations:^{
+                cell.pressEffectView.hidden = NO;
+            } completion:^(BOOL finished) {
+                cell.pressEffectView.hidden = YES;
+                isFinish = YES;
+            }];
+            while (isFinish == NO) {
+                [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
+            }
+        }
+    }
+    
     int item_count = [[item valueForKeyPath:@"subData.@count"] intValue];
     if (item_count<=0)
     {
@@ -225,11 +285,8 @@
             newState = NO;
         }
         [self.pModel setOpenClose:newState forRowAtIndexPath:indexPath];
-        
-        [tableView beginUpdates];
-        [tableView reloadSections:[NSIndexSet indexSetWithIndex:0]
-                 withRowAnimation:UITableViewRowAnimationFade];
-        [tableView endUpdates];
+        [tableView reloadData];
+        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }
 }
 

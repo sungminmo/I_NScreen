@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainPopUpViewController">
@@ -29,8 +29,8 @@
                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="A4F-Tf-QjQ"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Fj-Zp-Q3T">
-                    <rect key="frame" x="26" y="74" width="548" height="452"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Fj-Zp-Q3T">
+                    <rect key="frame" x="12" y="180" width="576" height="380"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -42,18 +42,18 @@
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="leading" secondItem="ZW0-PR-aux" secondAttribute="leading" constant="26" id="5zC-gk-QrY"/>
-                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="centerX" secondItem="lYa-tn-qT7" secondAttribute="centerX" id="8E8-CY-DSj"/>
-                <constraint firstAttribute="bottom" secondItem="lYa-tn-qT7" secondAttribute="bottom" id="BtF-3y-C2r"/>
-                <constraint firstItem="yKC-ps-vnY" firstAttribute="leading" secondItem="lYa-tn-qT7" secondAttribute="leading" id="EKZ-AG-PcJ"/>
-                <constraint firstAttribute="trailing" secondItem="yKC-ps-vnY" secondAttribute="trailing" id="FqO-YF-KJq"/>
-                <constraint firstItem="yKC-ps-vnY" firstAttribute="bottom" secondItem="lYa-tn-qT7" secondAttribute="bottom" id="LOe-LI-Cxj"/>
-                <constraint firstItem="yKC-ps-vnY" firstAttribute="top" secondItem="lYa-tn-qT7" secondAttribute="top" id="OcL-jA-PHX"/>
-                <constraint firstItem="lYa-tn-qT7" firstAttribute="top" secondItem="ZW0-PR-aux" secondAttribute="top" id="XDh-Ag-brm"/>
-                <constraint firstItem="yKC-ps-vnY" firstAttribute="trailing" secondItem="lYa-tn-qT7" secondAttribute="trailing" id="blE-dl-kDR"/>
-                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="top" secondItem="ZW0-PR-aux" secondAttribute="top" constant="74" id="dJV-HJ-adK"/>
-                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="centerY" secondItem="yKC-ps-vnY" secondAttribute="centerY" id="gLh-PK-GIU"/>
-                <constraint firstItem="lYa-tn-qT7" firstAttribute="leading" secondItem="ZW0-PR-aux" secondAttribute="leading" id="sfX-lT-QCm"/>
+                <constraint firstAttribute="bottom" secondItem="yKC-ps-vnY" secondAttribute="bottom" id="6b2-le-yLe"/>
+                <constraint firstAttribute="trailing" secondItem="lYa-tn-qT7" secondAttribute="trailing" id="B7h-oS-m6i"/>
+                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="top" secondItem="ZW0-PR-aux" secondAttribute="top" constant="180" id="G2B-aP-Ret"/>
+                <constraint firstAttribute="bottom" secondItem="lYa-tn-qT7" secondAttribute="bottom" id="Jz0-zY-A4y"/>
+                <constraint firstItem="lYa-tn-qT7" firstAttribute="top" secondItem="ZW0-PR-aux" secondAttribute="top" id="M2a-GI-R3e"/>
+                <constraint firstAttribute="trailing" secondItem="yKC-ps-vnY" secondAttribute="trailing" id="Pl8-ah-hZH"/>
+                <constraint firstAttribute="trailing" secondItem="7Fj-Zp-Q3T" secondAttribute="trailing" constant="12" id="bdK-gv-9Aw"/>
+                <constraint firstItem="7Fj-Zp-Q3T" firstAttribute="leading" secondItem="ZW0-PR-aux" secondAttribute="leading" constant="12" id="bfK-OP-km4"/>
+                <constraint firstItem="yKC-ps-vnY" firstAttribute="top" secondItem="ZW0-PR-aux" secondAttribute="top" id="buX-c2-wWy"/>
+                <constraint firstItem="yKC-ps-vnY" firstAttribute="leading" secondItem="ZW0-PR-aux" secondAttribute="leading" id="hww-Kh-t6I"/>
+                <constraint firstItem="lYa-tn-qT7" firstAttribute="leading" secondItem="ZW0-PR-aux" secondAttribute="leading" id="pxm-ii-r0T"/>
+                <constraint firstAttribute="bottom" secondItem="7Fj-Zp-Q3T" secondAttribute="bottom" constant="40" id="ruU-Zi-o3O"/>
             </constraints>
         </view>
     </objects>
