@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPZ-6T-EO1">
-                    <rect key="frame" x="0.0" y="93" width="414" height="643"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzi-5o-iCd" userLabel="View1">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
@@ -279,8 +279,15 @@
                 <constraint firstAttribute="bottom" secondItem="RPZ-6T-EO1" secondAttribute="bottom" id="Ufl-s5-13p"/>
                 <constraint firstItem="RPZ-6T-EO1" firstAttribute="top" secondItem="fKf-b1-xA0" secondAttribute="top" constant="93" id="bF6-L3-nNr"/>
                 <constraint firstItem="RPZ-6T-EO1" firstAttribute="leading" secondItem="fKf-b1-xA0" secondAttribute="leading" id="ewg-or-vow"/>
+                <constraint firstItem="RPZ-6T-EO1" firstAttribute="top" secondItem="fKf-b1-xA0" secondAttribute="top" id="pw7-hK-xg9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="OUR-U9-g6I"/>
+                    <exclude reference="bF6-L3-nNr"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="560" y="280"/>
         </view>
     </objects>
