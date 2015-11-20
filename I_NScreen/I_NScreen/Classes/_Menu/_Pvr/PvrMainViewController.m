@@ -9,6 +9,7 @@
 #import "PvrMainViewController.h"
 #import "NSMutableDictionary+PVR.h"
 #import "UIAlertView+AFNetworking.h"
+#import "NSMutableDictionary+REMOCON.h"
 
 @interface PvrMainViewController ()
 
@@ -22,9 +23,10 @@
 
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
-@property (nonatomic) BOOL isReservCheck;     // 초기 no, 한번 에러 나면 yes 로 바꿔주고 한번더 전문태움
-@property (nonatomic) BOOL isListCheck;         // 상동
+//@property (nonatomic) BOOL isReservCheck;     // 초기 no, 한번 에러 나면 yes 로 바꿔주고 한번더 전문태움
+//@property (nonatomic) BOOL isListCheck;         // 상동
 @property (nonatomic) BOOL isTabCheck;          // 초기 no 이면 녹화 예약관리, yes 면 녹화물 목록
+@property (nonatomic, strong) NSMutableArray *pPvringListArr;  // 녹화중 목록 리스트
 
 - (IBAction)onBtnClick:(UIButton *)btn;
 
@@ -61,8 +63,8 @@
 #pragma mark - 화면 초기화
 -(void)setViewInit
 {
-    self.isListCheck = NO;
-    self.isReservCheck = NO;
+//    self.isListCheck = NO;
+//    self.isReservCheck = NO;
     self.isTabCheck = NO;
     self.pListArr = [[NSMutableArray alloc] init];
     self.pReservListArr = [[NSMutableArray alloc] init];
@@ -70,7 +72,6 @@
     
     [self setInfoWithCount:-1];
     
-//    [self requestWithRecordList];
     [self requestWithRecordReservelist];
 }
 
@@ -83,10 +84,15 @@
  */
 - (void)setInfoWithCount:(NSInteger)count {
     
-    if (count < 0) {
-        self.infoLabel.text = @"";
-    } else {
-        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 녹화예약 콘텐트가 있습니다.", (long)count];
+    if ( self.isTabCheck == YES )
+    {
+        // 녹화물 목록
+        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 녹화물 콘텐츠가 있습니다.", (long)count];
+    }
+    else
+    {
+        // 녹화예약관리
+        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 녹화예약 콘텐츠가 있습니다.", (long)count];
     }
 }
 
@@ -117,6 +123,7 @@
             [self.pListBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             
             [self requestWithRecordList];
+//            [self requestWithGetSetTopStatus];
         }break;
     }
 }
@@ -147,30 +154,57 @@
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     if ( self.isTabCheck == YES )
-        [pCell setListData:[self.pListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+        [pCell setListDataList:[self.pListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
     else
-        [pCell setListData:[self.pReservListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+        [pCell setListDataReservation:[self.pReservListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
     
     return pCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PvrSubViewController *pViewController = [[PvrSubViewController alloc] initWithNibName:@"PvrSubViewController" bundle:nil];
-    [self.navigationController pushViewController:pViewController animated:YES];
+    if ( self.isTabCheck == YES )
+    {
+        // 녹화물 목록
+        NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
+        
+        if ( ![sSeriesId isEqualToString:@"NULL"] )
+        {
+            // 시리즈
+            PvrSubViewController *pViewController = [[PvrSubViewController alloc] initWithNibName:@"PvrSubViewController" bundle:nil];
+            pViewController.pSeriesIdStr = [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"];
+            pViewController.pTitleStr = [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"ProgramName"];
+            [self.navigationController pushViewController:pViewController animated:YES];
+
+        }
+    }
+    else
+    {
+        // 녹화예약관리
+        
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-#warning TEST
-    //  녹화중일 경우, 높이 90, 아닌 경우 66
-    BOOL rec = indexPath.row%2; //  녹화중 여부 테스트 값
-    
-    CGFloat height;
-    if (rec) {
-        height = 90;
-    } else {
-        height = 66;
+    CGFloat height = 66;
+ 
+    if ( self.isTabCheck == YES )
+    {
+        // 녹화물 목록
+        NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
+        
+        if ( [sSeriesId isEqualToString:@"NULL"] )
+        {
+            // 단편
+            height = 90;
+        }
+        else
+        {
+            // 시리즈
+            height = 66;
+        }
     }
     
     return height;
@@ -185,30 +219,69 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ( self.isTabCheck == YES )
+    {
+        // 녹화물 목록
+        NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
+        
+        if ( [sSeriesId isEqualToString:@"NULL"] )
+        {
+            // 단편
+            return YES;
+        }
+        else
+        {
+            // 시리즈
+            return NO;
+        }
+    }
+    
     return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         DDLogError(@"delete");
+        
+        if ( self.isTabCheck == YES )
+        {
+            // 녹화물 목록
+            [SIAlertView alert:@"녹화물 삭제" message:@"녹화물을 삭제 하시겠습니까?"
+                        cancel:@"아니오"
+                       buttons:@[@"예"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            [self requestWithSetRecordDeleWithIndex:(int)indexPath.row];
+                        }
+                        
+                    }];
+        }
+        else
+        {
+            // 녹화 예약 목록
+        }
+        
     }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-#warning TEST
+//#warning TEST
     //  녹화중일 경우, 높이 90, 아닌 경우 66
-    BOOL rec = indexPath.row%2; //  녹화중 여부 테스트 값
+//    BOOL rec = indexPath.row%2; //  녹화중 여부 테스트 값
     
-    NSString* text;
-    if (rec) {
-        
-        text = @"녹화중지";
-    } else {
-        
-        text = @"삭제";
-    }
+    NSString* text = @"삭제";
+//    if (rec) {
+//        
+//        text = @"녹화중지";
+//    } else {
+//        
+//        text = @"삭제";
+//    }
 
     return text;
 }
@@ -225,8 +298,6 @@
         
         if ( [sResultCode isEqualToString:@"100"] )
         {
-            self.isReservCheck = NO;
-   
             if ( [pvr count] == 0 )
                 return ;
             
@@ -247,17 +318,6 @@
             [self.pTableView reloadData];
 
         }
-        else
-        {
-            // 한번만 더 테움
-            if ( self.isReservCheck == NO )
-            {
-                [self requestWithRecordReservelist];
-                
-                self.isReservCheck = YES;
-            }
-        }
-        
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -275,8 +335,6 @@
         
         if ( [sResultCode isEqualToString:@"100"] )
         {
-            self.isListCheck = NO;
-            
             if ( [pvr count] == 0 )
                 return ;
             [self.pListArr removeAllObjects];
@@ -294,22 +352,55 @@
             [self setInfoWithCount:nTotalCount];
             [self.pTableView reloadData];
         }
-        else
-        {
-            // 한번만 더 테움
-            if ( self.isListCheck == NO )
-            {
-                [self requestWithRecordReservelist];
-                
-                self.isListCheck = YES;
-            }
-        }
-        
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
+#pragma mark - 리모컨 상태 체크 전문
+- (void)requestWithGetSetTopStatus
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary remoconGetSetTopStatusCompletion:^(NSArray *pairing, NSError *error) {
+        
+        DDLogError(@"리모컨 상태 체크 = [%@]", pairing);
+        
+        if ( [pairing count] == 0 )
+            return;
+        
+        NSString *sRecordingchannel1 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel1"]];
+        NSString *sRecordingchannel2 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel2"]];
 
+        [self.pPvringListArr removeAllObjects];
+        [self.pPvringListArr addObject:sRecordingchannel1];
+        [self.pPvringListArr addObject:sRecordingchannel2];
+        
+        [self requestWithRecordList];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 녹화물 목록 삭제
+- (void)requestWithSetRecordDeleWithIndex:(int)index
+{
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pListArr objectAtIndex:index] objectForKey:@"ChannelId"]];
+    NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.pListArr objectAtIndex:index] objectForKey:@"RecordStartTime"]];
+    NSString *sRecordId = [NSString stringWithFormat:@"%@", [[self.pListArr objectAtIndex:index] objectForKey:@"RecordId"]];
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary pvrSetRecordDeleWithChannelId:sChannelId WithStartTime:sRecordStartTime WithRecordId:sRecordId completion:^(NSArray *pvr, NSError *error) {
+        
+        DDLogError(@"녹화물 목록 삭제 = [%@]", pvr);
+        if ( [pvr count] == 0 )
+            return;
+        
+        if ( [[[pvr objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            // 성공시 로컬 데이터 삭제후 리플래시
+            [self.pListArr removeObjectAtIndex:index];
+            [self.pTableView reloadData];
+        }
+    }];
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
 
 @end

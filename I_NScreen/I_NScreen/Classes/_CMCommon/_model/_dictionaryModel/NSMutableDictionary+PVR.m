@@ -25,4 +25,14 @@
     return [[CMNetworkManager sharedInstance] pvrGetrecordReservelistCompletion:block];
 }
 
++ (NSURLSessionDataTask *)pvrSetRecordDeleWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithRecordId:(NSString *)recordId completion:(void (^)(NSArray *pvr, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] pvrSetRecordDeleWithChannelId:channeId WithStartTime:startTime WithRecordId:recordId completion:block];
+}
+
++ (NSURLSessionDataTask *)pvrSetRecordSeriesDeleWithRecordId:(NSString *)recordId WithSeriesId:(NSString *)seriesId WithChannelId:(NSString *)channelId WithStartTime:(NSString *)startTime completion:(void (^)(NSArray *pvr, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] pvrSetRecordSeriesDeleWithRecordId:recordId WithSeriesId:seriesId WithChannelId:channelId WithStartTime:startTime completion:block];
+}
+
 @end
