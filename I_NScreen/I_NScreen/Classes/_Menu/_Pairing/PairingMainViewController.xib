@@ -56,26 +56,16 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JnZ-ar-9Ka" userLabel="View2">
                             <rect key="frame" x="0.0" y="55" width="414" height="179"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모바일에서 VOD 구매를 실행하기 위해 사용하실 비밀번호를 입력해 주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="hKG-o7-h60">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="모바일에서 VOD 구매를 실행하기 위해 사용하실 비밀번호를 입력해 주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="hKG-o7-h60">
                                     <rect key="frame" x="74" y="24" width="265" height="74"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최소 4자리 이상 숫자+영문으로" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7j-dC-dCZ">
-                                    <rect key="frame" x="60" y="97" width="294" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최소 4자리 이상 숫자+영문으로 최대 20 자리 까지 입력 가능합니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7j-dC-dCZ">
+                                    <rect key="frame" x="60" y="97" width="294" height="50"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최대 20 자리 까지 입력 가능합니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="yZh-ph-PFE">
-                                    <rect key="frame" x="60" y="116" width="294" height="21"/>
-                                    <animations/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="21" id="dUa-i1-dNm"/>
-                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -88,14 +78,10 @@
                                 <constraint firstItem="R7j-dC-dCZ" firstAttribute="leading" secondItem="JnZ-ar-9Ka" secondAttribute="leading" constant="60" id="8Ao-Vw-D5n"/>
                                 <constraint firstAttribute="height" constant="179" id="BM2-3M-kAO"/>
                                 <constraint firstItem="hKG-o7-h60" firstAttribute="leading" secondItem="JnZ-ar-9Ka" secondAttribute="leading" constant="74" id="Jth-PG-V4v"/>
-                                <constraint firstAttribute="bottom" secondItem="yZh-ph-PFE" secondAttribute="bottom" constant="42" id="KQo-De-Udo"/>
                                 <constraint firstItem="hKG-o7-h60" firstAttribute="top" secondItem="JnZ-ar-9Ka" secondAttribute="top" constant="24" id="Nia-Qk-lad"/>
-                                <constraint firstAttribute="bottom" secondItem="R7j-dC-dCZ" secondAttribute="bottom" constant="61" id="Qeg-g0-sY3"/>
-                                <constraint firstItem="yZh-ph-PFE" firstAttribute="leading" secondItem="R7j-dC-dCZ" secondAttribute="leading" id="VYB-wx-VPb"/>
-                                <constraint firstItem="R7j-dC-dCZ" firstAttribute="trailing" secondItem="yZh-ph-PFE" secondAttribute="trailing" id="b4P-NW-d0J"/>
+                                <constraint firstAttribute="bottom" secondItem="R7j-dC-dCZ" secondAttribute="bottom" constant="32" id="Qeg-g0-sY3"/>
                                 <constraint firstItem="hKG-o7-h60" firstAttribute="centerX" secondItem="R7j-dC-dCZ" secondAttribute="centerX" id="ikW-2f-sOK"/>
                                 <constraint firstItem="R7j-dC-dCZ" firstAttribute="centerX" secondItem="JnZ-ar-9Ka" secondAttribute="centerX" id="odH-q6-6rB"/>
-                                <constraint firstItem="yZh-ph-PFE" firstAttribute="top" secondItem="hKG-o7-h60" secondAttribute="bottom" constant="18" id="qvk-fE-6D7"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IiX-28-e1D" userLabel="View3">
