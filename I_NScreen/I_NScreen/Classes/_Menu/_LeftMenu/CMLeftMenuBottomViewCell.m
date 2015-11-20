@@ -7,17 +7,31 @@
 //
 
 #import "CMLeftMenuBottomViewCell.h"
+#import "CMTermsViewController.h"
+#import "CMVersionViewController.h"
 
 @implementation CMLeftMenuBottomViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [self.bottomView clearSubOutLineLayers];
+    [UIView setOuterLine:self.bottomView direction:HMOuterLineDirectionTop lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+- (IBAction)actionTermsButton:(id)sender {
+    CMTermsViewController *controller = [[CMTermsViewController alloc] initWithNibName:@"CMTermsViewController" bundle:nil];
+    [self.navigation pushViewController:controller animated:YES];
+}
+
+- (IBAction)actionVersionButton:(id)sender {
+    /*!<
+     앱 버전 정보 버튼 비활성화로 수정됨
+     CMVersionViewController *controller = [[CMVersionViewController alloc] initWithNibName:@"CMVersionViewController" bundle:nil];
+     [self.navigation pushViewController:controller animated:YES];
+     */
 }
 
 @end

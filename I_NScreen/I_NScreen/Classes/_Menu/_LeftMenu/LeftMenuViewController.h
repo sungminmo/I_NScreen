@@ -19,9 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *pairingButton;
 
 @property (nonatomic, weak) IBOutlet UITableView *pTableView;
-@property (weak, nonatomic) IBOutlet UIView *bottomView;
-@property (weak, nonatomic) IBOutlet UIView *termsButton;
-@property (weak, nonatomic) IBOutlet UIView *versionButton;
 
 @property (weak, nonatomic) IBOutlet UIImageView *pairingImageView;
 @property (weak, nonatomic) IBOutlet UILabel *pairingMessageLabel;

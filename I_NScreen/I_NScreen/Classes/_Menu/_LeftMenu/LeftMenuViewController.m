@@ -8,10 +8,9 @@
 
 #import "LeftMenuViewController.h"
 #import "UIView+Layer.h"
-#import "CMTermsViewController.h"
-#import "CMVersionViewController.h"
 #import "FXKeychain.h"
 #import "CMDBDataManager.h"
+#import "CMLeftMenuBottomViewCell.h"
 
 @interface LeftMenuViewController ()
 
@@ -27,6 +26,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UINib* nib;
+    nib = [UINib nibWithNibName:@"CMLeftMenuBottomViewCell" bundle:nil];
+    [self.pTableView registerNib:nib forCellReuseIdentifier:@"bottomCell"];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -36,12 +39,10 @@
     [self.pVerionBtn setTitle:sVerion forState:UIControlStateNormal];
     
     [self.upperView clearSubOutLineLayers];
-    [self.bottomView clearSubOutLineLayers];
     
     [UIView setOuterLine:self.upperView direction:HMOuterLineDirectionTop|HMOuterLineDirectionBottom lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
-    [UIView setOuterLine:self.bottomView direction:HMOuterLineDirectionTop lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
+
  
-    
 //    if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_UUID_KEY] == NULL )
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     if ( [manager getPairingCheck] == NO )
@@ -132,18 +133,7 @@
     [self changePairingCondition:!selected];
 }
 
-- (IBAction)actionTermsButton:(id)sender {
-    CMTermsViewController *controller = [[CMTermsViewController alloc] initWithNibName:@"CMTermsViewController" bundle:nil];
-    [self.navigationController pushViewController:controller animated:YES];
-}
 
-- (IBAction)actionVersionButton:(id)sender {
-    /*!<
-     앱 버전 정보 버튼 비활성화로 수정됨
-    CMVersionViewController *controller = [[CMVersionViewController alloc] initWithNibName:@"CMVersionViewController" bundle:nil];
-    [self.navigationController pushViewController:controller animated:YES];
-     */
-}
 - (IBAction)actionPairingGuide:(id)sender {
     NSString* title = @"셋탑박스 연동이란?";
     NSString* message = @"\nC&M 방송 서비스를 이용하고 계시는\n 고객님의 셋탑박스와 모바일 앱을 연동하여\n VOD 구매, 방송 시청 예약 등\n다양한 서비스를 이용하실 수 있습니다.\n\n";
@@ -161,46 +151,64 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
+    UITableViewCell *cell = nil;
+    
+    if (indexPath.row != 5) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        
+        if(cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor = [UIColor clearColor];
+            cell.textLabel.textColor = [UIColor whiteColor];
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
+        }
+        
+        switch (indexPath.row) {
+            case 0:
+            {
+                cell.imageView.image = [UIImage imageNamed:@"icon_menu_chguide.png"];
+                cell.textLabel.text = @"채널가이드";
+            }break;
+            case 1:
+            {
+                cell.imageView.image = [UIImage imageNamed:@"icon_menu_remotecontrol.png"];
+                cell.textLabel.text = @"리모컨";
+            }break;
+            case 2:
+            {
+                cell.imageView.image = [UIImage imageNamed:@"icon_menu_recording.png"];
+                cell.textLabel.text = @"녹화";
+            }break;
+            case 3:
+            {
+                cell.imageView.image = [UIImage imageNamed:@"icon_menu_myc_m.png"];
+                cell.textLabel.text = @"MY C&M";
+            }break;
+            case 4:
+            {
+                cell.imageView.image = [UIImage imageNamed:@"icon_menu_setting.png"];
+                cell.textLabel.text = @"설정";
+            }break;
+                //        case 5://TODO: 임시 나중에 제거
+                //        {
+                //            cell.imageView.image = [UIImage imageNamed:@"icon_menu_remotecontrol.png"];
+                //            cell.textLabel.text = @"검색";
+                //        }break;
+        }
     }
-  
-    switch (indexPath.row) {
-        case 0:
-        {
-            cell.imageView.image = [UIImage imageNamed:@"icon_menu_chguide.png"];
-            cell.textLabel.text = @"채널가이드";
-        }break;
-        case 1:
-        {
-            cell.imageView.image = [UIImage imageNamed:@"icon_menu_remotecontrol.png"];
-            cell.textLabel.text = @"리모컨";
-        }break;
-        case 2:
-        {
-            cell.imageView.image = [UIImage imageNamed:@"icon_menu_recording.png"];
-            cell.textLabel.text = @"녹화";
-        }break;
-        case 3:
-        {
-            cell.imageView.image = [UIImage imageNamed:@"icon_menu_myc_m.png"];
-            cell.textLabel.text = @"MY C&M";
-        }break;
-        case 4:
-        {
-            cell.imageView.image = [UIImage imageNamed:@"icon_menu_setting.png"];
-            cell.textLabel.text = @"설정";
-        }break;
-//        case 5://TODO: 임시 나중에 제거
-//        {
-//            cell.imageView.image = [UIImage imageNamed:@"icon_menu_remotecontrol.png"];
-//            cell.textLabel.text = @"검색";
-//        }break;
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"bottomCell"];
+        
+        if(cell == nil) {
+            cell = [[CMLeftMenuBottomViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"bottomCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor = [UIColor clearColor];
+            cell.textLabel.textColor = [UIColor whiteColor];
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
+        }
+        
+        ((CMLeftMenuBottomViewCell*)cell).navigation = self.navigationController;
     }
     
     return cell;
@@ -289,9 +297,17 @@ static NSInteger ivTag = 1212;
     
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 5) {
+        return 125.f;
+    }
+    return 60.f;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

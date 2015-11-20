@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CMLeftMenuBottomViewCell : UITableViewCell
-
+@property (weak, nonatomic) UINavigationController* navigation;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIView *termsButton;
+@property (weak, nonatomic) IBOutlet UIView *versionButton;
 @end

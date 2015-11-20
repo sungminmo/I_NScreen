@@ -1,18 +1,98 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CMLeftMenuBottomViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" focusStyle="custom" id="KGk-i7-Jjw" customClass="CMLeftMenuBottomViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="125"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="124.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Kg-jk-hrK">
+                        <rect key="frame" x="10" y="0.0" width="230" height="125"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9f-AQ-j1a">
+                                <rect key="frame" x="11" y="27" width="207" height="31"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="207" id="3gX-7L-p2g"/>
+                                    <constraint firstAttribute="height" constant="31" id="62Z-Vz-3eJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="서비스 이용약관" backgroundImage="smallbtn_normal.png">
+                                    <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="smallbtn_press.png"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                </variation>
+                                <connections>
+                                    <action selector="actionTermsButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="L4i-Fb-dNe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcN-uV-Gx0">
+                                <rect key="frame" x="11" y="67" width="207" height="31"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="S3P-wk-U5j"/>
+                                    <constraint firstAttribute="width" constant="207" id="wzJ-hV-Nod"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="버전정보" backgroundImage="smallbtn_normal.png">
+                                    <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="smallbtn_press.png"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                </variation>
+                                <connections>
+                                    <action selector="actionVersionButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1Bz-KX-nLZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o9f-AQ-j1a" firstAttribute="top" secondItem="9Kg-jk-hrK" secondAttribute="top" constant="27" id="AdR-wO-v4o"/>
+                            <constraint firstAttribute="trailing" secondItem="zcN-uV-Gx0" secondAttribute="trailing" constant="12" id="Czm-TL-ioC"/>
+                            <constraint firstItem="zcN-uV-Gx0" firstAttribute="leading" secondItem="9Kg-jk-hrK" secondAttribute="leading" constant="11" id="WSP-In-H9G"/>
+                            <constraint firstAttribute="trailing" secondItem="o9f-AQ-j1a" secondAttribute="trailing" constant="12" id="ZdP-dg-eTR"/>
+                            <constraint firstItem="zcN-uV-Gx0" firstAttribute="top" secondItem="o9f-AQ-j1a" secondAttribute="bottom" constant="9" id="dDq-5J-sbe"/>
+                            <constraint firstAttribute="width" constant="230" id="dhf-H3-kMN"/>
+                            <constraint firstAttribute="height" constant="125" id="fvG-kS-YHD"/>
+                            <constraint firstAttribute="bottom" secondItem="zcN-uV-Gx0" secondAttribute="bottom" constant="27" id="lYR-fR-CHI"/>
+                            <constraint firstItem="o9f-AQ-j1a" firstAttribute="leading" secondItem="9Kg-jk-hrK" secondAttribute="leading" constant="11" id="zgf-eb-ztA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="9Kg-jk-hrK" secondAttribute="trailing" constant="10" id="Ce1-lb-UtL"/>
+                    <constraint firstItem="9Kg-jk-hrK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Ndl-AP-t9g"/>
+                    <constraint firstAttribute="bottom" secondItem="9Kg-jk-hrK" secondAttribute="bottom" constant="0.5" id="r8D-GE-aFg"/>
+                    <constraint firstItem="9Kg-jk-hrK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rO0-zv-2f2"/>
+                </constraints>
             </tableViewCellContentView>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="bottomView" destination="9Kg-jk-hrK" id="aV7-xD-9xV"/>
+                <outlet property="termsButton" destination="o9f-AQ-j1a" id="Hek-wr-gTv"/>
+                <outlet property="versionButton" destination="zcN-uV-Gx0" id="YAp-nN-ji5"/>
+            </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="smallbtn_normal.png" width="207" height="31"/>
+        <image name="smallbtn_press.png" width="207" height="31"/>
+    </resources>
 </document>
