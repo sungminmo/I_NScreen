@@ -1249,18 +1249,16 @@
     }];
 }
 
-// !! TEST BJK
-// 현재 privte 터미널 키를 서버 이슈로 못받고 있기 때문에 public 터미널 키를 박음 수정 해야함
-- (NSURLSessionDataTask *)pvrGetrecordlistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
+// 녹화물목록
+- (NSURLSessionDataTask *)pvrGetrecordlistCompletion:(void (^)(NSArray *pvr, NSError *error))block
 {
-    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_Getrecordlist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [manager getPrivateTerminalKey],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1277,17 +1275,42 @@
     return task;
 }
 
+// 시리즈 녹화물 목록
+- (NSURLSessionDataTask *)pvrGetrecordListWithSeriesId:(NSString *)seriesId completion:(void (^)(NSArray *pvr, NSError *error))block
+{
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_Getrecordlist];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"SeriesId" : seriesId
+                           };
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
 - (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block
 {
-    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
-                           
     self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"1",
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [manager getPrivateTerminalKey],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1310,12 +1333,10 @@
     self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
     
-    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
-    
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RemoveUser];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [manager getPrivateTerminalKey],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
                            @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
     

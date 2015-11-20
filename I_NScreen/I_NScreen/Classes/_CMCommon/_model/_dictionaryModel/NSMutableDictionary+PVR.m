@@ -15,6 +15,11 @@
     return [[CMNetworkManager sharedInstance] pvrGetrecordlistCompletion:block];
 }
 
++ (NSURLSessionDataTask *)pvrGetrecordListWithSeriesId:(NSString *)seriesId completion:(void (^)(NSArray *pvr, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] pvrGetrecordListWithSeriesId:seriesId completion:block];
+}
+
 + (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] pvrGetrecordReservelistCompletion:block];
