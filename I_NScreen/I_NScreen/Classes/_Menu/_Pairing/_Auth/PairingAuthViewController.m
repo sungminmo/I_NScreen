@@ -29,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"셋탑박스 등록";
+    self.isUseNavigationBar = YES;
+    
     if ([UIScreen mainScreen].bounds.size.width == 320) {
         for (id obj in self.guideLabels) {
             UILabel* lb = (UILabel*)obj;

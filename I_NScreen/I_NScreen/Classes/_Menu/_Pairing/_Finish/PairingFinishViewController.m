@@ -22,7 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"셋탑박스 등록";
+    self.isUseNavigationBar = YES;
     
     [self setTagInit];
     [self setViewInit];
