@@ -64,18 +64,19 @@
     [[control view] addSubview:pViewController.view];
     
     pViewController.view.frame = CGRectMake(-[control view].frame.size.width, 0, [control view].frame.size.width, [control view].frame.size.height);
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
-    pViewController.view.frame = CGRectMake(0, 0, [control view].frame.size.width, [control view].frame.size.height);
-    [UIView commitAnimations];
 
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            pViewController.view.frame = CGRectMake(0, 0, [control view].frame.size.width, [control view].frame.size.height);
+    } completion:^(BOOL finished) {
+        pViewController.alphaView.hidden = NO;
+    }];
 }
 
 - (void)onLeftMenuListClose:(id)control;
 {
+    LeftMenuViewController* controller = (LeftMenuViewController*)control;
+    controller.alphaView.hidden = YES;
+    
     [UIView animateWithDuration:0.5
                      animations:^{
                          

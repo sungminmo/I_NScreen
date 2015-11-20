@@ -13,7 +13,7 @@
 @interface LeftMenuViewController : UIViewController
 
 @property (nonatomic, weak) id <LeftMenuViewDelegate>delegate;
-
+@property (nonatomic, weak) IBOutlet UIView* alphaView;
 @property (weak, nonatomic) IBOutlet UIView *upperView;
 @property (weak, nonatomic) IBOutlet UILabel *pairingLabel;
 @property (weak, nonatomic) IBOutlet UIButton *pairingButton;

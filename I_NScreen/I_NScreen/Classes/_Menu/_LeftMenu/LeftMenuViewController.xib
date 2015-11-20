@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftMenuViewController">
             <connections>
+                <outlet property="alphaView" destination="Fq5-3v-gXh" id="rGS-l4-mPh"/>
                 <outlet property="pTableView" destination="kNq-uG-6KS" id="zj3-mW-cy9"/>
                 <outlet property="pairingButton" destination="a3B-JC-4YT" id="ED9-Lb-exx"/>
                 <outlet property="pairingImageView" destination="qXl-Iq-lgS" id="RY1-sL-vNW"/>
@@ -22,6 +23,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-3v-gXh">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cmu-dD-wPi">
                     <rect key="frame" x="0.0" y="0.0" width="243" height="568"/>
                     <subviews>
@@ -358,22 +364,40 @@
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Fq5-3v-gXh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0HD-v0-8oh"/>
                 <constraint firstItem="Cmu-dD-wPi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="62w-qx-JqT"/>
+                <constraint firstItem="Fq5-3v-gXh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bn4-q0-dez"/>
+                <constraint firstAttribute="trailing" secondItem="Fq5-3v-gXh" secondAttribute="trailing" id="UG9-cx-AUd"/>
                 <constraint firstItem="Cmu-dD-wPi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Wwx-OX-3ME"/>
+                <constraint firstAttribute="bottom" secondItem="Fq5-3v-gXh" secondAttribute="bottom" id="qTR-tB-Hvf"/>
                 <constraint firstAttribute="bottom" secondItem="Cmu-dD-wPi" secondAttribute="bottom" id="wSK-bL-aAM"/>
             </constraints>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Fq5-3v-gXh"/>
+                </mask>
                 <mask key="constraints">
                     <exclude reference="62w-qx-JqT"/>
                     <exclude reference="Wwx-OX-3ME"/>
                     <exclude reference="wSK-bL-aAM"/>
+                    <exclude reference="0HD-v0-8oh"/>
+                    <exclude reference="Bn4-q0-dez"/>
+                    <exclude reference="UG9-cx-AUd"/>
+                    <exclude reference="qTR-tB-Hvf"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Fq5-3v-gXh"/>
+                </mask>
                 <mask key="constraints">
                     <include reference="62w-qx-JqT"/>
                     <include reference="Wwx-OX-3ME"/>
                     <include reference="wSK-bL-aAM"/>
+                    <include reference="0HD-v0-8oh"/>
+                    <include reference="Bn4-q0-dez"/>
+                    <include reference="UG9-cx-AUd"/>
+                    <include reference="qTR-tB-Hvf"/>
                 </mask>
             </variation>
         </view>
