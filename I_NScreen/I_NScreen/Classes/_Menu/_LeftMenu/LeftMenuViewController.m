@@ -135,7 +135,7 @@
 
 - (IBAction)actionPairingGuide:(id)sender {
     NSString* title = @"셋탑박스 연동이란?";
-    NSString* message = @"\nC&M 방송 서비스를 이용하고 계시는\n 고객님의 셋탑박스와 모바일 앱을 연동하여\n VOD 구매, 방송 시청 예약 등\n다양한 서비스를 이용하실 수 있습니다.\n\n";
+    NSString* message = @"\n씨앤앰 방송 서비스를 이용하고 계시는\n 고객님의 셋탑박스와 모바일 앱을 연동하여\n VOD 구매, 방송 시청 예약 등\n다양한 서비스를 이용하실 수 있습니다.\n\n";
     [SIAlertView alert:title message:message button:nil];
 }
 
@@ -182,7 +182,7 @@
             case 3:
             {
                 cell.imageView.image = [UIImage imageNamed:@"icon_menu_myc_m.png"];
-                cell.textLabel.text = @"MY C&M";
+                cell.textLabel.text = @"마이 씨앤앰";
             }break;
             case 4:
             {
