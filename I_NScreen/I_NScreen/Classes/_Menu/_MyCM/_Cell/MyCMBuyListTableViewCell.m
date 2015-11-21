@@ -88,7 +88,28 @@
     else if ( viewType == MY_CM_MAIN_VIEW_BTN_03 )
     {
         // 시청목록
+        self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
         
+        NSString *sAddTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"date"]];
+        NSArray *addTimeArr = [sAddTime componentsSeparatedByString:@" "];
+        NSArray *addTimeArr2 = [[addTimeArr objectAtIndex:0] componentsSeparatedByString:@":"];
+        NSArray *addTimeArr3 = [[addTimeArr objectAtIndex:1] componentsSeparatedByString:@":"];
+        NSString *sAddTime2 = [NSString stringWithFormat:@"%@%@%@", [addTimeArr2 objectAtIndex:0], [addTimeArr2 objectAtIndex:1], [addTimeArr2 objectAtIndex:2]];
+        
+        NSString *sWeek = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] GetDayOfWeek:sAddTime2]];
+        
+        NSString *sMonth = [NSString stringWithFormat:@"%@", [addTimeArr2 objectAtIndex:1]];
+        NSString *sDay = [NSString stringWithFormat:@"%@", [addTimeArr2 objectAtIndex:2]];
+        
+        NSString *sHour = [NSString stringWithFormat:@"%@", [addTimeArr3 objectAtIndex:0]];
+        NSString *sMinute = [NSString stringWithFormat:@"%@", [addTimeArr3 objectAtIndex:1]];
+        
+        self.pPurchasedTimeLbl01.text = [NSString stringWithFormat:@"%@.%@ (%@)", sMonth, sDay, sWeek];
+        self.pPurchasedTimeLbl02.text = [NSString stringWithFormat:@"%@:%@", sHour, sMinute];
+        
+        self.pLicenseEndLbl.hidden = YES;
+        self.pPriceLbl.hidden = YES;
+        self.pCouponImageView.hidden = YES;
     }
     else
     {

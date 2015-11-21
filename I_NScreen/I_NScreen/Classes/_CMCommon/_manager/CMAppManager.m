@@ -812,4 +812,15 @@
     return sComment;
 }
 
+#pragma mark -오늘 년,월일 구하기
+-(NSString *)GetToday
+{
+    NSDate *now = [[NSDate alloc] init];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy:MM:dd HH:mm:ss"];
+    NSString *strToday = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:now]];
+    
+    return strToday;
+}
+
 @end

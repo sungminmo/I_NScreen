@@ -20,6 +20,10 @@
 @property (nonatomic, strong) NSString *pFileNameStr;
 @property (nonatomic, strong) NSString *pStyleStr;  // play, preview
 
+@property (nonatomic, strong) NSString *pAssetId;
+@property (nonatomic, strong) NSString *pTitle;
+@property (nonatomic, strong) NSString *pDate;
+
 @end
 
 @protocol PlayerViewDelegate <NSObject>

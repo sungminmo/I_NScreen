@@ -10,6 +10,7 @@
 #import "WViPhoneAPI.h"
 #import "NSMutableDictionary+DRM.h"
 #import "UIAlertView+AFNetworking.h"
+#import "CMDBDataManager.h"
 
 @interface PlayerViewController ()
 @property (nonatomic, strong) NSMutableDictionary *pDrmDic;
@@ -19,6 +20,9 @@
 @synthesize delegate;
 @synthesize pFileNameStr;
 @synthesize pStyleStr;
+@synthesize pAssetId;
+@synthesize pDate;
+@synthesize pTitle;
 
 static PlayerViewController *playerViewCtr;
 
@@ -138,6 +142,10 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
         
         if ( [responseUrl length] != 0 )
         {
+            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.pTitle, @"title", self.pAssetId, @"assetId", [[CMAppManager sharedInstance] GetToday], @"date", nil];
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            [manager setVodWatchList:dic];
+            
             NSURL *url = [NSURL URLWithString:responseUrl];
             MPMoviePlayerController *mp = [[MPMoviePlayerController alloc]
                                            initWithContentURL:url];

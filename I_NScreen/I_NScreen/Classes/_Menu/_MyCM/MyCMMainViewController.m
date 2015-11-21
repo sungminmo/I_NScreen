@@ -10,11 +10,14 @@
 #import "NSMutableDictionary+MyC_M.h"
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+WISH.h"
+#import "CMDBDataManager.h"
+#import "CMVodWatchList.h"
 
 @interface MyCMMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pValidPurchaseLogListMoblieArr;   // vod 찜 목록 모바일 구매 목록
 @property (nonatomic, strong) NSMutableArray *pValidPurchaseLogListTvArr;       // vod 찜 목록 tv 구매 목록
 @property (nonatomic, strong) NSMutableArray *pWishListArr;
+@property (nonatomic, strong) NSMutableArray *pWatchListArr;        // 시청목록 데이터
 @property (nonatomic) int nTapTag;
 @property (nonatomic) int nSubTabTag;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftTabLayout;
@@ -60,6 +63,7 @@
     self.pValidPurchaseLogListMoblieArr = [[NSMutableArray alloc] init];
     self.pValidPurchaseLogListTvArr = [[NSMutableArray alloc] init];
     self.pWishListArr = [[NSMutableArray alloc] init];
+    self.pWatchListArr = [[NSMutableArray alloc] init];
     self.nTapTag = MY_CM_MAIN_VIEW_BTN_02;
     self.nSubTabTag = 0;
     self.leftTabLayout.constant = 2;
@@ -106,6 +110,21 @@
             [self.pTapBtn02 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.pTapBtn03 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
 
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            
+            for ( CMVodWatchList *info in [manager getVodWatchList] )
+            {
+                NSString *sTitle = [NSString stringWithFormat:@"%@", [info pTitleStr]];
+                NSString *sDate = [NSString stringWithFormat:@"%@", [info pWatchDateStr]];
+                NSString *sAssetId = [NSString stringWithFormat:@"%@", [info pAssetIdStr]];
+                NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:sTitle, @"title", sDate, @"date", sAssetId, @"assetId", nil];
+                [self.pWatchListArr addObject:dic];
+            }
+            
+            int nTotal = (int)[self.pWatchListArr count];
+            self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 시청목록이 있습니다.", nTotal];
+            
+            [self.pSubTableView02 reloadData];
         }break;
         case MY_CM_MAIN_VIEW_BTN_04:
         {
@@ -138,6 +157,8 @@
             self.pSubTabBtn02.selected = NO;
             self.leftTabLayout.constant = 2;
             self.rightTabLayout.constant = 1;
+            
+            
             
             [self.pSubTableView01 reloadData];
         }break;
@@ -194,7 +215,7 @@
     else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_03 )
     {
         // 시청목록
-        [pCell setListData:nil WithIndex:(int)indexPath.row WithViewType:self.nTapTag];
+        [pCell setListData:[self.pWatchListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithViewType:self.nTapTag];
     }
     else
     {
@@ -279,6 +300,7 @@
     else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_03 )
     {
         // vod 시청목록
+        nSection = (int)[self.pWatchListArr count];
     }
     else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_04 )
     {
@@ -430,7 +452,19 @@
         else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_03 )
         {
             // vod 시청목록
+            NSString *sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[self.pWatchListArr objectAtIndex:indexPath.row] objectForKey:@"title"]];
             
+            [SIAlertView alert:@"VOD 시청 목록 삭제" message:sTitle cancel:@"취소" buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+                            [manager removeVodWatchList:(int)indexPath.row];
+                            [self.pWatchListArr removeObjectAtIndex:indexPath.row];
+                            [self.pSubTableView02 reloadData];
+                        }
+                    }];
         }
         else
         {

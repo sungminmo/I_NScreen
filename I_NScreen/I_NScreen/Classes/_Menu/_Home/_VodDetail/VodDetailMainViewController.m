@@ -154,6 +154,8 @@
             pViewController.delegate = self;
             pViewController.pStyleStr = @"play";
             pViewController.pFileNameStr = self.pFileNameStr;
+            pViewController.pAssetId = self.pAssetIdStr;
+            pViewController.pTitle = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"title"];
             [self.navigationController pushViewController:pViewController animated:NO];
         }break;
     }

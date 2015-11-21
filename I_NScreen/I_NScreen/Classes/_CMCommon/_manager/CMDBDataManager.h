@@ -114,4 +114,19 @@
  */
 - (void)removeFavorChannel:(int)index;
 
+/**
+ *  VOD 시청목록 데이터 저장
+ */
+- (void)setVodWatchList:(NSDictionary *)data;
+
+/**
+ *  @return vod 시청목록 데이터 호출
+ */
+- (RLMArray *)getVodWatchList;
+
+/**
+ *   vod 시청목록 삭제
+ */
+- (void)removeVodWatchList:(int)index;
+
 @end

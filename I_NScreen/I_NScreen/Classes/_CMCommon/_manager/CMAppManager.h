@@ -208,4 +208,6 @@
  */
 - (void)removeKeychainAreaCodeValue;
 
+-(NSString *)GetToday;
+
 @end

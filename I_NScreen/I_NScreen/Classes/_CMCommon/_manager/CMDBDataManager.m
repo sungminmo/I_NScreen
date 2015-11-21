@@ -12,6 +12,7 @@
 #import "CMAreaInfo.h"
 #import "CMPairingInfo.h"
 #import "CMPrivateKey.h"
+#import "CMVodWatchList.h"
 
 @implementation CMDBDataManager
 
@@ -351,6 +352,57 @@
     if ( [[self getFavorChannel] count] > 0 )
     {
         RLMArray *all = (RLMArray *)[CMFavorChannelInfo allObjects];
+        [realm beginWriteTransaction];
+        [realm deleteObject:[all objectAtIndex:index]];
+        [realm commitWriteTransaction];
+    }
+
+}
+
+- (void)setVodWatchList:(NSDictionary *)data
+{
+    NSString *sDataAsset = [NSString stringWithFormat:@"%@", [data objectForKey:@"assetId"]];
+    
+    RLMArray *rs = (RLMArray *)[CMVodWatchList allObjects];
+    
+    BOOL isCheck = NO;
+    for ( CMVodWatchList *info in rs )
+    {
+        NSString *sAsset = [NSString stringWithFormat:@"%@", info.pAssetIdStr];
+        
+        if ( [sDataAsset isEqualToString:sAsset] )
+            isCheck = YES;
+    }
+    
+    if ( isCheck == NO )
+    {
+        RLMRealm *realm = [self cmRealm];
+        CMVodWatchList *vodList = [[CMVodWatchList alloc] init];
+        
+        vodList.pAssetIdStr = [NSString stringWithFormat:@"%@", [data objectForKey:@"assetId"]];
+        vodList.pTitleStr = [NSString stringWithFormat:@"%@", [data objectForKey:@"title"]];
+        vodList.pWatchDateStr = [NSString stringWithFormat:@"%@", [data objectForKey:@"date"]];
+        
+        [realm beginWriteTransaction];
+        [realm addObject:vodList];
+        [realm commitWriteTransaction];
+    }
+}
+
+- (RLMArray *)getVodWatchList
+{
+    RLMArray *rs = (RLMArray *)[CMVodWatchList allObjects];
+    
+    return rs;
+}
+
+- (void)removeVodWatchList:(int)index
+{
+    RLMRealm *realm = [self cmRealm];
+    
+    if ( [[self getVodWatchList] count] > 0 )
+    {
+        RLMArray *all = (RLMArray *)[CMVodWatchList allObjects];
         [realm beginWriteTransaction];
         [realm deleteObject:[all objectAtIndex:index]];
         [realm commitWriteTransaction];
