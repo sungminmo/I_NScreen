@@ -31,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"마이 C&M";
+    self.title = @"마이 씨앤엠";
     self.isUseNavigationBar = YES;
     
     [self setTagInit];
@@ -134,6 +134,8 @@
             int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
             self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
             
+            self.pSubTabBtn01.selected = YES;
+            self.pSubTabBtn02.selected = NO;
             self.leftTabLayout.constant = 2;
             self.rightTabLayout.constant = 1;
             
@@ -150,6 +152,8 @@
             int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
             self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
 
+            self.pSubTabBtn01.selected = NO;
+            self.pSubTabBtn02.selected = YES;
             self.leftTabLayout.constant = 1;
             self.rightTabLayout.constant = 2;
             
