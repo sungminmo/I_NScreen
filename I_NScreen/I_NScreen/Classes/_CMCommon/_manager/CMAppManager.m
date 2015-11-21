@@ -235,11 +235,115 @@
     }
 }
 
-
 #pragma mark - 유니크 keychain uuid get
 - (NSString *)getKeychainUniqueUuid
 {
     return [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY];
+}
+
+#pragma mark - 유니크 구매 비밀번호 set
+- (void)setKeychainBuyPw:(NSString *)buyPw
+{
+    [[FXKeychain defaultKeychain] setObject:buyPw forKey:CNM_OPEN_API_BUY_PW];
+}
+
+#pragma mark - 유니크 구매비밀번호 get
+- (NSString *)getKeychainBuyPw
+{
+    return [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_BUY_PW];
+}
+
+#pragma mark - 유니크 구매비밀번호 remove
+- (void)removeKeychainBuyPw
+{
+    [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_BUY_PW];
+}
+
+#pragma mark - 유니크 privateTerminalKey set
+- (void)setKeychainPrivateTerminalkey:(NSString *)terminalKey
+{
+    [[FXKeychain defaultKeychain] setObject:terminalKey forKey:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY];
+}
+
+#pragma mark - 유니크 privateTerminalKey get
+- (NSString *)getKeychainPrivateTerminalKey
+{
+    return [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY];
+}
+
+#pragma mark - 유니크 privateTerminalKey remove
+- (void)removeKeychainPrivateTerminalKey
+{
+    [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY];
+}
+
+#pragma mark - 유니크 성인 인증 여부 체크 set
+- (void)setKeychainAdultCertification:(BOOL)isAdult
+{
+    NSString* adult = @"NO";
+    if ( isAdult == YES )
+        adult = @"YES";
+    [[FXKeychain defaultKeychain] setObject:adult forKey:CNM_OPEN_API_ADULT_CERTIFICATION];
+}
+
+#pragma mark - 유니크 성인 인증 여부 체크 get
+- (BOOL)getKeychainAdultCertification
+{
+    BOOL isAdult = NO;
+    if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_ADULT_CERTIFICATION] isEqualToString:@"YES"] )
+        isAdult = YES;
+    
+    return isAdult;
+}
+
+#pragma mark - 유니크 성인 인증 여부 체크 remove
+- (void)removeKeychainAdultCertification
+{
+    [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_ADULT_CERTIFICATION];
+}
+
+#pragma mark - 유니크 성인 검색 제한 설정 set
+- (void)setKeychainAdultLimit:(BOOL)isAdult
+{
+    NSString* adult = @"NO";
+    if ( isAdult == YES )
+        adult = @"YES";
+    
+    [[FXKeychain defaultKeychain] setObject:adult forKey:CNM_OPEN_API_ADULT_LIMIT];
+}
+
+#pragma mark - 유니크 성인 검색 제한 설정 get
+- (BOOL)getKeychainAdultLimit
+{
+    BOOL isAdult = NO;
+    if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_ADULT_LIMIT] isEqualToString:@"YES"] )
+        isAdult = YES;
+    
+    return isAdult;
+}
+
+#pragma mark - 유니크 성인 인증 여부 체크 remove
+- (void)removeKeychainAdultLimit
+{
+    [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_ADULT_LIMIT];
+}
+
+#pragma mark - 지역 설정 set
+- (void)setKeychainAreaCodeValue:(NSDictionary *)area
+{
+    [[FXKeychain defaultKeychain] setObject:area forKey:CNM_OPEN_API_AREA_CODE_VALUE];
+}
+
+#pragma makr - 지역 설정 get
+- (NSDictionary *)getKeychainAreaCodeValue
+{
+    return [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_AREA_CODE_VALUE];
+}
+
+#pragma mark - 지역 설정 remove
+- (void)removeKeychainAreaCodeValue
+{
+    [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_AREA_CODE_VALUE];
 }
 
 

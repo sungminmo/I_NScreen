@@ -133,4 +133,79 @@
  */
 - (NSString *)getKeychainUniqueUuid;
 
+/**
+ * @brief 유니크 구매 비밀번호 set
+ */
+- (void)setKeychainBuyPw:(NSString *)buyPw;
+
+/**
+ * @brief 유니크 구매비밀번호 get
+ */
+- (NSString *)getKeychainBuyPw;
+
+/**
+ * @brief 유니크 구매비밀번호 remove
+ */
+- (void)removeKeychainBuyPw;
+
+/**
+ * @brief 유니크 privateTerminalKey set
+ */
+- (void)setKeychainPrivateTerminalkey:(NSString *)terminalKey;
+
+/**
+ * @brief 유니크 privateTerminalKey get
+ */
+- (NSString *)getKeychainPrivateTerminalKey;
+
+/**
+ * @brief 유니크 privateTerminalKey remove
+ */
+- (void)removeKeychainPrivateTerminalKey;
+
+/**
+ * @brief 유니크 성인 인증 여부 체크 set
+ */
+- (void)setKeychainAdultCertification:(BOOL)isAdult;
+
+/**
+ * @brief 유니크 성인 인증 여부 체크 get
+ */
+- (BOOL)getKeychainAdultCertification;
+
+/**
+ * @brief 유니크 성인 인증 여부 체크 remove
+ */
+- (void)removeKeychainAdultCertification;
+
+/**
+ * @brief 유니크 성인 검색 제한 설정 set
+ */
+- (void)setKeychainAdultLimit:(BOOL)isAdult;
+
+/**
+ * @brief 유니크 성인 검색 제한 설정 get
+ */
+- (BOOL)getKeychainAdultLimit;
+
+/**
+ * @brief 유니크 성인 인증 여부 체크 remove
+ */
+- (void)removeKeychainAdultLimit;
+
+/**
+ * @brief 지역 설정 set
+ */
+- (void)setKeychainAreaCodeValue:(NSDictionary *)area;
+
+/**
+ * @brief 지역 설정 get
+ */
+- (NSDictionary *)getKeychainAreaCodeValue;
+
+/**
+ * @brief 지역 설정 remove
+ */
+- (void)removeKeychainAreaCodeValue;
+
 @end

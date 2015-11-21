@@ -76,6 +76,28 @@ NSString* const MIRRORTV_ERROR_MSG_BLOCKING_CHANNEL = @"셋탑박스에서 성�
 NSString* const MIRRORTV_ERROR_MSG_STANBY = @"셋탑박스 전원이 꺼져있습니다.\n전원을 켜신 후 이용바랍니다.";
 NSString* const MIRRORTV_ERROR = @"미러TV 영상이 지연되고 있습니다.\n잠시 후 다시 이용해 주십시오.";
 
+
+// ----------------------------------------------------------------------------------
+// C&M 키체인에 저장할 key
+// ----------------------------------------------------------------------------------
+// uuid
+NSString* const CNM_OPEN_API_UUID_KEY = @"uuid";
+
+// 구매 비밀 번호
+NSString* const CNM_OPEN_API_BUY_PW = @"buyPw";
+
+// 프라이빗 터미널 키
+NSString* const CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY = @"privateTerminalKey";
+
+// 성인 인증 여부 체크
+NSString* const CNM_OPEN_API_ADULT_CERTIFICATION = @"adultcertification";
+
+// 성인 검색 제한 설정
+NSString* const CNM_OPEN_API_ADULT_LIMIT = @"adultlimit";
+
+// 지역설정
+NSString* const CNM_OPEN_API_AREA_CODE_VALUE = @"areacodevalue";
+
 // ----------------------------------------------------------------------------------
 // C&M SMApplicationSever openAPI Parameter Key.
 // ----------------------------------------------------------------------------------
@@ -103,14 +125,8 @@ NSString* const CNM_OPEN_API_TV_REPLAY_CATEGORY_ID = @"1579723";
 NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID = @"20912";
 //NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID = @"1579724";
 
-// uuid
-NSString* const CNM_OPEN_API_UUID_KEY = @"uuid";
-
 // assetProfile
 NSString* const CNM_OPEN_API_ASSET_PROFILE_KEY = @"assetProfile";
-
-// 구매 비밀 번호 로컬 저장
-NSString* const CNM_OPEN_API_BUY_PW = @"buyPw";
 
 // 페어링후 셋탑이 PVR 인지 HD 인지 체크 값
 NSString* const CNM_OPEN_API_SET_TOP_BOK_KIND = @"SetTopBoxKind";
@@ -120,9 +136,6 @@ NSString* const CNM_OPEN_API_VERSION_KEY = @"version";
 
 // terminalID
 NSString* const CNM_OPEN_API_TERMINAL_ID_KEY = @"terminalId";
-
-// privateKey
-NSString* const CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY = @"privateTerminalKey";
 
 // terminalKey
 NSString* const CNM_OPEN_API_TERMINAL_KEY_KEY = @"terminalKey";

@@ -163,6 +163,28 @@ extern NSString* const MIRRORTV_ERROR_MSG_BLOCKING_CHANNEL;
 extern NSString* const MIRRORTV_ERROR_MSG_STANBY;
 extern NSString* const MIRRORTV_ERROR;
 
+
+// ----------------------------------------------------------------------------------
+// C&M 키체인에 저장할 key
+// ----------------------------------------------------------------------------------
+// uuid
+extern NSString* const CNM_OPEN_API_UUID_KEY;
+
+// 구매 비밀번호
+extern NSString* const CNM_OPEN_API_BUY_PW;
+
+// 프라이빗 터미널 키
+extern NSString* const CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY;
+
+// 성인 인증 여부 체크
+extern NSString* const CNM_OPEN_API_ADULT_CERTIFICATION;
+
+// 성인 검색 제한 설정
+extern NSString* const CNM_OPEN_API_ADULT_LIMIT;
+
+// 지역설정
+extern NSString* const CNM_OPEN_API_AREA_CODE_VALUE;
+
 // ----------------------------------------------------------------------------------
 // C&M SMApplicationSever openAPI Parameter Key.
 // ----------------------------------------------------------------------------------
@@ -186,14 +208,8 @@ extern NSString* const CNM_OPEN_API_TV_REPLAY_CATEGORY_ID;
 // 성인
 extern NSString* const CNM_OPEN_API_ADULT_CATEGORY_ID;
 
-// uuid
-extern NSString* const CNM_OPEN_API_UUID_KEY;
-
 // assetProfile
 extern NSString* const CNM_OPEN_API_ASSET_PROFILE_KEY;
-
-// 구매 비밀번호 로컬 저장
-extern NSString* const CNM_OPEN_API_BUY_PW;
 
 // 페어링후 셋탑이 PVR 인지 HD 인지 체크 값
 extern NSString* const CNM_OPEN_API_SET_TOP_BOK_KIND;
@@ -203,9 +219,6 @@ extern NSString* const CNM_OPEN_API_VERSION_KEY;
 
 // terminalID
 extern NSString* const CNM_OPEN_API_TERMINAL_ID_KEY;
-
-// private terminalKey
-extern NSString* const CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY;
 
 // terminalKey
 extern NSString* const CNM_OPEN_API_TERMINAL_KEY_KEY;
