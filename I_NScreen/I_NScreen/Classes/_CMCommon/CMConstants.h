@@ -469,6 +469,12 @@ extern NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist;
 // dev.getrecordReservelist
 extern NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist;
 
+//SetRecordDele
+extern NSString* const CNM_OPEN_API_INTERFACE_SetRecordDele;
+
+//SetRecordSeriesDele
+extern NSString* const CNM_OPEN_API_INTERFACE_SetRecordSeriesDele;
+
 // 10. MyC&M
 // getValidPurchaseLogList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList;

@@ -169,6 +169,12 @@
 //http://192.168.44.10/SMApplicationserver/getrecordReservelist.asp?Version=1&terminalKey=C5E6DBF75F13A2C1D5B2EFDB2BC940&deviceId=68590725-3b42-4cea-ab80-84c91c01bad2
 - (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
 
+// 녹화 목록 삭제SetRecordDele
+- (NSURLSessionDataTask *)pvrSetRecordDeleWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithRecordId:(NSString *)recordId completion:(void (^)(NSArray *pvr, NSError *error))block;
+
+// 시리즈 녹화목록 삭제
+- (NSURLSessionDataTask *)pvrSetRecordSeriesDeleWithRecordId:(NSString *)recordId WithSeriesId:(NSString *)seriesId WithChannelId:(NSString *)channelId WithStartTime:(NSString *)startTime completion:(void (^)(NSArray *pvr, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( DRM )

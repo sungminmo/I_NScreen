@@ -37,7 +37,181 @@
     // Configure the view for the selected state
 }
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index
+// 녹화 예약 관리
+- (void)setListDataReservation:(NSDictionary *)dic WithIndex:(int)index
+{
+    [self layoutSubviews];
+    [self layoutIfNeeded];
+    
+    if ( index != 0 )
+    {
+        self.pLineImageView01.hidden = YES;
+    }
+    else
+    {
+        self.pLineImageView01.hidden = NO;
+    }
+    
+//    NSString *sLogUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"Channel_logo_img"]];
+//    [self.logoImageView setImageWithURL:[NSURL URLWithString:sLogUrl]];
+//    
+//    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ProgramName"]];
+    
+    // 일단 녹화 시간으로 적어 놓고 바꿔야 함
+//    NSString *sTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordEndTime"]];
+//    NSArray *timeArr = [sTime componentsSeparatedByString:@" "];
+//    
+//    self.pDayLbl.text = [NSString stringWithFormat:@"%@", [timeArr objectAtIndex:0]];
+//    self.pTimeLbl.text = [NSString stringWithFormat:@"%@", [timeArr objectAtIndex:1]];
+    
+#warning TEST
+    
+//    BOOL series = index%2;  //  시리즈 여부 테스트값
+//    if (series) {
+//        
+//        self.seriesImageView.hidden = false;
+//        self.dateLabel.hidden = true;
+//        self.timeLabel.hidden = true;
+//    } else {
+//        self.seriesImageView.hidden = true;
+//        self.dateLabel.hidden = false;
+//        self.timeLabel.hidden = false;
+//        
+//        self.dateLabel.text = @"10.10 (금)";
+//        self.timeLabel.text = @"11:11";
+//    }
+//    
+//    BOOL rec = index%2; //  녹화 여부 테스트값
+//    if (rec) {
+//        self.recImageView.hidden = false;
+//        self.progressView.hidden = false;
+//        
+//        [self.progressView reset];
+//        [self.progressView setProgressRatio:0.9 animated:YES];
+//    } else {
+//        self.recImageView.hidden = true;
+//        self.progressView.hidden = true;
+//    }
+    
+//    NSString *sSeriesId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"SeriesId"]];
+//    if ( [sSeriesId isEqualToString:@"NULL"] )
+//    {
+//        // 단편
+//        self.seriesImageView.hidden = YES;
+//        self.dateLabel.hidden = NO;
+//        self.timeLabel.hidden = NO;
+//    }
+//    else
+//    {
+//        // 시리즈
+//        self.seriesImageView.hidden = NO;
+//        self.dateLabel.hidden = YES;
+//        self.timeLabel.hidden = YES;
+//    }
+    NSString *sLogUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"Channel_logo_img"]];
+    [self.logoImageView setImageWithURL:[NSURL URLWithString:sLogUrl]];
+    
+    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ProgramName"]];
+    
+    
+    
+    NSString *sSeriesId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"SeriesId"]];
+    if ( [sSeriesId isEqualToString:@"NULL"] )
+    {
+        // 단편
+        self.seriesImageView.hidden = YES;
+        self.dateLabel.hidden = NO;
+        self.timeLabel.hidden = NO;
+    }
+    else
+    {
+        // 시리즈
+        self.seriesImageView.hidden = NO;
+        self.dateLabel.hidden = YES;
+        self.timeLabel.hidden = YES;
+    }
+    
+    CGFloat progressFloat = 0;
+    
+
+    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
+    
+    if ( [sProgramBroadcastingStartTime isEqualToString:@"0"] )
+    {
+        // 녹화끝났음
+        self.recImageView.hidden = YES;
+        self.progressView.hidden = YES;
+        
+        self.dateLabel.text = @"";
+        
+        return;
+    }
+    
+    NSString *sProgramBroadcastingEndTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordEndTime"]];
+    
+    NSArray *startArr = [sProgramBroadcastingStartTime componentsSeparatedByString:@" "];
+    NSArray *startArr2 = [[startArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSArray *endArr = [sProgramBroadcastingEndTime componentsSeparatedByString:@" "];
+    NSArray *endArr2 = [[endArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSString *sStart = [NSString stringWithFormat:@"%@:%@", [startArr2 objectAtIndex:0], [startArr2 objectAtIndex:1]];
+    
+    NSString *sEnd = [NSString stringWithFormat:@"%@:%@", [endArr2 objectAtIndex:0], [endArr2 objectAtIndex:1]];
+    
+    progressFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd];
+    
+    //    [self.progressView setProgressRatio: animated:YES];
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
+    
+    [dateFormatter setDateFormat:@"dd"];
+    int nDay = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    
+    NSArray *startArr3 = [[startArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    NSString *sStartDD = [NSString stringWithFormat:@"%@", [startArr3 objectAtIndex:2]];
+    
+    if ( nDay != [sStartDD intValue] )
+    {
+        progressFloat = .0;
+        [self.progressView setProgressRatio:.0 animated:YES];
+    }
+    
+    if ( progressFloat > 0 )
+    {
+        // 녹화중
+        self.recImageView.hidden = NO;
+        self.progressView.hidden = NO;
+        
+        [self.progressView setProgressRatio:progressFloat animated:YES];
+    }
+    else
+    {
+        // 녹화끝났음
+        self.recImageView.hidden = YES;
+        self.progressView.hidden = YES;
+    }
+    
+    NSString *sPurchasedTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
+    NSArray *purchasedTimeArr = [sPurchasedTime componentsSeparatedByString:@" "];
+    NSArray *purchasedTimeArr2 = [[purchasedTimeArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    NSArray *purchasedTimeArr3 = [[purchasedTimeArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    NSString *sPurchasedTime2 = [NSString stringWithFormat:@"%@%@%@", [purchasedTimeArr2 objectAtIndex:0], [purchasedTimeArr2 objectAtIndex:1], [purchasedTimeArr2 objectAtIndex:2]];
+    
+    NSString *sWeek = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] GetDayOfWeek:sPurchasedTime2]];
+    
+    NSString *sMonth = [NSString stringWithFormat:@"%@", [purchasedTimeArr2 objectAtIndex:1]];
+    NSString *sDay = [NSString stringWithFormat:@"%@", [purchasedTimeArr2 objectAtIndex:2]];
+    
+    NSString *sHour = [NSString stringWithFormat:@"%@", [purchasedTimeArr3 objectAtIndex:0]];
+    NSString *sMinute = [NSString stringWithFormat:@"%@", [purchasedTimeArr3 objectAtIndex:1]];
+    
+    self.dateLabel.text = [NSString stringWithFormat:@"%@.%@ (%@)", sMonth, sDay, sWeek];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@:%@", sHour, sMinute];
+}
+
+- (void)setListDataList:(NSDictionary *)dic WithIndex:(int)index
 {
     [self layoutSubviews];
     [self layoutIfNeeded];
@@ -56,41 +230,90 @@
     
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ProgramName"]];
     
-    // 일단 녹화 시간으로 적어 놓고 바꿔야 함
-//    NSString *sTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordEndTime"]];
-//    NSArray *timeArr = [sTime componentsSeparatedByString:@" "];
-//    
-//    self.pDayLbl.text = [NSString stringWithFormat:@"%@", [timeArr objectAtIndex:0]];
-//    self.pTimeLbl.text = [NSString stringWithFormat:@"%@", [timeArr objectAtIndex:1]];
     
-#warning TEST
     
-    BOOL series = index%2;  //  시리즈 여부 테스트값
-    if (series) {
-        
-        self.seriesImageView.hidden = false;
-        self.dateLabel.hidden = true;
-        self.timeLabel.hidden = true;
-    } else {
-        self.seriesImageView.hidden = true;
-        self.dateLabel.hidden = false;
-        self.timeLabel.hidden = false;
-        
-        self.dateLabel.text = @"10.10 (금)";
-        self.timeLabel.text = @"11:11";
+    NSString *sSeriesId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"SeriesId"]];
+    if ( [sSeriesId isEqualToString:@"NULL"] )
+    {
+        // 단편
+        self.seriesImageView.hidden = YES;
+        self.dateLabel.hidden = NO;
+        self.timeLabel.hidden = NO;
+    }
+    else
+    {
+        // 시리즈
+        self.seriesImageView.hidden = NO;
+        self.dateLabel.hidden = YES;
+        self.timeLabel.hidden = YES;
     }
     
-    BOOL rec = index%2; //  녹화 여부 테스트값
-    if (rec) {
-        self.recImageView.hidden = false;
-        self.progressView.hidden = false;
-        
-        [self.progressView reset];
-        [self.progressView setProgressRatio:0.9 animated:YES];
-    } else {
-        self.recImageView.hidden = true;
-        self.progressView.hidden = true;
+    
+    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
+    NSString *sProgramBroadcastingEndTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordEndTime"]];
+    
+    NSArray *startArr = [sProgramBroadcastingStartTime componentsSeparatedByString:@" "];
+    NSArray *startArr2 = [[startArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSArray *endArr = [sProgramBroadcastingEndTime componentsSeparatedByString:@" "];
+    NSArray *endArr2 = [[endArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    
+    NSString *sStart = [NSString stringWithFormat:@"%@:%@", [startArr2 objectAtIndex:0], [startArr2 objectAtIndex:1]];
+    
+    NSString *sEnd = [NSString stringWithFormat:@"%@:%@", [endArr2 objectAtIndex:0], [endArr2 objectAtIndex:1]];
+    
+    CGFloat progressFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd];
+    
+    //    [self.progressView setProgressRatio: animated:YES];
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
+    
+    [dateFormatter setDateFormat:@"dd"];
+    int nDay = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    
+    NSArray *startArr3 = [[startArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    NSString *sStartDD = [NSString stringWithFormat:@"%@", [startArr3 objectAtIndex:2]];
+    
+    if ( nDay != [sStartDD intValue] )
+    {
+        progressFloat = .0;
+        [self.progressView setProgressRatio:.0 animated:YES];
     }
+    
+    if ( progressFloat > 0 )
+    {
+        // 녹화중
+        self.recImageView.hidden = NO;
+        self.progressView.hidden = NO;
+        
+        [self.progressView setProgressRatio:progressFloat animated:YES];
+    }
+    else
+    {
+        // 녹화끝났음
+        self.recImageView.hidden = YES;
+        self.progressView.hidden = YES;
+    }
+    
+    
+    NSString *sPurchasedTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
+    NSArray *purchasedTimeArr = [sPurchasedTime componentsSeparatedByString:@" "];
+    NSArray *purchasedTimeArr2 = [[purchasedTimeArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    NSArray *purchasedTimeArr3 = [[purchasedTimeArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    NSString *sPurchasedTime2 = [NSString stringWithFormat:@"%@%@%@", [purchasedTimeArr2 objectAtIndex:0], [purchasedTimeArr2 objectAtIndex:1], [purchasedTimeArr2 objectAtIndex:2]];
+    
+    NSString *sWeek = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] GetDayOfWeek:sPurchasedTime2]];
+    
+    NSString *sMonth = [NSString stringWithFormat:@"%@", [purchasedTimeArr2 objectAtIndex:1]];
+    NSString *sDay = [NSString stringWithFormat:@"%@", [purchasedTimeArr2 objectAtIndex:2]];
+    
+    NSString *sHour = [NSString stringWithFormat:@"%@", [purchasedTimeArr3 objectAtIndex:0]];
+    NSString *sMinute = [NSString stringWithFormat:@"%@", [purchasedTimeArr3 objectAtIndex:1]];
+    
+    self.dateLabel.text = [NSString stringWithFormat:@"%@.%@ (%@)", sMonth, sDay, sWeek];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@:%@", sHour, sMinute];
 }
+
 
 @end

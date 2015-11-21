@@ -15,5 +15,6 @@
 
 @interface PvrSubViewController : CMBaseViewController
 
-
+@property (nonatomic, strong) NSString *pSeriesIdStr;
+@property (nonatomic, strong) NSString *pTitleStr;
 @end

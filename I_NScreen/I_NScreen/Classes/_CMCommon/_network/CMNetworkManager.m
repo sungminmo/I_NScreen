@@ -1249,6 +1249,38 @@
     }];
 }
 
+- (NSURLSessionDataTask *)pairingRemoveUserCompletion:(void (^)(NSArray *pairing, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RemoveUser];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
+                           };
+    
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+
+}
+
+
+@end
+
+@implementation CMNetworkManager ( PVR )
+
 // 녹화물목록
 - (NSURLSessionDataTask *)pvrGetrecordlistCompletion:(void (^)(NSArray *pvr, NSError *error))block
 {
@@ -1262,7 +1294,7 @@
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-       
+        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
@@ -1328,19 +1360,22 @@
     return task;
 }
 
-- (NSURLSessionDataTask *)pairingRemoveUserCompletion:(void (^)(NSArray *pairing, NSError *error))block
+- (NSURLSessionDataTask *)pvrSetRecordDeleWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithRecordId:(NSString *)recordId completion:(void (^)(NSArray *pvr, NSError *error))block
 {
-    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
-    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
-    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RemoveUser];
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordDele];
     NSDictionary *dict = @{
-                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                           CNM_OPEN_API_VERSION_KEY : @"1",
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
-                           @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"RecordId" : recordId,
+                           @"ChannelId" : channeId,
+                           @"StartTime" : startTime,
+                           @"deleteType" : @"0" // 고정
                            };
-    
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
@@ -1350,11 +1385,41 @@
         
         block(nil, error);
     }];
+    
+    [self updateActivityIndicator:task];
+    return task;
+}
+
+- (NSURLSessionDataTask *)pvrSetRecordSeriesDeleWithRecordId:(NSString *)recordId WithSeriesId:(NSString *)seriesId WithChannelId:(NSString *)channelId WithStartTime:(NSString *)startTime completion:(void (^)(NSArray *pvr, NSError *error))block
+{
+    self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.rumClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordSeriesDele];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : @"1",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                           @"RecordId" : recordId,
+                           @"ChannelId" : channelId,
+                           @"StartTime" : startTime,
+                           @"seriesId" : seriesId
+                           };
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    
     [self updateActivityIndicator:task];
     return task;
 
 }
-
 
 @end
 
@@ -1847,3 +1912,4 @@
 
 
 @end
+

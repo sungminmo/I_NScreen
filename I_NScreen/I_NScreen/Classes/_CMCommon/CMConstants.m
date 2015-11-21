@@ -403,6 +403,11 @@ NSString* const CNM_OPEN_API_INTERFACE_DEV_Getrecordlist = @"getrecordlist";
 //NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist = @"dev.getrecordReservelist";
 NSString* const CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist = @"getrecordReservelist";
 
+//SetRecordDele
+NSString* const CNM_OPEN_API_INTERFACE_SetRecordDele = @"SetRecordDele";
+
+//SetRecordSeriesDele
+NSString* const CNM_OPEN_API_INTERFACE_SetRecordSeriesDele = @"SetRecordSeriesDele";
 
 // 9. MyC&M
 // getValidPurchaseLogList

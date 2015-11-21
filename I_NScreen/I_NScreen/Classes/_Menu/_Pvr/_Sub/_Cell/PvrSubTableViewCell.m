@@ -7,6 +7,7 @@
 //
 
 #import "PvrSubTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface PvrSubTableViewCell ()
 
@@ -54,18 +55,38 @@
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index
 {
-    if ( index != 0 )
-    {
-        self.pLineImageView01.hidden = YES;
-    }
-    else
-    {
-        self.pLineImageView01.hidden = NO;
-    }
+//    if ( index != 0 )
+//    {
+//        self.pLineImageView01.hidden = YES;
+//    }
+//    else
+//    {
+//        self.pLineImageView01.hidden = NO;
+//    }
+//    
+//    self.pTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
+//
+//    [self showSeriesMark:false];
+    NSString *sPurchasedTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
+    NSArray *purchasedTimeArr = [sPurchasedTime componentsSeparatedByString:@" "];
+    NSArray *purchasedTimeArr2 = [[purchasedTimeArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    NSArray *purchasedTimeArr3 = [[purchasedTimeArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    NSString *sPurchasedTime2 = [NSString stringWithFormat:@"%@%@%@", [purchasedTimeArr2 objectAtIndex:0], [purchasedTimeArr2 objectAtIndex:1], [purchasedTimeArr2 objectAtIndex:2]];
     
-    self.pTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
-
-    [self showSeriesMark:false];
+    NSString *sWeek = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] GetDayOfWeek:sPurchasedTime2]];
+    
+    NSString *sMonth = [NSString stringWithFormat:@"%@", [purchasedTimeArr2 objectAtIndex:1]];
+    NSString *sDay = [NSString stringWithFormat:@"%@", [purchasedTimeArr2 objectAtIndex:2]];
+    
+    NSString *sHour = [NSString stringWithFormat:@"%@", [purchasedTimeArr3 objectAtIndex:0]];
+    NSString *sMinute = [NSString stringWithFormat:@"%@", [purchasedTimeArr3 objectAtIndex:1]];
+    
+    self.dateLabel.text = [NSString stringWithFormat:@"%@.%@ (%@)", sMonth, sDay, sWeek];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@:%@", sHour, sMinute];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"Channel_logo_img"]];
+    [self.logoImageView setImageWithURL:[NSURL URLWithString:sUrl]];
+    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ProgramName"]];
 }
 
 @end
