@@ -40,7 +40,7 @@
 
     self.topConstraint.constant = cmNavigationHeight;
     
-    self.title = @"녹화관리";
+    self.title = @"녹화";
     
     self.isUseNavigationBar = YES;
 
@@ -203,10 +203,8 @@
     
     NSString* text;
     if (rec) {
-        
-        text = @"녹화중지";
+        text = @"녹화\n중지";
     } else {
-        
         text = @"삭제";
     }
 

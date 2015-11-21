@@ -161,6 +161,8 @@
 
 #pragma mark - 중간 화면 초기화
 #pragma mark - 시리즈가 아니고 구매 사용자
+
+static int tvFontSize = 15;
 - (void)setViewInit21
 {
     CGFloat width = self.pBodyView.frame.size.width;
@@ -185,6 +187,7 @@
     [self.view updateConstraintsIfNeeded];
     
     self.pContentTextView21.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+    self.pContentTextView21.font = [UIFont systemFontOfSize:tvFontSize];
 }
 
 #pragma mark - 시리즈가 아니고 구매 하지 않은 사용자
@@ -212,6 +215,7 @@
     [self.view updateConstraintsIfNeeded];
     
     self.pContentTextView22.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+    self.pContentTextView22.font = [UIFont systemFontOfSize:tvFontSize];
 }
 
 #pragma mark - 시리즈이고 구매 하지 않은 사용자
@@ -241,7 +245,7 @@
     
     
     self.pContentTextView23.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-    
+    self.pContentTextView23.font = [UIFont systemFontOfSize:tvFontSize];
     
 }
 
@@ -270,7 +274,7 @@
     [self.view updateConstraintsIfNeeded];
     
     self.pContentTextView24.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-    
+    self.pContentTextView24.font = [UIFont systemFontOfSize:tvFontSize];
   
 }
 
@@ -299,6 +303,7 @@
     [self.view updateConstraintsIfNeeded];
     
     self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+    self.pContentTextView25.font = [UIFont systemFontOfSize:tvFontSize];
     
     self.pCommentLbl25.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productName"]];
 }
@@ -329,6 +334,7 @@
     [self.view updateConstraintsIfNeeded];
     
     self.pContentTextView26.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+    self.pContentTextView26.font = [UIFont systemFontOfSize:tvFontSize];
     self.pCommentLbl26.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productName"]];
 }
 
