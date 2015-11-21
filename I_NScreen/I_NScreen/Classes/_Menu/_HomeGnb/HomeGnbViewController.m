@@ -112,10 +112,7 @@
         case HOME_GNB_VIEW_BTN_07:
         {
             // 성인
-            
-            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-            CMAdultCertificationYN adultYN = [userDefault adultCertYN];
-            if ( adultYN == CMAdultCertificationSuccess )
+            if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
             {
                 [self.pMenu01 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
                 [self.pMenu02 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];

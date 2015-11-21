@@ -219,9 +219,7 @@
         if ( [sRating isEqualToString:@"19"] )
         {
             // 성인 여부 컨텐츠이면
-            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-            CMAdultCertificationYN adultYN = [userDefault adultCertYN];
-            if ( adultYN == CMAdultCertificationSuccess )
+            if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
             {
                 VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
                 pViewController.pAssetIdStr = sAssetId;

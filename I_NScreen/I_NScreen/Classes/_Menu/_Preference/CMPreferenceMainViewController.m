@@ -56,9 +56,10 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
                                                       NSString* value = dic[@"result"];
                                                       if ([value isEqualToString:@"Y"]) {
                                                           //성인인증성공
-                                                          NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-                                                          [ud setAdultCertYN:CMAdultCertificationSuccess];
-                                                          [ud synchronize];
+//                                                          NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+//                                                          [ud setAdultCertYN:CMAdultCertificationSuccess];
+//                                                          [ud synchronize];
+                                                          [[CMAppManager sharedInstance] setKeychainAdultCertification:YES];
                                                           
                                                           if (self.switchButton != nil) {
                                                               [self adultAuthorizationSuccessAfterEventWithSwitchButton:self.switchButton value:self.isSwitchOn];
@@ -89,9 +90,8 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
     
     //2. 성인인증 여부
     NSString* addDesc = @"성인인증이 필요합니다.";
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    CMAdultCertificationYN adultYN = [ud adultCertYN];
-    if (adultYN == CMAdultCertificationSuccess) {
+    if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
+    {
         addDesc = @"성인인증 되셨습니다.";
     }
     
@@ -108,10 +108,13 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 #pragma mark - Event
 - (void)adultAuthorizationSuccessAfterEventWithSwitchButton:(UISwitch*)swButton value:(BOOL)isOn {
 
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    CMContentsRestrictedType type = isOn?CMContentsRestrictedTypeAdult:CMContentsRestrictedTypeNone;
-    [ud setRestrictType:type];
-    [ud synchronize];
+//    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+//    CMContentsRestrictedType type = isOn?CMContentsRestrictedTypeAdult:CMContentsRestrictedTypeNone;
+//    
+//    [ud setRestrictType:type];
+//    [ud synchronize];
+//    
+    [[CMAppManager sharedInstance] setKeychainAdultLimit:!isOn];
     
 //    //성인인증 성공하면 변경
 //    @synchronized(self) {
@@ -125,9 +128,7 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 
 - (void)switchEventAtIndexPath:(NSIndexPath*)indexPath switchButton:(UISwitch*)swButton value:(BOOL)isOn {
     
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    CMAdultCertificationYN adultYN = [ud adultCertYN];
-    if (adultYN == CMAdultCertificationSuccess) {
+    if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES ) {
         [self adultAuthorizationSuccessAfterEventWithSwitchButton:swButton value:isOn];
         [self settingListData];
         [self.tableView reloadData];
@@ -180,9 +181,7 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
         }
         else if ([className isEqualToString:@"CMAdultAuthViewController"]) {//성인인증이 된상태면 건너뜀
             
-            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-            CMAdultCertificationYN adultYN = [ud adultCertYN];
-            if (adultYN == CMAdultCertificationSuccess) {
+            if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES ) {
                 return;
             }
             

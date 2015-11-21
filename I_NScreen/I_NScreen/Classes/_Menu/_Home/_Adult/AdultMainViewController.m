@@ -510,15 +510,13 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 {
     if ( isAdult == YES )
     {
-        // 성인 컨첸츠이면
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        CMAdultCertificationYN adultYN = [userDefault adultCertYN];
-        if ( adultYN == CMAdultCertificationSuccess )
+        if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
         {
             // 인증 받았으면
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = sAssetId;
             [self.navigationController pushViewController:pViewController animated:YES];
+
         }
         else
         {
@@ -532,6 +530,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
                             [self.navigationController pushViewController:controller animated:YES];
                         }
                     }];
+
         }
     }
     else

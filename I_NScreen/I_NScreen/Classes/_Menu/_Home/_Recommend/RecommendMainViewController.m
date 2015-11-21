@@ -476,13 +476,9 @@
     {
         if ( [manager getPairingCheck] == NO )
         {
-            // 앱만 삭제 한거임 앱을 삭제 했기 때문에 터미널 키 값은 널로 던지는데 터미널 키 없단 애러가 날라옴 하지만 셋탑쪽 페어링은 삭제 성공 한 상태임
-            [self requestWithRemoveUser];
+            // 페어링 된 상태에서 앱만 삭제한 경우
+            [manager setPariringCheck:YES]; // 페어링을 한 상태로 바꿔줌
             
-            // uuid 삭제후 재 등록
-            [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_UUID_KEY];
-            [[CMAppManager sharedInstance] setKeychainUniqueUuid];
-            [manager removePrivateTerminalKey];
         }
         else
         {
@@ -495,12 +491,14 @@
         // 셋탑엔 페어링 안되어 있는 경우
         if ( [manager getPairingCheck] == YES )
         {
-            // 셋탑에서만 페어링 지운 경우
-            // uuid 삭제후 재 등록
-            [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_UUID_KEY];
-            [[CMAppManager sharedInstance] setKeychainUniqueUuid];
-            [manager removePrivateTerminalKey];
-            // 로컬 디비 삭제...................................................추후 디비 다른 정보도 삭제 !! test bjk
+            // 셋탑에서 페어링 지운 경우
+            // 정보 삭제 해줌
+            // 구매 비밀번호, 프라잇 터미널 키, 성인 인증 여부, 성인 검색 제하 설정 값, 지역 설정 값 삭제
+            [[CMAppManager sharedInstance] removeKeychainBuyPw];
+            [[CMAppManager sharedInstance] removeKeychainPrivateTerminalKey];
+            [[CMAppManager sharedInstance] removeKeychainAdultCertification];
+            [[CMAppManager sharedInstance] removeKeychainAdultLimit];
+            [[CMAppManager sharedInstance] removeKeychainAreaCodeValue];
             [manager setPariringCheck:NO];
         }
     }
@@ -758,9 +756,7 @@
     if ( isAdult == YES )
     {
         // 성인 여부 컨텐츠이면
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        CMAdultCertificationYN adultYN = [userDefault adultCertYN];
-        if ( adultYN == CMAdultCertificationSuccess )
+        if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
         {
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = assetId;

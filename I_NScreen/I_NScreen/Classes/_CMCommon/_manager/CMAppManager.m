@@ -37,8 +37,8 @@
 - (void)defaultSetting {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setAppType:CMAppTypePhone];
-    [ud setRestrictType:CMContentsRestrictedTypeAdult];
-    [ud setAdultCertYN:CMAdultCertificationNone];
+//    [ud setRestrictType:CMContentsRestrictedTypeAdult];
+//    [ud setAdultCertYN:CMAdultCertificationNone];
     [ud synchronize];
 }
 
@@ -268,7 +268,10 @@
 #pragma mark - 유니크 privateTerminalKey get
 - (NSString *)getKeychainPrivateTerminalKey
 {
-    return [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY];
+    if  ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY] length] == 0 )
+        return CNM_PUBLIC_TERMINAL_KEY;
+    else
+        return [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_PRIVATE_TERMINAL_KEY_KEY];
 }
 
 #pragma mark - 유니크 privateTerminalKey remove

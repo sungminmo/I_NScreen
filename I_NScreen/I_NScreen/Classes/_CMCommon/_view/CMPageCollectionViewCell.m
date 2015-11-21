@@ -161,9 +161,7 @@
     
     if ( [sRating isEqualToString:@"19"] )
     {
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        CMAdultCertificationYN adultYN = [userDefault adultCertYN];
-        if ( adultYN == CMAdultCertificationSuccess )
+        if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
         {
             // 성인 인증을 받았으면 딤 해제
             self.isAdultCheck = NO;

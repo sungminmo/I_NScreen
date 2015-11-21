@@ -395,7 +395,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_SearchContentGroup];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"searchKeyword" : searchKeyword,
                            @"includeAdultCategory" : includeAdultCategory,
                            @"contentGroupProfile" : @"2"
@@ -643,7 +643,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecord];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"ChannelId" : channeId
                            };
@@ -670,7 +670,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordStop];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"ChannelId" : channeId
                            };
@@ -697,7 +697,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordReserve];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"ChannelId" : channeId,
                            @"StartTime" : startTime
@@ -725,7 +725,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordSeriesReserve];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"ChannelId" : channeId,
                            @"StartTime" : startTime,
@@ -759,7 +759,7 @@
         
         dict = @{
                  CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                 CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                 CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                  @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                  @"ChannelId" : channeId,
                  @"StartTime" : startTime,
@@ -773,7 +773,7 @@
         // 단편
         dict = @{
                  CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                 CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                 CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                  @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                  @"ChannelId" : channeId,
                  @"StartTime" : startTime,
@@ -811,7 +811,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetPopularityChart];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"categoryId" : categoryId,
                            @"requestItems" : requestItems,
                            @"assetProfile" : @"9"
@@ -839,7 +839,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetContentGroupList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"contentGroupProfile" : contentGroupProfile,
                            @"categoryId" : categoryId
                            };
@@ -864,7 +864,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetAssetInfo];
     NSDictionary *dict = @{
                           CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                          CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                          CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                           @"assetId" : assetId,
                           @"assetProfile" : assetProfile
                           };
@@ -889,7 +889,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RecommendContentGroupByAssetId];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"assetId" : assetId,
                            @"contentGroupProfile" : contentGroupProfile
                            };
@@ -916,7 +916,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetBundleProductList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"productProfile" : productProfile
                            };
     
@@ -963,7 +963,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetCategoryTree];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            CNM_OPEN_API_CATEGORY_PROFILE_KEY : @"1",
                            @"categoryId" : @"0",
                            @"depth" : @"2",
@@ -994,7 +994,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetCategoryTree];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
 //                           CNM_OPEN_API_TRANSACTION_ID_KEY : @"135",
                            CNM_OPEN_API_CATEGORY_PROFILE_KEY : @"4",
                            @"categoryId" : categoryId,
@@ -1175,7 +1175,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_AddUser];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"userId" : [[CMAppManager sharedInstance] getUniqueUuid],
                            @"authCode" : authCode
                            };
@@ -1257,7 +1257,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RemoveUser];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
     
@@ -1290,7 +1290,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_Getrecordlist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1316,7 +1316,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_Getrecordlist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"SeriesId" : seriesId
                            };
@@ -1342,7 +1342,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_DEV_GetrecordReservelist];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"1",
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
     NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1368,7 +1368,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordDele];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"1",
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"RecordId" : recordId,
                            @"ChannelId" : channeId,
@@ -1398,7 +1398,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordSeriesDele];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"1",
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"RecordId" : recordId,
                            @"ChannelId" : channelId,
@@ -1467,7 +1467,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRemotePowerControl];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"power" : power
                            };
@@ -1493,7 +1493,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRemoteVolumeControl];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"volume" : volume
                            };
@@ -1573,7 +1573,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetWishList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"assetProfile" : @"1"
                            };
@@ -1600,7 +1600,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"purchaseLogProfile" : @"2"
                            };
     
@@ -1739,7 +1739,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetAvailablePaymentType];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"domainId" : domainId
                            };
     
@@ -1767,7 +1767,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_PurchaseByPoint];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"domainId" : domainId,
                            @"assetId" : assetId,
                            @"productId" : productId,
@@ -1799,7 +1799,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_PurchaseAssetEx2];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"2",
-                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"productId" : productId,
                            @"goodId" : goodId,
                            @"uiComponentDomain" : uiComponentDomain,
@@ -1834,7 +1834,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetWishList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"1",
-                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                          };
     
@@ -1862,7 +1862,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_AddWishItem];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"1",
-                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"assetId" : assetId
                            };
@@ -1891,7 +1891,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_RemoveWishItem];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"1",
-                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getTerminalKeyCheck],
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"assetId" : assetId
                            };

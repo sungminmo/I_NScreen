@@ -65,9 +65,10 @@
         }break;
         case VOD_POP_UP_VIEW_BTN_03:
         {
-            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+//            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
             
-            if ( ![self.pTextField.text isEqualToString:[manager purchaseAuthorizedNumber]] )
+//            if ( ![self.pTextField.text isEqualToString:[manager purchaseAuthorizedNumber]] )
+            if ( ![self.pTextField.text isEqualToString:[[CMAppManager sharedInstance] getKeychainBuyPw]] )
             {
                 [SIAlertView alert:@"알림" message:@"구매 비밀번호가 다릅니다." button:nil];
             }

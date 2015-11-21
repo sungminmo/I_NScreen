@@ -1015,9 +1015,7 @@ static int tvFontSize = 15;
     if ( isAdult == YES )
     {
         // 성인 컨첸츠이면
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        CMAdultCertificationYN adultYN = [userDefault adultCertYN];
-        if ( adultYN == CMAdultCertificationSuccess )
+        if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
         {
             // 인증 받았으면
             if ( [seriesLint isEqualToString:@"0"] )

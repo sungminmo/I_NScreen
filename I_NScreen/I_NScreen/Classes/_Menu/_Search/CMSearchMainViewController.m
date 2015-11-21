@@ -148,9 +148,7 @@ static const CGFloat pageSize = 28;
      */
     NSString *sIncludeAdultCategory = @"0"; // 0이 성인인가?
     
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    CMAdultCertificationYN adultYN = [userDefault adultCertYN];
-    if ( adultYN == CMAdultCertificationNone )
+    if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == NO )
     {
         sIncludeAdultCategory = @"1";
     }
@@ -412,10 +410,7 @@ static const CGFloat pageSize = 28;
     
     // IncludeAdultCategory 성인 체크 여부 1 , 0
     NSString *sIncludeAdultCategory = @"0"; // 0이 성인인가?
-    
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    CMAdultCertificationYN adultYN = [userDefault adultCertYN];
-    if ( adultYN == CMAdultCertificationNone )
+    if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == NO )
     {
         sIncludeAdultCategory = @"1";
     }
@@ -506,7 +501,7 @@ static const CGFloat pageSize = 28;
     
     CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
     
-    NSURLSessionDataTask *tesk = [NSMutableDictionary programScheduleListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithAreaCode:@"0" completion:^(NSArray *programs, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary programScheduleListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithAreaCode:areaInfo.areaCode completion:^(NSArray *programs, NSError *error) {
 
         self.isLoading = NO;
         

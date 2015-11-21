@@ -129,9 +129,7 @@
         case HOME_GNB_VIEW_BTN_07:
         {
             // 성인
-            NSUserDefaults *userDefualt = [NSUserDefaults standardUserDefaults];
-            CMAdultCertificationYN adultYN = [userDefualt adultCertYN];
-            if ( adultYN == CMAdultCertificationSuccess )
+            if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
             {
                 [self bodySubViewsRemove];
                 

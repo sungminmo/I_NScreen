@@ -92,7 +92,8 @@
             
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             CMContentsRestrictedType type = [ud restrictType];
-            BOOL isRestricted = type==CMContentsRestrictedTypeAdult?YES:NO;
+//            BOOL isRestricted = type==CMContentsRestrictedTypeAdult?YES:NO;
+            BOOL isRestricted = type == [[CMAppManager sharedInstance] getKeychainAdultLimit]?YES:NO;
             self.switchButton.on = isRestricted;
             
         } else {
@@ -131,9 +132,7 @@
         if (isOn == NO) {//성인인증제한 설정 해재 필요
             self.isSwitchWorking = YES;
             
-            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-            CMAdultCertificationYN adultYN = [ud adultCertYN];
-            if (adultYN == CMAdultCertificationSuccess) {
+            if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES ){
                 self.preferenceSwitchEvent(self.switchButton, self.indexPath, NO/*컨텐츠 해제*/);
                 return;
             }
@@ -148,9 +147,10 @@
             }];
         }
         else {
-            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-            [ud setRestrictType:CMContentsRestrictedTypeAdult];
-            [ud synchronize];
+//            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+//            [ud setRestrictType:CMContentsRestrictedTypeAdult];
+//            [ud synchronize];
+            [[CMAppManager sharedInstance] setKeychainAdultLimit:YES];
         }
 
     }

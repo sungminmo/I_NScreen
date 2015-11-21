@@ -9,6 +9,7 @@
 #import "PairingRePwViewController.h"
 #import "NSMutableDictionary+Pairing.h"
 #import "UIAlertView+AFNetworking.h"
+#import "CMDBDataManager.h"
 
 @interface PairingRePwViewController ()
 
@@ -49,6 +50,13 @@
     self.pRePwTextFiled.type = Secure_CMTextFieldType;
 }
 
+- (void)actionBackButton:(id)sender
+{
+    [self.delegate PairingRePwViewWithTag:PAIRING_FINISH_VIEW_BTN_01];
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
+
 #pragma mark - 액션이벤트
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
@@ -59,6 +67,7 @@
         case PAIRING_RE_PW_VIEW_BTN_02:
         {
             // 등록 취소
+            [self.delegate PairingRePwViewWithTag:PAIRING_FINISH_VIEW_BTN_01];
             [self.navigationController popViewControllerAnimated:YES];
         }break;
         case PAIRING_RE_PW_VIEW_BTN_03:
@@ -167,6 +176,25 @@
     NSURLSessionDataTask *tesk = [NSMutableDictionary pairingRemoveUserCompletion:^(NSArray *pairing, NSError *error) {
         
         DDLogError(@"pairing = [%@]", pairing);
+        
+        // 페어링 삭제후 데이터 삭제
+        // 구매 비밀번호 삭제
+        [[CMAppManager sharedInstance] removeKeychainBuyPw];
+        
+        // 프라이빗 터미널 키
+        [[CMAppManager sharedInstance] removeKeychainPrivateTerminalKey];
+        
+        // 성인 인증 여부 체크 삭제
+        [[CMAppManager sharedInstance] removeKeychainAdultCertification];
+        
+        // 성인 검색 제한 설정 삭제
+        [[CMAppManager sharedInstance] removeKeychainAdultLimit];
+        
+        // 지역 설정 삭제
+        [[CMAppManager sharedInstance] removeKeychainAreaCodeValue];
+        
+        CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+        [manager setPariringCheck:NO];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
