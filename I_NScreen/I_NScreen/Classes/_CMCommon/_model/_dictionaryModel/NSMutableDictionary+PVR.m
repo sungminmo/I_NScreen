@@ -25,6 +25,11 @@
     return [[CMNetworkManager sharedInstance] pvrGetrecordReservelistCompletion:block];
 }
 
++ (NSURLSessionDataTask *)pvrGetrecordReservelistWithSeriesId:(NSString *)seriesId completion:(void (^)(NSArray *pvr, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] pvrGetrecordReservelistWithSeriesId:seriesId completion:block];
+}
+
 + (NSURLSessionDataTask *)pvrSetRecordDeleWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithRecordId:(NSString *)recordId completion:(void (^)(NSArray *pvr, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] pvrSetRecordDeleWithChannelId:channeId WithStartTime:startTime WithRecordId:recordId completion:block];

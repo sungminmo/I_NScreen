@@ -49,8 +49,6 @@
 
     [self setTagInit];
     [self setViewInit];
-    
-    [self.pTableView reloadData];
 }
 
 #pragma mark - 초기화
@@ -72,8 +70,6 @@
     // 초기 예약 녹화 리스트
     
     [self setInfoWithCount:-1];
-    
-//    [self requestWithRecordReservelist];
     [self requestWithGetSetTopStatus];
 }
 
@@ -188,8 +184,10 @@
         {
             // 시리즈
             PvrSubViewController *pViewController = [[PvrSubViewController alloc] initWithNibName:@"PvrSubViewController" bundle:nil];
+            pViewController.delegate = self;
             pViewController.pSeriesIdStr = [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"];
             pViewController.pTitleStr = [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"ProgramName"];
+            pViewController.isTapCheck = YES;
             [self.navigationController pushViewController:pViewController animated:YES];
 
         }
@@ -197,7 +195,13 @@
     else
     {
         // 녹화예약관리
-        
+        PvrSubViewController *pViewController = [[PvrSubViewController alloc] initWithNibName:@"PvrSubViewController" bundle:nil];
+        pViewController.delegate = self;
+        pViewController.pSeriesIdStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"];
+        pViewController.pTitleStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ProgramName"];
+        pViewController.isTapCheck = NO;
+        [self.navigationController pushViewController:pViewController animated:YES];
+
     }
     
 }
@@ -492,6 +496,23 @@
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 델리게이트
+- (void)PvrSubViewWithTap:(BOOL)isTap
+{
+    if ( isTap == YES )
+    {
+        // 녹화물 목록
+        self.isTabCheck = YES;
+        [self requestWithRecordList];
+    }
+    else
+    {
+        // 녹화예약관리
+        self.isTabCheck = NO;
+        [self requestWithGetSetTopStatus];
+    }
 }
 
 @end

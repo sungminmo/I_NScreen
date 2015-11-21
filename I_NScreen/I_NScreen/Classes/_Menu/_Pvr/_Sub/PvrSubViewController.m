@@ -17,12 +17,15 @@
 @property (strong, nonatomic) IBOutlet UILabel* titleLabel; //  제목 라벨
 @property (strong, nonatomic) IBOutlet UIImageView *seriesImageView;    //  타이틀에 시리즈 이미지
 @property (nonatomic, strong) NSMutableArray *pSeriesListArr;
+@property (nonatomic, strong) NSMutableArray *pSeriesReserveListArr;
 
 @end
 
 @implementation PvrSubViewController
 @synthesize pSeriesIdStr;
 @synthesize pTitleStr;
+@synthesize delegate;
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -38,7 +41,17 @@
     self.seriesImageView.hidden = false;
     self.titleLabel.text = self.pTitleStr;
     self.pSeriesListArr = [[NSMutableArray alloc] init];
-    [self requestWithGetRecordListSeries];
+    self.pSeriesReserveListArr = [[NSMutableArray alloc] init];
+    
+    if ( self.isTapCheck == YES )
+    {
+        [self requestWithGetRecordListSeries];
+    }
+    else
+    {
+        [self requestWithGetRecordReservelistSeries];
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -118,6 +131,17 @@
 }
 
 #pragma mark - 전문
+#pragma mark - 녹화예약 시리즈 전문
+- (void)requestWithGetRecordReservelistSeries
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary pvrGetrecordReservelistWithSeriesId:self.pSeriesIdStr completion:^(NSArray *pvr, NSError *error) {
+        
+        DDLogError(@"녹화예약 시리즈 = [%@]", pvr);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
 #pragma mark - 녹화물 시리즈 전문
 - (void)requestWithGetRecordListSeries
 {
@@ -181,6 +205,12 @@
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+- (void)backCommonAction
+{
+    [self.delegate PvrSubViewWithTap:self.isTapCheck];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

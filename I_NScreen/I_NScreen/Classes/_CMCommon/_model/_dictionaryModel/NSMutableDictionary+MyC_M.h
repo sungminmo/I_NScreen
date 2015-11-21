@@ -19,5 +19,7 @@
 // 구매목록
 + (NSURLSessionDataTask *)myCmGetValidPurchaseLogListCompletion:(void (^)(NSArray *myCm, NSError *error))block;
 
+// 구매목록 삭제
++ (NSURLSessionDataTask *)myCmDisablePurchaseLogWithPurchaseEventId:(NSString *)purchaseEventId completion:(void (^)(NSArray *myCm, NSError *error))block;
 
 @end

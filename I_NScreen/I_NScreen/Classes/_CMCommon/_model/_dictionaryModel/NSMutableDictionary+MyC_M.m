@@ -20,4 +20,9 @@
     return [[CMNetworkManager sharedInstance] myCmGetValidPurchaseLogListCompletion:block];
 }
 
++ (NSURLSessionDataTask *)myCmDisablePurchaseLogWithPurchaseEventId:(NSString *)purchaseEventId completion:(void (^)(NSArray *myCm, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] myCmDisablePurchaseLogWithPurchaseEventId:purchaseEventId completion:block];
+}
+
 @end

@@ -14,7 +14,7 @@
 #import "PvrMainTableViewCell.h"
 #import "PvrSubViewController.h"
 
-@interface PvrMainViewController : CMBaseViewController
+@interface PvrMainViewController : CMBaseViewController<PvrSubViewDelegate>
 
 @end
 

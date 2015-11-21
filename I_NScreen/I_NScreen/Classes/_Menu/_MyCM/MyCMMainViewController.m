@@ -402,24 +402,71 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         DDLogError(@"delete");
         
-        NSString *sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[[self.pWishListArr objectAtIndex:indexPath.row] objectForKey:@"asset"] objectForKey:@"title"]];
-        
-        [SIAlertView alert:@"VOD 찜 목록 삭제" message:sTitle cancel:@"취소" buttons:@[@"확인"]
-                completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    
-                    if ( buttonIndex == 1 )
-                    {
-                         [self requestWithRemoveWishItemWithIndex:(int)indexPath.row];
-                    }
-            }];
-        
-       
+        if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_02 )
+        {
+            // vod 구매목록
+            NSString *sTitle = @"";
+            if ( self.nSubTabTag == 0 )
+            {
+                // 모바일 구매목록
+                sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[self.pValidPurchaseLogListMoblieArr objectAtIndex:indexPath.row] objectForKey:@"assetTitle"]];
+            }
+            else
+            {
+                // tv 구매목록
+                sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[self.pValidPurchaseLogListTvArr objectAtIndex:indexPath.row] objectForKey:@"assetTitle"]];
+            }
+            
+            
+            [SIAlertView alert:@"VOD 구매 목록 삭제" message:sTitle cancel:@"취소" buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            [self requestWithDisablePurchaseLogWithIndex:(int)indexPath.row];
+                        }
+                    }];
+        }
+        else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_03 )
+        {
+            // vod 시청목록
+            
+        }
+        else
+        {
+            NSString *sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[[self.pWishListArr objectAtIndex:indexPath.row] objectForKey:@"asset"] objectForKey:@"title"]];
+            
+            [SIAlertView alert:@"VOD 찜 목록 삭제" message:sTitle cancel:@"취소" buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            [self requestWithRemoveWishItemWithIndex:(int)indexPath.row];
+                        }
+                    }];
+        }
     }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return @"찜 해제";
+    NSString *sTapName = @"";
+    
+    if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_02 )
+    {
+        // vod 구매목록
+        sTapName = @"삭제";
+    }
+    else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_03 )
+    {
+        // vod 시청목록
+        sTapName = @"삭제";
+    }
+    else
+    {
+        sTapName = @"찜 해제";
+    }
+    return sTapName;
 }
 
 #pragma mark - 찜해제
@@ -452,6 +499,51 @@
         }
         
         
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 구매목록 삭제
+- (void)requestWithDisablePurchaseLogWithIndex:(int)index
+{
+    NSString *sPurchasedId = @"";
+    
+    if ( self.nSubTabTag == 0 )
+    {
+        // 모바일 구매목록
+        sPurchasedId = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListMoblieArr objectAtIndex:index] objectForKey:@"purchasedId"]];
+    }
+    else
+    {
+        // tv 구매목록
+        sPurchasedId = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListTvArr objectAtIndex:index] objectForKey:@"purchasedId"]];
+    }
+    NSURLSessionDataTask *tesk = [NSMutableDictionary myCmDisablePurchaseLogWithPurchaseEventId:sPurchasedId completion:^(NSArray *myCm, NSError *error) {
+        
+        DDLogError(@"구매목록 삭제 = [%@]", myCm);
+        if ( [myCm count] == 0 )
+            return;
+        if ( [[[myCm objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            if ( self.nSubTabTag == 0 )
+            {
+                // 모바일 구매목록
+                [self.pValidPurchaseLogListMoblieArr removeObjectAtIndex:index];
+                [self.pSubTableView01 reloadData];
+                int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+
+            }
+            else
+            {
+                // tv 구매목록
+                [self.pValidPurchaseLogListTvArr removeObjectAtIndex:index];
+                [self.pSubTableView01 reloadData];
+                int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
+            }
+        }
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];

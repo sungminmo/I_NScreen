@@ -55,18 +55,6 @@
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index
 {
-//    if ( index != 0 )
-//    {
-//        self.pLineImageView01.hidden = YES;
-//    }
-//    else
-//    {
-//        self.pLineImageView01.hidden = NO;
-//    }
-//    
-//    self.pTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
-//
-//    [self showSeriesMark:false];
     NSString *sPurchasedTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
     NSArray *purchasedTimeArr = [sPurchasedTime componentsSeparatedByString:@" "];
     NSArray *purchasedTimeArr2 = [[purchasedTimeArr objectAtIndex:0] componentsSeparatedByString:@"-"];

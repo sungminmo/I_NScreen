@@ -169,6 +169,9 @@
 //http://192.168.44.10/SMApplicationserver/getrecordReservelist.asp?Version=1&terminalKey=C5E6DBF75F13A2C1D5B2EFDB2BC940&deviceId=68590725-3b42-4cea-ab80-84c91c01bad2
 - (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
 
+// 시리즈 예약 녹화 목록 리스트
+- (NSURLSessionDataTask *)pvrGetrecordReservelistWithSeriesId:(NSString *)seriesId completion:(void (^)(NSArray *pvr, NSError *error))block;
+
 // 녹화 목록 삭제SetRecordDele
 - (NSURLSessionDataTask *)pvrSetRecordDeleWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithRecordId:(NSString *)recordId completion:(void (^)(NSArray *pvr, NSError *error))block;
 
@@ -208,6 +211,10 @@
 //http://192.168.40.5:8080/HApplicationServer/getValidPurchaseLogList.xml?version=1&terminalKey=C5E6DBF75F13A2C1D5B2EFDB2BC940&purchaseLogProfile=1
 // 구매목록
 - (NSURLSessionDataTask *)myCmGetValidPurchaseLogListCompletion:(void (^)(NSArray *myCm, NSError *error))block;
+
+// 구매목록 삭제
+- (NSURLSessionDataTask *)myCmDisablePurchaseLogWithPurchaseEventId:(NSString *)purchaseEventId completion:(void (^)(NSArray *myCm, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( Preference )

@@ -502,6 +502,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_RemoveWishItem;
 //GetSetTopStatus
 extern NSString* const CNM_OPEN_API_INTERFACE_GetSetTopStatus;
 
+// disablePurchaseLog
+extern NSString* const CNM_OPEN_API_INTERFACE_disablePurchaseLog;
+
 //노티피게이션
 extern NSString* const CNMHandleOpenURLNotification;
 

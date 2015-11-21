@@ -436,6 +436,8 @@ NSString* const CNM_OPEN_API_INTERFACE_RemoveWishItem = @"removeWishItem";
 //GetSetTopStatus
 NSString* const CNM_OPEN_API_INTERFACE_GetSetTopStatus = @"GetSetTopStatus";
 
+// disablePurchaseLog
+NSString* const CNM_OPEN_API_INTERFACE_disablePurchaseLog = @"disablePurchaseLog";
 
 //노티피케이션 네임
 NSString* const CNMHandleOpenURLNotification = @"CNMHandleOpenURLNotification";

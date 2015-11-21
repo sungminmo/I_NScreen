@@ -22,6 +22,8 @@
 // ex)192.168.44.10/SMApplicationserver/dev.getrecordReservelist.asp?Version=1&terminalKey=9CED3A20FB6A4D7FF35D1AC965F988D2&deviceId=739d8470f604cfceb13784ab94fc368256253477
 + (NSURLSessionDataTask *)pvrGetrecordReservelistCompletion:(void (^)(NSArray *pvr, NSError *error))block;
 
++ (NSURLSessionDataTask *)pvrGetrecordReservelistWithSeriesId:(NSString *)seriesId completion:(void (^)(NSArray *pvr, NSError *error))block;
+
 // 녹화물 삭제
 + (NSURLSessionDataTask *)pvrSetRecordDeleWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithRecordId:(NSString *)recordId completion:(void (^)(NSArray *pvr, NSError *error))block;
 
