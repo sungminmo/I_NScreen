@@ -38,7 +38,7 @@
 }
 
 // 녹화 예약 관리
-- (void)setListDataReservation:(NSDictionary *)dic WithIndex:(int)index
+- (void)setListDataReservation:(NSDictionary *)dic WithIndex:(int)index WithRecordCheck:(BOOL)isRecordCheck
 {
     [self layoutSubviews];
     [self layoutIfNeeded];
@@ -108,6 +108,18 @@
 //        self.dateLabel.hidden = YES;
 //        self.timeLabel.hidden = YES;
 //    }
+    if ( isRecordCheck == YES )
+    {
+        // 녹화중
+        self.recImageView.hidden = NO;
+        self.progressView.hidden = NO;
+    }
+    else
+    {
+        self.recImageView.hidden = YES;
+        self.progressView.hidden = YES;
+    }
+    
     NSString *sLogUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"Channel_logo_img"]];
     [self.logoImageView setImageWithURL:[NSURL URLWithString:sLogUrl]];
     

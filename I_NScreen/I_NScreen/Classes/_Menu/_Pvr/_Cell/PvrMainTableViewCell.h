@@ -11,7 +11,7 @@
 @interface PvrMainTableViewCell : UITableViewCell
 
 // 녹화 예약 관리
-- (void)setListDataReservation:(NSDictionary *)dic WithIndex:(int)index;
+- (void)setListDataReservation:(NSDictionary *)dic WithIndex:(int)index WithRecordCheck:(BOOL)isRecordCheck;
 
 // 녹화물 목록
 - (void)setListDataList:(NSDictionary *)dic WithIndex:(int)index;

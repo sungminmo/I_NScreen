@@ -10,6 +10,7 @@
 #import "NSMutableDictionary+PVR.h"
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+REMOCON.h"
+#import "NSMutableDictionary+EPG.h"
 
 @interface PvrMainViewController ()
 
@@ -72,7 +73,8 @@
     
     [self setInfoWithCount:-1];
     
-    [self requestWithRecordReservelist];
+//    [self requestWithRecordReservelist];
+    [self requestWithGetSetTopStatus];
 }
 
 #pragma mark - Private
@@ -110,7 +112,8 @@
             [self.pReservationBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.pListBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
-            [self requestWithRecordReservelist];
+//            [self requestWithRecordReservelist];
+            [self requestWithGetSetTopStatus];
         }break;
         case PVR_MAIN_VIEW_BTN_03:
         {
@@ -156,7 +159,20 @@
     if ( self.isTabCheck == YES )
         [pCell setListDataList:[self.pListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
     else
-        [pCell setListDataReservation:[self.pReservListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+    {
+        BOOL isCheck = NO;
+        NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ChannelId"]];
+        for ( NSString *str in self.pPvringListArr )
+        {
+            if ( [str isEqualToString:sChannelId] )
+            {
+//                sDelete = @"즉시 녹화 중지";
+                isCheck = YES;
+            }
+        }
+        [pCell setListDataReservation:[self.pReservListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithRecordCheck:isCheck];
+        
+    }
     
     return pCell;
 }
@@ -236,6 +252,22 @@
             return NO;
         }
     }
+    else
+    {
+        // 녹화예약관리
+        NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
+        
+        if ( [sSeriesId isEqualToString:@"NULL"] )
+        {
+            // 단편
+            return YES;
+        }
+        else
+        {
+            // 시리즈
+            return NO;
+        }
+    }
     
     return YES;
 }
@@ -262,6 +294,27 @@
         else
         {
             // 녹화 예약 목록
+            BOOL isCheck = NO;
+            NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ChannelId"]];
+            for ( NSString *str in self.pPvringListArr )
+            {
+                if ( [str isEqualToString:sChannelId] )
+                {
+                    isCheck = YES;
+//                    text = @"녹화 중지";
+                }
+            }
+            
+            if ( isCheck == NO )
+            {
+                // 녹화예약취소
+                [self requestWithSetRecordCancelReserveWithIndex:(int)indexPath.row];
+            }
+            else
+            {
+                // 녹화중지
+                
+            }
         }
         
     }
@@ -273,15 +326,27 @@
 //#warning TEST
     //  녹화중일 경우, 높이 90, 아닌 경우 66
 //    BOOL rec = indexPath.row%2; //  녹화중 여부 테스트 값
+    NSString* text = @"";
     
-    NSString* text = @"삭제";
-//    if (rec) {
-//        
-//        text = @"녹화중지";
-//    } else {
-//        
-//        text = @"삭제";
-//    }
+    if ( self.isTabCheck == YES )
+    {
+        // 녹화물 목록
+        text = @"삭제";
+    }
+    else
+    {
+        // 녹화예약관리
+        text = @"녹화예약취소";
+        NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ChannelId"]];
+        for ( NSString *str in self.pPvringListArr )
+        {
+            if ( [str isEqualToString:sChannelId] )
+            {
+                text = @"녹화 중지";
+            }
+        }
+
+    }
 
     return text;
 }
@@ -374,7 +439,8 @@
         [self.pPvringListArr addObject:sRecordingchannel1];
         [self.pPvringListArr addObject:sRecordingchannel2];
         
-        [self requestWithRecordList];
+//        [self requestWithRecordList];
+        [self requestWithRecordReservelist];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -400,6 +466,31 @@
             [self.pTableView reloadData];
         }
     }];
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 녹화예약취소
+- (void)requestWithSetRecordCancelReserveWithIndex:(int)index
+{
+     NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:index] objectForKey:@"ChannelId"]];
+    NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:index] objectForKey:@"RecordStartTime"]];
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSetRecordCancelReserveWithChannelId:sChannelId WithStartTime:sRecordStartTime WithSeriesId:@"" WithReserveCancel:@"" completion:^(NSArray *epgs, NSError *error) {
+        
+        DDLogError(@"녹화 예약 취소 = [%@]", epgs);
+        
+        if ( [epgs count] == 0 )
+            return;
+        
+        if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+            
+        {
+            // 성공시 로컬 데이터 삭제후 리플래시
+            [self.pReservListArr removeObjectAtIndex:index];
+            [self.pTableView reloadData];
+        }
+    }];
+    
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
