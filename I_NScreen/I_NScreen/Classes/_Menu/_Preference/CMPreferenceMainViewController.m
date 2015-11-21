@@ -85,7 +85,7 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
     //1. 지역설정 가져오기
     CMDBDataManager* manager = [CMDBDataManager sharedInstance];
     CMAreaInfo* info = [manager currentAreaInfo];
-    NSString* areaDesc = [NSString stringWithFormat:@"현재설정지역 : %@", info.areaName];
+    NSString* areaDesc = [NSString stringWithFormat:@"TV시청지역 : %@", info.areaName];
     
     //2. 성인인증 여부
     NSString* addDesc = @"성인인증이 필요합니다.";

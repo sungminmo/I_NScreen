@@ -430,7 +430,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="27" id="ppX-w8-X3x"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                     <variation key="default">
@@ -542,7 +542,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="27" id="HoR-PH-fvF"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                     <variation key="default">

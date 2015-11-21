@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -12,13 +12,21 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80i-7S-7mJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                        <animations/>
                         <attributedString key="attributedText">
-                            <fragment content="C&amp;M ">
+                            <fragment content="씨앤앰">
+                                <attributes>
+                                    <color key="NSColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="11" name="AppleSDGothicNeo-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content=" ">
                                 <attributes>
                                     <color key="NSColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                     <font key="NSFont" size="11" name="HelveticaNeue"/>
@@ -39,7 +47,7 @@
                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3"/>
                                 </attributes>
                             </fragment>
-                            <fragment content="서비스를">
+                            <fragment content="TV를">
                                 <attributes>
                                     <color key="NSColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                     <font key="NSFont" size="11" name="AppleSDGothicNeo-Regular"/>
@@ -151,7 +159,7 @@
                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3"/>
                                 </attributes>
                             </fragment>
-                            <fragment content="본인징증">
+                            <fragment content="성인인증">
                                 <attributes>
                                     <color key="NSColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                     <font key="NSFont" size="11" name="AppleSDGothicNeo-Regular"/>
@@ -201,12 +209,14 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEd-6P-BOO">
                                 <rect key="frame" x="44" y="0.0" width="253" height="65"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="zI9-7Y-ydx">
                                 <rect key="frame" x="159" y="0.0" width="138" height="65"/>
+                                <animations/>
                                 <attributedString key="attributedText">
                                     <fragment content="현재설정지역 : 강동구">
                                         <attributes>
@@ -219,6 +229,7 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="GKx-wh-pM8">
                                 <rect key="frame" x="299" y="26" width="7" height="13"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="dHi-VN-cXh"/>
                                     <constraint firstAttribute="width" constant="7" id="m7Y-vt-V8O"/>
@@ -226,12 +237,14 @@
                             </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C4H-Zm-dSX">
                                 <rect key="frame" x="257" y="17" width="51" height="31"/>
+                                <animations/>
                                 <connections>
                                     <action selector="buttonWasTouchUpInside:" destination="KGk-i7-Jjw" eventType="valueChanged" id="JMK-xi-64A"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otX-5s-fDh">
                                 <rect key="frame" x="8" y="23" width="19" height="19"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="5QJ-3D-b91"/>
                                     <constraint firstAttribute="width" constant="19" id="5qy-5j-lPJ"/>
@@ -243,6 +256,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="otX-5s-fDh" firstAttribute="leading" secondItem="gkf-Yq-hJI" secondAttribute="leading" constant="8" id="0Eu-Om-awQ"/>
@@ -262,6 +276,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="80i-7S-7mJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7s9-Fc-n3T"/>
                     <constraint firstItem="gkf-Yq-hJI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8YC-FZ-M7j"/>
@@ -273,6 +288,7 @@
                     <constraint firstAttribute="trailing" secondItem="gkf-Yq-hJI" secondAttribute="trailing" id="ka9-wg-RTk"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="addedInfoLabel" destination="zI9-7Y-ydx" id="SCX-HT-DON"/>
                 <outlet property="indicatorImageView" destination="GKx-wh-pM8" id="3k3-Wx-bfL"/>

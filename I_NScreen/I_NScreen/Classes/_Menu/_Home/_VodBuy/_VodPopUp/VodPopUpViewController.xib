@@ -52,13 +52,13 @@
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5X4-Q4-MGx">
                     <rect key="frame" x="7" y="104" width="400" height="309"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="구매비밀번호 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtW-Ug-QbU">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="구매비밀번호 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtW-Ug-QbU">
                             <rect key="frame" x="26" y="0.0" width="347" height="36"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="Vgt-NR-UET"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
@@ -90,7 +90,7 @@
                                 </mask>
                             </variation>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-DC-DbK">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-DC-DbK">
                             <rect key="frame" x="20" y="100" width="360" height="1"/>
                             <animations/>
                             <constraints>
@@ -110,14 +110,14 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="일반결제[부가세 별도]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBH-1k-lar">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="일반결제[부가세 별도]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBH-1k-lar">
                             <rect key="frame" x="26" y="62" width="172" height="21"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="VCu-u4-6hg"/>
                                 <constraint firstAttribute="width" constant="172" id="rEZ-FK-gtI"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
@@ -133,13 +133,13 @@
                                 </mask>
                             </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3.000원" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bL-F1-DYA">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="3.000원" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bL-F1-DYA">
                             <rect key="frame" x="273" y="62" width="107" height="21"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="qIP-Bj-0V9"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
@@ -153,7 +153,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJr-ZA-tsm" customClass="CMTextField">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJr-ZA-tsm" customClass="CMTextField">
                             <rect key="frame" x="36" y="217" width="327" height="30"/>
                             <animations/>
                             <constraints>
@@ -175,12 +175,13 @@
                                 <outlet property="delegate" destination="-1" id="eFo-q6-a6N"/>
                             </connections>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSY-Gr-QdO">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSY-Gr-QdO">
                             <rect key="frame" x="20" y="264" width="153" height="30"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="puG-BN-pdN"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="취소" backgroundImage="p2btn_cancel_normal.png"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -196,12 +197,13 @@
                                 <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="3tB-0m-AT3"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72J-Bh-erG">
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72J-Bh-erG">
                             <rect key="frame" x="225" y="264" width="148" height="30"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="XUG-zR-fQm"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="구매하기" backgroundImage="p2btn_ok_normal.png"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -217,13 +219,13 @@
                                 <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="5aP-BT-YGr"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="구매 비밀번호 입력해주세요. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGg-Jb-Prx">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="구매 비밀번호 입력해주세요. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGg-Jb-Prx">
                             <rect key="frame" x="36" y="186" width="327" height="21"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="Esu-og-cZl"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
@@ -281,11 +283,11 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="K2H-1n-DtA"/>
+                            <exclude reference="Y3G-kk-Zfa"/>
+                            <exclude reference="zUp-GA-mbV"/>
                             <exclude reference="UsW-Uz-Kao"/>
                             <exclude reference="mJ7-xj-Nqw"/>
                             <exclude reference="zrl-i4-MWe"/>
-                            <exclude reference="Y3G-kk-Zfa"/>
-                            <exclude reference="zUp-GA-mbV"/>
                             <exclude reference="WCZ-Kx-Zge"/>
                             <exclude reference="dvH-8l-0Tz"/>
                             <exclude reference="33L-mV-PJ3"/>
@@ -299,13 +301,13 @@
                             <exclude reference="QC2-Ql-PiS"/>
                             <exclude reference="WbR-9p-02H"/>
                             <exclude reference="i2a-q4-ALp"/>
+                            <exclude reference="2t7-KH-cbl"/>
+                            <exclude reference="Fqj-DU-aye"/>
+                            <exclude reference="bVA-WA-fn0"/>
                             <exclude reference="M90-Vk-cmo"/>
                             <exclude reference="Nrt-cX-PcX"/>
                             <exclude reference="adh-s1-3hu"/>
                             <exclude reference="qjq-Ao-Bhx"/>
-                            <exclude reference="2t7-KH-cbl"/>
-                            <exclude reference="Fqj-DU-aye"/>
-                            <exclude reference="bVA-WA-fn0"/>
                             <exclude reference="1Sl-Wp-aF4"/>
                             <exclude reference="MVX-SY-JDM"/>
                             <exclude reference="d6w-VP-GFa"/>
@@ -320,11 +322,11 @@
                         </mask>
                         <mask key="constraints">
                             <include reference="K2H-1n-DtA"/>
+                            <include reference="Y3G-kk-Zfa"/>
+                            <include reference="zUp-GA-mbV"/>
                             <include reference="UsW-Uz-Kao"/>
                             <include reference="mJ7-xj-Nqw"/>
                             <include reference="zrl-i4-MWe"/>
-                            <include reference="Y3G-kk-Zfa"/>
-                            <include reference="zUp-GA-mbV"/>
                             <include reference="WCZ-Kx-Zge"/>
                             <include reference="dvH-8l-0Tz"/>
                             <include reference="33L-mV-PJ3"/>
@@ -338,13 +340,13 @@
                             <include reference="QC2-Ql-PiS"/>
                             <include reference="WbR-9p-02H"/>
                             <include reference="i2a-q4-ALp"/>
+                            <include reference="2t7-KH-cbl"/>
+                            <include reference="Fqj-DU-aye"/>
+                            <include reference="bVA-WA-fn0"/>
                             <include reference="M90-Vk-cmo"/>
                             <include reference="Nrt-cX-PcX"/>
                             <include reference="adh-s1-3hu"/>
                             <include reference="qjq-Ao-Bhx"/>
-                            <include reference="2t7-KH-cbl"/>
-                            <include reference="Fqj-DU-aye"/>
-                            <include reference="bVA-WA-fn0"/>
                             <include reference="1Sl-Wp-aF4"/>
                             <include reference="MVX-SY-JDM"/>
                             <include reference="d6w-VP-GFa"/>

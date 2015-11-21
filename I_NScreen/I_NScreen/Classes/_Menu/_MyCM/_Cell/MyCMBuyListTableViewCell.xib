@@ -122,6 +122,12 @@
                     <constraint firstItem="nnt-Eh-BaS" firstAttribute="top" secondItem="970-Qo-GlK" secondAttribute="bottom" constant="8" id="ykm-n5-Tz0"/>
                     <constraint firstItem="gZK-dH-sb7" firstAttribute="top" secondItem="qwE-kw-WTO" secondAttribute="bottom" constant="4" id="zk3-EO-Qp3"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Zhh-5D-98q"/>
+                        <exclude reference="t2r-ge-IRu"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>

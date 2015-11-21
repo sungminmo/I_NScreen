@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMSearchMainViewController">
@@ -24,6 +24,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frg-7F-ZbZ" userLabel="VIew - tab menu">
                     <rect key="frame" x="0.0" y="93" width="600" height="42"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="eLJ-Jc-mX3"/>
@@ -34,9 +35,11 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="serchbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ygh-ao-QIR">
                             <rect key="frame" x="0.0" y="0.0" width="558" height="33"/>
+                            <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifier.png" translatesAutoresizingMaskIntoConstraints="NO" id="pIc-bF-pfa">
                             <rect key="frame" x="9" y="8" width="17" height="17"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="17" id="1Xu-Yg-sO6"/>
                                 <constraint firstAttribute="height" constant="17" id="EKT-Mb-2pR"/>
@@ -44,6 +47,7 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sp2-qH-eLF">
                             <rect key="frame" x="525" y="0.0" width="33" height="33"/>
+                            <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="OH3-ey-rXX"/>
@@ -57,6 +61,7 @@
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-N2-aF1" customClass="CMTextField">
                             <rect key="frame" x="36" y="2" width="489" height="31"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             <connections>
@@ -64,6 +69,7 @@
                             </connections>
                         </textField>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="yFa-N2-aF1" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="top" constant="2" id="0p1-IZ-nM6"/>
@@ -84,12 +90,14 @@
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 18개의 검색결과가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kG-wu-1sN">
                     <rect key="frame" x="0.0" y="184" width="600" height="38"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2XY-xO-WcO">
                     <rect key="frame" x="0.0" y="222" width="600" height="378"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="vXC-bn-skq"/>
@@ -98,6 +106,7 @@
                 </tableView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XmU-Rp-rIX">
                     <rect key="frame" x="0.0" y="234" width="600" height="366"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="6" id="gHD-nM-cF9">
                         <size key="itemSize" width="95" height="164"/>
@@ -112,6 +121,7 @@
                 </collectionView>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fVV-Sw-G8q">
                     <rect key="frame" x="21" y="196" width="558" height="150"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="CiV-6B-sbQ"/>
@@ -122,6 +132,7 @@
                     </connections>
                 </tableView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="1T9-3n-B15" secondAttribute="trailing" id="1LS-dv-cvw"/>

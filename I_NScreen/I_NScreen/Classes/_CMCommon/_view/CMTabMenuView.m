@@ -11,7 +11,7 @@
 #import "UIColor+ColorString.h"
 
 static const CGFloat tabHeight = 42;
-static const CGFloat fontSize = 18;
+static const CGFloat fontSize = 15;
 static const CGFloat padding = 21;
 
 @interface CMTabMenuView ()
