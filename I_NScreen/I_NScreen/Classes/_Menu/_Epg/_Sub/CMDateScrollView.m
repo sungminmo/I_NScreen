@@ -10,8 +10,8 @@
 #import "UIColor+ColorString.h"
 #import "CMColor.h"
 
-static const CGFloat defaultFontSize = 14;
-static const CGFloat selectedFontSize = 17;
+static const CGFloat defaultFontSize = 15;
+static const CGFloat selectedFontSize = 15;
 
 @interface CMDateItemView ()
 
@@ -33,10 +33,10 @@ static const CGFloat selectedFontSize = 17;
         self.dotView = [[UIView alloc] init];
         [self addSubview:self.dotView];
         
-        CGFloat dotSize = 4;
+        CGFloat dotSize = 3;
         
         self.dotView.layer.cornerRadius = dotSize/2;
-        CGRect rect = CGRectMake(CGRectGetMidX(self.bounds) - dotSize/2, self.bounds.size.height - 14, dotSize, dotSize);
+        CGRect rect = CGRectMake(CGRectGetMidX(self.bounds) - dotSize/2, self.bounds.size.height - 16, dotSize, dotSize);
         self.dotView.frame = rect;
         
         [self setSelection:false];
@@ -79,7 +79,7 @@ static const CGFloat selectedFontSize = 17;
         self.dotView.backgroundColor = color;
         self.titleLabel.textColor = color;
         
-        self.titleLabel.font = [UIFont systemFontOfSize:defaultFontSize];
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:defaultFontSize];
     }
 }
 
@@ -95,6 +95,7 @@ static const CGFloat selectedFontSize = 17;
 
 @property (nonatomic, strong) UIScrollView* scrollView;
 @property (nonatomic, strong) UIView* decorationView;
+@property (nonatomic, strong) UIImageView * rightArrowView;
 
 @end
 
@@ -122,16 +123,24 @@ static const CGFloat selectedFontSize = 17;
         self.decorationView.userInteractionEnabled = false;
         [self addSubview:self.decorationView];
         
-        UIImageView* gradationImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gradation.png"]];
-        gradationImageView.frame = self.bounds;
-        [self.decorationView addSubview:gradationImageView];
+//        UIImageView* gradationImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gradation.png"]];
+//        gradationImageView.frame = self.bounds;
+//        [self.decorationView addSubview:gradationImageView];
         
         UIImageView* arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selectindicator.png"]];
         [arrowImageView sizeToFit];
         [self.decorationView addSubview:arrowImageView];
         
         CGRect rect = arrowImageView.frame;
-        arrowImageView.frame = CGRectMake( CGRectGetMidX(self.bounds) - rect.size.width/2, 10, rect.size.width, rect.size.height);
+        arrowImageView.frame = CGRectMake(/*CGRectGetMidX(self.bounds) - rect.size.width/2*/ (self.dateWidth - rect.size.width)/2, 13, rect.size.width, rect.size.height);
+        
+        
+        self.rightArrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"moreindicator.png"]];
+        [self.rightArrowView sizeToFit];
+        rect = self.rightArrowView.frame;
+        self.rightArrowView.frame = CGRectMake(self.bounds.size.width - rect.size.width - 10, (self.bounds.size.height - rect.size.height)/2, rect.size.width, rect.size.height);
+        [self.decorationView addSubview:self.rightArrowView];
+
         
 //        UIView* vLineView = [[UIView alloc] init];
 //        vLineView.backgroundColor = [CMColor colorHighlightedFontColor];
@@ -191,10 +200,10 @@ static const CGFloat selectedFontSize = 17;
     
     self.scrollView.contentSize = CGSizeMake(posX, self.bounds.size.height);
     
-    CGFloat hInset = (self.bounds.size.width - self.dateWidth) / 2;
+    __unused CGFloat hInset = (self.bounds.size.width - self.dateWidth) / 2;
     
-    self.scrollView.contentInset = UIEdgeInsetsMake(0, hInset, 0, hInset);
-    self.scrollView.contentOffset = CGPointMake(-hInset, 0);
+    self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, self.bounds.size.width - self.dateWidth);
+    self.scrollView.contentOffset = CGPointZero;//CGPointMake(-hInset, 0);
 }
 
 /**
@@ -229,6 +238,15 @@ static const CGFloat selectedFontSize = 17;
     if (targetIndex > maxIndex)
         targetIndex = maxIndex;
 
+
+    CGFloat maxPosX = maxIndex*self.dateWidth;
+    CGFloat offset = scrollView.bounds.size.width + (targetIndex*self.dateWidth - self.dateWidth);
+    if (offset >= maxPosX) {
+        self.rightArrowView.hidden = YES;
+    } else {
+        self.rightArrowView.hidden = NO;
+    }
+    
     targetContentOffset->x = targetIndex * self.dateWidth - scrollView.contentInset.left;
     
     if (targetIndex != self.selectedIndex) {

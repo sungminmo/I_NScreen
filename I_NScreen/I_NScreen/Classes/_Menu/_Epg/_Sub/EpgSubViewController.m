@@ -681,16 +681,14 @@
     int nCount = 0;
     for ( NSDictionary *dic in self.dataArray )
     {
-        sStartTime = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getSplitScrollWithDateStr:[dic objectForKey:@"programBroadcastingStartTime"]]];
-        
+        sStartTime = [NSDate stringFromDateString:dic[@"programBroadcastingStartTime"] beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"MM.dd"];
         if ( nCount == 0 )
         {
             [self.scrollDateArray addObject:sStartTime];
         }
         else
         {
-            sPrevStartTime = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] getSplitScrollWithDateStr: [[self.dataArray objectAtIndex:nCount - 1] objectForKey:@"programBroadcastingStartTime"]]];
-
+            sPrevStartTime = [NSDate stringFromDateString:self.dataArray[nCount - 1][@"programBroadcastingStartTime"] beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"MM.dd"];
             if ( ![sPrevStartTime isEqualToString:sStartTime] )
             {
                 [self.scrollDateArray addObject:sStartTime];
@@ -711,8 +709,7 @@
     
     for ( NSDictionary *dic in self.dataArray )
     {
-        NSString *sStartDate = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getSplitScrollWithDateStr:[dic objectForKey:@"programBroadcastingStartTime"]]];
-        
+        NSString *sStartDate = [NSDate stringFromDateString:dic[@"programBroadcastingStartTime"] beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"MM.dd"];
         if ( [sStartDate isEqualToString:sTwoDay] )
         {
             [self.todayNewDateArr addObject:dic];
