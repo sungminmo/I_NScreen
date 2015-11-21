@@ -23,6 +23,23 @@
 }
 
 -(void)updateLine{
+    
+    //TODO: 일단 일정상 대충 하드코딩한다...
+    CGFloat lineWidth = self.frame.size.width;
+    CGFloat defineWidth = 414;
+    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] ) {//414
+        CGFloat margin = defineWidth - 414;
+        lineWidth -= margin;
+    }
+    else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] ) {//375
+        CGFloat margin = defineWidth - 375;
+        lineWidth -= margin;
+    }
+    else {//320
+        CGFloat margin = defineWidth - 320;
+        lineWidth -= margin;
+    }
+    
     // Important, otherwise we will be adding multiple sub layers
     if ([[[self layer] sublayers] objectAtIndex:0])
     {
@@ -41,7 +58,7 @@
     // Setup the path
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, self.frame.origin.x, 0);
-    CGPathAddLineToPoint(path, NULL,  self.frame.origin.x + self.frame.size.width, 0);
+    CGPathAddLineToPoint(path, NULL,  self.frame.origin.x + lineWidth, 0);
     
     [shapeLayer setPath:path];
     CGPathRelease(path);

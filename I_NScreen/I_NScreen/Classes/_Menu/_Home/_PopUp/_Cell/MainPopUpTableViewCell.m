@@ -11,6 +11,7 @@
 @implementation MainPopUpTableViewCell
 
 - (void)awakeFromNib {
+    [self.pFourDepthLbl sizeToFit];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
