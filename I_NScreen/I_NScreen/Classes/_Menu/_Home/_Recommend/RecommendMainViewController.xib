@@ -44,31 +44,85 @@
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="YmG-Ph-6ru">
                     <rect key="frame" x="171" y="188" width="71" height="37"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="71" id="1IH-8o-8lH"/>
+                        <constraint firstAttribute="height" constant="37" id="uHi-Ml-i3L"/>
+                    </constraints>
                     <color key="pageIndicatorTintColor" red="0.70588235294117641" green="0.71372549019607845" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="currentPageIndicatorTintColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="1IH-8o-8lH"/>
+                            <exclude reference="uHi-Ml-i3L"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="1IH-8o-8lH"/>
+                            <include reference="uHi-Ml-i3L"/>
+                        </mask>
+                    </variation>
                 </pageControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uM-ak-40L" userLabel="View(하단라인)">
                     <rect key="frame" x="7" y="224" width="400" height="1"/>
                     <animations/>
                     <color key="backgroundColor" red="0.73725490196078436" green="0.74117647058823533" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="jdj-hP-zcE"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="jdj-hP-zcE"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="jdj-hP-zcE"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="6uM-ak-40L" firstAttribute="top" secondItem="htc-9C-A3O" secondAttribute="top" constant="224" id="Aci-PE-Vql"/>
-                <constraint firstItem="i1E-wH-ZVx" firstAttribute="leading" secondItem="htc-9C-A3O" secondAttribute="leading" constant="6" id="Ctu-Yc-M9F"/>
-                <constraint firstItem="YmG-Ph-6ru" firstAttribute="centerX" secondItem="6uM-ak-40L" secondAttribute="centerX" id="Eab-Tr-MBR"/>
-                <constraint firstAttribute="bottom" secondItem="YmG-Ph-6ru" secondAttribute="bottom" id="Nhv-z5-yEm"/>
-                <constraint firstItem="i1E-wH-ZVx" firstAttribute="top" secondItem="htc-9C-A3O" secondAttribute="top" constant="10" id="ZQm-XU-9bp"/>
-                <constraint firstItem="6uM-ak-40L" firstAttribute="leading" secondItem="htc-9C-A3O" secondAttribute="leading" constant="7" id="iCI-5V-Zph"/>
-                <constraint firstItem="6uM-ak-40L" firstAttribute="bottom" secondItem="YmG-Ph-6ru" secondAttribute="bottom" id="iYe-Ne-T90"/>
-                <constraint firstItem="6uM-ak-40L" firstAttribute="centerX" secondItem="i1E-wH-ZVx" secondAttribute="centerX" id="il3-5q-nL4"/>
-                <constraint firstItem="6uM-ak-40L" firstAttribute="top" secondItem="i1E-wH-ZVx" secondAttribute="bottom" constant="32" id="nBq-kT-Aw2"/>
-                <constraint firstItem="YmG-Ph-6ru" firstAttribute="centerX" secondItem="htc-9C-A3O" secondAttribute="centerX" id="sXS-K2-aQ0"/>
+                <constraint firstAttribute="trailing" secondItem="i1E-wH-ZVx" secondAttribute="trailing" constant="6" id="00x-ky-SUt"/>
+                <constraint firstItem="i1E-wH-ZVx" firstAttribute="top" secondItem="htc-9C-A3O" secondAttribute="top" constant="10" id="Bqz-S9-TzM"/>
+                <constraint firstItem="i1E-wH-ZVx" firstAttribute="leading" secondItem="htc-9C-A3O" secondAttribute="leading" constant="6" id="NqT-dC-O3e"/>
+                <constraint firstAttribute="trailing" secondItem="6uM-ak-40L" secondAttribute="trailing" constant="7" id="ZKA-gS-SUE"/>
+                <constraint firstAttribute="bottom" secondItem="6uM-ak-40L" secondAttribute="bottom" id="aDu-US-N6w"/>
+                <constraint firstItem="YmG-Ph-6ru" firstAttribute="centerX" secondItem="htc-9C-A3O" secondAttribute="centerX" id="rbo-Vm-HdX"/>
+                <constraint firstItem="6uM-ak-40L" firstAttribute="top" secondItem="i1E-wH-ZVx" secondAttribute="bottom" constant="32" id="rdj-Xy-CUs"/>
+                <constraint firstItem="6uM-ak-40L" firstAttribute="leading" secondItem="htc-9C-A3O" secondAttribute="leading" constant="7" id="ugd-LU-bFw"/>
+                <constraint firstAttribute="bottom" secondItem="YmG-Ph-6ru" secondAttribute="bottom" id="ykF-sr-XSz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="00x-ky-SUt"/>
+                    <exclude reference="Bqz-S9-TzM"/>
+                    <exclude reference="NqT-dC-O3e"/>
+                    <exclude reference="ZKA-gS-SUE"/>
+                    <exclude reference="aDu-US-N6w"/>
+                    <exclude reference="rdj-Xy-CUs"/>
+                    <exclude reference="ugd-LU-bFw"/>
+                    <exclude reference="rbo-Vm-HdX"/>
+                    <exclude reference="ykF-sr-XSz"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="00x-ky-SUt"/>
+                    <include reference="Bqz-S9-TzM"/>
+                    <include reference="NqT-dC-O3e"/>
+                    <include reference="ZKA-gS-SUE"/>
+                    <include reference="aDu-US-N6w"/>
+                    <include reference="rdj-Xy-CUs"/>
+                    <include reference="ugd-LU-bFw"/>
+                    <include reference="rbo-Vm-HdX"/>
+                    <include reference="ykF-sr-XSz"/>
+                </mask>
+            </variation>
         </view>
         <view contentMode="scaleToFill" id="0FO-Gm-6YD" userLabel="View(인기순위)">
             <rect key="frame" x="0.0" y="0.0" width="414" height="394"/>
@@ -100,7 +154,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-k2-N1j">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-k2-N1j">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <animations/>
                     <constraints>
@@ -182,7 +236,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fQ-74I">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fQ-74I">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <animations/>
                     <constraints>
@@ -264,7 +318,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vev-KQ-AFE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vev-KQ-AFE">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <animations/>
                     <constraints>
@@ -352,6 +406,7 @@
                     <include reference="fzU-Ns-QDn"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="557" y="561"/>
         </view>
     </objects>
     <resources>
