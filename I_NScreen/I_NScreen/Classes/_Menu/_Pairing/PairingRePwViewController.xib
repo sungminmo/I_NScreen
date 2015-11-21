@@ -219,7 +219,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zia-gc-Iek">
                                     <rect key="frame" x="210" y="21" width="188" height="45"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="설정완료" backgroundImage="p2btn_ok_normal.png"/>
                                     <state key="highlighted" backgroundImage="p2btn_ok_press.png"/>
                                     <connections>
@@ -233,7 +233,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="188" id="0pr-Wy-h25"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="설정취소" backgroundImage="p2btn_cancel_normal.png"/>
                                     <state key="highlighted" backgroundImage="p2btn_cancel_press.png"/>
                                     <connections>

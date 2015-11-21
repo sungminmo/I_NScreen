@@ -1271,7 +1271,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="vhW-mu-CfQ"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="구매취소" backgroundImage="fp2btn_cancel_normal.png"/>
                                     <state key="highlighted" title="구매취소" backgroundImage="fp2btn_cancel_press.png"/>
                                     <variation key="default">
@@ -1294,7 +1294,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="gTy-8V-U8P"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="결제하기" backgroundImage="fp2btn_ok_normal.png"/>
                                     <state key="highlighted" title="결제하기" backgroundImage="fp2btn_ok_press.png"/>
                                     <variation key="default">

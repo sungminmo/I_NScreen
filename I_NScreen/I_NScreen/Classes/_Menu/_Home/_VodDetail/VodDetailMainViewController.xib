@@ -819,7 +819,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="FoZ-sz-PTh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="시청하기" backgroundImage="vod1btn_normal.select.png"/>
                     <state key="highlighted" backgroundImage="vod1btn_press.png"/>
                     <variation key="default">
@@ -1040,7 +1040,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="LHn-EX-CEd"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="미리보기" backgroundImage="vod3btn_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -1066,7 +1066,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="b3B-5c-hte"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="구매하기" backgroundImage="vod3btn_p_press.png"/>
                     <state key="highlighted" backgroundImage="vod3btn_p_press.png"/>
                     <variation key="default">
@@ -1075,7 +1075,7 @@
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                        <rect key="frame" x="143" y="134" width="122" height="46"/>
+                        <rect key="frame" x="141" y="134" width="122" height="46"/>
                         <mask key="constraints">
                             <include reference="b3B-5c-hte"/>
                         </mask>
@@ -1090,7 +1090,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="ycB-9s-AeW"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="찜하기     " backgroundImage="vod3btn_pick_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -1359,39 +1359,13 @@
                         </mask>
                     </variation>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Z2-Fr-Mpc">
-                    <rect key="frame" x="15" y="176" width="124" height="46"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="46" id="kXE-gX-SYG"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="미리보기" backgroundImage="vod3btn_normal.png">
-                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <state key="highlighted" backgroundImage="vod3btn_normal.png"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="kXE-gX-SYG"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                        <rect key="frame" x="15" y="176" width="128" height="46"/>
-                        <mask key="constraints">
-                            <include reference="kXE-gX-SYG"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="MNS-Uq-LwC"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-Fe-QzN">
                     <rect key="frame" x="145" y="176" width="124" height="46"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="LzF-2d-6Ab"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="구매하기" backgroundImage="vod3btn_p_press.png"/>
                     <state key="highlighted" backgroundImage="vod3btn_p_press.png"/>
                     <variation key="default">
@@ -1415,7 +1389,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="MmR-sg-imD"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="찜하기     " backgroundImage="vod3btn_pick_normal.png">
                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -1432,6 +1406,32 @@
                     </variation>
                     <connections>
                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="D66-H6-hlD"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Z2-Fr-Mpc">
+                    <rect key="frame" x="15" y="176" width="124" height="46"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="kXE-gX-SYG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="미리보기" backgroundImage="vod3btn_normal.png">
+                        <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="highlighted" backgroundImage="vod3btn_normal.png"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="kXE-gX-SYG"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                        <rect key="frame" x="14" y="176" width="128" height="46"/>
+                        <mask key="constraints">
+                            <include reference="kXE-gX-SYG"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="MNS-Uq-LwC"/>
                     </connections>
                 </button>
             </subviews>
@@ -1673,7 +1673,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="46" id="saq-c0-ueD"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="시청하기" backgroundImage="vod1btn_normal.select.png"/>
                     <state key="highlighted" backgroundImage="vod1btn_press.png"/>
                     <variation key="default">

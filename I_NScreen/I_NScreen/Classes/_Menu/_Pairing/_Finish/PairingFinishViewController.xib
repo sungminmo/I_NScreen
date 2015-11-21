@@ -65,7 +65,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaK-Y4-etE">
                                     <rect key="frame" x="14" y="21" width="386" height="45"/>
                                     <animations/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="등록완료" backgroundImage="p2btn_ok_normal.png"/>
                                     <state key="highlighted" backgroundImage="p2btn_ok_press.png"/>
                                     <connections>
