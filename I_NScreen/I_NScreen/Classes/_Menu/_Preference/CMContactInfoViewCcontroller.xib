@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMContactInfoViewCcontroller">
@@ -24,7 +24,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="orN-04-LEE"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="확인">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -89,16 +89,16 @@
                     <exclude reference="Zck-RO-kLN"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="0gt-cf-MSq"/>
+                    <exclude reference="Qvk-NZ-gCo"/>
+                    <exclude reference="j06-Kl-rOb"/>
+                    <exclude reference="wOX-br-jOx"/>
                     <exclude reference="acK-Pj-rye"/>
                     <exclude reference="eaq-ie-DyY"/>
                     <exclude reference="ufq-jD-XPj"/>
                     <exclude reference="292-7Y-FDb"/>
                     <exclude reference="ST6-54-lqb"/>
                     <exclude reference="dIi-V8-kDu"/>
-                    <exclude reference="0gt-cf-MSq"/>
-                    <exclude reference="Qvk-NZ-gCo"/>
-                    <exclude reference="j06-Kl-rOb"/>
-                    <exclude reference="wOX-br-jOx"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -108,16 +108,16 @@
                     <include reference="Zck-RO-kLN"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="0gt-cf-MSq"/>
+                    <include reference="Qvk-NZ-gCo"/>
+                    <include reference="j06-Kl-rOb"/>
+                    <include reference="wOX-br-jOx"/>
                     <include reference="acK-Pj-rye"/>
                     <include reference="eaq-ie-DyY"/>
                     <include reference="ufq-jD-XPj"/>
                     <include reference="292-7Y-FDb"/>
                     <include reference="ST6-54-lqb"/>
                     <include reference="dIi-V8-kDu"/>
-                    <include reference="0gt-cf-MSq"/>
-                    <include reference="Qvk-NZ-gCo"/>
-                    <include reference="j06-Kl-rOb"/>
-                    <include reference="wOX-br-jOx"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="-124" y="431"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecommendMainViewController">
@@ -36,20 +36,24 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1E-wH-ZVx">
                     <rect key="frame" x="6" y="10" width="402" height="182"/>
+                    <animations/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="6Iw-Ch-tgj"/>
                     </connections>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="YmG-Ph-6ru">
                     <rect key="frame" x="171" y="188" width="71" height="37"/>
+                    <animations/>
                     <color key="pageIndicatorTintColor" red="0.70588235294117641" green="0.71372549019607845" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="currentPageIndicatorTintColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uM-ak-40L" userLabel="View(하단라인)">
                     <rect key="frame" x="7" y="224" width="400" height="1"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.73725490196078436" green="0.74117647058823533" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="6uM-ak-40L" firstAttribute="top" secondItem="htc-9C-A3O" secondAttribute="top" constant="224" id="Aci-PE-Vql"/>
@@ -72,12 +76,14 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pfW-BZ-nmR">
                     <rect key="frame" x="7" y="51" width="400" height="316"/>
+                    <animations/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="MKg-Sh-y95"/>
                     </connections>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="63D-FH-hcZ">
                     <rect key="frame" x="167" y="359" width="81" height="37"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="81" id="35h-RZ-qCQ"/>
                     </constraints>
@@ -86,30 +92,34 @@
                 </pageControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인기순위 Top20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxF-k2-iQa">
                     <rect key="frame" x="21" y="14" width="248" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="248" id="kxH-he-goz"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-k2-N1j">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-k2-N1j">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="woH-bd-b5V"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1t-oK-BXE">
                     <rect key="frame" x="260" y="15" width="120" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="nWI-JT-djO"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.54117647058823526" green="0.5490196078431373" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YY-cq-9UW" userLabel="Button(더보기)">
                     <rect key="frame" x="175" y="0.0" width="232" height="38"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="232" id="uaK-JJ-vQC"/>
                     </constraints>
@@ -118,6 +128,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="uj0-k2-N1j" firstAttribute="leading" secondItem="b1t-oK-BXE" secondAttribute="trailing" constant="16" id="6Gv-Vv-cNX"/>
@@ -147,12 +158,14 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yce-hd-Q85">
                     <rect key="frame" x="7" y="51" width="400" height="316"/>
+                    <animations/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="ER3-CZ-s0V"/>
                     </connections>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="NGP-hA-yHd">
                     <rect key="frame" x="167" y="359" width="81" height="37"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="81" id="2oP-YM-NQs"/>
                     </constraints>
@@ -161,30 +174,34 @@
                 </pageControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금주의 신작영화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cH-gl-1oh">
                     <rect key="frame" x="21" y="14" width="248" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="248" id="ZPw-Ga-JvK"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fQ-74I">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fQ-74I">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="AJq-bF-L55"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="en3-oS-F2W">
                     <rect key="frame" x="260" y="15" width="120" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="Q5l-O1-WXx"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.54117647059999996" green="0.54901960780000003" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9J1-dw-xxb" userLabel="Button(더보기)">
                     <rect key="frame" x="175" y="0.0" width="232" height="38"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="232" id="dkN-Bb-fmN"/>
                     </constraints>
@@ -193,6 +210,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bnR-fQ-74I" secondAttribute="trailing" constant="11" id="09A-Ca-RA8"/>
@@ -222,12 +240,14 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osO-X1-yNP">
                     <rect key="frame" x="7" y="51" width="400" height="316"/>
+                    <animations/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Ra6-33-01A"/>
                     </connections>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="CtP-7X-5tJ">
                     <rect key="frame" x="167" y="359" width="81" height="37"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="81" id="CUI-fh-Y6Y"/>
                     </constraints>
@@ -236,30 +256,34 @@
                 </pageControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이달의 추천 VOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pK1-q6-NS1">
                     <rect key="frame" x="21" y="14" width="248" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="248" id="jwk-nZ-q84"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vev-KQ-AFE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vev-KQ-AFE">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="Vx5-4m-z9j"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="더보기" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtV-7L-WBf">
                     <rect key="frame" x="260" y="15" width="120" height="21"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="RtQ-aJ-xL8"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.54117647059999996" green="0.54901960780000003" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5t0-jn-CfG" userLabel="Button(더보기)">
                     <rect key="frame" x="175" y="0.0" width="232" height="38"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="232" id="UXS-Fb-tvh"/>
                     </constraints>
@@ -268,6 +292,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="5t0-jn-CfG" firstAttribute="top" secondItem="kiT-5H-LNJ" secondAttribute="top" id="1GC-Qf-T8p"/>
@@ -297,11 +322,13 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUJ-Ts-ho8">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
+                    <animations/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="vtv-FC-CgS"/>
                     </connections>
                 </scrollView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="WUJ-Ts-ho8" firstAttribute="leading" secondItem="K7b-OE-z9F" secondAttribute="leading" id="FEw-h0-h8p"/>

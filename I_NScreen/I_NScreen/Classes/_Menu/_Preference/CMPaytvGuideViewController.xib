@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMPaytvGuideViewController">
@@ -41,7 +41,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Yeh-Yw-0Ov"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="확인">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -86,16 +86,16 @@
                     <exclude reference="8u8-VY-76r"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="8xy-QG-WZh"/>
-                    <exclude reference="eGb-y1-eWb"/>
-                    <exclude reference="kI5-Xf-BvP"/>
-                    <exclude reference="0Ex-1a-UAO"/>
-                    <exclude reference="Bn6-sF-2sT"/>
-                    <exclude reference="asg-tZ-35m"/>
                     <exclude reference="AF5-Y6-akQ"/>
                     <exclude reference="AcT-gY-WbT"/>
                     <exclude reference="RUb-ra-XgW"/>
                     <exclude reference="s6q-cB-w9v"/>
+                    <exclude reference="0Ex-1a-UAO"/>
+                    <exclude reference="Bn6-sF-2sT"/>
+                    <exclude reference="asg-tZ-35m"/>
+                    <exclude reference="8xy-QG-WZh"/>
+                    <exclude reference="eGb-y1-eWb"/>
+                    <exclude reference="kI5-Xf-BvP"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -105,16 +105,16 @@
                     <include reference="8u8-VY-76r"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="8xy-QG-WZh"/>
-                    <include reference="eGb-y1-eWb"/>
-                    <include reference="kI5-Xf-BvP"/>
-                    <include reference="0Ex-1a-UAO"/>
-                    <include reference="Bn6-sF-2sT"/>
-                    <include reference="asg-tZ-35m"/>
                     <include reference="AF5-Y6-akQ"/>
                     <include reference="AcT-gY-WbT"/>
                     <include reference="RUb-ra-XgW"/>
                     <include reference="s6q-cB-w9v"/>
+                    <include reference="0Ex-1a-UAO"/>
+                    <include reference="Bn6-sF-2sT"/>
+                    <include reference="asg-tZ-35m"/>
+                    <include reference="8xy-QG-WZh"/>
+                    <include reference="eGb-y1-eWb"/>
+                    <include reference="kI5-Xf-BvP"/>
                 </mask>
             </variation>
         </view>

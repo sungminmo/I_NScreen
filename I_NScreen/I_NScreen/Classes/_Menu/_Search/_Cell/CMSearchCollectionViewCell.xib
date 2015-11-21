@@ -25,7 +25,7 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="EaL-MN-IOO" secondAttribute="height" multiplier="95:32" id="jBx-bo-Eht"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

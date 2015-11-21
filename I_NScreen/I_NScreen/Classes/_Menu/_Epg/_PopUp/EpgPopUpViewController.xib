@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -31,10 +31,12 @@
             <subviews>
                 <view alpha="0.69999999999999996" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bz8-rj-qWm" userLabel="View(bg)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEp-Qg-6oZ" userLabel="Button(bg)">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <animations/>
                     <connections>
                         <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="WQq-ai-f82"/>
                     </connections>
@@ -44,6 +46,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="시청을 원하시는 채널장르를 선택하실 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75u-ow-64x">
                             <rect key="frame" x="50" y="8" width="300" height="56"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="47" id="QdG-G9-quh"/>
                             </constraints>
@@ -63,6 +66,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luu-TM-Z3s" userLabel="Button(x)">
                             <rect key="frame" x="367" y="15" width="18" height="22"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="18" id="7mI-Aj-Kva"/>
                                 <constraint firstAttribute="height" constant="22" id="qGO-OF-Xw1"/>
@@ -88,6 +92,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnJ-CX-TW0">
                             <rect key="frame" x="57" y="66" width="286" height="44"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="286" id="JoQ-BV-J6G"/>
                                 <constraint firstAttribute="height" constant="44" id="pPT-52-nIj"/>
@@ -114,6 +119,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VV5-9Y-xG7">
                             <rect key="frame" x="57" y="129" width="286" height="44"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="286" id="WAd-s2-Vhi"/>
                                 <constraint firstAttribute="height" constant="44" id="xvH-jc-rRV"/>
@@ -143,6 +149,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvc-77-NUc" userLabel="Button(1)">
                                     <rect key="frame" x="57" y="32" width="73" height="74"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="4Cd-Gu-Y37"/>
                                         <constraint firstAttribute="width" constant="73" id="AM5-SD-cCf"/>
@@ -170,6 +177,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Duv-9g-wJU" userLabel="Button(3)">
                                     <rect key="frame" x="270" y="32" width="73" height="74"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="73" id="WrN-UA-0Ma"/>
                                         <constraint firstAttribute="height" constant="74" id="uFO-da-wWW"/>
@@ -197,6 +205,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU9-4g-413" userLabel="Button(7)">
                                     <rect key="frame" x="57" y="244" width="73" height="74"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="73" id="FGG-Bz-1XH"/>
                                         <constraint firstAttribute="height" constant="74" id="tv4-Ff-pjd"/>
@@ -224,6 +233,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1i-yA-XQL" userLabel="Button(8)">
                                     <rect key="frame" x="164" y="244" width="73" height="74"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="qhZ-ct-USZ"/>
                                         <constraint firstAttribute="width" constant="73" id="uoq-Sf-jKC"/>
@@ -252,6 +262,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-n9-hZh" userLabel="Button(9)">
                                     <rect key="frame" x="270" y="244" width="73" height="74"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="U0n-Nx-LaH"/>
                                         <constraint firstAttribute="width" constant="73" id="Zt6-4a-VYC"/>
@@ -279,6 +290,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLh-AS-pDA" userLabel="Button(4)">
                                     <rect key="frame" x="57" y="138" width="73" height="74"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="dYB-hE-FRY"/>
                                         <constraint firstAttribute="width" constant="73" id="lIq-65-mtn"/>
@@ -306,6 +318,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RF-uN-7Ag" userLabel="Button(5)">
                                     <rect key="frame" x="163" y="138" width="73" height="74"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="73" id="HXP-Mk-kjs"/>
                                         <constraint firstAttribute="height" constant="74" id="yA5-xN-zA0"/>
@@ -333,6 +346,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezS-gz-LPg" userLabel="Button(6)">
                                     <rect key="frame" x="270" y="138" width="73" height="74"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="73" id="13f-fS-AL9"/>
                                         <constraint firstAttribute="height" constant="74" id="ZN1-uX-uKI"/>
@@ -360,6 +374,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtT-Hd-Kny" userLabel="Button(2)">
                                     <rect key="frame" x="163" y="32" width="73" height="74"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="74" id="glo-G7-xgl"/>
                                         <constraint firstAttribute="width" constant="73" id="r7M-Pc-3Z7"/>
@@ -386,6 +401,7 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="cLh-AS-pDA" firstAttribute="centerY" secondItem="2RF-uN-7Ag" secondAttribute="centerY" id="25S-n6-8FG"/>
@@ -453,6 +469,7 @@
                             </variation>
                         </view>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="75u-ow-64x" firstAttribute="leading" secondItem="jcq-U1-Fzn" secondAttribute="leading" constant="10" id="6Sb-mv-JYp"/>
@@ -523,6 +540,7 @@
                     </variation>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="jcq-U1-Fzn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Asa-RA-YDP"/>
