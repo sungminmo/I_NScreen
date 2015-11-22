@@ -419,7 +419,7 @@ static const CGFloat pageSize = 28;
         
         DDLogError(@"vod 검색 = [%@]", gets);
         
-
+        [self.dataArray removeAllObjects];
         self.isLoading = NO;
 
         NSDictionary* response = gets[0];
@@ -427,7 +427,7 @@ static const CGFloat pageSize = 28;
         NSString* resultCode = response[CNM_OPEN_API_RESULT_CODE_KEY];
         if ([CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY isEqualToString:resultCode] == false) {
 
-            [self.dataArray removeAllObjects];
+            
             [self.vodList reloadData];
 
             DDLogError(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
@@ -459,24 +459,58 @@ static const CGFloat pageSize = 28;
         [self setListCount:total];
 
 //        NSObject* itemObject = [[[[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"];
-        NSObject* itemObject = [searchResult valueForKeyPath:@"contentGroupList.contentGroup"];
-
-        if ([itemObject isKindOfClass:[NSDictionary class]]) {
-            [self.dataArray addObject:itemObject];
-        } else if ([itemObject isKindOfClass:[NSArray class]]) {
-//            [self.dataArray addObjectsFromArray:(NSArray*)itemObject];            
-            NSArray* array = (NSArray* )itemObject;
-            if ([array.lastObject isKindOfClass:[NSArray class]]) {
-                
-                for (NSArray* subItems in array) {
-                    [self.dataArray addObjectsFromArray:subItems];
-                }
-                
+//        NSObject* itemObject = [searchResult valueForKeyPath:@"contentGroupList.contentGroup"];
+//        NSObject *itemObject = [searchResult objectForKey:@"contentGroupList"]
+        
+        
+        NSObject *itemObje = [[response objectForKey:@"searchResultList"] objectForKey:@"searchResult"];
+        
+        if ( [itemObje isKindOfClass:[NSDictionary class]] )
+        {
+            NSObject *itemSubObje = [[(NSDictionary *)itemObje objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"];
+            
+            if ( [itemSubObje isKindOfClass:[NSDictionary class]] )
+            {
+                [self.dataArray addObject:itemSubObje];
             }
-            else {
-                [self.dataArray addObjectsFromArray:(NSArray*)itemObject];
+            else
+            {
+                [self.dataArray setArray:(NSArray *)itemSubObje];
             }
         }
+        else
+        {
+            NSObject *itemSubObje = [[[(NSArray *)itemObje objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"];
+            
+            if ( [itemSubObje isKindOfClass:[NSDictionary class]] )
+            {
+                [self.dataArray addObject:itemSubObje];
+            }
+            else
+            {
+                [self.dataArray setArray:itemSubObje];
+            }
+        }
+        
+        
+        
+//
+//        if ([itemObject isKindOfClass:[NSDictionary class]]) {
+//            [self.dataArray addObject:itemObject];
+//        } else if ([itemObject isKindOfClass:[NSArray class]]) {
+////            [self.dataArray addObjectsFromArray:(NSArray*)itemObject];            
+//            NSArray* array = (NSArray* )itemObject;
+//            if ([array.lastObject isKindOfClass:[NSArray class]]) {
+//                
+//                for (NSArray* subItems in array) {
+//                    [self.dataArray addObjectsFromArray:subItems];
+//                }
+//                
+//            }
+//            else {
+//                [self.dataArray addObjectsFromArray:(NSArray*)itemObject];
+//            }
+//        }
 
         [self.vodList reloadData];
 

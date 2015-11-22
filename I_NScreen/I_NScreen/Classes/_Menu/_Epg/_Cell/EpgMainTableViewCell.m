@@ -45,7 +45,7 @@
     
     NSString *sChannelLog = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelLogoImg"]];
     NSString *sChannelNumber = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelNumber"]];
-    NSString *sChannelProgramOnAirTitle = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelName"]];
+    NSString *sChannelProgramOnAirTitle = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramOnAirTitle"]];
     NSString *sProgramGrade = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramGrade"]];
     NSString *sChannelInfo = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelInfo"]];
     

@@ -47,7 +47,7 @@
     [self setTagInit];
     [self setViewInit];
     [self requestWithChannelListFull];
-    [self requestWithGetSetTopStatus];
+//    [self requestWithGetSetTopStatus];
     
 #warning TEST
     //  test
@@ -301,6 +301,8 @@
 
         }
         
+        [self requestWithGetSetTopStatus];
+        
         [self.pTableView reloadData];
     }];
     
@@ -342,15 +344,26 @@
         [self.pStatusDic setDictionary:[pairing objectAtIndex:0]];
         
         NSString *sStatus = [NSString stringWithFormat:@"%@", [self.pStatusDic objectForKey:@"state"]];
-        NSString *sWatchingchannel = [NSString stringWithFormat:@"%@번", [self.pStatusDic objectForKey:@"watchingchannel"]];
+        NSString *sWatchingchannel = [NSString stringWithFormat:@"%@", [self.pStatusDic objectForKey:@"watchingchannel"]];
         
-        if ( [sWatchingchannel isEqualToString:@"(null)번"] || [sWatchingchannel length] == 0 )
+        NSString *sChannelNumber = @"";
+        for ( NSDictionary *dic in self.pChannelListArr )
+        {
+            NSString *sChannelId = [dic objectForKey:@"channelId"];
+            
+            if ( [sChannelId isEqualToString:sWatchingchannel] )
+            {
+                sChannelNumber = [NSString stringWithFormat:@"%@번", [dic objectForKey:@"channelNumber"]];
+            }
+        }
+        
+        if ( [sWatchingchannel isEqualToString:@"(null)"] || [sWatchingchannel length] == 0 )
         {
              [self setChannelNumber:@""];
         }
         else
         {
-             [self setChannelNumber:sWatchingchannel];
+             [self setChannelNumber:sChannelNumber];
         }
         
        
@@ -375,6 +388,7 @@
 - (void)requestWithChannelControlWithSelect:(int)nSelect
 {
     NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pChannelListArr objectAtIndex:nSelect] objectForKey:@"channelId"]];
+    NSString *sChannelNumber = [NSString stringWithFormat:@"%@", [[self.pChannelListArr objectAtIndex:nSelect] objectForKey:@"channelNumber"]];
     NSURLSessionDataTask *tesk = [NSMutableDictionary remoconSetRemoteChannelControlWithChannelId:sChannelId completion:^(NSArray *pairing, NSError *error) {
         
         DDLogError(@"pairing = [%@]", pairing);
@@ -382,7 +396,7 @@
         if ( [[[pairing objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
             // 체널 변경후 상태 값 다시 맵핑
-            NSString *sWatchingchannel = [NSString stringWithFormat:@"%@번", sChannelId];
+            NSString *sWatchingchannel = [NSString stringWithFormat:@"%@번", sChannelNumber];
             
             [self setChannelNumber:sWatchingchannel];
         }

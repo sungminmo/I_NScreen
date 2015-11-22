@@ -484,6 +484,7 @@ static int tvFontSize = 15;
     NSURLSessionDataTask *tesk = [NSMutableDictionary wishAddWishItemWithAssetId:self.pAssetIdStr completion:^(NSArray *wish, NSError *error) {
         
         DDLogError(@"찜하기 = %@]", wish);
+        [SIAlertView alert:@"찜하기" message:@"찜하기가 선택 되었습니다." button:nil];
         self.isZzimCheck = YES;
     }];
     
@@ -496,6 +497,8 @@ static int tvFontSize = 15;
     NSURLSessionDataTask *tesk = [NSMutableDictionary wishRemoveWishWithAssetId:self.pAssetIdStr completion:^(NSArray *wish, NSError *error) {
         
         DDLogError(@"찜해제 = [%@]", wish);
+        [SIAlertView alert:@"찜하기" message:@"찜하기가 해제 되었습니다." button:nil];
+        
         self.isZzimCheck = NO;
     }];
     

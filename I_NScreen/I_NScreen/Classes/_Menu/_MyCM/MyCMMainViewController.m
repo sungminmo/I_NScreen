@@ -122,7 +122,10 @@
             }
             
             int nTotal = (int)[self.pWatchListArr count];
-            self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 시청목록이 있습니다.", nTotal];
+            if ( nTotal == 0 )
+                self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"시청한 VOD가 없습니다."];
+            else
+                self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 VOD 시청목록이 있습니다.", nTotal];
             
             [self.pSubTableView02 reloadData];
         }break;
@@ -151,7 +154,11 @@
             [self.pSubTabBtn02 setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
             int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
-            self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+            if ( nTotal == 0 )
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 모바일 VOD가 없습니다."];
+            else
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+            
             
             self.pSubTabBtn01.selected = YES;
             self.pSubTabBtn02.selected = NO;
@@ -171,7 +178,10 @@
             [self.pSubTabBtn02 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
             int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
-            self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
+            if ( nTotal == 0 )
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 TV VOD가 없습니다."];
+            else
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
 
             self.pSubTabBtn01.selected = NO;
             self.pSubTabBtn02.selected = YES;
@@ -338,33 +348,64 @@
         [self.pValidPurchaseLogListTvArr removeAllObjects];
 //        [self.pValidPurchaseLogListArr setArray:[[[myCm objectAtIndex:0] objectForKey:@"purchaseLogList"] objectForKey:@"purchaseLog"]];
         
-        for ( NSDictionary *dic in [[[myCm objectAtIndex:0] objectForKey:@"purchaseLogList"] objectForKey:@"purchaseLog"] )
+        NSObject *itemObject = [[[myCm objectAtIndex:0] objectForKey:@"purchaseLogList"] objectForKey:@"purchaseLog"];
+        
+        if ( [itemObject isKindOfClass:[NSDictionary class]] )
         {
-            NSString *sPurchaseDeviceType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"purchaseDeviceType"]];
+            NSString *sPurchaseDeviceType = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObject objectForKey:@"purchaseDeviceType"]];
             
             if ( [sPurchaseDeviceType isEqualToString:@"1"] )
             {
                 // 모바일구매
-                [self.pValidPurchaseLogListMoblieArr addObject:dic];
+                [self.pValidPurchaseLogListMoblieArr addObject:(NSDictionary *)itemObject];
             }
             else
             {
                 // tv 구매
-                [self.pValidPurchaseLogListTvArr addObject:dic];
+                [self.pValidPurchaseLogListTvArr addObject:(NSDictionary *)itemObject];
+            }
+
+        }
+        else
+        {
+            for ( NSDictionary *dic in [[[myCm objectAtIndex:0] objectForKey:@"purchaseLogList"] objectForKey:@"purchaseLog"] )
+            {
+                NSString *sPurchaseDeviceType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"purchaseDeviceType"]];
+                
+                if ( [sPurchaseDeviceType isEqualToString:@"1"] )
+                {
+                    // 모바일구매
+                    [self.pValidPurchaseLogListMoblieArr addObject:dic];
+                }
+                else
+                {
+                    // tv 구매
+                    [self.pValidPurchaseLogListTvArr addObject:dic];
+                }
             }
         }
+        
+        
         
         if ( self.nSubTabTag == 0 )
         {
             // 모바일 구매목록
             int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
-            self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+            if ( nTotal == 0 )
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 모바일 VOD가 없습니다."];
+            else
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+            
         }
         else
         {
             // tv 구매목록
             int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
-            self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
+            if ( nTotal == 0 )
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 TV VOD가 없습니다."];
+            else
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
+            
         }
         
         [self.pSubTableView01 reloadData];
@@ -566,7 +607,11 @@
                 [self.pValidPurchaseLogListMoblieArr removeObjectAtIndex:index];
                 [self.pSubTableView01 reloadData];
                 int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+                if ( nTotal == 0 )
+                    self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 모바일 VOD가 없습니다."];
+                else
+                    self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+                
 
             }
             else
@@ -575,7 +620,10 @@
                 [self.pValidPurchaseLogListTvArr removeObjectAtIndex:index];
                 [self.pSubTableView01 reloadData];
                 int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
+                if ( nTotal == 0 )
+                    self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 TV VOD가 없습니다."];
+                else
+                    self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
             }
         }
     }];
