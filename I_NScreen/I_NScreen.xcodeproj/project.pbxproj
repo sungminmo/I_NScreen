@@ -219,6 +219,7 @@
 		E5A9230D1BD137200076AF97 /* CMPageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */; };
 		E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */; };
 		E5A923121BD13AAA0076AF97 /* CMPageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */; };
+		E5ADC5361C01A01B0046B96D /* CMWatchReserveList.m in Sources */ = {isa = PBXBuildFile; fileRef = E5ADC5351C01A01B0046B96D /* CMWatchReserveList.m */; settings = {ASSET_TAGS = (); }; };
 		E5AF9F5A1BF23BC80030ECDE /* CMPairingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AF9F571BF23BC80030ECDE /* CMPairingInfo.m */; };
 		E5AF9F5B1BF23BC80030ECDE /* CMPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AF9F591BF23BC80030ECDE /* CMPrivateKey.m */; };
 		E5B1BE7F1BFDA63500076FA1 /* NSMutableDictionary+WISH.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B1BE7E1BFDA63500076FA1 /* NSMutableDictionary+WISH.m */; };
@@ -1177,6 +1178,8 @@
 		E5A9230E1BD13AAA0076AF97 /* CMPageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageCollectionViewCell.h; sourceTree = "<group>"; };
 		E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageCollectionViewCell.m; sourceTree = "<group>"; };
 		E5A923101BD13AAA0076AF97 /* CMPageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageCollectionViewCell.xib; sourceTree = "<group>"; };
+		E5ADC5341C01A01B0046B96D /* CMWatchReserveList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMWatchReserveList.h; sourceTree = "<group>"; };
+		E5ADC5351C01A01B0046B96D /* CMWatchReserveList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMWatchReserveList.m; sourceTree = "<group>"; };
 		E5AF9F561BF23BC80030ECDE /* CMPairingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPairingInfo.h; sourceTree = "<group>"; };
 		E5AF9F571BF23BC80030ECDE /* CMPairingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPairingInfo.m; sourceTree = "<group>"; };
 		E5AF9F581BF23BC80030ECDE /* CMPrivateKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPrivateKey.h; sourceTree = "<group>"; };
@@ -2276,6 +2279,8 @@
 				E599896B1BFCA22C00015E73 /* CMFavorChannelInfo.m */,
 				E59219F51C00D0020007E2DC /* CMVodWatchList.h */,
 				E59219F61C00D0020007E2DC /* CMVodWatchList.m */,
+				E5ADC5341C01A01B0046B96D /* CMWatchReserveList.h */,
+				E5ADC5351C01A01B0046B96D /* CMWatchReserveList.m */,
 			);
 			path = _realmModel;
 			sourceTree = "<group>";
@@ -4546,6 +4551,7 @@
 				E52EE58B1BD50E5400797251 /* RemoconMainTableViewCell.m in Sources */,
 				E54CC0AE1BCCA0C6003806C0 /* NSObject+SBJSON.m in Sources */,
 				99ECC6271BA6765C0085C86F /* UIColor+ColorString.m in Sources */,
+				E5ADC5361C01A01B0046B96D /* CMWatchReserveList.m in Sources */,
 				E52EE57D1BD508AF00797251 /* PvrSubViewController.m in Sources */,
 				99C43C591BA3EDA10035A0A4 /* UIImage+Color.m in Sources */,
 				99C43C511BA3EDA10035A0A4 /* NSData+Hash.m in Sources */,

@@ -210,4 +210,6 @@
 
 -(NSString *)GetToday;
 
+- (void)notiBuyListRegist:(NSDictionary *)dic WithSetRemove:(BOOL)isCheck;
+
 @end

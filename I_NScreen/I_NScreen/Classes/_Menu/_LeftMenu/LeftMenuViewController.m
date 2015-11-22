@@ -33,9 +33,7 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    // 앱 버전 라벨
-    NSString *sVerion = [NSString stringWithFormat:@"현재 버전 %@", [[CMAppManager sharedInstance] getAppVersion]];
-    [self.pVerionBtn setTitle:sVerion forState:UIControlStateNormal];
+    
     
     [self.upperView clearSubOutLineLayers];
     

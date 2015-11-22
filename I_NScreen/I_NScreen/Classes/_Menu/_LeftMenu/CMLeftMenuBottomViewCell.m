@@ -15,6 +15,10 @@
 - (void)awakeFromNib {
     [self.bottomView clearSubOutLineLayers];
     [UIView setOuterLine:self.bottomView direction:HMOuterLineDirectionTop lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
+    
+    // 앱 버전 라벨
+    NSString *sVerion = [NSString stringWithFormat:@"현재 버전 %@", [[CMAppManager sharedInstance] getAppVersion]];
+    [self.versionButton setTitle:sVerion forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

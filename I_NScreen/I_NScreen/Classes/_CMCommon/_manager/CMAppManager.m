@@ -823,4 +823,88 @@
     return strToday;
 }
 
+
+// 구매 유효기간 만료 알림 24시간 전에 알려주는 노티 등록 함수
+- (void)notiBuyListRegist:(NSDictionary *)dic WithSetRemove:(BOOL)isCheck
+{
+    // contentsId, contentsName, date 전달받음
+    // date string 은 2012 12 23062415 인형태로 가정함 만료 알림 등록쪽이 개발이 아직 안되어 있으므로
+    
+    
+    NSRange yearRang = {0, 4};
+    NSRange monthRang = {5, 2};
+    NSRange dayRang = {8,2};
+    NSRange hourRang = {11, 2};
+    NSRange MinuteRang = {14,2};
+    NSRange secondRang = {17, 2};
+    
+    NSString *pYearStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:yearRang]];
+    NSString *pMonthStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:monthRang]];
+    NSString *pDayStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:dayRang]];
+    NSString *pHourStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:hourRang]];
+    NSString *pMinuteStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:MinuteRang]];
+    NSString *pSecondStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:secondRang]];
+    
+    // 24 빼고
+    NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
+    NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+    
+    [dateComps setYear:[pYearStr intValue]];   // 알람 울릴 년도
+    [dateComps setMonth:[pMonthStr intValue]];     // 알람 울릴 월
+    [dateComps setDay:[pDayStr intValue]];      // 알람 울릴 일
+    [dateComps setHour:[pHourStr intValue]];     // 알람 울릴 시
+    [dateComps setMinute:[pMinuteStr intValue]];    // 알람 울릴 분
+    [dateComps setSecond:[pSecondStr intValue]];    // 알람 울릴 초
+//    [dateComps setYear:[@"2015" intValue]];   // 알람 울릴 년도
+//    [dateComps setMonth:[@"11" intValue]];     // 알람 울릴 월
+//    [dateComps setDay:[@"22" intValue]];      // 알람 울릴 일
+//    [dateComps setHour:[@"17" intValue]];     // 알람 울릴 시
+//    [dateComps setMinute:[@"43" intValue]];    // 알람 울릴 분
+//    [dateComps setSecond:[@"00" intValue]];    // 알람 울릴 초
+    
+    NSString *msg = [NSString stringWithFormat:@"%@ 시청 예약 시간입니다.", [dic objectForKey:@"programTitle"]];
+    
+    NSDate *date = [calender dateFromComponents:dateComps];
+    
+    UILocalNotification *localNoti = [[UILocalNotification alloc] init];
+    
+    if ( localNoti != nil )
+    {
+        localNoti.fireDate = date;
+        localNoti.timeZone = [NSTimeZone defaultTimeZone];
+        localNoti.alertAction = @"시청 예약 시간";
+        localNoti.alertBody = msg;
+        localNoti.applicationIconBadgeNumber = 0;
+        localNoti.soundName = UILocalNotificationDefaultSoundName;
+        
+        // 넘겨줄 데이터가 있으면
+//        NSDictionary *infoDic = [NSDictionary dictionaryWithObjectsAndKeys:[dic objectForKey:@"contentsId"], @"contentsId", [dic objectForKey:@"contentsName"], @"contentsName", [dic objectForKey:@"date"], @"date", nil];
+        localNoti.userInfo = dic;
+        
+        UIUserNotificationType types = UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        
+        if ( isCheck == YES )
+        {
+            // 등록
+             [[UIApplication sharedApplication] scheduleLocalNotification:localNoti];
+        }
+        else
+        {
+            // 삭제
+            [[UIApplication sharedApplication] cancelLocalNotification:localNoti];
+        }
+    }
+    
+//    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+//    if (localNotif == nil) return;
+//    NSDate *fireTime = [[NSDate date] addTimeInterval:10]; // adds 10 secs
+//    localNotif.fireDate = fireTime;
+//    UIUserNotificationType types = UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound;
+//    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+//    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+//    localNotif.alertBody = @"Alert!";
+//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+}
 @end

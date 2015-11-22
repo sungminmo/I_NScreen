@@ -13,6 +13,7 @@
 #import "CMPairingInfo.h"
 #import "CMPrivateKey.h"
 #import "CMVodWatchList.h"
+#import "CMWatchReserveList.h"
 
 @implementation CMDBDataManager
 
@@ -408,6 +409,70 @@
         [realm commitWriteTransaction];
     }
 
+}
+
+- (void)setWatchReserveList:(NSDictionary *)dic
+{
+    RLMRealm *realm = [self cmRealm];
+    CMWatchReserveList *watchReserveList = [[CMWatchReserveList alloc] init];
+    
+    watchReserveList.programBroadcastingEndTimeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingEndTime"]];
+    watchReserveList.programBroadcastingStartTimeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingStartTime"]];
+    watchReserveList.programGradeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programGrade"]];
+    watchReserveList.programHDStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programHD"]];
+    watchReserveList.programTitleStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programTitle"]];
+    watchReserveList.programPVRStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programPVR"]];
+    watchReserveList.scheduleSeqStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"scheduleSeq"]];
+    watchReserveList.programIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programId"]];
+    watchReserveList.broadcastingDateStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"broadcastingDate"]];
+    
+    [realm beginWriteTransaction];
+    [realm addObject:watchReserveList];
+    [realm commitWriteTransaction];
+    
+    [[CMAppManager sharedInstance] notiBuyListRegist:dic WithSetRemove:YES];
+}
+
+- (RLMArray *)getWatchReserveList
+{
+    RLMArray *rs = (RLMArray *)[CMWatchReserveList allObjects];
+    
+    return rs;
+}
+
+- (void)removeWatchReserveList:(NSDictionary *)dic
+{
+    NSString *sTilte = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programTitle"]];
+    NSString *sStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingStartTime"]];
+    NSString *sSeq = [NSString stringWithFormat:@"%@", [dic objectForKey:@"scheduleSeq"]];
+    NSString *sProgramId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programId"]];
+    NSString *sHd = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programHD"]];
+    
+    RLMRealm *realm = [self cmRealm];
+    
+    if ( [[self getWatchReserveList] count] > 0 )
+    {
+        RLMArray *all = (RLMArray *)[CMWatchReserveList allObjects];
+        
+        int nIndex = 0;
+        for ( CMWatchReserveList *info in all )
+        {
+            if ( [sTilte isEqualToString:info.programTitleStr] &&
+                [sStartTime isEqualToString:info.programBroadcastingStartTimeStr] &&
+                [sSeq isEqualToString:info.scheduleSeqStr] &&
+                [sProgramId isEqualToString:info.programIdStr] &&
+                [sHd isEqualToString:info.programHDStr] )
+            {
+                [realm beginWriteTransaction];
+                [realm deleteObject:[all objectAtIndex:nIndex]];
+                [realm commitWriteTransaction];
+                
+                [[CMAppManager sharedInstance] notiBuyListRegist:dic WithSetRemove:NO];
+            }
+            
+            nIndex++;
+        }
+    }
 }
 
 @end

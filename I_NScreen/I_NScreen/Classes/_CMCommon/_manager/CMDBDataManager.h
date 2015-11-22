@@ -129,4 +129,18 @@
  */
 - (void)removeVodWatchList:(int)index;
 
+/**
+ *  시청예약 데이터 저장
+ */
+- (void)setWatchReserveList:(NSDictionary *)dic;
+
+/**
+ *  @return 시청예약 데이터 호출
+ */
+- (RLMArray *)getWatchReserveList;
+
+/**
+ *   시청예약 삭제
+ */
+- (void)removeWatchReserveList:(NSDictionary *)dic;
 @end

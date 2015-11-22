@@ -53,6 +53,18 @@
     
     [self settingCommonApperance];//공통 디자인을 세팅한다.
     
+    
+    
+    UILocalNotification *notif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (notif != nil)
+    {
+        // 노티 온 데이터 디비에서 삭제
+        [[CMAppManager sharedInstance] notiBuyListRegist:notif.userInfo WithSetRemove:NO];
+        
+        [SIAlertView alert:notif.alertAction message:notif.alertBody button:@"확인"];
+    }
+    
+    
     return YES;
 }
 
@@ -86,6 +98,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -149,5 +162,12 @@
     
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    // 노티 온 데이터 디비에서 삭제
+    [[CMAppManager sharedInstance] notiBuyListRegist:notification.userInfo WithSetRemove:NO];
+    
+    [SIAlertView alert:notification.alertAction message:notification.alertBody button:@"확인"];
+}
 
 @end

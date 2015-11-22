@@ -14,6 +14,7 @@
 #import "NSMutableDictionary+REMOCON.h"
 #import "NSMutableDictionary+PVR.h"
 #import "CMDBDataManager.h"
+#import "CMWatchReserveList.h"
 
 @interface EpgSubViewController ()
 
@@ -236,11 +237,41 @@
                 sDelete = @"녹화예약취소";
             }
         }
+        
+        sMore = [self getWatchReserveIndex:(int)indexPath.row];
     }
     
     [cell configureCellForItem:@{@"More":sMore, @"Delete":sDelete} WithItemCount:2];
     
     return cell;
+}
+
+- (NSString *)getWatchReserveIndex:(int)index
+{
+    NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programTitle"]];
+    NSString *sStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programBroadcastingStartTime"]];
+    NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"scheduleSeq"]];
+    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programId"]];
+    NSString *sHd = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programHD"]];
+    
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    BOOL isCheck = NO;
+    for ( CMWatchReserveList *info in [manager getWatchReserveList] )
+    {
+        if ( [sTilte isEqualToString:info.programTitleStr] &&
+            [sStartTime isEqualToString:info.programBroadcastingStartTimeStr] &&
+            [sSeq isEqualToString:info.scheduleSeqStr] &&
+            [sProgramId isEqualToString:info.programIdStr] &&
+            [sHd isEqualToString:info.programHDStr] )
+        {
+            isCheck = YES;
+        }
+    }
+    
+    NSString *sTitle = @"시청예약설정";
+    if ( isCheck == YES )
+        sTitle = @"시청예약취소";
+    return sTitle;
 }
 
 - (CGFloat)getProgressTimerWithIndex:(int)nIndex
@@ -318,7 +349,29 @@
 //        
 //    }
     
-   
+    if ( [self getProgressTimerWithIndex:nIndex] > 0 )
+    {
+        // tv로 시청
+        [self requestWithChannelControl];
+    }
+    else
+    {
+        // 시청 예약 체크
+        if ( [[self getWatchReserveIndex:nIndex] isEqualToString:@"시청예약설정"] )
+        {
+            // 설정 해줌
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            [manager setWatchReserveList:[self.todayNewDateArr objectAtIndex:nIndex]];
+        }
+        else
+        {
+            // 시청 예약 해제 해줌
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            [manager removeWatchReserveList:[self.todayNewDateArr objectAtIndex:nIndex]];
+        }
+        
+        [self.pTableView reloadData];
+    }
 }
 
 - (void)EpgSubTableViewDeleteBtn:(int)nIndex
