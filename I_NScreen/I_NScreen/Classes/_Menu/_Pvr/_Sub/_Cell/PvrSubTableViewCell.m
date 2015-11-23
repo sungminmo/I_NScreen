@@ -55,6 +55,14 @@
 
 - (void)setListData:(NSDictionary *)dic WithIndex:(int)index
 {
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"Channel_logo_img"]];
+    [self.logoImageView setImageWithURL:[NSURL URLWithString:sUrl]];
+    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ProgramName"]];
+    
+    if ( [[dic objectForKey:@"RecordStartTime"] isEqualToString:@"0"] )
+        return;
+    
     NSString *sPurchasedTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
     NSArray *purchasedTimeArr = [sPurchasedTime componentsSeparatedByString:@" "];
     NSArray *purchasedTimeArr2 = [[purchasedTimeArr objectAtIndex:0] componentsSeparatedByString:@"-"];
@@ -71,10 +79,6 @@
     
     self.dateLabel.text = [NSString stringWithFormat:@"%@.%@ (%@)", sMonth, sDay, sWeek];
     self.timeLabel.text = [NSString stringWithFormat:@"%@:%@", sHour, sMinute];
-    
-    NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"Channel_logo_img"]];
-    [self.logoImageView setImageWithURL:[NSURL URLWithString:sUrl]];
-    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ProgramName"]];
 }
 
 @end

@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) NSString *pSeriesIdStr;
 @property (nonatomic, strong) NSString *pTitleStr;
-
+@property (nonatomic, strong) NSMutableArray *pSeriesReserveListArr;
 @property (nonatomic)BOOL isTapCheck;   // no 이면 녹화예약관리, yes 면 녹화물 목록
 
 @property (nonatomic, weak) id <PvrSubViewDelegate>delegate;

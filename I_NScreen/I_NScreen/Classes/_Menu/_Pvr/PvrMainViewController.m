@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSMutableArray *pListArr;         // 녹화물
 @property (nonatomic, strong) NSMutableArray *pReservListArr;   // 예약 녹화
+@property (nonatomic, strong) NSMutableArray *pSeriesReservDetailArr;   // 예약녹화 시리즈 이면서 상세 데이터
 
 @property (nonatomic, weak) IBOutlet UIButton *pReservationBtn; // 녹화 예약 관리 버튼
 @property (nonatomic, weak) IBOutlet UIButton *pListBtn;        // 녹화물 목록 버튼
@@ -67,6 +68,7 @@
     self.isTabCheck = NO;
     self.pListArr = [[NSMutableArray alloc] init];
     self.pReservListArr = [[NSMutableArray alloc] init];
+    self.pSeriesReservDetailArr = [[NSMutableArray alloc] init];
     // 초기 예약 녹화 리스트
     
     [self setInfoWithCount:-1];
@@ -200,6 +202,7 @@
         pViewController.pSeriesIdStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"];
         pViewController.pTitleStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ProgramName"];
         pViewController.isTapCheck = NO;
+        pViewController.pSeriesReserveListArr = self.pSeriesReservDetailArr;
         [self.navigationController pushViewController:pViewController animated:YES];
 
     }
@@ -371,14 +374,39 @@
                 return ;
             
             [self.pReservListArr removeAllObjects];
+            [self.pSeriesReservDetailArr removeAllObjects];
+            
+            NSMutableArray *arr = [[NSMutableArray alloc] init];
             
             if ( [[[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"] isKindOfClass:[NSDictionary class]] )
             {
-                [self.pReservListArr addObject:[[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"]];
+                [arr addObject:[[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"]];
             }
             else
             {
-                [self.pReservListArr setArray:[[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"]];
+                [arr setArray:[[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"]];
+            }
+            
+            [self.pReservListArr setArray:arr];
+            
+            
+            for ( NSDictionary *dic in arr )
+            {
+                NSString *sSeriesId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"SeriesId"]];
+                NSString *sRecordingType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordingType"]];
+                
+                if ( ![sSeriesId isEqualToString:@"NULL"] &&
+                    [sRecordingType isEqualToString:@"0"] )
+                {
+                    // 삭제
+                    [self.pReservListArr removeObject:dic];
+                }
+                
+                if ( ![sSeriesId isEqualToString:@"NULL"] &&
+                    [sRecordingType isEqualToString:@"0"] )
+                {
+                    [self.pSeriesReservDetailArr addObject:dic];
+                }
             }
             
             int nTotalCount = (int)[self.pReservListArr count];

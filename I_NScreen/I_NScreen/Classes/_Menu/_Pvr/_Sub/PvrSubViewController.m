@@ -9,6 +9,7 @@
 #import "PvrSubViewController.h"
 #import "NSMutableDictionary+PVR.h"
 #import "UIAlertView+AFNetworking.h"
+#import "NSMutableDictionary+EPG.h"
 
 @interface PvrSubViewController ()
 
@@ -17,7 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel* titleLabel; //  제목 라벨
 @property (strong, nonatomic) IBOutlet UIImageView *seriesImageView;    //  타이틀에 시리즈 이미지
 @property (nonatomic, strong) NSMutableArray *pSeriesListArr;
-@property (nonatomic, strong) NSMutableArray *pSeriesReserveListArr;
 
 @end
 
@@ -25,7 +25,7 @@
 @synthesize pSeriesIdStr;
 @synthesize pTitleStr;
 @synthesize delegate;
-
+@synthesize pSeriesReserveListArr;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -41,7 +41,7 @@
     self.seriesImageView.hidden = false;
     self.titleLabel.text = self.pTitleStr;
     self.pSeriesListArr = [[NSMutableArray alloc] init];
-    self.pSeriesReserveListArr = [[NSMutableArray alloc] init];
+//    self.pSeriesReserveListArr = [[NSMutableArray alloc] init];
     
     if ( self.isTapCheck == YES )
     {
@@ -49,7 +49,8 @@
     }
     else
     {
-        [self requestWithGetRecordReservelistSeries];
+//        [self requestWithGetRecordReservelistSeries];
+        [self.pTableView reloadData];
     }
     
 }
@@ -69,7 +70,15 @@
     
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    [pCell setListData:[self.pSeriesListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+    if ( self.isTapCheck == YES )
+    {
+        [pCell setListData:[self.pSeriesListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+    }
+    else
+    {
+        [pCell setListData:[self.pSeriesReserveListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+    }
+    
     
     return pCell;
 }
@@ -87,7 +96,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int nCount = (int)[self.pSeriesListArr count];
+    int nCount = 0;
+    if ( self.isTapCheck == YES )
+    {
+        nCount = (int)[self.pSeriesListArr count];
+    }
+    else
+    {
+        nCount = (int)[self.pSeriesReserveListArr count];
+    }
     
     return nCount;
 }
@@ -104,30 +121,66 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         DDLogError(@"delete");
-        [SIAlertView alert:@"녹화물 삭제확인" message:@"녹화물을 삭제하시겠습니까?"
-                    cancel:@"취소"
-                   buttons:@[@"단편삭제", @"시리즈 전체삭제"]
-                completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    
-                    if ( buttonIndex == 1 )
-                    {
-                        // 단편삭제
-                        [self requestWithSetRecordDeleWithIndex:(int)indexPath.row];
-                    }
-                    else if ( buttonIndex == 2 )
-                    {
-                        // 시리즈 전체 삭제
-                        [self requestWithSetRecordSeriesDeleWithIndex:(int)indexPath.row];
-                    }
-                    
-                }];
+        if ( self.isTapCheck == YES )
+        {
+            [SIAlertView alert:@"녹화물 삭제확인" message:@"녹화물을 삭제하시겠습니까?"
+                        cancel:@"취소"
+                       buttons:@[@"삭제"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            // 단편삭제
+                            [self requestWithSetRecordDeleWithIndex:(int)indexPath.row];
+                        }
+//                        else if ( buttonIndex == 2 )
+//                        {
+//                            // 시리즈 전체 삭제
+//                            [self requestWithSetRecordSeriesDeleWithIndex:(int)indexPath.row];
+//                        }
+                        
+                    }];
+        }
+        else
+        {
+            [SIAlertView alert:@"녹화예약물 삭제확인" message:@"녹화예약물을 삭제하시겠습니까?"
+                        cancel:@"취소"
+                       buttons:@[@"단편예약삭제", @"시리즈예약삭제"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
+                        NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"ChannelId"]];
+                        NSString *sTime = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"RecordStartTime"]];
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            // 단편삭제
+                            
+                            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:@"0" WithIndex:(int)indexPath.row WithChannelId:sChannelId WithTime:sTime];
+                        }
+                        else if ( buttonIndex == 2 )
+                        {
+                            // 시리즈 전체 삭제
+                            [self requestWithSetRecordCancelReserveWithReserveCancel:@"1" WithSeriesId:sSeriesId WithIndex:(int)indexPath.row WithChannelId:sChannelId WithTime:sTime];
+                        }
+                        
+                    }];
+        }
     }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    return @"삭제";
+    NSString *sTitle = @"";
+    if ( self.isTapCheck == YES )
+    {
+        sTitle = @"삭제";
+    }
+    else
+    {
+        sTitle = @"녹화예약취소";
+    }
+    return sTitle;
 }
 
 #pragma mark - 전문
@@ -137,6 +190,27 @@
     NSURLSessionDataTask *tesk = [NSMutableDictionary pvrGetrecordReservelistWithSeriesId:self.pSeriesIdStr completion:^(NSArray *pvr, NSError *error) {
         
         DDLogError(@"녹화예약 시리즈 = [%@]", pvr);
+        
+        if ( [pvr count] == 0 )
+            return;
+        
+        [self.pSeriesReserveListArr removeAllObjects];
+        
+        if ( [[[pvr objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            NSObject *itemObjet = [[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"];
+            
+            if ( [itemObjet isKindOfClass:[NSDictionary class]] )
+            {
+                [self.pSeriesReserveListArr addObject:itemObjet];
+            }
+            else
+            {
+                [self.pSeriesReserveListArr setArray:(NSArray *)itemObjet];
+            }
+            
+            [self.pTableView reloadData];
+        }
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -207,6 +281,29 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
+#pragma mark - 녹화예약 취소
+- (void)requestWithSetRecordCancelReserveWithReserveCancel:(NSString *)reserveCancel WithSeriesId:(NSString *)seriesId WithIndex:(int)nIndex WithChannelId:(NSString *)channelId WithTime:(NSString *)time
+{
+    //    ReserveCancel = 1 (시리즈 전체 삭제) / ReserveCancel = 2 (단편 삭제)
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSetRecordCancelReserveWithChannelId:channelId WithStartTime:time WithSeriesId:seriesId WithReserveCancel:reserveCancel completion:^(NSArray *epgs, NSError *error) {
+        
+        DDLogError(@"녹화에약취소 = [%@}", epgs);
+        
+        if ( [epgs count] == 0 )
+            return;
+        
+        if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            //            [self requestWithGetSetTopStatus];
+//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
+//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약설정" forKey:@"deleState"];
+            [self.pSeriesReserveListArr removeObjectAtIndex:nIndex];
+            [self.pTableView reloadData];
+        }
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
 - (void)backCommonAction
 {
     [self.delegate PvrSubViewWithTap:self.isTapCheck];
