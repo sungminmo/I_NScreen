@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -34,9 +35,15 @@
                         <rect key="frame" x="112" y="33" width="29" height="16"/>
                         <animations/>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sd.png" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-kA-6bq" userLabel="SD image">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sd.png" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-kA-6bq" userLabel="SD image">
                         <rect key="frame" x="146" y="33" width="29" height="16"/>
                         <animations/>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_watchrsv.png" translatesAutoresizingMaskIntoConstraints="NO" id="YiQ-D4-Qfk">
+                        <rect key="frame" x="183" y="33" width="52" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="YiQ-D4-Qfk" secondAttribute="height" multiplier="13:4" id="xNg-kx-EjZ"/>
+                        </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjU-zZ-01I" userLabel="progress View" customClass="CMProgressView">
                         <rect key="frame" x="112" y="54" width="186" height="3"/>
@@ -62,6 +69,7 @@
                 <animations/>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="YiQ-D4-Qfk" firstAttribute="leading" secondItem="sv6-kA-6bq" secondAttribute="trailing" constant="8" id="0XW-pw-vle"/>
                     <constraint firstAttribute="trailing" secondItem="ONp-hd-SIw" secondAttribute="trailing" id="3iA-y2-JR6"/>
                     <constraint firstItem="4eO-9v-5jA" firstAttribute="top" secondItem="S1j-of-V0y" secondAttribute="bottom" constant="1.5" id="5OF-gT-4C8"/>
                     <constraint firstItem="4eO-9v-5jA" firstAttribute="centerY" secondItem="vo9-r2-a1g" secondAttribute="centerY" constant="8.25" id="6Zn-a8-DHX"/>
@@ -73,17 +81,20 @@
                     <constraint firstItem="ONp-hd-SIw" firstAttribute="width" secondItem="vo9-r2-a1g" secondAttribute="width" id="NWv-xC-K6F"/>
                     <constraint firstItem="S1j-of-V0y" firstAttribute="leading" secondItem="vo9-r2-a1g" secondAttribute="leadingMargin" constant="104" id="PdY-0E-XSh"/>
                     <constraint firstItem="4eO-9v-5jA" firstAttribute="leading" secondItem="S1j-of-V0y" secondAttribute="leading" id="SH3-Lq-yio"/>
+                    <constraint firstItem="CjU-zZ-01I" firstAttribute="top" secondItem="YiQ-D4-Qfk" secondAttribute="bottom" constant="5" id="XED-7B-O8p"/>
                     <constraint firstItem="CjU-zZ-01I" firstAttribute="leading" secondItem="S1j-of-V0y" secondAttribute="leading" id="Yo0-3t-hPy"/>
                     <constraint firstItem="Ixh-CX-8Hv" firstAttribute="top" secondItem="vo9-r2-a1g" secondAttribute="topMargin" id="dgC-hz-XW9"/>
                     <constraint firstItem="sv6-kA-6bq" firstAttribute="centerY" secondItem="4eO-9v-5jA" secondAttribute="centerY" id="fdP-9c-0nq"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Ixh-CX-8Hv" secondAttribute="bottom" id="khf-wf-yMj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CjU-zZ-01I" secondAttribute="trailing" constant="14.5" id="nt9-PI-uln"/>
+                    <constraint firstItem="YiQ-D4-Qfk" firstAttribute="top" secondItem="S1j-of-V0y" secondAttribute="bottom" constant="1" id="ovy-0F-EA5"/>
                     <constraint firstAttribute="bottom" secondItem="ONp-hd-SIw" secondAttribute="bottom" id="qm8-hS-8ED"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="gradeImageView" destination="4eO-9v-5jA" id="uju-jP-hS2"/>
+                <outlet property="pStateImageView" destination="YiQ-D4-Qfk" id="8hu-Fv-rPb"/>
                 <outlet property="progressView" destination="CjU-zZ-01I" id="9oi-RY-aGn"/>
                 <outlet property="sdhdImageView01" destination="sv6-kA-6bq" id="qmY-RL-VPt"/>
                 <outlet property="sdhdImageView02" destination="b55-ar-sZj" id="TbL-70-4Si"/>
@@ -96,6 +107,7 @@
     <resources>
         <image name="all.png" width="29" height="16"/>
         <image name="hd.png" width="29" height="16"/>
+        <image name="icon_watchrsv.png" width="52" height="16"/>
         <image name="sd.png" width="29" height="16"/>
     </resources>
 </document>

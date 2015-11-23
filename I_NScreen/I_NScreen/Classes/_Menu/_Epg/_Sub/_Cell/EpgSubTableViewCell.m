@@ -11,13 +11,14 @@
 
 @interface EpgSubTableViewCell ()
 
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *gradeImageView;
-@property (strong, nonatomic) IBOutlet UIImageView *sdhdImageView01;
-@property (strong, nonatomic) IBOutlet UIImageView *sdhdImageView02;
-@property (strong, nonatomic) IBOutlet UIImageView *hdImageView;
-@property (strong, nonatomic) IBOutlet CMProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *gradeImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *sdhdImageView01;
+@property (weak, nonatomic) IBOutlet UIImageView *sdhdImageView02;
+@property (weak, nonatomic) IBOutlet UIImageView *hdImageView;
+@property (weak, nonatomic) IBOutlet CMProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIImageView *pStateImageView;
 @property (nonatomic) int nSelect;
 
 @property (strong, nonatomic) NSDictionary* dataDic;
@@ -90,51 +91,34 @@
     {
         self.gradeImageView.image = [UIImage imageNamed:@"15.png"];
     }
+    else if ( [grade isEqualToString:@"12세 이상"] )
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@"12.png"];
+    }
+    else if ( [grade isEqualToString:@"7세 이상"] )
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@"7.png"];
+    }
+
     else
     {
         self.gradeImageView.image = [UIImage imageNamed:@""];
     }
-//    
-//    NSString* channelInfo = data[@"channelInfo"];
-//    NSArray *channelInfoArr = [channelInfo componentsSeparatedByString:@","];
-//    
-//
-//    
-//    if ( [channelInfoArr count] == 2 )
-//    {
-//        self.sdhdImageView01.hidden = NO;
-//        self.sdhdImageView02.hidden = NO;
-//        
-//        self.sdhdImageView01.image = [UIImage imageNamed:@"sd.png"];
-//        self.sdhdImageView02.image = [UIImage imageNamed:@"hd.png"];
-//    }
-//    else if ( [channelInfoArr count] == 1 )
-//    {
-//        if ( [[channelInfoArr objectAtIndex:0] isEqualToString:@"SD"] )
-//        {
-//            self.sdhdImageView01.hidden = NO;
-//            self.sdhdImageView01.image = [UIImage imageNamed:@"sd.png"];
-//        }
-//        else
-//        {
-//            self.sdhdImageView01.hidden = NO;
-//            self.sdhdImageView01.image = [UIImage imageNamed:@"hd.png"];
-//        }
-//    }
-//    
+
+    
     NSString *sProgramHD = data[@"programHD"];
     
-    if ( [sProgramHD isEqualToString:@"YES"] )
+    if ( [sProgramHD isEqualToString:@"NO"] )
     {
-        self.hdImageView.hidden = NO;
-        self.hdImageView.image = [UIImage imageNamed:@"hd.png"];
+        self.sdhdImageView01.hidden = NO;
+        self.sdhdImageView01.image = [UIImage imageNamed:@"hd.png"];
     }
     else
     {
-        self.hdImageView.hidden = YES;
+        self.sdhdImageView01.hidden = NO;
+        self.sdhdImageView01.image = [UIImage imageNamed:@"sd.png"];
     }
     
-//    [self.progressView setProgressRatio:.9 animated:YES];
     
     
     NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingStartTime"]];
@@ -150,7 +134,9 @@
     
     NSString *sEnd = [NSString stringWithFormat:@"%@:%@", [endArr2 objectAtIndex:0], [endArr2 objectAtIndex:1]];
     
-    [self.progressView setProgressRatio:[[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd] animated:YES];
+    CGFloat progreeFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd];
+    
+    [self.progressView setProgressRatio:progreeFloat animated:YES];
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
@@ -163,7 +149,17 @@
     
     if ( nDay != [sStartDD intValue] )
     {
-        [self.progressView setProgressRatio:.0 animated:YES];
+        progreeFloat = 0;
+        [self.progressView setProgressRatio:progreeFloat animated:YES];
+    }
+    
+    if ( progreeFloat <= 0 )
+    {
+        self.progressView.hidden = YES;
+    }
+    else
+    {
+        self.progressView.hidden = NO;
     }
 }
 
