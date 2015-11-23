@@ -39,11 +39,11 @@
     [super viewDidLoad];
     
     // Gnb add
-    HomeGnbViewController *pGnbViewController = [[HomeGnbViewController alloc] initWithNibName:@"HomeGnbViewController" bundle:nil];
-    pGnbViewController.delegate = self;
-    [self addChildViewController:pGnbViewController];
-    [pGnbViewController didMoveToParentViewController:self];
-    [self.pGnbView addSubview:pGnbViewController.view];
+    self.pGnbViewController = [[HomeGnbViewController alloc] initWithNibName:@"HomeGnbViewController" bundle:nil];
+    self.pGnbViewController.delegate = self;
+    [self addChildViewController:self.pGnbViewController];
+    [self.pGnbViewController didMoveToParentViewController:self];
+    [self.pGnbView addSubview:self.pGnbViewController.view];
     
     // 추천 add
     RecommendMainViewController *pRecommendViewController = [[RecommendMainViewController alloc] initWithNibName:@"RecommendMainViewController" bundle:nil];
@@ -391,6 +391,62 @@
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
             
+        }break;
+    }
+}
+
+- (void)RecommendMainViewWithTag:(int)nTag WithCategoryId:(NSString *)categoryId WithViewerType:(NSString *)viewerType WithTitleName:(NSString *)titleName
+{
+    [self.pGnbViewController.pMenu01 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+    [self.pGnbViewController.pMenu02 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.pGnbViewController.pMenu03 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+    [self.pGnbViewController.pMenu04 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+    [self.pGnbViewController.pMenu05 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+    
+    [self bodySubViewsRemove];
+    
+    switch (nTag) {
+        case RECOMMEND_MAIN_VIEW_BTN_01:
+        {
+            // 인기순위 TOP20
+            MovieMainViewController *pViewController = [[MovieMainViewController alloc] initWithNibName:@"MovieMainViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = nil;
+            pViewController.sRotCategoryId = categoryId;
+            pViewController.sRotViewerType = viewerType;
+            pViewController.sRotTitleName = titleName;
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+        }break;
+        case RECOMMEND_MAIN_VIEW_BTN_02:
+        {
+            // 금주의 신작영화
+            MovieMainViewController *pViewController = [[MovieMainViewController alloc] initWithNibName:@"MovieMainViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = nil;
+            pViewController.sRotCategoryId = categoryId;
+            pViewController.sRotViewerType = viewerType;
+            pViewController.sRotTitleName = titleName;
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
+        }break;
+        case RECOMMEND_MAIN_VIEW_BTN_03:
+        {
+            // 이달의 추천
+            MovieMainViewController *pViewController = [[MovieMainViewController alloc] initWithNibName:@"MovieMainViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pDataDic = nil;
+            pViewController.sRotCategoryId = categoryId;
+            pViewController.sRotViewerType = viewerType;
+            pViewController.sRotTitleName = titleName;
+            pViewController.view.frame = CGRectMake(0, 0, self.pBodyView.frame.size.width, self.pBodyView.frame.size.height);
+            [self addChildViewController:pViewController];
+            [pViewController didMoveToParentViewController:self];
+            [self.pBodyView addSubview:pViewController.view];
         }break;
     }
 }

@@ -103,7 +103,16 @@
         // 반값
 //        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];    //
 //    }
-    if ( [sPromotionSticker isEqualToString:@"12"] )
+    if ( [sPromotionSticker isEqualToString:@"0"] )
+    {
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
+    }
+    else if ( [sPromotionSticker isEqualToString:@"11"] )
+    {
+        // 인기상승
+        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_08.png"]];
+    }
+    else if ( [sPromotionSticker isEqualToString:@"12"] )
     {
         // 추천
         [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_06.png"]];
@@ -154,6 +163,8 @@
                 [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_02.png"]];
             }
         }
+        
+        
     }
     
     // 19금 딤 처리

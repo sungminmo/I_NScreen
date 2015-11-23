@@ -136,17 +136,26 @@
         case RECOMMEND_MAIN_VIEW_BTN_01:
         {
             // 인기 순위
-            [self.delegate RecommendMainViewWithTag:RECOMMEND_MAIN_VIEW_BTN_01];
+            NSString *sCategoryId = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:0] objectForKey:@"categoryId"]];
+            NSString *sViewerType = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:0] objectForKey:@"categorytype"]];
+            NSString *sName = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:0] objectForKey:@"category_title"]];
+            [self.delegate RecommendMainViewWithTag:RECOMMEND_MAIN_VIEW_BTN_01 WithCategoryId:sCategoryId WithViewerType:sViewerType WithTitleName:sName];
         }break;
         case RECOMMEND_MAIN_VIEW_BTN_02:
         {
             // 금주의 신작 영화
-            
+            NSString *sCategoryId = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:1] objectForKey:@"categoryId"]];
+            NSString *sViewerType = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:1] objectForKey:@"categorytype"]];
+            NSString *sName = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:1] objectForKey:@"category_title"]];
+            [self.delegate RecommendMainViewWithTag:RECOMMEND_MAIN_VIEW_BTN_02 WithCategoryId:sCategoryId WithViewerType:sViewerType WithTitleName:sName];
         }break;
         case RECOMMEND_MAIN_VIEW_BTN_03:
         {
             // 이달의 추천 VOD
-            
+            NSString *sCategoryId = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:2] objectForKey:@"categoryId"]];
+            NSString *sViewerType = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:2] objectForKey:@"categorytype"]];
+            NSString *sName = [NSString stringWithFormat:@"%@", [[self.pGetAppInitialzeArr objectAtIndex:2] objectForKey:@"category_title"]];
+            [self.delegate RecommendMainViewWithTag:RECOMMEND_MAIN_VIEW_BTN_03 WithCategoryId:sCategoryId WithViewerType:sViewerType WithTitleName:sName];
         }break;
     }
 }

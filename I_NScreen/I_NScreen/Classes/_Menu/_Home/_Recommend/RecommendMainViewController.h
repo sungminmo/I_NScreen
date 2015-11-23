@@ -66,4 +66,6 @@ typedef enum : NSInteger {
 @optional
 - (void)RecommendMainViewWithTag:(int)nTag; // 더보기 갱신
 
+- (void)RecommendMainViewWithTag:(int)nTag WithCategoryId:(NSString *)categoryId WithViewerType:(NSString *)viewerType WithTitleName:(NSString *)titleName;
+
 @end

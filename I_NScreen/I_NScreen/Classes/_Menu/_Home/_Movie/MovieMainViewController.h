@@ -32,6 +32,9 @@
 @property (nonatomic) BOOL isItemCheck;     // 댑스 체크 no 이면 실시간 인기 순위, yes 이면 주간 인기 순위
 @property (nonatomic, strong) NSString *pViewerTypeStr;
 @property (nonatomic, strong) NSDictionary *pDataDic;
+@property (nonatomic, strong) NSString *sRotCategoryId; // 더보기시
+@property (nonatomic, strong) NSString *sRotViewerType; // 더보기시
+@property (nonatomic, strong) NSString *sRotTitleName;
 
 @property (nonatomic, weak) id <MovieMainViewDelegate>delegate;
 

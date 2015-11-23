@@ -29,8 +29,9 @@
 
 @interface RootViewController : CMBaseViewController <HomeGnbViewDelegate, LeftMenuViewDelegate, MovieMainViewDelegate, MainPopUpViewDelegate, AniKidsMainViewDelegate, AdultMainViewDelegate, TVReplayViewDelegate, RecommendMainViewDelegate, PairingRePwViewDelegate, PairingMainViewDelegate>
 
-@property (nonatomic, strong) IBOutlet UIView *pGnbView;
-@property (nonatomic, strong) IBOutlet UIView *pBodyView;
+@property (nonatomic, strong) HomeGnbViewController *pGnbViewController;
+@property (nonatomic, weak) IBOutlet UIView *pGnbView;
+@property (nonatomic, weak) IBOutlet UIView *pBodyView;
 
 @property (nonatomic, weak) id <RootViewDelegate>delegate;
 

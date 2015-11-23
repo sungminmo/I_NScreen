@@ -24,6 +24,9 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 @implementation MovieMainViewController
 @synthesize delegate;
 @synthesize pDataDic;
+@synthesize sRotCategoryId;
+@synthesize sRotViewerType;
+@synthesize sRotTitleName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -199,29 +202,58 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         }
         else
         {
-            NSString *sCategoryName = [NSString stringWithFormat:@"%@", [[self.pTwoDepthTreeDataArr objectAtIndex:0] objectForKey:@"categoryName"]];
-            
-            [self.pDepthBtn setTitle:sCategoryName forState:UIControlStateNormal];
-            
-            if ( [sViewerType isEqualToString:@"200"] )
+            if ( [self.sRotCategoryId length] != 0 && [self.sRotViewerType length] != 0 && [self.sRotTitleName length] != 0 )
             {
-                // 인기순위
-                self.pView21.hidden = NO;
-                self.pView22.hidden = YES;
+                // 더보기
+                [self.pDepthBtn setTitle:self.sRotTitleName forState:UIControlStateNormal];
                 
-                
-                self.isItemCheck = NO;
-                [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
+                if ( [self.sRotViewerType isEqualToString:@"200"] )
+                {
+                    // 인기순위
+                    self.pView21.hidden = NO;
+                    self.pView22.hidden = YES;
+                    
+                    
+                    self.isItemCheck = NO;
+                    [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
+                }
+                else
+                {
+                    // 그외
+                    self.pView21.hidden = YES;
+                    self.pView22.hidden = NO;
+                    
+                    [self requestWithElse3DepthWithViewerType:self.sRotViewerType WithCategoryId:self.sRotCategoryId];
+                }
+
             }
             else
             {
-                // 그외
-                self.pView21.hidden = YES;
-                self.pView22.hidden = NO;
+                NSString *sCategoryName = [NSString stringWithFormat:@"%@", [[self.pTwoDepthTreeDataArr objectAtIndex:0] objectForKey:@"categoryName"]];
                 
-                [self requestWithElse3DepthWithViewerType:sViewerType WithCategoryId:sCategoryId];
-            }
+                [self.pDepthBtn setTitle:sCategoryName forState:UIControlStateNormal];
+                
+                if ( [sViewerType isEqualToString:@"200"] )
+                {
+                    // 인기순위
+                    self.pView21.hidden = NO;
+                    self.pView22.hidden = YES;
+                    
+                    
+                    self.isItemCheck = NO;
+                    [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
+                }
+                else
+                {
+                    // 그외
+                    self.pView21.hidden = YES;
+                    self.pView22.hidden = NO;
+                    
+                    [self requestWithElse3DepthWithViewerType:sViewerType WithCategoryId:sCategoryId];
+                }
 
+            }
+           
         }
         
     }];
