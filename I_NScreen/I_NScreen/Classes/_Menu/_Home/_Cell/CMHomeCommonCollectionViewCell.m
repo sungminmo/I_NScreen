@@ -42,7 +42,24 @@
     self.sAssetId = @"";
     if ( [type isEqualToString:@"200"] ) {
     
-        self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"assetId"]];
+        
+        
+        NSArray *allKey = [data allKeys];
+        
+        
+        for ( NSString *key in allKey )
+        {
+            if ( [key isEqualToString:@"assetId"] )
+            {
+                self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"assetId"]];
+            }
+            
+            if ( [key isEqualToString:@"primaryAssetId"] )
+            {
+                self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"primaryAssetId"]];
+            }
+        }
+        
         
         NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [data objectForKey:@"publicationRight"]];
         

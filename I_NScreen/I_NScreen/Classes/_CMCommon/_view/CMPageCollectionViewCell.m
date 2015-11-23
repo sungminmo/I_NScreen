@@ -61,7 +61,7 @@
         }
         else
         {
-            // tv\\
+            // tv
             self.pOnlyTvImageView.hidden = NO;
         }
     }
