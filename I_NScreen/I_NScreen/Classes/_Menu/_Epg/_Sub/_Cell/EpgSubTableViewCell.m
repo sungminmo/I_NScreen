@@ -63,12 +63,33 @@
  *
  *  @param data 셀에 표출될 정보
  */
-- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex {
-    
+- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithCellState:(NSString *)sState
+{
     [self resetData];
     
     self.dataDic = data;
     self.nSelect = nIndex;
+
+    if ( [sState isEqualToString:@"시청예약"] )
+    {
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_watchrsv.png"];
+    }
+    else if ( [sState isEqualToString:@"녹화중"] )
+    {
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
+    }
+    else if ( [sState isEqualToString:@"녹화예약중"] )
+    {
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_recrsv.png"];
+    }
+    else
+    {
+        self.pStateImageView.hidden = YES;
+        self.pStateImageView.image = [UIImage imageNamed:@""];
+    }
     
     NSString *sStartTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingStartTime"]];
     NSString *sEndTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingEndTime"]];
