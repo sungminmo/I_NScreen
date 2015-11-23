@@ -58,9 +58,13 @@ static NSString* const CellIdentifier = @"regionSettingCell";
 
 - (void)loadAreaList {
     [NSMutableDictionary epgGetChannelAreaCompletion:^(NSArray *epgs, NSError *error) {
-        id obj = [epgs valueForKeyPath:@"areaItem"];
+        id obj = [[epgs objectAtIndex:0] valueForKeyPath:@"areaItem"];
+        
+        [self.regionData removeAllObjects];
+        
         if ([obj isKindOfClass:[NSArray class]]) {
-            [self.regionData addObjectsFromArray:[(NSArray*)obj copy]];
+//            [self.regionData addObjectsFromArray:[(NSArray*)obj copy]];
+            [self.regionData setArray:(NSArray *)obj];
         }
         else {
             [self.regionData addObject:(NSDictionary*)obj];
