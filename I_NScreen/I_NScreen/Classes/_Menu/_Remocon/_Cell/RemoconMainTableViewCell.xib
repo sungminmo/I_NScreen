@@ -34,7 +34,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ig9-3e-Hzi" userLabel="ImageView(방송사)">
                         <rect key="frame" x="52" y="35" width="54" height="22"/>
-                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="MgR-d8-Dbg"/>
                             <constraint firstAttribute="width" constant="54" id="xZ0-Uw-MZx"/>
@@ -84,7 +84,7 @@
                             <action selector="onBtnClicked:" destination="gbk-08-g76" eventType="touchUpInside" id="khj-4y-Rmm"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kQs-rh-6YI">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kQs-rh-6YI">
                         <rect key="frame" x="267" y="31" width="52" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="kQs-rh-6YI" secondAttribute="height" multiplier="13:4" id="9uM-Na-Z19"/>

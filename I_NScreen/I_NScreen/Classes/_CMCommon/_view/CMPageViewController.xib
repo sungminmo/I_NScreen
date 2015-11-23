@@ -71,6 +71,6 @@
         </view>
     </objects>
     <resources>
-        <image name="banner_empty.png" width="396" height="180"/>
+        <image name="banner_empty.png" width="190" height="86"/>
     </resources>
 </document>

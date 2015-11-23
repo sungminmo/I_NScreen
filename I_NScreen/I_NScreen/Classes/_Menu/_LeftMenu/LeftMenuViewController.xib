@@ -28,6 +28,12 @@
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQh-C2-n09">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <connections>
+                        <action selector="onCloseBtnClick:" destination="-1" eventType="touchUpInside" id="dIg-jg-MqB"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cmu-dD-wPi">
                     <rect key="frame" x="0.0" y="0.0" width="243" height="568"/>
                     <subviews>
@@ -367,9 +373,13 @@
                 <constraint firstItem="Fq5-3v-gXh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0HD-v0-8oh"/>
                 <constraint firstItem="Cmu-dD-wPi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="62w-qx-JqT"/>
                 <constraint firstItem="Fq5-3v-gXh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bn4-q0-dez"/>
+                <constraint firstAttribute="trailing" secondItem="pQh-C2-n09" secondAttribute="trailing" id="MPd-Gf-Ri6"/>
+                <constraint firstAttribute="bottom" secondItem="pQh-C2-n09" secondAttribute="bottom" id="Syk-9M-oSk"/>
                 <constraint firstAttribute="trailing" secondItem="Fq5-3v-gXh" secondAttribute="trailing" id="UG9-cx-AUd"/>
                 <constraint firstItem="Cmu-dD-wPi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Wwx-OX-3ME"/>
+                <constraint firstItem="pQh-C2-n09" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jFp-KA-yKZ"/>
                 <constraint firstAttribute="bottom" secondItem="Fq5-3v-gXh" secondAttribute="bottom" id="qTR-tB-Hvf"/>
+                <constraint firstItem="pQh-C2-n09" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w5O-YP-zOd"/>
                 <constraint firstAttribute="bottom" secondItem="Cmu-dD-wPi" secondAttribute="bottom" id="wSK-bL-aAM"/>
             </constraints>
             <variation key="default">
