@@ -22,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *pChannelLbl;
 @property (nonatomic, weak) IBOutlet UILabel *pTitleLbl;
 @property (nonatomic, weak) IBOutlet UILabel *pTimeLbl;
+@property (nonatomic, weak) IBOutlet UIImageView *pStateImageView;
 
 @property (nonatomic, strong) NSDictionary *pData;
 @property (weak, nonatomic) IBOutlet CMProgressView *progressView;
@@ -41,7 +42,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar
+- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar WithWatchCheck:(BOOL)isWatch WithRecordingCheck:(BOOL)isRecording WithReservCheck:(BOOL)isReservCheck
 {
     if ( index != 0 )
     {
@@ -50,6 +51,27 @@
     else
     {
         self.topLineView.hidden = NO;
+    }
+    
+    if ( isWatch == YES )
+    {
+        // 시청예약중
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_watchrsv.png"];
+    }
+    
+    if ( isRecording == YES )
+    {
+        // 녹화중
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
+    }
+    
+    if ( isReservCheck == YES )
+    {
+        // 녹화예약중
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_recrsv"];
     }
     
     self.nIndex = index;
@@ -61,9 +83,49 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelLogoImg"]];
     [self.pChannelLogoImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     
-    self.pAllImageView.hidden = index%2 == 0 ? true : false;
-    self.pHdImageView.hidden = index%2 == 0 ? true : false;
+//    self.pAllImageView.hidden = index%2 == 0 ? true : false;
+//    self.pHdImageView.hidden = index%2 == 0 ? true : false;
     
+    NSString *sProgramGrade = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramGrade"]];
+    NSString *sChannelInfo = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelInfo"]];
+    
+    
+    if ( [sProgramGrade isEqualToString:@"모두 시청"] )
+    {
+        self.pAllImageView.image = [UIImage imageNamed:@"all.png"];
+    }
+    else if ( [sProgramGrade isEqualToString:@"19세 이상"] )
+    {
+        self.pAllImageView.image = [UIImage imageNamed:@"19.png"];
+    }
+    else if ( [sProgramGrade isEqualToString:@"15세 이상"] )
+    {
+        self.pAllImageView.image = [UIImage imageNamed:@"15.png"];
+    }
+    else if ( [sProgramGrade isEqualToString:@"12세 이상"] )
+    {
+        self.pAllImageView.image = [UIImage imageNamed:@"12.png"];
+    }
+    else if ( [sProgramGrade isEqualToString:@"7세 이상"] )
+    {
+        self.pAllImageView.image = [UIImage imageNamed:@"7.png"];
+    }
+    else
+    {
+        self.pAllImageView.image = [UIImage imageNamed:@""];
+    }
+    
+    
+    if ( [sChannelInfo isEqualToString:@"HD"] )
+    {
+        // HD
+        self.pHdImageView.image = [UIImage imageNamed:@"hd.png"];
+    }
+    else
+    {
+        // SD
+        self.pHdImageView.image = [UIImage imageNamed:@"sd.png"];
+    }
     
     
     
@@ -92,9 +154,17 @@
         self.pStarImageView.image = [UIImage imageNamed:@"ch_unpick.png"];
     }
 
+    CGFloat progressFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd];
     
-    [self.progressView setProgressRatio:[[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd] animated:YES];
-    
+    if ( progressFloat <= 0 )
+    {
+        self.progressView.hidden = YES;
+    }
+    else
+    {
+        self.progressView.hidden = NO;
+        [self.progressView setProgressRatio:progressFloat animated:YES];
+    }
     
 //    [self.progressView setProgressRatio:.5 animated:YES];
 }

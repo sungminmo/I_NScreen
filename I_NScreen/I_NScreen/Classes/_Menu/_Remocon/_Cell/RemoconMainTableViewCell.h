@@ -14,8 +14,10 @@
 
 @property (nonatomic, weak) id <RemoconMainTableViewDelegate>delegate;
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar;
+//- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar;
 - (IBAction)onBtnClicked:(UIButton *)btn;
+
+- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar WithWatchCheck:(BOOL)isWatch WithRecordingCheck:(BOOL)isRecording WithReservCheck:(BOOL)isReservCheck;
 
 @end
 

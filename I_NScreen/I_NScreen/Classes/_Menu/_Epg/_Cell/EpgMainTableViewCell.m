@@ -24,7 +24,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar
+- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar WithWatchCheck:(BOOL)isWatch WithRecordingCheck:(BOOL)isRecording WithReservCheck:(BOOL)isReservCheck
 {
     if ( index != 0 )
     {
@@ -39,6 +39,27 @@
     
 //    self.pChannelLbl.text = [NSString stringWithFormat:@"%d", index];
 //    self.pChannelTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
+    
+    if ( isWatch == YES )
+    {
+        // 시청예약중
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_watchrsv.png"];
+    }
+    
+    if ( isRecording == YES )
+    {
+        // 녹화중
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
+    }
+    
+    if ( isReservCheck == YES )
+    {
+        // 녹화예약중
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_recrsv"];
+    }
     
     ////
     self.pData = dic;
@@ -64,6 +85,14 @@
     else if ( [sProgramGrade isEqualToString:@"15세 이상"] )
     {
         self.pGradeImageView.image = [UIImage imageNamed:@"15.png"];
+    }
+    else if ( [sProgramGrade isEqualToString:@"12세 이상"] )
+    {
+        self.pGradeImageView.image = [UIImage imageNamed:@"12.png"];
+    }
+    else if ( [sProgramGrade isEqualToString:@"7세 이상"] )
+    {
+        self.pGradeImageView.image = [UIImage imageNamed:@"7.png"];
     }
     else
     {
@@ -116,8 +145,17 @@
         self.pStarImageView.image = [UIImage imageNamed:@"ch_unpick.png"];
     }
 
-    [self.progressView setProgressRatio:[[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sNStartTime WithEndTime:sNEndTime] animated:YES];
-
+    CGFloat prosFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sNStartTime WithEndTime:sNEndTime];
+    
+    if ( prosFloat <= 0 )
+    {
+        self.progressView.hidden = YES;
+    }
+    else
+    {
+        self.progressView.hidden = NO;
+        [self.progressView setProgressRatio:prosFloat animated:YES];
+    }
 }
 
 - (IBAction)onBtnClicked:(UIButton *)btn

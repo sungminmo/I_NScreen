@@ -23,6 +23,7 @@
 @property (nonatomic, weak) IBOutlet UILabel     *pChannelTimeLbl;       // 체널 시간
 @property (nonatomic, weak) IBOutlet UILabel     *pChannelLbl;           // 체널
 @property (nonatomic, weak) IBOutlet UIButton    *pStarBtn;
+@property (nonatomic, weak) IBOutlet UIImageView *pStateImageView;  // 시청예약인지, 녹화중인지, 녹화예약인지
 @property (nonatomic) int nIndex;
 
 @property (nonatomic, strong) NSDictionary *pData;
@@ -31,7 +32,7 @@
 
 @property (nonatomic, weak) id <EpgMainTableViewDelegate>delegate;
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar;
+- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithStar:(BOOL)isStar WithWatchCheck:(BOOL)isWatch WithRecordingCheck:(BOOL)isRecording WithReservCheck:(BOOL)isReservCheck;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 

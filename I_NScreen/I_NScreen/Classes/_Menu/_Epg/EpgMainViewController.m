@@ -10,11 +10,16 @@
 #import "NSMutableDictionary+EPG.h"
 #import "UIAlertView+AFNetworking.h"
 #import "CMDBDataManager.h"
+#import "NSMutableDictionary+REMOCON.h"
+#import "NSMutableDictionary+PVR.h"
+#import "CMWatchReserveList.h"
 
 @interface EpgMainViewController ()
 
 @property (nonatomic, strong) NSMutableArray *pListDataArr;
 @property (nonatomic) int nGenreCode;
+@property (nonatomic, strong) NSMutableArray *recordingchannelArr;  // 녹화중인지 배열
+@property (nonatomic, strong) NSMutableArray *pRecordReservListArr; // 녹화 예약 목록 배열
 @end
 
 @implementation EpgMainViewController
@@ -40,6 +45,8 @@
     
     // 전체
     [self requestWithChannelListFull];
+    [self requestWithGetSetTopStatus];
+    [self requestWithGetRecordReserveList];
 }
 
 #pragma mark - 초기화
@@ -60,6 +67,8 @@
 - (void)setViewDataInit
 {
     self.pListDataArr = [[NSMutableArray alloc] init];
+    self.pRecordReservListArr = [[NSMutableArray alloc] init];
+    self.recordingchannelArr = [[NSMutableArray alloc] init];
 }
 
 - (IBAction)onBtnClick:(UIButton *)btn;
@@ -115,8 +124,7 @@
         }
     }
 
-    
-    [pCell setListData:[self.pListDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithStar:isCheck];
+    [pCell setListData:[self.pListDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithStar:isCheck WithWatchCheck:[self getWatchReserveIndex:(int)indexPath.row] WithRecordingCheck:[self getRecordingChannelIndex:(int)indexPath.row] WithReservCheck:[self getRecordReservListIndex:(int)indexPath.row]];
     
     return pCell;
 }
@@ -182,7 +190,9 @@
             }
         }
         
-        [self.pTableView reloadData];
+        [self requestWithGetSetTopStatus];
+        
+//        [self.pTableView reloadData];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -202,10 +212,133 @@
         [self.pListDataArr removeAllObjects];
         [self.pListDataArr setArray:[[epgs objectAtIndex:0] objectForKey:@"channelItem"]];
         
+//        [self.pTableView reloadData];
+        [self requestWithGetSetTopStatus];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 리모컨 상태 체크 전문( 녹화중인지 체크 )
+- (void)requestWithGetSetTopStatus
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary remoconGetSetTopStatusCompletion:^(NSArray *pairing, NSError *error) {
+        
+        DDLogError(@"리모컨 상태 체크 = [%@]", pairing);
+        
+        if ( [pairing count] == 0 )
+            return;
+        
+        NSString *sRecordingchannel1 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel1"]];
+        NSString *sRecordingchannel2 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel2"]];
+        
+        [self.recordingchannelArr removeAllObjects];
+        
+        [self.recordingchannelArr addObject:sRecordingchannel1];
+        [self.recordingchannelArr addObject:sRecordingchannel2];
+        
+//        [self requestWithChannelSchedule];
+        DDLogError(@"녹화중 체크 = [%@]", self.recordingchannelArr );
+        
+        [self requestWithGetRecordReserveList];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+
+#pragma mark - 녹화 예약 목록 가져오는 전문
+- (void)requestWithGetRecordReserveList
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary pvrGetrecordReservelistCompletion:^(NSArray *pvr, NSError *error) {
+        
+        DDLogError(@"녹화 예약 목록 = [%@]", pvr);
+        if ( [pvr count] == 0 )
+            return;
+        
+        [self.pRecordReservListArr removeAllObjects];
+        
+        NSObject *itemObject = [[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"];
+        
+        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        {
+            [self.pRecordReservListArr addObject:(NSDictionary *)itemObject];
+        }
+        else
+        {
+            [self.pRecordReservListArr setArray:(NSArray *)itemObject];
+        }
+        
+        DDLogError(@"녹화예약목록2 = [%@]", self.pRecordReservListArr);
+        
         [self.pTableView reloadData];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 시청예약 체크
+- (BOOL)getWatchReserveIndex:(int)index
+{
+    NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"programTitle"]];
+    NSString *sStartTime = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"programBroadcastingStartTime"]];
+    NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"scheduleSeq"]];
+    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"programId"]];
+    NSString *sHd = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"programHD"]];
+    
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    BOOL isCheck = NO;
+    for ( CMWatchReserveList *info in [manager getWatchReserveList] )
+    {
+        if ( [sTilte isEqualToString:info.programTitleStr] &&
+            [sStartTime isEqualToString:info.programBroadcastingStartTimeStr] &&
+            [sSeq isEqualToString:info.scheduleSeqStr] &&
+            [sProgramId isEqualToString:info.programIdStr] &&
+            [sHd isEqualToString:info.programHDStr] )
+        {
+            isCheck = YES;
+        }
+    }
+    
+    return isCheck;
+}
+
+#pragma mark - 녹화중 체크
+- (BOOL)getRecordingChannelIndex:(int)index
+{
+    // 체널 id 로 체크
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"ChannelId"]];
+    
+    BOOL isCheck = NO;
+    for ( NSString *str in self.recordingchannelArr )
+    {
+        if ( [str isEqualToString:sChannelId] )
+        {
+            isCheck = YES;
+        }
+    }
+    return isCheck;
+}
+
+#pragma mark - 녹화 예약 체크
+- (BOOL)getRecordReservListIndex:(int)index
+{
+    NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"RecordStartTime"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"ChannelId"]];
+
+    BOOL isCheck = NO;
+    for ( NSDictionary *dic in self.pRecordReservListArr )
+    {
+        NSString *sDicRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
+        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
+        
+        if ( [sRecordStartTime isEqualToString:sDicRecordStartTime] &&
+            [sChannelId isEqualToString:sDicChannelId] )
+        {
+            isCheck = YES;
+        }
+    }
+    return isCheck;
 }
 
 #pragma mark - 댈라개아트
@@ -262,5 +395,7 @@
 {
     [self requestWithChannelListFull];
 }
+
+
 
 @end

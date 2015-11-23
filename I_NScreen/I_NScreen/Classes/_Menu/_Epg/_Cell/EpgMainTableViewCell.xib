@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -13,10 +13,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="65.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDZ-Ez-DEr" userLabel="Image View(윗라인)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDZ-Ez-DEr" userLabel="Image View(윗라인)">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
                         <animations/>
                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,7 +35,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-D9-yjk" userLabel="ImageView(방송사)">
                         <rect key="frame" x="46" y="34" width="54" height="22"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.81960784313725488" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="9w0-UC-VpW"/>
                             <constraint firstAttribute="height" constant="22" id="J4M-ye-YAO"/>
@@ -90,6 +90,12 @@
                             <action selector="onBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="d6N-PE-9XO"/>
                         </connections>
                     </button>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_watchrsv.png" translatesAutoresizingMaskIntoConstraints="NO" id="PZk-Be-ZbU">
+                        <rect key="frame" x="262" y="32" width="52" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="PZk-Be-ZbU" secondAttribute="height" multiplier="13:4" id="REf-KX-YFH"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <animations/>
                 <constraints>
@@ -102,13 +108,16 @@
                     <constraint firstAttribute="centerY" secondItem="Pph-0l-wkh" secondAttribute="centerY" id="Eqz-G8-yVb"/>
                     <constraint firstItem="isx-vz-pGC" firstAttribute="centerY" secondItem="Ubp-yI-QDM" secondAttribute="centerY" id="J3S-Mn-vlM"/>
                     <constraint firstAttribute="trailing" secondItem="Pph-0l-wkh" secondAttribute="trailing" constant="8" id="JDg-yB-QOm"/>
+                    <constraint firstItem="g44-b1-trP" firstAttribute="top" secondItem="PZk-Be-ZbU" secondAttribute="bottom" constant="8" id="La5-i3-pWd"/>
                     <constraint firstItem="4xS-dT-gFd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OPA-wE-wsJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="g44-b1-trP" secondAttribute="trailing" constant="45" id="QXc-YS-wAb"/>
+                    <constraint firstItem="PZk-Be-ZbU" firstAttribute="leading" secondItem="isx-vz-pGC" secondAttribute="trailing" constant="8" id="WLt-gr-ooz"/>
                     <constraint firstItem="ZvC-bE-fIL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="7" id="YEg-G7-wh2"/>
                     <constraint firstItem="isx-vz-pGC" firstAttribute="leading" secondItem="Ubp-yI-QDM" secondAttribute="trailing" constant="4" id="YYW-Yd-7pe"/>
                     <constraint firstItem="g44-b1-trP" firstAttribute="top" secondItem="ZvC-bE-fIL" secondAttribute="bottom" constant="8" id="YaB-2r-od7"/>
                     <constraint firstItem="2xh-D9-eir" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Zg0-Kh-yyi"/>
                     <constraint firstItem="Ox3-mQ-9qf" firstAttribute="leading" secondItem="ZvC-bE-fIL" secondAttribute="leading" id="cKZ-Gt-nqu"/>
+                    <constraint firstItem="PZk-Be-ZbU" firstAttribute="top" secondItem="uDZ-Ez-DEr" secondAttribute="bottom" constant="31" id="e00-cc-kOh"/>
                     <constraint firstItem="M6F-b4-mPP" firstAttribute="leading" secondItem="4xS-dT-gFd" secondAttribute="trailing" constant="16" id="eJN-yO-s4u"/>
                     <constraint firstItem="ZvC-bE-fIL" firstAttribute="top" secondItem="Ox3-mQ-9qf" secondAttribute="bottom" constant="2" id="hmC-Ta-qkn"/>
                     <constraint firstAttribute="bottom" secondItem="2xh-D9-eir" secondAttribute="bottom" constant="1" id="j5o-TT-i64"/>
@@ -130,6 +139,7 @@
                 <outlet property="pLogoImageView" destination="xfc-D9-yjk" id="gTT-rh-5oB"/>
                 <outlet property="pStarBtn" destination="2xh-D9-eir" id="ewh-zK-9ng"/>
                 <outlet property="pStarImageView" destination="4xS-dT-gFd" id="ZoZ-GA-uOR"/>
+                <outlet property="pStateImageView" destination="PZk-Be-ZbU" id="P6z-ds-SL7"/>
                 <outlet property="progressView" destination="g44-b1-trP" id="Q0b-5C-fwu"/>
             </connections>
             <point key="canvasLocation" x="340" y="375"/>
@@ -139,6 +149,7 @@
         <image name="all.png" width="29" height="16"/>
         <image name="ch_unpick.png" width="26" height="25"/>
         <image name="hd.png" width="29" height="16"/>
+        <image name="icon_watchrsv.png" width="52" height="16"/>
         <image name="indicator.png" width="7" height="13"/>
     </resources>
 </document>
