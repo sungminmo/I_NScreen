@@ -391,7 +391,14 @@
         
 //        if ( ![sViewerType isEqualToString:@"60"] ) // 뷰 타입 60 제외 60 이제 안버려도됨 
 //        {
-            NSString *sTwoDepthLeaf = [NSString stringWithFormat:@"%@", [twoDic objectForKey:@"leaf"]];
+            NSString *sTwoLeaf = @"0";
+            NSString *sTwoViewrType = [twoDic objectForKey:@"viewerType"];
+            if ( [[twoDic objectForKey:@"leaf"] isEqualToString:@"1"] || ([[twoDic objectForKey:@"leaf"] isEqualToString:@"0"] && [sTwoViewrType isEqualToString:@"30"]) )
+            {
+                sTwoLeaf = @"1";
+            }
+        
+            NSString *sTwoDepthLeaf = [NSString stringWithFormat:@"%@", sTwoLeaf];
             NSString *sCategoryId = [NSString stringWithFormat:@"%@", [twoDic objectForKey:@"categoryId"]];
             
             NSMutableDictionary *twoDepthDic = [[NSMutableDictionary alloc] init];
@@ -410,7 +417,7 @@
             [twoDepthDic setObject:[twoDic objectForKey:@"seriesLink"] forKey:@"seriesLink"];
             [twoDepthDic setObject:[twoDic objectForKey:@"vodType"] forKey:@"vodType"];
             [twoDepthDic setObject:[twoDic objectForKey:@"parentCategoryId"] forKey:@"parentCategoryId"];
-            [twoDepthDic setObject:[twoDic objectForKey:@"leaf"] forKey:@"leaf"];
+            [twoDepthDic setObject:sTwoLeaf forKey:@"leaf"];
             [twoDepthDic setObject:[twoDic objectForKey:@"categoryId"] forKey:@"categoryId"];
             [twoDepthDic setObject:@"2" forKey:@"depth"];
             [twoDepthDic setObject:@"false" forKey:@"isOpen"];
@@ -423,7 +430,14 @@
                 // 서브 데이터 있음
                 for ( NSDictionary *threeDic in [self getSearchWithArr:totalArr WithSearchStr:sCategoryId WithKey:@"parentCategoryId"] )
                 {
-                    NSString *sThreeDepthLeaf = [NSString stringWithFormat:@"%@", [threeDic objectForKey:@"leaf"]];
+                    NSString *sThreeLeaf = @"0";
+                    NSString *sThreeViewrType = [threeDic objectForKey:@"viewerType"];
+                    if ( [[threeDic objectForKey:@"leaf"] isEqualToString:@"1"] || ([[threeDic objectForKey:@"leaf"] isEqualToString:@"0"] && [sThreeViewrType isEqualToString:@"30"]) )
+                    {
+                        sThreeLeaf = @"1";
+                    }
+                    
+                    NSString *sThreeDepthLeaf = [NSString stringWithFormat:@"%@", sThreeLeaf];
                     NSString *sThreeCategoryId = [NSString stringWithFormat:@"%@", [threeDic objectForKey:@"categoryId"]];
                     
                     NSMutableDictionary *threeDepthDic = [[NSMutableDictionary alloc] init];
@@ -442,7 +456,7 @@
                     [threeDepthDic setObject:[threeDic objectForKey:@"seriesLink"] forKey:@"seriesLink"];
                     [threeDepthDic setObject:[threeDic objectForKey:@"vodType"] forKey:@"vodType"];
                     [threeDepthDic setObject:[threeDic objectForKey:@"parentCategoryId"] forKey:@"parentCategoryId"];
-                    [threeDepthDic setObject:[threeDic objectForKey:@"leaf"] forKey:@"leaf"];
+                    [threeDepthDic setObject:sThreeLeaf forKey:@"leaf"];
                     [threeDepthDic setObject:[threeDic objectForKey:@"categoryId"] forKey:@"categoryId"];
                     [threeDepthDic setObject:@"3" forKey:@"depth"];
                     [threeDepthDic setObject:@"false" forKey:@"isOpen"];
@@ -456,6 +470,14 @@
                         for ( NSDictionary *fourDic in [self getSearchWithArr:totalArr WithSearchStr:sThreeCategoryId WithKey:@"parentCategoryId"] )
                         {
                             NSMutableDictionary *fourDepthDic = [[NSMutableDictionary alloc] init];
+                            
+                            NSString *sfourLeaf = @"0";
+                            NSString *sfourViewrType = [fourDic objectForKey:@"viewerType"];
+                            if ( [[fourDic objectForKey:@"leaf"] isEqualToString:@"1"] || ([[fourDic objectForKey:@"leaf"] isEqualToString:@"0"] && [sfourViewrType isEqualToString:@"30"]) )
+                            {
+                                sfourLeaf = @"1";
+                            }
+                            
                             [fourDepthDic setObject:[fourDic objectForKey:@"subCategoryPresentationType"] forKey:@"subCategoryPresentationType"];
                             [fourDepthDic setObject:[fourDic objectForKey:@"categoryName"] forKey:@"categoryName"];
                             [fourDepthDic setObject:[fourDic objectForKey:@"subCategoryVisible"] forKey:@"subCategoryVisible"];
@@ -471,7 +493,7 @@
                             [fourDepthDic setObject:[fourDic objectForKey:@"seriesLink"] forKey:@"seriesLink"];
                             [fourDepthDic setObject:[fourDic objectForKey:@"vodType"] forKey:@"vodType"];
                             [fourDepthDic setObject:[fourDic objectForKey:@"parentCategoryId"] forKey:@"parentCategoryId"];
-                            [fourDepthDic setObject:[fourDic objectForKey:@"leaf"] forKey:@"leaf"];
+                            [fourDepthDic setObject:sfourLeaf forKey:@"leaf"];
                             [fourDepthDic setObject:[fourDic objectForKey:@"categoryId"] forKey:@"categoryId"];
                             [fourDepthDic setObject:@"4" forKey:@"depth"];
                             [fourDepthDic setObject:@"false" forKey:@"isOpen"];

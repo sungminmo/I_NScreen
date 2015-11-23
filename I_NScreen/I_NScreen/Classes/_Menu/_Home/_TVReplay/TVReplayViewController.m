@@ -418,9 +418,20 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         
         DDLogError(@"카테고리형 포스터 리스트 = [%@]", vod);
         
-        NSArray* contentGroup = (NSArray*)vod[0][@"contentGroupList"][@"contentGroup"];
+//        NSArray* contentGroup = (NSArray*)vod[0][@"contentGroupList"][@"contentGroup"];
+//        
+//        [self.pThreeDepthElseDataArr addObjectsFromArray:contentGroup];
+        NSObject *itemObjet = vod[0][@"contentGroupList"][@"contentGroup"];
         
-        [self.pThreeDepthElseDataArr addObjectsFromArray:contentGroup];
+        if ( [itemObjet isKindOfClass:[NSDictionary class]] )
+        {
+            [self.pThreeDepthElseDataArr addObject:itemObjet];
+        }
+        else
+        {
+            [self.pThreeDepthElseDataArr addObjectsFromArray:(NSArray *)itemObjet];
+        }
+        
         
         [self.pCollectionView22 reloadData];
     }];
