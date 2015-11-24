@@ -28,6 +28,7 @@
 @synthesize pAssetIdStr;
 @synthesize pFileNameStr;
 @synthesize delegate;
+@synthesize pEpisodePeerExistence;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -766,7 +767,11 @@ static int tvFontSize = 15;
     
     [self setReviewRatingWithTotalCount:nReviewRatingTotal WithCount:nReviewRatingCount];
     
-    if ( [sRating isEqualToString:@"19"] || [sRating isEqualToString:@"19세"])
+    if ( [sRating isEqualToString:@"19"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"19.png"]];
+    }
+    else if ( [sRating isEqualToString:@"19세"] )
     {
         [self.pRatingImageView setImage:[UIImage imageNamed:@"19.png"]];
     }
@@ -778,9 +783,12 @@ static int tvFontSize = 15;
     {
         [self.pRatingImageView setImage:[UIImage imageNamed:@"12.png"]];
     }
+    else if ( [sRating isEqualToString:@"7"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"7.png"]];
+    }
     else
     {
-        // all?
         [self.pRatingImageView setImage:[UIImage imageNamed:@"all.png"]];
     }
     

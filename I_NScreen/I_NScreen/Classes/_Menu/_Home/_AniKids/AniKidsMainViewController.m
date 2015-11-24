@@ -513,7 +513,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
      [self.navigationController pushViewController:pViewController animated:YES];*/
 }
 
-- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult
+- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistentce:(NSString *)episodePeerExistence
 {
     if ( isAdult == YES )
     {
@@ -522,6 +522,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         {
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = sAssetId;
+            pViewController.pEpisodePeerExistence = episodePeerExistence;
             [self.navigationController pushViewController:pViewController animated:YES];
         }
         else
@@ -543,6 +544,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     {
         VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
         pViewController.pAssetIdStr = sAssetId;
+        pViewController.pEpisodePeerExistence = episodePeerExistence;
         [self.navigationController pushViewController:pViewController animated:YES];
     }
 }

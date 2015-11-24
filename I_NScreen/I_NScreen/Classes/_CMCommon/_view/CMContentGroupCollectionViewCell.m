@@ -26,15 +26,41 @@
     self.nIndex = (index + 1) + (nPage * 4);
     
     // tv 전용인지 아닌지
-    if ( [[dic objectForKey:@"publicationRight"] isEqualToString:@"2"] )
+    NSArray *keyArr = [dic allKeys];
+    BOOL isCheck = NO;
+    for ( NSString *key in keyArr )
     {
-        // tv모바일
-        self.pOnlyTvImageView.hidden = YES;
+        if ( [key isEqualToString:@"mobilePublicationRight"] )
+        {
+            isCheck = YES;
+        }
+    }
+    
+    if ( isCheck == YES )
+    {
+        if ( [[dic objectForKey:@"mobilePublicationRight"] isEqualToString:@"1"] )
+        {
+            // 모바일
+            self.pOnlyTvImageView.hidden = YES;
+        }
+        else
+        {
+            // tv
+            self.pOnlyTvImageView.hidden = NO;
+        }
     }
     else
     {
-        // tv
-        self.pOnlyTvImageView.hidden = NO;
+        if ( [[dic objectForKey:@"publicationRight"] isEqualToString:@"2"] )
+        {
+            // tv모바일
+            self.pOnlyTvImageView.hidden = YES;
+        }
+        else
+        {
+            // tv
+            self.pOnlyTvImageView.hidden = NO;
+        }
     }
     
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"primaryAssetId"]];

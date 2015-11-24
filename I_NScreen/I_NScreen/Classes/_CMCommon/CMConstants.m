@@ -306,6 +306,12 @@ NSString* const CNM_OPEN_API_INTERFACE_GetSeriesAssetList = @"getSeriesAssetList
 NSString* const CNM_OPEN_API_INTERFACE_AddWishItem = @"addWishItem";
 
 
+// getEpisodePeerListByContentGroupId
+NSString* const CNM_OPEN_API_INTERFACE_getEpisodePeerListByContentGroupId = @"getEpisodePeerListByContentGroupId";
+
+// getAssetListByEpisodePeerId
+NSString* const CNM_OPEN_API_INTERFACE_getAssetListByEpisodePeerId = @"getAssetListByEpisodePeerId";
+
 // 5. Search
 // SearchChannel
 NSString* const CNM_OPEN_API_INTERFACE_SearchChannel = @"SearchChannel";

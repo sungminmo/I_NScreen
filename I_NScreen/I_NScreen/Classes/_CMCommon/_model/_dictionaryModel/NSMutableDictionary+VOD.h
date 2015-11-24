@@ -87,5 +87,10 @@
 
 + (NSURLSessionDataTask *)vodGetSeriesAssetListWithSeriesId:(NSString *)seriesId WithCategoryId:(NSString *)categoryId WithAssetProfile:(NSString *)assetProfile completion:(void (^)(NSArray *vod, NSError *error))block;
 
+
++ (NSURLSessionDataTask *)vodGetEpisodePeerListByContentGroupId:(NSString *)contentGroupId completion:(void (^)(NSArray *vodDetail, NSError *error))block;
+
++ (NSURLSessionDataTask *)vodGetAssetListByEpisodePeerId:(NSString *)episodePeerId completion:(void (^)(NSArray *vodDetail, NSError *error))block;
+
 @end
 

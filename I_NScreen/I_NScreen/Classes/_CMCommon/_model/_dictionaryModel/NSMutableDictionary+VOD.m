@@ -75,4 +75,14 @@
     return [[CMNetworkManager sharedInstance] vodGetSeriesAssetListWithSeriesId:seriesId WithCategoryId:categoryId WithAssetProfile:assetProfile completion:block];
 }
 
++ (NSURLSessionDataTask *)vodGetEpisodePeerListByContentGroupId:(NSString *)contentGroupId completion:(void (^)(NSArray *vodDetail, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetEpisodePeerListByContentGroupId:contentGroupId completion:block];
+}
+
++ (NSURLSessionDataTask *)vodGetAssetListByEpisodePeerId:(NSString *)episodePeerId completion:(void (^)(NSArray *vodDetail, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetAssetListByEpisodePeerId:episodePeerId completion:block];
+}
+
 @end

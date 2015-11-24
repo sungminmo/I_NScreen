@@ -89,8 +89,7 @@
 
 @property (nonatomic, strong) NSString *pAssetIdStr;        // 어셋 아이디
 @property (nonatomic, strong) NSString *pFileNameStr;       // 파일 name
-
-@property (readwrite, retain) MPMoviePlayerController *pMoviePlayer;
+@property (nonatomic, strong) NSString *pEpisodePeerExistence;      // 0 이면 기존 로직 그대로 , 1 이면 getEpisodePeerlistByContentGroupId -> getAssetListByEpisodePeerId 를 탄다
 
 @property (nonatomic, weak) id<VodDetailMainViewDelegate>delegate;
 

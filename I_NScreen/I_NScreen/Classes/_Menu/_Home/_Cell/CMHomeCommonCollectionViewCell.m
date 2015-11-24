@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *sAssetId;
 @property (nonatomic, strong) IBOutlet UIImageView *pDimImageView;  // 성인 딤 처리 이미지
 @property (nonatomic) BOOL isAdultCheck;
+@property (nonatomic, strong) NSString *sEpisodePeerExistence;  // 1이면 시리즈 나머진 단일
 @end
 
 @implementation CMHomeCommonCollectionViewCell
@@ -40,7 +41,8 @@
 - (void)setListData:(NSDictionary*)data WithViewerType:(NSString*)type {
     
     self.sAssetId = @"";
-    if ( [type isEqualToString:@"200"] ) {
+    self.sEpisodePeerExistence = @"0";
+    if ( [type isEqualToString:@"200"] ) {  // 왜 200 ???
     
         
         
@@ -58,22 +60,52 @@
             {
                 self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"primaryAssetId"]];
             }
+            
+            if ( [key isEqualToString:@"episodePeerExistence"] )
+            {
+                self.sEpisodePeerExistence = [NSString stringWithFormat:@"%@", [data objectForKey:@"episodePeerExistence"]];
+            }
         }
         
-        
-        NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [data objectForKey:@"publicationRight"]];
-        
         // tv 전용인지 아닌지
-        if ( [sPublicationRight isEqualToString:@"2"] )
+        NSArray *keyArr = [data allKeys];
+        BOOL isCheck = NO;
+        for ( NSString *key in keyArr )
         {
-            // tv모바일
-            self.pOnlyTvImageView.hidden = YES;
+            if ( [key isEqualToString:@"mobilePublicationRight"] )
+            {
+                isCheck = YES;
+            }
+        }
+        
+        if ( isCheck == YES )
+        {
+            if ( [[data objectForKey:@"mobilePublicationRight"] isEqualToString:@"1"] )
+            {
+                // 모바일
+                self.pOnlyTvImageView.hidden = YES;
+            }
+            else
+            {
+                // tv
+                self.pOnlyTvImageView.hidden = NO;
+            }
         }
         else
         {
-            // tv
-            self.pOnlyTvImageView.hidden = NO;
+            if ( [[data objectForKey:@"publicationRight"] isEqualToString:@"2"] )
+            {
+                // tv모바일
+                self.pOnlyTvImageView.hidden = YES;
+            }
+            else
+            {
+                // tv
+                self.pOnlyTvImageView.hidden = NO;
+            }
         }
+
+        
         
         
         NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];
@@ -108,7 +140,7 @@
 
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    [self.delegate CMHomeCommonCollectionViewDidItemSelectWithAssetId:self.sAssetId WithAdultCheck:self.isAdultCheck];
+    [self.delegate CMHomeCommonCollectionViewDidItemSelectWithAssetId:self.sAssetId WithAdultCheck:self.isAdultCheck WithEpisodePeerExistentce:self.sEpisodePeerExistence];
 }
 
 @end

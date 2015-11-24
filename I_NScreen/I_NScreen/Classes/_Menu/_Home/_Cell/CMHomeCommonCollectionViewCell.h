@@ -24,6 +24,6 @@
 @protocol CMHomeCommonCollectionViewCellDelegate <NSObject>
 
 @optional
-- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult;
+- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistentce:(NSString *)episodePeerExistence;
 
 @end

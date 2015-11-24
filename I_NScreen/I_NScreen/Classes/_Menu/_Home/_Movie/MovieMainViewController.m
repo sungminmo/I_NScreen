@@ -322,112 +322,11 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 - (void)requestWithElse3DepthWithViewerType:(NSString *)viewerType WithCategoryId:(NSString *)categoryId
 {
     [self.pThreeDepthElseDataArr removeAllObjects];
-    
-//    if ( [viewerType isEqualToString:@"20"] || [viewerType isEqualToString:@"30"] || [viewerType isEqualToString:@"1031"] )
-//    {
-//        // 카테고리형 포스터 리스트 getContentGroupList
-//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:@"2" WithCategoryId:categoryId completion:^(NSArray *vod, NSError *error) {
-//            
-//            DDLogError(@"카테고리형 포스터 리스트 = [%@]", vod);
-//            
-//            NSArray* contentGroup = (NSArray*)vod[0][@"contentGroupList"][@"contentGroup"];
-//            
-//            [self.pThreeDepthElseDataArr addObjectsFromArray:contentGroup];
-//            
-//            [self.pCollectionView22 reloadData];
-//        }];
-//        
-//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//    }
-//    if ( [viewerType isEqualToString:@"41"] )
-//    {
-//        // 묶음 리스트 getBundleProductList
-//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetBundleProductListWithProductProfile:@"1" completion:^(NSArray *vod, NSError *error) {
-//            
-//            DDLogError(@"묶음 상품 리스트 = [%@]", vod);
-//            
-//            NSArray* product = (NSArray*)vod[0][@"productList"][@"product"];
-//            
-//            [self.pThreeDepthElseDataArr addObjectsFromArray:product];
-//            
-//            [self.pCollectionView22 reloadData];
-//        }];
-//        
-//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//    }
-//    if ( [viewerType isEqualToString:@"1021"] || [viewerType isEqualToString:@"60"] )
-//    {
-//        // 마니아 추천 vod getAssetList
-//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetInfoWithAssetId:categoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
-//            
-//            DDLogError(@"마니아 추천 = [%@]", vod);
-//            
-//            NSArray* asset = (NSArray*)vod[0][@"assetList"][@"asset"];
-//            
-//            [self.pThreeDepthElseDataArr addObjectsFromArray:asset];
-//            
-//            [self.pCollectionView22 reloadData];
-//        }];
-//        
-//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//    }
-//    if ( [viewerType isEqualToString:@"1311"] )
-//    {
-//        // 맞춤형 추천 리스트 recommendAssetBySubscriber
-//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodRecommendAssetBySubscriberWithAssetProfile:@"7" block:^(NSArray *vod, NSError *error) {
-//           
-//            DDLogError(@"맞춤형 추천 리스트 = [%@]", vod);
-//            // 샘플 데이터 없음
-//            NSArray* recommend = (NSArray*)vod[0][@"assetList"][@"asset"];
-//            
-//            [self.pThreeDepthElseDataArr addObjectsFromArray:recommend];
-//            
-//            [self.pCollectionView22 reloadData];
-//        }];
-//        
-//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//    
-//    }
-//    if ( [viewerType isEqualToString:@"50"] )
-//    {
-//        // 이벤트
-//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetEventListCompletion:^(NSArray *pairing, NSError *error) {
-//            
-//            DDLogError(@"이벤트 = [%@]", pairing);
-//            NSArray* event = (NSArray*)pairing[0][@"eventList"][@"event"];
-//            
-//            [self.pThreeDepthElseDataArr addObjectsFromArray:event];
-//            
-//            [self.pCollectionView22 reloadData];
-//        }];
-//        
-//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//    }
-//    if ( [viewerType isEqualToString:@"60"] || [viewerType isEqualToString:@"1021"] )
-//    {
-//        // 베너 md 추천
-//        NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetListWithCategoryId:self.pCategoryId WithAssetProfile:@"7" completion:^(NSArray *vod, NSError *error) {
-//            
-//            DDLogError(@"베너 = [%@]", vod);
-//            
-//            NSArray* banner = (NSArray*)vod[0][@"assetList"][@"asset"];
-//            
-//            [self.pThreeDepthElseDataArr addObjectsFromArray:banner];
-//            
-//            [self.pCollectionView22 reloadData];
-//        }];
-//        
-//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//    }
-    // 카테고리형 포스터 리스트 getContentGroupList
-    
+
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetContentGroupListWithContentGroupProfile:@"2" WithCategoryId:categoryId completion:^(NSArray *vod, NSError *error) {
         
         DDLogError(@"카테고리형 포스터 리스트 = [%@]", vod);
         
-//        NSArray* contentGroup = (NSArray*)vod[0][@"contentGroupList"][@"contentGroup"];
-//        
-//        [self.pThreeDepthElseDataArr addObjectsFromArray:contentGroup];
         NSObject *itemObjet = vod[0][@"contentGroupList"][@"contentGroup"];
         
         if ( [itemObjet isKindOfClass:[NSDictionary class]] )
@@ -444,18 +343,6 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-    
-//    if ( [viewerType isEqualToString:@"1051"] )
-//    {
-//        // 종료 이벤트
-//        
-//    }
-    // vod 구매목록, vod 시청목록 안했음,,,연관추천(구매)문서에 없음....연관 추천(가입자)문서에 없음 종료 이벤트 안함
-//    else
-//    {
-//        // !! TEST BJK error 테스트
-//       [SIAlertView alert:@"에러" message:@"없는 viewerType 입니다." button:@"확인"];
-//    }ㄴ
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -563,7 +450,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
      [self.navigationController pushViewController:pViewController animated:YES];*/
 }
 
-- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult
+- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistentce:(NSString *)episodePeerExistence
 {
     if ( isAdult == YES )
     {
@@ -573,6 +460,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             // 인증 받았으면
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = sAssetId;
+            pViewController.pEpisodePeerExistence = episodePeerExistence;
             [self.navigationController pushViewController:pViewController animated:YES];
         }
         else
@@ -593,6 +481,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     {
         VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
         pViewController.pAssetIdStr = sAssetId;
+        pViewController.pEpisodePeerExistence = episodePeerExistence;
         [self.navigationController pushViewController:pViewController animated:YES];
     }
 }

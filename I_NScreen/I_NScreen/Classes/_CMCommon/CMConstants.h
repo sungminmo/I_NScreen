@@ -385,6 +385,12 @@ extern NSString* const CNM_OPEN_API_INTERFACE_GetSeriesAssetList;
 // addWishItem
 extern NSString* const CNM_OPEN_API_INTERFACE_AddWishItem;
 
+// getEpisodePeerListByContentGroupId
+extern NSString* const CNM_OPEN_API_INTERFACE_getEpisodePeerListByContentGroupId;
+
+// getAssetListByEpisodePeerId
+extern NSString* const CNM_OPEN_API_INTERFACE_getAssetListByEpisodePeerId;
+
 // 5. Search
 // SearchChannel
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchChannel;
