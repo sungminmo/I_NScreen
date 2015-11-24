@@ -18,7 +18,8 @@
 //@property (nonatomic, strong) NSMutableArray *pBuyTypeArr;
 @property (nonatomic, strong) NSMutableArray *pProductArr;
 @property (nonatomic, strong) NSMutableArray *pCouponBalanceArr;
-@property (nonatomic, strong) NSString *sSeriesLink;
+@property (nonatomic, strong) NSString *sSeriesLink;        // 시리즈 인지 체크
+@property (nonatomic, strong) NSMutableArray *pDiscountCouponMasterIdArr;   // 할인 카드 유무
 
 @end
 
@@ -80,6 +81,20 @@
         [self.pProductArr setArray:(NSArray *)itemObject];
     }
     
+    
+    // 할인 카드 데이터
+    self.pDiscountCouponMasterIdArr = [[NSMutableArray alloc] init];
+    NSObject *saleObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
+    
+    if ( [saleObject isKindOfClass:[NSDictionary class]] )
+    {
+        [self.pDiscountCouponMasterIdArr addObject:saleObject];
+    }
+    else
+    {
+        [self.pDiscountCouponMasterIdArr setArray:(NSArray *)saleObject];
+    }
+    
 }
 
 #pragma mark - 화면 뷰 초기화
@@ -123,13 +138,13 @@
         {
             self.pStep1SubView02TitleLbl.text = @"단일 상품 구매";
         }
-        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
     // 묶음
     else if ( [sProductType isEqualToString:@"Bundle"] )
     {
         self.pStep1SubView02TitleLbl.text = @"묶음 할인상품 구매";
-        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
     // 월정액 시리즈
     else if ( [sProductType isEqualToString:@"SVOD"] )
@@ -137,14 +152,21 @@
         NSString *sSvod = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"productName"]];
         NSArray *svodArr = [sSvod componentsSeparatedByString:@":"];
         self.pStep1SubView02TitleLbl.text = [NSString stringWithFormat:@"%@", [svodArr objectAtIndex:0]];
-        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원 / 월", sPrice];
+        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원 / 월[부가세 별도]", sPrice];
     }
     // 시리즈 전체 회차 구매
     else if ( [sProductType isEqualToString:@"Package"] )
     {
         self.pStep1SubView02TitleLbl.text = @"시리즈 전체회차 구매";
-        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
+        
     }
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.tag = VOD_BUY_VIEW_BTN_01;
+    [self onBtnClicked:btn];
+    
+    btn.tag = VOD_BUY_VIEW_BTN_04;
+    [self onBtnClicked:btn];
 }
 
 - (void)setStep1SubView03Init
@@ -168,13 +190,13 @@
         {
             self.pStep1SubView03TitleLbl.text = @"단일 상품 구매";
         }
-        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
     // 묶음
     else if ( [sProductType isEqualToString:@"Bundle"] )
     {
         self.pStep1SubView03TitleLbl.text = @"묶음 할인상품 구매";
-        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
     // 월정액 시리즈
     else if ( [sProductType isEqualToString:@"SVOD"] )
@@ -182,13 +204,13 @@
         NSString *sSvod = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productName"]];
         NSArray *svodArr = [sSvod componentsSeparatedByString:@":"];
         self.pStep1SubView03TitleLbl.text = [NSString stringWithFormat:@"%@", [svodArr objectAtIndex:0]];
-        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원 / 월", sPrice];
+        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원 / 월[부가세 별도]", sPrice];
     }
     // 시리즈 전체 회차 구매
     else if ( [sProductType isEqualToString:@"Package"] )
     {
         self.pStep1SubView03TitleLbl.text = @"시리즈 전체회차 구매";
-        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
 
 }
@@ -213,13 +235,13 @@
         {
             self.pStep1SubView04TitleLbl.text = @"단일 상품 구매";
         }
-        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
     // 묶음
     else if ( [sProductType isEqualToString:@"Bundle"] )
     {
         self.pStep1SubView04TitleLbl.text = @"묶음 할인상품 구매";
-        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
     // 월정액 시리즈
     else if ( [sProductType isEqualToString:@"SVOD"] )
@@ -227,15 +249,43 @@
         NSString *sSvod = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productName"]];
         NSArray *svodArr = [sSvod componentsSeparatedByString:@":"];
         self.pStep1SubView04TitleLbl.text = [NSString stringWithFormat:@"%@", [svodArr objectAtIndex:0]];
-        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원 / 월", sPrice];
+        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원 / 월[부가세 별도]", sPrice];
     }
     // 시리즈 전체 회차 구매
     else if ( [sProductType isEqualToString:@"Package"] )
     {
         self.pStep1SubView04TitleLbl.text = @"시리즈 전체회차 구매";
-        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
 
+}
+
+- (void)setViewHiddenWithType:(NSString *)type
+{
+    if ( [type isEqualToString:@"RVOD"] || [type isEqualToString:@"Package"] )
+    {
+        self.pStep2SubView02.hidden = NO;
+        self.pStep2SubView03.hidden = NO;
+        self.pStep2SubView04.hidden = NO;
+        
+        self.pNoBuyLbl01.hidden = YES;
+        self.pNoBuyLbl02.hidden = YES;
+        self.pNoBuyLbl03.hidden = YES;
+        self.pNoBuyLbl04.hidden = YES;
+        self.pNoBuyLbl05.hidden = YES;
+    }
+    else
+    {
+        self.pStep2SubView02.hidden = YES;
+        self.pStep2SubView03.hidden = YES;
+        self.pStep2SubView04.hidden = YES;
+        
+        self.pNoBuyLbl01.hidden = NO;
+        self.pNoBuyLbl02.hidden = NO;
+        self.pNoBuyLbl03.hidden = NO;
+        self.pNoBuyLbl04.hidden = NO;
+        self.pNoBuyLbl05.hidden = NO;
+    }
 }
 
 - (IBAction)onBtnClicked:(UIButton *)btn
@@ -243,15 +293,127 @@
     switch ([btn tag]) {
         case VOD_BUY_VIEW_BTN_01:
         {
+            [self.pStep1SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+            [self.pStep1SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            [self.pStep1SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             
+            self.pStep1SubView02TitleLbl.textColor = [UIColor whiteColor];
+            self.pStep1SubView02MoneyLbl.textColor = [UIColor whiteColor];
+            
+            self.pStep1SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep1SubView03MoneyLbl.textColor = [UIColor blackColor];
+            
+            self.pStep1SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep1SubView04MoneyLbl.textColor = [UIColor blackColor];
+            
+            NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"productType"]];
+            
+            [self setViewHiddenWithType:sProductType];
         }break;
         case VOD_BUY_VIEW_BTN_02:
         {
+            [self.pStep1SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            [self.pStep1SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+            [self.pStep1SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             
+            self.pStep1SubView02TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep1SubView02MoneyLbl.textColor = [UIColor blackColor];
+            
+            self.pStep1SubView03TitleLbl.textColor = [UIColor whiteColor];
+            self.pStep1SubView03MoneyLbl.textColor = [UIColor whiteColor];
+            
+            self.pStep1SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep1SubView04MoneyLbl.textColor = [UIColor blackColor];
+            
+            NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productType"]];
+            
+            [self setViewHiddenWithType:sProductType];
         }break;
         case VOD_BUY_VIEW_BTN_03:
         {
+            [self.pStep1SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            [self.pStep1SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            [self.pStep1SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
             
+            self.pStep1SubView02TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep1SubView02MoneyLbl.textColor = [UIColor blackColor];
+            
+            self.pStep1SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep1SubView03MoneyLbl.textColor = [UIColor blackColor];
+            
+            self.pStep1SubView04TitleLbl.textColor = [UIColor whiteColor];
+            self.pStep1SubView04MoneyLbl.textColor = [UIColor whiteColor];
+            
+            NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productType"]];
+            
+           [self setViewHiddenWithType:sProductType];
+            
+        }break;
+        case VOD_BUY_VIEW_BTN_04:
+        {
+            [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+            [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            
+            self.pStep2SubView02TitleLbl.textColor = [UIColor whiteColor];
+            self.pStep2SubView02MoneyLbl.textColor = [UIColor whiteColor];
+            self.pStep2SubView02ContentLbl.textColor = [UIColor whiteColor];
+            self.pStep2SubView02SaleImageView.image = [UIImage imageNamed:@"icon_discount_select.png"];
+            
+            self.pStep2SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep2SubView03MoneyLbl.textColor = [UIColor blackColor];
+            self.pStep2SubView03ContentLbl01.textColor = [UIColor blackColor];
+            self.pStep2SubView03ContentLbl02.textColor = [UIColor blackColor];
+            
+            self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+            self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+            self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+            
+            
+        }break;
+        case VOD_BUY_VIEW_BTN_05:
+        {
+            [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            
+            self.pStep2SubView02TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep2SubView02MoneyLbl.textColor = [UIColor blackColor];
+            self.pStep2SubView02ContentLbl.textColor = [UIColor blackColor];
+            self.pStep2SubView02SaleImageView.image = [UIImage imageNamed:@"icon_discount_normal.png"];
+            
+            self.pStep2SubView03TitleLbl.textColor = [UIColor whiteColor];
+            self.pStep2SubView03MoneyLbl.textColor = [UIColor whiteColor];
+            self.pStep2SubView03ContentLbl01.textColor = [UIColor whiteColor];
+            self.pStep2SubView03ContentLbl02.textColor = [UIColor whiteColor];
+            
+            self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+            self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+            self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+
+        }break;
+        case VOD_BUY_VIEW_BTN_06:
+        {
+            [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+            
+            self.pStep2SubView02TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep2SubView02MoneyLbl.textColor = [UIColor blackColor];
+            self.pStep2SubView02ContentLbl.textColor = [UIColor blackColor];
+            self.pStep2SubView02SaleImageView.image = [UIImage imageNamed:@"icon_discount_normal.png"];
+            
+            self.pStep2SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep2SubView03MoneyLbl.textColor = [UIColor blackColor];
+            self.pStep2SubView03ContentLbl01.textColor = [UIColor blackColor];
+            self.pStep2SubView03ContentLbl02.textColor = [UIColor blackColor];
+            
+            self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+            self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+            self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+            self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
         }break;
     }
 }
@@ -280,10 +442,26 @@
             [self.pCouponBalanceArr setArray:(NSArray *)itemObject];
         }
         
-        
+        [self setCouponBalanceInit];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+- (void)setCouponBalanceInit
+{
+    for ( NSDictionary *dic in self.pCouponBalanceArr )
+    {
+        NSString *disMasterIdDic = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountCouponMasterId"]];
+        
+        for ( NSString *subStr in self.pDiscountCouponMasterIdArr )
+        {
+            if ( [subStr isEqualToString:disMasterIdDic] )
+            {
+                self.pStep2SubView02SaleImageView.hidden = NO;
+            }
+        }
+    }
 }
 
 /*!<

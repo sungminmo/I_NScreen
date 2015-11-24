@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodBuyViewController">
@@ -34,6 +35,7 @@
                 <outlet property="pStep2SubView02Btn" destination="1Jv-ib-a4H" id="ALe-Rg-dI8"/>
                 <outlet property="pStep2SubView02ContentLbl" destination="A2F-B6-da3" id="fEB-pq-pjG"/>
                 <outlet property="pStep2SubView02MoneyLbl" destination="RCb-IY-C83" id="u6a-Rz-3ex"/>
+                <outlet property="pStep2SubView02SaleImageView" destination="Vle-xh-sca" id="riD-3c-9FT"/>
                 <outlet property="pStep2SubView02TitleLbl" destination="qOJ-FC-b7d" id="Kd2-EC-Gu7"/>
                 <outlet property="pStep2SubView03" destination="ubZ-Yp-6dv" id="qQc-5j-UDi"/>
                 <outlet property="pStep2SubView03Btn" destination="Npq-2X-pXG" id="AcZ-9O-YdP"/>
@@ -593,6 +595,22 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_discount_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vle-xh-sca">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Vle-xh-sca" secondAttribute="height" multiplier="1:1" id="cDU-Rk-egX"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="cDU-Rk-egX"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="cDU-Rk-egX"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -601,7 +619,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="1Jv-ib-a4H" secondAttribute="bottom" id="7a4-TD-YsZ"/>
                                                 <constraint firstItem="RCb-IY-C83" firstAttribute="leading" secondItem="zeb-1G-9Nl" secondAttribute="leading" constant="46" id="C26-2A-EXO"/>
                                                 <constraint firstAttribute="trailing" secondItem="1Jv-ib-a4H" secondAttribute="trailing" id="EbX-rj-SGT"/>
+                                                <constraint firstItem="Vle-xh-sca" firstAttribute="top" secondItem="zeb-1G-9Nl" secondAttribute="top" id="G1P-Uz-obJ"/>
                                                 <constraint firstAttribute="height" constant="56" id="GSe-AE-sdD"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vle-xh-sca" secondAttribute="trailing" id="Ive-6c-nhY"/>
                                                 <constraint firstItem="qOJ-FC-b7d" firstAttribute="leading" secondItem="zeb-1G-9Nl" secondAttribute="leading" constant="46" id="ReT-mL-LXJ"/>
                                                 <constraint firstItem="1Jv-ib-a4H" firstAttribute="leading" secondItem="zeb-1G-9Nl" secondAttribute="leading" id="VhK-0j-7Jr"/>
                                                 <constraint firstItem="A2F-B6-da3" firstAttribute="top" secondItem="zeb-1G-9Nl" secondAttribute="top" constant="18" id="ayr-Gj-j0g"/>
@@ -611,7 +631,19 @@
                                                 <constraint firstItem="qOJ-FC-b7d" firstAttribute="top" secondItem="zeb-1G-9Nl" secondAttribute="top" constant="8" id="uqt-IT-bC0"/>
                                                 <constraint firstAttribute="bottom" secondItem="RCb-IY-C83" secondAttribute="bottom" constant="9" id="xVZ-lf-PY6"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="Vle-xh-sca"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="G1P-Uz-obJ"/>
+                                                    <exclude reference="Ive-6c-nhY"/>
+                                                </mask>
+                                            </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="Vle-xh-sca"/>
+                                                </mask>
                                                 <mask key="constraints">
                                                     <include reference="GSe-AE-sdD"/>
                                                     <include reference="7a4-TD-YsZ"/>
@@ -626,6 +658,8 @@
                                                     <include reference="ayr-Gj-j0g"/>
                                                     <exclude reference="kMS-Ap-Noe"/>
                                                     <include reference="tGH-qd-R2n"/>
+                                                    <include reference="G1P-Uz-obJ"/>
+                                                    <include reference="Ive-6c-nhY"/>
                                                 </mask>
                                             </variation>
                                         </view>
@@ -1132,6 +1166,7 @@
         <image name="fp2btn_cancel_press.png" width="372" height="89"/>
         <image name="fp2btn_ok_normal.png" width="372" height="89"/>
         <image name="fp2btn_ok_press.png" width="372" height="89"/>
+        <image name="icon_discount_select.png" width="30" height="30"/>
         <image name="purchase_dimmed.png" width="350" height="56"/>
         <image name="purchase_normal.png" width="350" height="56"/>
         <image name="purchase_select.jpg" width="355" height="56"/>

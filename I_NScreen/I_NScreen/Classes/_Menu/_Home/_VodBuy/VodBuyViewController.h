@@ -56,6 +56,7 @@ typedef enum : NSInteger {
 @property (nonatomic, weak) IBOutlet UILabel *pStep2SubView02MoneyLbl;
 @property (nonatomic, weak) IBOutlet UILabel *pStep2SubView02ContentLbl;
 @property (nonatomic, weak) IBOutlet UIButton *pStep2SubView02Btn;
+@property (nonatomic, weak) IBOutlet UIImageView *pStep2SubView02SaleImageView;
 
 @property (nonatomic, weak) IBOutlet UIView *pStep2SubView03;
 @property (nonatomic, weak) IBOutlet UILabel *pStep2SubView03TitleLbl;
