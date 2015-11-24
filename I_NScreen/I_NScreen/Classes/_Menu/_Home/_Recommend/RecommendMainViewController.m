@@ -760,7 +760,7 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
-- (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult
+- (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistence:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId
 {
     if ( isAdult == YES )
     {
@@ -769,6 +769,8 @@
         {
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = assetId;
+            pViewController.pEpisodePeerExistence = episodePeerExistence;
+            pViewController.pContentGroupId = contentGroupId;
             pViewController.delegate = self;
             [self.navigationController pushViewController:pViewController animated:YES];
         }
@@ -791,6 +793,8 @@
     {
         VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
         pViewController.pAssetIdStr = assetId;
+        pViewController.pEpisodePeerExistence = episodePeerExistence;
+        pViewController.pContentGroupId = contentGroupId;
         pViewController.delegate = self;
         [self.navigationController pushViewController:pViewController animated:YES];
 
@@ -802,6 +806,8 @@
     // 배너는 성인 컨텐츠가 안내려오는가보네 구분 데이터가 없네
     VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
     pViewController.pAssetIdStr = sAssetId;
+    pViewController.pEpisodePeerExistence = @"0";
+    pViewController.pContentGroupId = @"";
     pViewController.delegate = self;
     [self.navigationController pushViewController:pViewController animated:YES];
 

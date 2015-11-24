@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *pDimImageView;  // 성인 딤 처리 이미지
 @property (nonatomic) BOOL isAdultCheck;
 @property (nonatomic, strong) NSString *sEpisodePeerExistence;  // 1이면 시리즈 나머진 단일
+@property (nonatomic, strong) NSString *sContentGroupId;
 @end
 
 @implementation CMHomeCommonCollectionViewCell
@@ -41,8 +42,9 @@
 - (void)setListData:(NSDictionary*)data WithViewerType:(NSString*)type {
     
     self.sAssetId = @"";
+    self.sContentGroupId = @"";
     self.sEpisodePeerExistence = @"0";
-    if ( [type isEqualToString:@"200"] ) {  // 왜 200 ???
+//    if ( [type isEqualToString:@"200"] ) {  // 왜 200 ???
     
         
         
@@ -65,7 +67,12 @@
             {
                 self.sEpisodePeerExistence = [NSString stringWithFormat:@"%@", [data objectForKey:@"episodePeerExistence"]];
             }
-        }
+            
+            if ( [key isEqualToString:@"contentGroupId"] )
+            {
+                self.sContentGroupId = [NSString stringWithFormat:@"%@", [data objectForKey:@"contentGroupId"]];
+            }
+//        }
         
         // tv 전용인지 아닌지
         NSArray *keyArr = [data allKeys];
@@ -105,9 +112,6 @@
             }
         }
 
-        
-        
-        
         NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];
         [self.posterImageView setImageWithURL:imageUrl];
         
@@ -140,7 +144,7 @@
 
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    [self.delegate CMHomeCommonCollectionViewDidItemSelectWithAssetId:self.sAssetId WithAdultCheck:self.isAdultCheck WithEpisodePeerExistentce:self.sEpisodePeerExistence];
+    [self.delegate CMHomeCommonCollectionViewDidItemSelectWithAssetId:self.sAssetId WithAdultCheck:self.isAdultCheck WithEpisodePeerExistentce:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
 }
 
 @end

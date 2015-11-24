@@ -254,6 +254,8 @@
             {
                 VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
                 pViewController.pAssetIdStr = sAssetId;
+                pViewController.pEpisodePeerExistence = @"0";
+                pViewController.pContentGroupId = @"";
                 pViewController.delegate = self;
                 [self.navigationController pushViewController:pViewController animated:YES];
             }
@@ -276,6 +278,8 @@
         {
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = sAssetId;
+            pViewController.pEpisodePeerExistence = @"0";
+            pViewController.pContentGroupId = @"";
             pViewController.delegate = self;
             [self.navigationController pushViewController:pViewController animated:YES];
             

@@ -487,33 +487,9 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    /*NSDictionary* data;
-     
-     if ( collectionView == self.pCollectionView21 )
-     {
-     if ( self.isItemCheck == NO )
-     {
-     data = self.pThreeDepthDailyDataArr[indexPath.row];
-     
-     }
-     else
-     {
-     data = self.pThreeDepthWeeklyDataArr[indexPath.row];
-     }
-     }
-     else
-     {
-     data = self.pThreeDepthElseDataArr[indexPath.row];
-     }
-     
-     NSString* assetId = data[@"assetId"];
-     
-     VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-     pViewController.pAssetIdStr = assetId;
-     [self.navigationController pushViewController:pViewController animated:YES];*/
 }
 
-- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistentce:(NSString *)episodePeerExistence
+- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistentce:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId
 {
     if ( isAdult == YES )
     {
@@ -523,6 +499,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = sAssetId;
             pViewController.pEpisodePeerExistence = episodePeerExistence;
+            pViewController.pContentGroupId = contentGroupId;
             [self.navigationController pushViewController:pViewController animated:YES];
         }
         else
@@ -545,6 +522,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
         pViewController.pAssetIdStr = sAssetId;
         pViewController.pEpisodePeerExistence = episodePeerExistence;
+        pViewController.pContentGroupId = contentGroupId;
         [self.navigationController pushViewController:pViewController animated:YES];
     }
 }

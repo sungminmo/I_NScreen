@@ -36,6 +36,6 @@
 @protocol CMPageCollectionViewCellDelegate <NSObject>
 
 @optional
-- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult;
+- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistence:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId;
 
 @end

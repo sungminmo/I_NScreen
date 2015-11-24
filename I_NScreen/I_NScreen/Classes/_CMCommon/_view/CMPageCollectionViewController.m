@@ -103,9 +103,9 @@
     
 }
 
-- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult
+- (void)CMPageCollectionCellBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistence:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId
 {
-    [self.delegate CMPageCollectionBtnClicked:nSelect WithAssetId:assetId WithAdultCheck:isAdult];
+    [self.delegate CMPageCollectionBtnClicked:nSelect WithAssetId:assetId WithAdultCheck:isAdult WithEpisodePeerExistence:episodePeerExistence WithContentGroupId:contentGroupId];
 }
 
 @end

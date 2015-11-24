@@ -9,6 +9,12 @@
 #import "CMPageCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
 
+@interface CMPageCollectionViewCell ()
+@property (nonatomic, strong) NSString *sEpisodePeerExistence;
+@property (nonatomic, strong) NSString *sContentGroupId;
+
+@end
+
 @implementation CMPageCollectionViewCell
 @synthesize pTitleLbl, pThumImageView;
 @synthesize nIndex;
@@ -25,6 +31,9 @@
 {
     self.nIndex = (index + 1) + (nPage * 8);
     
+    self.sEpisodePeerExistence = @"0";
+    self.sContentGroupId = @"";
+    
     // tv 전용인지 아닌지
      NSArray *keyArr = [dic allKeys];
     
@@ -34,6 +43,16 @@
         if ( [key isEqualToString:@"mobilePublicationRight"] )
         {
             isCheck = YES;
+        }
+        
+        if ( [key isEqualToString:@"episodePeerExistence"] )
+        {
+            self.sEpisodePeerExistence = [NSString stringWithFormat:@"%@", [dic objectForKey:@"episodePeerExistence"]];
+        }
+        
+        if ( [key isEqualToString:@"contentGroupId"] )
+        {
+            self.sContentGroupId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"contentGroupId"]];
         }
     }
     
@@ -93,16 +112,6 @@
     
     [self.pStickerImageView setImage:[UIImage imageNamed:@""]];
     
-//    if ( [sPromotionSticker isEqualToString:@"0"] )
-//    {
-//        // new
-//        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
-//    }
-//    if ( [sPromotionSticker isEqualToString:@"11"] )
-//    {
-        // 반값
-//        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];    //
-//    }
     if ( [sPromotionSticker isEqualToString:@"0"] )
     {
         [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
@@ -194,7 +203,7 @@
 
 - (IBAction)onBtnClicked:(id)sender
 {
-    [self.delegate CMPageCollectionCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithAdultCheck:self.isAdultCheck];
+    [self.delegate CMPageCollectionCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithAdultCheck:self.isAdultCheck WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
 }
 
 @end

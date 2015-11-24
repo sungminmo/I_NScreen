@@ -23,6 +23,6 @@
 @protocol CMContentGroupCollectionViewDelegate <NSObject>
 
 @optional
-- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint WithAdultCheck:(BOOL)isAdult;
+- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistence:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId;
 
 @end

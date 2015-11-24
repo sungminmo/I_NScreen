@@ -689,9 +689,11 @@ static const CGFloat pageSize = 28;
     
     NSString *sRatinting = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"rating"]];
     NSString *sAssetId = @"";
+    NSString *sContentGroupId = @"";
     
     NSArray *allKey = [[self.dataArray objectAtIndex:indexPath.row] allKeys];
     
+    NSString *sEpisodePeerExistence = @"0";
     
     for ( NSString *key in allKey )
     {
@@ -704,6 +706,16 @@ static const CGFloat pageSize = 28;
         {
             sAssetId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"primaryAssetId"]];
         }
+        
+        if ( [key isEqualToString:@"episodePeerExistence"] )
+        {
+            sEpisodePeerExistence = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"episodePeerExistence"]];
+        }
+        
+        if ( [key isEqualToString:@"contentGroupId"] )
+        {
+            sContentGroupId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"contentGroupId"]];
+        }
     }
     
     if ( [sRatinting isEqualToString:@"19"] )
@@ -714,6 +726,8 @@ static const CGFloat pageSize = 28;
             // 인증 받았으면
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = sAssetId;
+            pViewController.pEpisodePeerExistence = sEpisodePeerExistence;
+            pViewController.pContentGroupId = sContentGroupId;
             [self.navigationController pushViewController:pViewController animated:YES];
         }
         else
@@ -734,6 +748,8 @@ static const CGFloat pageSize = 28;
     {
         VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
         pViewController.pAssetIdStr = sAssetId;
+        pViewController.pEpisodePeerExistence = sEpisodePeerExistence;
+        pViewController.pContentGroupId = sContentGroupId;
         [self.navigationController pushViewController:pViewController animated:YES];
     }
     

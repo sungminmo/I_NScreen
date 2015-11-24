@@ -9,6 +9,13 @@
 #import "CMContentGroupCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
 
+@interface CMContentGroupCollectionViewCell ()
+
+@property (nonatomic, strong) NSString *sEpisodePeerExistence;
+@property (nonatomic, strong) NSString *sContentGroupId;
+
+@end
+
 @implementation CMContentGroupCollectionViewCell
 @synthesize pTitleLbl, pThumImageView;
 @synthesize nIndex;
@@ -25,6 +32,8 @@
 {
     self.nIndex = (index + 1) + (nPage * 4);
     
+    self.sEpisodePeerExistence = @"0";
+    self.sContentGroupId = @"";
     // tv 전용인지 아닌지
     NSArray *keyArr = [dic allKeys];
     BOOL isCheck = NO;
@@ -33,6 +42,16 @@
         if ( [key isEqualToString:@"mobilePublicationRight"] )
         {
             isCheck = YES;
+        }
+        
+        if ( [key isEqualToString:@"episodePeerExistence"] )
+        {
+            self.sEpisodePeerExistence = [NSString stringWithFormat:@"%@", [dic objectForKey:@"episodePeerExistence"]];
+        }
+        
+        if ( [key isEqualToString:@"contentGroupId"] )
+        {
+            self.sContentGroupId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"contentGroupId"]];
         }
     }
     
@@ -95,7 +114,7 @@
 
 - (IBAction)onBtnClicked:(id)sender
 {
-    [self.delegate CMContentGroupCollectionViewCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithSeriesLink:self.pSeriesLintStr WithAdultCheck:self.isAdultCheck];
+    [self.delegate CMContentGroupCollectionViewCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithSeriesLink:self.pSeriesLintStr WithAdultCheck:self.isAdultCheck WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
 }
 
 @end

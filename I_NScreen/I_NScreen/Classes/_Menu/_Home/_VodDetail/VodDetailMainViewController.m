@@ -29,6 +29,7 @@
 @synthesize pFileNameStr;
 @synthesize delegate;
 @synthesize pEpisodePeerExistence;
+@synthesize pContentGroupId;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -1021,7 +1022,9 @@ static int tvFontSize = 15;
     
 }
 
-- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint WithAdultCheck:(BOOL)isAdult
+
+// !! TEST BJK
+- (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistence:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId
 {
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", assetId];
     
@@ -1031,11 +1034,13 @@ static int tvFontSize = 15;
         if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
         {
             // 인증 받았으면
-            if ( [seriesLint isEqualToString:@"0"] )
+            if ( [episodePeerExistence isEqualToString:@"0"] )
             {
                 // 시리즈가 아니다
                 VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
                 pViewController.pAssetIdStr = assetId;
+                pViewController.pEpisodePeerExistence = episodePeerExistence;
+                pViewController.pContentGroupId = contentGroupId;
                 [self.navigationController pushViewController:pViewController animated:YES];
                 
             }
@@ -1064,11 +1069,13 @@ static int tvFontSize = 15;
     }
     else
     {
-        if ( [seriesLint isEqualToString:@"0"] )
+        if ( [episodePeerExistence isEqualToString:@"0"] )
         {
             // 시리즈가 아니다
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = assetId;
+            pViewController.pEpisodePeerExistence = episodePeerExistence;
+            pViewController.pContentGroupId = contentGroupId;
             [self.navigationController pushViewController:pViewController animated:YES];
             
         }
@@ -1208,6 +1215,31 @@ static int tvFontSize = 15;
     // reload
     [self requestWithAssetInfo];
     [self requestWithRecommendContentGroupByAssetId];
+}
+
+#pragma mark - 추가 전문
+#pragma makr - 시리즈 갯수 가져오는 api 새 전문
+- (void)requestWithGetEpisodePeerListByContentGroupId
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetEpisodePeerListByContentGroupId:self.pContentGroupId completion:^(NSArray *vodDetail, NSError *error) {
+       
+        DDLogError(@"시리즈 갯수 가져오는 api 새 전문 = [%@]", vodDetail);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 시리즈 가져오는 api 새 전문
+- (void)requestWithGetAssetListByEpisodePeerId
+{
+    NSString *sEpisodePeerId = @"";
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetListByEpisodePeerId:sEpisodePeerId completion:^(NSArray *vodDetail, NSError *error) {
+        
+        DDLogError(@"시리즈 가져오는 api 새 전문 = [%@]", vodDetail);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end
