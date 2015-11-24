@@ -35,10 +35,17 @@ static PlayerViewController *playerViewCtr;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
+//    CGAffineTransform transform2 = CGAffineTransformMakeRotation(0 * M_PI/180 );
+//    [self.navigationController.view setTransform:transform2];
+//    [self.navigationController.view setBounds:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    
     self.title = @"스트리밍";
-    self.isUseNavigationBar = YES;
+    self.isUseNavigationBar = NO;
     
     [self setViewInit];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MPMoviePlayerDidExitFullscreen:) name:MPMoviePlayerDidExitFullscreenNotification object:nil];
 }
 
 #pragma mark - 초기화
@@ -152,10 +159,24 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
             self.pMoviePlayer = mp;
             //                    [mp release];
             self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+
             [self.view addSubview:self.pMoviePlayer.view];
     
             [self.pMoviePlayer play];
+            
+//            CGAffineTransform transform = CGAffineTransformMakeRotation(90 * M_PI / 180 );
+////            [self.navigationController.view setTransform:transform];
+////            [self.navigationController.view setBounds:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
+//            [self.pMoviePlayer.view setTransform:transform];
+//            [self.pMoviePlayer.view setBounds:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
+//            
+//            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
         }
     }
 }
+
+//- (void)MPMoviePlayerDidExitFullscreen:(NSNotification *)notification
+//{
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 @end

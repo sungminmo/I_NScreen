@@ -228,6 +228,8 @@
 		E5AF2E8B1C02DF4F0071CC3B /* 12@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5AF2E891C02DF4F0071CC3B /* 12@3x.png */; settings = {ASSET_TAGS = (); }; };
 		E5AF9F5A1BF23BC80030ECDE /* CMPairingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AF9F571BF23BC80030ECDE /* CMPairingInfo.m */; };
 		E5AF9F5B1BF23BC80030ECDE /* CMPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AF9F591BF23BC80030ECDE /* CMPrivateKey.m */; };
+		E5B07BC31C042C1E001EE91E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992894FC1BA3E69000BE62A0 /* QuartzCore.framework */; };
+		E5B07BC61C042CB5001EE91E /* StrikethroughLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B07BC51C042CB5001EE91E /* StrikethroughLabel.m */; settings = {ASSET_TAGS = (); }; };
 		E5B1BE7F1BFDA63500076FA1 /* NSMutableDictionary+WISH.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B1BE7E1BFDA63500076FA1 /* NSMutableDictionary+WISH.m */; };
 		E5B553191BD9DD3F00AA02B2 /* allch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B550C71BD9DD3E00AA02B2 /* allch.png */; };
 		E5B5531A1BD9DD3F00AA02B2 /* allch_press.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B550C81BD9DD3E00AA02B2 /* allch_press.png */; };
@@ -1205,6 +1207,8 @@
 		E5AF9F571BF23BC80030ECDE /* CMPairingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPairingInfo.m; sourceTree = "<group>"; };
 		E5AF9F581BF23BC80030ECDE /* CMPrivateKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPrivateKey.h; sourceTree = "<group>"; };
 		E5AF9F591BF23BC80030ECDE /* CMPrivateKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPrivateKey.m; sourceTree = "<group>"; };
+		E5B07BC41C042CB5001EE91E /* StrikethroughLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrikethroughLabel.h; sourceTree = "<group>"; };
+		E5B07BC51C042CB5001EE91E /* StrikethroughLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrikethroughLabel.m; sourceTree = "<group>"; };
 		E5B1BE7D1BFDA63500076FA1 /* NSMutableDictionary+WISH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+WISH.h"; sourceTree = "<group>"; };
 		E5B1BE7E1BFDA63500076FA1 /* NSMutableDictionary+WISH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+WISH.m"; sourceTree = "<group>"; };
 		E5B550C71BD9DD3E00AA02B2 /* allch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allch.png; sourceTree = "<group>"; };
@@ -1857,6 +1861,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B07BC31C042C1E001EE91E /* QuartzCore.framework in Frameworks */,
 				E5E7B5C51BF0019000B78341 /* libcommonCrypto.tbd in Frameworks */,
 				E5E418691BE1AE8200B4DAB3 /* libz.tbd in Frameworks */,
 				E5E418671BE1AE6D00B4DAB3 /* libSystem.tbd in Frameworks */,
@@ -1990,6 +1995,8 @@
 				E58C6AFA1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib */,
 				207FA9E91BE76B6D009F7D8C /* CMProgressView.h */,
 				207FA9EA1BE76B6D009F7D8C /* CMProgressView.m */,
+				E5B07BC41C042CB5001EE91E /* StrikethroughLabel.h */,
+				E5B07BC51C042CB5001EE91E /* StrikethroughLabel.m */,
 			);
 			path = _view;
 			sourceTree = "<group>";
@@ -4638,6 +4645,7 @@
 				994BDB3E1BA3F6E8000B6260 /* CMPreferenceMainViewController.m in Sources */,
 				99C43C661BA3EDA10035A0A4 /* CMConstants.m in Sources */,
 				E5DA6AD21BDE5EDE00FA79E9 /* NSMutableDictionary+Pairing.m in Sources */,
+				E5B07BC61C042CB5001EE91E /* StrikethroughLabel.m in Sources */,
 				E5567BB21BA9537A00AB4003 /* MyCMMainTableViewCell.m in Sources */,
 				99C43C5D1BA3EDA10035A0A4 /* UIViewController+OverlayView.m in Sources */,
 				20EAA3421BAE7D2C004DFCA0 /* CMTabMenuView.m in Sources */,
