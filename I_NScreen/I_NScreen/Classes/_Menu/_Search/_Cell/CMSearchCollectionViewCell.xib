@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -14,6 +14,9 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="95" height="159"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterlist_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="MN0-Cl-Pge">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="127"/>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yY8-zv-W6l">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="127"/>
                         <animations/>
@@ -29,6 +32,10 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_19dim.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bdf-vN-NSG">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="127"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </imageView>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -36,18 +43,31 @@
             <animations/>
             <constraints>
                 <constraint firstItem="EaL-MN-IOO" firstAttribute="top" secondItem="yY8-zv-W6l" secondAttribute="bottom" id="DiY-ne-xOW"/>
+                <constraint firstItem="Bdf-vN-NSG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HgJ-NE-h2j"/>
                 <constraint firstItem="yY8-zv-W6l" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LlD-qI-5gf"/>
                 <constraint firstAttribute="trailing" secondItem="yY8-zv-W6l" secondAttribute="trailing" id="PIP-l9-bdT"/>
+                <constraint firstItem="MN0-Cl-Pge" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qo2-Yq-6xa"/>
+                <constraint firstItem="EaL-MN-IOO" firstAttribute="top" secondItem="Bdf-vN-NSG" secondAttribute="bottom" id="XiR-4X-yNJ"/>
+                <constraint firstItem="EaL-MN-IOO" firstAttribute="top" secondItem="MN0-Cl-Pge" secondAttribute="bottom" id="abr-xg-cWc"/>
                 <constraint firstItem="EaL-MN-IOO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cG5-at-l7n"/>
                 <constraint firstAttribute="bottom" secondItem="EaL-MN-IOO" secondAttribute="bottom" id="cz4-ec-5s1"/>
+                <constraint firstItem="Bdf-vN-NSG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="edE-4W-7pv"/>
+                <constraint firstItem="MN0-Cl-Pge" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kB9-pk-FTr"/>
+                <constraint firstAttribute="trailing" secondItem="Bdf-vN-NSG" secondAttribute="trailing" id="pxY-Az-KaK"/>
+                <constraint firstAttribute="trailing" secondItem="MN0-Cl-Pge" secondAttribute="trailing" id="swX-7z-C5V"/>
                 <constraint firstItem="yY8-zv-W6l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tcG-qf-FIC"/>
                 <constraint firstAttribute="trailing" secondItem="EaL-MN-IOO" secondAttribute="trailing" id="zjT-FR-W5y"/>
             </constraints>
             <connections>
+                <outlet property="pAdultImageView" destination="Bdf-vN-NSG" id="sXW-KR-HQH"/>
                 <outlet property="posterImageView" destination="yY8-zv-W6l" id="bcc-su-ois"/>
                 <outlet property="titleLabel" destination="EaL-MN-IOO" id="Lue-CT-b2T"/>
             </connections>
             <point key="canvasLocation" x="365.5" y="321.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="icon_19dim.png" width="94" height="136"/>
+        <image name="posterlist_default.png" width="93" height="136"/>
+    </resources>
 </document>

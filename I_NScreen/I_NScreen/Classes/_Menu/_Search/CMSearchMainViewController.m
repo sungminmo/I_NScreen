@@ -16,6 +16,7 @@
 #import "CMDBDataManager.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "UIAlertView+AFNetworking.h"
+#import "VodDetailMainViewController.h"
 
 typedef enum : NSInteger {
     VOD_TABMENU_TYPE,
@@ -654,8 +655,8 @@ static const CGFloat pageSize = 28;
     NSDictionary* data = self.dataArray[indexPath.row];
 
 //    [cell setImageUrl:data[@"VOD_IMG"] title:data[@"VOD_Title"]];
-    [cell setImageUrl:data[@"smallImageFileName"] title:data[@"title"]];
-
+    [cell setImageUrl:data[@"smallImageFileName"] title:data[@"title"] rating:data[@"rating"]];
+   
     return cell;
 }
 
@@ -685,6 +686,56 @@ static const CGFloat pageSize = 28;
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *sRatinting = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"rating"]];
+    NSString *sAssetId = @"";
+    
+    NSArray *allKey = [[self.dataArray objectAtIndex:indexPath.row] allKeys];
+    
+    
+    for ( NSString *key in allKey )
+    {
+        if ( [key isEqualToString:@"assetId"] )
+        {
+            sAssetId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"assetId"]];
+        }
+        
+        if ( [key isEqualToString:@"primaryAssetId"] )
+        {
+            sAssetId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"primaryAssetId"]];
+        }
+    }
+    
+    if ( [sRatinting isEqualToString:@"19"] )
+    {
+        // 성인
+        if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
+        {
+            // 인증 받았으면
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = sAssetId;
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }
+        else
+        {
+            [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        
+                        if ( buttonIndex == 1 )
+                        {
+                            // 설정 창으로 이동
+                            CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                            [self.navigationController pushViewController:controller animated:YES];
+                        }
+                    }];
+        }
+    }
+    else
+    {
+        VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+        pViewController.pAssetIdStr = sAssetId;
+        [self.navigationController pushViewController:pViewController animated:YES];
+    }
     
 }
 

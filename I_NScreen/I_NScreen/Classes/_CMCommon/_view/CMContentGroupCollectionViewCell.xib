@@ -14,7 +14,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="95" height="158"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genreall_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hdm-ei-b0q">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterlist_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hdm-ei-b0q">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="베테랑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU8-TY-oAp">
@@ -97,8 +97,8 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="genreall_select.png" width="146" height="147"/>
         <image name="icon_19dim.png" width="94" height="136"/>
         <image name="icon_onlytv.png" width="43" height="15"/>
+        <image name="posterlist_default.png" width="93" height="136"/>
     </resources>
 </document>
