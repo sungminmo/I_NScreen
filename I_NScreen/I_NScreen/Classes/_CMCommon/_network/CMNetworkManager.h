@@ -138,6 +138,8 @@
 
 - (NSURLSessionDataTask *)vodGetAssetListByEpisodePeerId:(NSString *)episodePeerId completion:(void (^)(NSArray *vodDetail, NSError *error))block;
 
+- (NSURLSessionDataTask *)vodGetCouponBalance2Completion:(void (^)(NSArray *vodBuy, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( PAIRING )

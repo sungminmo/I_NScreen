@@ -11,10 +11,15 @@
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+Payment.h"
 #import "RootViewController.h"
+#import "NSMutableDictionary+VOD.h"
 
 @interface VodBuyViewController ()
-@property (nonatomic, strong) NSMutableArray *pPaymentTypeArr;
-@property (nonatomic, strong) NSMutableArray *pBuyTypeArr;
+//@property (nonatomic, strong) NSMutableArray *pPaymentTypeArr;
+//@property (nonatomic, strong) NSMutableArray *pBuyTypeArr;
+@property (nonatomic, strong) NSMutableArray *pProductArr;
+@property (nonatomic, strong) NSMutableArray *pCouponBalanceArr;
+@property (nonatomic, strong) NSString *sSeriesLink;
+
 @end
 
 @implementation VodBuyViewController
@@ -29,10 +34,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setDataInit];
     [self setTagInit];
     [self setViewInit];
-    
-    [self requestWithPaymenetGetAvailablePaymentType];
+    [self requestWithGetCouponBalance2];
 }
 
 
@@ -52,6 +57,236 @@
     self.pOkBtn.tag = VOD_BUY_VIEW_BTN_08;
 }
 
+#pragma mark - 데이터 초기화
+- (void)setDataInit
+{
+    self.title = @"상세정보";
+    self.isUseNavigationBar = YES;
+    self.scrollContainer.contentSize = CGSizeMake(self.view.bounds.size.width, 642);
+    
+    self.sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];
+    
+    self.pProductArr = [[NSMutableArray alloc] init];
+    self.pCouponBalanceArr = [[NSMutableArray alloc] init];
+    
+    NSObject *itemObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+    
+    if ( [itemObject isKindOfClass:[NSDictionary class]] )
+    {
+        [self.pProductArr addObject:itemObject];
+    }
+    else
+    {
+        [self.pProductArr setArray:(NSArray *)itemObject];
+    }
+    
+}
+
+#pragma mark - 화면 뷰 초기화
+- (void)setViewInit
+{
+    for ( int i = 0; i < [self.pProductArr count]; i++ )
+    {
+        switch (i) {
+            case 0:
+            {
+                [self setStep1SubView02Init];
+            }break;
+            case 1:
+            {
+                [self setStep1SubView03Init];
+            }break;
+            case 2:
+            {
+                [self setStep1SubView04Init];
+            }break;
+        }
+    }
+}
+
+- (void)setStep1SubView02Init
+{
+    self.pStep1SubView02.hidden = NO;
+    
+    NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"productType"]];
+    NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:0] objectForKey:@"price"]]];
+    // 단일
+    if ( [sProductType isEqualToString:@"RVOD"] )
+    {
+        // 단일 회차 구매
+        if ( [self.sSeriesLink isEqualToString:@"1"] )
+        {
+            self.pStep1SubView02TitleLbl.text = @"단일 회차 구매";
+        }
+        // 단일 상품 구매
+        else
+        {
+            self.pStep1SubView02TitleLbl.text = @"단일 상품 구매";
+        }
+        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+    }
+    // 묶음
+    else if ( [sProductType isEqualToString:@"Bundle"] )
+    {
+        self.pStep1SubView02TitleLbl.text = @"묶음 할인상품 구매";
+        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+    }
+    // 월정액 시리즈
+    else if ( [sProductType isEqualToString:@"SVOD"] )
+    {
+        NSString *sSvod = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"productName"]];
+        NSArray *svodArr = [sSvod componentsSeparatedByString:@":"];
+        self.pStep1SubView02TitleLbl.text = [NSString stringWithFormat:@"%@", [svodArr objectAtIndex:0]];
+        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원 / 월", sPrice];
+    }
+    // 시리즈 전체 회차 구매
+    else if ( [sProductType isEqualToString:@"Package"] )
+    {
+        self.pStep1SubView02TitleLbl.text = @"시리즈 전체회차 구매";
+        self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+    }
+}
+
+- (void)setStep1SubView03Init
+{
+    self.pStep1SubView03.hidden = NO;
+    
+    NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productType"]];
+    NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:1] objectForKey:@"price"]]];
+    
+
+    // 단일
+    if ( [sProductType isEqualToString:@"RVOD"] )
+    {
+        // 단일 회차 구매
+        if ( [self.sSeriesLink isEqualToString:@"1"] )
+        {
+            self.pStep1SubView03TitleLbl.text = @"단일 회차 구매";
+        }
+        // 단일 상품 구매
+        else
+        {
+            self.pStep1SubView03TitleLbl.text = @"단일 상품 구매";
+        }
+        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+    }
+    // 묶음
+    else if ( [sProductType isEqualToString:@"Bundle"] )
+    {
+        self.pStep1SubView03TitleLbl.text = @"묶음 할인상품 구매";
+        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+    }
+    // 월정액 시리즈
+    else if ( [sProductType isEqualToString:@"SVOD"] )
+    {
+        NSString *sSvod = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productName"]];
+        NSArray *svodArr = [sSvod componentsSeparatedByString:@":"];
+        self.pStep1SubView03TitleLbl.text = [NSString stringWithFormat:@"%@", [svodArr objectAtIndex:0]];
+        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원 / 월", sPrice];
+    }
+    // 시리즈 전체 회차 구매
+    else if ( [sProductType isEqualToString:@"Package"] )
+    {
+        self.pStep1SubView03TitleLbl.text = @"시리즈 전체회차 구매";
+        self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+    }
+
+}
+
+- (void)setStep1SubView04Init
+{
+    self.pStep1SubView04.hidden = NO;
+    
+    NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productType"]];
+    NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:2] objectForKey:@"price"]]];
+    
+    // 단일
+    if ( [sProductType isEqualToString:@"RVOD"] )
+    {
+        // 단일 회차 구매
+        if ( [self.sSeriesLink isEqualToString:@"1"] )
+        {
+            self.pStep1SubView04TitleLbl.text = @"단일 회차 구매";
+        }
+        // 단일 상품 구매
+        else
+        {
+            self.pStep1SubView04TitleLbl.text = @"단일 상품 구매";
+        }
+        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+    }
+    // 묶음
+    else if ( [sProductType isEqualToString:@"Bundle"] )
+    {
+        self.pStep1SubView04TitleLbl.text = @"묶음 할인상품 구매";
+        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+    }
+    // 월정액 시리즈
+    else if ( [sProductType isEqualToString:@"SVOD"] )
+    {
+        NSString *sSvod = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productName"]];
+        NSArray *svodArr = [sSvod componentsSeparatedByString:@":"];
+        self.pStep1SubView04TitleLbl.text = [NSString stringWithFormat:@"%@", [svodArr objectAtIndex:0]];
+        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원 / 월", sPrice];
+    }
+    // 시리즈 전체 회차 구매
+    else if ( [sProductType isEqualToString:@"Package"] )
+    {
+        self.pStep1SubView04TitleLbl.text = @"시리즈 전체회차 구매";
+        self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+    }
+
+}
+
+- (IBAction)onBtnClicked:(UIButton *)btn
+{
+    switch ([btn tag]) {
+        case VOD_BUY_VIEW_BTN_01:
+        {
+            
+        }break;
+        case VOD_BUY_VIEW_BTN_02:
+        {
+            
+        }break;
+        case VOD_BUY_VIEW_BTN_03:
+        {
+            
+        }break;
+    }
+}
+
+#pragma mark - 전문
+#pragma mark - 쿠폰 데이터 전문
+- (void)requestWithGetCouponBalance2
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetCouponBalance2Completion:^(NSArray *vodBuy, NSError *error) {
+        
+        DDLogError(@"쿠폰 데이터 전문 = [%@]", vodBuy);
+        
+        if ( [vodBuy count] == 0 )
+            return;
+        
+        [self.pCouponBalanceArr removeAllObjects];
+        
+        NSObject *itemObject = [[[vodBuy objectAtIndex:0] objectForKey:@"couponList"] objectForKey:@"coupon"];
+        
+        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        {
+            [self.pCouponBalanceArr addObject:itemObject];
+        }
+        else
+        {
+            [self.pCouponBalanceArr setArray:(NSArray *)itemObject];
+        }
+        
+        
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+/*!<
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
@@ -540,5 +775,7 @@
     [self.navigationController popViewControllerAnimated:YES];
     [self.delegate VodBuyViewWithTag:0];
 }
+ 
+ */
 
 @end

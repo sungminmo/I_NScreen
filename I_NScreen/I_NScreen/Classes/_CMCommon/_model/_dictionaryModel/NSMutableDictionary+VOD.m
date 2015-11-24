@@ -85,4 +85,9 @@
     return [[CMNetworkManager sharedInstance] vodGetAssetListByEpisodePeerId:episodePeerId completion:block];
 }
 
++ (NSURLSessionDataTask *)vodGetCouponBalance2Completion:(void (^)(NSArray *vodBuy, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetCouponBalance2Completion:block];
+}
+
 @end

@@ -391,6 +391,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_getEpisodePeerListByContentGroupId
 // getAssetListByEpisodePeerId
 extern NSString* const CNM_OPEN_API_INTERFACE_getAssetListByEpisodePeerId;
 
+// getCouponBalance2
+extern NSString* const CNM_OPEN_API_INTERFACE_getCouponBalance2;
+
 // 5. Search
 // SearchChannel
 extern NSString* const CNM_OPEN_API_INTERFACE_SearchChannel;
