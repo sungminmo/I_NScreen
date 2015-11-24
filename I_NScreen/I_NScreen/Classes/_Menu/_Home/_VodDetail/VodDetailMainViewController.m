@@ -20,6 +20,14 @@
 @property (nonatomic, strong) NSMutableDictionary *pDrmDic;
 @property (nonatomic, strong) NSMutableArray *pSeriesDataArr;
 @property (nonatomic, strong) NSMutableArray *pGetWishListArr;
+
+//
+@property (nonatomic, strong) NSString *sTotalCount;
+@property (nonatomic, strong) NSMutableArray *pEpisodePeerListArr;
+@property (nonatomic, strong) NSMutableDictionary *pAssetListByEpisodePeerIdDic;
+
+//
+
 @property (nonatomic) BOOL isZzimCheck;
 
 @end
@@ -45,8 +53,18 @@
     [self setViewInit];
 //    return;
     [self requestWithGetWithList];
-    [self requestWithAssetInfo];
+    
     [self requestWithRecommendContentGroupByAssetId];
+    
+    if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
+    {
+        // 시리즈
+        [self requestWithGetEpisodePeerListByContentGroupId];
+    }
+    else
+    {
+        [self requestWithAssetInfo];
+    }
 }
 
 #pragma mark - 초기화
@@ -77,6 +95,9 @@
     self.pDrmDic = [[NSMutableDictionary alloc] init];
     self.pSeriesDataArr = [[NSMutableArray alloc] init];
     self.pGetWishListArr = [[NSMutableArray alloc] init];
+    self.pEpisodePeerListArr = [[NSMutableArray alloc] init];
+    self.pAssetListByEpisodePeerIdDic = [[NSMutableDictionary alloc] init];
+    self.sTotalCount = @"0";
 }
 
 #pragma mark - 액션 이벤트
@@ -247,10 +268,16 @@ static int tvFontSize = 15;
     [self.view updateConstraintsIfNeeded];
     
     
-    
-    self.pContentTextView23.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-    self.pContentTextView23.font = [UIFont systemFontOfSize:tvFontSize];
-    
+    if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
+    {
+        self.pContentTextView23.text = [NSString stringWithFormat:@"%@", [[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+        self.pContentTextView23.font = [UIFont systemFontOfSize:tvFontSize];
+    }
+    else
+    {
+        self.pContentTextView23.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+        self.pContentTextView23.font = [UIFont systemFontOfSize:tvFontSize];
+    }
 }
 
 #pragma mark - 시리즈이고 구매한 사용자
@@ -277,9 +304,16 @@ static int tvFontSize = 15;
     [self.pBodyView setContentSize:CGSizeMake(width, posY)];
     [self.view updateConstraintsIfNeeded];
     
-    self.pContentTextView24.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-    self.pContentTextView24.font = [UIFont systemFontOfSize:tvFontSize];
-  
+    if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
+    {
+        self.pContentTextView24.text = [NSString stringWithFormat:@"%@", [[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+        self.pContentTextView24.font = [UIFont systemFontOfSize:tvFontSize];
+    }
+    else
+    {
+        self.pContentTextView24.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+        self.pContentTextView24.font = [UIFont systemFontOfSize:tvFontSize];
+    }
 }
 
 #pragma mark  - 시리즈 이고 tv
@@ -306,10 +340,21 @@ static int tvFontSize = 15;
     [self.pBodyView setContentSize:CGSizeMake(width, posY)];
     [self.view updateConstraintsIfNeeded];
     
-    self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-    self.pContentTextView25.font = [UIFont systemFontOfSize:tvFontSize];
+    if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
+    {
+        self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+        self.pContentTextView25.font = [UIFont systemFontOfSize:tvFontSize];
+        self.pCommentLbl25.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"productName"]];
+
+    }
+    else
+    {
+        self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+        self.pContentTextView25.font = [UIFont systemFontOfSize:tvFontSize];
+        self.pCommentLbl25.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productName"]];
+
+    }
     
-    self.pCommentLbl25.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productName"]];
 }
 
 
@@ -566,21 +611,48 @@ static int tvFontSize = 15;
     
     NSString *sIndex = [NSString stringWithFormat:@"%d", (int)[btn tag]];
     
-    for ( NSDictionary *dic in self.pSeriesDataArr )
+    
+    if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
     {
-        if  ( [[dic objectForKey:@"seriesCurIndex"] isEqualToString:sIndex] )
+        for ( NSDictionary *dic in self.pEpisodePeerListArr )
         {
-            self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetId"]];
-            [self requestWithAssetInfo];
-            [self requestWithRecommendContentGroupByAssetId];
+            if ( [[dic objectForKey:@"seriesIndex"] isEqualToString:sIndex] )
+            {
+                self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"primaryAssetId"]];
+                [self requestWithGetEpisodePeerListByContentGroupId];
+                [self requestWithRecommendContentGroupByAssetId];
+            }
+        }
+    }
+    else
+    {
+        for ( NSDictionary *dic in self.pSeriesDataArr )
+        {
+            if  ( [[dic objectForKey:@"seriesCurIndex"] isEqualToString:sIndex] )
+            {
+                self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetId"]];
+                [self requestWithAssetInfo];
+                [self requestWithRecommendContentGroupByAssetId];
+            }
         }
     }
 }
 
 - (void)createSeriesButtonWithTag:(int)nTag WithTotalCount:(int)nTotalCount
 {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
-    NSString *sSeriesCurIndex = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"seriesCurIndex"]];
+    if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
+    {
+        [dic setDictionary:self.pAssetListByEpisodePeerIdDic];
+    }
+    else
+    {
+        [dic setDictionary:self.pAssetInfoDic];
+    }
+    
+    
+    NSString *sSeriesCurIndex = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"asset"] objectForKey:@"seriesCurIndex"]];
     int nSeriesCurIndex = [sSeriesCurIndex intValue];
     
     switch (nTag) {
@@ -756,7 +828,7 @@ static int tvFontSize = 15;
 {
     
     NSString *sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];     // 시리즈 인지 아닌지
-    BOOL isPurchasedId = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"purchasedId"];      // 구매하기 인지 아닌지
+//    BOOL isPurchasedId = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"purchasedId"];      // 구매하기 인지 아닌지
  
     NSString *sRating = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"rating"];    // 시청 등급
     
@@ -1224,22 +1296,263 @@ static int tvFontSize = 15;
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetEpisodePeerListByContentGroupId:self.pContentGroupId completion:^(NSArray *vodDetail, NSError *error) {
        
         DDLogError(@"시리즈 갯수 가져오는 api 새 전문 = [%@]", vodDetail);
+        
+        if ( [vodDetail count] == 0 )
+            return;
+        
+        self.sTotalCount = [[vodDetail objectAtIndex:0] objectForKey:@"totalCount"];
+        
+        [self.pEpisodePeerListArr removeAllObjects];
+        
+        NSObject *itemObjet = [[[vodDetail objectAtIndex:0] objectForKey:@"episodePeerList"] objectForKey:@"episodePeer"];
+        
+        if ( [itemObjet isKindOfClass:[NSDictionary class]] )
+        {
+            [self.pEpisodePeerListArr addObject:itemObjet];
+        }
+        else
+        {
+            [self.pEpisodePeerListArr setArray:(NSArray *)itemObjet];
+        }
+        
+        NSString *sEpisodePeerId = @"";
+        
+        for ( NSDictionary *dic in self.pEpisodePeerListArr )
+        {
+            if ( [self.pAssetIdStr isEqualToString:[dic objectForKey:@"primaryAssetId"]] )
+            {
+                sEpisodePeerId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"episodePeerId"]];
+            }
+        }
+        
+        [self requestWithGetAssetListByEpisodePeerId:sEpisodePeerId];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 시리즈 가져오는 api 새 전문
-- (void)requestWithGetAssetListByEpisodePeerId
+- (void)requestWithGetAssetListByEpisodePeerId:(NSString *)episodePeerId
 {
-    NSString *sEpisodePeerId = @"";
-    
-    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetListByEpisodePeerId:sEpisodePeerId completion:^(NSArray *vodDetail, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetListByEpisodePeerId:episodePeerId completion:^(NSArray *vodDetail, NSError *error) {
         
         DDLogError(@"시리즈 가져오는 api 새 전문 = [%@]", vodDetail);
+        
+        if ( [vodDetail count] == 0 )
+            return;
+        
+        [self.pAssetListByEpisodePeerIdDic removeAllObjects];
+        [self.pAssetListByEpisodePeerIdDic setDictionary:[[vodDetail objectAtIndex:0] objectForKey:@"assetList"]];
+        
+        [self setResponseContentSeriesViewInit];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
+
+#pragma mark - 상세 데이터에 따라 화면 셋팅
+- (void)setResponseContentSeriesViewInit
+{
+    
+//    NSString *sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];     // 시리즈 인지 아닌지
+    //    BOOL isPurchasedId = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"purchasedId"];      // 구매하기 인지 아닌지
+    
+    NSString *sRating = [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"rating"];    // 시청 등급
+    
+    NSString *sReviewRatingTotal = [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"reviewRatingTotal"];  // 전체 별표
+    NSString *sReviewRatingCount =  [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"reviewRatingCount"]; // 현재 별표
+    
+    int nReviewRatingTotal = [sReviewRatingTotal intValue];
+    int nReviewRatingCount = [sReviewRatingCount intValue];
+    
+    [self setReviewRatingWithTotalCount:nReviewRatingTotal WithCount:nReviewRatingCount];
+    
+    if ( [sRating isEqualToString:@"19"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"19.png"]];
+    }
+    else if ( [sRating isEqualToString:@"19세"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"19.png"]];
+    }
+    else if ( [sRating isEqualToString:@"15"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"15.png"]];
+    }
+    else if ( [sRating isEqualToString:@"12"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"12.png"]];
+    }
+    else if ( [sRating isEqualToString:@"7"] )
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"7.png"]];
+    }
+    else
+    {
+        [self.pRatingImageView setImage:[UIImage imageNamed:@"all.png"]];
+    }
+    
+    
+    
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@", [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"imageFileName"]];
+    [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
+    
+    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"title"]];
+    
+    self.pCastLbl.text = [NSString stringWithFormat:@"%@", [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"starring"]];
+    
+    NSString *sHDContent = [NSString stringWithFormat:@"%@", [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"HDContent"]];
+    
+    if ( [sHDContent isEqualToString:@"0"] )
+    {
+        // SD
+        self.pResolutionImageView.image = [UIImage imageNamed:@"sd.png"];
+    }
+    else
+    {
+        // HD
+        self.pResolutionImageView.image = [UIImage imageNamed:@"hd.png"];
+    }
+    
+    self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[[[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"price"]];
+    
+    // 평생 소장인지 체크
+    NSString *sViewablePeriodState = [NSString stringWithFormat:@"%@", [[[[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"viewablePeriodState"]];
+    NSString *sViewablePeriod = [NSString stringWithFormat:@"%@", [[[[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"viewablePeriod"]];
+    
+    if ( [sViewablePeriodState isEqualToString:@"0"] )
+    {
+        // 평생 소장 아님
+        self.pTermLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getSplitTermWithDateStr:sViewablePeriod]];
+    }
+    else
+    {
+        // 평생 소장
+        self.pTermLbl.text = @"평생소장";
+    }
+    
+  
+    
+    NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"publicationRight"]];
+    NSString *sPreviewPeriod = [NSString stringWithFormat:@"%@", [[self.pAssetListByEpisodePeerIdDic objectForKey:@"asset"] objectForKey:@"previewPeriod"]];
+    
+    if ( [sPublicationRight isEqualToString:@"2"] )
+    {
+        // tv 모바일
+        self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_tv.png"];
+        self.pEquipmentImageView02.image = [UIImage imageNamed:@"icon_mobile.png"];
+    }
+    else
+    {
+        // tv 전용
+        self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_tv.png"];
+        self.pEquipmentImageView02.image = [UIImage imageNamed:@""];
+    }
+    
+    // 러닝 타임
+    NSString *sRunningTime = [NSString stringWithFormat:@"%@", [[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"runningTime"]];
+    
+    NSArray *runningTimeArr = [sRunningTime componentsSeparatedByString:@":"];
+    
+    NSString *sRunningHH = @""; // 시
+    NSString *sRunningMM = @""; // 분
+    int nRunningHH = 0;
+    int nRunningMM = 0;
+    int nTotalMM = 0;
+    
+    if ( [runningTimeArr count] == 2 )
+    {
+        sRunningHH = [NSString stringWithFormat:@"%@", [runningTimeArr objectAtIndex:0]];
+        sRunningMM = [NSString stringWithFormat:@"%@", [runningTimeArr objectAtIndex:1]];
+        
+        nRunningHH = [sRunningHH intValue];
+        nRunningMM = [sRunningMM intValue];
+        
+        nTotalMM = nRunningHH * 60 + nRunningMM;
+    }
+    
+    self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d", [[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"genre"], nTotalMM];
+    
+    self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"director"]];
+    
+    NSString *sPurchasedTime = [NSString stringWithFormat:@"%@", [[[[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"purchasedTime"]];
+
+        
+    int nTag = 0;
+    // 시리즈다
+    if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+    {
+        // 구매안한 사용자
+        NSString *sProductType = @"";
+        NSObject* itemObject = [[[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+        
+        if ([itemObject isKindOfClass:[NSDictionary class]]) {
+            
+            sProductType = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObject objectForKey:@"productType"]];
+            
+        } else if ([itemObject isKindOfClass:[NSArray class]]) {
+            
+            sProductType = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObject objectAtIndex:0] objectForKey:@"productType"]];
+            
+        }
+        
+        if ( [sProductType isEqualToString:@"FOD"] )
+        {
+            // 무료시청
+            nTag = 24;
+            [self setViewInit24];
+        }
+        else
+        {
+            nTag = 23;
+            [self setViewInit23];
+        }
+        
+        if ( [sPreviewPeriod isEqualToString:@"0"] )
+        {
+            // 미리보기 없음
+            self.pReviewBtn23.hidden = YES;
+        }
+    }
+    else
+    {
+        // 구매한 사용자
+        
+        if ( [sPublicationRight isEqualToString:@"2"] )
+        {
+            nTag = 24;
+            // 모바일 시청 가능
+            [self setViewInit24];
+            
+        }
+        else
+        {
+            nTag = 25;
+            // 1 tv 시청 가능
+            [self setViewInit25];
+        }
+    }
+    
+    
+    NSString *sSeriesEndIndex = [NSString stringWithFormat:@"%@", [[[self pAssetListByEpisodePeerIdDic] objectForKey:@"asset"] objectForKey:@"seriesEndIndex"]];
+    
+//    int nSeriesEndIndex = [sSeriesEndIndex intValue];
+    int nTotalCount = [self.sTotalCount intValue];
+    
+    if ( [sSeriesEndIndex isEqualToString:self.sTotalCount] )
+    {
+        // 같으면 종료된 시리즈 1회부터 보여줌
+        
+    }
+    else
+    {
+        // 다르면 종료되지 않음 최신회차 보여줌
+        
+    }
+    
+    [self createSeriesButtonWithTag:nTag WithTotalCount:nTotalCount];
+}
+
 
 @end
