@@ -655,7 +655,23 @@ static const CGFloat pageSize = 28;
     NSDictionary* data = self.dataArray[indexPath.row];
 
 //    [cell setImageUrl:data[@"VOD_IMG"] title:data[@"VOD_Title"]];
-    [cell setImageUrl:data[@"smallImageFileName"] title:data[@"title"] rating:data[@"rating"]];
+    NSArray *keyArr = [data allKeys];
+    BOOL isTvOnly = NO;
+    for ( NSString *key in keyArr )
+    {
+        if ( [key isEqualToString:@"mobilePublicationRight"] )
+        {
+            if ( ![data[@"mobilePublicationRight"] isEqualToString:@"1"] )
+                isTvOnly = YES;
+        }
+        else if ( [key isEqualToString:@"publicationRight"] )
+        {
+            if ( ![data[@"publicationRight"] isEqualToString:@"2"] )
+                isTvOnly = YES;
+        }
+    }
+    
+    [cell setImageUrl:data[@"smallImageFileName"] title:data[@"title"] rating:data[@"rating"] WithTyOnly:isTvOnly];
    
     return cell;
 }

@@ -10,6 +10,6 @@
 
 @interface CMSearchCollectionViewCell : UICollectionViewCell
 
-- (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title rating:(NSString *)rating;
+- (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title rating:(NSString *)rating WithTyOnly:(BOOL)isTyOnly;
 
 @end

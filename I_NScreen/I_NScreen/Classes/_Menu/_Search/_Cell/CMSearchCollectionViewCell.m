@@ -14,7 +14,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView* posterImageView;
 @property (nonatomic, weak) IBOutlet UILabel* titleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *pAdultImageView;
-
+@property (nonatomic, weak) IBOutlet UIImageView *pTvOnlyImageView;
 @end
 
 @implementation CMSearchCollectionViewCell
@@ -23,7 +23,7 @@
     // Initialization code
 }
 
-- (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title rating:(NSString *)rating{
+- (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title rating:(NSString *)rating WithTyOnly:(BOOL)isTyOnly{
  
     if ( [rating isEqualToString:@"19"] )
     {
@@ -40,6 +40,17 @@
     else
     {
         self.pAdultImageView.hidden = YES;
+    }
+    
+    if ( isTyOnly == YES )
+    {
+        // tv only
+        self.pTvOnlyImageView.hidden = NO;
+    }
+    else
+    {
+        // tv 모바일
+        self.pTvOnlyImageView.hidden = YES;
     }
     
     self.posterImageView.image = nil;

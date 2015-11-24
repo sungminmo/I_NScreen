@@ -22,6 +22,12 @@
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_onlytv.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q4A-Oh-zEu">
+                        <rect key="frame" x="63" y="116" width="32" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Q4A-Oh-zEu" secondAttribute="height" multiplier="16:5" id="e9M-yg-9z1"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가나다라마바" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-MN-IOO">
                         <rect key="frame" x="0.0" y="127" width="95" height="32"/>
                         <animations/>
@@ -45,8 +51,10 @@
                 <constraint firstItem="EaL-MN-IOO" firstAttribute="top" secondItem="yY8-zv-W6l" secondAttribute="bottom" id="DiY-ne-xOW"/>
                 <constraint firstItem="Bdf-vN-NSG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HgJ-NE-h2j"/>
                 <constraint firstItem="yY8-zv-W6l" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LlD-qI-5gf"/>
+                <constraint firstItem="EaL-MN-IOO" firstAttribute="top" secondItem="Q4A-Oh-zEu" secondAttribute="bottom" constant="1" id="OHX-1c-s3W"/>
                 <constraint firstAttribute="trailing" secondItem="yY8-zv-W6l" secondAttribute="trailing" id="PIP-l9-bdT"/>
                 <constraint firstItem="MN0-Cl-Pge" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qo2-Yq-6xa"/>
+                <constraint firstAttribute="trailing" secondItem="Q4A-Oh-zEu" secondAttribute="trailing" id="WVl-sQ-Vsj"/>
                 <constraint firstItem="EaL-MN-IOO" firstAttribute="top" secondItem="Bdf-vN-NSG" secondAttribute="bottom" id="XiR-4X-yNJ"/>
                 <constraint firstItem="EaL-MN-IOO" firstAttribute="top" secondItem="MN0-Cl-Pge" secondAttribute="bottom" id="abr-xg-cWc"/>
                 <constraint firstItem="EaL-MN-IOO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cG5-at-l7n"/>
@@ -60,6 +68,7 @@
             </constraints>
             <connections>
                 <outlet property="pAdultImageView" destination="Bdf-vN-NSG" id="sXW-KR-HQH"/>
+                <outlet property="pTvOnlyImageView" destination="Q4A-Oh-zEu" id="ag9-Js-u9c"/>
                 <outlet property="posterImageView" destination="yY8-zv-W6l" id="bcc-su-ois"/>
                 <outlet property="titleLabel" destination="EaL-MN-IOO" id="Lue-CT-b2T"/>
             </connections>
@@ -68,6 +77,7 @@
     </objects>
     <resources>
         <image name="icon_19dim.png" width="94" height="136"/>
+        <image name="icon_onlytv.png" width="43" height="15"/>
         <image name="posterlist_default.png" width="93" height="136"/>
     </resources>
 </document>

@@ -88,7 +88,7 @@
             <size key="customSize" width="229" height="313"/>
             <connections>
                 <outlet property="pDimImageView" destination="AGU-ZF-Iqa" id="3CU-Jj-hy6"/>
-                <outlet property="pOnlyTvImageView" destination="Hs0-CU-qqM" id="zM5-xO-VzZ"/>
+                <outlet property="pOnlyTvImageView" destination="Hs0-CU-qqM" id="Nez-hk-6h6"/>
                 <outlet property="pStickerImageView" destination="Puc-YT-YSR" id="OlJ-ov-pid"/>
                 <outlet property="pThumImageView" destination="Hdm-ei-b0q" id="K4h-5O-dhV"/>
                 <outlet property="pTitleLbl" destination="rU8-TY-oAp" id="JqK-9F-YWl"/>
