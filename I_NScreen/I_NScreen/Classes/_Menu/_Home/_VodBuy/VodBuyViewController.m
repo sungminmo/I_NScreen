@@ -24,6 +24,10 @@
 @property (nonatomic, strong) NSMutableArray *pPointBalanceArr;     // 포인트 조회
 @property (nonatomic) BOOL isDiscount;      // 할인 카드 유무
 @property (nonatomic) int nDisPrice;        // 할인 금액
+@property (nonatomic) int nPointBalance;    // TV포인트 금액
+
+@property (nonatomic) int nStep1BtnTag;     // 버튼 테그 값
+@property (nonatomic) int nStep2BtnTag;     // 버튼 테그 값
 
 @end
 
@@ -70,6 +74,7 @@
     self.isUseNavigationBar = YES;
     self.isDiscount = NO;
     self.nDisPrice = 0;
+    self.nPointBalance = 0;
     self.scrollContainer.contentSize = CGSizeMake(self.view.bounds.size.width, 642);
     
     self.sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];
@@ -184,7 +189,7 @@
     NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productType"]];
     NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:1] objectForKey:@"price"]]];
     
-
+    
     // 단일
     if ( [sProductType isEqualToString:@"RVOD"] )
     {
@@ -220,7 +225,7 @@
         self.pStep1SubView03TitleLbl.text = @"시리즈 전체회차 구매";
         self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
-
+    
 }
 
 - (void)setStep1SubView04Init
@@ -265,7 +270,7 @@
         self.pStep1SubView04TitleLbl.text = @"시리즈 전체회차 구매";
         self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
     }
-
+    
 }
 
 - (void)setViewHiddenWithType:(NSString *)type
@@ -301,6 +306,8 @@
     switch ([btn tag]) {
         case VOD_BUY_VIEW_BTN_01:
         {
+            self.nStep1BtnTag = VOD_BUY_VIEW_BTN_01;
+            
             [self.pStep1SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
             [self.pStep1SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             [self.pStep1SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
@@ -331,6 +338,18 @@
                         self.pStep2SubView02MoneyLbl.strikeThroughEnabled = YES;
                         self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
                         self.pStep2SubView02MoneyLbl02.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:[NSString stringWithFormat:@"%d", nPrice - self.nDisPrice]]];
+                        
+                        if( nPrice > self.nPointBalance )
+                        {
+                            // tv 포인트 딤 처리
+                            self.pStep2SubView04Btn.enabled = YES;
+                            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                            
+                            self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                        }
                     }
                     
                 }
@@ -338,12 +357,26 @@
                 {
                     NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:0] objectForKey:@"price"]]];
                     self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+                    
+                    if( [sPrice intValue] > self.nPointBalance )
+                    {
+                        // tv 포인트 딤 처리
+                        self.pStep2SubView04Btn.enabled = YES;
+                        [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                        
+                        self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                        self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                        self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                        self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                    }
                 }
             }
             
         }break;
         case VOD_BUY_VIEW_BTN_02:
         {
+            self.nStep1BtnTag = VOD_BUY_VIEW_BTN_02;
+            
             [self.pStep1SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             [self.pStep1SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
             [self.pStep1SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
@@ -374,6 +407,18 @@
                         self.pStep2SubView02MoneyLbl.strikeThroughEnabled = YES;
                         self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
                         self.pStep2SubView02MoneyLbl02.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:[NSString stringWithFormat:@"%d", nPrice - self.nDisPrice]]];
+                        
+                        if( [sPrice intValue] > self.nPointBalance )
+                        {
+                            // tv 포인트 딤 처리
+                            self.pStep2SubView04Btn.enabled = YES;
+                            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                            
+                            self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                        }
                     }
                     
                 }
@@ -381,12 +426,26 @@
                 {
                     NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:1] objectForKey:@"price"]]];
                     self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+                    
+                    if( [sPrice intValue] > self.nPointBalance )
+                    {
+                        // tv 포인트 딤 처리
+                        self.pStep2SubView04Btn.enabled = YES;
+                        [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                        
+                        self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                        self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                        self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                        self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                    }
                 }
             }
-
+            
         }break;
         case VOD_BUY_VIEW_BTN_03:
         {
+            self.nStep1BtnTag = VOD_BUY_VIEW_BTN_03;
+            
             [self.pStep1SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             [self.pStep1SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             [self.pStep1SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
@@ -402,7 +461,7 @@
             
             NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productType"]];
             
-           [self setViewHiddenWithType:sProductType];
+            [self setViewHiddenWithType:sProductType];
             
             if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
             {
@@ -417,6 +476,18 @@
                         self.pStep2SubView02MoneyLbl.strikeThroughEnabled = YES;
                         self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
                         self.pStep2SubView02MoneyLbl02.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:[NSString stringWithFormat:@"%d", nPrice - self.nDisPrice]]];
+                        
+                        if( [sPrice intValue] > self.nPointBalance )
+                        {
+                            // tv 포인트 딤 처리
+                            self.pStep2SubView04Btn.enabled = YES;
+                            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                            
+                            self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                        }
                     }
                     
                 }
@@ -424,12 +495,26 @@
                 {
                     NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:2] objectForKey:@"price"]]];
                     self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+                    
+                    if( [sPrice intValue] > self.nPointBalance )
+                    {
+                        // tv 포인트 딤 처리
+                        self.pStep2SubView04Btn.enabled = YES;
+                        [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                        
+                        self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                        self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                        self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                        self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                    }
                 }
             }
             
         }break;
         case VOD_BUY_VIEW_BTN_04:
         {
+            self.nStep2BtnTag = VOD_BUY_VIEW_BTN_04;
+            
             [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
             [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
@@ -458,6 +543,8 @@
         }break;
         case VOD_BUY_VIEW_BTN_05:
         {
+            self.nStep2BtnTag = VOD_BUY_VIEW_BTN_05;
+            
             [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
             [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
@@ -476,7 +563,7 @@
             self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
             self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
             self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
-
+            
             if ( self.isDiscount == YES )
             {
                 // 할인
@@ -486,6 +573,8 @@
         }break;
         case VOD_BUY_VIEW_BTN_06:
         {
+            self.nStep2BtnTag = VOD_BUY_VIEW_BTN_06;
+            
             [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
@@ -511,6 +600,27 @@
                 self.pStep2SubView02MoneyLbl02.textColor = [UIColor blackColor];
             }
             
+        }break;
+        case VOD_BUY_VIEW_BTN_07:
+        {
+            // 취소
+            
+        }break;
+        case VOD_BUY_VIEW_BTN_08:
+        {
+            // 결제
+            VodPopUpViewController *pViewController = [[VodPopUpViewController alloc] initWithNibName:@"VodPopUpViewController" bundle:nil];
+            self.navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+            pViewController.navigationController.modalPresentationStyle= UIModalPresentationCurrentContext;
+            if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f) {
+                pViewController.modalPresentationStyle= UIModalPresentationOverCurrentContext;
+            }
+//            pViewController.pBuyStr = [[self.pBuyTypeArr objectAtIndex:0] objectForKey:@"price"];
+            pViewController.pBuyDic = self.pDetailDataDic;
+            pViewController.delegate = self;
+            [self presentViewController:pViewController animated:NO completion:^{
+                
+            }];
         }break;
     }
 }
@@ -553,7 +663,7 @@
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
-#pragma mark - TV 포인트 결제 
+#pragma mark - TV 포인트 결제
 - (void)requestWithGetPointBalance
 {
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPointBalanceCompletion:^(NSArray *vodBuy, NSError *error) {
@@ -565,13 +675,44 @@
         
         if ( [[[vodBuy objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
-            self.pStep2SubView04MoneyLbl.text = [NSString stringWithFormat:@"잔액%@원", [[CMAppManager sharedInstance] insertComma:[[vodBuy objectAtIndex:0] objectForKey:@"pointBalance"]]];
+            NSString *sPointBalance = [[vodBuy objectAtIndex:0] objectForKey:@"pointBalance"];
+            self.nPointBalance = [sPointBalance intValue];
+            
+            self.pStep2SubView04MoneyLbl.text = [NSString stringWithFormat:@"잔액%@원", [[CMAppManager sharedInstance] insertComma:sPointBalance]];
+            
+            NSString *step1Price = @"";
+            
+            if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_01 )
+            {
+                step1Price = [[self.pProductArr objectAtIndex:0] objectForKey:@"price"];
+            }
+            else if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_02 )
+            {
+                step1Price = [[self.pProductArr objectAtIndex:1] objectForKey:@"price"];
+            }
+            else if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_03 )
+            {
+                step1Price = [[self.pProductArr objectAtIndex:0] objectForKey:@"price"];
+            }
+            
+            int nStep1Price = [step1Price intValue];
+            
+            if( nStep1Price > self.nPointBalance )
+            {
+                // tv 포인트 딤 처리
+                self.pStep2SubView04Btn.enabled = YES;
+                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                
+                self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+            }
         }
         else
         {
             self.pStep2SubView04MoneyLbl.text = @"잔액0원";
         }
-        
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -615,497 +756,160 @@
         NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:0] objectForKey:@"price"]]];
         self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
     }
+    
+    
 }
+
+
+
+#pragma mark - 결제 전문
+#pragma mark - 일반 결제
+//- (void)requestWithPurchaseAssetEx2
+//{
+//    NSString *sProductId = @"";
+//    NSString *goodId = @"";
+//    NSObject *itemObjet = [[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+//
+//    switch (self.nStep1BtnTag) {
+//        case VOD_BUY_VIEW_BTN_01:
+//        {
+//            if ( [itemObjet isKindOfClass:[NSDictionary class]] )
+//            {
+//                sProductId = [(NSDictionary *)itemObjet objectForKey:@"productId"];
+//
+//                NSArray *goodIdArrKey = [(NSDictionary *)itemObjet allKeys];
+//
+//                for ( NSString *goodStr in goodIdArrKey )
+//                {
+//                    if ( [goodStr isEqualToString:@"goodId"] )
+//                    {
+//                        goodId = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObjet objectForKey:@"goodId"]];
+//                    }
+//                }
+//            }
+//            else
+//            {
+//                sProductId = [[(NSArray *)itemObjet objectAtIndex:0] objectForKey:@"productId"];
+//
+//                NSArray *goodIdArrKey = [[(NSArray *)itemObjet objectAtIndex:0] allKeys];
+//
+//                for ( NSString *goodStr in goodIdArrKey )
+//                {
+//                    if ( [goodStr isEqualToString:@"goodId"] )
+//                    {
+//                        goodId = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObjet objectAtIndex:0] objectForKey:@"goodId"]];
+//                    }
+//                }
+//            }
+//        }break;
+//        case VOD_BUY_VIEW_BTN_02:
+//        {
+//            sProductId = [[(NSArray *)itemObjet objectAtIndex:1] objectForKey:@"productId"];
+//
+//            NSArray *goodIdArrKey = [[(NSArray *)itemObjet objectAtIndex:1] allKeys];
+//
+//            for ( NSString *goodStr in goodIdArrKey )
+//            {
+//                if ( [goodStr isEqualToString:@"goodId"] )
+//                {
+//                    goodId = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObjet objectAtIndex:1] objectForKey:@"goodId"]];
+//                }
+//            }
+//        }break;
+//        case VOD_BUY_VIEW_BTN_03:
+//        {
+//            sProductId = [[(NSArray *)itemObjet objectAtIndex:2] objectForKey:@"productId"];
+//
+//            NSArray *goodIdArrKey = [[(NSArray *)itemObjet objectAtIndex:2] allKeys];
+//
+//            for ( NSString *goodStr in goodIdArrKey )
+//            {
+//                if ( [goodStr isEqualToString:@"goodId"] )
+//                {
+//                    goodId = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObjet objectAtIndex:2] objectForKey:@"goodId"]];
+//                }
+//            }
+//        }break;
+//    }
+//
+////    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithProductId:<#(NSString *)#> WithGoodId:<#(NSString *)#> WithUiComponentDomain:<#(NSString *)#> WithUiComponentId:<#(NSString *)#> WithPrice:<#(NSString *)#> completion:<#^(NSArray *preference, NSError *error)block#>]
+//}
+
+
+#pragma mark - 쿠폰 결제
+
+
+#pragma mark - TV 포인트 결제
+
+#pragma mark - 복합결제
+
 
 /*!<
-#pragma mark - 화면 초기화
-- (void)setViewInit
-{
-    self.title = @"상세정보";
-    self.isUseNavigationBar = YES;
-    self.scrollContainer.contentSize = CGSizeMake(self.view.bounds.size.width, 642);
-    
-    self.pPaymentTypeArr = [[NSMutableArray alloc] init];
-    
-    self.pBuyTypeArr = [[NSMutableArray alloc] init];
-
-    
-    NSString *sSeriesLink = [NSString stringWithFormat:@"%@", [[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"seriesLink"]];
-    NSObject *itemObj = [[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
-    
-    if ( [itemObj isKindOfClass:[NSDictionary class]] )
-    {
-        NSString *sProductType = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObj objectForKey:@"productType"]];
-        NSString *sPrice = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObj objectForKey:@"price"]];
-        NSMutableDictionary *pDic = [[NSMutableDictionary alloc] init];
-        
-        if ( [sSeriesLink isEqualToString:@"0"] )
-        {
-            // 시리즈가 아님
-            if ( [sProductType isEqualToString:@"Bundle"] )
-            {
-                // 묶음 상품
-                // 묶음 할인 상품 구매, 월정액, 통합월정액
-                [pDic setObject:sPrice forKey:@"price"];
-                [pDic setObject:sProductType forKey:@"productType"];
-                [pDic setObject:@"묶음 할인상품 구매" forKey:@"productName"];
-
-                [self.pBuyTypeArr addObject:pDic];
-//                [self.pBuyTypeArr addObject:@"월정액"];
-//                [self.pBuyTypeArr addObject:@"통합 월정액"];
-                
-            }
-            else
-            {
-                // 단일 상품
-                // 단일 상품 구매, 월정액, 통합월정액
-                [pDic setObject:sPrice forKey:@"price"];
-                [pDic setObject:sProductType forKey:@"productType"];
-                [pDic setObject:@"단일 상품 구매" forKey:@"productName"];
-                
-                [self.pBuyTypeArr addObject:pDic];
-//                [self.pBuyTypeArr addObject:@"월정액"];
-//                [self.pBuyTypeArr addObject:@"통합 월정액"];
-            }
-        }
-        else
-        {
-            // 시리즈임
-            // 단일 회차, 월정액, 통합 월정액
-            [pDic setObject:sPrice forKey:@"price"];
-            [pDic setObject:sProductType forKey:@"productType"];
-            [pDic setObject:@"단일 회차 구매" forKey:@"productName"];
-            
-            [self.pBuyTypeArr addObject:pDic];
-//            [self.pBuyTypeArr addObject:@"월정액"];
-//            [self.pBuyTypeArr addObject:@"통합 월정액"];
-        }
-    }
-    else if ( [itemObj isKindOfClass:[NSArray class]] )
-    {
-        if  ( [sSeriesLink isEqualToString:@"0"] )
-        {
-            BOOL isBundle = NO;
-            BOOL isSvod = NO;       // 월정액 체크
-            BOOL isRvod = NO;       // 단일 상품 체크
-            
-            
-            NSMutableDictionary *pDic1 = [[NSMutableDictionary alloc] init];
-            NSMutableDictionary *pDic2 = [[NSMutableDictionary alloc] init];
-            NSMutableDictionary *pDic3 = [[NSMutableDictionary alloc] init];
-            
-            
-            // 시리즈가 아님
-            for ( NSDictionary *dic in (NSArray *)itemObj )
-            {
-                NSString *sProductType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"productType"]];
-                NSString *sPrice = [NSString stringWithFormat:@"%@", [dic objectForKey:@"price"]];
-                if ( [sProductType isEqualToString:@"Bundle"] )
-                {
-                    // 단일 상품 구매 , 묶음 상품 구매
-                    isBundle = YES;
-                    [pDic1 setObject:sPrice forKey:@"price"];
-                    [pDic1 setObject:sProductType forKey:@"productType"];
-                    [pDic1 setObject:@"묶음 상품 구매" forKey:@"productName"];
-                }
-                if ( [sProductType isEqualToString:@"SVOD"] )
-                {
-                    // 월정액 인지 아닌지
-                    isSvod = YES;
-                    
-                    [pDic2 setObject:sPrice forKey:@"price"];
-                    [pDic2 setObject:sProductType forKey:@"productType"];
-                    [pDic2 setObject:@"월정액" forKey:@"productName"];
-
-                }
-                if ( [sProductType isEqualToString:@"RVOD"] )
-                {
-                    // 단일 상품 체크
-                    isRvod = YES;
-                    
-                    [pDic3 setObject:sPrice forKey:@"price"];
-                    [pDic3 setObject:sProductType forKey:@"productType"];
-                    [pDic3 setObject:@"단일 상품 구매" forKey:@"productName"];
-                }
-            }
-            
-            if ( isBundle == YES )
-            {
-                // 묶음 상품 구매
-                if ( isRvod == YES )
-                {
-                    // 단일 상품 구매
-                    [self.pBuyTypeArr addObject:pDic3];
-                    [self.pBuyTypeArr addObject:pDic1];
-                    
-                    if ( isSvod == YES )
-                    {
-                        // 월정액
-                        [self.pBuyTypeArr addObject:pDic2];
-                    }
-                }
-                else
-                {
-                    if ( isRvod == YES )
-                    {
-                        // 단일 상품 구매
-                        [self.pBuyTypeArr addObject:pDic3];
-                        [self.pBuyTypeArr addObject:pDic1];
-                        
-                        if ( isSvod == YES )
-                        {
-                            [self.pBuyTypeArr addObject:pDic2];
-                        }
-                    }
-                    else
-                    {
-                         [self.pBuyTypeArr addObject:pDic1];
-                        if ( isSvod == YES )
-                        {
-                            [self.pBuyTypeArr addObject:pDic2];
-                        }
-                    }
-                    
-                    
-                }
-            }
-            else
-            {
-                // 단일 상품 구매, 월정액, 통합 월정액
-                if ( isRvod == YES )
-                {
-                    // 단일 상품 구매
-                    if ( isSvod == YES )
-                    {
-                        // 월정액
-                        [self.pBuyTypeArr addObject:pDic3];
-                        [self.pBuyTypeArr addObject:pDic2];
-                    }
-                    else
-                    {
-                        [self.pBuyTypeArr addObject:pDic3];
-                    }
-                }
-            }
-            
-        }
-        else
-        {
-            // 시리즈임
-            // 시리즈이면 단일 회차 구매, 시리즈 전체 회차 구매
-            NSString *sProductType = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObj objectAtIndex:0] objectForKey:@"productType"]];
-            NSString *sPrice = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObj objectAtIndex:1] objectForKey:@"price"]];
-            
-            NSMutableDictionary *pDic1 = [[NSMutableDictionary alloc] init];
-            NSMutableDictionary *pDic2 = [[NSMutableDictionary alloc] init];
-            
-            [pDic1 setObject:sProductType forKey:@"productType"];
-            [pDic1 setObject:sPrice forKey:@"price"];
-            [pDic1 setObject:@"단일 회차 구매" forKey:@"productName"];
-            
-            [pDic2 setObject:sProductType forKey:@"productType"];
-            [pDic2 setObject:sPrice forKey:@"price"];
-            [pDic2 setObject:@"시리즈 전체회차 구매" forKey:@"productName"];
-            
-        }
-    }
-    
-    [self setBtnTitle];
-}
-
-
-#pragma mark - 구매 상품 버튼 타이틀 셋팅
-- (void)setBtnTitle
-{
-    self.pStep1SubView02.hidden = YES;
-    self.pStep1SubView03.hidden = YES;
-    self.pStep1SubView04.hidden = YES;
-    for ( int i =0; i < [self.pBuyTypeArr count]; i++ )
-    {
-        switch (i) {
-            case 0:
-            {
-                self.pStep1SubView02.hidden = NO;
-                self.pStep1SubView02TitleLbl.text = [NSString stringWithFormat:@"%@", [[self.pBuyTypeArr objectAtIndex:i] objectForKey:@"productName"]];
-                self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@", [[self.pBuyTypeArr objectAtIndex:i] objectForKey:@"price"]];
-            }break;
-            case 1:
-            {
-                self.pStep1SubView03.hidden = NO;
-                self.pStep1SubView03TitleLbl.text = [NSString stringWithFormat:@"%@", [[self.pBuyTypeArr objectAtIndex:i] objectForKey:@"productName"]];
-                self.pStep1SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@", [[self.pBuyTypeArr objectAtIndex:i] objectForKey:@"price"]];
-            }break;
-            case 2:
-            {
-                self.pStep1SubView04.hidden = NO;
-                self.pStep1SubView04TitleLbl.text = [NSString stringWithFormat:@"%@", [[self.pBuyTypeArr objectAtIndex:i] objectForKey:@"productName"]];
-                self.pStep1SubView04MoneyLbl.text = [NSString stringWithFormat:@"%@", [[self.pBuyTypeArr objectAtIndex:i] objectForKey:@"price"]];
-            }break;
-        }
-        
-    }
-}
-
-- (void)setBtnSubDepthWithTitle:(NSDictionary *)pDic
-{
-    self.pStep2SubView02.hidden = NO;
-    self.pStep2SubView03.hidden = NO;
-    self.pStep2SubView04.hidden = NO;
-    
-    self.pNoBuyLbl01.hidden = YES;
-    self.pNoBuyLbl02.hidden = YES;
-    self.pNoBuyLbl03.hidden = YES;
-    self.pNoBuyLbl04.hidden = YES;
-    
-    if ( [[pDic objectForKey:@"productName"] isEqualToString:@"단일 회차 구매"] )
-    {
-        
-    }
-    else if ( [[pDic objectForKey:@"productName"] isEqualToString:@"단일 상품 구매"])
-    {
-    
-    }
-    else if ( [[pDic objectForKey:@"productName"] isEqualToString:@"시리즈 전체회차 구매"] )
-    {
-    
-    }
-    else if ( [[pDic objectForKey:@"productName"] isEqualToString:@"묶음 할인 상품 구매"] )
-    {
-    
-    }
-    else if ( [[pDic objectForKey:@"productName"] isEqualToString:@"월정액"] )
-    {
-        self.pStep2SubView02.hidden = YES;
-        self.pStep2SubView03.hidden = YES;
-        self.pStep2SubView04.hidden = YES;
-        
-        self.pNoBuyLbl01.hidden = NO;
-        self.pNoBuyLbl02.hidden = NO;
-        self.pNoBuyLbl03.hidden = NO;
-        self.pNoBuyLbl04.hidden = NO;
-    }
-    else if ( [[pDic objectForKey:@"productName"] isEqualToString:@"통합 월정액"] )
-    {
-        self.pStep2SubView02.hidden = YES;
-        self.pStep2SubView03.hidden = YES;
-        self.pStep2SubView04.hidden = YES;
-        
-        self.pNoBuyLbl01.hidden = NO;
-        self.pNoBuyLbl02.hidden = NO;
-        self.pNoBuyLbl03.hidden = NO;
-        self.pNoBuyLbl04.hidden = NO;
-    }
-}
-
-#pragma mark - 액션 이벤트
-#pragma mark - 버튼 액션 이벤트
-- (IBAction)onBtnClicked:(UIButton *)btn
-{
-    switch ([btn tag]) {
-        case VOD_BUY_VIEW_BTN_01:
-        {
-            // 구매 버튼1
-            [self.pStep1SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
-            [self.pStep1SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            [self.pStep1SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            
-            self.pStep1SubView02TitleLbl.textColor = [UIColor whiteColor];
-            self.pStep1SubView02MoneyLbl.textColor = [UIColor whiteColor];
-            
-            self.pStep1SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep1SubView03MoneyLbl.textColor = [UIColor blackColor];
-            
-            self.pStep1SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep1SubView04MoneyLbl.textColor = [UIColor blackColor];
-            
-            [self setBtnSubDepthWithTitle:[self.pBuyTypeArr objectAtIndex:0]];
-        }break;
-        case VOD_BUY_VIEW_BTN_02:
-        {
-            // 구매 버튼2
-            [self.pStep1SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            [self.pStep1SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
-            [self.pStep1SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            
-            self.pStep1SubView02TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep1SubView02MoneyLbl.textColor = [UIColor blackColor];
-            
-            self.pStep1SubView03TitleLbl.textColor = [UIColor whiteColor];
-            self.pStep1SubView03MoneyLbl.textColor = [UIColor whiteColor];
-            
-            self.pStep1SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep1SubView04MoneyLbl.textColor = [UIColor blackColor];
-            [self setBtnSubDepthWithTitle:[self.pBuyTypeArr objectAtIndex:1]];
-            
-            
-        }break;
-        case VOD_BUY_VIEW_BTN_03:
-        {
-            // 구매 버튼3
-            [self.pStep1SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            [self.pStep1SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            [self.pStep1SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
-            
-            self.pStep1SubView02TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep1SubView02MoneyLbl.textColor = [UIColor blackColor];
-            
-            self.pStep1SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep1SubView03MoneyLbl.textColor = [UIColor blackColor];
-            
-            self.pStep1SubView04TitleLbl.textColor = [UIColor whiteColor];
-            self.pStep1SubView04MoneyLbl.textColor = [UIColor whiteColor];
-            [self setBtnSubDepthWithTitle:[self.pBuyTypeArr objectAtIndex:2]];
-        }break;
-        case VOD_BUY_VIEW_BTN_04:
-        {
-            // 결제 버튼1
-            [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
-//            [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-//            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            
-            self.pStep2SubView02TitleLbl.textColor = [UIColor whiteColor];
-            self.pStep2SubView02MoneyLbl.textColor = [UIColor whiteColor];
-            
-//            self.pStep2SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-//            self.pStep2SubView03MoneyLbl.textColor = [UIColor blackColor];
-//            
-//            self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-//            self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
-            // 일반 결제
-//            VodPopUpViewController *pViewController = [[VodPopUpViewController alloc] initWithNibName:@"VodPopUpViewController" bundle:nil];
-//            
-//            [self addChildViewController:pViewController];
-//            [pViewController didMoveToParentViewController:self];
-//            [self.view addSubview:pViewController.view];
-//
-            // 결제 테스트
-//            [self requestWithPurchaseAssetEx2];
-//            [SIAlertView alert:@"알림" message:@"일반 결제 테스트 중입니다." button:nil];
-//            
-        }break;
-        case VOD_BUY_VIEW_BTN_05:
-        {
-            // 결제 버튼2
-            [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
-            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            
-            self.pStep2SubView02TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep2SubView02MoneyLbl.textColor = [UIColor blackColor];
-            
-            self.pStep2SubView03TitleLbl.textColor = [UIColor whiteColor];
-            self.pStep2SubView03MoneyLbl.textColor = [UIColor whiteColor];
-            
-            self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
-        }break;
-        case VOD_BUY_VIEW_BTN_06:
-        {
-            // 결제 버튼3
-            [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
-            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
-            
-            self.pStep2SubView02TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep2SubView02MoneyLbl.textColor = [UIColor blackColor];
-            
-            self.pStep2SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep2SubView03MoneyLbl.textColor = [UIColor blackColor];
-            
-            self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
-            self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
-        }break;
-        case VOD_BUY_VIEW_BTN_07:
-        {
-            // 취소
-            [self.navigationController popViewControllerAnimated:YES];
-        }break;
-        case VOD_BUY_VIEW_BTN_08:
-        {
-            // 결제 하기
-
-            VodPopUpViewController *pViewController = [[VodPopUpViewController alloc] initWithNibName:@"VodPopUpViewController" bundle:nil];
-            self.navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-            pViewController.navigationController.modalPresentationStyle= UIModalPresentationCurrentContext;
-            if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f) {
-                pViewController.modalPresentationStyle= UIModalPresentationOverCurrentContext;
-            }
-            pViewController.pBuyStr = [[self.pBuyTypeArr objectAtIndex:0] objectForKey:@"price"];
-            pViewController.pBuyDic = self.pDetailDataDic;
-            pViewController.delegate = self;
-            [self presentViewController:pViewController animated:NO completion:^{
-                
-            }];
-
-            
-        }break;
-    }
-}
-
-#pragma mark - 전문
-#pragma mark - 결제 타입
-- (void)requestWithPaymenetGetAvailablePaymentType
-{
-    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentGetAvailablePaymentTypeWithDomainId:@"CnM" completion:^(NSArray *preference, NSError *error) {
-        
-        DDLogError(@"결제 타입 = %@]", preference);
-        
-        // 일단 일반 만 해 놓자
-        self.pStep2SubView02Btn.enabled = YES;
-        self.pStep2SubView03Btn.enabled = NO;
-        self.pStep2SubView04Btn.enabled = NO;
-        
-        [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
-        [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
-    }];
-    
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-}
-
-#pragma mark - 일반 결제
-- (void)requestWithPurchaseAssetEx2
-{
-    NSLog(@"일반 결제");
-    
-    NSObject *itemObj = [[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
-    
-    if ( [itemObj isKindOfClass:[NSDictionary class]] )
-    {
-        NSString *sProductId = [NSString stringWithFormat:@"%@", [[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productId"]];
-        NSString *sGoodi = [NSString stringWithFormat:@"%@", [[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"goodId"]];
-        NSString *sPrice = [NSString stringWithFormat:@"%@", [[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"price"]];
-        
-        NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithProductId:sProductId WithGoodId:sGoodi WithUiComponentDomain:sPrice WithUiComponentId:@"0" WithPrice:@"0" completion:^(NSArray *preference, NSError *error) {
-           
-            DDLogError(@"preference = [%@]", preference);
-        }];
-
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-
-    }
-    else if ( [itemObj isKindOfClass:[NSArray class]] )
-    {
-        NSString *sProductId = [NSString stringWithFormat:@"%@", [[[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"productId"]];
-        NSString *sGoodi = [NSString stringWithFormat:@"%@", [[[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"goodId"]];
-        NSString *sPrice = [NSString stringWithFormat:@"%@", [[[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"price"]];
-        
-        NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithProductId:sProductId WithGoodId:sGoodi WithUiComponentDomain:@"0" WithUiComponentId:@"0" WithPrice:sPrice completion:^(NSArray *preference, NSError *error) {
-            
-            DDLogError(@"preference = [%@]", preference);
-        }];
-        
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-
-    }
-    
-    
-}
-
-- (void)VodPopUpViewWithTag:(int)nTag
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    [self.delegate VodBuyViewWithTag:0];
-}
+ 
+ #pragma mark - 전문
+ #pragma mark - 결제 타입
+ - (void)requestWithPaymenetGetAvailablePaymentType
+ {
+ NSURLSessionDataTask *tesk = [NSMutableDictionary paymentGetAvailablePaymentTypeWithDomainId:@"CnM" completion:^(NSArray *preference, NSError *error) {
+ 
+ DDLogError(@"결제 타입 = %@]", preference);
+ 
+ // 일단 일반 만 해 놓자
+ self.pStep2SubView02Btn.enabled = YES;
+ self.pStep2SubView03Btn.enabled = NO;
+ self.pStep2SubView04Btn.enabled = NO;
+ 
+ [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+ [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+ }];
+ 
+ [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+ }
+ 
+ #pragma mark - 일반 결제
+ - (void)requestWithPurchaseAssetEx2
+ {
+ NSLog(@"일반 결제");
+ 
+ NSObject *itemObj = [[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+ 
+ if ( [itemObj isKindOfClass:[NSDictionary class]] )
+ {
+ NSString *sProductId = [NSString stringWithFormat:@"%@", [[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productId"]];
+ NSString *sGoodi = [NSString stringWithFormat:@"%@", [[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"goodId"]];
+ NSString *sPrice = [NSString stringWithFormat:@"%@", [[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"price"]];
+ 
+ NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithProductId:sProductId WithGoodId:sGoodi WithUiComponentDomain:sPrice WithUiComponentId:@"0" WithPrice:@"0" completion:^(NSArray *preference, NSError *error) {
+ 
+ DDLogError(@"preference = [%@]", preference);
+ }];
+ 
+ [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+ 
+ }
+ else if ( [itemObj isKindOfClass:[NSArray class]] )
+ {
+ NSString *sProductId = [NSString stringWithFormat:@"%@", [[[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"productId"]];
+ NSString *sGoodi = [NSString stringWithFormat:@"%@", [[[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"goodId"]];
+ NSString *sPrice = [NSString stringWithFormat:@"%@", [[[[[[self pDetailDataDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"price"]];
+ 
+ NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithProductId:sProductId WithGoodId:sGoodi WithUiComponentDomain:@"0" WithUiComponentId:@"0" WithPrice:sPrice completion:^(NSArray *preference, NSError *error) {
+ 
+ DDLogError(@"preference = [%@]", preference);
+ }];
+ 
+ [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+ 
+ }
+ 
+ 
+ }
+ 
+ - (void)VodPopUpViewWithTag:(int)nTag
+ {
+ [self.navigationController popViewControllerAnimated:YES];
+ [self.delegate VodBuyViewWithTag:0];
+ }
  
  */
 
