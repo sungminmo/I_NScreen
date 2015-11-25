@@ -1442,21 +1442,34 @@ static int tvFontSize = 15;
     
     NSObject *priceItem = [[[self pAssetListByEpisodePeerIdDic] objectForKey:@"productList"] objectForKey:@"product"];
     
+    NSString *sPurchasedTime = @"";
+    
+    NSString *sViewablePeriodState = @"";
+    
+    NSString *sViewablePeriod = @"";
+    
     if ( [priceItem isKindOfClass:[NSDictionary class]] )
     {
         self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"price"]];
+        
+        sPurchasedTime = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"purchasedTime"]];
+        sViewablePeriodState = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"viewablePeriodState"]];
+        
+        sViewablePeriod = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"viewablePeriod"]];
+        
     }
     else
     {
         self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"price"]];
+        
+        sPurchasedTime = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"purchasedTime"]];
+        sViewablePeriodState = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"viewablePeriodState"]];
+        
+        sViewablePeriod = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"viewablePeriod"]];
+        
     }
     
-//    self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[[[self pAssetListByEpisodePeerIdDic] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"price"]];
-    
     // 평생 소장인지 체크
-    NSString *sViewablePeriodState = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"viewablePeriodState"]];
-    NSString *sViewablePeriod = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"viewablePeriod"]];
-    
     if ( [sViewablePeriodState isEqualToString:@"0"] )
     {
         // 평생 소장 아님
@@ -1512,9 +1525,6 @@ static int tvFontSize = 15;
     
     self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"director"]];
     
-    NSString *sPurchasedTime = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"purchasedTime"]];
-
-        
     int nTag = 0;
     // 시리즈다
     if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
