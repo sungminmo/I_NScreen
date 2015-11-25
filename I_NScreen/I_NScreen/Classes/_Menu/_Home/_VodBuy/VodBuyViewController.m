@@ -25,6 +25,7 @@
 @property (nonatomic) BOOL isDiscount;      // 할인 카드 유무
 @property (nonatomic) int nDisPrice;        // 할인 금액
 @property (nonatomic) int nPointBalance;    // TV포인트 금액
+@property (nonatomic) int nCouponPrice;     // 쿠폰 결제 금액
 
 @property (nonatomic) int nStep1BtnTag;     // 버튼 테그 값
 @property (nonatomic) int nStep2BtnTag;     // 버튼 테그 값
@@ -75,6 +76,7 @@
     self.isDiscount = NO;
     self.nDisPrice = 0;
     self.nPointBalance = 0;
+    self.nCouponPrice = 0;
     self.scrollContainer.contentSize = CGSizeMake(self.view.bounds.size.width, 642);
     
     self.sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];
@@ -324,7 +326,7 @@
             NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"productType"]];
             
             [self setViewHiddenWithType:sProductType];
-            
+            self.pStep2SubView04Btn.enabled = YES;
             if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
             {
                 if ( self.isDiscount == YES )
@@ -342,13 +344,37 @@
                         if( nPrice > self.nPointBalance )
                         {
                             // tv 포인트 딤 처리
-                            self.pStep2SubView04Btn.enabled = YES;
+                            self.pStep2SubView04Btn.enabled = NO;
                             [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
                             
                             self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
                             self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
                             self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
                             self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                        }
+                        else
+                        {
+                            self.pStep2SubView04Btn.enabled = YES;
+                            
+                            if ( self.nStep2BtnTag == VOD_BUY_VIEW_BTN_06 )
+                            {
+                                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+                                
+                                self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                                self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                                self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                                self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+
+                            }
+                            else
+                            {
+                                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                                
+                                self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                                self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+                                self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+                                self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+                            }
                         }
                     }
                     
@@ -358,10 +384,10 @@
                     NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:0] objectForKey:@"price"]]];
                     self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
                     
-                    if( [sPrice intValue] > self.nPointBalance )
+                    if( [[[self.pProductArr objectAtIndex:0] objectForKey:@"price"] intValue] > self.nPointBalance )
                     {
                         // tv 포인트 딤 처리
-                        self.pStep2SubView04Btn.enabled = YES;
+                        self.pStep2SubView04Btn.enabled = NO;
                         [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
                         
                         self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
@@ -369,7 +395,43 @@
                         self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
                         self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
                     }
+                    else
+                    {
+                        self.pStep2SubView04Btn.enabled = YES;
+                        
+                        if ( self.nStep2BtnTag == VOD_BUY_VIEW_BTN_06 )
+                        {
+                            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+                            
+                            self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                            
+                        }
+                        else
+                        {
+                            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                            
+                            self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                            self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+                            self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+                            self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+                        }
+
+                    }
                 }
+            }
+            
+            if ( self.pStep2SubView04Btn.enabled == NO && self.nStep2BtnTag == VOD_BUY_VIEW_BTN_06 )
+            {
+                // tv 포인트가 딤이면
+                self.nStep2BtnTag = VOD_BUY_VIEW_BTN_04;
+                [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+               
+                self.pStep2SubView02TitleLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView02MoneyLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView02ContentLbl.textColor = [UIColor whiteColor];
             }
             
         }break;
@@ -393,7 +455,7 @@
             NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productType"]];
             
             [self setViewHiddenWithType:sProductType];
-            
+            self.pStep2SubView04Btn.enabled = YES;
             if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
             {
                 if ( self.isDiscount == YES )
@@ -408,16 +470,41 @@
                         self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
                         self.pStep2SubView02MoneyLbl02.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:[NSString stringWithFormat:@"%d", nPrice - self.nDisPrice]]];
                         
-                        if( [sPrice intValue] > self.nPointBalance )
+                        if( [[[self.pProductArr objectAtIndex:1] objectForKey:@"price"] intValue] > self.nPointBalance )
                         {
                             // tv 포인트 딤 처리
-                            self.pStep2SubView04Btn.enabled = YES;
+                            self.pStep2SubView04Btn.enabled = NO;
                             [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
                             
                             self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
                             self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
                             self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
                             self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                        }
+                        else
+                        {
+                            self.pStep2SubView04Btn.enabled = YES;
+                            
+                            if ( self.nStep2BtnTag == VOD_BUY_VIEW_BTN_06 )
+                            {
+                                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+                                
+                                self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                                self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                                self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                                self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                                
+                            }
+                            else
+                            {
+                                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                                
+                                self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                                self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+                                self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+                                self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+                            }
+
                         }
                     }
                     
@@ -427,10 +514,10 @@
                     NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:1] objectForKey:@"price"]]];
                     self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
                     
-                    if( [sPrice intValue] > self.nPointBalance )
+                    if( [[[self.pProductArr objectAtIndex:1] objectForKey:@"price"] intValue] > self.nPointBalance )
                     {
                         // tv 포인트 딤 처리
-                        self.pStep2SubView04Btn.enabled = YES;
+                        self.pStep2SubView04Btn.enabled = NO;
                         [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
                         
                         self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
@@ -438,9 +525,45 @@
                         self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
                         self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
                     }
+                    else
+                    {
+                        self.pStep2SubView04Btn.enabled = YES;
+                        
+                        if ( self.nStep2BtnTag == VOD_BUY_VIEW_BTN_06 )
+                        {
+                            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+                            
+                            self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                            
+                        }
+                        else
+                        {
+                            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                            
+                            self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                            self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+                            self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+                            self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+                        }
+
+                    }
                 }
             }
             
+            if ( self.pStep2SubView04Btn.enabled == NO && self.nStep2BtnTag == VOD_BUY_VIEW_BTN_06 )
+            {
+                // tv 포인트가 딤이면
+                self.nStep2BtnTag = VOD_BUY_VIEW_BTN_04;
+                [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+                
+                self.pStep2SubView02TitleLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView02MoneyLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView02ContentLbl.textColor = [UIColor whiteColor];
+            }
+
         }break;
         case VOD_BUY_VIEW_BTN_03:
         {
@@ -462,7 +585,7 @@
             NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productType"]];
             
             [self setViewHiddenWithType:sProductType];
-            
+            self.pStep2SubView04Btn.enabled = YES;
             if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
             {
                 if ( self.isDiscount == YES )
@@ -477,16 +600,41 @@
                         self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
                         self.pStep2SubView02MoneyLbl02.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:[NSString stringWithFormat:@"%d", nPrice - self.nDisPrice]]];
                         
-                        if( [sPrice intValue] > self.nPointBalance )
+                        if( [[[self.pProductArr objectAtIndex:2] objectForKey:@"price"] intValue] > self.nPointBalance )
                         {
                             // tv 포인트 딤 처리
-                            self.pStep2SubView04Btn.enabled = YES;
+                            self.pStep2SubView04Btn.enabled = NO;
                             [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
                             
                             self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
                             self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
                             self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
                             self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                        }
+                        else
+                        {
+                            self.pStep2SubView04Btn.enabled = YES;
+                            
+                            if ( self.nStep2BtnTag == VOD_BUY_VIEW_BTN_06 )
+                            {
+                                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+                                
+                                self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                                self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                                self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                                self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                                
+                            }
+                            else
+                            {
+                                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                                
+                                self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                                self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+                                self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+                                self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+                            }
+
                         }
                     }
                     
@@ -496,10 +644,10 @@
                     NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:2] objectForKey:@"price"]]];
                     self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
                     
-                    if( [sPrice intValue] > self.nPointBalance )
+                    if( [[[self.pProductArr objectAtIndex:2] objectForKey:@"price"] intValue] > self.nPointBalance )
                     {
                         // tv 포인트 딤 처리
-                        self.pStep2SubView04Btn.enabled = YES;
+                        self.pStep2SubView04Btn.enabled = NO;
                         [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
                         
                         self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
@@ -507,28 +655,78 @@
                         self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
                         self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
                     }
+                    else
+                    {
+                        self.pStep2SubView04Btn.enabled = YES;
+                        
+                        if ( self.nStep2BtnTag == VOD_BUY_VIEW_BTN_06 )
+                        {
+                            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+                            
+                            self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                            self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                            
+                        }
+                        else
+                        {
+                            [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                            
+                            self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                            self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+                            self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+                            self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+                        }
+
+                    }
                 }
             }
             
+            if ( self.pStep2SubView04Btn.enabled == NO && self.nStep2BtnTag == VOD_BUY_VIEW_BTN_06 )
+            {
+                // tv 포인트가 딤이면
+                self.nStep2BtnTag = VOD_BUY_VIEW_BTN_04;
+                [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
+                
+                self.pStep2SubView02TitleLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView02MoneyLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView02ContentLbl.textColor = [UIColor whiteColor];
+            }
+
         }break;
         case VOD_BUY_VIEW_BTN_04:
         {
             self.nStep2BtnTag = VOD_BUY_VIEW_BTN_04;
             
+            if ( self.nCouponPrice == 0 )
+            {
+                self.pStep2SubView03Btn.enabled = NO;
+                [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                self.pStep2SubView03TitleLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView03MoneyLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView03ContentLbl01.textColor = [UIColor whiteColor];
+                self.pStep2SubView03ContentLbl02.textColor = [UIColor whiteColor];
+            }
+            else
+            {
+                self.pStep2SubView03Btn.enabled = YES;
+                [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                self.pStep2SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                self.pStep2SubView03MoneyLbl.textColor = [UIColor blackColor];
+                self.pStep2SubView03ContentLbl01.textColor = [UIColor blackColor];
+                self.pStep2SubView03ContentLbl02.textColor = [UIColor blackColor];
+            }
+            
             [self.pStep2SubView02Btn setBackgroundImage:[UIImage imageNamed:@"purchase_select.jpg"] forState:UIControlStateNormal];
-            [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            
             [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
             
             self.pStep2SubView02TitleLbl.textColor = [UIColor whiteColor];
             self.pStep2SubView02MoneyLbl.textColor = [UIColor whiteColor];
             self.pStep2SubView02ContentLbl.textColor = [UIColor whiteColor];
             self.pStep2SubView02SaleImageView.image = [UIImage imageNamed:@"icon_discount_select.png"];
-            
-            self.pStep2SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
-            self.pStep2SubView03MoneyLbl.textColor = [UIColor blackColor];
-            self.pStep2SubView03ContentLbl01.textColor = [UIColor blackColor];
-            self.pStep2SubView03ContentLbl02.textColor = [UIColor blackColor];
-            
+
             self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
             self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
             self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
@@ -538,6 +736,45 @@
             {
                 // 할인
                 self.pStep2SubView02MoneyLbl02.textColor = [UIColor whiteColor];
+            }
+            
+            NSString *step1Price = @"";
+            self.pStep2SubView04Btn.enabled = YES;
+            if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_01 )
+            {
+                step1Price = [[self.pProductArr objectAtIndex:0] objectForKey:@"price"];
+            }
+            else if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_02 )
+            {
+                step1Price = [[self.pProductArr objectAtIndex:1] objectForKey:@"price"];
+            }
+            else if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_03 )
+            {
+                step1Price = [[self.pProductArr objectAtIndex:2] objectForKey:@"price"];
+            }
+            
+            int nStep1Price = [step1Price intValue];
+            
+            if( nStep1Price > self.nPointBalance )
+            {
+                // tv 포인트 딤 처리
+                self.pStep2SubView04Btn.enabled = NO;
+                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                
+                self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+            }
+            else
+            {
+                self.pStep2SubView04Btn.enabled = YES;
+                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                
+                self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+                self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+                self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
             }
             
         }break;
@@ -570,6 +807,46 @@
                 self.pStep2SubView02MoneyLbl02.textColor = [UIColor blackColor];
             }
             
+            NSString *step1Price = @"";
+            self.pStep2SubView04Btn.enabled = YES;
+            if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_01 )
+            {
+                step1Price = [[self.pProductArr objectAtIndex:0] objectForKey:@"price"];
+            }
+            else if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_02 )
+            {
+                step1Price = [[self.pProductArr objectAtIndex:1] objectForKey:@"price"];
+            }
+            else if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_03 )
+            {
+                step1Price = [[self.pProductArr objectAtIndex:2] objectForKey:@"price"];
+            }
+            
+            int nStep1Price = [step1Price intValue];
+            
+            if( nStep1Price > self.nPointBalance )
+            {
+                // tv 포인트 딤 처리
+                self.pStep2SubView04Btn.enabled = NO;
+                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+                
+                self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
+                self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
+                self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+            }
+            else
+            {
+                self.pStep2SubView04Btn.enabled = YES;
+                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                
+                self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+                self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+                self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+            }
+
+            
         }break;
         case VOD_BUY_VIEW_BTN_06:
         {
@@ -599,6 +876,7 @@
                 // 할인
                 self.pStep2SubView02MoneyLbl02.textColor = [UIColor blackColor];
             }
+
             
         }break;
         case VOD_BUY_VIEW_BTN_07:
@@ -639,6 +917,27 @@
         self.isDiscount = NO;
         // 쿠폰 결제 금액
         NSString *sTotalMoneyBalance = [NSString stringWithFormat:@"%@", [[vodBuy objectAtIndex:0] objectForKey:@"totalMoneyBalance"]];
+        self.nCouponPrice = [[[vodBuy objectAtIndex:0] objectForKey:@"totalMoneyBalance"] intValue];
+        
+        if ( self.nCouponPrice == 0 )
+        {
+            self.pStep2SubView03Btn.enabled = NO;
+            [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
+            self.pStep2SubView03TitleLbl.textColor = [UIColor whiteColor];
+            self.pStep2SubView03MoneyLbl.textColor = [UIColor whiteColor];
+            self.pStep2SubView03ContentLbl01.textColor = [UIColor whiteColor];
+            self.pStep2SubView03ContentLbl02.textColor = [UIColor whiteColor];
+        }
+        else
+        {
+            self.pStep2SubView03Btn.enabled = YES;
+            [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+            self.pStep2SubView03TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+            self.pStep2SubView03MoneyLbl.textColor = [UIColor blackColor];
+            self.pStep2SubView03ContentLbl01.textColor = [UIColor blackColor];
+            self.pStep2SubView03ContentLbl02.textColor = [UIColor blackColor];
+        }
+
         
         self.pStep2SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:sTotalMoneyBalance]];
         
@@ -692,7 +991,7 @@
             }
             else if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_03 )
             {
-                step1Price = [[self.pProductArr objectAtIndex:0] objectForKey:@"price"];
+                step1Price = [[self.pProductArr objectAtIndex:2] objectForKey:@"price"];
             }
             
             int nStep1Price = [step1Price intValue];
@@ -700,13 +999,25 @@
             if( nStep1Price > self.nPointBalance )
             {
                 // tv 포인트 딤 처리
-                self.pStep2SubView04Btn.enabled = YES;
+                self.pStep2SubView04Btn.enabled = NO;
                 [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
                 
                 self.pStep2SubView04TitleLbl.textColor = [UIColor whiteColor];
                 self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
                 self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
                 self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+            }
+            else
+            {
+                self.pStep2SubView04Btn.enabled = YES;
+                [self.pStep2SubView04Btn setBackgroundImage:[UIImage imageNamed:@"purchase_normal.png"] forState:UIControlStateNormal];
+                
+                self.pStep2SubView04TitleLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+                self.pStep2SubView04MoneyLbl.textColor = [UIColor blackColor];
+                self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
+                self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
+
+
             }
         }
         else
