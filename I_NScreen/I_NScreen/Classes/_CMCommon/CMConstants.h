@@ -530,6 +530,12 @@ extern NSString* const CNM_OPEN_API_INTERFACE_PurchaseByPoint;
 // PurchaseAssetEx2
 extern NSString* const CNM_OPEN_API_INTERFACE_PurchaseAssetEx2;
 
+// purchaseByCoupon
+extern NSString* const CNM_OPEN_API_INTERFACE_purchaseByCoupon;
+
+// purchaseByComplexMethods
+extern NSString* const CNM_OPEN_API_INTERFACE_purchaseByComplexMethods;
+
 @interface STVConstants : NSObject
 
 @end

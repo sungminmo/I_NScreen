@@ -464,6 +464,12 @@ NSString* const CNM_OPEN_API_INTERFACE_PurchaseByPoint = @"purchaseByPoint";
 // PurchaseAssetEx2
 NSString* const CNM_OPEN_API_INTERFACE_PurchaseAssetEx2 = @"purchaseAssetEx2";
 
+// purchaseByCoupon
+NSString* const CNM_OPEN_API_INTERFACE_purchaseByCoupon = @"purchaseByCoupon";
+
+// purchaseByComplexMethods
+NSString* const CNM_OPEN_API_INTERFACE_purchaseByComplexMethods = @"purchaseByComplexMethods";
+
 @implementation STVConstants
 
 @end

@@ -1960,20 +1960,149 @@
 
 }
 
-- (NSURLSessionDataTask *)paymentPurchaseAssetEx2WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithUiComponentDomain:(NSString *)uiComponentDomain WithUiComponentId:(NSString *)uiComponentId WithPrice:(NSString *)price completion:(void (^)(NSArray *preference, NSError *error))block
+//- (NSURLSessionDataTask *)paymentPurchaseAssetEx2WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithUiComponentDomain:(NSString *)uiComponentDomain WithUiComponentId:(NSString *)uiComponentId WithPrice:(NSString *)price completion:(void (^)(NSArray *preference, NSError *error))block
+//{
+//    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+//    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+//    
+//    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_PurchaseAssetEx2];
+//    NSDictionary *dict = @{
+//                           CNM_OPEN_API_VERSION_KEY : @"2",
+//                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
+//                           @"productId" : productId,
+//                           @"goodId" : goodId,
+//                           @"uiComponentDomain" : uiComponentDomain,
+//                           @"uiComponentId" : uiComponentId,
+//                           @"price" : price
+//                           };
+//    
+//    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        
+//        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+//        
+//        block(@[result], nil);
+//        
+//    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+//        
+//        block(nil, error);
+//    }];
+//    [self updateActivityIndicator:task];
+//    return task;
+//
+//}
+
+- (NSURLSessionDataTask *)paymentPurchaseAssetEx2WithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price completion:(void (^)(NSArray *preference, NSError *error))block
 {
     self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
-    
+
     NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_PurchaseAssetEx2];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : @"2",
                            CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
+                           @"assetId" : assetId,
                            @"productId" : productId,
                            @"goodId" : goodId,
-                           @"uiComponentDomain" : uiComponentDomain,
-                           @"uiComponentId" : uiComponentId,
                            @"price" : price
+                           };
+
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+
+        block(@[result], nil);
+
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+
+}
+
+- (NSURLSessionDataTask *)paymentPurchaseByCouponWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCategoryId:(NSString *)categoryId completion:(void (^)(NSArray *preference, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_purchaseByCoupon];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : @"2",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
+                           @"domainId" : @"CnM",    // 고정
+                           @"assetId" : assetId,
+                           @"productId" : productId,
+                           @"goodId" : goodId,
+                           @"price" : price,
+                           @"categoryId" : categoryId
+                           };
+    
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+}
+
+- (NSURLSessionDataTask *)paymentPurchaseByPointWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCategoryId:(NSString *)categoryId completion:(void (^)(NSArray *preference, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_PurchaseByPoint];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : @"2",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
+                           @"domainId" : @"CnM",    // 고정
+                           @"assetId" : assetId,
+                           @"productId" : productId,
+                           @"goodId" : goodId,
+                           @"price" : price,
+                           @"categoryId" : categoryId
+                           };
+    
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+
+}
+
+- (NSURLSessionDataTask *)paymentPurchaseByComplexMethodsWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCouponPrice:(NSString *)couponPrice WithNomalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *preference, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_purchaseByComplexMethods];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : @"2",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
+                           @"domainId" : @"CnM",    // 고정
+                           @"assetId" : assetId,
+                           @"uiComponentDomain" : @"0", // 고정
+                           @"uiComponentId" : @"0", // 고정
+                           @"productId" : productId,
+                           @"goodId" : goodId,
+                           @"price" : price,
+                           @"pointPrice" : @"0",     // tv 포인트 쿠폰 0 고정
+                           @"couponPrice" : couponPrice,
+                           @"normalPrice" : normalPrice
                            };
     
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

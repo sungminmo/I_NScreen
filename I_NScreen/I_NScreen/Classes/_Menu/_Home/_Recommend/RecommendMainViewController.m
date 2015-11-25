@@ -513,17 +513,6 @@
     }
 }
 
-#pragma mark - 셋탑쪽 페어링 정보 삭제
-- (void)requestWithRemoveUser
-{
-    NSURLSessionDataTask *tesk = [NSMutableDictionary pairingRemoveUserCompletion:^(NSArray *pairing, NSError *error) {
-        
-        DDLogError(@"pairing = [%@]", pairing);
-    }];
-    
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-}
-
 #pragma mark - 카테고리 리스트
 - (void)requestWithGetAppInitialze
 {

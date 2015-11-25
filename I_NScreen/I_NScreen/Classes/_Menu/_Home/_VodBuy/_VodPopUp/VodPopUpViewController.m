@@ -75,63 +75,89 @@
             else
             {
                 
-                [self requestWithPurchaseAssetEx2];
+//                [self requestWithPurchaseAssetEx2];
             }
         }break;
          
     }
 }
 
+#pragma mark - 결제 전문
 #pragma mark - 일반 결제
 - (void)requestWithPurchaseAssetEx2
 {
-    NSLog(@"일반 결제");
-    
-    NSObject *itemObj = [[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
-    
-    if ( [itemObj isKindOfClass:[NSDictionary class]] )
-    {
-        NSString *sProductId = [NSString stringWithFormat:@"%@", [[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productId"]];
-        NSString *sGoodi = [NSString stringWithFormat:@"%@", [[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"goodId"]];
-        NSString *sPrice = [NSString stringWithFormat:@"%@", [[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"price"]];
-        
-        NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithProductId:sProductId WithGoodId:sGoodi WithUiComponentDomain:sPrice WithUiComponentId:@"0" WithPrice:@"0" completion:^(NSArray *preference, NSError *error) {
-            
-            DDLogError(@"preference = [%@]", preference);
-            
-            [SIAlertView alert:@"구매완료" message:@"가입이 완료 되었습니다.\n[VOD 구매목록]메뉴에서 구매내역을\n확인하실 수 있습니다."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                        
-                        [self dismissViewControllerAnimated:NO completion:^{
-                            
-                            [self.delegate VodPopUpViewWithTag:0];
-                            
-                        }];
-                        
-                    }];
-
-        }];
-        
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-        
-    }
-    else if ( [itemObj isKindOfClass:[NSArray class]] )
-    {
-        NSString *sProductId = [NSString stringWithFormat:@"%@", [[[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"productId"]];
-        NSString *sGoodi = [NSString stringWithFormat:@"%@", [[[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"goodId"]];
-        NSString *sPrice = [NSString stringWithFormat:@"%@", [[[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"price"]];
-        
-        NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithProductId:sProductId WithGoodId:sGoodi WithUiComponentDomain:@"0" WithUiComponentId:@"0" WithPrice:sPrice completion:^(NSArray *preference, NSError *error) {
-            
-            DDLogError(@"preference = [%@]", preference);
-        }];
-        
-        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-        
-    }
-    
     
 }
+
+
+#pragma mark - 쿠폰 결제
+- (void)requestWithPurchaseByCoupon
+{
+    
+}
+
+#pragma mark - TV 포인트 결제
+- (void)requestWithPurchaseByPoint
+{
+    
+}
+
+#pragma mark - 복합 결제
+- (void)requestWithPurchaseByComplexMethods
+{
+    
+}
+
+//#pragma mark - 일반 결제
+//- (void)requestWithPurchaseAssetEx2
+//{
+//    NSLog(@"일반 결제");
+//    
+//    NSObject *itemObj = [[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+//    
+//    if ( [itemObj isKindOfClass:[NSDictionary class]] )
+//    {
+//        NSString *sProductId = [NSString stringWithFormat:@"%@", [[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productId"]];
+//        NSString *sGoodi = [NSString stringWithFormat:@"%@", [[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"goodId"]];
+//        NSString *sPrice = [NSString stringWithFormat:@"%@", [[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"price"]];
+//        
+//        NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithProductId:sProductId WithGoodId:sGoodi WithUiComponentDomain:sPrice WithUiComponentId:@"0" WithPrice:@"0" completion:^(NSArray *preference, NSError *error) {
+//            
+//            DDLogError(@"preference = [%@]", preference);
+//            
+//            [SIAlertView alert:@"구매완료" message:@"가입이 완료 되었습니다.\n[VOD 구매목록]메뉴에서 구매내역을\n확인하실 수 있습니다."
+//                        cancel:nil
+//                       buttons:@[@"확인"]
+//                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+//                        
+//                        [self dismissViewControllerAnimated:NO completion:^{
+//                            
+//                            [self.delegate VodPopUpViewWithTag:0];
+//                            
+//                        }];
+//                        
+//                    }];
+//
+//        }];
+//        
+//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//        
+//    }
+//    else if ( [itemObj isKindOfClass:[NSArray class]] )
+//    {
+//        NSString *sProductId = [NSString stringWithFormat:@"%@", [[[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"productId"]];
+//        NSString *sGoodi = [NSString stringWithFormat:@"%@", [[[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"goodId"]];
+//        NSString *sPrice = [NSString stringWithFormat:@"%@", [[[[[[self pBuyDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectAtIndex:0] objectForKey:@"price"]];
+//        
+//        NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithProductId:sProductId WithGoodId:sGoodi WithUiComponentDomain:@"0" WithUiComponentId:@"0" WithPrice:sPrice completion:^(NSArray *preference, NSError *error) {
+//            
+//            DDLogError(@"preference = [%@]", preference);
+//        }];
+//        
+//        [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//        
+//    }
+//    
+//    
+//}
 @end
