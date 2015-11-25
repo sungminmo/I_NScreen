@@ -54,33 +54,34 @@
             self.sContentGroupId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"contentGroupId"]];
         }
     }
-    
-    if ( isCheck == YES )
-    {
-        if ( [[dic objectForKey:@"mobilePublicationRight"] isEqualToString:@"1"] )
-        {
-            // 모바일
-            self.pOnlyTvImageView.hidden = YES;
-        }
-        else
-        {
-            // tv
-            self.pOnlyTvImageView.hidden = NO;
-        }
-    }
-    else
-    {
-        if ( [[dic objectForKey:@"publicationRight"] isEqualToString:@"2"] )
-        {
-            // tv모바일
-            self.pOnlyTvImageView.hidden = YES;
-        }
-        else
-        {
-            // tv
-            self.pOnlyTvImageView.hidden = NO;
-        }
-    }
+
+    // tv 인지 아닌지 빼자는 요청 사항
+//    if ( isCheck == YES )
+//    {
+//        if ( [[dic objectForKey:@"mobilePublicationRight"] isEqualToString:@"1"] )
+//        {
+//            // 모바일
+//            self.pOnlyTvImageView.hidden = YES;
+//        }
+//        else
+//        {
+//            // tv
+//            self.pOnlyTvImageView.hidden = NO;
+//        }
+//    }
+//    else
+//    {
+//        if ( [[dic objectForKey:@"publicationRight"] isEqualToString:@"2"] )
+//        {
+//            // tv모바일
+//            self.pOnlyTvImageView.hidden = YES;
+//        }
+//        else
+//        {
+//            // tv
+//            self.pOnlyTvImageView.hidden = NO;
+//        }
+//    }
     
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"primaryAssetId"]];
     NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"smallImageFileName"]];

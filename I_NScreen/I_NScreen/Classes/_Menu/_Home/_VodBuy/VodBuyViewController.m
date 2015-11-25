@@ -43,6 +43,7 @@
     [self setTagInit];
     [self setViewInit];
     [self requestWithGetCouponBalance2];
+    [self requestWithGetPointBalance];
 }
 
 
@@ -316,6 +317,30 @@
             NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"productType"]];
             
             [self setViewHiddenWithType:sProductType];
+            
+            if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
+            {
+                if ( self.isDiscount == YES )
+                {
+                    if ( self.nDisPrice != 0 )
+                    {
+                        NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:0] objectForKey:@"price"]]];
+                        int nPrice = [[[self.pProductArr objectAtIndex:0] objectForKey:@"price"] intValue];
+                        self.pStep2SubView02MoneyLbl02.hidden = NO;
+                        
+                        self.pStep2SubView02MoneyLbl.strikeThroughEnabled = YES;
+                        self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+                        self.pStep2SubView02MoneyLbl02.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:[NSString stringWithFormat:@"%d", nPrice - self.nDisPrice]]];
+                    }
+                    
+                }
+                else
+                {
+                    NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:0] objectForKey:@"price"]]];
+                    self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+                }
+            }
+            
         }break;
         case VOD_BUY_VIEW_BTN_02:
         {
@@ -335,6 +360,30 @@
             NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productType"]];
             
             [self setViewHiddenWithType:sProductType];
+            
+            if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
+            {
+                if ( self.isDiscount == YES )
+                {
+                    if ( self.nDisPrice != 0 )
+                    {
+                        NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:1] objectForKey:@"price"]]];
+                        int nPrice = [[[self.pProductArr objectAtIndex:0] objectForKey:@"price"] intValue];
+                        self.pStep2SubView02MoneyLbl02.hidden = NO;
+                        
+                        self.pStep2SubView02MoneyLbl.strikeThroughEnabled = YES;
+                        self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+                        self.pStep2SubView02MoneyLbl02.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:[NSString stringWithFormat:@"%d", nPrice - self.nDisPrice]]];
+                    }
+                    
+                }
+                else
+                {
+                    NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:1] objectForKey:@"price"]]];
+                    self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+                }
+            }
+
         }break;
         case VOD_BUY_VIEW_BTN_03:
         {
@@ -354,6 +403,29 @@
             NSString *sProductType = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productType"]];
             
            [self setViewHiddenWithType:sProductType];
+            
+            if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
+            {
+                if ( self.isDiscount == YES )
+                {
+                    if ( self.nDisPrice != 0 )
+                    {
+                        NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:2] objectForKey:@"price"]]];
+                        int nPrice = [[[self.pProductArr objectAtIndex:0] objectForKey:@"price"] intValue];
+                        self.pStep2SubView02MoneyLbl02.hidden = NO;
+                        
+                        self.pStep2SubView02MoneyLbl.strikeThroughEnabled = YES;
+                        self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+                        self.pStep2SubView02MoneyLbl02.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:[NSString stringWithFormat:@"%d", nPrice - self.nDisPrice]]];
+                    }
+                    
+                }
+                else
+                {
+                    NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:2] objectForKey:@"price"]]];
+                    self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+                }
+            }
             
         }break;
         case VOD_BUY_VIEW_BTN_04:
@@ -487,6 +559,19 @@
     NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPointBalanceCompletion:^(NSArray *vodBuy, NSError *error) {
         
         DDLogError(@"tv 포인트 결제 = [%@]", vodBuy);
+        
+        if ( [vodBuy count] == 0 )
+            return;
+        
+        if ( [[[vodBuy objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            self.pStep2SubView04MoneyLbl.text = [NSString stringWithFormat:@"잔액%@원", [[CMAppManager sharedInstance] insertComma:[[vodBuy objectAtIndex:0] objectForKey:@"pointBalance"]]];
+        }
+        else
+        {
+            self.pStep2SubView04MoneyLbl.text = @"잔액0원";
+        }
+        
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
