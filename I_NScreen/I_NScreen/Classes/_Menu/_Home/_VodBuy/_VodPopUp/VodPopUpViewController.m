@@ -86,26 +86,70 @@
 #pragma mark - 일반 결제
 - (void)requestWithPurchaseAssetEx2
 {
+    NSString *sAssetId = @"";
+    NSString *sProductId = @"";
+    NSString *sGoodId = @"";
+    NSString *sPrice = @"";
     
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithAssetId:sAssetId WithProductId:sProductId WithGoodId:sGoodId WithPrice:sPrice completion:^(NSArray *payment, NSError *error) {
+        
+        DDLogError(@"일반 결제 = [%@]", payment);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 
 #pragma mark - 쿠폰 결제
 - (void)requestWithPurchaseByCoupon
 {
+    NSString *sAssetId = @"";
+    NSString *sProductId = @"";
+    NSString *sGoodId = @"";
+    NSString *sPrice = @"";
+    NSString *sCategoryId = @"";
     
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseByCouponWithAssetId:sAssetId WithProductId:sProductId WithGoodId:sGoodId WithPrice:sPrice WithCategoryId:sCategoryId completion:^(NSArray *payment, NSError *error) {
+        
+        DDLogError(@"쿠폰 결제 = [%@]", payment);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - TV 포인트 결제
 - (void)requestWithPurchaseByPoint
 {
+    NSString *sAssetId = @"";
+    NSString *sProductId = @"";
+    NSString *sGoodId = @"";
+    NSString *sPrice = @"";
+    NSString *sCategoryId = @"";
     
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseByPointWithAssetId:sAssetId WithProductId:sProductId WithGoodId:sGoodId WithPrice:sPrice WithCategoryId:sCategoryId completion:^(NSArray *payment, NSError *error) {
+        
+        DDLogError(@"TV 포인트 결제 = [%@]", payment);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 복합 결제
 - (void)requestWithPurchaseByComplexMethods
 {
+    NSString *sAssetId = @"";
+    NSString *sProductId = @"";
+    NSString *sGoodId = @"";
+    NSString *sPrice = @"";
+    NSString *sCouponPrice = @"";
+    NSString *sNormalPrice = @"";
     
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseByComplexMethodsWithAssetId:sAssetId WithProductId:sProductId WithGoodId:sGoodId WithPrice:sPrice WithCouponPrice:sCouponPrice WithNomalPrice:sNormalPrice completion:^(NSArray *payment, NSError *error) {
+        
+        DDLogError(@"복합 결제 = [%@]", payment);
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 //#pragma mark - 일반 결제

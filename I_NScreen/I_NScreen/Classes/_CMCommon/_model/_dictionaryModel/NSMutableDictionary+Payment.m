@@ -24,22 +24,22 @@
 //{
 //    return [[CMNetworkManager sharedInstance] paymentPurchaseAssetEx2WithProductId:productId WithGoodId:goodId WithUiComponentDomain:uiComponentDomain WithUiComponentId:uiComponentId WithPrice:price completion:block];
 //}
-+ (NSURLSessionDataTask *)paymentPurchaseAssetEx2WithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price completion:(void (^)(NSArray *preference, NSError *error))block
++ (NSURLSessionDataTask *)paymentPurchaseAssetEx2WithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price completion:(void (^)(NSArray *payment, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] paymentPurchaseAssetEx2WithAssetId:assetId WithProductId:productId WithGoodId:goodId WithPrice:price completion:block];
 }
 
-+ (NSURLSessionDataTask *)paymentPurchaseByCouponWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCategoryId:(NSString *)categoryId completion:(void (^)(NSArray *preference, NSError *error))block
++ (NSURLSessionDataTask *)paymentPurchaseByCouponWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCategoryId:(NSString *)categoryId completion:(void (^)(NSArray *payment, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] paymentPurchaseByCouponWithAssetId:assetId WithProductId:productId WithGoodId:goodId WithPrice:price WithCategoryId:categoryId completion:block];
 }
 
-+ (NSURLSessionDataTask *)paymentPurchaseByPointWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCategoryId:(NSString *)categoryId completion:(void (^)(NSArray *preference, NSError *error))block
++ (NSURLSessionDataTask *)paymentPurchaseByPointWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCategoryId:(NSString *)categoryId completion:(void (^)(NSArray *payment, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] paymentPurchaseByPointWithAssetId:assetId WithProductId:productId WithGoodId:goodId WithPrice:price WithCategoryId:categoryId completion:block];
 }
 
-+ (NSURLSessionDataTask *)paymentPurchaseByComplexMethodsWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCouponPrice:(NSString *)couponPrice WithNomalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *preference, NSError *error))block
++ (NSURLSessionDataTask *)paymentPurchaseByComplexMethodsWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCouponPrice:(NSString *)couponPrice WithNomalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block
 {
     return [[CMNetworkManager sharedInstance] paymentPurchaseByComplexMethodsWithAssetId:assetId WithProductId:productId WithGoodId:goodId WithPrice:price WithCouponPrice:couponPrice WithNomalPrice:normalPrice completion:block];
 }
