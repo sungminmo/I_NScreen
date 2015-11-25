@@ -349,6 +349,9 @@ NSString* const CNM_OPEN_API_INTERFACE_SearchContentGroup = @"searchContentGroup
 // getCouponBalance2
 NSString* const CNM_OPEN_API_INTERFACE_getCouponBalance2 = @"getCouponBalance2";
 
+// getPointBalance
+NSString* const CNM_OPEN_API_INTERFACE_getPointBalance = @"getPointBalance";
+
 // 6.Service
 // GetGuideCategory
 NSString* const CNM_OPEN_API_INTERFACE_GetGuideCategory = @"GetGuideCategory";

@@ -19,7 +19,11 @@
 @property (nonatomic, strong) NSMutableArray *pProductArr;
 @property (nonatomic, strong) NSMutableArray *pCouponBalanceArr;
 @property (nonatomic, strong) NSString *sSeriesLink;        // 시리즈 인지 체크
+@property (nonatomic, strong) NSString *sCouponMoney;       // 쿠폰 결제 금액
 @property (nonatomic, strong) NSMutableArray *pDiscountCouponMasterIdArr;   // 할인 카드 유무
+@property (nonatomic, strong) NSMutableArray *pPointBalanceArr;     // 포인트 조회
+@property (nonatomic) BOOL isDiscount;      // 할인 카드 유무
+@property (nonatomic) int nDisPrice;        // 할인 금액
 
 @end
 
@@ -63,12 +67,15 @@
 {
     self.title = @"상세정보";
     self.isUseNavigationBar = YES;
+    self.isDiscount = NO;
+    self.nDisPrice = 0;
     self.scrollContainer.contentSize = CGSizeMake(self.view.bounds.size.width, 642);
     
     self.sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];
     
     self.pProductArr = [[NSMutableArray alloc] init];
     self.pCouponBalanceArr = [[NSMutableArray alloc] init];
+    self.pPointBalanceArr = [[NSMutableArray alloc] init];
     
     NSObject *itemObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
     
@@ -370,6 +377,11 @@
             self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
             self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
             
+            if ( self.isDiscount == YES )
+            {
+                // 할인
+                self.pStep2SubView02MoneyLbl02.textColor = [UIColor whiteColor];
+            }
             
         }break;
         case VOD_BUY_VIEW_BTN_05:
@@ -393,6 +405,12 @@
             self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
             self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
 
+            if ( self.isDiscount == YES )
+            {
+                // 할인
+                self.pStep2SubView02MoneyLbl02.textColor = [UIColor blackColor];
+            }
+            
         }break;
         case VOD_BUY_VIEW_BTN_06:
         {
@@ -414,6 +432,13 @@
             self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
             self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
             self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+            
+            if ( self.isDiscount == YES )
+            {
+                // 할인
+                self.pStep2SubView02MoneyLbl02.textColor = [UIColor blackColor];
+            }
+            
         }break;
     }
 }
@@ -429,6 +454,12 @@
         if ( [vodBuy count] == 0 )
             return;
         
+        self.isDiscount = NO;
+        // 쿠폰 결제 금액
+        NSString *sTotalMoneyBalance = [NSString stringWithFormat:@"%@", [[vodBuy objectAtIndex:0] objectForKey:@"totalMoneyBalance"]];
+        
+        self.pStep2SubView03MoneyLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:sTotalMoneyBalance]];
+        
         [self.pCouponBalanceArr removeAllObjects];
         
         NSObject *itemObject = [[[vodBuy objectAtIndex:0] objectForKey:@"couponList"] objectForKey:@"coupon"];
@@ -442,7 +473,20 @@
             [self.pCouponBalanceArr setArray:(NSArray *)itemObject];
         }
         
+        
+        
         [self setCouponBalanceInit];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - TV 포인트 결제 
+- (void)requestWithGetPointBalance
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetPointBalanceCompletion:^(NSArray *vodBuy, NSError *error) {
+        
+        DDLogError(@"tv 포인트 결제 = [%@]", vodBuy);
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -450,17 +494,41 @@
 
 - (void)setCouponBalanceInit
 {
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    
     for ( NSDictionary *dic in self.pCouponBalanceArr )
     {
-        NSString *disMasterIdDic = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountCouponMasterId"]];
+        NSString *disMasterId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountCouponMasterId"]];
         
         for ( NSString *subStr in self.pDiscountCouponMasterIdArr )
         {
-            if ( [subStr isEqualToString:disMasterIdDic] )
+            if ( [subStr isEqualToString:disMasterId] )
             {
                 self.pStep2SubView02SaleImageView.hidden = NO;
+                self.isDiscount = YES;
+                
+                NSString *sDiscountAmount = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountAmount"]];
+                [arr addObject:sDiscountAmount];
             }
         }
+    }
+    
+    if ( self.isDiscount == YES )
+    {
+        NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:0] objectForKey:@"price"]]];
+        int nPrice = [[[self.pProductArr objectAtIndex:0] objectForKey:@"price"] intValue];
+        self.nDisPrice = [[arr objectAtIndex:0] intValue];
+        
+        self.pStep2SubView02MoneyLbl.strikeThroughEnabled = YES;
+        self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
+        self.pStep2SubView02MoneyLbl02.hidden = NO;
+        
+        self.pStep2SubView02MoneyLbl02.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:[NSString stringWithFormat:@"%d", nPrice - self.nDisPrice]]];
+    }
+    else
+    {
+        NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:0] objectForKey:@"price"]]];
+        self.pStep2SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원", sPrice];
     }
 }
 

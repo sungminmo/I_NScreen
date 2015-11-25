@@ -94,5 +94,7 @@
 
 + (NSURLSessionDataTask *)vodGetCouponBalance2Completion:(void (^)(NSArray *vodBuy, NSError *error))block;
 
++ (NSURLSessionDataTask *)vodGetPointBalanceCompletion:(void (^)(NSArray *vodBuy, NSError *error))block;
+
 @end
 

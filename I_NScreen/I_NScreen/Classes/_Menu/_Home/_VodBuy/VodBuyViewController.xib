@@ -35,6 +35,7 @@
                 <outlet property="pStep2SubView02Btn" destination="1Jv-ib-a4H" id="ALe-Rg-dI8"/>
                 <outlet property="pStep2SubView02ContentLbl" destination="A2F-B6-da3" id="fEB-pq-pjG"/>
                 <outlet property="pStep2SubView02MoneyLbl" destination="RCb-IY-C83" id="u6a-Rz-3ex"/>
+                <outlet property="pStep2SubView02MoneyLbl02" destination="kCa-44-xav" id="TdM-y8-H5B"/>
                 <outlet property="pStep2SubView02SaleImageView" destination="Vle-xh-sca" id="riD-3c-9FT"/>
                 <outlet property="pStep2SubView02TitleLbl" destination="qOJ-FC-b7d" id="Kd2-EC-Gu7"/>
                 <outlet property="pStep2SubView03" destination="ubZ-Yp-6dv" id="qQc-5j-UDi"/>
@@ -544,7 +545,7 @@
                                                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="AD1-DM-QBm"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCb-IY-C83">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCb-IY-C83" customClass="StrikethroughLabel">
                                                     <rect key="frame" x="46" y="34" width="96" height="13"/>
                                                     <animations/>
                                                     <constraints>
@@ -611,6 +612,26 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCa-44-xav">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="kCa-44-xav" secondAttribute="height" multiplier="6:1" id="kOf-At-Blc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="kOf-At-Blc"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="122" y="34" width="78" height="13"/>
+                                                        <mask key="constraints">
+                                                            <include reference="kOf-At-Blc"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -625,17 +646,22 @@
                                                 <constraint firstItem="qOJ-FC-b7d" firstAttribute="leading" secondItem="zeb-1G-9Nl" secondAttribute="leading" constant="46" id="ReT-mL-LXJ"/>
                                                 <constraint firstItem="1Jv-ib-a4H" firstAttribute="leading" secondItem="zeb-1G-9Nl" secondAttribute="leading" id="VhK-0j-7Jr"/>
                                                 <constraint firstItem="A2F-B6-da3" firstAttribute="top" secondItem="zeb-1G-9Nl" secondAttribute="top" constant="18" id="ayr-Gj-j0g"/>
+                                                <constraint firstItem="kCa-44-xav" firstAttribute="leading" secondItem="zeb-1G-9Nl" secondAttribute="leading" constant="122" id="jeG-t4-Dme"/>
                                                 <constraint firstItem="A2F-B6-da3" firstAttribute="leading" relation="lessThanOrEqual" secondItem="qOJ-FC-b7d" secondAttribute="trailing" constant="18" id="kMS-Ap-Noe"/>
                                                 <constraint firstAttribute="trailing" secondItem="A2F-B6-da3" secondAttribute="trailing" constant="17" id="tGH-qd-R2n"/>
                                                 <constraint firstItem="1Jv-ib-a4H" firstAttribute="top" secondItem="zeb-1G-9Nl" secondAttribute="top" id="uR9-ms-ir2"/>
                                                 <constraint firstItem="qOJ-FC-b7d" firstAttribute="top" secondItem="zeb-1G-9Nl" secondAttribute="top" constant="8" id="uqt-IT-bC0"/>
+                                                <constraint firstAttribute="bottom" secondItem="kCa-44-xav" secondAttribute="bottom" constant="9" id="vLj-T2-0jV"/>
                                                 <constraint firstAttribute="bottom" secondItem="RCb-IY-C83" secondAttribute="bottom" constant="9" id="xVZ-lf-PY6"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="Vle-xh-sca"/>
+                                                    <exclude reference="kCa-44-xav"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="jeG-t4-Dme"/>
+                                                    <exclude reference="vLj-T2-0jV"/>
                                                     <exclude reference="G1P-Uz-obJ"/>
                                                     <exclude reference="Ive-6c-nhY"/>
                                                 </mask>
@@ -643,6 +669,7 @@
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="Vle-xh-sca"/>
+                                                    <include reference="kCa-44-xav"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="GSe-AE-sdD"/>
@@ -654,6 +681,8 @@
                                                     <include reference="uqt-IT-bC0"/>
                                                     <include reference="C26-2A-EXO"/>
                                                     <include reference="xVZ-lf-PY6"/>
+                                                    <include reference="jeG-t4-Dme"/>
+                                                    <include reference="vLj-T2-0jV"/>
                                                     <exclude reference="3do-Vq-vPB"/>
                                                     <include reference="ayr-Gj-j0g"/>
                                                     <exclude reference="kMS-Ap-Noe"/>

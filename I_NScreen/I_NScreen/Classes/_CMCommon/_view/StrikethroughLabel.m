@@ -9,60 +9,41 @@
 #import "StrikethroughLabel.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define STRIKEOUT_THICKNESS 2.0f
-
-@interface StrikethroughLabel ()
-{
-    CALayer *strikeThroughLayer;
-}
-
-- (void)makeStrikeThrough;
-@end
-
 @implementation StrikethroughLabel
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
+@synthesize strikeThroughEnabled = _strikeThroughEnabled;
+
+- (void)drawTextInRect:(CGRect)rect{
+    [super drawTextInRect:rect];
     
-    if ( self ) {
-        strikeThroughLayer = [CALayer layer];
-        
-        strikeThroughLayer.backgroundColor = [[UIColor grayColor] CGColor];
-        
-        strikeThroughLayer.hidden = YES;
-        
-        [self.layer addSublayer:strikeThroughLayer];
+//    CGSize textSize = [[self text] sizeWithFont:[self font]];
+    CGSize textSize = [self.text sizeWithAttributes:@{NSFontAttributeName:[self font]}];
+    CGFloat strikeWidth = textSize.width;
+    CGRect lineRect;
+    
+//    if ([self textAlignment] == UITextAlignmentRight) {
+    if ([self textAlignment] == NSTextAlignmentRight) {
+        lineRect = CGRectMake(rect.size.width - strikeWidth, rect.size.height/2, strikeWidth, 1);
+    } else if ([self textAlignment] == NSTextAlignmentCenter) {
+        lineRect = CGRectMake(rect.size.width/2 - strikeWidth/2, rect.size.height/2, strikeWidth, 1);
+    } else {
+        lineRect = CGRectMake(0, rect.size.height/2, strikeWidth, 1);
     }
     
-    return self;
-}
-
-- (void)setText:(NSString *)text
-{
-    [super setText:text];
-    
-    [self makeStrikeThrough];
-}
-
-- (void)makeStrikeThrough
-{
-    CGSize textSize = [self.text sizeWithFont:self.font];
-    
-    strikeThroughLayer.frame = CGRectMake(0, self.bounds.size.height/2, textSize.width, STRIKEOUT_THICKNESS);
-    
-}
-
-- (void)setIsStrikeThrough:(BOOL)isStrikeThrough
-{
-    _isStrikeThrough = isStrikeThrough;
-    
-    strikeThroughLayer.hidden = !_isStrikeThrough;
-    
-    if ( _isStrikeThrough )
-    {
-        self.textColor = [UIColor grayColor];
+    if (_strikeThroughEnabled) {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextFillRect(context, lineRect);
     }
 }
+
+- (void)setStrikeThroughEnabled:(BOOL)strikeThroughEnabled {
+    
+    _strikeThroughEnabled = strikeThroughEnabled;
+    
+    NSString *tempText = [self.text copy];
+    self.text = @"";
+    self.text = tempText;
+}
+
 
 @end

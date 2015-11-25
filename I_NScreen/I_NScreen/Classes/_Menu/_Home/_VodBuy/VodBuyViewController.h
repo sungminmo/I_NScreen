@@ -10,6 +10,7 @@
 #import "CMBaseViewController.h"
 #import "VodPopUpViewController.h"
 #import "VodPopUpViewController.h"
+#import "StrikethroughLabel.h"
 
 // 구매 타입
 typedef enum : NSInteger {
@@ -53,7 +54,8 @@ typedef enum : NSInteger {
 
 @property (nonatomic, weak) IBOutlet UIView *pStep2SubView02;
 @property (nonatomic, weak) IBOutlet UILabel *pStep2SubView02TitleLbl;
-@property (nonatomic, weak) IBOutlet UILabel *pStep2SubView02MoneyLbl;
+@property (nonatomic, weak) IBOutlet StrikethroughLabel *pStep2SubView02MoneyLbl;
+@property (nonatomic, weak) IBOutlet UILabel *pStep2SubView02MoneyLbl02;
 @property (nonatomic, weak) IBOutlet UILabel *pStep2SubView02ContentLbl;
 @property (nonatomic, weak) IBOutlet UIButton *pStep2SubView02Btn;
 @property (nonatomic, weak) IBOutlet UIImageView *pStep2SubView02SaleImageView;

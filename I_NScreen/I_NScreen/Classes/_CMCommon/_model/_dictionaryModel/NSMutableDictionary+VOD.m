@@ -90,4 +90,9 @@
     return [[CMNetworkManager sharedInstance] vodGetCouponBalance2Completion:block];
 }
 
++ (NSURLSessionDataTask *)vodGetPointBalanceCompletion:(void (^)(NSArray *vodBuy, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] vodGetPointBalanceCompletion:block];
+}
+
 @end

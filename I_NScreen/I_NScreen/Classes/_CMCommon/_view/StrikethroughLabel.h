@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StrikethroughLabel : UILabel
+@interface StrikethroughLabel : UILabel {
+    BOOL _strikeThroughEnabled;
+}
 
-@property (nonatomic) BOOL isStrikeThrough;
+@property (nonatomic) BOOL strikeThroughEnabled;
 
 @end
