@@ -30,6 +30,7 @@
 @property (nonatomic) int nStep1BtnTag;     // 버튼 테그 값
 @property (nonatomic) int nStep2BtnTag;     // 버튼 테그 값
 
+
 @end
 
 @implementation VodBuyViewController
@@ -893,8 +894,131 @@
             if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f) {
                 pViewController.modalPresentationStyle= UIModalPresentationOverCurrentContext;
             }
-//            pViewController.pBuyStr = [[self.pBuyTypeArr objectAtIndex:0] objectForKey:@"price"];
-            pViewController.pBuyDic = self.pDetailDataDic;
+
+            NSString *sStep1 = @"";
+            NSString *sProductId = @"";
+            NSString *sGoodId = @"";
+            switch (self.nStep1BtnTag) {
+                case VOD_BUY_VIEW_BTN_01:
+                {
+                    if ( !([[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
+                           [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Package"]) )
+                        return;
+                    
+                    sStep1 = self.pStep1SubView02MoneyLbl.text;
+                    sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
+                    sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"," withString:@""];
+                    
+                    sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"productId"]];
+                    sGoodId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"goodId"]];
+                    
+                    
+                    
+                }break;
+                case VOD_BUY_VIEW_BTN_02:
+                {
+                    if ( !([[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
+                           [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Package"]) )
+                        return;
+                    
+                    sStep1 = self.pStep1SubView03MoneyLbl.text;
+                    sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
+                    sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"," withString:@""];
+                    
+                    sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productId"]];
+                    sGoodId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"goodId"]];
+                    
+                    
+                }break;
+                case VOD_BUY_VIEW_BTN_03:
+                {
+                    if ( !([[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
+                           [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Package"]) )
+                        return;
+                    
+                    sStep1 = self.pStep1SubView04MoneyLbl.text;
+                    sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
+                    sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"," withString:@""];
+                    
+                    sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productId"]];
+                    sGoodId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"goodId"]];
+                    
+                    
+                }break;
+            }
+            
+            NSString *sStep2 = @"";
+            NSString *sNormalPrice = @"";
+            BOOL isCompounding = NO;
+            switch (self.nStep2BtnTag) {
+                case VOD_BUY_VIEW_BTN_04:
+                {
+                    if ( self.isDiscount == YES )
+                    {
+                        // 할인이면
+                        sStep2 = self.pStep2SubView02MoneyLbl02.text;
+                        sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"원" withString:@""];
+                        sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"," withString:@""];
+                        
+                    }
+                    else
+                    {
+                        sStep2 = self.pStep2SubView02MoneyLbl.text;
+                        sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"원" withString:@""];
+                        sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"," withString:@""];
+                    }
+                }break;
+                case VOD_BUY_VIEW_BTN_05:
+                {
+                    // 쿠폰 결제인데 복합결제이면
+                   
+                    
+                    if ( self.isDiscount == YES )
+                    {
+                        sNormalPrice = self.pStep2SubView02MoneyLbl02.text;
+                        sNormalPrice = [sNormalPrice stringByReplacingOccurrencesOfString:@"원" withString:@""];
+                        sNormalPrice = [sNormalPrice stringByReplacingOccurrencesOfString:@"," withString:@""];
+                    }
+                    else
+                    {
+                        sNormalPrice = self.pStep2SubView02MoneyLbl.text;
+                        sNormalPrice = [sNormalPrice stringByReplacingOccurrencesOfString:@"원" withString:@""];
+                        sNormalPrice = [sNormalPrice stringByReplacingOccurrencesOfString:@"," withString:@""];
+                    }
+                    
+                    sStep2 = self.pStep2SubView03MoneyLbl.text;
+                    sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"원" withString:@""];
+                    sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"," withString:@""];
+                    
+                    int nNormal = [sNormalPrice intValue];
+                    
+                    int nStep2 = [sStep2 intValue];
+                    
+                    if ( nNormal > nStep2 )
+                    {
+                        // 복합 결제이다
+                        isCompounding = YES;
+                    }
+                    
+                }break;
+                case VOD_BUY_VIEW_BTN_06:
+                {
+                    sStep2 = self.pStep2SubView03MoneyLbl.text;
+                    sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"원" withString:@""];
+                    sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"잔액" withString:@""];
+                    sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"," withString:@""];
+                }break;
+            }
+            
+            pViewController.sGoodId = sGoodId;
+            pViewController.sProductId = sProductId;
+            pViewController.sStep1Price = sStep1;
+            pViewController.sStep2Price = sStep2;
+            pViewController.isCompounding = isCompounding;
+            pViewController.sStep2Price02 = sNormalPrice;   // 총 결제 금액
+            pViewController.pDetailDic = self.pDetailDataDic;
+            pViewController.nStep1Tag = self.nStep1BtnTag;
+            pViewController.nStep2Tag = self.nStep2BtnTag;
             pViewController.delegate = self;
             [self presentViewController:pViewController animated:NO completion:^{
                 
@@ -1223,5 +1347,11 @@
  }
  
  */
+
+- (void)VodPopUpViewWithTag:(int)nTag
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate VodBuyViewWithTag:0];
+}
 
 @end

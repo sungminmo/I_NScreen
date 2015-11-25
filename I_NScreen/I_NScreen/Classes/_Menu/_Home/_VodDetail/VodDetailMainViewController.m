@@ -1291,8 +1291,21 @@ static int tvFontSize = 15;
 //        }break;
 //    }
     // reload
-    [self requestWithAssetInfo];
-    [self requestWithRecommendContentGroupByAssetId];
+//    [self requestWithAssetInfo];
+//    [self requestWithRecommendContentGroupByAssetId];
+//    [self requestWithGetWithList];
+    
+//    [self requestWithRecommendContentGroupByAssetId];
+    
+    if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
+    {
+        // 시리즈
+        [self requestWithGetEpisodePeerListByContentGroupId];
+    }
+    else
+    {
+        [self requestWithAssetInfo];
+    }
 }
 
 #pragma mark - 추가 전문

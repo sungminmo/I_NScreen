@@ -2003,7 +2003,9 @@
                            @"assetId" : assetId,
                            @"productId" : productId,
                            @"goodId" : goodId,
-                           @"price" : price
+                           @"price" : price,
+                           @"uiComponentDomain" : @"0",
+                           @"uiComponentId" : @"0"
                            };
 
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -2035,7 +2037,9 @@
                            @"productId" : productId,
                            @"goodId" : goodId,
                            @"price" : price,
-                           @"categoryId" : categoryId
+                           @"categoryId" : categoryId,
+                           @"uiComponentDomain" : @"0",
+                           @"uiComponentId" : @"0"
                            };
     
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -2066,7 +2070,9 @@
                            @"productId" : productId,
                            @"goodId" : goodId,
                            @"price" : price,
-                           @"categoryId" : categoryId
+                           @"categoryId" : categoryId,
+                           @"uiComponentDomain" : @"0",
+                           @"uiComponentId" : @"0"
                            };
     
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
