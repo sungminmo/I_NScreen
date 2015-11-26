@@ -29,6 +29,7 @@
 @synthesize isCompounding;
 @synthesize sProductId;
 @synthesize sGoodId;
+@synthesize sProductType;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,51 +61,68 @@
 {
     self.pTextField.type = Secure_CMTextFieldType;
     
-    
-    switch (self.nStep2Tag) {
-        case VOD_BUY_VIEW_BTN_04:
-        {
-            // 일반 결제
-            self.pPriceTitleLbl.text = @"일반결제[부가세 별도]";
-            
-            self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep2Price]];
-            
-            self.nBuyType = BuyNomal;
-            
-        }break;
-        case VOD_BUY_VIEW_BTN_05:
-        {
-            // 쿠폰 결제
-            self.pPriceTitleLbl.text = @"쿠폰결제[부가세 별도]";
-            
-            if ( self.isCompounding == YES )
+    if ( !([self.sProductType isEqualToString:@"RVOD"] || [self.sProductType isEqualToString:@"Package"]) )
+    {
+        // 그외에는 하단 결제 타입 별도
+        switch (self.nStep1Tag) {
+            case VOD_BUY_VIEW_BTN_01:
+            case VOD_BUY_VIEW_BTN_02:
+            case VOD_BUY_VIEW_BTN_03:
             {
-                // 복합 결제
-                self.pCouponLbl.hidden = NO;
-                self.pCouponTitleLbl.hidden = NO;
-                // 총 금액에서 쿠폰 뺀 금액
-                NSString *sPrice = [NSString stringWithFormat:@"%d", [sStep2Price02 intValue] - [sStep2Price intValue]];
-                self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:sPrice]];
-                
-                self.pCouponLbl.text = [NSString stringWithFormat:@"%@원 차감", [[CMAppManager sharedInstance] insertComma:sStep2Price]];
-                self.nBuyType = BuyCompounding;
-            }
-            else
-            {
-                // 쿠폰결제
+                self.pPriceTitleLbl.text = @"일반결제[부가세 별도]";
                 self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
-                self.nBuyType = BuyCoupon;
-            }
-            
-        }break;
-        case VOD_BUY_VIEW_BTN_06:
-        {
-            // tv 포인트 결제
-            self.pPriceTitleLbl.text = @"TV포인트결제[부가세 별도]";
-            self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
-            self.nBuyType = BuyTv;
-            
-        }break;
+                self.nBuyType = BuyNomal;
+                
+            }break;
+        }
+    }
+    else
+    {
+        switch (self.nStep2Tag) {
+            case VOD_BUY_VIEW_BTN_04:
+            {
+                // 일반 결제
+                self.pPriceTitleLbl.text = @"일반결제[부가세 별도]";
+                
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep2Price]];
+                
+                self.nBuyType = BuyNomal;
+                
+            }break;
+            case VOD_BUY_VIEW_BTN_05:
+            {
+                // 쿠폰 결제
+                self.pPriceTitleLbl.text = @"쿠폰결제[부가세 별도]";
+                
+                if ( self.isCompounding == YES )
+                {
+                    // 복합 결제
+                    self.pCouponLbl.hidden = NO;
+                    self.pCouponTitleLbl.hidden = NO;
+                    // 총 금액에서 쿠폰 뺀 금액
+                    NSString *sPrice = [NSString stringWithFormat:@"%d", [sStep2Price02 intValue] - [sStep2Price intValue]];
+                    self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:sPrice]];
+                    
+                    self.pCouponLbl.text = [NSString stringWithFormat:@"%@원 차감", [[CMAppManager sharedInstance] insertComma:sStep2Price]];
+                    self.nBuyType = BuyCompounding;
+                }
+                else
+                {
+                    // 쿠폰결제
+                    self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
+                    self.nBuyType = BuyCoupon;
+                }
+                
+            }break;
+            case VOD_BUY_VIEW_BTN_06:
+            {
+                // tv 포인트 결제
+                self.pPriceTitleLbl.text = @"TV포인트결제[부가세 별도]";
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
+                self.nBuyType = BuyTv;
+                
+            }break;
+        }
     }
 }
 

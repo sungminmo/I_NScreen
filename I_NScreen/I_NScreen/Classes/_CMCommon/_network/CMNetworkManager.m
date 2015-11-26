@@ -841,7 +841,8 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"contentGroupProfile" : contentGroupProfile,
-                           @"categoryId" : categoryId
+                           @"categoryId" : categoryId,
+                           @"sortType" : @"notSet"
                            };
     
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1173,7 +1174,8 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"contentGroupId" : contentGroupId,
-                           @"episodePeerProfile" : @"2"
+                           @"episodePeerProfile" : @"2",
+                           @"sortType" : @"notSet"
                            };
     
     NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -1203,7 +1205,8 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"episodePeerId" : episodePeerId,
-                           @"assetProfile" : @"9"
+                           @"assetProfile" : @"9",
+                           @"sortType" : @"notSet"
                            };
     
     NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

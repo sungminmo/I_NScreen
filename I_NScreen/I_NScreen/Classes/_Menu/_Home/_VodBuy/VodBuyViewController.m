@@ -934,11 +934,15 @@
             NSString *sStep1 = @"";
             NSString *sProductId = @"";
             NSString *sGoodId = @"";
+            NSString *sProductType = @"";
             switch (self.nStep1BtnTag) {
                 case VOD_BUY_VIEW_BTN_01:
                 {
-                    if ( !([[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
-                           [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Package"]) )
+//                    if ( !([[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
+//                           [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Package"]) )
+//                        return;
+                    // 일단 묶음일땐 return
+                    if ( [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Bundel"] )
                         return;
                     
                     sStep1 = self.pStep1SubView02MoneyLbl.text;
@@ -947,14 +951,16 @@
                     
                     sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"productId"]];
                     sGoodId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"goodId"]];
-                    
+                    sProductType = [[self.pProductArr objectAtIndex:0] objectForKey:@"productType"];
                     
                     
                 }break;
                 case VOD_BUY_VIEW_BTN_02:
                 {
-                    if ( !([[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
-                           [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Package"]) )
+//                    if ( !([[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
+//                           [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Package"]) )
+//                        return;
+                    if ( [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Bundel"] )
                         return;
                     
                     sStep1 = self.pStep1SubView03MoneyLbl.text;
@@ -963,13 +969,15 @@
                     
                     sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productId"]];
                     sGoodId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"goodId"]];
-                    
+                    sProductType = [[self.pProductArr objectAtIndex:1] objectForKey:@"productType"];
                     
                 }break;
                 case VOD_BUY_VIEW_BTN_03:
                 {
-                    if ( !([[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
-                           [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Package"]) )
+//                    if ( !([[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
+//                           [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Package"]) )
+//                        return;
+                    if ( [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Bundel"] )
                         return;
                     
                     sStep1 = self.pStep1SubView04MoneyLbl.text;
@@ -978,7 +986,7 @@
                     
                     sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productId"]];
                     sGoodId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"goodId"]];
-                    
+                    sProductType = [[self.pProductArr objectAtIndex:2] objectForKey:@"productType"];
                     
                 }break;
             }
@@ -986,6 +994,8 @@
             NSString *sStep2 = @"";
             NSString *sNormalPrice = @"";
             BOOL isCompounding = NO;
+            
+            
             switch (self.nStep2BtnTag) {
                 case VOD_BUY_VIEW_BTN_04:
                 {
@@ -1046,6 +1056,7 @@
                 }break;
             }
             
+            pViewController.sProductType = sProductType;
             pViewController.sGoodId = sGoodId;
             pViewController.sProductId = sProductId;
             pViewController.sStep1Price = sStep1;

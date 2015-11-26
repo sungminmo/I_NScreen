@@ -45,6 +45,7 @@ typedef enum : NSInteger {
 @property (nonatomic) BOOL isCompounding;   // 복합 결제 유무
 @property (nonatomic, strong) NSString *sProductId;
 @property (nonatomic, strong) NSString *sGoodId;
+@property (nonatomic, strong) NSString *sProductType;
 
 @property (nonatomic, weak) id <VodPopUpViewDelegate>delegate;
 

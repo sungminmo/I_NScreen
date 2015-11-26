@@ -1012,6 +1012,8 @@ static int tvFontSize = 15;
             {
                 // 미리보기 없음
                 self.pReviewBtn22.hidden = YES;
+                
+                
             }
         }
         else
@@ -1064,10 +1066,50 @@ static int tvFontSize = 15;
                 [self setViewInit23];
             }
             
-            if ( [sPreviewPeriod isEqualToString:@"0"] )
+            
+            
+            if ( [sPreviewPeriod isEqualToString:@"0"] )    // 체크 말고 모바일 일때 미리보기 노출 아니면 미리보기 노출 안됨
             {
                 // 미리보기 없음
                 self.pReviewBtn23.hidden = YES;
+                
+                
+                ///
+//                CGFloat width = self.pBodyView.frame.size.width;
+//                CGFloat posY = 0;
+//                NSArray* items = @[self.pView01, self.pView21, self.pView03];
+//                
+//                for (UIView* item in items) {
+//                    [self.pBodyView addSubview:item];
+//                    item.frame = CGRectMake(0, posY, width, item.frame.size.height);
+//                    posY += item.frame.size.height;
+//                    
+//                    NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
+//                                                                              attribute:NSLayoutAttributeWidth
+//                                                                              relatedBy:NSLayoutRelationEqual
+//                                                                                 toItem:item
+//                                                                              attribute:NSLayoutAttributeWidth
+//                                                                             multiplier:1.0
+//                                                                               constant:0];
+//                    [self.view addConstraint:layout];
+//                }
+//                [self.pBodyView setContentSize:CGSizeMake(width, posY)];
+//                [self.view updateConstraintsIfNeeded];
+//                
+//                self.pContentTextView21.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
+//                self.pContentTextView21.font = [UIFont systemFontOfSize:tvFontSize];
+                
+//                NSArray *items = @[self.pBuyBtn22, self.pZzimBtn22];
+//                
+//                for ( UIButton *item in items )
+//                {
+////                    pBuyBtn22 pZzimBtn22
+//                    
+//                }
+                                
+                
+                //                [self.view updateConstraintsIfNeeded];
+                
             }
         }
         else
