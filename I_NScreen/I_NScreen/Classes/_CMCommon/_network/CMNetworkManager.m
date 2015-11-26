@@ -2257,6 +2257,35 @@
     return task;
 }
 
+// 묶음 상세
+- (NSURLSessionDataTask *)paymentGetBundleProductInfoWithProductId:(NSString *)productId completion:(void (^)(NSArray *payment, NSError *error))block
+{
+    self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
+    self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
+    
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_getBundleProductInfo];
+    NSDictionary *dict = @{
+                           CNM_OPEN_API_VERSION_KEY : @"1",
+                           CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
+                           @"productId" : productId,    // 고정
+                           @"productProfile" : @"1"
+                           };
+    
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+        
+        block(@[result], nil);
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        block(nil, error);
+    }];
+    [self updateActivityIndicator:task];
+    return task;
+
+}
+
 @end
 
 @implementation CMNetworkManager ( WISH )

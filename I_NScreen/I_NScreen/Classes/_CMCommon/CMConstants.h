@@ -548,6 +548,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_purchaseProductByPoint;
 // purchaseProductByComplexMethods
 extern NSString* const CNM_OPEN_API_INTERFACE_purchaseProductByComplexMethods;
 
+// getBundleProductInfo
+extern NSString* const CNM_OPEN_API_INTERFACE_getBundleProductInfo;
+
 @interface STVConstants : NSObject
 
 @end

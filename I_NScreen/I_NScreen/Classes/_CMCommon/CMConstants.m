@@ -482,6 +482,9 @@ NSString* const CNM_OPEN_API_INTERFACE_purchaseProductByPoint = @"purchaseProduc
 // purchaseProductByComplexMethods
 NSString* const CNM_OPEN_API_INTERFACE_purchaseProductByComplexMethods = @"purchaseProductByComplexMethods";
 
+// getBundleProductInfo
+NSString* const CNM_OPEN_API_INTERFACE_getBundleProductInfo = @"getBundleProductInfo";
+
 @implementation STVConstants
 
 @end

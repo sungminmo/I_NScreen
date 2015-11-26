@@ -278,6 +278,9 @@
 // 묶음 복합
 - (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithPointPrice:(NSString *)pointPrice WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block;
 
+// 묶음 상세
+- (NSURLSessionDataTask *)paymentGetBundleProductInfoWithProductId:(NSString *)productId completion:(void (^)(NSArray *payment, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( WISH )

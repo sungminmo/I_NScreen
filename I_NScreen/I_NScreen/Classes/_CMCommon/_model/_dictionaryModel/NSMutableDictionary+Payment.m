@@ -65,4 +65,9 @@
     return [[CMNetworkManager sharedInstance] paymentPurchaseProductByComplexMethodsWithProductId:productId WithPrice:price WithPointPrice:pointPrice WithCouponPrice:couponPrice WithNormalPrice:normalPrice completion:block];
 }
 
++ (NSURLSessionDataTask *)paymentGetBundleProductInfoWithProductId:(NSString *)productId completion:(void (^)(NSArray *payment, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] paymentGetBundleProductInfoWithProductId:productId completion:block];
+}
+
 @end
