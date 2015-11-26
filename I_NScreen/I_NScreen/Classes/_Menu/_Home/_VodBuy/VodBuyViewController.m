@@ -314,7 +314,7 @@
 
 - (void)setViewHiddenWithType:(NSString *)type
 {
-    if ( [type isEqualToString:@"RVOD"] || [type isEqualToString:@"Package"] )
+    if ( [type isEqualToString:@"RVOD"] || [type isEqualToString:@"Package"] || [type isEqualToString:@"Bundle"])
     {
         self.pStep2SubView02.hidden = NO;
         self.pStep2SubView03.hidden = NO;
@@ -364,7 +364,7 @@
             
             [self setViewHiddenWithType:sProductType];
             self.pStep2SubView04Btn.enabled = YES;
-            if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
+            if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] || [sProductType isEqualToString:@"Bundle"])
             {
                 if ( self.isDiscount == YES )
                 {
@@ -493,14 +493,14 @@
             
             [self setViewHiddenWithType:sProductType];
             self.pStep2SubView04Btn.enabled = YES;
-            if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
+            if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] || [sProductType isEqualToString:@"Bundle"])
             {
                 if ( self.isDiscount == YES )
                 {
                     if ( self.nDisPrice != 0 )
                     {
                         NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:1] objectForKey:@"price"]]];
-                        int nPrice = [[[self.pProductArr objectAtIndex:0] objectForKey:@"price"] intValue];
+                        int nPrice = [[[self.pProductArr objectAtIndex:1] objectForKey:@"price"] intValue];
                         self.pStep2SubView02MoneyLbl02.hidden = NO;
                         
                         self.pStep2SubView02MoneyLbl.strikeThroughEnabled = YES;
@@ -623,14 +623,14 @@
             
             [self setViewHiddenWithType:sProductType];
             self.pStep2SubView04Btn.enabled = YES;
-            if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] )
+            if ( [sProductType isEqualToString:@"RVOD"] || [sProductType isEqualToString:@"Package"] || [sProductType isEqualToString:@"Bundle"])
             {
                 if ( self.isDiscount == YES )
                 {
                     if ( self.nDisPrice != 0 )
                     {
                         NSString *sPrice = [NSString stringWithFormat:@"%@",[[CMAppManager sharedInstance] insertComma:[[self.pProductArr objectAtIndex:2] objectForKey:@"price"]]];
-                        int nPrice = [[[self.pProductArr objectAtIndex:0] objectForKey:@"price"] intValue];
+                        int nPrice = [[[self.pProductArr objectAtIndex:2] objectForKey:@"price"] intValue];
                         self.pStep2SubView02MoneyLbl02.hidden = NO;
                         
                         self.pStep2SubView02MoneyLbl.strikeThroughEnabled = YES;
@@ -942,7 +942,7 @@
 //                           [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Package"]) )
 //                        return;
                     // 일단 묶음일땐 return
-                    if ( [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Bundel"] )
+                    if ( [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
                         return;
                     
                     sStep1 = self.pStep1SubView02MoneyLbl.text;
@@ -960,7 +960,7 @@
 //                    if ( !([[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
 //                           [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Package"]) )
 //                        return;
-                    if ( [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Bundel"] )
+                    if ( [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
                         return;
                     
                     sStep1 = self.pStep1SubView03MoneyLbl.text;
@@ -977,7 +977,7 @@
 //                    if ( !([[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
 //                           [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Package"]) )
 //                        return;
-                    if ( [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Bundel"] )
+                    if ( [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
                         return;
                     
                     sStep1 = self.pStep1SubView04MoneyLbl.text;
