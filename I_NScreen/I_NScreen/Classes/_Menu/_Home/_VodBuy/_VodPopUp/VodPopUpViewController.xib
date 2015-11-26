@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodPopUpViewController">
@@ -159,43 +160,20 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="시청기간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDV-Hg-xF0">
                             <rect key="frame" x="26" y="114" width="172" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="172" id="S7p-b8-D7y"/>
-                                <constraint firstAttribute="height" constant="21" id="TAr-Xx-Rma"/>
+                                <constraint firstAttribute="width" secondItem="pDV-Hg-xF0" secondAttribute="height" multiplier="172:21" id="7KI-Ac-nwe"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="S7p-b8-D7y"/>
-                                    <exclude reference="TAr-Xx-Rma"/>
-                                </mask>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <mask key="constraints">
-                                    <include reference="S7p-b8-D7y"/>
-                                    <include reference="TAr-Xx-Rma"/>
-                                </mask>
-                            </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="24시간" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIO-A8-cJz">
                             <rect key="frame" x="273" y="114" width="107" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="21" id="j8L-oh-dwG"/>
+                                <constraint firstAttribute="width" secondItem="RIO-A8-cJz" secondAttribute="height" multiplier="107:21" id="8HA-TS-uCV"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="j8L-oh-dwG"/>
-                                </mask>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <mask key="constraints">
-                                    <include reference="j8L-oh-dwG"/>
-                                </mask>
-                            </variation>
                         </label>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="쿠폰사용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iK8-Zc-yo2">
                             <rect key="frame" x="26" y="143" width="172" height="21"/>
@@ -333,6 +311,7 @@
                         <constraint firstAttribute="bottom" secondItem="dSY-Gr-QdO" secondAttribute="bottom" constant="6" id="2t7-KH-cbl"/>
                         <constraint firstItem="KAe-DC-DbK" firstAttribute="top" secondItem="7bL-F1-DYA" secondAttribute="bottom" constant="14" id="33L-mV-PJ3"/>
                         <constraint firstAttribute="trailing" secondItem="TJr-ZA-tsm" secondAttribute="trailing" constant="19" id="3Fq-dV-kFf"/>
+                        <constraint firstAttribute="trailing" secondItem="RIO-A8-cJz" secondAttribute="trailing" constant="20" id="5Rh-S1-Rax"/>
                         <constraint firstItem="CGg-Jb-Prx" firstAttribute="top" secondItem="KAe-DC-DbK" secondAttribute="bottom" constant="54" id="89v-2b-6av"/>
                         <constraint firstItem="dSY-Gr-QdO" firstAttribute="top" secondItem="TJr-ZA-tsm" secondAttribute="bottom" constant="34" id="Fqj-DU-aye"/>
                         <constraint firstItem="KAe-DC-DbK" firstAttribute="top" secondItem="7bL-F1-DYA" secondAttribute="bottom" constant="14" id="JuQ-Nt-eEq"/>
@@ -351,6 +330,7 @@
                         <constraint firstItem="72J-Bh-erG" firstAttribute="leading" secondItem="dSY-Gr-QdO" secondAttribute="trailing" constant="4" id="d6w-VP-GFa"/>
                         <constraint firstItem="QBH-1k-lar" firstAttribute="top" secondItem="lVp-PO-0e9" secondAttribute="bottom" constant="25" id="dvH-8l-0Tz"/>
                         <constraint firstAttribute="trailing" secondItem="KAe-DC-DbK" secondAttribute="trailing" constant="19" id="e2q-C7-ovf"/>
+                        <constraint firstItem="pDV-Hg-xF0" firstAttribute="top" secondItem="KAe-DC-DbK" secondAttribute="bottom" constant="13" id="i19-7G-Xmy"/>
                         <constraint firstItem="TJr-ZA-tsm" firstAttribute="top" secondItem="CGg-Jb-Prx" secondAttribute="bottom" constant="19" id="i2a-q4-ALp"/>
                         <constraint firstItem="72J-Bh-erG" firstAttribute="width" secondItem="dSY-Gr-QdO" secondAttribute="width" id="k6H-Le-8Ns"/>
                         <constraint firstItem="KtW-Ug-QbU" firstAttribute="leading" secondItem="5X4-Q4-MGx" secondAttribute="leading" constant="10" id="mJ7-xj-Nqw"/>
@@ -359,6 +339,8 @@
                         <constraint firstAttribute="bottom" secondItem="72J-Bh-erG" secondAttribute="bottom" constant="6" id="pWX-Nc-84o"/>
                         <constraint firstAttribute="trailing" secondItem="7bL-F1-DYA" secondAttribute="trailing" constant="19" id="qjq-Ao-Bhx"/>
                         <constraint firstItem="KAe-DC-DbK" firstAttribute="leading" secondItem="5X4-Q4-MGx" secondAttribute="leading" constant="19" id="t5W-hQ-TKU"/>
+                        <constraint firstItem="pDV-Hg-xF0" firstAttribute="leading" secondItem="5X4-Q4-MGx" secondAttribute="leading" constant="26" id="tTD-Zn-1io"/>
+                        <constraint firstItem="RIO-A8-cJz" firstAttribute="top" secondItem="KAe-DC-DbK" secondAttribute="bottom" constant="13" id="z4w-Ji-ezM"/>
                         <constraint firstAttribute="trailing" secondItem="lVp-PO-0e9" secondAttribute="trailing" constant="4" id="zUp-GA-mbV"/>
                         <constraint firstAttribute="trailing" secondItem="KtW-Ug-QbU" secondAttribute="trailing" constant="10" id="zrl-i4-MWe"/>
                     </constraints>

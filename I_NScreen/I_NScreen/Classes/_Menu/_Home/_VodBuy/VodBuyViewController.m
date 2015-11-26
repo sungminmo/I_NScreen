@@ -80,37 +80,73 @@
     self.nCouponPrice = 0;
     self.scrollContainer.contentSize = CGSizeMake(self.view.bounds.size.width, 642);
     
-    self.sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];
-    
     self.pProductArr = [[NSMutableArray alloc] init];
     self.pCouponBalanceArr = [[NSMutableArray alloc] init];
     self.pPointBalanceArr = [[NSMutableArray alloc] init];
-    
-    NSObject *itemObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
-    
-    if ( [itemObject isKindOfClass:[NSDictionary class]] )
-    {
-        [self.pProductArr addObject:itemObject];
-    }
-    else
-    {
-        [self.pProductArr setArray:(NSArray *)itemObject];
-    }
-    
-    
     // 할인 카드 데이터
     self.pDiscountCouponMasterIdArr = [[NSMutableArray alloc] init];
-    NSObject *saleObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
     
-    if ( [saleObject isKindOfClass:[NSDictionary class]] )
+    NSArray *arrKey = [self.pDetailDataDic allKeys];
+    
+    BOOL isCheck = NO;
+    for ( NSString *sKey in arrKey )
     {
-        [self.pDiscountCouponMasterIdArr addObject:saleObject];
+        if ( [sKey isEqualToString:@"asset"] )
+            isCheck = YES;
+    }
+    
+    if ( isCheck == YES )
+    {
+        // asset 이 있으면
+        self.sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];
+        NSObject *itemObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+        
+        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        {
+            [self.pProductArr addObject:itemObject];
+        }
+        else
+        {
+            [self.pProductArr setArray:(NSArray *)itemObject];
+        }
+        
+        NSObject *saleObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
+        
+        if ( [saleObject isKindOfClass:[NSDictionary class]] )
+        {
+            [self.pDiscountCouponMasterIdArr addObject:saleObject];
+        }
+        else
+        {
+            [self.pDiscountCouponMasterIdArr setArray:(NSArray *)saleObject];
+        }
     }
     else
     {
-        [self.pDiscountCouponMasterIdArr setArray:(NSArray *)saleObject];
+        self.sSeriesLink = [NSString stringWithFormat:@"%@", [self.pDetailDataDic objectForKey:@"seriesLink"]];
+        NSObject *itemObject = [[self.pDetailDataDic objectForKey:@"productList"] objectForKey:@"product"];
+        
+        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        {
+            [self.pProductArr addObject:itemObject];
+        }
+        else
+        {
+            [self.pProductArr setArray:(NSArray *)itemObject];
+        }
+        
+        NSObject *saleObject = [[self.pDetailDataDic objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
+        
+        if ( [saleObject isKindOfClass:[NSDictionary class]] )
+        {
+            [self.pDiscountCouponMasterIdArr addObject:saleObject];
+        }
+        else
+        {
+            [self.pDiscountCouponMasterIdArr setArray:(NSArray *)saleObject];
+        }
+
     }
-    
 }
 
 #pragma mark - 화면 뷰 초기화
@@ -883,7 +919,7 @@
         case VOD_BUY_VIEW_BTN_07:
         {
             // 취소
-            
+            [self.navigationController popViewControllerAnimated:YES];
         }break;
         case VOD_BUY_VIEW_BTN_08:
         {

@@ -138,7 +138,15 @@
             else
             {
                 VodBuyViewController *pViewController = [[VodBuyViewController alloc] initWithNibName:@"VodBuyViewController" bundle:nil];
-                pViewController.pDetailDataDic = self.pAssetInfoDic;
+                if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
+                {
+                    pViewController.pDetailDataDic = self.pAssetListByEpisodePeerIdDic;
+                }
+                else
+                {
+                    pViewController.pDetailDataDic = self.pAssetInfoDic;
+                }
+                
                 pViewController.delegate = self;
                 [self.navigationController pushViewController:pViewController animated:YES];
             }
