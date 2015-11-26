@@ -340,6 +340,13 @@
     }
 }
 
+- (void)pushBundleViewControllerWithProductId:(NSString *)productId
+{
+    VodBundleMainViewController *pViewController = [[VodBundleMainViewController alloc] initWithNibName:@"VodBundleMainViewController" bundle:nil];
+    pViewController.sProductId = productId;
+    [self.navigationController pushViewController:pViewController animated:YES];
+}
+
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
     switch ([btn tag]) {
@@ -471,6 +478,13 @@
                 self.pStep2SubView02ContentLbl.textColor = [UIColor whiteColor];
             }
             
+            if ( [sProductType isEqualToString:@"Bundle"] )
+            {
+                NSString *sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"productId"]];
+                [self pushBundleViewControllerWithProductId:sProductId];
+            }
+            
+            
         }break;
         case VOD_BUY_VIEW_BTN_02:
         {
@@ -601,6 +615,12 @@
                 self.pStep2SubView02ContentLbl.textColor = [UIColor whiteColor];
             }
 
+            if ( [sProductType isEqualToString:@"Bundle"] )
+            {
+                NSString *sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productId"]];
+                [self pushBundleViewControllerWithProductId:sProductId];
+            }
+            
         }break;
         case VOD_BUY_VIEW_BTN_03:
         {
@@ -731,6 +751,12 @@
                 self.pStep2SubView02ContentLbl.textColor = [UIColor whiteColor];
             }
 
+            if ( [sProductType isEqualToString:@"Bundle"] )
+            {
+                NSString *sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productId"]];
+                [self pushBundleViewControllerWithProductId:sProductId];
+            }
+            
         }break;
         case VOD_BUY_VIEW_BTN_04:
         {

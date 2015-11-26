@@ -792,6 +792,8 @@
 		E5BFB4C21BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB4C11BE9E0B6003262D0 /* NSMutableDictionary+REMOCON.m */; };
 		E5BFB4C51BEA2375003262D0 /* NSMutableDictionary+MyC_M.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB4C41BEA2375003262D0 /* NSMutableDictionary+MyC_M.m */; };
 		E5C584521BE33A0E00276EC6 /* NSMutableDictionary+DRM.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */; };
+		E5C596DF1C07703D008E018A /* VodBundleMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C596DD1C07703D008E018A /* VodBundleMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5C596E01C07703D008E018A /* VodBundleMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C596DE1C07703D008E018A /* VodBundleMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E5D258121C02E8AD007F45AB /* banner_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D2580F1C02E8AD007F45AB /* banner_empty.png */; settings = {ASSET_TAGS = (); }; };
 		E5D258131C02E8AD007F45AB /* posterlist_default.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D258101C02E8AD007F45AB /* posterlist_default.png */; settings = {ASSET_TAGS = (); }; };
 		E5D258141C02E8AD007F45AB /* voddetail_default.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D258111C02E8AD007F45AB /* voddetail_default.png */; settings = {ASSET_TAGS = (); }; };
@@ -1760,6 +1762,9 @@
 		E5BFB4C41BEA2375003262D0 /* NSMutableDictionary+MyC_M.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+MyC_M.m"; sourceTree = "<group>"; };
 		E5C584501BE33A0E00276EC6 /* NSMutableDictionary+DRM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+DRM.h"; sourceTree = "<group>"; };
 		E5C584511BE33A0E00276EC6 /* NSMutableDictionary+DRM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+DRM.m"; sourceTree = "<group>"; };
+		E5C596DC1C07703D008E018A /* VodBundleMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VodBundleMainViewController.h; path = _Home/_VodBuy/_VodBundle/VodBundleMainViewController.h; sourceTree = "<group>"; };
+		E5C596DD1C07703D008E018A /* VodBundleMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VodBundleMainViewController.m; path = _Home/_VodBuy/_VodBundle/VodBundleMainViewController.m; sourceTree = "<group>"; };
+		E5C596DE1C07703D008E018A /* VodBundleMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VodBundleMainViewController.xib; path = _Home/_VodBuy/_VodBundle/VodBundleMainViewController.xib; sourceTree = "<group>"; };
 		E5D2580F1C02E8AD007F45AB /* banner_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_empty.png; sourceTree = "<group>"; };
 		E5D258101C02E8AD007F45AB /* posterlist_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = posterlist_default.png; sourceTree = "<group>"; };
 		E5D258111C02E8AD007F45AB /* voddetail_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voddetail_default.png; sourceTree = "<group>"; };
@@ -3412,6 +3417,7 @@
 		E5BBF3A61BF322D70017D152 /* _VodBuy */ = {
 			isa = PBXGroup;
 			children = (
+				E5C596DB1C07700D008E018A /* _VodBundle */,
 				E56ACC0C1BF4CF9600B28FA0 /* _VodPopUp */,
 				E5BBF3A71BF323390017D152 /* VodBuyViewController.h */,
 				E5BBF3A81BF323390017D152 /* VodBuyViewController.m */,
@@ -3431,6 +3437,16 @@
 				E5BE92081BD65F7100970E16 /* CategoryTableViewCell.xib */,
 			);
 			name = _Cell;
+			sourceTree = "<group>";
+		};
+		E5C596DB1C07700D008E018A /* _VodBundle */ = {
+			isa = PBXGroup;
+			children = (
+				E5C596DC1C07703D008E018A /* VodBundleMainViewController.h */,
+				E5C596DD1C07703D008E018A /* VodBundleMainViewController.m */,
+				E5C596DE1C07703D008E018A /* VodBundleMainViewController.xib */,
+			);
+			name = _VodBundle;
 			sourceTree = "<group>";
 		};
 		E5DE649B1BCB4BC200FC3122 /* _Home */ = {
@@ -4058,6 +4074,7 @@
 				E5B553AA1BD9DD3F00AA02B2 /* icon_menu_remotecontrol.png in Resources */,
 				E5B5552C1BD9DD3F00AA02B2 /* menu_pres@3x.png in Resources */,
 				E5B553DB1BD9DD3F00AA02B2 /* genredrama_select@2x.png in Resources */,
+				E5C596E01C07703D008E018A /* VodBundleMainViewController.xib in Resources */,
 				E5B553BA1BD9DD3F00AA02B2 /* banner_empty.png in Resources */,
 				E5B554991BD9DD3F00AA02B2 /* genreentertain_press@3x.png in Resources */,
 				E5B5538B1BD9DD3F00AA02B2 /* p3btn_cancel_press.png in Resources */,
@@ -4453,6 +4470,7 @@
 				E5E7B5D01BF001AB00B78341 /* VodDetailMainViewController.m in Sources */,
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
 				99C43C581BA3EDA10035A0A4 /* NSUserDefaults+Settings.m in Sources */,
+				E5C596DF1C07703D008E018A /* VodBundleMainViewController.m in Sources */,
 				E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */,
 				E56ACC0B1BF43EA100B28FA0 /* NSMutableDictionary+Payment.m in Sources */,
 				20100C0F1BCA0B5D008BAE2A /* BMXSwipableCell+ConfigureCell.m in Sources */,

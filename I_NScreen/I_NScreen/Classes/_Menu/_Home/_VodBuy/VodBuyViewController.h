@@ -11,7 +11,7 @@
 #import "VodPopUpViewController.h"
 #import "VodPopUpViewController.h"
 #import "StrikethroughLabel.h"
-
+#import "VodBundleMainViewController.h"
 
 @protocol VodBuyViewDelegate;
 
