@@ -167,46 +167,6 @@
     NSString *sMore = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"moreState"]];
     NSString *sDele = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"deleState"]];
     
-//    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
-
-//    if ( [self getProgressTimerWithIndex:(int)indexPath.row] > 0 )
-//    {
-//        // 오늘 지금 시간
-//        sMore = @"TV로 시청";
-//        sDelete = @"즉시 녹화";
-//        for ( NSString *str in self.recordingchannelArr )
-//        {
-//            if ( [str isEqualToString:sChannelId] )
-//            {
-//                sDelete = @"즉시 녹화 중지";
-//            }
-//        }
-//    }
-//    else
-//    {
-//        // 방영예정중
-//        // 시청예약설정, 녹화예약설정
-//        
-//        NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:indexPath.row] objectForKey:@"programBroadcastingStartTime"]];
-//        
-////        NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
-//        
-//        for ( NSDictionary *dic in self.pRecordReservListArr )
-//        {
-//            NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
-//            NSString *sChannelIdReserv = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
-//            
-//            if ( [sRecordStartTime isEqualToString:sProgramBroadcastingStartTime] &&
-//                [sChannelId isEqualToString:sChannelIdReserv] )
-//            {
-//                // 녹화예약취소
-//                sDelete = @"녹화예약취소";        }
-//            }
-//
-//        
-//        sMore = [self getWatchReserveIndex:(int)indexPath.row];
-//    }
-    
     [cell configureCellForItem:@{@"More":sMore, @"Delete":sDele} WithItemCount:2];
     
     return cell;
@@ -364,7 +324,7 @@
         for ( NSDictionary *dic in self.pRecordReservListArr )
         {
             NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
-            NSString *sChannelIdReserv = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
+            NSString *sChannelIdReserv = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
             
             if ( [sRecordStartTime isEqualToString:sProgramBroadcastingStartTime] &&
                 [sChannelId isEqualToString:sChannelIdReserv] )
@@ -785,7 +745,7 @@
 - (BOOL)getRecordingChannelIndex:(int)index
 {
     // 체널 id 로 체크
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"ChannelId"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programId"]];
     
     BOOL isCheck = NO;
     for ( NSString *str in self.recordingchannelArr )
@@ -802,13 +762,13 @@
 - (BOOL)getRecordReservListIndex:(int)index
 {
     NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"RecordStartTime"]];
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"ChannelId"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programId"]];
     
     BOOL isCheck = NO;
     for ( NSDictionary *dic in self.pRecordReservListArr )
     {
         NSString *sDicRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
-        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
+        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
         
         if ( [sRecordStartTime isEqualToString:sDicRecordStartTime] &&
             [sChannelId isEqualToString:sDicChannelId] )

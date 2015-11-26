@@ -358,7 +358,7 @@
         {
             NSString *sPurchaseDeviceType = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObject objectForKey:@"purchaseDeviceType"]];
             
-            if ( [sPurchaseDeviceType isEqualToString:@"1"] )
+            if ( [sPurchaseDeviceType isEqualToString:@"2"] )
             {
                 // 모바일구매
                 [self.pValidPurchaseLogListMoblieArr addObject:(NSDictionary *)itemObject];
@@ -376,7 +376,7 @@
             {
                 NSString *sPurchaseDeviceType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"purchaseDeviceType"]];
                 
-                if ( [sPurchaseDeviceType isEqualToString:@"1"] )
+                if ( [sPurchaseDeviceType isEqualToString:@"2"] )
                 {
                     // 모바일구매
                     [self.pValidPurchaseLogListMoblieArr addObject:dic];

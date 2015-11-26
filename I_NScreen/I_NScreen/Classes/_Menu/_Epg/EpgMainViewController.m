@@ -307,7 +307,7 @@
 - (BOOL)getRecordingChannelIndex:(int)index
 {
     // 체널 id 로 체크
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"ChannelId"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelId"]];
     
     BOOL isCheck = NO;
     for ( NSString *str in self.recordingchannelArr )
@@ -324,13 +324,13 @@
 - (BOOL)getRecordReservListIndex:(int)index
 {
     NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"RecordStartTime"]];
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"ChannelId"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelId"]];
 
     BOOL isCheck = NO;
     for ( NSDictionary *dic in self.pRecordReservListArr )
     {
         NSString *sDicRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
-        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
+        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
         
         if ( [sRecordStartTime isEqualToString:sDicRecordStartTime] &&
             [sChannelId isEqualToString:sDicChannelId] )

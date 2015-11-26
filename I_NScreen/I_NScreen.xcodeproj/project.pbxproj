@@ -182,39 +182,17 @@
 		E599DFD61BF5DAB2004B486B /* bi.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD51BF5DAB2004B486B /* bi.png */; };
 		E599DFD81BF5DAC4004B486B /* bi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD71BF5DAC4004B486B /* bi@2x.png */; };
 		E599DFDA1BF5DAD2004B486B /* bi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD91BF5DAD2004B486B /* bi@3x.png */; };
+		E59D7FE01C06D4E1007C9E77 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FDD1C06D4E1007C9E77 /* splash.png */; settings = {ASSET_TAGS = (); }; };
+		E59D7FE11C06D4E1007C9E77 /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FDE1C06D4E1007C9E77 /* splash@2x.png */; settings = {ASSET_TAGS = (); }; };
+		E59D7FE21C06D4E1007C9E77 /* splash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FDF1C06D4E1007C9E77 /* splash@3x.png */; settings = {ASSET_TAGS = (); }; };
+		E59D7FE91C06D4E9007C9E77 /* Appicon76.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE31C06D4E9007C9E77 /* Appicon76.png */; settings = {ASSET_TAGS = (); }; };
+		E59D7FEA1C06D4E9007C9E77 /* Appicon120.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE41C06D4E9007C9E77 /* Appicon120.png */; settings = {ASSET_TAGS = (); }; };
+		E59D7FEB1C06D4E9007C9E77 /* Appicon152.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE51C06D4E9007C9E77 /* Appicon152.png */; settings = {ASSET_TAGS = (); }; };
+		E59D7FEC1C06D4E9007C9E77 /* Appicon167.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE61C06D4E9007C9E77 /* Appicon167.png */; settings = {ASSET_TAGS = (); }; };
+		E59D7FED1C06D4E9007C9E77 /* Appicon180.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE71C06D4E9007C9E77 /* Appicon180.png */; settings = {ASSET_TAGS = (); }; };
+		E59D7FEE1C06D4E9007C9E77 /* Appicon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE81C06D4E9007C9E77 /* Appicon1024.png */; settings = {ASSET_TAGS = (); }; };
 		E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30C1BDE1B4B005AC701 /* IDScrollableTabBar.m */; };
 		E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30F1BDE1B4B005AC701 /* IDScrollableTabBarItem.m */; };
-		E5A6E3331BDE1CC2005AC701 /* defaultArch.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3131BDE1CC2005AC701 /* defaultArch.png */; };
-		E5A6E3341BDE1CC2005AC701 /* defaultArch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3141BDE1CC2005AC701 /* defaultArch@2x.png */; };
-		E5A6E3351BDE1CC2005AC701 /* defaultBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3151BDE1CC2005AC701 /* defaultBackground.png */; };
-		E5A6E3361BDE1CC2005AC701 /* defaultBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3161BDE1CC2005AC701 /* defaultBackground@2x.png */; };
-		E5A6E3371BDE1CC2005AC701 /* defaultCenter.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3171BDE1CC2005AC701 /* defaultCenter.png */; };
-		E5A6E3381BDE1CC2005AC701 /* defaultCenter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3181BDE1CC2005AC701 /* defaultCenter@2x.png */; };
-		E5A6E3391BDE1CC2005AC701 /* defaultDivider.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3191BDE1CC2005AC701 /* defaultDivider.png */; };
-		E5A6E33A1BDE1CC2005AC701 /* defaultDivider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E31A1BDE1CC2005AC701 /* defaultDivider@2x.png */; };
-		E5A6E33B1BDE1CC2005AC701 /* defaultShadowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E31B1BDE1CC2005AC701 /* defaultShadowLeft.png */; };
-		E5A6E33C1BDE1CC2005AC701 /* defaultShadowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E31C1BDE1CC2005AC701 /* defaultShadowLeft@2x.png */; };
-		E5A6E33D1BDE1CC2005AC701 /* defaultShadowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E31D1BDE1CC2005AC701 /* defaultShadowRight.png */; };
-		E5A6E33E1BDE1CC2005AC701 /* defaultShadowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E31E1BDE1CC2005AC701 /* defaultShadowRight@2x.png */; };
-		E5A6E33F1BDE1CC2005AC701 /* normaldot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E31F1BDE1CC2005AC701 /* normaldot@3x.png */; };
-		E5A6E3401BDE1CC2005AC701 /* selectdot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3201BDE1CC2005AC701 /* selectdot@3x.png */; };
-		E5A6E3411BDE1CC2005AC701 /* selectindicator@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3211BDE1CC2005AC701 /* selectindicator@3x.png */; };
-		E5A6E3421BDE1CC2005AC701 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3231BDE1CC2005AC701 /* camera.png */; };
-		E5A6E3431BDE1CC2005AC701 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3241BDE1CC2005AC701 /* camera@2x.png */; };
-		E5A6E3441BDE1CC2005AC701 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3251BDE1CC2005AC701 /* clock.png */; };
-		E5A6E3451BDE1CC2005AC701 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3261BDE1CC2005AC701 /* clock@2x.png */; };
-		E5A6E3461BDE1CC2005AC701 /* fave.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3271BDE1CC2005AC701 /* fave.png */; };
-		E5A6E3471BDE1CC2005AC701 /* fave@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3281BDE1CC2005AC701 /* fave@2x.png */; };
-		E5A6E3481BDE1CC2005AC701 /* games.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3291BDE1CC2005AC701 /* games.png */; };
-		E5A6E3491BDE1CC2005AC701 /* games@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E32A1BDE1CC2005AC701 /* games@2x.png */; };
-		E5A6E34A1BDE1CC2005AC701 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E32B1BDE1CC2005AC701 /* mail.png */; };
-		E5A6E34B1BDE1CC2005AC701 /* mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E32C1BDE1CC2005AC701 /* mail@2x.png */; };
-		E5A6E34C1BDE1CC2005AC701 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E32D1BDE1CC2005AC701 /* music.png */; };
-		E5A6E34D1BDE1CC2005AC701 /* music@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E32E1BDE1CC2005AC701 /* music@2x.png */; };
-		E5A6E34E1BDE1CC2005AC701 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E32F1BDE1CC2005AC701 /* settings.png */; };
-		E5A6E34F1BDE1CC2005AC701 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3301BDE1CC2005AC701 /* settings@2x.png */; };
-		E5A6E3501BDE1CC2005AC701 /* zip.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3311BDE1CC2005AC701 /* zip.png */; };
-		E5A6E3511BDE1CC2005AC701 /* zip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A6E3321BDE1CC2005AC701 /* zip@2x.png */; };
 		E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230A1BD137200076AF97 /* CMPageCollectionViewController.m */; };
 		E5A9230D1BD137200076AF97 /* CMPageCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */; };
 		E5A923111BD13AAA0076AF97 /* CMPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230F1BD13AAA0076AF97 /* CMPageCollectionViewCell.m */; };
@@ -1147,6 +1125,15 @@
 		E599DFD51BF5DAB2004B486B /* bi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bi.png; sourceTree = "<group>"; };
 		E599DFD71BF5DAC4004B486B /* bi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bi@2x.png"; sourceTree = "<group>"; };
 		E599DFD91BF5DAD2004B486B /* bi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bi@3x.png"; sourceTree = "<group>"; };
+		E59D7FDD1C06D4E1007C9E77 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		E59D7FDE1C06D4E1007C9E77 /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
+		E59D7FDF1C06D4E1007C9E77 /* splash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@3x.png"; sourceTree = "<group>"; };
+		E59D7FE31C06D4E9007C9E77 /* Appicon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon76.png; sourceTree = "<group>"; };
+		E59D7FE41C06D4E9007C9E77 /* Appicon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon120.png; sourceTree = "<group>"; };
+		E59D7FE51C06D4E9007C9E77 /* Appicon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon152.png; sourceTree = "<group>"; };
+		E59D7FE61C06D4E9007C9E77 /* Appicon167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon167.png; sourceTree = "<group>"; };
+		E59D7FE71C06D4E9007C9E77 /* Appicon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon180.png; sourceTree = "<group>"; };
+		E59D7FE81C06D4E9007C9E77 /* Appicon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon1024.png; sourceTree = "<group>"; };
 		E5A6E2F41BDDBC73005AC701 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -1158,37 +1145,6 @@
 		E5A6E30D1BDE1B4B005AC701 /* IDScrollableTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDScrollableTabBarDelegate.h; sourceTree = "<group>"; };
 		E5A6E30E1BDE1B4B005AC701 /* IDScrollableTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDScrollableTabBarItem.h; sourceTree = "<group>"; };
 		E5A6E30F1BDE1B4B005AC701 /* IDScrollableTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDScrollableTabBarItem.m; sourceTree = "<group>"; };
-		E5A6E3131BDE1CC2005AC701 /* defaultArch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultArch.png; sourceTree = "<group>"; };
-		E5A6E3141BDE1CC2005AC701 /* defaultArch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultArch@2x.png"; sourceTree = "<group>"; };
-		E5A6E3151BDE1CC2005AC701 /* defaultBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultBackground.png; sourceTree = "<group>"; };
-		E5A6E3161BDE1CC2005AC701 /* defaultBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultBackground@2x.png"; sourceTree = "<group>"; };
-		E5A6E3171BDE1CC2005AC701 /* defaultCenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultCenter.png; sourceTree = "<group>"; };
-		E5A6E3181BDE1CC2005AC701 /* defaultCenter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultCenter@2x.png"; sourceTree = "<group>"; };
-		E5A6E3191BDE1CC2005AC701 /* defaultDivider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultDivider.png; sourceTree = "<group>"; };
-		E5A6E31A1BDE1CC2005AC701 /* defaultDivider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultDivider@2x.png"; sourceTree = "<group>"; };
-		E5A6E31B1BDE1CC2005AC701 /* defaultShadowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultShadowLeft.png; sourceTree = "<group>"; };
-		E5A6E31C1BDE1CC2005AC701 /* defaultShadowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultShadowLeft@2x.png"; sourceTree = "<group>"; };
-		E5A6E31D1BDE1CC2005AC701 /* defaultShadowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultShadowRight.png; sourceTree = "<group>"; };
-		E5A6E31E1BDE1CC2005AC701 /* defaultShadowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "defaultShadowRight@2x.png"; sourceTree = "<group>"; };
-		E5A6E31F1BDE1CC2005AC701 /* normaldot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "normaldot@3x.png"; sourceTree = "<group>"; };
-		E5A6E3201BDE1CC2005AC701 /* selectdot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectdot@3x.png"; sourceTree = "<group>"; };
-		E5A6E3211BDE1CC2005AC701 /* selectindicator@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectindicator@3x.png"; sourceTree = "<group>"; };
-		E5A6E3231BDE1CC2005AC701 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
-		E5A6E3241BDE1CC2005AC701 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
-		E5A6E3251BDE1CC2005AC701 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
-		E5A6E3261BDE1CC2005AC701 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
-		E5A6E3271BDE1CC2005AC701 /* fave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fave.png; sourceTree = "<group>"; };
-		E5A6E3281BDE1CC2005AC701 /* fave@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fave@2x.png"; sourceTree = "<group>"; };
-		E5A6E3291BDE1CC2005AC701 /* games.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = games.png; sourceTree = "<group>"; };
-		E5A6E32A1BDE1CC2005AC701 /* games@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "games@2x.png"; sourceTree = "<group>"; };
-		E5A6E32B1BDE1CC2005AC701 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
-		E5A6E32C1BDE1CC2005AC701 /* mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mail@2x.png"; sourceTree = "<group>"; };
-		E5A6E32D1BDE1CC2005AC701 /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
-		E5A6E32E1BDE1CC2005AC701 /* music@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music@2x.png"; sourceTree = "<group>"; };
-		E5A6E32F1BDE1CC2005AC701 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
-		E5A6E3301BDE1CC2005AC701 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
-		E5A6E3311BDE1CC2005AC701 /* zip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zip.png; sourceTree = "<group>"; };
-		E5A6E3321BDE1CC2005AC701 /* zip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zip@2x.png"; sourceTree = "<group>"; };
 		E5A923091BD137200076AF97 /* CMPageCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPageCollectionViewController.h; sourceTree = "<group>"; };
 		E5A9230A1BD137200076AF97 /* CMPageCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPageCollectionViewController.m; sourceTree = "<group>"; };
 		E5A9230B1BD137200076AF97 /* CMPageCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMPageCollectionViewController.xib; sourceTree = "<group>"; };
@@ -2511,21 +2467,9 @@
 		E5A6E3121BDE1CC2005AC701 /* default */ = {
 			isa = PBXGroup;
 			children = (
-				E5A6E3131BDE1CC2005AC701 /* defaultArch.png */,
-				E5A6E3141BDE1CC2005AC701 /* defaultArch@2x.png */,
-				E5A6E3151BDE1CC2005AC701 /* defaultBackground.png */,
-				E5A6E3161BDE1CC2005AC701 /* defaultBackground@2x.png */,
-				E5A6E3171BDE1CC2005AC701 /* defaultCenter.png */,
-				E5A6E3181BDE1CC2005AC701 /* defaultCenter@2x.png */,
-				E5A6E3191BDE1CC2005AC701 /* defaultDivider.png */,
-				E5A6E31A1BDE1CC2005AC701 /* defaultDivider@2x.png */,
-				E5A6E31B1BDE1CC2005AC701 /* defaultShadowLeft.png */,
-				E5A6E31C1BDE1CC2005AC701 /* defaultShadowLeft@2x.png */,
-				E5A6E31D1BDE1CC2005AC701 /* defaultShadowRight.png */,
-				E5A6E31E1BDE1CC2005AC701 /* defaultShadowRight@2x.png */,
-				E5A6E31F1BDE1CC2005AC701 /* normaldot@3x.png */,
-				E5A6E3201BDE1CC2005AC701 /* selectdot@3x.png */,
-				E5A6E3211BDE1CC2005AC701 /* selectindicator@3x.png */,
+				E59D7FDD1C06D4E1007C9E77 /* splash.png */,
+				E59D7FDE1C06D4E1007C9E77 /* splash@2x.png */,
+				E59D7FDF1C06D4E1007C9E77 /* splash@3x.png */,
 			);
 			path = default;
 			sourceTree = "<group>";
@@ -2533,22 +2477,12 @@
 		E5A6E3221BDE1CC2005AC701 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				E5A6E3231BDE1CC2005AC701 /* camera.png */,
-				E5A6E3241BDE1CC2005AC701 /* camera@2x.png */,
-				E5A6E3251BDE1CC2005AC701 /* clock.png */,
-				E5A6E3261BDE1CC2005AC701 /* clock@2x.png */,
-				E5A6E3271BDE1CC2005AC701 /* fave.png */,
-				E5A6E3281BDE1CC2005AC701 /* fave@2x.png */,
-				E5A6E3291BDE1CC2005AC701 /* games.png */,
-				E5A6E32A1BDE1CC2005AC701 /* games@2x.png */,
-				E5A6E32B1BDE1CC2005AC701 /* mail.png */,
-				E5A6E32C1BDE1CC2005AC701 /* mail@2x.png */,
-				E5A6E32D1BDE1CC2005AC701 /* music.png */,
-				E5A6E32E1BDE1CC2005AC701 /* music@2x.png */,
-				E5A6E32F1BDE1CC2005AC701 /* settings.png */,
-				E5A6E3301BDE1CC2005AC701 /* settings@2x.png */,
-				E5A6E3311BDE1CC2005AC701 /* zip.png */,
-				E5A6E3321BDE1CC2005AC701 /* zip@2x.png */,
+				E59D7FE31C06D4E9007C9E77 /* Appicon76.png */,
+				E59D7FE41C06D4E9007C9E77 /* Appicon120.png */,
+				E59D7FE51C06D4E9007C9E77 /* Appicon152.png */,
+				E59D7FE61C06D4E9007C9E77 /* Appicon167.png */,
+				E59D7FE71C06D4E9007C9E77 /* Appicon180.png */,
+				E59D7FE81C06D4E9007C9E77 /* Appicon1024.png */,
 			);
 			path = icons;
 			sourceTree = "<group>";
@@ -3796,7 +3730,6 @@
 				E5567BB31BA9537A00AB4003 /* MyCMMainTableViewCell.xib in Resources */,
 				E5B553D11BD9DD3F00AA02B2 /* vod3btn_p_press.png in Resources */,
 				E5B5547B1BD9DD3F00AA02B2 /* icon_3depth_close@2x.png in Resources */,
-				E5A6E3361BDE1CC2005AC701 /* defaultBackground@2x.png in Resources */,
 				E5B553BF1BD9DD3F00AA02B2 /* contentsno_n.png in Resources */,
 				E599DFD81BF5DAC4004B486B /* bi@2x.png in Resources */,
 				E5B553361BD9DD3F00AA02B2 /* genrereligion_normal.png in Resources */,
@@ -3804,10 +3737,10 @@
 				E5B5539F1BD9DD3F00AA02B2 /* close_s.png in Resources */,
 				E5B554731BD9DD3F00AA02B2 /* banner_empty@2x.png in Resources */,
 				E5B555191BD9DD3F00AA02B2 /* serchbox@3x.png in Resources */,
-				E5A6E34F1BDE1CC2005AC701 /* settings@2x.png in Resources */,
 				E5B553C21BD9DD3F00AA02B2 /* icon_3depth_close.png in Resources */,
 				E5B5538D1BD9DD3F00AA02B2 /* p3btn_ok_press.png in Resources */,
 				E5B553F31BD9DD3F00AA02B2 /* genrereligion_select@2x.png in Resources */,
+				E59D7FE21C06D4E1007C9E77 /* splash@3x.png in Resources */,
 				E5B554071BD9DD3F00AA02B2 /* bigpic@2x.png in Resources */,
 				E5B5541D1BD9DD3F00AA02B2 /* icon_recrsv@2x.png in Resources */,
 				E5B553F81BD9DD3F00AA02B2 /* genresports_press@2x.png in Resources */,
@@ -3829,7 +3762,6 @@
 				E5B5550F1BD9DD3F00AA02B2 /* allch_press@3x.png in Resources */,
 				E5B553CA1BD9DD3F00AA02B2 /* star_empty.png in Resources */,
 				E5B554EC1BD9DD3F00AA02B2 /* ch_select@3x.png in Resources */,
-				E5A6E3431BDE1CC2005AC701 /* camera@2x.png in Resources */,
 				E5B554651BD9DD3F00AA02B2 /* icon_pairing_after@2x.png in Resources */,
 				E5B5539C1BD9DD3F00AA02B2 /* volumeup_normal.png in Resources */,
 				E5567BAD1BA93A7E00AB4003 /* MyCMMainViewController.xib in Resources */,
@@ -3872,11 +3804,11 @@
 				E5B555301BD9DD3F00AA02B2 /* stbpairingbtn_press@3x.png in Resources */,
 				E5B554D81BD9DD3F00AA02B2 /* icon_series@3x.png in Resources */,
 				E5B553531BD9DD3F00AA02B2 /* icon_chunpick.png in Resources */,
-				E5A6E34E1BDE1CC2005AC701 /* settings.png in Resources */,
 				E5B5548D1BD9DD3F00AA02B2 /* allch@3x.png in Resources */,
 				E5B5534C1BD9DD3F00AA02B2 /* bigpic.png in Resources */,
 				99C43C701BA3EDA10035A0A4 /* RootViewController.xib in Resources */,
-				E5A6E3441BDE1CC2005AC701 /* clock.png in Resources */,
+				E59D7FE91C06D4E9007C9E77 /* Appicon76.png in Resources */,
+				E59D7FED1C06D4E9007C9E77 /* Appicon180.png in Resources */,
 				E5B554481BD9DD3F00AA02B2 /* pwbox_error@2x.png in Resources */,
 				E5B5531B1BD9DD3F00AA02B2 /* genreall_normal.png in Resources */,
 				E58C6AF71BE261660024405D /* CMContentGroupCollectionViewController.xib in Resources */,
@@ -3904,13 +3836,11 @@
 				E5B5541B1BD9DD3F00AA02B2 /* icon_rank@2x.png in Resources */,
 				E5B5531E1BD9DD3F00AA02B2 /* genredrama_normal.png in Resources */,
 				E5B554E61BD9DD3F00AA02B2 /* 3btn_outline@3x.png in Resources */,
-				E5A6E33A1BDE1CC2005AC701 /* defaultDivider@2x.png in Resources */,
 				E5BE920A1BD65F7100970E16 /* CategoryTableViewCell.xib in Resources */,
 				E5B554FD1BD9DD3F00AA02B2 /* p1btn_ok_press.png in Resources */,
 				E5D2581E1C02E8CF007F45AB /* banner_empty@3x.png in Resources */,
 				E5B555291BD9DD3F00AA02B2 /* icon_qlist_normal@3x.png in Resources */,
 				E5BE92051BD65F5A00970E16 /* BannerTableViewCell.xib in Resources */,
-				E5A6E3451BDE1CC2005AC701 /* clock@2x.png in Resources */,
 				E529EDC71BFDF17300684E8D /* vod3btn_pick_normal@2x.png in Resources */,
 				E5B554621BD9DD3F00AA02B2 /* icon_menu_recording@2x.png in Resources */,
 				E5B553791BD9DD3F00AA02B2 /* fp1btn_ok_normal.png in Resources */,
@@ -3943,7 +3873,6 @@
 				E5B5539A1BD9DD3F00AA02B2 /* volumedown_normal.png in Resources */,
 				E5B554361BD9DD3F00AA02B2 /* fp2btn_cancel_normal@2x.png in Resources */,
 				E5B554F91BD9DD3F00AA02B2 /* longselect@3x.png in Resources */,
-				E5A6E34B1BDE1CC2005AC701 /* mail@2x.png in Resources */,
 				E5B554611BD9DD3F00AA02B2 /* icon_menu_myc_m@2x.png in Resources */,
 				E5AF2E821C02DF330071CC3B /* 7.png in Resources */,
 				E5B554CE1BD9DD3F00AA02B2 /* icon_promotion_01@3x.png in Resources */,
@@ -3978,25 +3907,21 @@
 				E5B555421BD9DD3F00AA02B2 /* star_empty@3x.png in Resources */,
 				E5B553A91BD9DD3F00AA02B2 /* icon_menu_recording.png in Resources */,
 				E5B5547C1BD9DD3F00AA02B2 /* icon_3depth_open@2x.png in Resources */,
-				E5A6E3351BDE1CC2005AC701 /* defaultBackground.png in Resources */,
 				E5B5533D1BD9DD3F00AA02B2 /* genresports_press.png in Resources */,
 				E5E0DF7B1BDB91EE0049E3F6 /* PairingAuthViewController.xib in Resources */,
 				E5AF2E831C02DF330071CC3B /* 12.png in Resources */,
 				E5B554961BD9DD3F00AA02B2 /* genreedu_press@3x.png in Resources */,
 				99CCC56A1BF1E5FD00CD9447 /* MainPopUpTableView3thOpenCell.xib in Resources */,
 				E5B554F51BD9DD3F00AA02B2 /* genre_normal@3x.png in Resources */,
-				E5A6E34C1BDE1CC2005AC701 /* music.png in Resources */,
 				E5B554F11BD9DD3F00AA02B2 /* fp2btn_cancel_normal@3x.png in Resources */,
 				E52EE57A1BD508AF00797251 /* PvrMainTableViewCell.xib in Resources */,
-				E5A6E33F1BDE1CC2005AC701 /* normaldot@3x.png in Resources */,
 				E529EDD11BFDF18000684E8D /* vod2btn_pick_press@3x.png in Resources */,
-				E5A6E3491BDE1CC2005AC701 /* games@2x.png in Resources */,
 				E5B554871BD9DD3F00AA02B2 /* vod1btn_normal.select@2x.png in Resources */,
 				E5B553331BD9DD3F00AA02B2 /* genreregion_normal.png in Resources */,
 				E529EDD51BFDF18000684E8D /* vod3btn_pick_select@3x.png in Resources */,
+				E59D7FEE1C06D4E9007C9E77 /* Appicon1024.png in Resources */,
 				E5B5537C1BD9DD3F00AA02B2 /* fp2btn_cancel_press.png in Resources */,
 				E5B554CF1BD9DD3F00AA02B2 /* icon_promotion_02@3x.png in Resources */,
-				E5A6E33B1BDE1CC2005AC701 /* defaultShadowLeft.png in Resources */,
 				E5B5531A1BD9DD3F00AA02B2 /* allch_press.png in Resources */,
 				E5B553591BD9DD3F00AA02B2 /* icon_promotion_01.png in Resources */,
 				E58C6AFC1BE261BB0024405D /* CMContentGroupCollectionViewCell.xib in Resources */,
@@ -4032,7 +3957,6 @@
 				E5B5535F1BD9DD3F00AA02B2 /* icon_promotion_07.png in Resources */,
 				E5B553581BD9DD3F00AA02B2 /* icon_onlytv.png in Resources */,
 				E5B554551BD9DD3F00AA02B2 /* volumeup_normal@2x.png in Resources */,
-				E5A6E3371BDE1CC2005AC701 /* defaultCenter.png in Resources */,
 				E5B553E81BD9DD3F00AA02B2 /* genremusic_normal@2x.png in Resources */,
 				E5B553861BD9DD3F00AA02B2 /* p1btn_cancel_normal@2x.png in Resources */,
 				E5B554721BD9DD3F00AA02B2 /* 4depth_select@2x.png in Resources */,
@@ -4056,13 +3980,10 @@
 				E5B553C81BD9DD3F00AA02B2 /* seriesno_indicator_r.png in Resources */,
 				E5B554F21BD9DD3F00AA02B2 /* fp2btn_cancel_press@3x.png in Resources */,
 				E511818F1BA7ACF900C1E31D /* EpgSubTableViewCell.xib in Resources */,
-				E5A6E3511BDE1CC2005AC701 /* zip@2x.png in Resources */,
 				E5B553E11BD9DD3F00AA02B2 /* genreentertaion_select@2x.png in Resources */,
 				E5B554051BD9DD3F00AA02B2 /* all@2x.png in Resources */,
 				E5B553BB1BD9DD3F00AA02B2 /* banner_sample.png in Resources */,
 				E5B554BE1BD9DD3F00AA02B2 /* all@3x.png in Resources */,
-				E5A6E3401BDE1CC2005AC701 /* selectdot@3x.png in Resources */,
-				E5A6E3471BDE1CC2005AC701 /* fave@2x.png in Resources */,
 				E5B5545C1BD9DD3F00AA02B2 /* Icon_ in Resources */,
 				E5B5533A1BD9DD3F00AA02B2 /* genreshopping_press.png in Resources */,
 				E5B553DD1BD9DD3F00AA02B2 /* genreedu_press@2x.png in Resources */,
@@ -4073,9 +3994,9 @@
 				E5B5540E1BD9DD3F00AA02B2 /* icon_chunpick@2x.png in Resources */,
 				E5B5553D1BD9DD3F00AA02B2 /* icon_tv@3x.png in Resources */,
 				20989CE41BC7AE00009C4418 /* CMRegionSettingViewController.xib in Resources */,
-				E5A6E34D1BDE1CC2005AC701 /* music@2x.png in Resources */,
 				E5B554191BD9DD3F00AA02B2 /* icon_promotion_06@2x.png in Resources */,
 				E5B5539B1BD9DD3F00AA02B2 /* volumedown_press.png in Resources */,
+				E59D7FEA1C06D4E9007C9E77 /* Appicon120.png in Resources */,
 				E5B553551BD9DD3F00AA02B2 /* icon_couponpay.png in Resources */,
 				E5B5537D1BD9DD3F00AA02B2 /* fp2btn_ok_normal.png in Resources */,
 				E5B553AD1BD9DD3F00AA02B2 /* icon_pairing_before.png in Resources */,
@@ -4102,6 +4023,7 @@
 				E5B555041BD9DD3F00AA02B2 /* p3btn_ok_normal@3x.png in Resources */,
 				E5B5549F1BD9DD3F00AA02B2 /* genremovie_press@3x.png in Resources */,
 				99E9EDAD1BBA26B5002FEBF0 /* CMPaytvListViewController.xib in Resources */,
+				E59D7FE01C06D4E1007C9E77 /* splash.png in Resources */,
 				E5B554321BD9DD3F00AA02B2 /* ch_select@2x_original.png in Resources */,
 				E5B554311BD9DD3F00AA02B2 /* ch_select@2x.png in Resources */,
 				E5B553CD1BD9DD3F00AA02B2 /* v_unpick.png in Resources */,
@@ -4111,17 +4033,14 @@
 				E5B554E51BD9DD3F00AA02B2 /* 3btn_normal@3x.png in Resources */,
 				E5B554AE1BD9DD3F00AA02B2 /* genreshopping_press@3x.png in Resources */,
 				E5B553221BD9DD3F00AA02B2 /* genreedu_press.png in Resources */,
-				E5A6E33D1BDE1CC2005AC701 /* defaultShadowRight.png in Resources */,
 				E5B555281BD9DD3F00AA02B2 /* icon_q_press@3x.png in Resources */,
 				E5B554781BD9DD3F00AA02B2 /* contentsno_n@2x.png in Resources */,
 				E5B553921BD9DD3F00AA02B2 /* icon_discount_select.png in Resources */,
 				E5B553B41BD9DD3F00AA02B2 /* menu_pres.png in Resources */,
 				E5B5535D1BD9DD3F00AA02B2 /* icon_promotion_05.png in Resources */,
-				E5A6E3461BDE1CC2005AC701 /* fave.png in Resources */,
 				E5B553F11BD9DD3F00AA02B2 /* genrereligion_normal@2x.png in Resources */,
 				E51181911BA7ACF900C1E31D /* EpgSubViewController.xib in Resources */,
 				E5B553811BD9DD3F00AA02B2 /* genre_select.png in Resources */,
-				E5A6E3331BDE1CC2005AC701 /* defaultArch.png in Resources */,
 				E5B553731BD9DD3F00AA02B2 /* 3depth2btn_press.png in Resources */,
 				E5B554BA1BD9DD3F00AA02B2 /* 2btn_normal@3x.png in Resources */,
 				E5B5554A1BD9DD3F00AA02B2 /* vod3btn_press@3x.png in Resources */,
@@ -4150,11 +4069,11 @@
 				E5B554501BD9DD3F00AA02B2 /* allch_press@2x.png in Resources */,
 				E5B554B41BD9DD3F00AA02B2 /* moreindicator@3x.png in Resources */,
 				E5B554DD1BD9DD3F00AA02B2 /* indicator@3x.png in Resources */,
+				E59D7FEC1C06D4E9007C9E77 /* Appicon167.png in Resources */,
 				E5B5543F1BD9DD3F00AA02B2 /* p1btn_cancel_normal@2x.png in Resources */,
 				E5B553A21BD9DD3F00AA02B2 /* cloxe_x.png in Resources */,
 				E5B5540F1BD9DD3F00AA02B2 /* icon_complexpay@2x.png in Resources */,
 				E52EE57E1BD508AF00797251 /* PvrSubViewController.xib in Resources */,
-				E5A6E3411BDE1CC2005AC701 /* selectindicator@3x.png in Resources */,
 				E529EDBC1BFDF16300684E8D /* vod3btn_pick_press.png in Resources */,
 				E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */,
 				99C43C6E1BA3EDA10035A0A4 /* LeftMenuViewController.xib in Resources */,
@@ -4170,6 +4089,7 @@
 				E5B553911BD9DD3F00AA02B2 /* icon_discount_normal.png in Resources */,
 				E5B554D41BD9DD3F00AA02B2 /* icon_promotion_07@3x.png in Resources */,
 				E5B5544C1BD9DD3F00AA02B2 /* purchase_dimmed@2x.png in Resources */,
+				E59D7FE11C06D4E1007C9E77 /* splash@2x.png in Resources */,
 				E5B554A11BD9DD3F00AA02B2 /* genremusic_normal@3x.png in Resources */,
 				E5B5541E1BD9DD3F00AA02B2 /* icon_series@2x.png in Resources */,
 				E5B553B11BD9DD3F00AA02B2 /* icon_qlist_normal.png in Resources */,
@@ -4194,13 +4114,11 @@
 				E5B554881BD9DD3F00AA02B2 /* vod1btn_press@2x.png in Resources */,
 				E5B553321BD9DD3F00AA02B2 /* genrenews_select.png in Resources */,
 				E5B553441BD9DD3F00AA02B2 /* 15.png in Resources */,
-				E5A6E3391BDE1CC2005AC701 /* defaultDivider.png in Resources */,
 				E5B554041BD9DD3F00AA02B2 /* 2btn_select@2x.png in Resources */,
 				E5B5553C1BD9DD3F00AA02B2 /* icon_mobile@3x.png in Resources */,
 				E5B555321BD9DD3F00AA02B2 /* banner_empty@3x.png in Resources */,
 				E529EDC41BFDF17300684E8D /* vod2btn_pick_normal@2x.png in Resources */,
 				E5D2581F1C02E8CF007F45AB /* posterlist_default@3x.png in Resources */,
-				E5A6E3381BDE1CC2005AC701 /* defaultCenter@2x.png in Resources */,
 				994BDB3F1BA3F6E8000B6260 /* CMPreferenceMainViewController.xib in Resources */,
 				E5B5547F1BD9DD3F00AA02B2 /* seriesno_bg@2x.png in Resources */,
 				E5B5548E1BD9DD3F00AA02B2 /* allch_press@3x.png in Resources */,
@@ -4220,6 +4138,7 @@
 				E5B554561BD9DD3F00AA02B2 /* volumeup_press@2x.png in Resources */,
 				E5B553F91BD9DD3F00AA02B2 /* genresports_select@2x.png in Resources */,
 				E5B5550E1BD9DD3F00AA02B2 /* allch.png in Resources */,
+				E59D7FEB1C06D4E9007C9E77 /* Appicon152.png in Resources */,
 				E5B554861BD9DD3F00AA02B2 /* v_unpick@2x.png in Resources */,
 				99C43C681BA3EDA10035A0A4 /* EpgMainTableViewCell.xib in Resources */,
 				E5B5542B1BD9DD3F00AA02B2 /* 3btn_outline@2x.png in Resources */,
@@ -4255,7 +4174,6 @@
 				99E9EDB21BBA26C3002FEBF0 /* CMPaytvGuideViewController.xib in Resources */,
 				E5B554F71BD9DD3F00AA02B2 /* genre_select@3x.png in Resources */,
 				E5B553C11BD9DD3F00AA02B2 /* icon_2depth_open.png in Resources */,
-				E5A6E3481BDE1CC2005AC701 /* games.png in Resources */,
 				E5B553201BD9DD3F00AA02B2 /* genredrama_select.png in Resources */,
 				E5B555031BD9DD3F00AA02B2 /* p3btn_cancel_press@3x.png in Resources */,
 				E5B554FE1BD9DD3F00AA02B2 /* p2btn_cancel_normal@3x.png in Resources */,
@@ -4270,7 +4188,6 @@
 				E5B553D61BD9DD3F00AA02B2 /* genreall_normal@2x.png in Resources */,
 				E5B554E11BD9DD3F00AA02B2 /* icon_left_normal@3x.png in Resources */,
 				E5B554661BD9DD3F00AA02B2 /* icon_pairing_before@2x.png in Resources */,
-				E5A6E3501BDE1CC2005AC701 /* zip.png in Resources */,
 				E5B554691BD9DD3F00AA02B2 /* icon_q_press@2x.png in Resources */,
 				E5DE64C31BCB4E4400FC3122 /* MovieMainViewController.xib in Resources */,
 				E5B5536A1BD9DD3F00AA02B2 /* unpick.png in Resources */,
@@ -4351,7 +4268,6 @@
 				E5B554E01BD9DD3F00AA02B2 /* unpick@3x.png in Resources */,
 				E5B555331BD9DD3F00AA02B2 /* banner_sample@3x.png in Resources */,
 				E5B554251BD9DD3F00AA02B2 /* unpick@2x.png in Resources */,
-				E5A6E33C1BDE1CC2005AC701 /* defaultShadowLeft@2x.png in Resources */,
 				E5B5537F1BD9DD3F00AA02B2 /* genre_normal.png in Resources */,
 				E529EDD41BFDF18000684E8D /* vod3btn_pick_press@3x.png in Resources */,
 				20EAA3441BAE9474004DFCA0 /* CMSearchMainViewController.xib in Resources */,
@@ -4359,7 +4275,6 @@
 				E5B555491BD9DD3F00AA02B2 /* vod3btn_p_press@3x.png in Resources */,
 				E5B554E21BD9DD3F00AA02B2 /* icon_left_press@3x.png in Resources */,
 				E5B554AF1BD9DD3F00AA02B2 /* genreshopping_select@3x.png in Resources */,
-				E5A6E3341BDE1CC2005AC701 /* defaultArch@2x.png in Resources */,
 				E5B554E41BD9DD3F00AA02B2 /* icon_search_press@3x.png in Resources */,
 				E5B554CC1BD9DD3F00AA02B2 /* icon_monthlypay@3x.png in Resources */,
 				E5B553681BD9DD3F00AA02B2 /* pick.png in Resources */,
@@ -4414,7 +4329,6 @@
 				E5B5535E1BD9DD3F00AA02B2 /* icon_promotion_06.png in Resources */,
 				E5B553751BD9DD3F00AA02B2 /* ch_press.png in Resources */,
 				E5B554221BD9DD3F00AA02B2 /* indicator@2x.png in Resources */,
-				E5A6E33E1BDE1CC2005AC701 /* defaultShadowRight@2x.png in Resources */,
 				E5B555471BD9DD3F00AA02B2 /* vod1btn_press@3x.png in Resources */,
 				E5B554E91BD9DD3F00AA02B2 /* 3depth2btn_press@3x.png in Resources */,
 				E5B555051BD9DD3F00AA02B2 /* p3btn_ok_press@3x.png in Resources */,
@@ -4455,7 +4369,6 @@
 				E5B5549B1BD9DD3F00AA02B2 /* genrefavorite_normal@3x.png in Resources */,
 				E5D2581A1C02E8BE007F45AB /* voddetail_default@2x.png in Resources */,
 				E5B553391BD9DD3F00AA02B2 /* genreshopping_normal.png in Resources */,
-				E5A6E3421BDE1CC2005AC701 /* camera.png in Resources */,
 				E5B553761BD9DD3F00AA02B2 /* ch_select.png in Resources */,
 				E5E7B5CF1BF001AB00B78341 /* PlayerViewController.xib in Resources */,
 				E5B554B11BD9DD3F00AA02B2 /* genresports_press@3x.png in Resources */,
@@ -4466,7 +4379,6 @@
 				E5B554291BD9DD3F00AA02B2 /* icon_search_press@2x.png in Resources */,
 				E5B554581BD9DD3F00AA02B2 /* close_s@2x.png in Resources */,
 				E5B553EA1BD9DD3F00AA02B2 /* genremusic_select@2x.png in Resources */,
-				E5A6E34A1BDE1CC2005AC701 /* mail.png in Resources */,
 				E5B553D41BD9DD3F00AA02B2 /* allch@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

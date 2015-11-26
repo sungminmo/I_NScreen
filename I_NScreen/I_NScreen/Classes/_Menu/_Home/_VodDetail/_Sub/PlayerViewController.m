@@ -172,6 +172,10 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
 //            
 //            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
         }
+        else
+        {
+//            [SIAlertView alert:<#(NSString *)#> message:<#(NSString *)#> button:<#(NSString *)#> completion:<#^(NSInteger buttonIndex, SIAlertView *alert)completion#>]
+        }
     }
 }
 
