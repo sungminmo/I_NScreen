@@ -470,6 +470,18 @@ NSString* const CNM_OPEN_API_INTERFACE_purchaseByCoupon = @"purchaseByCoupon";
 // purchaseByComplexMethods
 NSString* const CNM_OPEN_API_INTERFACE_purchaseByComplexMethods = @"purchaseByComplexMethods";
 
+// purchaseProduct
+NSString* const CNM_OPEN_API_INTERFACE_purchaseProduct = @"purchaseProduct";
+
+// purchaseProductByCoupon2
+NSString* const CNM_OPEN_API_INTERFACE_purchaseProductByCoupon2 = @"purchaseProductByCoupon2";
+
+// purchaseProductByPoint
+NSString* const CNM_OPEN_API_INTERFACE_purchaseProductByPoint = @"purchaseProductByPoint";
+
+// purchaseProductByComplexMethods
+NSString* const CNM_OPEN_API_INTERFACE_purchaseProductByComplexMethods = @"purchaseProductByComplexMethods";
+
 @implementation STVConstants
 
 @end

@@ -26,4 +26,12 @@
 
 + (NSURLSessionDataTask *)paymentPurchaseByComplexMethodsWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCouponPrice:(NSString *)couponPrice WithNomalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block;
 
++ (NSURLSessionDataTask *)paymentPurchaseProductWithProductId:(NSString *)productId completion:(void (^)(NSArray *payment, NSError *error))block;
+
++ (NSURLSessionDataTask *)paymentPurchaseProductByCoupon2WithProductId:(NSString *)productId WithPrice:(NSString *)price completion:(void (^)(NSArray *payment, NSError *error))block;
+
++ (NSURLSessionDataTask *)paymentPurchaseProductByPointWithProductId:(NSString *)productId WithPrice:(NSString *)price completion:(void (^)(NSArray *payment, NSError *error))block;
+
++ (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithPointPrice:(NSString *)pointPrice WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block;
+
 @end

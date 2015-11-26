@@ -44,4 +44,25 @@
     return [[CMNetworkManager sharedInstance] paymentPurchaseByComplexMethodsWithAssetId:assetId WithProductId:productId WithGoodId:goodId WithPrice:price WithCouponPrice:couponPrice WithNomalPrice:normalPrice completion:block];
 }
 
++ (NSURLSessionDataTask *)paymentPurchaseProductWithProductId:(NSString *)productId completion:(void (^)(NSArray *payment, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] paymentPurchaseProductWithProductId:productId completion:block];
+}
+
++ (NSURLSessionDataTask *)paymentPurchaseProductByCoupon2WithProductId:(NSString *)productId WithPrice:(NSString *)price completion:(void (^)(NSArray *payment, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] paymentPurchaseProductByCoupon2WithProductId:productId WithPrice:price completion:block];
+}
+
++ (NSURLSessionDataTask *)paymentPurchaseProductByPointWithProductId:(NSString *)productId WithPrice:(NSString *)price completion:(void (^)(NSArray *payment, NSError *error))block
+
+{
+    return [[CMNetworkManager sharedInstance] paymentPurchaseProductByPointWithProductId:productId WithPrice:price completion:block];
+}
+
++ (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithPointPrice:(NSString *)pointPrice WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block
+{
+    return [[CMNetworkManager sharedInstance] paymentPurchaseProductByComplexMethodsWithProductId:productId WithPrice:price WithPointPrice:pointPrice WithCouponPrice:couponPrice WithNormalPrice:normalPrice completion:block];
+}
+
 @end

@@ -266,6 +266,18 @@
 // 복합 결제
 - (NSURLSessionDataTask *)paymentPurchaseByComplexMethodsWithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price WithCouponPrice:(NSString *)couponPrice WithNomalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block;
 
+// 묶음 일반 결제
+- (NSURLSessionDataTask *)paymentPurchaseProductWithProductId:(NSString *)productId completion:(void (^)(NSArray *payment, NSError *error))block;
+
+// 묶음 쿠폰
+- (NSURLSessionDataTask *)paymentPurchaseProductByCoupon2WithProductId:(NSString *)productId WithPrice:(NSString *)price completion:(void (^)(NSArray *payment, NSError *error))block;
+
+// 묶음 포인트
+- (NSURLSessionDataTask *)paymentPurchaseProductByPointWithProductId:(NSString *)productId WithPrice:(NSString *)price completion:(void (^)(NSArray *payment, NSError *error))block;
+
+// 묶음 복합
+- (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithPointPrice:(NSString *)pointPrice WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block;
+
 @end
 
 @interface CMNetworkManager ( WISH )
