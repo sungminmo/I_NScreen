@@ -167,14 +167,14 @@
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="TAr-Xx-Rma"/>
                                     <exclude reference="S7p-b8-D7y"/>
+                                    <exclude reference="TAr-Xx-Rma"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
-                                    <include reference="TAr-Xx-Rma"/>
                                     <include reference="S7p-b8-D7y"/>
+                                    <include reference="TAr-Xx-Rma"/>
                                 </mask>
                             </variation>
                         </label>
@@ -208,14 +208,14 @@
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="SCv-zx-e8S"/>
                                     <exclude reference="Lqm-T5-6si"/>
+                                    <exclude reference="SCv-zx-e8S"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
-                                    <include reference="SCv-zx-e8S"/>
                                     <include reference="Lqm-T5-6si"/>
+                                    <include reference="SCv-zx-e8S"/>
                                 </mask>
                             </variation>
                         </label>

@@ -625,8 +625,7 @@
                                                             <exclude reference="kOf-At-Blc"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="122" y="34" width="78" height="13"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="kOf-At-Blc"/>
                                                         </mask>
@@ -673,6 +672,10 @@
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="GSe-AE-sdD"/>
+                                                    <include reference="jeG-t4-Dme"/>
+                                                    <include reference="vLj-T2-0jV"/>
+                                                    <include reference="G1P-Uz-obJ"/>
+                                                    <include reference="Ive-6c-nhY"/>
                                                     <include reference="7a4-TD-YsZ"/>
                                                     <include reference="EbX-rj-SGT"/>
                                                     <include reference="VhK-0j-7Jr"/>
@@ -681,14 +684,10 @@
                                                     <include reference="uqt-IT-bC0"/>
                                                     <include reference="C26-2A-EXO"/>
                                                     <include reference="xVZ-lf-PY6"/>
-                                                    <include reference="jeG-t4-Dme"/>
-                                                    <include reference="vLj-T2-0jV"/>
                                                     <exclude reference="3do-Vq-vPB"/>
                                                     <include reference="ayr-Gj-j0g"/>
                                                     <exclude reference="kMS-Ap-Noe"/>
                                                     <include reference="tGH-qd-R2n"/>
-                                                    <include reference="G1P-Uz-obJ"/>
-                                                    <include reference="Ive-6c-nhY"/>
                                                 </mask>
                                             </variation>
                                         </view>
