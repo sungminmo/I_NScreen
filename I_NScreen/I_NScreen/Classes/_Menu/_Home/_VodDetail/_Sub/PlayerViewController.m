@@ -11,6 +11,9 @@
 #import "NSMutableDictionary+DRM.h"
 #import "UIAlertView+AFNetworking.h"
 #import "CMDBDataManager.h"
+#import "AppDelegate.h"
+
+#define degreesToRadian(x)(M_PI*x/180.0)
 
 @interface PlayerViewController ()
 @property (nonatomic, strong) NSMutableDictionary *pDrmDic;
@@ -31,21 +34,74 @@ static PlayerViewController *playerViewCtr;
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 강제 회전 모드
+-(void)SetDeviceOrientation:(UIInterfaceOrientation)orientation
+{
+    //가로보기 강제
+    if(orientation==UIInterfaceOrientationPortrait)
+    {
+        orientation=UIInterfaceOrientationLandscapeLeft;
+    }
+    //세로보기 강제
+    else if(orientation==UIInterfaceOrientationLandscapeLeft)
+    {
+        orientation=UIInterfaceOrientationPortrait;
+    }
+    
+    
+    int radian=0;
+    CGRect viewFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration: 0.2];
+    
+    if(orientation==UIInterfaceOrientationLandscapeLeft
+       || orientation==UIInterfaceOrientationLandscapeRight)
+    {
+        viewFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+        
+    }
+    if(orientation==UIInterfaceOrientationPortrait)
+    {
+        radian=0;
+    }
+    else if(orientation==UIInterfaceOrientationPortraitUpsideDown)
+    {
+        radian=180;
+    }
+    else if(orientation==UIInterfaceOrientationLandscapeRight)
+    {
+        radian=90;
+    }
+    else if(orientation==UIInterfaceOrientationLandscapeLeft)
+    {
+        radian=270;
+    }
+    
+    //뷰 회전 시키기
+    CGAffineTransform transform =
+    CGAffineTransformMakeRotation(degreesToRadian(radian));
+    
+    self.view.transform=transform;
+    self.view.bounds=viewFrame;
+    
+    [UIView commitAnimations];
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    
-//    CGAffineTransform transform2 = CGAffineTransformMakeRotation(0 * M_PI/180 );
-//    [self.navigationController.view setTransform:transform2];
-//    [self.navigationController.view setBounds:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     
     self.title = @"스트리밍";
     self.isUseNavigationBar = NO;
     
     [self setViewInit];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MPMoviePlayerDidExitFullscreen:) name:MPMoviePlayerDidExitFullscreenNotification object:nil];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [self SetDeviceOrientation:UIInterfaceOrientationPortrait];
 }
 
 #pragma mark - 초기화
@@ -55,8 +111,28 @@ static PlayerViewController *playerViewCtr;
     // drm 초기화
     playerViewCtr = self;
     self.pDrmDic = [[NSMutableDictionary alloc] init];
+ 
+    // Remove the movie player view controller from the "playback did finish" notification observers
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:nil];
+    
+    // Register this class as an observer instead
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(movieFinishedCallback:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:nil];
+    
     
     [self requestWithDrm];
+}
+
+
+-(void)movieFinishedCallback:(NSNotification*)aNotification
+{
+    WV_Stop();
+    WV_Terminate();
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - back 버튼
@@ -166,19 +242,14 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
                                            initWithContentURL:url];
             self.pMoviePlayer = mp;
             //                    [mp release];
-            self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+            self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+            [self.pMoviePlayer setFullscreen:YES animated:YES];
+            [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];
 
             [self.view addSubview:self.pMoviePlayer.view];
     
             [self.pMoviePlayer play];
-            
-//            CGAffineTransform transform = CGAffineTransformMakeRotation(90 * M_PI / 180 );
-////            [self.navigationController.view setTransform:transform];
-////            [self.navigationController.view setBounds:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
-//            [self.pMoviePlayer.view setTransform:transform];
-//            [self.pMoviePlayer.view setBounds:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width)];
-//            
-//            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
+
         }
         else
         {
@@ -196,8 +267,4 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
     }
 }
 
-//- (void)MPMoviePlayerDidExitFullscreen:(NSNotification *)notification
-//{
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
 @end

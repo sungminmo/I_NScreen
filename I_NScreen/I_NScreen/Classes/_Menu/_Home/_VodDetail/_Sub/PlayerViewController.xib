@@ -20,7 +20,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.69019607839999997" green="0.7843137255" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="YfY-dY-ju2" firstAttribute="leading" secondItem="5EM-qN-olm" secondAttribute="leading" id="CDg-4T-NfQ"/>
                 <constraint firstItem="YfY-dY-ju2" firstAttribute="top" secondItem="5EM-qN-olm" secondAttribute="top" constant="93" id="XsX-4f-IBr">

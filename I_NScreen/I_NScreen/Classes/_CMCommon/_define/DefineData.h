@@ -16,6 +16,11 @@
 #define	NScreen_DEBUG                  // ifdef:주석 사용 / else:주석 닫기
 
 
+#define GETWIDTH(V)   V.frame.size.width
+#define GETHEIGHT(V)  V.frame.size.height
+#define GETX(V)       V.frame.origin.x
+#define GETY(V)       V.frame.origin.y
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // 널데이터 처리
 #define IS_NOT_NSNULL(X)    X != [NSNull null] && X != nil ? YES : NO
