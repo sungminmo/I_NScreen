@@ -14,7 +14,7 @@
 @interface CMSearchTableViewCell : BMXSwipableCell
 
 @property (nonatomic, weak) id <CMSearchTableViewDelegate>delegate2;
-- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithStar:(BOOL)isStar;
+- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithStar:(BOOL)isStar WithWatchCheck:(BOOL)isWatch WithRecordingCheck:(BOOL)isRecording WithReservCheck:(BOOL)isReservCheck;;
 
 @end
 

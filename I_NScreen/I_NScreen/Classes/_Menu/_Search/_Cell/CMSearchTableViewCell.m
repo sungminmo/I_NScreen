@@ -66,7 +66,7 @@
  <channelProgramGrade>19세 이상</channelProgramGrade>
  <channelProgramHD>YES</channelProgramHD>
  */
-- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithStar:(BOOL)isStar{
+- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithStar:(BOOL)isStar WithWatchCheck:(BOOL)isWatch WithRecordingCheck:(BOOL)isRecording WithReservCheck:(BOOL)isReservCheck{
 
     [self resetData];
     
@@ -168,7 +168,7 @@
 //    NSLog(@"[manager getFavorChannel] = [%@]", [manager getFavorChannel]);
     
     
-    [self.delegate2 CMSearchTableViewCellTag:self.nIndex];
+//    [self.delegate2 CMSearchTableViewCellTag:self.nIndex];
 }
 
 @end
