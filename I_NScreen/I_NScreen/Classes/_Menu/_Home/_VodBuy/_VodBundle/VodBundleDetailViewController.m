@@ -32,6 +32,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *pStarringLbl; // 출연진
 @property (nonatomic, weak) IBOutlet UILabel *pSeeDayLbl;   // 시청 기간
 @property (nonatomic, weak) IBOutlet UITextView *pContentTextView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMargin;
 
 @end
 
@@ -45,7 +46,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     [self setViewInit];
     [self setDataInit];
@@ -59,6 +59,7 @@
 {
     self.title = @"상세정보";
     self.isUseNavigationBar = YES;
+    self.topMargin.constant = cmNavigationHeight;
 }
 
 #pragma mark - 데이터 초기화
