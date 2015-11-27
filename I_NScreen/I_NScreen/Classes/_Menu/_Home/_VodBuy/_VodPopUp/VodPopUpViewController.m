@@ -61,7 +61,7 @@
 {
     self.pTextField.type = Secure_CMTextFieldType;
     
-    if ( !([self.sProductType isEqualToString:@"RVOD"] || [self.sProductType isEqualToString:@"Package"]) )
+    if ( !([self.sProductType isEqualToString:@"RVOD"] || [self.sProductType isEqualToString:@"Package"] || [self.sProductType isEqualToString:@"Bundle"]) )
     {
         // 그외에는 하단 결제 타입 별도
         switch (self.nStep1Tag) {
@@ -86,7 +86,10 @@
                 
                 self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep2Price]];
                 
-                self.nBuyType = BuyNomal;
+                if ( [self.sProductType isEqualToString:@"Bundle"] )
+                    self.nBuyType = BuyBundleNomal;
+                else
+                    self.nBuyType = BuyNomal;
                 
             }break;
             case VOD_BUY_VIEW_BTN_05:
@@ -104,13 +107,23 @@
                     self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:sPrice]];
                     
                     self.pCouponLbl.text = [NSString stringWithFormat:@"%@원 차감", [[CMAppManager sharedInstance] insertComma:sStep2Price]];
-                    self.nBuyType = BuyCompounding;
+                    
+                    if ( [self.sProductType isEqualToString:@"Bundle"] )
+                        self.nBuyType = BuyBundleCompounding;
+                    else
+                        self.nBuyType = BuyCompounding;
+                    
                 }
                 else
                 {
                     // 쿠폰결제
                     self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
-                    self.nBuyType = BuyCoupon;
+                    
+                    if ( [self.sProductType isEqualToString:@"Bundle"] )
+                        self.nBuyType = BuyBundleCoupon;
+                    else
+                        self.nBuyType = BuyCoupon;
+
                 }
                 
             }break;
@@ -119,7 +132,11 @@
                 // tv 포인트 결제
                 self.pPriceTitleLbl.text = @"TV포인트결제[부가세 별도]";
                 self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
-                self.nBuyType = BuyTv;
+
+                if ( [self.sProductType isEqualToString:@"Bundle"] )
+                    self.nBuyType = BuyBundleTv;
+                else
+                    self.nBuyType = BuyTv;
                 
             }break;
         }
@@ -168,6 +185,26 @@
                     {
                         // 복합 결제
                         [self requestWithPurchaseByComplexMethods];
+                    }break;
+                    case BuyBundleNomal:
+                    {
+                        // 묶음 일반 결제
+                        [self requestWithPurchaseProduct];
+                    }break;
+                    case BuyBundleCoupon:
+                    {
+                        // 묶음 쿠폰 결제
+                        [self requestWithPurchaseProductByCoupon2];
+                    }break;
+                    case BuyBundleTv:
+                    {
+                        // 묶음 TV 결제
+                        [self requestWithPurchaseProductByPoint];
+                    }break;
+                    case BuyBundleCompounding:
+                    {
+                        // 묶음 복합 결제
+                        [self requestWithPurchaseProductByComplexMethods];
                     }break;
                 }
                 
@@ -291,6 +328,114 @@
                 
             }];
         }
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 묶음 일반 결제
+- (void)requestWithPurchaseProduct
+{
+    NSString *sNewProductId = self.sProductId;
+
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseProductWithProductId:sNewProductId completion:^(NSArray *payment, NSError *error) {
+        
+        DDLogError(@"묶음 일반 결제 = [%@]", payment);
+        
+        if ( [payment count] == 0 )
+            return;
+        
+        if ( [[[payment objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                
+                
+                [self.delegate VodPopUpViewWithTag:0];
+            }];
+        }
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 묶음 쿠폰 결제
+- (void)requestWithPurchaseProductByCoupon2
+{
+    NSString *sNewProductId = self.sProductId;
+    NSString *sNewPrice = self.pPriceLbl.text;
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseProductByCoupon2WithProductId:sNewProductId WithPrice:sNewPrice completion:^(NSArray *payment, NSError *error) {
+       
+        DDLogError(@"묶음 쿠폰 결제 = [%@]", payment);
+        
+        if ( [payment count] == 0 )
+            return;
+        
+        if ( [[[payment objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                
+                [self.delegate VodPopUpViewWithTag:0];
+            }];
+        }
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 묶음 포인트 결제
+- (void)requestWithPurchaseProductByPoint
+{
+    NSString *sNewProductId = self.sProductId;
+    NSString *sNewPrice = self.sStep1Price;
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseProductByPointWithProductId:sNewProductId WithPrice:sNewPrice completion:^(NSArray *payment, NSError *error) {
+        
+        DDLogError(@"묶음 포인트 결제 = [%@]", payment);
+        
+        if ( [payment count] == 0 )
+            return;
+        
+        if ( [[[payment objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                
+                
+                [self.delegate VodPopUpViewWithTag:0];
+            }];
+        }
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 묶음 복합 결제
+- (void)requestWithPurchaseProductByComplexMethods
+{
+    NSString *sNewProductId = self.sProductId;
+    NSString *sNewPrice = self.sStep2Price02;   // 총 할인 받은 결제 금액
+    NSString *sNewCouponPrice = self.sStep2Price;
+    NSString *sNewNormalPrice = self.pPriceLbl.text;
+    sNewNormalPrice = [sNewNormalPrice stringByReplacingOccurrencesOfString:@"원" withString:@""];
+    sNewNormalPrice = [sNewNormalPrice stringByReplacingOccurrencesOfString:@"," withString:@""];
+
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseProductByComplexMethodsWithProductId:sNewProductId WithPrice:sNewPrice WithCouponPrice:sNewCouponPrice WithNormalPrice:sNewNormalPrice completion:^(NSArray *payment, NSError *error) {
+        
+        DDLogError(@"묶음 복합 결제 = [%@]", payment);
+        
+        if ( [payment count] == 0 )
+            return;
+        
+        if ( [[[payment objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                
+                
+                [self.delegate VodPopUpViewWithTag:0];
+                
+            }];
+        }
+
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];

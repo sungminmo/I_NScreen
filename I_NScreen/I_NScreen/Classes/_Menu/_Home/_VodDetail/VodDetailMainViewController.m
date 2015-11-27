@@ -934,7 +934,16 @@ static int tvFontSize = 15;
     }
     else if ( [productObj isKindOfClass:[NSArray class]] )
     {
-        sPurchasedTime = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"purchasedTime"]];
+//        sPurchasedTime = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"purchasedTime"]];
+        sPurchasedTime = @"";
+        
+        for ( NSDictionary *purDic in  (NSArray *)productObj )
+        {
+            if ( !([[purDic objectForKey:@"purchasedTime"] length] == 0 || [[purDic objectForKey:@"purchasedTime"] isEqualToString:@"(null)"]) )
+            {
+                sPurchasedTime = [NSString stringWithFormat:@"%@", [purDic objectForKey:@"purchasedTime"]];
+            }
+        }
         
         
         // 패키지
@@ -1525,7 +1534,16 @@ static int tvFontSize = 15;
     {
         self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"price"]];
         
-        sPurchasedTime = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"purchasedTime"]];
+        sPurchasedTime = @"";
+        
+        for ( NSDictionary *purDic in  (NSArray *)priceItem )
+        {
+            if ( !([[purDic objectForKey:@"purchasedTime"] length] == 0 || [[purDic objectForKey:@"purchasedTime"] isEqualToString:@"(null)"]) )
+            {
+                sPurchasedTime = [NSString stringWithFormat:@"%@", [purDic objectForKey:@"purchasedTime"]];
+            }
+        }
+        
         sViewablePeriodState = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"viewablePeriodState"]];
         
         sViewablePeriod = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"viewablePeriod"]];

@@ -16,6 +16,10 @@ typedef enum : NSInteger {
     BuyCoupon,           // 쿠폰 결제
     BuyTv,       // TV 결제
     BuyCompounding,              // 복합 결제
+    BuyBundleNomal,
+    BuyBundleCoupon,
+    BuyBundleTv,
+    BuyBundleCompounding
 }BuyType;
 
 @protocol VodPopUpViewDelegate;

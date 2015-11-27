@@ -968,8 +968,8 @@
 //                           [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Package"]) )
 //                        return;
                     // 일단 묶음일땐 return
-                    if ( [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
-                        return;
+//                    if ( [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
+//                        return;
                     
                     sStep1 = self.pStep1SubView02MoneyLbl.text;
                     sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
@@ -986,8 +986,8 @@
 //                    if ( !([[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
 //                           [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Package"]) )
 //                        return;
-                    if ( [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
-                        return;
+//                    if ( [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
+//                        return;
                     
                     sStep1 = self.pStep1SubView03MoneyLbl.text;
                     sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
@@ -1003,8 +1003,8 @@
 //                    if ( !([[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
 //                           [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Package"]) )
 //                        return;
-                    if ( [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
-                        return;
+//                    if ( [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
+//                        return;
                     
                     sStep1 = self.pStep1SubView04MoneyLbl.text;
                     sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];

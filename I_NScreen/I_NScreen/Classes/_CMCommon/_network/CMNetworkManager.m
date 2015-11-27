@@ -2224,7 +2224,7 @@
 }
 
 // 묶음 복합
-- (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithPointPrice:(NSString *)pointPrice WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block
+- (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block
 {
     self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
@@ -2236,7 +2236,7 @@
                            @"domainId" : @"CnM",    // 고정
                            @"productId" : productId,
                            @"price" : price,
-                           @"pointPrice" : pointPrice,
+                           @"pointPrice" : @"0",
                            @"couponPrice" : couponPrice,
                            @"normalPrice" : normalPrice,
                            @"uiComponentDomain" : @"0", // 고정

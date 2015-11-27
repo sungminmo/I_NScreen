@@ -32,7 +32,7 @@
 
 + (NSURLSessionDataTask *)paymentPurchaseProductByPointWithProductId:(NSString *)productId WithPrice:(NSString *)price completion:(void (^)(NSArray *payment, NSError *error))block;
 
-+ (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithPointPrice:(NSString *)pointPrice WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block;
++ (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block;
 
 + (NSURLSessionDataTask *)paymentGetBundleProductInfoWithProductId:(NSString *)productId completion:(void (^)(NSArray *payment, NSError *error))block;
 

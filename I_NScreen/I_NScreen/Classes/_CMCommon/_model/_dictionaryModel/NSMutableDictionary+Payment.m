@@ -60,9 +60,9 @@
     return [[CMNetworkManager sharedInstance] paymentPurchaseProductByPointWithProductId:productId WithPrice:price completion:block];
 }
 
-+ (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithPointPrice:(NSString *)pointPrice WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block
++ (NSURLSessionDataTask *)paymentPurchaseProductByComplexMethodsWithProductId:(NSString *)productId WithPrice:(NSString *)price WithCouponPrice:(NSString *)couponPrice WithNormalPrice:(NSString *)normalPrice completion:(void (^)(NSArray *payment, NSError *error))block
 {
-    return [[CMNetworkManager sharedInstance] paymentPurchaseProductByComplexMethodsWithProductId:productId WithPrice:price WithPointPrice:pointPrice WithCouponPrice:couponPrice WithNormalPrice:normalPrice completion:block];
+    return [[CMNetworkManager sharedInstance] paymentPurchaseProductByComplexMethodsWithProductId:productId WithPrice:price WithCouponPrice:couponPrice WithNormalPrice:normalPrice completion:block];
 }
 
 + (NSURLSessionDataTask *)paymentGetBundleProductInfoWithProductId:(NSString *)productId completion:(void (^)(NSArray *payment, NSError *error))block
