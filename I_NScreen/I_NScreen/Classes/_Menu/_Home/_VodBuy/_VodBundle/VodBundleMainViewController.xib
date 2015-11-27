@@ -84,8 +84,7 @@
                                             <exclude reference="IcS-gh-le8"/>
                                         </mask>
                                     </variation>
-                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                        <rect key="frame" x="140" y="16" width="255" height="21"/>
+                                    <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="constraints">
                                             <include reference="IcS-gh-le8"/>
                                         </mask>
@@ -400,8 +399,7 @@
                                     <exclude reference="sys-Do-wsI"/>
                                 </mask>
                             </variation>
-                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="213"/>
+                            <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
                                     <include reference="daB-UE-vAe"/>
                                     <include reference="Cv7-1L-ifB"/>
@@ -825,7 +823,8 @@
                                             <exclude reference="szy-lt-U1W"/>
                                         </mask>
                                     </variation>
-                                    <variation key="heightClass=regular-widthClass=compact">
+                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                        <rect key="frame" x="300.5" y="10" width="94.5" height="173.5"/>
                                         <mask key="constraints">
                                             <include reference="6zg-Yu-4wl"/>
                                             <include reference="UtS-wo-YGl"/>
@@ -1044,7 +1043,7 @@
                                             <exclude reference="7NK-YP-QFX"/>
                                         </mask>
                                     </variation>
-                                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                         <rect key="frame" x="10" y="0.0" width="380" height="46"/>
                                         <mask key="constraints">
                                             <include reference="7NK-YP-QFX"/>
@@ -1139,28 +1138,37 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hFo-8E-ulz" secondAttribute="bottom" id="AeP-Qb-uDa"/>
+                <constraint firstItem="orh-HW-a5L" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="QqC-FQ-KYQ"/>
                 <constraint firstItem="hFo-8E-ulz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WCA-b8-Phi"/>
+                <constraint firstItem="1h2-U1-zlg" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="aLn-0d-glU"/>
                 <constraint firstItem="hFo-8E-ulz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="f19-PC-4Lt"/>
+                <constraint firstItem="qGe-ta-PkW" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="jMB-cC-iEK"/>
                 <constraint firstItem="qGe-ta-PkW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sFJ-Sb-3Bf"/>
                 <constraint firstAttribute="trailing" secondItem="hFo-8E-ulz" secondAttribute="trailing" id="uEL-vW-Rmq"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="aLn-0d-glU"/>
                     <exclude reference="AeP-Qb-uDa"/>
                     <exclude reference="WCA-b8-Phi"/>
                     <exclude reference="f19-PC-4Lt"/>
                     <exclude reference="uEL-vW-Rmq"/>
+                    <exclude reference="jMB-cC-iEK"/>
                     <exclude reference="sFJ-Sb-3Bf"/>
+                    <exclude reference="QqC-FQ-KYQ"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="constraints">
+                    <include reference="aLn-0d-glU"/>
                     <include reference="AeP-Qb-uDa"/>
                     <include reference="WCA-b8-Phi"/>
                     <include reference="f19-PC-4Lt"/>
                     <include reference="uEL-vW-Rmq"/>
+                    <include reference="jMB-cC-iEK"/>
                     <include reference="sFJ-Sb-3Bf"/>
+                    <include reference="QqC-FQ-KYQ"/>
                 </mask>
             </variation>
         </view>
