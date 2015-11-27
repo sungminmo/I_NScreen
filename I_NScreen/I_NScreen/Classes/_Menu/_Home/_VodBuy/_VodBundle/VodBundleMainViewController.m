@@ -10,6 +10,7 @@
 #import "NSMutableDictionary+Payment.h"
 #import "UIAlertView+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "VodBundleDetailViewController.h"
 
 @interface VodBundleMainViewController ()
 @property (nonatomic, weak) IBOutlet UIImageView *pThumImageView;
@@ -49,6 +50,13 @@
 @property (nonatomic, strong) NSMutableArray *pBundleAssetArr;
 @property (nonatomic, strong) NSMutableDictionary *pDetailDic;
 
+@property (nonatomic, weak) IBOutlet UIButton *pBuyBtn;
+@property (nonatomic, weak) IBOutlet UIButton *pBundleBtn01;
+@property (nonatomic, weak) IBOutlet UIButton *pBundleBtn02;
+@property (nonatomic, weak) IBOutlet UIButton *pBundleBtn03;
+@property (nonatomic, weak) IBOutlet UIButton *pBundleBtn04;
+@property (nonatomic, weak) IBOutlet UIButton *pBundleBtn05;
+
 - (IBAction)onBtnClicked:(UIButton *)btn;
 
 @end
@@ -67,7 +75,7 @@
     
     [self setViewInit];
     [self setDataInit];
-    
+    [self setTagInit];
     [self requestWithGetBundleProductInfo];
 }
 
@@ -86,12 +94,54 @@
     self.pDetailDic = [[NSMutableDictionary alloc] init];
 }
 
+#pragma mark - 버튼 테그
+- (void)setTagInit
+{
+    self.pBuyBtn.tag = VOD_BUNDLE_MAIN_VIEW_BTN_01;
+    self.pBundleBtn01.tag = VOD_BUNDLE_MAIN_VIEW_BTN_02;
+    self.pBundleBtn02.tag = VOD_BUNDLE_MAIN_VIEW_BTN_03;
+    self.pBundleBtn03.tag = VOD_BUNDLE_MAIN_VIEW_BTN_04;
+    self.pBundleBtn04.tag = VOD_BUNDLE_MAIN_VIEW_BTN_05;
+    self.pBundleBtn05.tag = VOD_BUNDLE_MAIN_VIEW_BTN_06;
+}
+
 #pragma mark - 액션 이벤트
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    // 구매 버튼
-    [self.navigationController popViewControllerAnimated:YES];
+    NSString *sAssetId = @"";
+    
+    switch ([btn tag]) {
+        case VOD_BUNDLE_MAIN_VIEW_BTN_01:
+        {
+            // 구매 버튼
+            [self.navigationController popViewControllerAnimated:YES];
+        }break;
+        case VOD_BUNDLE_MAIN_VIEW_BTN_02:
+        {
+            sAssetId = [[self.pBundleAssetArr objectAtIndex:0] objectForKey:@"assetId"];
+        }break;
+        case VOD_BUNDLE_MAIN_VIEW_BTN_03:
+        {
+            sAssetId = [[self.pBundleAssetArr objectAtIndex:1] objectForKey:@"assetId"];
+        }break;
+        case VOD_BUNDLE_MAIN_VIEW_BTN_04:
+        {
+            sAssetId = [[self.pBundleAssetArr objectAtIndex:2] objectForKey:@"assetId"];
+        }break;
+        case VOD_BUNDLE_MAIN_VIEW_BTN_05:
+        {
+            sAssetId = [[self.pBundleAssetArr objectAtIndex:3] objectForKey:@"assetId"];
+        }break;
+        case VOD_BUNDLE_MAIN_VIEW_BTN_06:
+        {
+            sAssetId = [[self.pBundleAssetArr objectAtIndex:4] objectForKey:@"assetId"];
+        }break;
+    }
+    
+    VodBundleDetailViewController *pViewController = [[VodBundleDetailViewController alloc] initWithNibName:@"VodBundleDetailViewController" bundle:nil];
+    pViewController.sAsset = sAssetId;
+    [self.navigationController pushViewController:pViewController animated:YES];
 }
 
 #pragma mark - 전문

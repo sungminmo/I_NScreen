@@ -169,6 +169,14 @@
 #define VOD_POP_UP_VIEW_BTN_02      24002   // CANCEL
 #define VOD_POP_UP_VIEW_BTN_03      24003   // OK
 
+// VodBundleMainViewController btn tag
+#define VOD_BUNDLE_MAIN_VIEW_BTN_01 25001   // 구매하기
+#define VOD_BUNDLE_MAIN_VIEW_BTN_02 25002   // 번들1
+#define VOD_BUNDLE_MAIN_VIEW_BTN_03 25003   // 번들2
+#define VOD_BUNDLE_MAIN_VIEW_BTN_04 25004   // 번들3
+#define VOD_BUNDLE_MAIN_VIEW_BTN_05 25005   // 번들4
+#define VOD_BUNDLE_MAIN_VIEW_BTN_06 25006   // 번들5
+
 //
 
 /*

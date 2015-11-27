@@ -105,18 +105,18 @@
         [self.pTitleLbl setFont:[UIFont systemFontOfSize:12.0f]];
     }
     
-    // promotionSticker > isNew > hot 우선순위
+    // isNew > promotionSticker > hot 우선순위
     NSString *sPromotionSticker = [NSString stringWithFormat:@"%@", [dic objectForKey:@"promotionSticker"]];
     NSString *sIsNew = [NSString stringWithFormat:@"%@", [dic objectForKey:@"isNew"]];
     NSString *sHot = [NSString stringWithFormat:@"%@", [dic objectForKey:@"hot"]];
     
     [self.pStickerImageView setImage:[UIImage imageNamed:@""]];
     
-    if ( [sPromotionSticker isEqualToString:@"0"] )
-    {
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
-    }
-    else if ( [sPromotionSticker isEqualToString:@"11"] )
+//    if ( [sPromotionSticker isEqualToString:@"0"] )
+//    {
+//        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
+//    }
+    if ( [sPromotionSticker isEqualToString:@"11"] )
     {
         // 인기상승
         [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_08.png"]];

@@ -173,6 +173,8 @@
 		E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57042891BDF407F00057D10 /* PairingRePwViewController.m */; };
 		E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */; };
 		E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */ = {isa = PBXBuildFile; fileRef = E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */; };
+		E58690501C08462F0086D69F /* VodBundleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E586904E1C08462F0086D69F /* VodBundleDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E58690511C08462F0086D69F /* VodBundleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E586904F1C08462F0086D69F /* VodBundleDetailViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E58C6AF61BE261660024405D /* CMContentGroupCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF41BE261660024405D /* CMContentGroupCollectionViewController.m */; };
 		E58C6AF71BE261660024405D /* CMContentGroupCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58C6AF51BE261660024405D /* CMContentGroupCollectionViewController.xib */; };
 		E58C6AFB1BE261BB0024405D /* CMContentGroupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF91BE261BB0024405D /* CMContentGroupCollectionViewCell.m */; };
@@ -1114,6 +1116,9 @@
 		E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingRePwViewController.xib; path = _Pairing/PairingRePwViewController.xib; sourceTree = "<group>"; };
 		E570428D1BDF5B3E00057D10 /* NSMutableDictionary+PVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PVR.h"; sourceTree = "<group>"; };
 		E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PVR.m"; sourceTree = "<group>"; };
+		E586904D1C08462F0086D69F /* VodBundleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VodBundleDetailViewController.h; path = _Home/_VodBuy/_VodBundle/VodBundleDetailViewController.h; sourceTree = "<group>"; };
+		E586904E1C08462F0086D69F /* VodBundleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VodBundleDetailViewController.m; path = _Home/_VodBuy/_VodBundle/VodBundleDetailViewController.m; sourceTree = "<group>"; };
+		E586904F1C08462F0086D69F /* VodBundleDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VodBundleDetailViewController.xib; path = _Home/_VodBuy/_VodBundle/VodBundleDetailViewController.xib; sourceTree = "<group>"; };
 		E58C6AF31BE261660024405D /* CMContentGroupCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMContentGroupCollectionViewController.h; sourceTree = "<group>"; };
 		E58C6AF41BE261660024405D /* CMContentGroupCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMContentGroupCollectionViewController.m; sourceTree = "<group>"; };
 		E58C6AF51BE261660024405D /* CMContentGroupCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMContentGroupCollectionViewController.xib; sourceTree = "<group>"; };
@@ -3445,6 +3450,9 @@
 				E5C596DC1C07703D008E018A /* VodBundleMainViewController.h */,
 				E5C596DD1C07703D008E018A /* VodBundleMainViewController.m */,
 				E5C596DE1C07703D008E018A /* VodBundleMainViewController.xib */,
+				E586904D1C08462F0086D69F /* VodBundleDetailViewController.h */,
+				E586904E1C08462F0086D69F /* VodBundleDetailViewController.m */,
+				E586904F1C08462F0086D69F /* VodBundleDetailViewController.xib */,
 			);
 			name = _VodBundle;
 			sourceTree = "<group>";
@@ -4331,6 +4339,7 @@
 				E5B554AC1BD9DD3F00AA02B2 /* genrereligion_select@3x.png in Resources */,
 				E5B553401BD9DD3F00AA02B2 /* moreindicator.png in Resources */,
 				E5B5545E1BD9DD3F00AA02B2 /* icon_fold_normal@2x.png in Resources */,
+				E58690511C08462F0086D69F /* VodBundleDetailViewController.xib in Resources */,
 				E5B555071BD9DD3F00AA02B2 /* pwbox_error@3x.png in Resources */,
 				E5B555181BD9DD3F00AA02B2 /* magnifier@3x.png in Resources */,
 				E529EDBA1BFDF16300684E8D /* vod2btn_pick_select.png in Resources */,
@@ -4468,6 +4477,7 @@
 				20AC73311BE49CFA00B7E7EF /* CMDateScrollView.m in Sources */,
 				99C43C541BA3EDA10035A0A4 /* NSDictionary+Merge.m in Sources */,
 				E5E7B5D01BF001AB00B78341 /* VodDetailMainViewController.m in Sources */,
+				E58690501C08462F0086D69F /* VodBundleDetailViewController.m in Sources */,
 				99C43C651BA3EDA10035A0A4 /* CMNetworkManager.m in Sources */,
 				99C43C581BA3EDA10035A0A4 /* NSUserDefaults+Settings.m in Sources */,
 				E5C596DF1C07703D008E018A /* VodBundleMainViewController.m in Sources */,
