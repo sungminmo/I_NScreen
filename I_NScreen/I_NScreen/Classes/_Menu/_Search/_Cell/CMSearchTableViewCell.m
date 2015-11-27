@@ -8,6 +8,7 @@
 
 #import "CMSearchTableViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "CMDBDataManager.h"
 
 @interface CMSearchTableViewCell ()
 
@@ -19,10 +20,15 @@
 @property (weak, nonatomic) IBOutlet UIImageView *gradeImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *hmImageView;
 @property (nonatomic, weak) IBOutlet UIView* lineView;
+@property (nonatomic) int nIndex;
+@property (nonatomic, strong) NSDictionary *pDataDic;
+
+- (IBAction)onBtnClicked:(UIButton *)btn;
 
 @end
 
 @implementation CMSearchTableViewCell
+@synthesize delegate2;
 
 - (void)awakeFromNib {
     
@@ -42,7 +48,7 @@
     self.timeLabel.text = @"";
     self.titleLabel.text = @"";
     self.gradeImageView.image = nil;
-    self.hmImageView.hidden = YES;
+    self.hmImageView.hidden = NO;
 }
 
 #pragma mark - Publics
@@ -60,9 +66,22 @@
  <channelProgramGrade>19세 이상</channelProgramGrade>
  <channelProgramHD>YES</channelProgramHD>
  */
-- (void)setData:(NSDictionary*)data {
+- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithStar:(BOOL)isStar{
 
     [self resetData];
+    
+    self.pDataDic = data;
+    
+    self.nIndex = nIndex;
+    
+    if ( isStar == YES )
+    {
+        self.bookmarkImageView.image = [UIImage imageNamed:@"ch_pick.png"];
+    }
+    else
+    {
+        self.bookmarkImageView.image = [UIImage imageNamed:@"ch_unpick.png"];
+    }
     
     self.channelLabel.text = data[@"channelNumber"];
     
@@ -74,21 +93,82 @@
     
     NSString* grade = data[@"channelProgramGrade"];
     
-    if ([grade hasPrefix:@"19"]) {
-        self.gradeImageView.image = [UIImage imageNamed:@"19.png"];
-    } else if ([grade hasPrefix:@"15"]) {
-        self.gradeImageView.image = [UIImage imageNamed:@"15.png"];
-    } else {
+    if ( [grade isEqualToString:@"모두 시청"] )
+    {
         self.gradeImageView.image = [UIImage imageNamed:@"all.png"];
     }
-    
-    NSString* hd = data[@"channelProgramHD"];
-    
-    if ([hd isEqualToString:@"YES"]) {
-        self.hmImageView.hidden = NO;
-    } else {
-        self.hmImageView.hidden = YES;
+    else if ( [grade isEqualToString:@"19세 이상"] )
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@"19.png"];
     }
+    else if ( [grade isEqualToString:@"15세 이상"] )
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@"15.png"];
+    }
+    else if ( [grade isEqualToString:@"12세 이상"] )
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@"12.png"];
+    }
+    else if ( [grade isEqualToString:@"7세 이상"] )
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@"7.png"];
+    }
+    else
+    {
+        self.gradeImageView.image = [UIImage imageNamed:@""];
+    }
+
+    NSString* sChannelInfo = data[@"channelInfo"];
+    
+    if ( [sChannelInfo isEqualToString:@"HD"] )
+    {
+        // HD
+        
+        self.hmImageView.image = [UIImage imageNamed:@"hd.png"];
+    }
+    else
+    {
+        // SD
+        self.hmImageView.image = [UIImage imageNamed:@"sd.png"];
+    }
+    
+//    NSString* hd = data[@"channelProgramHD"];
+//    
+//    if ([hd isEqualToString:@"YES"]) {
+//        self.hmImageView.hidden = NO;
+//    } else {
+//        self.hmImageView.hidden = YES;
+//    }
+}
+
+- (IBAction)onBtnClicked:(UIButton *)btn
+{
+//    NSString *sChannelId = self.pDataDic[@"channelId"];
+//    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+//    RLMArray *ramArr = [manager getFavorChannel];
+//    BOOL isCheck = NO;
+//    
+//    int nCount = 0;
+//    for ( CMFavorChannelInfo *info in ramArr )
+//    {
+//        if ( [info.pChannelId isEqualToString:sChannelId] )
+//        {
+//            isCheck = YES;
+//            [manager removeFavorChannel:nCount];
+//        }
+//        nCount++;
+//    }
+//    
+//    if ( isCheck == NO )
+//    {
+//        [manager setFavorChannel:self.pDataDic];
+//    }
+//    
+//    [self.delegate EpgMainTableViewWithTag:self.nIndex];
+//    NSLog(@"[manager getFavorChannel] = [%@]", [manager getFavorChannel]);
+    
+    
+    [self.delegate2 CMSearchTableViewCellTag:self.nIndex];
 }
 
 @end

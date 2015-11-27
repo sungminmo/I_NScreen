@@ -8,7 +8,6 @@
 
 #import "CMSearchMainViewController.h"
 #import "CMSearchCollectionViewCell.h"
-#import "CMSearchTableViewCell.h"
 #import "CMAutoCompletTableViewCell.h"
 #import "CMConstants.h"
 #import "BMXSwipableCell+ConfigureCell.h"
@@ -794,9 +793,29 @@ static const CGFloat pageSize = 28;
     } else if (self.programList == tableView) {
         CMSearchTableViewCell* cell = (CMSearchTableViewCell*)[tableView dequeueReusableCellWithIdentifier:ProgramCellIdentifier];
         
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
         NSDictionary* item = self.dataArray[indexPath.row];
         
-        [cell setData:item];
+        CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+        RLMArray *ramArr = [manager getFavorChannel];
+
+        NSString *sSeq = item[@"channelProgramSeq"];
+        NSString *sProgramId = item[@"channelProgramID"];
+    
+        BOOL isCheck = NO;
+        for ( CMFavorChannelInfo *info in ramArr )
+        {
+            if ( [info.pChannelSeq isEqualToString:sSeq] &&
+                [info.pProgramId isEqualToString:sProgramId] )
+            {
+                // 선호체널
+                isCheck = YES;
+            }
+        }
+        cell.delegate2 = self;
+        [cell setData:item WithIndex:(int)indexPath.row WithStar:isCheck];
         
         //  스와이프시, 메뉴 셋팅
         [cell configureCellForItem:@{}];
@@ -830,11 +849,42 @@ static const CGFloat pageSize = 28;
         [self requestList];
         
         [self showAutoCompletList:NO];
-    } else if (self.programList == tableView) {
         
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    else
+    {
+        NSDictionary* item = self.dataArray[indexPath.row];
+        
+//        NSString *sChannelId = item[@"channelId"];
+        NSString *sSeq = item[@"channelProgramSeq"];
+        NSString *sProgramId = item[@"channelProgramID"];
+        CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+        RLMArray *ramArr = [manager getFavorChannel];
+        BOOL isCheck = NO;
+        
+        int nCount = 0;
+        for ( CMFavorChannelInfo *info in ramArr )
+        {
+            if ( [info.pChannelSeq isEqualToString:sSeq] &&
+                [info.pProgramId isEqualToString:sProgramId] )
+            {
+                isCheck = YES;
+                [manager removeFavorChannel:nCount];
+            }
+            nCount++;
+        }
+        
+        if ( isCheck == NO )
+        {
+            [manager setFavorChannel:item];
+        }
+        
+        [self.programList reloadData];
     }
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+   
 }
 
 #pragma mark - UITextFieldDelegate (검색어)
@@ -920,6 +970,12 @@ static const CGFloat pageSize = 28;
         default:
             break;
     }
+}
+
+#pragma mark - 델리게이트
+- (void)CMSearchTableViewCellTag:(int)nTag
+{
+    [self.programList reloadData];
 }
 
 @end

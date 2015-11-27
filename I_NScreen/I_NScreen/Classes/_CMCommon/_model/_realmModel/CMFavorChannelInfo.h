@@ -13,5 +13,7 @@
 @property NSString *pChannelId;
 @property NSString *pChannelNumber;
 @property NSString *pChannelName;
+@property NSString *pChannelSeq;
+@property NSString *pProgramId;
 
 @end

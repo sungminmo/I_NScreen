@@ -333,6 +333,8 @@
     favorChannel.pChannelId = [NSString stringWithFormat:@"%@", [data objectForKey:@"channelId"]];
     favorChannel.pChannelName = [NSString stringWithFormat:@"%@", [data objectForKey:@"channelName"]];
     favorChannel.pChannelNumber = [NSString stringWithFormat:@"%@", [data objectForKey:@"channelNumber"]];
+    favorChannel.pProgramId = [NSString stringWithFormat:@"%@", [data objectForKey:@"channelProgramID"]];
+    favorChannel.pChannelSeq = [NSString stringWithFormat:@"%@", [data objectForKey:@"channelProgramSeq"]];
     
     [realm beginWriteTransaction];
     [realm addObject:favorChannel];

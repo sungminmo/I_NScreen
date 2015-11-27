@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <BMXSwipableCell/BMXSwipableCell.h>
 
+@protocol CMSearchTableViewDelegate;
+
 @interface CMSearchTableViewCell : BMXSwipableCell
 
-- (void)setData:(NSDictionary*)data;
+@property (nonatomic, weak) id <CMSearchTableViewDelegate>delegate2;
+- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithStar:(BOOL)isStar;
+
+@end
+
+@protocol CMSearchTableViewDelegate <NSObject>
+
+@optional
+- (void)CMSearchTableViewCellTag:(int)nTag;
 
 @end
