@@ -59,10 +59,10 @@
                                 <action selector="buttonWasTouchUpInside:" destination="-1" eventType="touchUpInside" id="9oK-Cl-pVv"/>
                             </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-N2-aF1" customClass="CMTextField">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="성인 콘텐츠를 검색하시려면 설정 &gt; 성인검색 제한 설정을 해제해 주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-N2-aF1" customClass="CMTextField">
                             <rect key="frame" x="36" y="2" width="489" height="31"/>
                             <animations/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="RFh-EN-JYP"/>
@@ -93,6 +93,12 @@
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="검색 창에 원하시는 검색어를 입력해 주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVN-81-wkT">
+                    <rect key="frame" x="100" y="281" width="400" height="65"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2XY-xO-WcO">
@@ -141,6 +147,7 @@
                 <constraint firstItem="1T9-3n-B15" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3Bs-QF-eDj"/>
                 <constraint firstItem="fVV-Sw-G8q" firstAttribute="leading" secondItem="1T9-3n-B15" secondAttribute="leading" id="3KE-ZN-18w"/>
                 <constraint firstItem="fVV-Sw-G8q" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="bottom" constant="14" id="83X-xv-UQj"/>
+                <constraint firstItem="PVN-81-wkT" firstAttribute="top" secondItem="1kG-wu-1sN" secondAttribute="bottom" constant="59" id="Ale-pl-FUf"/>
                 <constraint firstAttribute="trailing" secondItem="1kG-wu-1sN" secondAttribute="trailing" id="AyK-EM-HeM"/>
                 <constraint firstItem="2XY-xO-WcO" firstAttribute="top" secondItem="1kG-wu-1sN" secondAttribute="bottom" id="HWb-Np-NyK"/>
                 <constraint firstItem="1kG-wu-1sN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I5L-T2-ru9"/>
@@ -158,6 +165,7 @@
                 <constraint firstAttribute="trailing" secondItem="1T9-3n-B15" secondAttribute="trailing" constant="21" id="l8J-AG-Got"/>
                 <constraint firstItem="XmU-Rp-rIX" firstAttribute="top" secondItem="1T9-3n-B15" secondAttribute="bottom" constant="52" id="lj3-fG-Iy4"/>
                 <constraint firstItem="1T9-3n-B15" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="s3A-8A-xSp"/>
+                <constraint firstItem="PVN-81-wkT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vwG-9X-O9Q"/>
                 <constraint firstItem="frg-7F-ZbZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xGh-N4-Y5Y"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

@@ -150,7 +150,7 @@
 //            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
 //            [ud setRestrictType:CMContentsRestrictedTypeAdult];
 //            [ud synchronize];
-            [[CMAppManager sharedInstance] setKeychainAdultLimit:YES];
+            [[CMAppManager sharedInstance] setKeychainAdultLimit:NO];
         }
 
     }

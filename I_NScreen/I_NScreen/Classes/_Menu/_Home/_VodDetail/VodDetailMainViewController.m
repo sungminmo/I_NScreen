@@ -938,7 +938,18 @@ static int tvFontSize = 15;
         
         // 단독
         NSString *sProduct = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"price"]];
-        self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+        
+        
+        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+        {
+            self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+        }
+        else
+        {
+            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            // 7b5aa3 123 90 163
+            self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+        }
         
         // 평생 소장인지 체크
         NSString *sViewablePeriodState = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"viewablePeriodState"]];
@@ -972,7 +983,17 @@ static int tvFontSize = 15;
         
         // 패키지
         NSString *sProduct = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"price"]];
-        self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+        
+        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+        {
+            self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+        }
+        else
+        {
+            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            // 7b5aa3 123 90 163
+            self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+        }
         
         // 평생 소장인지 체크
         NSString *sViewablePeriodState = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"viewablePeriodState"]];
@@ -1545,9 +1566,21 @@ static int tvFontSize = 15;
     
     if ( [priceItem isKindOfClass:[NSDictionary class]] )
     {
-        self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"price"]];
         
         sPurchasedTime = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"purchasedTime"]];
+        
+        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+        {
+            self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"price"]];
+        }
+        else
+        {
+            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            // 7b5aa3 123 90 163
+            self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+        }
+        
+        
         sViewablePeriodState = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"viewablePeriodState"]];
         
         sViewablePeriod = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"viewablePeriod"]];
@@ -1555,7 +1588,7 @@ static int tvFontSize = 15;
     }
     else
     {
-        self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"price"]];
+        
         
         sPurchasedTime = @"";
         
@@ -1566,6 +1599,19 @@ static int tvFontSize = 15;
                 sPurchasedTime = [NSString stringWithFormat:@"%@", [purDic objectForKey:@"purchasedTime"]];
             }
         }
+        
+        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+        {
+            self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"price"]];
+        }
+        else
+        {
+            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            // 7b5aa3 123 90 163
+            self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
+        }
+        
+        
         
         sViewablePeriodState = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"viewablePeriodState"]];
         
