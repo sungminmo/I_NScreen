@@ -1074,137 +1074,184 @@ static int tvFontSize = 15;
     self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"director"]];
     
     
-    if ( [sSeriesLink isEqualToString:@"0"] )
+    // 시리즈가 아니다
+    if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
     {
-        // 시리즈가 아니다
-        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+        // 구매 안한 사용자
+        [self setViewInit22];
+        if ( [sPreviewPeriod isEqualToString:@"0"] )
         {
-            // 구매 안한 사용자
-            [self setViewInit22];
-            if ( [sPreviewPeriod isEqualToString:@"0"] )
+            // 미리보기 없음
+            self.pReviewBtn22.hidden = YES;
+            
+            if ( self.isZzimCheck == YES )
             {
-                // 미리보기 없음
-                self.pReviewBtn22.hidden = YES;
                 
-                if ( self.isZzimCheck == YES )
-                {
-                    
-                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
-                }
-                else
-                {
-                    
-                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
-                }
-                
-                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
-                                                                       attribute:NSLayoutAttributeLeft
-                                                                       relatedBy:NSLayoutRelationEqual
-                                                                          toItem:self.pBuyBtn22
-                                                                       attribute:NSLayoutAttributeLeft
-                                                                      multiplier:1.0 constant:-12];
-                
-                [self.view addConstraints:@[c_1]];
-            }
-        }
-        else
-        {
-            // 구매 한 사용자
-            if ( [sPublicationRight isEqualToString:@"2"] )
-            {
-                // 모바일 시청 가능
-                [self setViewInit21];
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
             }
             else
             {
-                // 1 tv 시청 가능
-                [self setViewInit26];
+                
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
             }
+            
+            NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.pBuyBtn22
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                  multiplier:1.0 constant:-12];
+            
+            [self.view addConstraints:@[c_1]];
         }
     }
     else
     {
-        int nTag = 0;
-        // 시리즈다
-        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+        // 구매 한 사용자
+        if ( [sPublicationRight isEqualToString:@"2"] )
         {
-            // 구매안한 사용자
-            NSString *sProductType = @"";
-            NSObject* itemObject = [[[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
-            
-            if ([itemObject isKindOfClass:[NSDictionary class]]) {
-                
-                sProductType = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObject objectForKey:@"productType"]];
-            
-            } else if ([itemObject isKindOfClass:[NSArray class]]) {
-                
-                sProductType = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObject objectAtIndex:0] objectForKey:@"productType"]];
-                
-            }
-            
-//            NSString *sProductType = [NSString stringWithFormat:@"%@", [[[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productType"]]; // 무료시청 체크 FOD 이면 무료 시청
-   
-            
-            if ( [sProductType isEqualToString:@"FOD"] )
-            {
-                // 무료시청
-                nTag = 24;
-                [self setViewInit24];
-            }
-            else
-            {
-                nTag = 23;
-                [self setViewInit23];
-            }
-            
-            
-            
-            if ( [sPreviewPeriod isEqualToString:@"0"] )    // 체크 말고 모바일 일때 미리보기 노출 아니면 미리보기 노출 안됨
-            {
-                // 미리보기 없음
-                self.pReviewBtn23.hidden = YES;
-                
-                if ( self.isZzimCheck == YES )
-                {
-                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
-                }
-                else
-                {
-                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
-                }
-                
-                
-                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
-                                                                       attribute:NSLayoutAttributeLeft
-                                                                       relatedBy:NSLayoutRelationEqual
-                                                                          toItem:self.pBuyBtn23
-                                                                       attribute:NSLayoutAttributeLeft
-                                                                      multiplier:1.0 constant:-12];
-        
-                [self.view addConstraints:@[c_1]];
-            }
+            // 모바일 시청 가능
+            [self setViewInit21];
         }
         else
         {
-            // 구매한 사용자
-            
-            if ( [sPublicationRight isEqualToString:@"2"] )
-            {
-                nTag = 24;
-                // 모바일 시청 가능
-                [self setViewInit24];
-                
-            }
-            else
-            {
-                nTag = 25;
-                // 1 tv 시청 가능
-                [self setViewInit25];
-            }
+            // 1 tv 시청 가능
+            [self setViewInit26];
         }
-        
-        [self requestWithGetSeriesAssetListWithViewTag:nTag];
     }
+
+    
+//    if ( [sSeriesLink isEqualToString:@"0"] )
+//    {
+//        // 시리즈가 아니다
+//        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+//        {
+//            // 구매 안한 사용자
+//            [self setViewInit22];
+//            if ( [sPreviewPeriod isEqualToString:@"0"] )
+//            {
+//                // 미리보기 없음
+//                self.pReviewBtn22.hidden = YES;
+//                
+//                if ( self.isZzimCheck == YES )
+//                {
+//                    
+//                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+//                }
+//                else
+//                {
+//                    
+//                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+//                }
+//                
+//                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+//                                                                       attribute:NSLayoutAttributeLeft
+//                                                                       relatedBy:NSLayoutRelationEqual
+//                                                                          toItem:self.pBuyBtn22
+//                                                                       attribute:NSLayoutAttributeLeft
+//                                                                      multiplier:1.0 constant:-12];
+//                
+//                [self.view addConstraints:@[c_1]];
+//            }
+//        }
+//        else
+//        {
+//            // 구매 한 사용자
+//            if ( [sPublicationRight isEqualToString:@"2"] )
+//            {
+//                // 모바일 시청 가능
+//                [self setViewInit21];
+//            }
+//            else
+//            {
+//                // 1 tv 시청 가능
+//                [self setViewInit26];
+//            }
+//        }
+//    }
+//    else
+//    {
+//        int nTag = 0;
+//        // 시리즈다
+//        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
+//        {
+//            // 구매안한 사용자
+//            NSString *sProductType = @"";
+//            NSObject* itemObject = [[[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+//            
+//            if ([itemObject isKindOfClass:[NSDictionary class]]) {
+//                
+//                sProductType = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObject objectForKey:@"productType"]];
+//            
+//            } else if ([itemObject isKindOfClass:[NSArray class]]) {
+//                
+//                sProductType = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObject objectAtIndex:0] objectForKey:@"productType"]];
+//                
+//            }
+//            
+////            NSString *sProductType = [NSString stringWithFormat:@"%@", [[[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productType"]]; // 무료시청 체크 FOD 이면 무료 시청
+//   
+//            
+//            if ( [sProductType isEqualToString:@"FOD"] )
+//            {
+//                // 무료시청
+//                nTag = 24;
+//                [self setViewInit24];
+//            }
+//            else
+//            {
+//                nTag = 23;
+//                [self setViewInit23];
+//            }
+//            
+//            
+//            
+//            if ( [sPreviewPeriod isEqualToString:@"0"] )    // 체크 말고 모바일 일때 미리보기 노출 아니면 미리보기 노출 안됨
+//            {
+//                // 미리보기 없음
+//                self.pReviewBtn23.hidden = YES;
+//                
+//                if ( self.isZzimCheck == YES )
+//                {
+//                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+//                }
+//                else
+//                {
+//                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+//                }
+//                
+//                
+//                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+//                                                                       attribute:NSLayoutAttributeLeft
+//                                                                       relatedBy:NSLayoutRelationEqual
+//                                                                          toItem:self.pBuyBtn23
+//                                                                       attribute:NSLayoutAttributeLeft
+//                                                                      multiplier:1.0 constant:-12];
+//        
+//                [self.view addConstraints:@[c_1]];
+//            }
+//        }
+//        else
+//        {
+//            // 구매한 사용자
+//            
+//            if ( [sPublicationRight isEqualToString:@"2"] )
+//            {
+//                nTag = 24;
+//                // 모바일 시청 가능
+//                [self setViewInit24];
+//                
+//            }
+//            else
+//            {
+//                nTag = 25;
+//                // 1 tv 시청 가능
+//                [self setViewInit25];
+//            }
+//        }
+//        
+//        [self requestWithGetSeriesAssetListWithViewTag:nTag];
+//    }
     
     
     
