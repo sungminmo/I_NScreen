@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7703" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -170,12 +170,12 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mb-td-6yc" userLabel="View3">
-                                    <rect key="frame" x="110" y="0.0" width="90" height="52"/>
+                                    <rect key="frame" x="110" y="0.0" width="110" height="52"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKE-63-58v">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="52"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <state key="normal" title="키즈&amp;애니">
+                                            <state key="normal" title="애니키즈">
                                                 <color key="titleColor" red="0.76470588240000004" green="0.68235294120000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -187,17 +187,17 @@
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="lKE-63-58v" secondAttribute="trailing" id="TiE-bf-X6q"/>
-                                        <constraint firstAttribute="width" secondItem="4mb-td-6yc" secondAttribute="height" multiplier="45:26" id="UJe-OQ-knC"/>
+                                        <constraint firstAttribute="width" secondItem="4mb-td-6yc" secondAttribute="height" multiplier="45:26" constant="20" id="UJe-OQ-knC"/>
                                         <constraint firstItem="lKE-63-58v" firstAttribute="top" secondItem="4mb-td-6yc" secondAttribute="top" id="fkK-is-EUx"/>
                                         <constraint firstItem="lKE-63-58v" firstAttribute="leading" secondItem="4mb-td-6yc" secondAttribute="leading" id="g2S-Nc-8h6"/>
                                         <constraint firstAttribute="bottom" secondItem="lKE-63-58v" secondAttribute="bottom" id="uDf-f1-0Kp"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phw-du-LOg" userLabel="View4">
-                                    <rect key="frame" x="200" y="0.0" width="110" height="52"/>
+                                    <rect key="frame" x="220" y="0.0" width="130" height="52"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Za-PU-JjN">
-                                            <rect key="frame" x="0.0" y="0.0" width="110" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="52"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <state key="normal" title="TV다시보기">
                                                 <color key="titleColor" red="0.76470588240000004" green="0.68235294120000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -211,19 +211,19 @@
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="2Za-PU-JjN" secondAttribute="bottom" id="27u-Hh-4OG"/>
-                                        <constraint firstAttribute="width" secondItem="phw-du-LOg" secondAttribute="height" multiplier="55:26" id="Mf1-bP-K3t"/>
+                                        <constraint firstAttribute="width" secondItem="phw-du-LOg" secondAttribute="height" multiplier="55:26" constant="20" id="Mf1-bP-K3t"/>
                                         <constraint firstItem="2Za-PU-JjN" firstAttribute="top" secondItem="phw-du-LOg" secondAttribute="top" id="dcl-xf-h85"/>
                                         <constraint firstAttribute="trailing" secondItem="2Za-PU-JjN" secondAttribute="trailing" id="jIE-Gx-r0i"/>
                                         <constraint firstItem="2Za-PU-JjN" firstAttribute="leading" secondItem="phw-du-LOg" secondAttribute="leading" id="ntC-px-qYW"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfM-ET-TJV" userLabel="View5">
-                                    <rect key="frame" x="310" y="0.0" width="104" height="52"/>
+                                    <rect key="frame" x="340" y="0.0" width="64" height="52"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZx-4z-iqg">
-                                            <rect key="frame" x="0.0" y="0.0" width="104" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="64" height="52"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <state key="normal" title="성인(19금)">
+                                            <state key="normal" title="성인">
                                                 <color key="titleColor" red="0.76470588240000004" green="0.68235294120000001" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -254,9 +254,9 @@
                                 <constraint firstItem="JfM-ET-TJV" firstAttribute="top" secondItem="1w3-ee-Rng" secondAttribute="top" id="Vsl-qn-27k"/>
                                 <constraint firstItem="gr3-6j-qxg" firstAttribute="top" secondItem="1w3-ee-Rng" secondAttribute="top" id="aVI-Tp-TlJ"/>
                                 <constraint firstItem="4mb-td-6yc" firstAttribute="top" secondItem="1w3-ee-Rng" secondAttribute="top" id="cnZ-yO-CLN"/>
-                                <constraint firstItem="JfM-ET-TJV" firstAttribute="leading" secondItem="phw-du-LOg" secondAttribute="trailing" id="cwr-Gr-XLf"/>
+                                <constraint firstItem="JfM-ET-TJV" firstAttribute="leading" secondItem="phw-du-LOg" secondAttribute="trailing" constant="-10" id="cwr-Gr-XLf"/>
                                 <constraint firstItem="gr3-6j-qxg" firstAttribute="leading" secondItem="1w3-ee-Rng" secondAttribute="leading" id="etu-i3-P3E"/>
-                                <constraint firstAttribute="trailing" secondItem="JfM-ET-TJV" secondAttribute="trailing" id="fLi-LJ-YRK"/>
+                                <constraint firstAttribute="trailing" secondItem="JfM-ET-TJV" secondAttribute="trailing" constant="10" id="fLi-LJ-YRK"/>
                                 <constraint firstAttribute="bottom" secondItem="phw-du-LOg" secondAttribute="bottom" id="y2O-LR-i4V"/>
                                 <constraint firstAttribute="bottom" secondItem="4mb-td-6yc" secondAttribute="bottom" id="zWP-qm-XyF"/>
                             </constraints>

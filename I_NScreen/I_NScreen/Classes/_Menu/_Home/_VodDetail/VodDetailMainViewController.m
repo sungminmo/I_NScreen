@@ -645,7 +645,6 @@ static int tvFontSize = 15;
     
     NSString *sIndex = [NSString stringWithFormat:@"%d", (int)[btn tag]];
     
-    
     if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
     {
         for ( NSDictionary *dic in self.pEpisodePeerListArr )
@@ -655,6 +654,9 @@ static int tvFontSize = 15;
                 self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"primaryAssetId"]];
                 [self requestWithGetEpisodePeerListByContentGroupId];
                 [self requestWithRecommendContentGroupByAssetId];
+                
+                
+                [self requestWithGetWithList];
             }
         }
     }
@@ -667,6 +669,9 @@ static int tvFontSize = 15;
                 self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetId"]];
                 [self requestWithAssetInfo];
                 [self requestWithRecommendContentGroupByAssetId];
+                
+                
+                [self requestWithGetWithList];
             }
         }
     }
@@ -942,7 +947,14 @@ static int tvFontSize = 15;
         
         if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
         {
-            self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+            if ( [sProduct isEqualToString:@"0"] )
+            {
+                self.pPriceLbl.text = @"무료";
+            }
+            else
+            {
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+            }
         }
         else
         {
@@ -986,7 +998,14 @@ static int tvFontSize = 15;
         
         if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
         {
-            self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+            if ( [sProduct isEqualToString:@"0"] )
+            {
+                self.pPriceLbl.text = @"무료";
+            }
+            else
+            {
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+            }
         }
         else
         {
@@ -1396,7 +1415,7 @@ static int tvFontSize = 15;
     // reload
 //    [self requestWithAssetInfo];
 //    [self requestWithRecommendContentGroupByAssetId];
-//    [self requestWithGetWithList];
+    [self requestWithGetWithList];
     
 //    [self requestWithRecommendContentGroupByAssetId];
     
@@ -1571,7 +1590,14 @@ static int tvFontSize = 15;
         
         if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
         {
-            self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [(NSDictionary *)priceItem objectForKey:@"price"]];
+            if ( [[(NSDictionary *)priceItem objectForKey:@"price"] isEqualToString:@"0"] )
+            {
+                self.pPriceLbl.text = @"무료";
+            }
+            else
+            {
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@[부가세 별도]",[[CMAppManager sharedInstance] insertComma:[(NSDictionary *)priceItem objectForKey:@"price"]]];
+            }
         }
         else
         {
@@ -1602,7 +1628,14 @@ static int tvFontSize = 15;
         
         if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
         {
-            self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"price"]];
+            if ( [[[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"price"] isEqualToString:@"0"] )
+            {
+                self.pPriceLbl.text = @"무료";
+            }
+            else
+            {
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@[부가세 별도]", [[CMAppManager sharedInstance] insertComma:[[(NSArray *)priceItem objectAtIndex:0] objectForKey:@"price"]]];
+            }
         }
         else
         {
@@ -1681,7 +1714,7 @@ static int tvFontSize = 15;
     {
         // 구매안한 사용자
         NSString *sProductType = @"";
-        NSObject* itemObject = [[[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+        NSObject* itemObject = [[self.pAssetListByEpisodePeerIdDic objectForKey:@"productList"] objectForKey:@"product"];
         
         if ([itemObject isKindOfClass:[NSDictionary class]]) {
             

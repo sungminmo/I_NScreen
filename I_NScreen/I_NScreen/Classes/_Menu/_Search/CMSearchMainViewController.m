@@ -210,13 +210,15 @@ static const CGFloat pageSize = 28;
     } else {
         if ( count == 0 )
         {
+            self.pComentLbl.hidden = NO;
             self.pComentLbl.text = @"검색결과가 없습니다. 다른 검색어를 입력해 주세요.";
         }
         else
         {
-            self.pComentLbl.text = @"검색창에 원하시는 검색어를 입력해 주세요.";
+//            self.pComentLbl.text = @"검색창에 원하시는 검색어를 입력해 주세요.";
+            self.pComentLbl.hidden = YES;
+            self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , (long)count];
         }
-        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , (long)count];
     }
 }
 
