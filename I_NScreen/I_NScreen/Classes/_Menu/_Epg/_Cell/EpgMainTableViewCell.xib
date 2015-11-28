@@ -21,18 +21,18 @@
                         <animations/>
                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="ch_unpick.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xS-dT-gFd" userLabel="ImageView(별)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ch_unpick.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xS-dT-gFd" userLabel="ImageView(별)">
                         <rect key="frame" x="13" y="25" width="26" height="25"/>
                         <animations/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6F-b4-mPP" userLabel="Label(체널번호)">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6F-b4-mPP" userLabel="Label(체널번호)">
                         <rect key="frame" x="46" y="9" width="20" height="20"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-D9-yjk" userLabel="ImageView(방송사)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-D9-yjk" userLabel="ImageView(방송사)">
                         <rect key="frame" x="46" y="34" width="54" height="22"/>
                         <animations/>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.094117647058823528" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,25 +41,25 @@
                             <constraint firstAttribute="height" constant="22" id="J4M-ye-YAO"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ox3-mQ-9qf" userLabel="Label(체널명)">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ox3-mQ-9qf" userLabel="Label(체널명)">
                         <rect key="frame" x="109" y="10" width="70" height="20"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="15:00~16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvC-bE-fIL" userLabel="Label(방송시간)">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="15:00~16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvC-bE-fIL" userLabel="Label(방송시간)">
                         <rect key="frame" x="109" y="32" width="76" height="16"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-yI-QDM" userLabel="ImageView(all)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-yI-QDM" userLabel="ImageView(all)">
                         <rect key="frame" x="192" y="32" width="29" height="16"/>
                         <animations/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="isx-vz-pGC" userLabel="ImageView(Hd)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="isx-vz-pGC" userLabel="ImageView(Hd)">
                         <rect key="frame" x="225" y="32" width="29" height="16"/>
                         <animations/>
                     </imageView>
@@ -67,7 +67,7 @@
                         <rect key="frame" x="393" y="26" width="13" height="22"/>
                         <animations/>
                     </imageView>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g44-b1-trP" customClass="CMProgressView">
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g44-b1-trP" customClass="CMProgressView">
                         <rect key="frame" x="109" y="56" width="252" height="3"/>
                         <animations/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,7 +90,7 @@
                             <action selector="onBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="d6N-PE-9XO"/>
                         </connections>
                     </button>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_watchrsv.png" translatesAutoresizingMaskIntoConstraints="NO" id="PZk-Be-ZbU">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_watchrsv.png" translatesAutoresizingMaskIntoConstraints="NO" id="PZk-Be-ZbU">
                         <rect key="frame" x="262" y="32" width="52" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="PZk-Be-ZbU" secondAttribute="height" multiplier="13:4" id="REf-KX-YFH"/>

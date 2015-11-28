@@ -34,7 +34,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ig9-3e-Hzi" userLabel="ImageView(방송사)">
                         <rect key="frame" x="52" y="35" width="54" height="22"/>
-                        <color key="backgroundColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15686274510000001" green="0.094117647060000004" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="MgR-d8-Dbg"/>
                             <constraint firstAttribute="width" constant="54" id="xZ0-Uw-MZx"/>

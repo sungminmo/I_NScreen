@@ -115,8 +115,8 @@
         self.pAllImageView.image = [UIImage imageNamed:@""];
     }
     
-    
-    if ( [sChannelInfo isEqualToString:@"HD"] )
+    NSString *sChannelOnAirHD = dic[@"channelOnAirHD"];
+    if ( [sChannelOnAirHD isEqualToString:@"YES"] )
     {
         // HD
         self.pHdImageView.image = [UIImage imageNamed:@"hd.png"];

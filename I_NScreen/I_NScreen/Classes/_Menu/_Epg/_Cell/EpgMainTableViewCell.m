@@ -99,8 +99,9 @@
         self.pGradeImageView.image = [UIImage imageNamed:@""];
     }
     
+    NSString *sChannelOnAirHD = dic[@"channelOnAirHD"];
     
-    if ( [sChannelInfo isEqualToString:@"HD"] )
+    if ( [sChannelOnAirHD isEqualToString:@"YES"] )
     {
         // HD
         self.pChannelInfoImageView.image = [UIImage imageNamed:@"hd.png"];

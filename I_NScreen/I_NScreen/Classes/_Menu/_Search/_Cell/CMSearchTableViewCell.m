@@ -120,7 +120,9 @@
 
     NSString* sChannelInfo = data[@"channelInfo"];
     
-    if ( [sChannelInfo isEqualToString:@"HD"] )
+    NSString *sChannelProgramHD = data[@"channelProgramHD"];
+    
+    if ( [sChannelProgramHD isEqualToString:@"YES"] )
     {
         // HD
         
