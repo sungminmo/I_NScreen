@@ -437,6 +437,8 @@ NSString* const CNM_OPEN_API_INTERFACE_SetRecordSeriesDele = @"SetRecordSeriesDe
 // 9. MyC&M
 // getValidPurchaseLogList
 NSString* const CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList = @"getValidPurchaseLogList";
+//GetPurchasedProductList
+NSString* const CNM_OPEN_API_INTERFACE_GetPurchasedProductList = @"getPurchasedProductList";
 
 // getWishList
 NSString* const CNM_OPEN_API_INTERFACE_GetWishList = @"getWishList";

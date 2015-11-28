@@ -132,12 +132,12 @@
     if ( [sProgramHD isEqualToString:@"NO"] )
     {
         self.sdhdImageView01.hidden = NO;
-        self.sdhdImageView01.image = [UIImage imageNamed:@"hd.png"];
+        self.sdhdImageView01.image = [UIImage imageNamed:@"sd.png"];
     }
     else
     {
         self.sdhdImageView01.hidden = NO;
-        self.sdhdImageView01.image = [UIImage imageNamed:@"sd.png"];
+        self.sdhdImageView01.image = [UIImage imageNamed:@"hd.png"];
     }
     
     

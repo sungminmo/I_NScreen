@@ -171,4 +171,17 @@
 //    [self.delegate2 CMSearchTableViewCellTag:self.nIndex];
 }
 
+#pragma mark - Event
+
+- (void)userPressedMoreButton:(id)sender
+{
+    [self.delegate2 CMSearchTableViewMoreBtn:self.nIndex];
+}
+
+- (void)userPressedDeleteButton:(id)sender
+{
+    [self.delegate2 CMSearchTableViewDeleteBtn:self.nIndex];
+}
+
+
 @end

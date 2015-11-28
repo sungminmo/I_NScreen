@@ -286,6 +286,142 @@
         }
         
     }
+    else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_03 )
+    {
+        NSString *sRating = [NSString stringWithFormat:@"%@", [[self.pWatchListArr objectAtIndex:indexPath.row] objectForKey:@"rating"]];
+        NSString *sAssetId = [NSString stringWithFormat:@"%@", [[self.pWatchListArr objectAtIndex:indexPath.row] objectForKey:@"assetId"]];
+        
+        if ( [sRating isEqualToString:@"19"] )
+        {
+            // 성인 여부 컨텐츠이면
+            if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
+            {
+                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                pViewController.pAssetIdStr = sAssetId;
+                pViewController.pEpisodePeerExistence = @"0";
+                pViewController.pContentGroupId = @"";
+                pViewController.delegate = self;
+                [self.navigationController pushViewController:pViewController animated:YES];
+            }
+            else
+            {
+                [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                        completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                            
+                            if ( buttonIndex == 1 )
+                            {
+                                // 설정 창으로 이동
+                                CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                                [self.navigationController pushViewController:controller animated:YES];
+                            }
+                        }];
+            }
+            
+        }
+        else
+        {
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = sAssetId;
+            pViewController.pEpisodePeerExistence = @"0";
+            pViewController.pContentGroupId = @"";
+            pViewController.delegate = self;
+            [self.navigationController pushViewController:pViewController animated:YES];
+            
+        }
+
+    }
+    else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_02 )
+    {
+        // 구매목록
+        if ( self.nSubTabTag == 0 )
+        {
+            NSString *sRating = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListMoblieArr objectAtIndex:indexPath.row] objectForKey:@"rating"]];
+            NSString *sAssetId = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListMoblieArr objectAtIndex:indexPath.row] objectForKey:@"assetId"]];
+            
+            if ( [sRating isEqualToString:@"19"] )
+            {
+                // 성인 여부 컨텐츠이면
+                if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
+                {
+                    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                    pViewController.pAssetIdStr = sAssetId;
+                    pViewController.pEpisodePeerExistence = @"0";
+                    pViewController.pContentGroupId = @"";
+                    pViewController.delegate = self;
+                    [self.navigationController pushViewController:pViewController animated:YES];
+                }
+                else
+                {
+                    [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                            completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                                
+                                if ( buttonIndex == 1 )
+                                {
+                                    // 설정 창으로 이동
+                                    CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                                    [self.navigationController pushViewController:controller animated:YES];
+                                }
+                            }];
+                }
+                
+            }
+            else
+            {
+                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                pViewController.pAssetIdStr = sAssetId;
+                pViewController.pEpisodePeerExistence = @"0";
+                pViewController.pContentGroupId = @"";
+                pViewController.delegate = self;
+                [self.navigationController pushViewController:pViewController animated:YES];
+                
+            }
+
+        }
+        else
+        {
+            NSString *sRating = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListTvArr objectAtIndex:indexPath.row] objectForKey:@"rating"]];
+            NSString *sAssetId = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListTvArr objectAtIndex:indexPath.row] objectForKey:@"assetId"]];
+            
+            if ( [sRating isEqualToString:@"19"] )
+            {
+                // 성인 여부 컨텐츠이면
+                if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
+                {
+                    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                    pViewController.pAssetIdStr = sAssetId;
+                    pViewController.pEpisodePeerExistence = @"0";
+                    pViewController.pContentGroupId = @"";
+                    pViewController.delegate = self;
+                    [self.navigationController pushViewController:pViewController animated:YES];
+                }
+                else
+                {
+                    [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                            completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                                
+                                if ( buttonIndex == 1 )
+                                {
+                                    // 설정 창으로 이동
+                                    CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                                    [self.navigationController pushViewController:controller animated:YES];
+                                }
+                            }];
+                }
+                
+            }
+            else
+            {
+                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                pViewController.pAssetIdStr = sAssetId;
+                pViewController.pEpisodePeerExistence = @"0";
+                pViewController.pContentGroupId = @"";
+                pViewController.delegate = self;
+                [self.navigationController pushViewController:pViewController animated:YES];
+                
+            }
+
+        }
+    }
     
 }
 
@@ -476,12 +612,12 @@
             if ( self.nSubTabTag == 0 )
             {
                 // 모바일 구매목록
-                sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[self.pValidPurchaseLogListMoblieArr objectAtIndex:indexPath.row] objectForKey:@"assetTitle"]];
+                sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[self.pValidPurchaseLogListMoblieArr objectAtIndex:indexPath.row] objectForKey:@"productName"]];
             }
             else
             {
                 // tv 구매목록
-                sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[self.pValidPurchaseLogListTvArr objectAtIndex:indexPath.row] objectForKey:@"assetTitle"]];
+                sTitle = [NSString stringWithFormat:@"선택하신 VOD를\n목록에서 삭제하시겠습니까?\n%@", [[self.pValidPurchaseLogListTvArr objectAtIndex:indexPath.row] objectForKey:@"productName"]];
             }
             
             

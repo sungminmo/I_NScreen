@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -401,12 +401,12 @@
                                     <exclude reference="Csi-oS-zl7"/>
                                     <exclude reference="hLv-k0-slK"/>
                                     <exclude reference="kJR-OV-iZ3"/>
+                                    <exclude reference="1xX-N4-LL5"/>
+                                    <exclude reference="Efe-Bn-xcf"/>
                                     <exclude reference="A24-vW-9NI"/>
                                     <exclude reference="Aov-kL-eKd"/>
                                     <exclude reference="kCT-xN-r6b"/>
                                     <exclude reference="uRK-uF-1rp"/>
-                                    <exclude reference="1xX-N4-LL5"/>
-                                    <exclude reference="Efe-Bn-xcf"/>
                                     <exclude reference="8PZ-aw-K2M"/>
                                     <exclude reference="Cce-8U-cEL"/>
                                     <exclude reference="EOz-Oh-3NN"/>
@@ -443,12 +443,12 @@
                                     <include reference="Csi-oS-zl7"/>
                                     <include reference="hLv-k0-slK"/>
                                     <exclude reference="kJR-OV-iZ3"/>
+                                    <include reference="1xX-N4-LL5"/>
+                                    <include reference="Efe-Bn-xcf"/>
                                     <include reference="A24-vW-9NI"/>
                                     <include reference="Aov-kL-eKd"/>
                                     <include reference="kCT-xN-r6b"/>
                                     <include reference="uRK-uF-1rp"/>
-                                    <include reference="1xX-N4-LL5"/>
-                                    <include reference="Efe-Bn-xcf"/>
                                     <include reference="8PZ-aw-K2M"/>
                                     <include reference="Cce-8U-cEL"/>
                                     <include reference="EOz-Oh-3NN"/>

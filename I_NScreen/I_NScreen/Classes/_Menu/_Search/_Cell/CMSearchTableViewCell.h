@@ -22,5 +22,7 @@
 
 @optional
 - (void)CMSearchTableViewCellTag:(int)nTag;
+- (void)CMSearchTableViewMoreBtn:(int)nIndex;
+- (void)CMSearchTableViewDeleteBtn:(int)nIndex;
 
 @end

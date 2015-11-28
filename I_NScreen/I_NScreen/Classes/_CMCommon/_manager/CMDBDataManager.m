@@ -418,15 +418,42 @@
     RLMRealm *realm = [self cmRealm];
     CMWatchReserveList *watchReserveList = [[CMWatchReserveList alloc] init];
     
-    watchReserveList.programBroadcastingEndTimeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingEndTime"]];
-    watchReserveList.programBroadcastingStartTimeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingStartTime"]];
-    watchReserveList.programGradeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programGrade"]];
-    watchReserveList.programHDStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programHD"]];
-    watchReserveList.programTitleStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programTitle"]];
-    watchReserveList.programPVRStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programPVR"]];
-    watchReserveList.scheduleSeqStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"scheduleSeq"]];
-    watchReserveList.programIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programId"]];
-    watchReserveList.broadcastingDateStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"broadcastingDate"]];
+    NSArray *allKey = [dic allKeys];
+    
+    BOOL isCheck = NO;
+    for ( NSString *key in allKey )
+    {
+        if ( [key isEqualToString:@"programBroadcastingStartTime"] )
+        {
+            isCheck = YES;
+        }
+    }
+    
+    if ( isCheck == YES )
+    {
+        watchReserveList.programBroadcastingEndTimeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingEndTime"]];
+        watchReserveList.programBroadcastingStartTimeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingStartTime"]];
+        watchReserveList.programGradeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programGrade"]];
+        watchReserveList.programHDStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programHD"]];
+        watchReserveList.programTitleStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programTitle"]];
+        watchReserveList.programPVRStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programPVR"]];
+        watchReserveList.scheduleSeqStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"scheduleSeq"]];
+        watchReserveList.programIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programId"]];
+        watchReserveList.broadcastingDateStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"broadcastingDate"]];
+    }
+    else
+    {
+//        watchReserveList.programBroadcastingEndTimeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingEndTime"]];
+        watchReserveList.programBroadcastingStartTimeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramTime"]];
+        watchReserveList.programGradeStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramGrade"]];
+        watchReserveList.programHDStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramHD"]];
+        watchReserveList.programTitleStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramTitle"]];
+//        watchReserveList.programPVRStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programPVR"]];
+        watchReserveList.scheduleSeqStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramSeq"]];
+        watchReserveList.programIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+//        watchReserveList.broadcastingDateStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"broadcastingDate"]];
+    }
+    
     
     [realm beginWriteTransaction];
     [realm addObject:watchReserveList];
@@ -444,11 +471,39 @@
 
 - (void)removeWatchReserveList:(NSDictionary *)dic
 {
-    NSString *sTilte = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programTitle"]];
-    NSString *sStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingStartTime"]];
-    NSString *sSeq = [NSString stringWithFormat:@"%@", [dic objectForKey:@"scheduleSeq"]];
-    NSString *sProgramId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programId"]];
-    NSString *sHd = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programHD"]];
+    BOOL isCheck = NO;
+    NSArray *allKey = [dic allKeys];
+    
+    for ( NSString *key in allKey )
+    {
+        if ( [key isEqualToString:@"programBroadcastingStartTime"] )
+        {
+            isCheck = YES;
+        }
+    }
+
+    NSString *sTilte = @"";
+    NSString *sStartTime = @"";
+    NSString *sSeq = @"";
+    NSString *sProgramId = @"";
+    NSString *sHd = @"";
+    
+    if ( isCheck == YES )
+    {
+        sTilte = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programTitle"]];
+        sStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programBroadcastingStartTime"]];
+        sSeq = [NSString stringWithFormat:@"%@", [dic objectForKey:@"scheduleSeq"]];
+        sProgramId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programId"]];
+        sHd = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programHD"]];
+    }
+    else
+    {
+        sTilte = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramTitle"]];
+        sStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramTime"]];
+        sSeq = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramSeq"]];
+        sProgramId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+        sHd = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramHD"]];
+    }
     
     RLMRealm *realm = [self cmRealm];
     

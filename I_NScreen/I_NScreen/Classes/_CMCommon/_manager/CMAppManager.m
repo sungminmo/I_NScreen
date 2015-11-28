@@ -860,12 +860,43 @@
     NSRange MinuteRang = {14,2};
     NSRange secondRang = {17, 2};
     
-    NSString *pYearStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:yearRang]];
-    NSString *pMonthStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:monthRang]];
-    NSString *pDayStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:dayRang]];
-    NSString *pHourStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:hourRang]];
-    NSString *pMinuteStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:MinuteRang]];
-    NSString *pSecondStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:secondRang]];
+    BOOL isKeyCheck = NO;
+    NSArray *keyArr = [dic allKeys];
+    for ( NSString *key in keyArr )
+    {
+        if ( [key isEqualToString:@"programBroadcastingStartTime"] )
+        {
+            isKeyCheck = YES;
+        }
+    }
+    
+    NSString *pYearStr = @"";
+    NSString *pMonthStr = @"";
+    NSString *pDayStr = @"";
+    NSString *pHourStr = @"";
+    NSString *pMinuteStr = @"";
+    NSString *pSecondStr = @"";
+    
+    if ( isKeyCheck == YES )
+    {
+        pYearStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:yearRang]];
+        pMonthStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:monthRang]];
+        pDayStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:dayRang]];
+        pHourStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:hourRang]];
+        pMinuteStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:MinuteRang]];
+        pSecondStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"programBroadcastingStartTime"] substringWithRange:secondRang]];
+    }
+    else
+    {
+        pYearStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"channelProgramTime"] substringWithRange:yearRang]];
+        pMonthStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"channelProgramTime"] substringWithRange:monthRang]];
+        pDayStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"channelProgramTime"] substringWithRange:dayRang]];
+        pHourStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"channelProgramTime"] substringWithRange:hourRang]];
+        pMinuteStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"channelProgramTime"] substringWithRange:MinuteRang]];
+        pSecondStr = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"channelProgramTime"] substringWithRange:secondRang]];
+        
+    }
+    
     
     // 24 빼고
     NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
@@ -877,14 +908,18 @@
     [dateComps setHour:[pHourStr intValue]];     // 알람 울릴 시
     [dateComps setMinute:[pMinuteStr intValue]];    // 알람 울릴 분
     [dateComps setSecond:[pSecondStr intValue]];    // 알람 울릴 초
-//    [dateComps setYear:[@"2015" intValue]];   // 알람 울릴 년도
-//    [dateComps setMonth:[@"11" intValue]];     // 알람 울릴 월
-//    [dateComps setDay:[@"22" intValue]];      // 알람 울릴 일
-//    [dateComps setHour:[@"17" intValue]];     // 알람 울릴 시
-//    [dateComps setMinute:[@"43" intValue]];    // 알람 울릴 분
-//    [dateComps setSecond:[@"00" intValue]];    // 알람 울릴 초
     
-    NSString *msg = [NSString stringWithFormat:@"%@ 시청 예약 시간입니다.", [dic objectForKey:@"programTitle"]];
+    NSString *msg = @"";
+    
+    if ( isKeyCheck == YES )
+    {
+        msg = [NSString stringWithFormat:@"%@ 시청 예약 시간입니다.", [dic objectForKey:@"programTitle"]];
+    }
+    else
+    {
+        msg = [NSString stringWithFormat:@"%@ 시청 예약 시간입니다.", [dic objectForKey:@"channelProgramTitle"]];
+    }
+    
     
     NSDate *date = [calender dateFromComponents:dateComps];
     
@@ -918,15 +953,5 @@
             [[UIApplication sharedApplication] cancelLocalNotification:localNoti];
         }
     }
-    
-//    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
-//    if (localNotif == nil) return;
-//    NSDate *fireTime = [[NSDate date] addTimeInterval:10]; // adds 10 secs
-//    localNotif.fireDate = fireTime;
-//    UIUserNotificationType types = UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound;
-//    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-//    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-//    localNotif.alertBody = @"Alert!";
-//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }
 @end

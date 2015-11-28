@@ -1744,11 +1744,13 @@
     self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
     
-    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList];
+    NSString *sUrl = [NSString stringWithFormat:@"%@.xml", CNM_OPEN_API_INTERFACE_GetPurchasedProductList];
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY :[[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
-                           @"purchaseLogProfile" : @"2"
+                           @"purchaseLogProfile" : @"4",
+                           @"expiredLogStartTime" : @"",    // 두달 전
+                           @"expiredLogEndTime" : @""       // 현재 시간
                            };
     
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {

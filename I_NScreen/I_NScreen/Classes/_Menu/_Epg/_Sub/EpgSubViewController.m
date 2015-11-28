@@ -338,32 +338,32 @@
         if ( isCheck == YES )
         {
             // 녹화 예약중
-            if ( [sSeries isEqualToString:@"NULL"] )
-            {
-                // 단일
-                [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:0 WithIndex:nIndex];
-            }
-            else
-            {
-                // 시리즈
-                [self requestWithSetRecordCancelReserveWithReserveCancel:@"1" WithSeriesId:sSeries WithIndex:nIndex];
-            }
-
+//            if ( [sSeries isEqualToString:@"NULL"] )
+//            {
+//                // 단일
+//                [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:0 WithIndex:nIndex];
+//            }
+//            else
+//            {
+//                // 시리즈
+//                [self requestWithSetRecordCancelReserveWithReserveCancel:@"1" WithSeriesId:sSeries WithIndex:nIndex];
+//            }
+            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:0 WithIndex:nIndex];
         }
         else
         {
             // 녹화 미예약
-            if ( [sSeries isEqualToString:@"NULL"] )
-            {
-                // 단일
-                [self requstWithSetRecordReserveWithIndex:nIndex];
-            }
-            else
-            {
-                // 시리즈
-                [self requstWithSetRecordSeriesReserveWithSeries:sSeries WithIndex:nIndex];
-            }
-
+//            if ( [sSeries isEqualToString:@"NULL"] )
+//            {
+//                // 단일
+//                [self requstWithSetRecordReserveWithIndex:nIndex];
+//            }
+//            else
+//            {
+//                // 시리즈
+//                [self requstWithSetRecordSeriesReserveWithSeries:sSeries WithIndex:nIndex];
+//            }
+            [self requstWithSetRecordReserveWithIndex:nIndex];
         }
     }
 }
@@ -477,7 +477,7 @@
         {
 //            [self requestWithGetSetTopStatus];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
-            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"moreState"];
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
         }
     }];
@@ -504,7 +504,7 @@
         {
 //            [self requestWithGetSetTopStatus];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
-            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"moreState"];
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
         }
     }];

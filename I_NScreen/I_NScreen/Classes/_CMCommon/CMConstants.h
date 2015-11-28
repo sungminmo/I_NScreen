@@ -504,6 +504,9 @@ extern NSString* const CNM_OPEN_API_INTERFACE_SetRecordSeriesDele;
 // getValidPurchaseLogList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetValidPurchaseLogList;
 
+//GetPurchasedProductList
+extern NSString* const CNM_OPEN_API_INTERFACE_GetPurchasedProductList;
+
 // getWishList
 extern NSString* const CNM_OPEN_API_INTERFACE_GetWishList;
 

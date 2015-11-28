@@ -63,7 +63,7 @@
             [self.pCouponImageView setImage:[UIImage imageNamed:@""]];
         }
         
-        self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetTitle"]]; // 타이틀
+        self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"productName"]]; // 타이틀
         self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] insertComma:[dic objectForKey:@"price"]]];
         
         NSString *sPurchasedTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"purchasedTime"]];
