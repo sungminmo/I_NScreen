@@ -269,14 +269,25 @@
                            @"productCode" : productCode
                            };
     
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        
+//    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+//        
+//        NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
+//        
+//        block(@[result], nil);
+//    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+//        block(nil, error);
+//    }];
+//
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id __nonnull responseObject) {
+
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
+    
     [self updateActivityIndicator:task];
     return task;
 }
@@ -296,12 +307,12 @@
                            @"areaCode" : areaCode
                            };
     
-    return [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    return [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
 }
@@ -322,12 +333,12 @@
                            @"sortType" : sortType
                            };
     
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -349,12 +360,12 @@
                            @"sortType" : sortType
                            };
     
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -374,12 +385,12 @@
                            @"includeAdultCategory" : adultCategory
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
 //    [self updateActivityIndicator:task];
@@ -401,12 +412,12 @@
                            @"contentGroupProfile" : @"2"
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -817,12 +828,12 @@
                            @"assetProfile" : @"9"
                            };
     
-    NSURLSessionDataTask* task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask* task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser*)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     
@@ -845,12 +856,12 @@
                            @"sortType" : @"notSet"
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -870,12 +881,12 @@
                           @"assetProfile" : assetProfile
                           };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -895,13 +906,13 @@
                            @"contentGroupProfile" : contentGroupProfile
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -921,13 +932,13 @@
                            @"productProfile" : productProfile
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -942,13 +953,13 @@
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceBannerlist];
     
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -971,13 +982,13 @@
                            CNM_OPEN_API_TRAVERSE_TYPE_KEY : @"DFS"
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1003,13 +1014,13 @@
                            CNM_OPEN_API_TRAVERSE_TYPE_KEY : @"DFS"
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1030,13 +1041,13 @@
                            CNM_OPEN_API_ASSET_PROFILE_KEY : assetProfile,
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
       
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1060,13 +1071,13 @@
                            @"appId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
 //                           @"appId" : @"11223344556677889900"
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1086,13 +1097,13 @@
                            CNM_OPEN_API_TERMINAL_KEY_KEY : CNM_PRIVATE_TERMINAL_KEY
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1116,13 +1127,13 @@
                            @"assetProfile" : assetProfile
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1148,13 +1159,13 @@
                            @"assetProfile" : assetProfile
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1178,13 +1189,13 @@
                            @"sortType" : @"notSet"
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1209,13 +1220,13 @@
                            @"sortType" : @"notSet"
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1238,13 +1249,13 @@
                            @"domainId" : @"CnM" // 고정
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1267,13 +1278,13 @@
                            @"domainId" : @"CnM" // 고정
                            };
     
-    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *tesk = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1300,13 +1311,13 @@
                            @"authCode" : authCode
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1329,13 +1340,13 @@
                            //
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
        
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1355,13 +1366,13 @@
                            @"authKey" : authKey
                            };
     
-    return [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    return [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
 //        [[CMAppManager sharedInstance] removeInfoDataKey:CNM_OPEN_API_UUID_KEY];
         
@@ -1381,13 +1392,13 @@
                            @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1413,13 +1424,13 @@
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1440,13 +1451,13 @@
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"SeriesId" : seriesId
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1465,13 +1476,13 @@
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance] getKeychainPrivateTerminalKey],
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1492,13 +1503,13 @@
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"SeriesId" : seriesId
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1522,13 +1533,13 @@
                            @"StartTime" : startTime,
                            @"deleteType" : @"0" // 고정
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1552,13 +1563,13 @@
                            @"StartTime" : startTime,
                            @"seriesId" : seriesId
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1580,7 +1591,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"v1/mso/10/asset/%@/%@", asset, style];
     
     
-    NSURLSessionDataTask *task = [self.drmClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.drmClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary *response = [responseObject objectForKey:@"drm"];
         
@@ -1589,7 +1600,7 @@
         }
 
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         if (block) {
             block([NSDictionary dictionary], error);
@@ -1618,13 +1629,13 @@
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"power" : power
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1644,13 +1655,13 @@
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"volume" : volume
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1667,13 +1678,13 @@
     NSDictionary *dict = @{
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1693,13 +1704,13 @@
                            @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
                            @"channelId" : channelId
                            };
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1725,13 +1736,13 @@
                            @"assetProfile" : @"1"
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1753,13 +1764,13 @@
                            @"expiredLogEndTime" : @""       // 현재 시간
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1779,13 +1790,13 @@
                            @"purchaseEventId" : purchaseEventId
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1805,12 +1816,12 @@
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceJoyNList];
     
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -1828,12 +1839,12 @@
                            @"joyNId" : code,
                            };
     
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -1848,12 +1859,12 @@
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetServiceNoticeInfo];
     
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -1870,12 +1881,12 @@
                            CNM_OPEN_API_PREF_GUIDEID_KEY : code,
                            };
     
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -1889,12 +1900,12 @@
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_GetAppVersionInfo];
     
-    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.rumClient GET:sUrl parameters:nil success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         block(nil, error);
     }];
     [self updateActivityIndicator:task];
@@ -1917,13 +1928,13 @@
                            @"domainId" : domainId
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -1950,13 +1961,13 @@
                            @"categoryId" : categoryId
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2013,13 +2024,13 @@
                            @"uiComponentId" : @"0"
                            };
 
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
 
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
 
         block(@[result], nil);
 
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
 
         block(nil, error);
     }];
@@ -2047,13 +2058,13 @@
                            @"uiComponentId" : @"0"
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2080,13 +2091,13 @@
                            @"uiComponentId" : @"0"
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2116,13 +2127,13 @@
                            @"normalPrice" : normalPrice
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2147,13 +2158,13 @@
                            @"uiComponentId" : @"0" // 고정
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2179,13 +2190,13 @@
                            @"uiComponentId" : @"0" // 고정
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2210,13 +2221,13 @@
                            @"uiComponentId" : @"0" // 고정
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2245,13 +2256,13 @@
                            @"uiComponentId" : @"0" // 고정
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2273,13 +2284,13 @@
                            @"productProfile" : @"1"
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2304,13 +2315,13 @@
                            @"userId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid]
                          };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2333,13 +2344,13 @@
                            @"assetId" : assetId
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];
@@ -2362,13 +2373,13 @@
                            @"assetId" : assetId
                            };
     
-    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
         
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];
         
         block(@[result], nil);
         
-    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         
         block(nil, error);
     }];

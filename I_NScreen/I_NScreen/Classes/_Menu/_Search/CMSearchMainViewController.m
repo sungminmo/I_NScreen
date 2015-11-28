@@ -66,6 +66,8 @@ static const CGFloat pageSize = 28;
 
 @property (nonatomic, strong) NSMutableArray *pNowStateCheckArr;    // 상태값 체크
 
+@property (nonatomic, weak) IBOutlet UILabel *pComentLbl;
+
 @end
 
 @implementation CMSearchMainViewController
@@ -206,7 +208,14 @@ static const CGFloat pageSize = 28;
         
         self.infoLabel.text = @"성인 콘텐츠를 검색하시려면\n 설정>성인검색 제한 설정을 해제 해주세요.";
     } else {
-        
+        if ( count == 0 )
+        {
+            self.pComentLbl.text = @"검색결과가 없습니다. 다른 검색어를 입력해 주세요.";
+        }
+        else
+        {
+            self.pComentLbl.text = @"검색창에 원하시는 검색어를 입력해 주세요.";
+        }
         self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , (long)count];
     }
 }

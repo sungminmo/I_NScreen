@@ -88,10 +88,10 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
-    [self application:app openURL:url sourceApplication:nil annotation:nil];
-    return YES;
-}
+//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
+//    [self application:app openURL:url sourceApplication:nil annotation:nil];
+//    return YES;
+//}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
