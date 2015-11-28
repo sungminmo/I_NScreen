@@ -159,20 +159,42 @@
             if ( self.isZzimCheck == YES )
             {
                 // 찜하기 되어 있으면 찜하기 해제
-                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
-                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
-                [self.pZzimBtn22 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+                                [self.pZzimBtn22 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
                 [self.pZzimBtn23 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
 
+                
+                if ( self.pReviewBtn22.hidden == YES || self.pReviewBtn23.hidden == YES )
+                {
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+
+                }
+                else
+                {
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
+
+                }
+                
                 [self requestWithRemoveWishItem];
             }
             else
             {
                 // 찜하기 안되어 있으면 찜하기
-                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
-                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
+                
                 [self.pZzimBtn22 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 [self.pZzimBtn23 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                
+                if ( self.pReviewBtn22.hidden == YES || self.pReviewBtn23.hidden == YES )
+                {
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+                }
+                else
+                {
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
+                }
 
                 [self requestWithAddWishItem];
             }
@@ -354,14 +376,14 @@ static int tvFontSize = 15;
     {
         self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"synopsis"]];
         self.pContentTextView25.font = [UIFont systemFontOfSize:tvFontSize];
-        self.pCommentLbl25.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [self.pAssetListByEpisodePeerIdDic objectForKey:@"productName"]];
+        self.pCommentLbl25.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [self.pAssetListByEpisodePeerIdDic objectForKey:@"title"]];
 
     }
     else
     {
         self.pContentTextView25.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
         self.pContentTextView25.font = [UIFont systemFontOfSize:tvFontSize];
-        self.pCommentLbl25.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productName"]];
+        self.pCommentLbl25.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"title"]];
 
     }
     
@@ -394,7 +416,7 @@ static int tvFontSize = 15;
     
     self.pContentTextView26.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
     self.pContentTextView26.font = [UIFont systemFontOfSize:tvFontSize];
-    self.pCommentLbl26.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productName"]];
+    self.pCommentLbl26.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"title"]];
 }
 
 
@@ -543,6 +565,8 @@ static int tvFontSize = 15;
         DDLogError(@"찜하기 = %@]", wish);
         [SIAlertView alert:@"찜하기" message:@"찜하기가 선택 되었습니다." button:nil];
         self.isZzimCheck = YES;
+ 
+        
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -1022,7 +1046,25 @@ static int tvFontSize = 15;
                 // 미리보기 없음
                 self.pReviewBtn22.hidden = YES;
                 
+                if ( self.isZzimCheck == YES )
+                {
+                    
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+                }
+                else
+                {
+                    
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+                }
                 
+                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:self.pBuyBtn22
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                      multiplier:1.0 constant:-12];
+                
+                [self.view addConstraints:@[c_1]];
             }
         }
         else
@@ -1082,43 +1124,24 @@ static int tvFontSize = 15;
                 // 미리보기 없음
                 self.pReviewBtn23.hidden = YES;
                 
+                if ( self.isZzimCheck == YES )
+                {
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+                }
+                else
+                {
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+                }
                 
-                ///
-//                CGFloat width = self.pBodyView.frame.size.width;
-//                CGFloat posY = 0;
-//                NSArray* items = @[self.pView01, self.pView21, self.pView03];
-//                
-//                for (UIView* item in items) {
-//                    [self.pBodyView addSubview:item];
-//                    item.frame = CGRectMake(0, posY, width, item.frame.size.height);
-//                    posY += item.frame.size.height;
-//                    
-//                    NSLayoutConstraint *layout = [NSLayoutConstraint constraintWithItem:self.view
-//                                                                              attribute:NSLayoutAttributeWidth
-//                                                                              relatedBy:NSLayoutRelationEqual
-//                                                                                 toItem:item
-//                                                                              attribute:NSLayoutAttributeWidth
-//                                                                             multiplier:1.0
-//                                                                               constant:0];
-//                    [self.view addConstraint:layout];
-//                }
-//                [self.pBodyView setContentSize:CGSizeMake(width, posY)];
-//                [self.view updateConstraintsIfNeeded];
-//                
-//                self.pContentTextView21.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
-//                self.pContentTextView21.font = [UIFont systemFontOfSize:tvFontSize];
                 
-//                NSArray *items = @[self.pBuyBtn22, self.pZzimBtn22];
-//                
-//                for ( UIButton *item in items )
-//                {
-////                    pBuyBtn22 pZzimBtn22
-//                    
-//                }
-                                
-                
-                //                [self.view updateConstraintsIfNeeded];
-                
+                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:self.pBuyBtn23
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                      multiplier:1.0 constant:-12];
+        
+                [self.view addConstraints:@[c_1]];
             }
         }
         else
@@ -1640,6 +1663,24 @@ static int tvFontSize = 15;
         {
             // 미리보기 없음
             self.pReviewBtn23.hidden = YES;
+
+            if ( self.isZzimCheck == YES )
+            {
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+            }
+            else
+            {
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+            }
+            
+            NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.pBuyBtn23
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                  multiplier:1.0 constant:-12];
+            
+            [self.view addConstraints:@[c_1]];
         }
     }
     else
