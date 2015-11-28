@@ -89,7 +89,7 @@
                         <constraint firstAttribute="height" constant="33" id="tIp-6g-sm8"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 18개의 검색결과가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kG-wu-1sN">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 0개의 검색결과가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kG-wu-1sN">
                     <rect key="frame" x="0.0" y="184" width="600" height="38"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
