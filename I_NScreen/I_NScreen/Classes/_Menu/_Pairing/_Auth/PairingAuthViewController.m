@@ -101,17 +101,28 @@
         if ( [sResultCode isEqualToString:@"100"] )
         {
             NSString *sSetTopBoxKind = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"SetTopBoxKind"]];
-//            [[CMAppManager sharedInstance] setInfoDataKey:CNM_OPEN_API_SET_TOP_BOK_KIND Value:sSetTopBoxKind];
+            
             CMDBDataManager *manager = [CMDBDataManager sharedInstance];
             [manager setSetTopBoxKind:sSetTopBoxKind];
             // 성공이면 터미널 키 획득 전문 날림
             [self requestWithPrivateTerminalKeyGet];
         }
+        else if ( [sResultCode isEqualToString:@"205"] )
+        {
+            // 서버코드론 해당 아이템 없음이지만 럼퍼스 측에서 인증번호를 잘못 입력한 케이스로 판단하면 된다 함
+            NSString *sMessage = @"인증번호가 일치하지 않습니다.";
+            [SIAlertView alert:@"error" message:sMessage button:@"확인" completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+               self.pAuthTextField.text = @"";
+                self.pPwStr = @"";
+            }];
+        }
         else
         {
             NSString *sMessage = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"errorString"]];
-//            [[CMAppManager sharedInstance] removeInfoDataKey:CNM_OPEN_API_UUID_KEY];
-            [SIAlertView alert:@"error" message:sMessage button:nil];
+            [SIAlertView alert:@"error" message:sMessage button:@"확인" completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                self.pAuthTextField.text = @"";
+                self.pPwStr = @"";
+            }];
         }
         
     }];
