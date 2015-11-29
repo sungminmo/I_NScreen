@@ -910,10 +910,14 @@ static const CGFloat pageSize = 28;
         
         //  스와이프시, 메뉴 셋팅
 //        [cell configureCellForItem:@{}];
-        NSString *sMore = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"moreState"]];
-        NSString *sDele = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"deleState"]];
-        
-        [cell configureCellForItem:@{@"More":sMore, @"Delete":sDele} WithItemCount:2];
+        if ( [self.pNowStateCheckArr count] != 0 )
+        {
+            NSString *sMore = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"moreState"]];
+            NSString *sDele = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"deleState"]];
+            
+            [cell configureCellForItem:@{@"More":sMore, @"Delete":sDele} WithItemCount:2];
+            
+        }
         
         return cell;
     }
@@ -948,7 +952,7 @@ static const CGFloat pageSize = 28;
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
-    else
+    else if ( self.programList == tableView )
     {
         NSDictionary* item = self.dataArray[indexPath.row];
         
