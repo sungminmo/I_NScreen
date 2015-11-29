@@ -118,28 +118,39 @@
         case VOD_BUNDLE_MAIN_VIEW_BTN_02:
         {
             sAssetId = [[self.pBundleAssetArr objectAtIndex:0] objectForKey:@"assetId"];
+            VodBundleDetailViewController *pViewController = [[VodBundleDetailViewController alloc] initWithNibName:@"VodBundleDetailViewController" bundle:nil];
+            pViewController.sAsset = sAssetId;
+            [self.navigationController pushViewController:pViewController animated:YES];
         }break;
         case VOD_BUNDLE_MAIN_VIEW_BTN_03:
         {
             sAssetId = [[self.pBundleAssetArr objectAtIndex:1] objectForKey:@"assetId"];
+            VodBundleDetailViewController *pViewController = [[VodBundleDetailViewController alloc] initWithNibName:@"VodBundleDetailViewController" bundle:nil];
+            pViewController.sAsset = sAssetId;
+            [self.navigationController pushViewController:pViewController animated:YES];
         }break;
         case VOD_BUNDLE_MAIN_VIEW_BTN_04:
         {
             sAssetId = [[self.pBundleAssetArr objectAtIndex:2] objectForKey:@"assetId"];
+            VodBundleDetailViewController *pViewController = [[VodBundleDetailViewController alloc] initWithNibName:@"VodBundleDetailViewController" bundle:nil];
+            pViewController.sAsset = sAssetId;
+            [self.navigationController pushViewController:pViewController animated:YES];
         }break;
         case VOD_BUNDLE_MAIN_VIEW_BTN_05:
         {
             sAssetId = [[self.pBundleAssetArr objectAtIndex:3] objectForKey:@"assetId"];
+            VodBundleDetailViewController *pViewController = [[VodBundleDetailViewController alloc] initWithNibName:@"VodBundleDetailViewController" bundle:nil];
+            pViewController.sAsset = sAssetId;
+            [self.navigationController pushViewController:pViewController animated:YES];
         }break;
         case VOD_BUNDLE_MAIN_VIEW_BTN_06:
         {
             sAssetId = [[self.pBundleAssetArr objectAtIndex:4] objectForKey:@"assetId"];
+            VodBundleDetailViewController *pViewController = [[VodBundleDetailViewController alloc] initWithNibName:@"VodBundleDetailViewController" bundle:nil];
+            pViewController.sAsset = sAssetId;
+            [self.navigationController pushViewController:pViewController animated:YES];
         }break;
     }
-    
-    VodBundleDetailViewController *pViewController = [[VodBundleDetailViewController alloc] initWithNibName:@"VodBundleDetailViewController" bundle:nil];
-    pViewController.sAsset = sAssetId;
-    [self.navigationController pushViewController:pViewController animated:YES];
 }
 
 #pragma mark - 전문

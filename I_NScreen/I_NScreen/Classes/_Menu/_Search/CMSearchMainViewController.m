@@ -113,9 +113,9 @@ static const CGFloat pageSize = 28;
 // 키워드 검색 전문
 - (void)requstWithSearchWorldTest
 {
-    NSString *sIncludeAdultCategory = @"0"; // 0이 성인인가?
+    NSString *sIncludeAdultCategory = @"0";
     
-    if ( [[CMAppManager sharedInstance] getKeychainAdultLimit] == NO )
+    if ( [[CMAppManager sharedInstance] getKeychainAdultLimit] == YES )
     {
         sIncludeAdultCategory = @"1";
     }
@@ -280,9 +280,9 @@ static const CGFloat pageSize = 28;
         return;
     }
     
-    // IncludeAdultCategory 성인 체크 여부 1 , 0
-    NSString *sIncludeAdultCategory = @"0"; // 0이 성인인가?
-    if ( [[CMAppManager sharedInstance] getKeychainAdultLimit] == NO )
+    // IncludeAdultCategory 성인 체크 여부 0일시 성인 제한 , 1이면 전체 뿌림
+    NSString *sIncludeAdultCategory = @"0";
+    if ( [[CMAppManager sharedInstance] getKeychainAdultLimit] == YES )
     {
         sIncludeAdultCategory = @"1";
     }
