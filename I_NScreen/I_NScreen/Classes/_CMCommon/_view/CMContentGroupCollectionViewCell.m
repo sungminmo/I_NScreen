@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSString *sEpisodePeerExistence;
 @property (nonatomic, strong) NSString *sContentGroupId;
+@property (nonatomic, strong) NSString *sAssetBundle;
 
 @end
 
@@ -34,6 +35,7 @@
     
     self.sEpisodePeerExistence = @"0";
     self.sContentGroupId = @"";
+    self.sAssetBundle = @"0";
     // tv 전용인지 아닌지
     NSArray *keyArr = [dic allKeys];
     BOOL isCheck = NO;
@@ -53,35 +55,13 @@
         {
             self.sContentGroupId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"contentGroupId"]];
         }
+        
+        if ( [key isEqualToString:@"assetBundle"] )
+        {
+            self.sAssetBundle = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetBundle"]];
+        }
     }
 
-    // tv 인지 아닌지 빼자는 요청 사항
-//    if ( isCheck == YES )
-//    {
-//        if ( [[dic objectForKey:@"mobilePublicationRight"] isEqualToString:@"1"] )
-//        {
-//            // 모바일
-//            self.pOnlyTvImageView.hidden = YES;
-//        }
-//        else
-//        {
-//            // tv
-//            self.pOnlyTvImageView.hidden = NO;
-//        }
-//    }
-//    else
-//    {
-//        if ( [[dic objectForKey:@"publicationRight"] isEqualToString:@"2"] )
-//        {
-//            // tv모바일
-//            self.pOnlyTvImageView.hidden = YES;
-//        }
-//        else
-//        {
-//            // tv
-//            self.pOnlyTvImageView.hidden = NO;
-//        }
-//    }
     
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"primaryAssetId"]];
     NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"smallImageFileName"]];
@@ -115,7 +95,7 @@
 
 - (IBAction)onBtnClicked:(id)sender
 {
-    [self.delegate CMContentGroupCollectionViewCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithSeriesLink:self.pSeriesLintStr WithAdultCheck:self.isAdultCheck WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
+    [self.delegate CMContentGroupCollectionViewCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithSeriesLink:self.pSeriesLintStr WithAdultCheck:self.isAdultCheck WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId WithAssetBundle:self.sAssetBundle];
 }
 
 @end
