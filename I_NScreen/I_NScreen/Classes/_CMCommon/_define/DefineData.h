@@ -182,6 +182,13 @@
 #define VOD_BUNDLE_MAIN_VIEW_BTN_05 25005   // 번들4
 #define VOD_BUNDLE_MAIN_VIEW_BTN_06 25006   // 번들5
 
+// VodDetailBundleMainViewController btn tag
+#define VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_01  26001   // 번들1
+#define VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_02  26002   // 번들1
+#define VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_03  26003   // 번들1
+#define VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_04  26004   // 번들1
+#define VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_05  26005   // 번들1
+
 //
 
 /*

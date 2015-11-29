@@ -20,6 +20,8 @@
 #import "NSMutableDictionary+REMOCON.h"
 #import "NSMutableDictionary+PVR.h"
 #import "NSMutableDictionary+EPG.h"
+#import "VodDetailBundleMainViewController.h"
+#import "NSMutableDictionary+VOD.h"
 
 typedef enum : NSInteger {
     VOD_TABMENU_TYPE,
@@ -650,11 +652,19 @@ static const CGFloat pageSize = 28;
         if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
         {
             // 인증 받았으면s
-            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-            pViewController.pAssetIdStr = sAssetId;
-            pViewController.pEpisodePeerExistence = sEpisodePeerExistence;
-            pViewController.pContentGroupId = sContentGroupId;
-            [self.navigationController pushViewController:pViewController animated:YES];
+            if ( [sAssetBundle isEqualToString:@"1"] )
+            {
+                // 묶음 상품
+                [self requestWithAssetInfo:sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
+            }
+            else
+            {
+                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                pViewController.pAssetIdStr = sAssetId;
+                pViewController.pEpisodePeerExistence = sEpisodePeerExistence;
+                pViewController.pContentGroupId = sContentGroupId;
+                [self.navigationController pushViewController:pViewController animated:YES];
+            }
         }
         else
         {
@@ -672,11 +682,18 @@ static const CGFloat pageSize = 28;
     }
     else
     {
-        VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-        pViewController.pAssetIdStr = sAssetId;
-        pViewController.pEpisodePeerExistence = sEpisodePeerExistence;
-        pViewController.pContentGroupId = sContentGroupId;
-        [self.navigationController pushViewController:pViewController animated:YES];
+        if ( [sAssetBundle isEqualToString:@"1"] )
+        {
+            [self requestWithAssetInfo:sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
+        }
+        else
+        {
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = sAssetId;
+            pViewController.pEpisodePeerExistence = sEpisodePeerExistence;
+            pViewController.pContentGroupId = sContentGroupId;
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }
     }
     
 }
@@ -1177,6 +1194,69 @@ static const CGFloat pageSize = 28;
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     
+}
+
+#pragma mark - vod 상세 bundle 이며 구매 여부를 가져오기 위해 호출
+- (void)requestWithAssetInfo:(NSString *)assetInfo WithEpisodePeerExistence:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId
+{
+    NSURLSessionDataTask *tesk = [NSMutableDictionary vodGetAssetInfoWithAssetId:assetInfo WithAssetProfile:@"9" completion:^(NSArray *vod, NSError *error) {
+        
+        DDLogError(@"vod 상세 = [%@]", vod);
+        
+        if ( [vod count] == 0 )
+            return;
+        
+        NSMutableArray *arr = [[NSMutableArray alloc] init];
+        NSObject *itemObject = [[[[vod objectAtIndex:0] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
+        
+        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        {
+            [arr addObject:itemObject];
+        }
+        else
+        {
+            [arr setArray:(NSArray *)itemObject];
+        }
+        
+        NSString *sProductId = @"";
+        
+        BOOL isCheck = NO;
+        for ( NSDictionary *dic in arr )
+        {
+            NSString *sProductType = dic[@"productType"];
+            NSString *sPurchasedTime = dic[@"purchasedTime"];
+            
+            if ( [sProductType isEqualToString:@"Bundle"] &&
+                [sPurchasedTime length] != 0 )
+            {   // 번들이고 구매한 사용자
+                isCheck = YES;
+                sProductId = dic[@"productId"];
+            }
+        }
+        
+        if ( isCheck == YES )
+        {
+            // 묶음 페이지이동
+            VodDetailBundleMainViewController *pViewController = [[VodDetailBundleMainViewController alloc] initWithNibName:@"VodDetailBundleMainViewController" bundle:nil];
+            pViewController.sAssetId = assetInfo;
+            pViewController.sEpisodePeerExistence = episodePeerExistence;
+            pViewController.sContentGroupId = contentGroupId;
+            pViewController.sProductId = sProductId;
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }
+        else
+        {
+            // 기존 상세 로직
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = assetInfo;
+            pViewController.pEpisodePeerExistence = episodePeerExistence;
+            pViewController.pContentGroupId = contentGroupId;
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }
+        
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end

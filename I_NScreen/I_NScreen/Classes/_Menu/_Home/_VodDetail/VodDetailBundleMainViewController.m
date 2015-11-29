@@ -1,18 +1,18 @@
 //
-//  VodBundleMainViewController.m
+//  VodDetailBundleMainViewController.m
 //  I_NScreen
 //
-//  Created by JUNG KIL BAE on 2015. 11. 27..
+//  Created by JUNG KIL BAE on 2015. 11. 29..
 //  Copyright © 2015년 STVN. All rights reserved.
 //
 
-#import "VodBundleMainViewController.h"
+#import "VodDetailBundleMainViewController.h"
 #import "NSMutableDictionary+Payment.h"
 #import "UIAlertView+AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
-#import "VodBundleDetailViewController.h"
+#import "VodDetailMainViewController.h"
 
-@interface VodBundleMainViewController ()
+@interface VodDetailBundleMainViewController ()
 @property (nonatomic, weak) IBOutlet UIImageView *pThumImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *pSaleImageView;
 @property (nonatomic, weak) IBOutlet UILabel *pTitleLbl;
@@ -50,7 +50,6 @@
 @property (nonatomic, strong) NSMutableArray *pBundleAssetArr;
 @property (nonatomic, strong) NSMutableDictionary *pDetailDic;
 
-@property (nonatomic, weak) IBOutlet UIButton *pBuyBtn;
 @property (nonatomic, weak) IBOutlet UIButton *pBundleBtn01;
 @property (nonatomic, weak) IBOutlet UIButton *pBundleBtn02;
 @property (nonatomic, weak) IBOutlet UIButton *pBundleBtn03;
@@ -58,22 +57,25 @@
 @property (nonatomic, weak) IBOutlet UIButton *pBundleBtn05;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
-
 @end
 
-@implementation VodBundleMainViewController
+@implementation VodDetailBundleMainViewController
+@synthesize sAssetId;
+@synthesize sEpisodePeerExistence;
+@synthesize sContentGroupId;
 @synthesize sProductId;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // Do any additional setup after loading the view from its nib.
     [self setViewInit];
-    [self setDataInit];
     [self setTagInit];
+    [self setDataInit];
     [self requestWithGetBundleProductInfo];
 }
 
@@ -95,50 +97,47 @@
 #pragma mark - 버튼 테그
 - (void)setTagInit
 {
-    self.pBuyBtn.tag = VOD_BUNDLE_MAIN_VIEW_BTN_01;
-    self.pBundleBtn01.tag = VOD_BUNDLE_MAIN_VIEW_BTN_02;
-    self.pBundleBtn02.tag = VOD_BUNDLE_MAIN_VIEW_BTN_03;
-    self.pBundleBtn03.tag = VOD_BUNDLE_MAIN_VIEW_BTN_04;
-    self.pBundleBtn04.tag = VOD_BUNDLE_MAIN_VIEW_BTN_05;
-    self.pBundleBtn05.tag = VOD_BUNDLE_MAIN_VIEW_BTN_06;
+    self.pBundleBtn01.tag = VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_01;
+    self.pBundleBtn02.tag = VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_02;
+    self.pBundleBtn03.tag = VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_03;
+    self.pBundleBtn04.tag = VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_04;
+    self.pBundleBtn05.tag = VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_05;
 }
 
 #pragma mark - 액션 이벤트
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    NSString *sAssetId = @"";
+    NSString *sAssetIdStr = @"";
     
     switch ([btn tag]) {
-        case VOD_BUNDLE_MAIN_VIEW_BTN_01:
+        case VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_01:
         {
             // 구매 버튼
-            [self.navigationController popViewControllerAnimated:YES];
+            sAssetIdStr = [[self.pBundleAssetArr objectAtIndex:0] objectForKey:@"assetId"];
         }break;
-        case VOD_BUNDLE_MAIN_VIEW_BTN_02:
+        case VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_02:
         {
-            sAssetId = [[self.pBundleAssetArr objectAtIndex:0] objectForKey:@"assetId"];
+            sAssetIdStr = [[self.pBundleAssetArr objectAtIndex:1] objectForKey:@"assetId"];
         }break;
-        case VOD_BUNDLE_MAIN_VIEW_BTN_03:
+        case VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_03:
         {
-            sAssetId = [[self.pBundleAssetArr objectAtIndex:1] objectForKey:@"assetId"];
+            sAssetIdStr = [[self.pBundleAssetArr objectAtIndex:2] objectForKey:@"assetId"];
         }break;
-        case VOD_BUNDLE_MAIN_VIEW_BTN_04:
+        case VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_04:
         {
-            sAssetId = [[self.pBundleAssetArr objectAtIndex:2] objectForKey:@"assetId"];
+            sAssetIdStr = [[self.pBundleAssetArr objectAtIndex:3] objectForKey:@"assetId"];
         }break;
-        case VOD_BUNDLE_MAIN_VIEW_BTN_05:
+        case VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_05:
         {
-            sAssetId = [[self.pBundleAssetArr objectAtIndex:3] objectForKey:@"assetId"];
-        }break;
-        case VOD_BUNDLE_MAIN_VIEW_BTN_06:
-        {
-            sAssetId = [[self.pBundleAssetArr objectAtIndex:4] objectForKey:@"assetId"];
+            sAssetIdStr = [[self.pBundleAssetArr objectAtIndex:4] objectForKey:@"assetId"];
         }break;
     }
     
-    VodBundleDetailViewController *pViewController = [[VodBundleDetailViewController alloc] initWithNibName:@"VodBundleDetailViewController" bundle:nil];
-    pViewController.sAsset = sAssetId;
+    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+    pViewController.pAssetIdStr = sAssetIdStr;
+    pViewController.pEpisodePeerExistence = self.sEpisodePeerExistence;
+    pViewController.pContentGroupId = self.sContentGroupId;
     [self.navigationController pushViewController:pViewController animated:YES];
 }
 
@@ -147,7 +146,7 @@
 - (void)requestWithGetBundleProductInfo
 {
     NSURLSessionDataTask *tesk = [NSMutableDictionary paymentGetBundleProductInfoWithProductId:self.sProductId completion:^(NSArray *payment, NSError *error) {
-    
+        
         DDLogError(@"번들 상세 = [%@]", payment);
         
         if ( [payment count] == 0 )
@@ -184,7 +183,7 @@
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [self.pDetailDic objectForKey:@"productName"]];
-    self.pSugPriceLbl.text = [NSString stringWithFormat:@"%@", [self.pDetailDic objectForKey:@"suggestedPriceTotal"]];
+    self.pSugPriceLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] insertComma:[self.pDetailDic objectForKey:@"suggestedPriceTotal"]]];
     self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] insertComma:[self.pDetailDic objectForKey:@"price"]]];
     
     NSArray *keyArr = [self.pDetailDic allKeys];
@@ -223,7 +222,7 @@
             self.pMobileImageView.hidden = YES;
         }
     }
-
+    
     // 묶음 상품
     for ( int i = 0; i < self.pBundleAssetArr.count; i++ )
     {
@@ -277,5 +276,6 @@
         }
     }
 }
+
 
 @end

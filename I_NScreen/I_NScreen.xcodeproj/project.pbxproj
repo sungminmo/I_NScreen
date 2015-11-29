@@ -173,6 +173,8 @@
 		E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57042891BDF407F00057D10 /* PairingRePwViewController.m */; };
 		E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */; };
 		E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */ = {isa = PBXBuildFile; fileRef = E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */; };
+		E5774CFD1C0B2C2A002C923A /* VodDetailBundleMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5774CFB1C0B2C2A002C923A /* VodDetailBundleMainViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E5774CFE1C0B2C2A002C923A /* VodDetailBundleMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5774CFC1C0B2C2A002C923A /* VodDetailBundleMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		E58690501C08462F0086D69F /* VodBundleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E586904E1C08462F0086D69F /* VodBundleDetailViewController.m */; };
 		E58690511C08462F0086D69F /* VodBundleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E586904F1C08462F0086D69F /* VodBundleDetailViewController.xib */; };
 		E58C6AF61BE261660024405D /* CMContentGroupCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF41BE261660024405D /* CMContentGroupCollectionViewController.m */; };
@@ -1116,6 +1118,9 @@
 		E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PairingRePwViewController.xib; path = _Pairing/PairingRePwViewController.xib; sourceTree = "<group>"; };
 		E570428D1BDF5B3E00057D10 /* NSMutableDictionary+PVR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+PVR.h"; sourceTree = "<group>"; };
 		E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+PVR.m"; sourceTree = "<group>"; };
+		E5774CFA1C0B2C2A002C923A /* VodDetailBundleMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VodDetailBundleMainViewController.h; sourceTree = "<group>"; };
+		E5774CFB1C0B2C2A002C923A /* VodDetailBundleMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VodDetailBundleMainViewController.m; sourceTree = "<group>"; };
+		E5774CFC1C0B2C2A002C923A /* VodDetailBundleMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VodDetailBundleMainViewController.xib; sourceTree = "<group>"; };
 		E586904D1C08462F0086D69F /* VodBundleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VodBundleDetailViewController.h; path = _Home/_VodBuy/_VodBundle/VodBundleDetailViewController.h; sourceTree = "<group>"; };
 		E586904E1C08462F0086D69F /* VodBundleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VodBundleDetailViewController.m; path = _Home/_VodBuy/_VodBundle/VodBundleDetailViewController.m; sourceTree = "<group>"; };
 		E586904F1C08462F0086D69F /* VodBundleDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VodBundleDetailViewController.xib; path = _Home/_VodBuy/_VodBundle/VodBundleDetailViewController.xib; sourceTree = "<group>"; };
@@ -3562,6 +3567,9 @@
 				E5E7B5CB1BF001AB00B78341 /* VodDetailMainViewController.h */,
 				E5E7B5CC1BF001AB00B78341 /* VodDetailMainViewController.m */,
 				E5E7B5CD1BF001AB00B78341 /* VodDetailMainViewController.xib */,
+				E5774CFA1C0B2C2A002C923A /* VodDetailBundleMainViewController.h */,
+				E5774CFB1C0B2C2A002C923A /* VodDetailBundleMainViewController.m */,
+				E5774CFC1C0B2C2A002C923A /* VodDetailBundleMainViewController.xib */,
 			);
 			name = _VodDetail;
 			path = _Home/_VodDetail;
@@ -4214,6 +4222,7 @@
 				E5B554E11BD9DD3F00AA02B2 /* icon_left_normal@3x.png in Resources */,
 				E5B554661BD9DD3F00AA02B2 /* icon_pairing_before@2x.png in Resources */,
 				E5B554691BD9DD3F00AA02B2 /* icon_q_press@2x.png in Resources */,
+				E5774CFE1C0B2C2A002C923A /* VodDetailBundleMainViewController.xib in Resources */,
 				E5DE64C31BCB4E4400FC3122 /* MovieMainViewController.xib in Resources */,
 				E5B5536A1BD9DD3F00AA02B2 /* unpick.png in Resources */,
 				E5B5541A1BD9DD3F00AA02B2 /* icon_promotion_07@2x.png in Resources */,
@@ -4498,6 +4507,7 @@
 				E5E0DF7A1BDB91EE0049E3F6 /* PairingAuthViewController.m in Sources */,
 				E52EE57B1BD508AF00797251 /* PvrSubTableViewCell.m in Sources */,
 				2053ED5E1BBCA06E00264FBF /* CMSearchTableViewCell.m in Sources */,
+				E5774CFD1C0B2C2A002C923A /* VodDetailBundleMainViewController.m in Sources */,
 				99C43C5E1BA3EDA10035A0A4 /* PSPDFUIKitMainThreadGuard.m in Sources */,
 				208729AF1BBB90E5009601A4 /* CMTextField.m in Sources */,
 				E54CC0B11BCCA0C6003806C0 /* SBJsonParser.m in Sources */,
