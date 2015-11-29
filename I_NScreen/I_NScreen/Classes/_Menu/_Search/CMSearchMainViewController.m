@@ -796,6 +796,7 @@ static const CGFloat pageSize = 28;
     NSString *sRatinting = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"rating"]];
     NSString *sAssetId = @"";
     NSString *sContentGroupId = @"";
+    NSString *sAssetBundle = @"0";
     
     NSArray *allKey = [[self.dataArray objectAtIndex:indexPath.row] allKeys];
     
@@ -822,6 +823,11 @@ static const CGFloat pageSize = 28;
         {
             sContentGroupId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"contentGroupId"]];
         }
+        
+        if ( [key isEqualToString:@"assetBundle"] )
+        {
+            sAssetBundle = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"assetBundle"]];
+        }
     }
     
     if ( [sRatinting isEqualToString:@"19"] )
@@ -829,7 +835,7 @@ static const CGFloat pageSize = 28;
         // 성인
         if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
         {
-            // 인증 받았으면
+            // 인증 받았으면s
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = sAssetId;
             pViewController.pEpisodePeerExistence = sEpisodePeerExistence;

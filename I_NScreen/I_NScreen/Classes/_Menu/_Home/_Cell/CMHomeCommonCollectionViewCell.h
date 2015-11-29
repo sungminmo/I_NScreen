@@ -24,6 +24,7 @@
 @protocol CMHomeCommonCollectionViewCellDelegate <NSObject>
 
 @optional
-- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistentce:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId;
+// assetBundle 이 1이면 구매 여부 assetinfo 전문 한번 더 태움
+- (void)CMHomeCommonCollectionViewDidItemSelectWithAssetId:(NSString *)sAssetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistentce:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId WithAssetBundle:(NSString *)assetBundle;
 
 @end

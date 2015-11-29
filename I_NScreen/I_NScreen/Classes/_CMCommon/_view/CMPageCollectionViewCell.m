@@ -12,6 +12,7 @@
 @interface CMPageCollectionViewCell ()
 @property (nonatomic, strong) NSString *sEpisodePeerExistence;
 @property (nonatomic, strong) NSString *sContentGroupId;
+@property (nonatomic, strong) NSString *sAssetBundle;
 
 @end
 
@@ -33,7 +34,7 @@
     
     self.sEpisodePeerExistence = @"0";
     self.sContentGroupId = @"";
-    
+    self.sAssetBundle = @"0";
     // tv 전용인지 아닌지
      NSArray *keyArr = [dic allKeys];
     
@@ -53,6 +54,11 @@
         if ( [key isEqualToString:@"contentGroupId"] )
         {
             self.sContentGroupId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"contentGroupId"]];
+        }
+        
+        if ( [key isEqualToString:@""] )
+        {
+            self.sAssetBundle = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetBundle"]];
         }
     }
     
@@ -203,7 +209,7 @@
 
 - (IBAction)onBtnClicked:(id)sender
 {
-    [self.delegate CMPageCollectionCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithAdultCheck:self.isAdultCheck WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
+    [self.delegate CMPageCollectionCellBtnClicked:self.nIndex WithAssetId:self.pAssetIdStr WithAdultCheck:self.isAdultCheck WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId WithAssetBundle:self.sAssetBundle];
 }
 
 @end

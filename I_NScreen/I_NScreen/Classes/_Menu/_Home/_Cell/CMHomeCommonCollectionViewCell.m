@@ -18,6 +18,7 @@
 @property (nonatomic) BOOL isAdultCheck;
 @property (nonatomic, strong) NSString *sEpisodePeerExistence;  // 1이면 시리즈 나머진 단일
 @property (nonatomic, strong) NSString *sContentGroupId;
+@property (nonatomic, strong) NSString *sAssetBundle;           // 1이면 묶음 상품
 @end
 
 @implementation CMHomeCommonCollectionViewCell
@@ -44,107 +45,110 @@
     self.sAssetId = @"";
     self.sContentGroupId = @"";
     self.sEpisodePeerExistence = @"0";
-//    if ( [type isEqualToString:@"200"] ) {  // 왜 200 ???
+    self.sAssetBundle = @"0";
     
+    NSArray *allKey = [data allKeys];
         
         
-        NSArray *allKey = [data allKeys];
-        
-        
-        for ( NSString *key in allKey )
+    for ( NSString *key in allKey )
+    {
+        if ( [key isEqualToString:@"assetId"] )
         {
-            if ( [key isEqualToString:@"assetId"] )
-            {
-                self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"assetId"]];
-            }
-            
-            if ( [key isEqualToString:@"primaryAssetId"] )
-            {
-                self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"primaryAssetId"]];
-            }
-            
-            if ( [key isEqualToString:@"episodePeerExistence"] )
-            {
-                self.sEpisodePeerExistence = [NSString stringWithFormat:@"%@", [data objectForKey:@"episodePeerExistence"]];
-            }
-            
-            if ( [key isEqualToString:@"contentGroupId"] )
-            {
-                self.sContentGroupId = [NSString stringWithFormat:@"%@", [data objectForKey:@"contentGroupId"]];
-            }
-//        }
-        
-        // tv 전용인지 아닌지
-        NSArray *keyArr = [data allKeys];
-        BOOL isCheck = NO;
-        for ( NSString *key in keyArr )
-        {
-            if ( [key isEqualToString:@"mobilePublicationRight"] )
-            {
-                isCheck = YES;
-            }
+            self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"assetId"]];
         }
         
-        if ( isCheck == YES )
+        if ( [key isEqualToString:@"primaryAssetId"] )
         {
-            if ( [[data objectForKey:@"mobilePublicationRight"] isEqualToString:@"1"] )
-            {
-                // 모바일
-                self.pOnlyTvImageView.hidden = YES;
-            }
-            else
-            {
-                // tv
-                self.pOnlyTvImageView.hidden = NO;
-            }
+            self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"primaryAssetId"]];
         }
-        else
+        
+        if ( [key isEqualToString:@"episodePeerExistence"] )
         {
-            if ( [[data objectForKey:@"publicationRight"] isEqualToString:@"2"] )
-            {
-                // tv모바일
-                self.pOnlyTvImageView.hidden = YES;
-            }
-            else
-            {
-                // tv
-                self.pOnlyTvImageView.hidden = NO;
-            }
+            self.sEpisodePeerExistence = [NSString stringWithFormat:@"%@", [data objectForKey:@"episodePeerExistence"]];
         }
-
-        NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];
-        [self.posterImageView setImageWithURL:imageUrl];
         
-        self.titleLabel.text = data[@"title"];
-        
-        NSString *sRating = [NSString stringWithFormat:@"%@", [data objectForKey:@"rating"]];
-        
-        if ( [sRating isEqualToString:@"19"] )
+        if ( [key isEqualToString:@"contentGroupId"] )
         {
-            if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
-            {
-                // 성인 인증을 받았으면 딤 해제
-                self.isAdultCheck = NO;
-                self.pDimImageView.hidden = YES;
-            }
-            else
-            {
-                self.isAdultCheck = YES;
-                self.pDimImageView.hidden = NO;
-            }
-
+            self.sContentGroupId = [NSString stringWithFormat:@"%@", [data objectForKey:@"contentGroupId"]];
         }
-        else
+        
+        if ( [key isEqualToString:@"assetBundle"] )
         {
-            self.pDimImageView.hidden = YES;
-            self.isAdultCheck = NO;
+            self.sAssetBundle = @"1";
         }
     }
+    
+    // tv 전용인지 아닌지
+    NSArray *keyArr = [data allKeys];
+    BOOL isCheck = NO;
+    for ( NSString *key in keyArr )
+    {
+        if ( [key isEqualToString:@"mobilePublicationRight"] )
+        {
+            isCheck = YES;
+        }
+    }
+    
+    if ( isCheck == YES )
+    {
+        if ( [[data objectForKey:@"mobilePublicationRight"] isEqualToString:@"1"] )
+        {
+            // 모바일
+            self.pOnlyTvImageView.hidden = YES;
+        }
+        else
+        {
+            // tv
+            self.pOnlyTvImageView.hidden = NO;
+        }
+    }
+    else
+    {
+        if ( [[data objectForKey:@"publicationRight"] isEqualToString:@"2"] )
+        {
+            // tv모바일
+            self.pOnlyTvImageView.hidden = YES;
+        }
+        else
+        {
+            // tv
+            self.pOnlyTvImageView.hidden = NO;
+        }
+    }
+    
+    NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];
+    [self.posterImageView setImageWithURL:imageUrl];
+    
+    self.titleLabel.text = data[@"title"];
+    
+    NSString *sRating = [NSString stringWithFormat:@"%@", [data objectForKey:@"rating"]];
+    
+    if ( [sRating isEqualToString:@"19"] )
+    {
+        if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
+        {
+            // 성인 인증을 받았으면 딤 해제
+            self.isAdultCheck = NO;
+            self.pDimImageView.hidden = YES;
+        }
+        else
+        {
+            self.isAdultCheck = YES;
+            self.pDimImageView.hidden = NO;
+        }
+        
+    }
+    else
+    {
+        self.pDimImageView.hidden = YES;
+        self.isAdultCheck = NO;
+    }
+
 }
 
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    [self.delegate CMHomeCommonCollectionViewDidItemSelectWithAssetId:self.sAssetId WithAdultCheck:self.isAdultCheck WithEpisodePeerExistentce:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
+    [self.delegate CMHomeCommonCollectionViewDidItemSelectWithAssetId:self.sAssetId WithAdultCheck:self.isAdultCheck WithEpisodePeerExistentce:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId WithAssetBundle:self.sAssetBundle];
 }
 
 @end
