@@ -131,9 +131,6 @@
         case REMOCON_MAIN_VIEW_BTN_02:
         {
             // 전원 버튼
-//            [SIAlertView alert:@"채널변경" message:@"데이터 방송 시청 중에는\n채널이 변경되지 않습니다."];
-            
-            
             if ( self.isOnOff == NO )
             {
                 // 꺼진 상태 킨다
@@ -226,16 +223,6 @@
     return 1;
 }
 
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return YES;
-//}
-//
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        DDLogError(@"delete");
-//    }
-//}
-
 #pragma mark - 전문
 #pragma mark - 볼룸 조절 전문 리스트 UP, DOWN
 - (void)requestWithSetRemoteWithVolume:(NSString *)volume
@@ -274,11 +261,7 @@
         
         if ( [gets count] == 0 )
             return;
-//        
-//        [self.pListDataArr removeAllObjects];
-//        [self.pListDataArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
-        
-        
+
         if ( self.nGenreCode == 0 )
         {
             [self.pChannelListArr removeAllObjects];
@@ -308,8 +291,6 @@
         }
         
         [self requestWithGetSetTopStatus];
-        
-//        [self.pTableView reloadData];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -329,7 +310,6 @@
         [self.pChannelListArr removeAllObjects];
         [self.pChannelListArr setArray:[[epgs objectAtIndex:0] objectForKey:@"channelItem"]];
         
-//        [self.pTableView reloadData];
         [self requestWithGetSetTopStatus];
     }];
     
@@ -420,34 +400,6 @@
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
-
-//#pragma mark - 리모컨 상태 체크 전문( 녹화중인지 체크 )
-//- (void)requestWithGetSetTopStatus
-//{
-//    NSURLSessionDataTask *tesk = [NSMutableDictionary remoconGetSetTopStatusCompletion:^(NSArray *pairing, NSError *error) {
-//        
-//        DDLogError(@"리모컨 상태 체크 = [%@]", pairing);
-//        
-//        if ( [pairing count] == 0 )
-//            return;
-//        
-//        NSString *sRecordingchannel1 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel1"]];
-//        NSString *sRecordingchannel2 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel2"]];
-//        
-//        [self.recordingchannelArr removeAllObjects];
-//        
-//        [self.recordingchannelArr addObject:sRecordingchannel1];
-//        [self.recordingchannelArr addObject:sRecordingchannel2];
-//        
-//        //        [self requestWithChannelSchedule];
-//        DDLogError(@"녹화중 체크 = [%@]", self.recordingchannelArr );
-//        
-//        [self requestWithGetRecordReserveList];
-//    }];
-//    
-//    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
-//}
-
 
 #pragma mark - 녹화 예약 목록 가져오는 전문
 - (void)requestWithGetRecordReserveList
@@ -583,8 +535,6 @@
     if ( self.nGenreCode == 1 )
     {
         // 선호 체널이면
-        //        CMDBDataManager *manager = [CMDBDataManager sharedInstance];
-        
         [self.pChannelListArr removeObjectAtIndex:nTag];
         
     }

@@ -964,12 +964,6 @@
             switch (self.nStep1BtnTag) {
                 case VOD_BUY_VIEW_BTN_01:
                 {
-//                    if ( !([[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
-//                           [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Package"]) )
-//                        return;
-                    // 일단 묶음일땐 return
-//                    if ( [[[self.pProductArr objectAtIndex:0] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
-//                        return;
                     
                     sStep1 = self.pStep1SubView02MoneyLbl.text;
                     sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
@@ -983,12 +977,6 @@
                 }break;
                 case VOD_BUY_VIEW_BTN_02:
                 {
-//                    if ( !([[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
-//                           [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Package"]) )
-//                        return;
-//                    if ( [[[self.pProductArr objectAtIndex:1] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
-//                        return;
-                    
                     sStep1 = self.pStep1SubView03MoneyLbl.text;
                     sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
                     sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"," withString:@""];
@@ -1000,12 +988,6 @@
                 }break;
                 case VOD_BUY_VIEW_BTN_03:
                 {
-//                    if ( !([[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"RVOD"] ||
-//                           [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Package"]) )
-//                        return;
-//                    if ( [[[self.pProductArr objectAtIndex:2] objectForKey:@"productType"] isEqualToString:@"Bundle"] )
-//                        return;
-                    
                     sStep1 = self.pStep1SubView04MoneyLbl.text;
                     sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
                     sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"," withString:@""];
@@ -1043,8 +1025,6 @@
                 case VOD_BUY_VIEW_BTN_05:
                 {
                     // 쿠폰 결제인데 복합결제이면
-                   
-                    
                     if ( self.isDiscount == YES )
                     {
                         sNormalPrice = self.pStep2SubView02MoneyLbl02.text;

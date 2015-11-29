@@ -21,13 +21,6 @@
     self.pDic = [dic copy];
     self.pThreeDepthCloseLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"categoryName"]];
     
-//    NSString *sDepth = [NSString stringWithFormat:@"%@", dic[@"depth"]];
-//    if ([sDepth isEqualToString:@"0"]) {
-//        self.pThreeDepthCloseImg.hidden = NO;
-//    }
-//    else {
-//        self.pThreeDepthCloseImg.hidden = YES;
-//    }
     if ( [[dic objectForKeyedSubscript:@"leaf"] isEqualToString:@"0"] )
     {
         self.pThreeDepthCloseImg.hidden = NO;

@@ -137,9 +137,6 @@
         self.pLicenseEndLbl.hidden = YES;
         self.pPriceLbl.hidden = YES;
         self.pCouponImageView.hidden = YES;
-//        self.pTitleLbl.frame= CGRectMake(self.pTitleLbl.frame.origin.x, 22, self.pTitleLbl.frame.size.width, self.pTitleLbl.frame.size.height);
-        
-        
     }
     
 }

@@ -159,13 +159,10 @@
             else
                 self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
             
-            
             self.pSubTabBtn01.selected = YES;
             self.pSubTabBtn02.selected = NO;
             self.leftTabLayout.constant = 2;
             self.rightTabLayout.constant = 1;
-            
-            
             
             [self.pSubTableView01 reloadData];
         }break;
@@ -466,16 +463,6 @@
     return 1;
 }
 
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return YES;
-//}
-
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        DDLogError(@"delete");
-//    }
-//}
-
 #pragma mark - 전문
 #pragma mark - 구매목록
 - (void)requestWithGetValidPurchaseLogList
@@ -486,7 +473,6 @@
         
         [self.pValidPurchaseLogListMoblieArr removeAllObjects];
         [self.pValidPurchaseLogListTvArr removeAllObjects];
-//        [self.pValidPurchaseLogListArr setArray:[[[myCm objectAtIndex:0] objectForKey:@"purchaseLogList"] objectForKey:@"purchaseLog"]];
         
         NSObject *itemObject = [[[myCm objectAtIndex:0] objectForKey:@"purchaseLogList"] objectForKey:@"purchaseLog"];
         

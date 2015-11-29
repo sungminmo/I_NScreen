@@ -41,7 +41,6 @@
     self.seriesImageView.hidden = false;
     self.titleLabel.text = self.pTitleStr;
     self.pSeriesListArr = [[NSMutableArray alloc] init];
-//    self.pSeriesReserveListArr = [[NSMutableArray alloc] init];
     
     if ( self.isTapCheck == YES )
     {
@@ -49,7 +48,6 @@
     }
     else
     {
-//        [self requestWithGetRecordReservelistSeries];
         [self.pTableView reloadData];
     }
     
@@ -133,12 +131,6 @@
                             // 단편삭제
                             [self requestWithSetRecordDeleWithIndex:(int)indexPath.row];
                         }
-//                        else if ( buttonIndex == 2 )
-//                        {
-//                            // 시리즈 전체 삭제
-//                            [self requestWithSetRecordSeriesDeleWithIndex:(int)indexPath.row];
-//                        }
-                        
                     }];
         }
         else
@@ -294,9 +286,6 @@
         
         if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
-            //            [self requestWithGetSetTopStatus];
-//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
-//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약설정" forKey:@"deleState"];
             [self.pSeriesReserveListArr removeObjectAtIndex:nIndex];
             [self.pTableView reloadData];
         }

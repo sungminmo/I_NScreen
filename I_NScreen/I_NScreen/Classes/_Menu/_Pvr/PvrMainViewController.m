@@ -63,8 +63,6 @@
 #pragma mark - 화면 초기화
 -(void)setViewInit
 {
-//    self.isListCheck = NO;
-//    self.isReservCheck = NO;
     self.isTabCheck = NO;
     self.pListArr = [[NSMutableArray alloc] init];
     self.pReservListArr = [[NSMutableArray alloc] init];
@@ -110,7 +108,6 @@
             [self.pReservationBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.pListBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
-//            [self requestWithRecordReservelist];
             [self requestWithGetSetTopStatus];
         }break;
         case PVR_MAIN_VIEW_BTN_03:
@@ -124,7 +121,6 @@
             [self.pListBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             
             [self requestWithRecordList];
-//            [self requestWithGetSetTopStatus];
         }break;
     }
 }
@@ -471,7 +467,6 @@
         [self.pPvringListArr addObject:sRecordingchannel1];
         [self.pPvringListArr addObject:sRecordingchannel2];
         
-//        [self requestWithRecordList];
         [self requestWithRecordReservelist];
     }];
     

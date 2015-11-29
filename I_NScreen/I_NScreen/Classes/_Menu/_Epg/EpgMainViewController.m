@@ -191,8 +191,6 @@
         }
         
         [self requestWithGetSetTopStatus];
-        
-//        [self.pTableView reloadData];
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -212,7 +210,6 @@
         [self.pListDataArr removeAllObjects];
         [self.pListDataArr setArray:[[epgs objectAtIndex:0] objectForKey:@"channelItem"]];
         
-//        [self.pTableView reloadData];
         [self requestWithGetSetTopStatus];
     }];
     
@@ -237,7 +234,6 @@
         [self.recordingchannelArr addObject:sRecordingchannel1];
         [self.recordingchannelArr addObject:sRecordingchannel2];
         
-//        [self requestWithChannelSchedule];
         DDLogError(@"녹화중 체크 = [%@]", self.recordingchannelArr );
         
         [self requestWithGetRecordReserveList];
@@ -382,8 +378,7 @@
     if ( self.nGenreCode == 1 )
     {
         // 선호 체널이면
-//        CMDBDataManager *manager = [CMDBDataManager sharedInstance];
-        
+
         [self.pListDataArr removeObjectAtIndex:nTag];
         
     }

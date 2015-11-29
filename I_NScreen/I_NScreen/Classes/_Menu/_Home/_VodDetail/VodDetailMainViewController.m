@@ -75,12 +75,10 @@
     self.pWatchBtn21.tag = VOD_DETAIL_MAIN_VIEW_BTN_01;    // 시청하기
     
     self.pReviewBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_02;   // 미리보기
-//    self.pWatchBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_03;    // 시청하기
     self.pBuyBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_03;       // 구매하기
     self.pZzimBtn22.tag = VOD_DETAIL_MAIN_VIEW_BTN_04;     // 찜하기
     
     self.pReviewBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_05;   // 미리보기
-//    self.pWatchBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_06;    // 시청하기
     self.pBuyBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_06;       // 구매하기
     self.pZzimBtn23.tag = VOD_DETAIL_MAIN_VIEW_BTN_07;     // 찜하기
     
@@ -427,7 +425,6 @@ static int tvFontSize = 15;
     // 하드코딩 토탈 카운터 3개만 하자
     NSMutableArray *pControllers = [[NSMutableArray alloc] init];
     
-//        int nTotalCount = 0;
     int nTotalCount = (int)[self.pContentGroupArr count];
     
     if ( nTotalCount >= 5 )
@@ -449,8 +446,7 @@ static int tvFontSize = 15;
     self.pScrollView.showsVerticalScrollIndicator = NO;
     self.pScrollView.scrollsToTop = NO;
     self.pScrollView.delegate = self;
-//    int nWith = [UIScreen mainScreen].bounds.size.width;
-//    self.pScrollView.frame = CGRectMake(6, 10, nWith - 12, 100);
+    
     self.pScrollView.backgroundColor = [UIColor clearColor];
     
     [self banLoadScrollViewWithPage:0];
@@ -460,8 +456,6 @@ static int tvFontSize = 15;
 #pragma mark - 배너 페이지 전환
 - (void)banLoadScrollViewWithPage:(NSInteger )page
 {
-//        int nTotalCount = 0;
-    
     int nTotalCount = (int)[self.pContentGroupArr count];
     
     if ( nTotalCount >= 5 )
@@ -530,7 +524,6 @@ static int tvFontSize = 15;
         self.isZzimCheck = NO;
         for ( NSDictionary *dic in self.pGetWishListArr )
         {
-//            NSString *sAssetId = [NSString stringWithFormat:@"%@", [[[[dic objectForKey:@"wishItemList"] objectForKey:@"wishItem"] objectForKey:@"asset"] objectForKey:@"assetId"]];
             NSString *sAssetId = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"asset"] objectForKey:@"assetId"]];
             
             if ( [self.pAssetIdStr isEqualToString:sAssetId] )
@@ -603,7 +596,6 @@ static int tvFontSize = 15;
         
         NSObject* itemObject = [[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"];
         
-//        [self.pSeriesDataArr setArray:[[[vod objectAtIndex:0] objectForKey:@"assetList"] objectForKey:@"asset"]];
         if ([itemObject isKindOfClass:[NSDictionary class]]) {
             
             [self.pSeriesDataArr addObject:(NSDictionary *)itemObject];
@@ -619,7 +611,6 @@ static int tvFontSize = 15;
         NSString *sSeriesEndIndex = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"seriesEndIndex"]];
         NSString *sTotalCount = [NSString stringWithFormat:@"%@", [[vod objectAtIndex:0] objectForKey:@"totalAssetCount"]];
         
-        int nSeriesEndIndex = [sSeriesEndIndex intValue];
         int nTotalCount = [sTotalCount intValue];
         
         if ( [sSeriesEndIndex isEqualToString:sTotalCount] )
@@ -693,8 +684,6 @@ static int tvFontSize = 15;
         [dic setDictionary:self.pAssetInfoDic];
         sSeriesCurIndex = [NSString stringWithFormat:@"%@", [[dic objectForKey:@"asset"] objectForKey:@"seriesCurIndex"]];
     }
-    
-    
     
     int nSeriesCurIndex = [sSeriesCurIndex intValue];
     
@@ -869,10 +858,6 @@ static int tvFontSize = 15;
 #pragma mark - 상세 데이터에 따라 화면 셋팅
 - (void)setResponseViewInit
 {
-    
-    NSString *sSeriesLink = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"seriesLink"]];     // 시리즈 인지 아닌지
-//    BOOL isPurchasedId = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"purchasedId"];      // 구매하기 인지 아닌지
- 
     NSString *sRating = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"rating"];    // 시청 등급
     
     NSString *sReviewRatingTotal = [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"reviewRatingTotal"];  // 전체 별표
@@ -981,7 +966,6 @@ static int tvFontSize = 15;
     }
     else if ( [productObj isKindOfClass:[NSArray class]] )
     {
-//        sPurchasedTime = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"purchasedTime"]];
         sPurchasedTime = @"";
         
         for ( NSDictionary *purDic in  (NSArray *)productObj )
@@ -1119,154 +1103,6 @@ static int tvFontSize = 15;
             [self setViewInit26];
         }
     }
-
-    
-//    if ( [sSeriesLink isEqualToString:@"0"] )
-//    {
-//        // 시리즈가 아니다
-//        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
-//        {
-//            // 구매 안한 사용자
-//            [self setViewInit22];
-//            if ( [sPreviewPeriod isEqualToString:@"0"] )
-//            {
-//                // 미리보기 없음
-//                self.pReviewBtn22.hidden = YES;
-//                
-//                if ( self.isZzimCheck == YES )
-//                {
-//                    
-//                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
-//                }
-//                else
-//                {
-//                    
-//                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
-//                }
-//                
-//                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
-//                                                                       attribute:NSLayoutAttributeLeft
-//                                                                       relatedBy:NSLayoutRelationEqual
-//                                                                          toItem:self.pBuyBtn22
-//                                                                       attribute:NSLayoutAttributeLeft
-//                                                                      multiplier:1.0 constant:-12];
-//                
-//                [self.view addConstraints:@[c_1]];
-//            }
-//        }
-//        else
-//        {
-//            // 구매 한 사용자
-//            if ( [sPublicationRight isEqualToString:@"2"] )
-//            {
-//                // 모바일 시청 가능
-//                [self setViewInit21];
-//            }
-//            else
-//            {
-//                // 1 tv 시청 가능
-//                [self setViewInit26];
-//            }
-//        }
-//    }
-//    else
-//    {
-//        int nTag = 0;
-//        // 시리즈다
-//        if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
-//        {
-//            // 구매안한 사용자
-//            NSString *sProductType = @"";
-//            NSObject* itemObject = [[[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
-//            
-//            if ([itemObject isKindOfClass:[NSDictionary class]]) {
-//                
-//                sProductType = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObject objectForKey:@"productType"]];
-//            
-//            } else if ([itemObject isKindOfClass:[NSArray class]]) {
-//                
-//                sProductType = [NSString stringWithFormat:@"%@", [[(NSArray *)itemObject objectAtIndex:0] objectForKey:@"productType"]];
-//                
-//            }
-//            
-////            NSString *sProductType = [NSString stringWithFormat:@"%@", [[[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"productType"]]; // 무료시청 체크 FOD 이면 무료 시청
-//   
-//            
-//            if ( [sProductType isEqualToString:@"FOD"] )
-//            {
-//                // 무료시청
-//                nTag = 24;
-//                [self setViewInit24];
-//            }
-//            else
-//            {
-//                nTag = 23;
-//                [self setViewInit23];
-//            }
-//            
-//            
-//            
-//            if ( [sPreviewPeriod isEqualToString:@"0"] )    // 체크 말고 모바일 일때 미리보기 노출 아니면 미리보기 노출 안됨
-//            {
-//                // 미리보기 없음
-//                self.pReviewBtn23.hidden = YES;
-//                
-//                if ( self.isZzimCheck == YES )
-//                {
-//                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
-//                }
-//                else
-//                {
-//                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
-//                }
-//                
-//                
-//                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
-//                                                                       attribute:NSLayoutAttributeLeft
-//                                                                       relatedBy:NSLayoutRelationEqual
-//                                                                          toItem:self.pBuyBtn23
-//                                                                       attribute:NSLayoutAttributeLeft
-//                                                                      multiplier:1.0 constant:-12];
-//        
-//                [self.view addConstraints:@[c_1]];
-//            }
-//        }
-//        else
-//        {
-//            // 구매한 사용자
-//            
-//            if ( [sPublicationRight isEqualToString:@"2"] )
-//            {
-//                nTag = 24;
-//                // 모바일 시청 가능
-//                [self setViewInit24];
-//                
-//            }
-//            else
-//            {
-//                nTag = 25;
-//                // 1 tv 시청 가능
-//                [self setViewInit25];
-//            }
-//        }
-//        
-//        [self requestWithGetSeriesAssetListWithViewTag:nTag];
-//    }
-    
-    
-    
-    // 시청기간 다시 봐야 함
-//    NSString *sSeeDay = [NSString stringWithFormat:@"%@", [[[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"] objectForKey:@"viewablePeriod"]];
-//    NSArray *seeDayArr = [sSeeDay componentsSeparatedByString:@" "];
-//    NSString *sNewSeeDay = [NSString stringWithFormat:@"%@", [seeDayArr objectAtIndex:0]];
-//    NSArray *newSeeDayArr = [sNewSeeDay componentsSeparatedByString:@"-"];
-//    if ( [newSeeDayArr count] == 0 )
-//        return;
-//    NSString *sDay = [NSString stringWithFormat:@"%@", [newSeeDayArr objectAtIndex:(int)([newSeeDayArr count] - 1)]];
-//    int nDay = [sDay intValue];
-//    self.pTermLbl.text = [NSString stringWithFormat:@"%d일", nDay];
-    
-    
 }
 
 
@@ -1831,7 +1667,6 @@ static int tvFontSize = 15;
     
     NSString *sSeriesEndIndex = [NSString stringWithFormat:@"%@", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"seriesEndIndex"]];
     
-//    int nSeriesEndIndex = [sSeriesEndIndex intValue];
     int nTotalCount = [self.sTotalCount intValue];
     
     if ( [sSeriesEndIndex isEqualToString:self.sTotalCount] )

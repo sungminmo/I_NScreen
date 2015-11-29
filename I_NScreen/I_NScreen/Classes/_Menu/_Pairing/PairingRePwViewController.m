@@ -73,8 +73,6 @@
         case PAIRING_RE_PW_VIEW_BTN_03:
         {
             // 다음 단계
-//            PairingAuthViewController *pViewController = [[PairingAuthViewController alloc] initWithNibName:@"PairingAuthViewController" bundle:nil];
-//            [self.navigationController pushViewController:pViewController animated:YES];
             if ( [self.pPwTextField.text length] < 4 )
             {
                 [SIAlertView alert:@"셋탑박스 등록" message:@"구매 비밀번호는 최소 4자리 이상 숫자+영문으로\n최대 20자리 까지 입력 가능 합니다." button:@"확인"];

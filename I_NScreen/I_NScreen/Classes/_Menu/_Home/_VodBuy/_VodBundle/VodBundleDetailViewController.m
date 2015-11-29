@@ -78,12 +78,6 @@
         
         if ( [vod count] == 0 )
             return;
-//        [self.pAssetInfoDic removeAllObjects];
-//        [self.pAssetInfoDic setDictionary:[vod objectAtIndex:0]];
-//        
-//        self.pFileNameStr = [NSString stringWithFormat:@"%@", [[[vod objectAtIndex:0] objectForKey:@"asset"] objectForKey:@"fileName"]];
-//        
-//        [self setResponseViewInit];
         
         self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [[[vod objectAtIndex:0] objectForKey:@"asset"] objectForKey:@"title"]];
         

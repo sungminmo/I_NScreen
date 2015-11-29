@@ -82,9 +82,6 @@
             {
                 [self requestWithPairingAuth];
             }
-            
-//            PairingFinishViewController *pViewController = [[PairingFinishViewController alloc] initWithNibName:@"PairingFinishViewController" bundle:nil];
-//            [self.navigationController pushViewController:pViewController animated:YES];
         }break;
     }
 }

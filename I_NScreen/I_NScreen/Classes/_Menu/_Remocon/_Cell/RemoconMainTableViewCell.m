@@ -83,13 +83,7 @@
     NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelLogoImg"]];
     [self.pChannelLogoImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     
-//    self.pAllImageView.hidden = index%2 == 0 ? true : false;
-//    self.pHdImageView.hidden = index%2 == 0 ? true : false;
-    
     NSString *sProgramGrade = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramGrade"]];
-    NSString *sChannelInfo = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelInfo"]];
-    
-    
     if ( [sProgramGrade isEqualToString:@"모두 시청"] )
     {
         self.pAllImageView.image = [UIImage imageNamed:@"all.png"];

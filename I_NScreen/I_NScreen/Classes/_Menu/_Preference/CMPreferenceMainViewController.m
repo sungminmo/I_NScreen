@@ -108,19 +108,8 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 #pragma mark - Event
 - (void)adultAuthorizationSuccessAfterEventWithSwitchButton:(UISwitch*)swButton value:(BOOL)isOn {
 
-//    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-//    CMContentsRestrictedType type = isOn?CMContentsRestrictedTypeAdult:CMContentsRestrictedTypeNone;
-//    
-//    [ud setRestrictType:type];
-//    [ud synchronize];
-//    
     [[CMAppManager sharedInstance] setKeychainAdultLimit:!isOn];
-    
-//    //성인인증 성공하면 변경
-//    @synchronized(self) {
-//        [swButton setOn:isOn animated:NO];
-//    }
-    
+
     self.switchButton = nil;
     self.isSwitchOn = isOn;
 }

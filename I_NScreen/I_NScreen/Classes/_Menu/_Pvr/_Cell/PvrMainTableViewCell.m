@@ -52,62 +52,6 @@
         self.pLineImageView01.hidden = NO;
     }
     
-//    NSString *sLogUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"Channel_logo_img"]];
-//    [self.logoImageView setImageWithURL:[NSURL URLWithString:sLogUrl]];
-//    
-//    self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ProgramName"]];
-    
-    // 일단 녹화 시간으로 적어 놓고 바꿔야 함
-//    NSString *sTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordEndTime"]];
-//    NSArray *timeArr = [sTime componentsSeparatedByString:@" "];
-//    
-//    self.pDayLbl.text = [NSString stringWithFormat:@"%@", [timeArr objectAtIndex:0]];
-//    self.pTimeLbl.text = [NSString stringWithFormat:@"%@", [timeArr objectAtIndex:1]];
-    
-#warning TEST
-    
-//    BOOL series = index%2;  //  시리즈 여부 테스트값
-//    if (series) {
-//        
-//        self.seriesImageView.hidden = false;
-//        self.dateLabel.hidden = true;
-//        self.timeLabel.hidden = true;
-//    } else {
-//        self.seriesImageView.hidden = true;
-//        self.dateLabel.hidden = false;
-//        self.timeLabel.hidden = false;
-//        
-//        self.dateLabel.text = @"10.10 (금)";
-//        self.timeLabel.text = @"11:11";
-//    }
-//    
-//    BOOL rec = index%2; //  녹화 여부 테스트값
-//    if (rec) {
-//        self.recImageView.hidden = false;
-//        self.progressView.hidden = false;
-//        
-//        [self.progressView reset];
-//        [self.progressView setProgressRatio:0.9 animated:YES];
-//    } else {
-//        self.recImageView.hidden = true;
-//        self.progressView.hidden = true;
-//    }
-    
-//    NSString *sSeriesId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"SeriesId"]];
-//    if ( [sSeriesId isEqualToString:@"NULL"] )
-//    {
-//        // 단편
-//        self.seriesImageView.hidden = YES;
-//        self.dateLabel.hidden = NO;
-//        self.timeLabel.hidden = NO;
-//    }
-//    else
-//    {
-//        // 시리즈
-//        self.seriesImageView.hidden = NO;
-//        self.dateLabel.hidden = YES;
-//        self.timeLabel.hidden = YES;
-//    }
     if ( isRecordCheck == YES )
     {
         // 녹화중
@@ -172,8 +116,6 @@
     NSString *sEnd = [NSString stringWithFormat:@"%@:%@", [endArr2 objectAtIndex:0], [endArr2 objectAtIndex:1]];
     
     progressFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd];
-    
-    //    [self.progressView setProgressRatio: animated:YES];
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
@@ -275,8 +217,6 @@
     NSString *sEnd = [NSString stringWithFormat:@"%@:%@", [endArr2 objectAtIndex:0], [endArr2 objectAtIndex:1]];
     
     CGFloat progressFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd];
-    
-    //    [self.progressView setProgressRatio: animated:YES];
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];

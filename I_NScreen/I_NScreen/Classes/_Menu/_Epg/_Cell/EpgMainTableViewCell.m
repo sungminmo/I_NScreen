@@ -37,9 +37,6 @@
     
     self.nIndex = index;
     
-//    self.pChannelLbl.text = [NSString stringWithFormat:@"%d", index];
-//    self.pChannelTitleLbl.text = [NSString stringWithFormat:@"뉴스파이터 %d", index];
-    
     if ( isWatch == YES )
     {
         // 시청예약중
@@ -68,7 +65,6 @@
     NSString *sChannelNumber = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelNumber"]];
     NSString *sChannelProgramOnAirTitle = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramOnAirTitle"]];
     NSString *sProgramGrade = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramGrade"]];
-    NSString *sChannelInfo = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelInfo"]];
     
     [self.pLogoImageView setImageWithURL:[NSURL URLWithString:sChannelLog]];
     self.pChannelLbl.text = sChannelNumber;

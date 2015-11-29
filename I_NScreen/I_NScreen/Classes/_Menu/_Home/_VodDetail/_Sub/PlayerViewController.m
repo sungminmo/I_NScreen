@@ -209,7 +209,6 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
 {
     if ( [[self.pDrmDic objectForKey:@"contentUri"] length] == 0 )
     {
-//        [SIAlertView alert:@"알림" message:@"유효하지 않은 콘텐츠입니다. 고객센터로 문의바랍니다." button:nil];
         [SIAlertView alert:@"VOD 시청 안내"
                    message:@"구매하신 VOD는 모바일용으로 준비 중에 있습니다.\n빠른 시일 내에 모바일에서 시청하실 수 있도록 조치하겠습니다.\n(본 VOD는 TV에서 시청 가능합니다.)"
                     button:@"확인"
@@ -224,7 +223,6 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
     {
         NSMutableString *responseUrl = [NSMutableString string];
         
-        //  contentUri = widevine://cnm.video.toast.com/aaaaaa/b99fd60d-e0a1-465f-8641-b8276b3f1b8a.wvm; 데이터가 이렇게 내려옴 http 로 바꿔야 함
         NSString *sContentUrl = [NSString stringWithFormat:@"%@", [self.pDrmDic objectForKey:@"contentUri"]];
         NSString *sNewContentUrl = [sContentUrl stringByReplacingOccurrencesOfString:@"widevine" withString:@"http"];
 

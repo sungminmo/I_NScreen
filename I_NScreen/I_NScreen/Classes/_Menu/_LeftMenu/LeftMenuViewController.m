@@ -39,8 +39,6 @@
     
     [UIView setOuterLine:self.upperView direction:HMOuterLineDirectionTop|HMOuterLineDirectionBottom lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
 
- 
-//    if ( [[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_UUID_KEY] == NULL )
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     if ( [manager getPairingCheck] == NO )
     {
@@ -62,21 +60,6 @@
 
 #pragma mark - ui change
 - (void)changePairingCondition:(BOOL)isPairing {
-//    if (isPairing == NO) {
-//        self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_before.png"];
-//        [self.pairingButton setTitle:@"셋탑박스 연동하기" forState:UIControlStateNormal];
-//        self.pairingButton.selected = NO;
-//        self.pairingMessageLabel.text = @"원할한 서비스 이용을 위해\n셋탑박스를 연동해주세요.";
-//    }
-//    else {
-//        self.pairingImageView.image = [UIImage imageNamed:@"icon_pairing_after.png"];
-//        [self.pairingButton setTitle:@"셋탑박스 재연동 " forState:UIControlStateNormal];
-//        self.pairingButton.selected = YES;
-//        self.pairingMessageLabel.text = @"셋탑박스와 연동중입니다.";
-//    }
-    
-//        if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY] length] != 0 ) 일단 테스트라 USERDEFAULT 에 저장하고 나중에 수정
-
     CMDBDataManager* manager= [CMDBDataManager sharedInstance];
     
     if ( [manager getPairingCheck] == YES )
@@ -111,8 +94,6 @@
         [[CMAppManager sharedInstance] onLeftMenuListClose:self];
         self.nTag = 6;
     }
-    
-    ///
 }
 
 
@@ -187,11 +168,6 @@
                 cell.imageView.image = [UIImage imageNamed:@"icon_menu_setting.png"];
                 cell.textLabel.text = @"설정";
             }break;
-                //        case 5://TODO: 임시 나중에 제거
-                //        {
-                //            cell.imageView.image = [UIImage imageNamed:@"icon_menu_remotecontrol.png"];
-                //            cell.textLabel.text = @"검색";
-                //        }break;
         }
     }
     else {
@@ -237,10 +213,6 @@ static NSInteger ivTag = 1212;
     CMDBDataManager* manager= [CMDBDataManager sharedInstance];
     
     if (indexPath.row == 1) {//리모컨
-//        if (NO) {//TODO: 서비스 미가입고객여부 체크해서 조건 수정할 것
-//            [SIAlertView alert:@"안내" message:@"현재 가입하신 상품으로는 이용할 수 없는\n서비스 기능입니다. 가입상품을 확인해주세요."];
-//            return;
-//        }
         // 리모컨 상태 체크
         // 페어링이 안됬으면 진입 불가, HD, PVR 이 아니면 진입 불가
        
@@ -251,8 +223,6 @@ static NSInteger ivTag = 1212;
         }
         else
         {
-//            if ( !([[[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_SET_TOP_BOK_KIND] isEqualToString:@"PVR"] ||
-//                   [[[CMAppManager sharedInstance] getInfoData:CNM_OPEN_API_SET_TOP_BOK_KIND] isEqualToString:@"HD"] ))
             if ( !([[manager getSetTopBoxKind] isEqualToString:@"PVR"] ||
                    [[manager getSetTopBoxKind] isEqualToString:@"HD"] ))
             {

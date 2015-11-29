@@ -123,8 +123,6 @@
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
-    //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contents" ofType:@"json"];
-    
     self.pFourDepthListJsonStr = @"";
 }
 

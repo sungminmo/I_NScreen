@@ -151,9 +151,6 @@
         case EPG_POPUP_VIEW_BTN_04:
         {
             // 닫기
- //           [self.view removeFromSuperview];
-   //         [self willMoveToParentViewController:nil];
-     //       [self removeFromParentViewController];
         }break;
         case EPG_POPUP_VIEW_BTN_02:
         {

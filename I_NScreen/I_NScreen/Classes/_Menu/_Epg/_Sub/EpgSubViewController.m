@@ -57,7 +57,6 @@
     [self setViewInit];
     
     [self requestWithGetSetTopStatus];
-//    [self requestWithChannelSchedule];
 }
 
 #pragma mark - 화면 초기화
@@ -162,8 +161,6 @@
     
     [cell setData:data WithIndex:(int)indexPath.row WithCellState:sCellState];
 
-//    NSString *sMore = @"시청예약설정";
-//    NSString *sDelete = @"녹화 예약 설정";
     NSString *sMore = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"moreState"]];
     NSString *sDele = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"deleState"]];
     
@@ -313,9 +310,6 @@
     else
     {
         // 시청예약인지 아닌지
-        NSString *sSeries = [NSString stringWithFormat:@"%@", [[self.pRecordReservListArr objectAtIndex:nIndex] objectForKey:@"SeriesId"]];
-    
-        
         NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:nIndex] objectForKey:@"programBroadcastingStartTime"]];
         
         //        NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
@@ -338,31 +332,10 @@
         if ( isCheck == YES )
         {
             // 녹화 예약중
-//            if ( [sSeries isEqualToString:@"NULL"] )
-//            {
-//                // 단일
-//                [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:0 WithIndex:nIndex];
-//            }
-//            else
-//            {
-//                // 시리즈
-//                [self requestWithSetRecordCancelReserveWithReserveCancel:@"1" WithSeriesId:sSeries WithIndex:nIndex];
-//            }
             [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:0 WithIndex:nIndex];
         }
         else
         {
-            // 녹화 미예약
-//            if ( [sSeries isEqualToString:@"NULL"] )
-//            {
-//                // 단일
-//                [self requstWithSetRecordReserveWithIndex:nIndex];
-//            }
-//            else
-//            {
-//                // 시리즈
-//                [self requstWithSetRecordSeriesReserveWithSeries:sSeries WithIndex:nIndex];
-//            }
             [self requstWithSetRecordReserveWithIndex:nIndex];
         }
     }
@@ -475,7 +448,6 @@
         
         if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
-//            [self requestWithGetSetTopStatus];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
@@ -502,7 +474,6 @@
         
         if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
-//            [self requestWithGetSetTopStatus];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
@@ -554,7 +525,6 @@
         
         if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
-//            [self requestWithGetSetTopStatus];
             [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"녹화중" forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
             [self.pTableView reloadData];
@@ -630,8 +600,6 @@
         
         if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
-//            [self requestWithGetSetTopStatus];
-            
             [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"" forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
             [self.pTableView reloadData];

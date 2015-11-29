@@ -52,20 +52,6 @@
 }
 
 #pragma mark - Publics
-
-/*
- <channelId>1438</channelId>
- <channelNumber>107</channelNumber>
- <channelName>팬트하우스_HD</channelName>
- <channelInfo>HD</channelInfo>
- <channelLogoImg>http://58.141.255.69:8080/logo/1438.png</channelLogoImg>
- <channelProgramID>S319072039</channelProgramID>
- <channelProgramTime>2015-11-03 01:35:00</channelProgramTime>
- <channelProgramTitle>(일) 이웃집 아가씨 몰래 찍은 동영상</channelProgramTitle>
- <channelProgramSeq>319072039</channelProgramSeq>
- <channelProgramGrade>19세 이상</channelProgramGrade>
- <channelProgramHD>YES</channelProgramHD>
- */
 - (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithStar:(BOOL)isStar WithWatchCheck:(BOOL)isWatch WithRecordingCheck:(BOOL)isRecording WithReservCheck:(BOOL)isReservCheck{
 
     [self resetData];
@@ -117,8 +103,6 @@
     {
         self.gradeImageView.image = [UIImage imageNamed:@""];
     }
-
-    NSString* sChannelInfo = data[@"channelInfo"];
     
     NSString *sChannelProgramHD = data[@"channelProgramHD"];
     
@@ -133,44 +117,11 @@
         // SD
         self.hmImageView.image = [UIImage imageNamed:@"sd.png"];
     }
-    
-//    NSString* hd = data[@"channelProgramHD"];
-//    
-//    if ([hd isEqualToString:@"YES"]) {
-//        self.hmImageView.hidden = NO;
-//    } else {
-//        self.hmImageView.hidden = YES;
-//    }
 }
 
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-//    NSString *sChannelId = self.pDataDic[@"channelId"];
-//    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
-//    RLMArray *ramArr = [manager getFavorChannel];
-//    BOOL isCheck = NO;
-//    
-//    int nCount = 0;
-//    for ( CMFavorChannelInfo *info in ramArr )
-//    {
-//        if ( [info.pChannelId isEqualToString:sChannelId] )
-//        {
-//            isCheck = YES;
-//            [manager removeFavorChannel:nCount];
-//        }
-//        nCount++;
-//    }
-//    
-//    if ( isCheck == NO )
-//    {
-//        [manager setFavorChannel:self.pDataDic];
-//    }
-//    
-//    [self.delegate EpgMainTableViewWithTag:self.nIndex];
-//    NSLog(@"[manager getFavorChannel] = [%@]", [manager getFavorChannel]);
-    
-    
-//    [self.delegate2 CMSearchTableViewCellTag:self.nIndex];
+
 }
 
 #pragma mark - Event

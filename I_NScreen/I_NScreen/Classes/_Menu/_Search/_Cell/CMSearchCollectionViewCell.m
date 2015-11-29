@@ -42,18 +42,6 @@
         self.pAdultImageView.hidden = YES;
     }
 
-    // tv 인지 아닌지 빼자는 요청 사항
-//    if ( isTyOnly == YES )
-//    {
-//        // tv only
-//        self.pTvOnlyImageView.hidden = NO;
-//    }
-//    else
-//    {
-//        // tv 모바일
-//        self.pTvOnlyImageView.hidden = YES;
-//    }
-    
     self.posterImageView.image = nil;
     [self.posterImageView setImageWithURL:[NSURL URLWithString:imageUrl]];
     self.titleLabel.text = title;

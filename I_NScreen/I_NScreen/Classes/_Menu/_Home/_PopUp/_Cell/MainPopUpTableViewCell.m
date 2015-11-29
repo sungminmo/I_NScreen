@@ -21,11 +21,7 @@
     }
 }
 
-- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithOpen:(BOOL)isOpen {
-    
-//    NSString *sLeaf = [NSString stringWithFormat:@"%@", [dic objectForKey:@"leaf"]];
-//    NSString *sDepth = [NSString stringWithFormat:@"depth"];//4
-    
+- (void)setListData:(NSDictionary *)dic WithIndex:(int)index WithOpen:(BOOL)isOpen {   
     self.pDic = [dic copy];
     
     // 4댑스

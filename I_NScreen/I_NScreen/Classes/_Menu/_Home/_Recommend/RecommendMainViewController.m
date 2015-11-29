@@ -657,7 +657,6 @@
             // 수정
             [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"assetId"];
             
-//            [self.pWeekMovieArr addObject:nDic];
             [pArr addObject:nDic];
             
             if ( nIndex % 8 == 0 || nIndex == nTotal)
@@ -731,7 +730,6 @@
             [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"assetId"];
             [nDic setObject:[dic objectForKey:@"mobilePublicationRight"] forKey:@"mobilePublicationRight"];
             
-//            [self.pThisMonthRecommendArr addObject:nDic];
             [pArr addObject:nDic];
             
             if ( nIndex % 8 == 0 || nIndex == nTotal)
