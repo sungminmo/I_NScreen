@@ -16,8 +16,6 @@
 @property (nonatomic, weak) IBOutlet UIImageView *pThumImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *pSaleImageView;
 @property (nonatomic, weak) IBOutlet UILabel *pTitleLbl;
-@property (nonatomic, weak) IBOutlet UILabel *pSugPriceLbl; // 할인전 가격
-@property (nonatomic, weak) IBOutlet UILabel *pPriceLbl;        // 할인 가격
 @property (nonatomic, weak) IBOutlet UILabel *pLicenseTimeLbl;  // 시청 기간
 @property (nonatomic, weak) IBOutlet UIImageView *pTvImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *pMobileImageView;
@@ -183,9 +181,7 @@
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [self.pDetailDic objectForKey:@"productName"]];
-    self.pSugPriceLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] insertComma:[self.pDetailDic objectForKey:@"suggestedPriceTotal"]]];
-    self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] insertComma:[self.pDetailDic objectForKey:@"price"]]];
-    
+   
     NSArray *keyArr = [self.pDetailDic allKeys];
     BOOL isCheck = NO;
     for ( NSString *key in keyArr )
