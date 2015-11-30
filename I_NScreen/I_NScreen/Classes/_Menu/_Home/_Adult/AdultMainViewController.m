@@ -10,6 +10,7 @@
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+VOD.h"
 #import "VodDetailBundleMainViewController.h"
+#import "VodDetailBundleMainViewController.h"
 
 static NSString* const CollectionViewCell = @"CollectionViewCell";
 
@@ -410,6 +411,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             else
             {
                 VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                pViewController.delegate = self;
                 pViewController.pAssetIdStr = sAssetId;
                 pViewController.pEpisodePeerExistence = episodePeerExistence;
                 pViewController.pContentGroupId = contentGroupId;
@@ -441,6 +443,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         else
         {
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.delegate = self;
             pViewController.pAssetIdStr = sAssetId;
             pViewController.pEpisodePeerExistence = episodePeerExistence;
             pViewController.pContentGroupId = contentGroupId;
@@ -501,6 +504,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         {
             // 기존 상세 로직
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.delegate = self;
             pViewController.pAssetIdStr = assetInfo;
             pViewController.pEpisodePeerExistence = episodePeerExistence;
             pViewController.pContentGroupId = contentGroupId;
@@ -511,4 +515,15 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
+
+- (void)VodDetailMainViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId
+{
+    VodDetailBundleMainViewController *pViewController = [[VodDetailBundleMainViewController alloc] initWithNibName:@"VodDetailBundleMainViewController" bundle:nil];
+    pViewController.sAssetId = assetId;
+    pViewController.sEpisodePeerExistence = EpisodePeerExistence;
+    pViewController.sContentGroupId = contentGroupId;
+    pViewController.sProductId = productId;
+    [self.navigationController pushViewController:pViewController animated:YES];
+}
+
 @end

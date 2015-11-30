@@ -1317,6 +1317,12 @@ static int tvFontSize = 15;
     }
 }
 
+- (void)VodBuyViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId
+{
+    [self.navigationController popViewControllerAnimated:NO];
+    [self.delegate VodDetailMainViewWithTag:nTag WithProductId:productId WithAssetId:assetId WithEpisodePeerExistence:EpisodePeerExistence WithContentGroupId:contentGroupId];
+}
+
 #pragma mark - 추가 전문
 #pragma makr - 시리즈 갯수 가져오는 api 새 전문
 - (void)requestWithGetEpisodePeerListByContentGroupId

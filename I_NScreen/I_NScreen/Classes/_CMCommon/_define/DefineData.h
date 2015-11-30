@@ -189,6 +189,12 @@
 #define VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_04  26004   // 번들1
 #define VOD_DETAIL_BUNDLE_MAIN_VIEW_BTN_05  26005   // 번들1
 
+// 일반 결제
+#define BUY_NOMAL_TAG                       27001
+
+// 묶음 결제
+#define BUY_BUNDLE_TAG                      27002
+
 //
 
 /*

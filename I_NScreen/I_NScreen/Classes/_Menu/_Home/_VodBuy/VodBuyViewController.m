@@ -31,11 +31,17 @@
 @property (nonatomic) int nStep2BtnTag;     // 버튼 테그 값
 
 
+@property (nonatomic, strong) NSString *pProductIdStr;
+
 @end
 
 @implementation VodBuyViewController
 @synthesize pDetailDataDic;
 @synthesize delegate;
+
+@synthesize pAssetIdStr;
+@synthesize pEpisodePeerExistence;
+@synthesize pContentGroupId;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -344,6 +350,7 @@
 {
     VodBundleMainViewController *pViewController = [[VodBundleMainViewController alloc] initWithNibName:@"VodBundleMainViewController" bundle:nil];
     pViewController.sProductId = productId;
+    self.pProductIdStr = productId;
     [self.navigationController pushViewController:pViewController animated:YES];
 }
 
@@ -1252,7 +1259,15 @@
 - (void)VodPopUpViewWithTag:(int)nTag
 {
     [self.navigationController popViewControllerAnimated:YES];
-    [self.delegate VodBuyViewWithTag:0];
+    
+    
+    [self.delegate VodBuyViewWithTag:nTag];
+}
+
+- (void)VodPopUpViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate VodBuyViewWithTag:nTag WithProductId:productId WithAssetId:assetId WithEpisodePeerExistence:EpisodePeerExistence WithContentGroupId:contentGroupId];
 }
 
 @end

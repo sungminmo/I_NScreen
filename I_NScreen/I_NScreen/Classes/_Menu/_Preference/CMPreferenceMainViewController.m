@@ -59,6 +59,11 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 //                                                          NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
 //                                                          [ud setAdultCertYN:CMAdultCertificationSuccess];
 //                                                          [ud synchronize];
+                                                          
+                                                          
+                                                          //Application 관련 딜리게이트가 제대로 종료되도록 약간의 딜레이가 필요하다.
+                                                          [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
+                                                          
                                                           [[CMAppManager sharedInstance] setKeychainAdultCertification:YES];
                                                           
                                                           if (self.switchButton != nil) {

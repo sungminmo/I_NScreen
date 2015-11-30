@@ -78,6 +78,13 @@
 
 @property (nonatomic, strong) NSMutableDictionary *pDetailDataDic;
 
+// 묶음 결제시 필요값
+@property (nonatomic, strong) NSString *pAssetIdStr;
+@property (nonatomic, strong) NSString *pEpisodePeerExistence;
+@property (nonatomic, strong) NSString *pContentGroupId;
+
+//
+
 @property (nonatomic, weak) id <VodBuyViewDelegate>delegate;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
@@ -88,5 +95,5 @@
 
 @optional
 - (void)VodBuyViewWithTag:(int)nTag;
-
+- (void)VodBuyViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId;
 @end

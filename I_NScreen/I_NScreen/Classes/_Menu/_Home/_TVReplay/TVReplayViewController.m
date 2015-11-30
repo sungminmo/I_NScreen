@@ -9,6 +9,7 @@
 #import "TVReplayViewController.h"
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+VOD.h"
+#import "VodDetailBundleMainViewController.h"
 
 static NSString* const CollectionViewCell = @"CollectionViewCell";
 
@@ -405,6 +406,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         {
             // 인증 받았으면
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.delegate = self;
             pViewController.pAssetIdStr = sAssetId;
             pViewController.pEpisodePeerExistence = episodePeerExistence;
             pViewController.pContentGroupId = contentGroupId;
@@ -427,11 +429,22 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     else
     {
         VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+        pViewController.delegate = self;
         pViewController.pAssetIdStr = sAssetId;
         pViewController.pEpisodePeerExistence = episodePeerExistence;
         pViewController.pContentGroupId = contentGroupId;
         [self.navigationController pushViewController:pViewController animated:YES];
     }
+}
+
+- (void)VodDetailMainViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId
+{
+    VodDetailBundleMainViewController *pViewController = [[VodDetailBundleMainViewController alloc] initWithNibName:@"VodDetailBundleMainViewController" bundle:nil];
+    pViewController.sAssetId = assetId;
+    pViewController.sEpisodePeerExistence = EpisodePeerExistence;
+    pViewController.sContentGroupId = contentGroupId;
+    pViewController.sProductId = productId;
+    [self.navigationController pushViewController:pViewController animated:YES];
 }
 
 @end

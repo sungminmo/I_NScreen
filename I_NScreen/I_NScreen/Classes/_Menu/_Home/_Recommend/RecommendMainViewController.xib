@@ -154,7 +154,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-k2-N1j">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-k2-N1j">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <animations/>
                     <constraints>
@@ -242,7 +242,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fQ-74I">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-fQ-74I">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <animations/>
                     <constraints>
@@ -324,7 +324,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vev-KQ-AFE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vev-KQ-AFE">
                     <rect key="frame" x="396" y="18" width="7" height="14"/>
                     <animations/>
                     <constraints>

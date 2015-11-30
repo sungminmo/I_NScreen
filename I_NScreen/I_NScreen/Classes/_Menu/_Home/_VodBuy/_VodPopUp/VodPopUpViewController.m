@@ -31,6 +31,10 @@
 @synthesize sGoodId;
 @synthesize sProductType;
 
+@synthesize sAssetId;
+@synthesize sEpisodePeerExistence;
+@synthesize sContentGroupId;
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -235,7 +239,7 @@
             [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                
                 
-                [self.delegate VodPopUpViewWithTag:0];
+                [self.delegate VodPopUpViewWithTag:BUY_NOMAL_TAG];
             }];
         }
     }];
@@ -265,7 +269,7 @@
         {
             [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 
-                [self.delegate VodPopUpViewWithTag:0];
+                [self.delegate VodPopUpViewWithTag:BUY_NOMAL_TAG];
             }];
         }
     }];
@@ -293,7 +297,7 @@
             [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 
                
-                [self.delegate VodPopUpViewWithTag:0];
+                [self.delegate VodPopUpViewWithTag:BUY_NOMAL_TAG];
             }];
         }
     }];
@@ -324,7 +328,7 @@
             [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                
                
-                [self.delegate VodPopUpViewWithTag:0];
+                [self.delegate VodPopUpViewWithTag:BUY_NOMAL_TAG];
                 
             }];
         }
@@ -350,7 +354,8 @@
             [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 
                 
-                [self.delegate VodPopUpViewWithTag:0];
+//                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG];
+                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
             }];
         }
     }];
@@ -374,7 +379,8 @@
         {
             [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 
-                [self.delegate VodPopUpViewWithTag:0];
+//                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG];
+                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
             }];
         }
     }];
@@ -400,7 +406,8 @@
             [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 
                 
-                [self.delegate VodPopUpViewWithTag:0];
+//                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG];
+                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
             }];
         }
     }];
@@ -431,7 +438,8 @@
             [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 
                 
-                [self.delegate VodPopUpViewWithTag:0];
+//                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG];
+                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
                 
             }];
         }

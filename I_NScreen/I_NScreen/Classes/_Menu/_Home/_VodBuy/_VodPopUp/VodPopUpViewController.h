@@ -51,6 +51,10 @@ typedef enum : NSInteger {
 @property (nonatomic, strong) NSString *sGoodId;
 @property (nonatomic, strong) NSString *sProductType;
 
+@property (nonatomic, strong) NSString *sAssetId;
+@property (nonatomic, strong) NSString *sEpisodePeerExistence;
+@property (nonatomic, strong) NSString *sContentGroupId;
+
 @property (nonatomic, weak) id <VodPopUpViewDelegate>delegate;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
@@ -61,5 +65,6 @@ typedef enum : NSInteger {
 
 @optional
 - (void)VodPopUpViewWithTag:(int)nTag;
+- (void)VodPopUpViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId;
 
 @end

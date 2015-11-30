@@ -820,13 +820,17 @@
 #pragma mark - VodDetailViewController 델리게이트
 - (void)VodDetailMainViewWithTag:(int)nTag
 {
-    switch (nTag) {
-        case VOD_BUY_VIEW_BTN_08:
-        {
-            [self.delegate RecommendMainViewWithTag:VOD_BUY_VIEW_BTN_08];
-        }break;
-         
-    }
+    [self.delegate RecommendMainViewWithTag:VOD_BUY_VIEW_BTN_08];
+}
+
+- (void)VodDetailMainViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId
+{
+    VodDetailBundleMainViewController *pViewController = [[VodDetailBundleMainViewController alloc] initWithNibName:@"VodDetailBundleMainViewController" bundle:nil];
+    pViewController.sAssetId = assetId;
+    pViewController.sEpisodePeerExistence = EpisodePeerExistence;
+    pViewController.sContentGroupId = contentGroupId;
+    pViewController.sProductId = productId;
+    [self.navigationController pushViewController:pViewController animated:YES];
 }
 
 #pragma mark - vod 상세 bundle 이며 구매 여부를 가져오기 위해 호출

@@ -103,4 +103,6 @@
 @optional
 - (void)VodDetailMainViewWithTag:(int)nTag;
 
+- (void)VodDetailMainViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId;
+
 @end

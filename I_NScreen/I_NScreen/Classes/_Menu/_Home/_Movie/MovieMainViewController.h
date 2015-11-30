@@ -14,7 +14,7 @@
 
 @protocol MovieMainViewDelegate;
 
-@interface MovieMainViewController : CMBaseViewController<CMHomeCommonCollectionViewCellDelegate>
+@interface MovieMainViewController : CMBaseViewController<CMHomeCommonCollectionViewCellDelegate, VodDetailMainViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *pView01; // 버튼 뷰
 @property (nonatomic, strong) IBOutlet UIButton *pDepthBtn; // 댑스 버튼
