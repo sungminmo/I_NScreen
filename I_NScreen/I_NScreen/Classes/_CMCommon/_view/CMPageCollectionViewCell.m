@@ -187,6 +187,7 @@
     
     if ( [sRating isEqualToString:@"19"] )
     {
+        
         if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
         {
             // 성인 인증을 받았으면 딤 해제

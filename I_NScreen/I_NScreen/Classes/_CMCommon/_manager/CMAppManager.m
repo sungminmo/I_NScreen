@@ -292,6 +292,8 @@
 #pragma mark - 유니크 성인 인증 여부 체크 get
 - (BOOL)getKeychainAdultCertification
 {
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
+    
     BOOL isAdult = NO;
     if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_ADULT_CERTIFICATION] isEqualToString:@"YES"] )
         isAdult = YES;
