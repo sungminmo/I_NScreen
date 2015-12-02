@@ -111,6 +111,26 @@
         self.acodeClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 
         
+        [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            DDLogDebug(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
+            switch (status) {
+                case AFNetworkReachabilityStatusReachableViaWWAN:
+                case AFNetworkReachabilityStatusReachableViaWiFi:
+                    break;
+                case AFNetworkReachabilityStatusNotReachable:
+                default:
+                    [SIAlertView alert:@"네트워크 오류" message:@"네트워크에 접속할 수 없습니다. 앱을 종료하시겠습니까?" cancel:@"취소" buttons:@[@"확인"] completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        DDLogDebug(@"alert index : %ld", buttonIndex);
+                        if (buttonIndex == 1) {
+                            exit(1);
+                        }
+                    }];
+                    break;
+            }
+        }];
+        [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+        
+        
     }
     return self;
 }
