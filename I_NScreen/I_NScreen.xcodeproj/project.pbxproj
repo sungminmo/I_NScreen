@@ -113,6 +113,9 @@
 		99ECD5891BD5188B00EABA67 /* CMAreaInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD57E1BD5188B00EABA67 /* CMAreaInfo.m */; };
 		99ECD58A1BD5188B00EABA67 /* CMPurchaseAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5801BD5188B00EABA67 /* CMPurchaseAuthorize.m */; };
 		99ECD58B1BD5188B00EABA67 /* CMSearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5821BD5188B00EABA67 /* CMSearchHistory.m */; };
+		99F9BB571C0EE3E900AF8668 /* Appicon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F9BB541C0EE3E900AF8668 /* Appicon58.png */; };
+		99F9BB581C0EE3E900AF8668 /* Appicon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F9BB551C0EE3E900AF8668 /* Appicon80.png */; };
+		99F9BB591C0EE3E900AF8668 /* Appicon87.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F9BB561C0EE3E900AF8668 /* Appicon87.png */; };
 		E511818C1BA7ACF900C1E31D /* EpgPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51181821BA7ACF900C1E31D /* EpgPopUpViewController.m */; };
 		E511818D1BA7ACF900C1E31D /* EpgPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51181831BA7ACF900C1E31D /* EpgPopUpViewController.xib */; };
 		E511818E1BA7ACF900C1E31D /* EpgSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51181871BA7ACF900C1E31D /* EpgSubTableViewCell.m */; };
@@ -173,8 +176,8 @@
 		E570428B1BDF407F00057D10 /* PairingRePwViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57042891BDF407F00057D10 /* PairingRePwViewController.m */; };
 		E570428C1BDF407F00057D10 /* PairingRePwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E570428A1BDF407F00057D10 /* PairingRePwViewController.xib */; };
 		E570428F1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m in Sources */ = {isa = PBXBuildFile; fileRef = E570428E1BDF5B3E00057D10 /* NSMutableDictionary+PVR.m */; };
-		E5774CFD1C0B2C2A002C923A /* VodDetailBundleMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5774CFB1C0B2C2A002C923A /* VodDetailBundleMainViewController.m */; settings = {ASSET_TAGS = (); }; };
-		E5774CFE1C0B2C2A002C923A /* VodDetailBundleMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5774CFC1C0B2C2A002C923A /* VodDetailBundleMainViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		E5774CFD1C0B2C2A002C923A /* VodDetailBundleMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5774CFB1C0B2C2A002C923A /* VodDetailBundleMainViewController.m */; };
+		E5774CFE1C0B2C2A002C923A /* VodDetailBundleMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5774CFC1C0B2C2A002C923A /* VodDetailBundleMainViewController.xib */; };
 		E58690501C08462F0086D69F /* VodBundleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E586904E1C08462F0086D69F /* VodBundleDetailViewController.m */; };
 		E58690511C08462F0086D69F /* VodBundleDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E586904F1C08462F0086D69F /* VodBundleDetailViewController.xib */; };
 		E58C6AF61BE261660024405D /* CMContentGroupCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58C6AF41BE261660024405D /* CMContentGroupCollectionViewController.m */; };
@@ -830,7 +833,6 @@
 		E5E5A2B91BD78A6500A99883 /* TestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */; };
 		E5E5A2BA1BD78A6500A99883 /* TestMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */; };
 		E5E7B5C41BF000D700B78341 /* libWViPhoneAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E7B5C21BF000D700B78341 /* libWViPhoneAPI.a */; };
-		E5E7B5C51BF0019000B78341 /* libcommonCrypto.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A6E2FE1BDDBD45005AC701 /* libcommonCrypto.tbd */; };
 		E5E7B5CE1BF001AB00B78341 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B5C91BF001AB00B78341 /* PlayerViewController.m */; };
 		E5E7B5CF1BF001AB00B78341 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E7B5CA1BF001AB00B78341 /* PlayerViewController.xib */; };
 		E5E7B5D01BF001AB00B78341 /* VodDetailMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B5CC1BF001AB00B78341 /* VodDetailMainViewController.m */; };
@@ -1030,6 +1032,9 @@
 		99ECD5801BD5188B00EABA67 /* CMPurchaseAuthorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPurchaseAuthorize.m; sourceTree = "<group>"; };
 		99ECD5811BD5188B00EABA67 /* CMSearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSearchHistory.h; sourceTree = "<group>"; };
 		99ECD5821BD5188B00EABA67 /* CMSearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSearchHistory.m; sourceTree = "<group>"; };
+		99F9BB541C0EE3E900AF8668 /* Appicon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon58.png; sourceTree = "<group>"; };
+		99F9BB551C0EE3E900AF8668 /* Appicon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon80.png; sourceTree = "<group>"; };
+		99F9BB561C0EE3E900AF8668 /* Appicon87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon87.png; sourceTree = "<group>"; };
 		9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I_NScreen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59B2745D004925EB9E020AE /* Pods-I_NScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.release.xcconfig"; sourceTree = "<group>"; };
 		E51181811BA7ACF900C1E31D /* EpgPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpgPopUpViewController.h; sourceTree = "<group>"; };
@@ -1833,7 +1838,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5B07BC31C042C1E001EE91E /* QuartzCore.framework in Frameworks */,
-				E5E7B5C51BF0019000B78341 /* libcommonCrypto.tbd in Frameworks */,
 				E5E418691BE1AE8200B4DAB3 /* libz.tbd in Frameworks */,
 				E5E418671BE1AE6D00B4DAB3 /* libSystem.tbd in Frameworks */,
 				E5E418661BE1AE6000B4DAB3 /* libresolv.tbd in Frameworks */,
@@ -2492,6 +2496,9 @@
 		E5A6E3221BDE1CC2005AC701 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				99F9BB541C0EE3E900AF8668 /* Appicon58.png */,
+				99F9BB551C0EE3E900AF8668 /* Appicon80.png */,
+				99F9BB561C0EE3E900AF8668 /* Appicon87.png */,
 				E59D7FE31C06D4E9007C9E77 /* Appicon76.png */,
 				E59D7FE41C06D4E9007C9E77 /* Appicon120.png */,
 				E59D7FE51C06D4E9007C9E77 /* Appicon152.png */,
@@ -4099,6 +4106,7 @@
 				E52EE57C1BD508AF00797251 /* PvrSubTableViewCell.xib in Resources */,
 				E5B555391BD9DD3F00AA02B2 /* icon_2depth_open@3x.png in Resources */,
 				E5B5538E1BD9DD3F00AA02B2 /* pwbox.png in Resources */,
+				99F9BB571C0EE3E900AF8668 /* Appicon58.png in Resources */,
 				E5B554501BD9DD3F00AA02B2 /* allch_press@2x.png in Resources */,
 				E5B554B41BD9DD3F00AA02B2 /* moreindicator@3x.png in Resources */,
 				E5B554DD1BD9DD3F00AA02B2 /* indicator@3x.png in Resources */,
@@ -4310,6 +4318,7 @@
 				E5B554E21BD9DD3F00AA02B2 /* icon_left_press@3x.png in Resources */,
 				E5B554AF1BD9DD3F00AA02B2 /* genreshopping_select@3x.png in Resources */,
 				E5B554E41BD9DD3F00AA02B2 /* icon_search_press@3x.png in Resources */,
+				99F9BB581C0EE3E900AF8668 /* Appicon80.png in Resources */,
 				E5B554CC1BD9DD3F00AA02B2 /* icon_monthlypay@3x.png in Resources */,
 				E5B553681BD9DD3F00AA02B2 /* pick.png in Resources */,
 				E5B553451BD9DD3F00AA02B2 /* 19.png in Resources */,
@@ -4409,6 +4418,7 @@
 				E5B554B11BD9DD3F00AA02B2 /* genresports_press@3x.png in Resources */,
 				E5B554F41BD9DD3F00AA02B2 /* fp2btn_ok_press@3x.png in Resources */,
 				E5B555311BD9DD3F00AA02B2 /* 4depth_select@3x.png in Resources */,
+				99F9BB591C0EE3E900AF8668 /* Appicon87.png in Resources */,
 				E5B554231BD9DD3F00AA02B2 /* pick@2x.png in Resources */,
 				2086CDA11BBA24B50065726E /* CMPreferenceMainTableViewCell.xib in Resources */,
 				E5B554291BD9DD3F00AA02B2 /* icon_search_press@2x.png in Resources */,
