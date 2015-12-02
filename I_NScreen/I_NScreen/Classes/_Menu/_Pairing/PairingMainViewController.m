@@ -50,7 +50,7 @@
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-
+    
     switch ([btn tag]) {
         case PAIRING_MAIN_VIEW_BTN_01:
         case PAIRING_MAIN_VIEW_BTN_02:
@@ -69,30 +69,30 @@
             {
                 if ( ![self.pPwTextField.text isEqualToString:self.pRePwTextFiled.text] )
                 {
-                    self.pDiscordLbl.hidden = NO;
                     [self.pRePwTextFiled setTextColor:[UIColor colorWithRed:255.0f/255.0f green:59.0f/255.0f blue:48.0f/255.0f alpha:1.0f]];
                     [self.pRePwTextFiled setBackground:[UIImage imageNamed:@"pwbox_error.png"]];
                 }
                 else
                 {
-                    self.pDiscordLbl.hidden = YES;
                     [self.pRePwTextFiled setTextColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f]];
                     [self.pRePwTextFiled setBackground:[UIImage imageNamed:@"pwbox.png"]];
                     NSString *sPw = [NSString stringWithFormat:@"%@", self.pPwTextField.text];
-//                    [[FXKeychain defaultKeychain] setObject:sPw forKey:CNM_OPEN_API_BUY_PW];  // 이때 저장하면 안됨 
+                    //                    [[FXKeychain defaultKeychain] setObject:sPw forKey:CNM_OPEN_API_BUY_PW];  // 이때 저장하면 안됨
                     // 다음 단계
                     PairingAuthViewController *pViewController = [[PairingAuthViewController alloc] initWithNibName:@"PairingAuthViewController" bundle:nil];
                     pViewController.delegate = self;
                     pViewController.pPwStr = sPw;
                     [self.navigationController pushViewController:pViewController animated:YES];
                 }
-
+                
             }
             
             
         }break;
     }
 }
+
+#pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -153,6 +153,26 @@
     
     return YES;
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSString* pPwText = self.pPwTextField.text;
+    NSString* pRePwText = self.pRePwTextFiled.text;
+    
+    if ( (pPwText != nil && pPwText.length > 0) && (pRePwText != nil && pRePwText.length > 0) ) {
+        
+        if ([pPwText isEqualToString:pRePwText]) {
+            self.pDiscordLbl.text = @"입력 비밀번호가 일치합니다.";
+            self.pOkBtn.enabled = true;
+        } else {
+            self.pDiscordLbl.text = @"입력 비밀번호가 일치하지 않습니다.";
+            self.pOkBtn.enabled = false;
+        }
+    } else {
+        self.pDiscordLbl.text = @"";
+    }
+}
+
 
 #pragma mark - 델리게이트
 #pragma mark - PairingAuthViewController 델리게이트
