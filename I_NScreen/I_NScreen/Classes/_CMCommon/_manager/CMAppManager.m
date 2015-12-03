@@ -764,7 +764,12 @@
 #pragma mark - 남은 시간 구하기 2015-11-10 23:59:59 -> 몇시간 남음
 - (NSString *)getLicenseEndDate:(NSString *)endDate
 {
+    
     NSString *sComment = @"";
+    
+    if (endDate.length == 0 || [endDate isEqualToString:@"0000-00-00 00:00:00"]) {
+        return sComment;
+    }
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
