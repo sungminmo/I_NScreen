@@ -1620,13 +1620,15 @@ static SIAlertView *__si_alert_current_view;
     
     __block __weak id<NSObject> observer = [[NSNotificationCenter defaultCenter] addObserverForName:AFNetworkingTaskDidCompleteNotification object:task queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notification) {
         NSError *error = notification.userInfo[AFNetworkingTaskDidCompleteErrorKey];
-        if (error) {
+        if (error && [CMAppManager sharedInstance].isNetworkErrorAlertWorking == NO) {//에러메세지 여러번 뜨지 않게 수정 
             NSString *title, *message;
 //            AFGetAlertViewTitleAndMessageFromError(error, &title, &message);
             title = @"통신오류";
             message = @"데이타를 조회할 수 없습니다.";
             [SIAlertView alert:title message:message button:cancelButtonTitle completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                [CMAppManager sharedInstance].isNetworkErrorAlertWorking = NO;
             }];
+            [CMAppManager sharedInstance].isNetworkErrorAlertWorking = YES;
         }
         
         [[NSNotificationCenter defaultCenter] removeObserver:observer];
