@@ -82,18 +82,23 @@ typedef NS_ENUM(NSInteger, CMContentsRestrictedType) {
     CMContentsRestrictedTypeAdult
 };
 
+
 /**
  *  @brief  성인인증 여부.
  */
 typedef NS_ENUM(NSInteger, CMAdultCertificationYN) {
     /**
-     *  @brief  성인인증 하지 않음
+     *  @brief  성인인증정보 읽어와야 함.
      */
-    CMAdultCertificationNone = 0,
+    CMAdultCertificationInfoNeed = 0,
+    /**
+     *  @brief  성인인증하지않음.
+     */
+    CMAdultCertificationNO,
     /**
      *  @brief  성인인증성공.
      */
-    CMAdultCertificationSuccess
+    CMAdultCertificationYES
 };
 
 

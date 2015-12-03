@@ -32,13 +32,4 @@ NSString* const NSUserDefaultsAdultCertYN = @"NSUserDefaultsAdultCertYN";
     return [self integerForKey:NSUserDefaultsRestrictType];
 }
 
-- (void)setAdultCertYN:(CMAdultCertificationYN)adultCertYN {
-    [self setInteger:adultCertYN forKey:NSUserDefaultsAdultCertYN];
-}
-
-- (CMAdultCertificationYN)adultCertYN {
-    return [self integerForKey:NSUserDefaultsAdultCertYN];
-}
-
-
 @end

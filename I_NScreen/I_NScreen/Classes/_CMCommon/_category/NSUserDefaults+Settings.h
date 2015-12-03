@@ -27,9 +27,4 @@ extern NSString* const NSUserDefaultsAdultCertYN;
  */
 @property (nonatomic, assign) CMContentsRestrictedType restrictType;
 
-/**
- *  성인인증 여부 .
- */
-@property (nonatomic, assign) CMAdultCertificationYN adultCertYN;
-
 @end

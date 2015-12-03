@@ -11,6 +11,11 @@
 #import "FXKeychain.h"
 #import "CMDBDataManager.h"
 
+@interface CMAppManager()
+@property (nonatomic, unsafe_unretained) CMAdultCertificationYN adultCertificationState;//성인인증여부 상태
+@end
+
+
 @implementation CMAppManager
 
 + (CMAppManager *)sharedInstance {
@@ -30,6 +35,7 @@
             [self defaultSetting];
         }
 
+        self.adultCertificationState = CMAdultCertificationInfoNeed;
     }
     return self;
 }
@@ -286,24 +292,43 @@
 }
 
 #pragma mark - 유니크 성인 인증 여부 체크 set
+
+//CMAdultCertificationYN
+//    CMAdultCertificationInfoNeed = 0,
+//    CMAdultCertificationNO,
+//    CMAdultCertificationYES
+
 - (void)setKeychainAdultCertification:(BOOL)isAdult
 {
     NSString* adult = @"NO";
     if ( isAdult == YES )
         adult = @"YES";
     [[FXKeychain defaultKeychain] setObject:adult forKey:CNM_OPEN_API_ADULT_CERTIFICATION];
+    self.adultCertificationState = CMAdultCertificationInfoNeed;
 }
 
 #pragma mark - 유니크 성인 인증 여부 체크 get
-- (BOOL)getKeychainAdultCertification
-{
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
-    
-    BOOL isAdult = NO;
-    if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_ADULT_CERTIFICATION] isEqualToString:@"YES"] )
-        isAdult = YES;
-    
-    return isAdult;
+- (BOOL)getKeychainAdultCertification {
+    if (self.adultCertificationState == CMAdultCertificationInfoNeed) {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+        NSString* state = [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_ADULT_CERTIFICATION];
+        if ([state isEqualToString:@"YES"]) {
+            self.adultCertificationState = CMAdultCertificationYES;
+            return YES;
+        }
+        else {
+            self.adultCertificationState = CMAdultCertificationNO;
+            return NO;
+        }
+    }
+    else {
+        if (self.adultCertificationState == CMAdultCertificationNO) {
+            return NO;
+        }
+        else {
+            return YES;
+        }
+    }
 }
 
 #pragma mark - 유니크 성인 인증 여부 체크 remove
