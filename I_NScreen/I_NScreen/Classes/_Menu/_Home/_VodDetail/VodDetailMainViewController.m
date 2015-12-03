@@ -58,11 +58,13 @@
     
     [self requestWithRecommendContentGroupByAssetId];
     
+    //  시리즈인 경우
     if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
     {
         // 시리즈
         [self requestWithGetEpisodePeerListByContentGroupId];
     }
+    //  시리즈가 아닌 경우
     else
     {
         [self requestWithAssetInfo];
@@ -1017,7 +1019,9 @@ static int tvFontSize = 15;
         }
     }
     
+    //  미디어 타입 : 1 - tv, 2 - tv/모바일
     NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"publicationRight"]];
+    //  미리보기 시간
     NSString *sPreviewPeriod = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"previewPeriod"]];
     
     if ( [sPublicationRight isEqualToString:@"2"] )
@@ -1025,12 +1029,18 @@ static int tvFontSize = 15;
         // tv 모바일
         self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_tv.png"];
         self.pEquipmentImageView02.image = [UIImage imageNamed:@"icon_mobile.png"];
+        
+        //  tv,모바일일 경우, 미리보기 있음
+        self.pReviewBtn22.hidden = NO;
     }
     else
     {
         // tv 전용
         self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_tv.png"];
         self.pEquipmentImageView02.image = [UIImage imageNamed:@""];
+        
+        // tv전용일 경우, 미리보기 없음
+        self.pReviewBtn22.hidden = YES;
     }
     
     // 러닝 타임
@@ -1059,17 +1069,40 @@ static int tvFontSize = 15;
     
     self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"director"]];
     
-    
-    // 시리즈가 아니다
+    //  구매 X
     if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
     {
-        // 구매 안한 사용자
         [self setViewInit22];
-        if ( [sPreviewPeriod isEqualToString:@"0"] )
+        
+        if ( self.isZzimCheck == YES )
+        {
+            
+            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+        }
+        else
+        {
+            
+            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+        }
+        
+        //  tv전용일 경우
+        if ([sPublicationRight isEqualToString:@"1"]) {
+            
+            NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.pBuyBtn22
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                  multiplier:1.0 constant:-12];
+            
+            [self.view addConstraints:@[c_1]];
+        }
+        
+        /*if ( [sPreviewPeriod isEqualToString:@"0"] )
         {
             // 미리보기 없음
             self.pReviewBtn22.hidden = YES;
-            
+         
             if ( self.isZzimCheck == YES )
             {
                 
@@ -1089,11 +1122,12 @@ static int tvFontSize = 15;
                                                                   multiplier:1.0 constant:-12];
             
             [self.view addConstraints:@[c_1]];
-        }
+            
+        }*/
     }
+    //  구매 O
     else
     {
-        // 구매 한 사용자
         if ( [sPublicationRight isEqualToString:@"2"] )
         {
             // 모바일 시청 가능
@@ -1558,8 +1592,9 @@ static int tvFontSize = 15;
     }
     
   
-    
+    //  미디어 타입 : 1 - tv, 2 - tv/모바일
     NSString *sPublicationRight = [NSString stringWithFormat:@"%@", [self.pAssetListByEpisodePeerIdDic objectForKey:@"publicationRight"]];
+    //  미리보기 시간
     NSString *sPreviewPeriod = [NSString stringWithFormat:@"%@", [self.pAssetListByEpisodePeerIdDic objectForKey:@"previewPeriod"]];
     
     if ( [sPublicationRight isEqualToString:@"2"] )
@@ -1567,12 +1602,18 @@ static int tvFontSize = 15;
         // tv 모바일
         self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_tv.png"];
         self.pEquipmentImageView02.image = [UIImage imageNamed:@"icon_mobile.png"];
+        
+        //  tv,모바일일 경우, 미리보기 있음
+        self.pReviewBtn23.hidden = NO;
     }
     else
     {
         // tv 전용
         self.pEquipmentImageView.image = [UIImage imageNamed:@"icon_tv.png"];
         self.pEquipmentImageView02.image = [UIImage imageNamed:@""];
+        
+        //  tv전용일 경우, 미리보기 없음
+        self.pReviewBtn23.hidden = YES;
     }
     
     // 러닝 타임
@@ -1602,7 +1643,8 @@ static int tvFontSize = 15;
     self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"director"]];
     
     int nTag = 0;
-    // 시리즈다
+
+    //  구매X
     if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
     {
         // 구매안한 사용자
@@ -1619,19 +1661,38 @@ static int tvFontSize = 15;
             
         }
         
+        //  무료시청 O
         if ( [sProductType isEqualToString:@"FOD"] )
         {
-            // 무료시청
             nTag = 24;
             [self setViewInit24];
         }
+        //  무료시청 X
         else
         {
             nTag = 23;
             [self setViewInit23];
+            
+            if ( self.isZzimCheck == YES )
+            {
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+            }
+            else
+            {
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+            }
+            
+            NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.pBuyBtn23
+                                                                   attribute:NSLayoutAttributeLeft
+                                                                  multiplier:1.0 constant:-12];
+            
+            [self.view addConstraints:@[c_1]];
         }
         
-        if ( [sPreviewPeriod isEqualToString:@"0"] )
+        /*if ( [sPreviewPeriod isEqualToString:@"0"] )
         {
             // 미리보기 없음
             self.pReviewBtn23.hidden = YES;
@@ -1653,12 +1714,11 @@ static int tvFontSize = 15;
                                                                   multiplier:1.0 constant:-12];
             
             [self.view addConstraints:@[c_1]];
-        }
+        }*/
     }
+    //  구매 O
     else
     {
-        // 구매한 사용자
-        
         if ( [sPublicationRight isEqualToString:@"2"] )
         {
             nTag = 24;
