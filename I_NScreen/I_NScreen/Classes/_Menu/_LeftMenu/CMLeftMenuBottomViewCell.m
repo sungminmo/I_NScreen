@@ -17,7 +17,12 @@
     [UIView setOuterLine:self.bottomView direction:HMOuterLineDirectionTop lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
     
     // 앱 버전 라벨
-    NSString *sVerion = [NSString stringWithFormat:@"현재 버전 %@", [[CMAppManager sharedInstance] getAppVersion]];
+    NSString* ver = [CMAppManager getAppShortVersion];
+    NSString* build = [CMAppManager getAppBuildVersion];
+
+    NSString *sVerion = [NSString stringWithFormat:@"버전 %@ (build ver. %@)", ver, build];
+//    NSString *sVerion = [NSString stringWithFormat:@"버전 %@", ver];
+    
     [self.versionButton setTitle:sVerion forState:UIControlStateNormal];
 }
 

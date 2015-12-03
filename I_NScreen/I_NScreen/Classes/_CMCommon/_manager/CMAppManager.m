@@ -134,10 +134,15 @@
 }
 
 #pragma mark - 앱 버전
-- (NSString *)getAppVersion
-{
++ (NSString*)getAppShortVersion {
     NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
-    NSString *majorVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
+    NSString* strShortVersion = infoDic[@"CFBundleShortVersionString"];
+    return [strShortVersion copy];
+}
+
++ (NSString *)getAppBuildVersion {
+    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+    NSString *majorVersion = [infoDic objectForKey:@"CFBundleVersion"];
     
     return [NSString stringWithFormat:@"%@", majorVersion];
 }

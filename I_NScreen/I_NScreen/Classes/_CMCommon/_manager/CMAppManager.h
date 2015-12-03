@@ -54,7 +54,8 @@
 /**
  * @brief 앱 버전
  */
-- (NSString *)getAppVersion;
++ (NSString *)getAppShortVersion;
++ (NSString *)getAppBuildVersion;
 
 /**
  * @brief 디바이스 체크
