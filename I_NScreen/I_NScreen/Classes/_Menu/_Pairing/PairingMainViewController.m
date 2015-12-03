@@ -154,6 +154,16 @@
     return YES;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    NSString* pPwText = self.pPwTextField.text;
+    NSString* pRePwText = self.pRePwTextFiled.text;
+    
+    if (![pPwText isEqualToString:pRePwText]) {
+        textField.text = @"";
+    }
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     NSString* pPwText = self.pPwTextField.text;
