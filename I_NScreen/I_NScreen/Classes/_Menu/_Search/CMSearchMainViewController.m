@@ -120,10 +120,9 @@ static const CGFloat pageSize = 28;
         sIncludeAdultCategory = @"1";
     }
     
-   NSURLSessionDataTask *tesk = [NSMutableDictionary searchWordListWithSearchString:@"막" WithIncludeAdultCategory:@"0" completion:^(NSArray *programs, NSError *error) {
-      
-       DDLogError(@"%@", programs);
-   }];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary searchWordListWithSearchString:@"막" WithIncludeAdultCategory:@"0" completion:^(NSArray *programs, NSError *error) {
+        DDLogError(@"%@", programs);
+    }];
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 

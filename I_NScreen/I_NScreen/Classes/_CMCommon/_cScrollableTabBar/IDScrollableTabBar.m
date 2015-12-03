@@ -384,7 +384,7 @@
     }
     _buttonsArray = [[NSArray alloc] initWithArray:arrayButtonItems];
     int leftCount = [_buttonsArray count] / 2.f - 0.5f;
-    int rightCount = [_buttonsArray count] - leftCount - 1;
+    __unused int rightCount = [_buttonsArray count] - leftCount - 1;
     _maxX = rightCount * itemWidth + self.frame.size.width / 2.f;
     _minX = - leftCount * itemWidth + self.frame.size.width / 2.f - itemWidth;
 }
