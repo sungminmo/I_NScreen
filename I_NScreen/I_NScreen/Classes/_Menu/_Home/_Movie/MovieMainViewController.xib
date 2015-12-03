@@ -84,8 +84,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aV6-3X-GEH">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5G-a7-TVK" userLabel="Button(왼쪽)">
-                                    <rect key="frame" x="18" y="8" width="180" height="27"/>
+                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5G-a7-TVK" userLabel="Button(왼쪽)">
+                                    <rect key="frame" x="18" y="8" width="180" height="29"/>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -99,8 +99,8 @@
                                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="A5F-HG-eGF"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWH-Ua-x2c" userLabel="Button(오른쪽)">
-                                    <rect key="frame" x="216" y="8" width="180" height="27"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWH-Ua-x2c" userLabel="Button(오른쪽)">
+                                    <rect key="frame" x="216" y="8" width="180" height="29"/>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -130,7 +130,7 @@
                                         <constraint firstAttribute="height" constant="1" id="irS-Rj-c0r"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wd9-Mc-X5t" userLabel="View(중간라인)">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wd9-Mc-X5t" userLabel="View(중간라인)">
                                     <rect key="frame" x="207" y="18" width="1" height="8"/>
                                     <animations/>
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>

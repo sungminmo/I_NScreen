@@ -129,6 +129,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             if ( [[dic objectForKey:@"description"] isEqualToString:@"mobileTV_01"] )
             {
                 sCategoryId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"categoryId"]];
+                break;
             }
         }
         
@@ -278,12 +279,12 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     {
         NSString *sViewerType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"viewerType"]];
         
-        
+        //  200 : 인기순위
         if ( [sViewerType isEqualToString:@"200"] )
         {
-            // 인기 순위
+
             sCategoryId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"categoryId"]];
-            
+            break;
         }
     }
     
