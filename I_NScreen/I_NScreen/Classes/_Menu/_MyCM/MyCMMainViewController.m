@@ -467,12 +467,13 @@
 #pragma mark - 구매목록
 - (void)requestWithGetValidPurchaseLogList
 {
+    
     NSURLSessionDataTask *tesk = [NSMutableDictionary myCmGetValidPurchaseLogListCompletion:^(NSArray *myCm, NSError *error) {
         
         DDLogError(@"구매목록 = [%@]", myCm);
         
-        [self.pValidPurchaseLogListMoblieArr removeAllObjects];
-        [self.pValidPurchaseLogListTvArr removeAllObjects];
+        NSMutableArray* mobile = [@[] mutableCopy];
+        NSMutableArray* tv = [@[] mutableCopy];
         
         NSObject *itemObject = [[[myCm objectAtIndex:0] objectForKey:@"purchaseLogList"] objectForKey:@"purchaseLog"];
         
@@ -483,12 +484,12 @@
             if ( [sPurchaseDeviceType isEqualToString:@"2"] )
             {
                 // 모바일구매
-                [self.pValidPurchaseLogListMoblieArr addObject:(NSDictionary *)itemObject];
+                [mobile addObject:(NSDictionary *)itemObject];
             }
             else
             {
                 // tv 구매
-                [self.pValidPurchaseLogListTvArr addObject:(NSDictionary *)itemObject];
+                [tv addObject:(NSDictionary *)itemObject];
             }
 
         }
@@ -501,16 +502,36 @@
                 if ( [sPurchaseDeviceType isEqualToString:@"2"] )
                 {
                     // 모바일구매
-                    [self.pValidPurchaseLogListMoblieArr addObject:dic];
+                    [mobile addObject:dic];
                 }
                 else
                 {
                     // tv 구매
-                    [self.pValidPurchaseLogListTvArr addObject:dic];
+                    [tv addObject:dic];
                 }
             }
         }
         
+        [self.pValidPurchaseLogListMoblieArr removeAllObjects];
+        [self.pValidPurchaseLogListTvArr removeAllObjects];
+        //소팅
+        NSSortDescriptor* desc1 = [[NSSortDescriptor alloc] initWithKey:@"licenseEnd" ascending:YES];
+        NSSortDescriptor* desc2 = [[NSSortDescriptor alloc] initWithKey:@"purchasedTime" ascending:NO];
+        NSArray* sorted = nil;
+        if (mobile.count > 1) {//licenseEnd
+            sorted = [mobile sortedArrayUsingDescriptors:@[desc1, desc2]];
+            [self.pValidPurchaseLogListMoblieArr addObjectsFromArray:sorted];
+        }
+        else {
+            [self.pValidPurchaseLogListMoblieArr addObjectsFromArray:mobile];
+        }
+        
+        if (tv.count > 1) {
+            sorted = [tv sortedArrayUsingDescriptors:@[desc1, desc2]];
+            [self.pValidPurchaseLogListTvArr addObjectsFromArray:sorted];
+        } else {
+            [self.pValidPurchaseLogListTvArr addObjectsFromArray:tv];
+        }
         
         
         if ( self.nSubTabTag == 0 )
