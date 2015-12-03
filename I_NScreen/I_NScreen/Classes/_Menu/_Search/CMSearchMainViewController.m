@@ -124,7 +124,7 @@ static const CGFloat pageSize = 28;
       
        DDLogError(@"%@", programs);
    }];
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -357,7 +357,7 @@ static const CGFloat pageSize = 28;
 
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 
@@ -411,7 +411,7 @@ static const CGFloat pageSize = 28;
         [self requestWithGetSetTopStatus];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 /**
@@ -458,7 +458,7 @@ static const CGFloat pageSize = 28;
         [self requestWithGetRecordReserveList];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 
@@ -495,7 +495,7 @@ static const CGFloat pageSize = 28;
         [self.programList reloadData];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - Event
@@ -1143,7 +1143,7 @@ static const CGFloat pageSize = 28;
         }
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 녹화예약설정 단일
@@ -1166,7 +1166,7 @@ static const CGFloat pageSize = 28;
         }
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 녹화예약설정 시리즈
@@ -1192,7 +1192,7 @@ static const CGFloat pageSize = 28;
         }
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     
 }
 
@@ -1256,7 +1256,7 @@ static const CGFloat pageSize = 28;
         
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end

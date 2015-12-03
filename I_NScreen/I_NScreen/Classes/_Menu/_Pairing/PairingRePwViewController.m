@@ -195,7 +195,7 @@
         [manager setPariringCheck:NO];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 델리게이트

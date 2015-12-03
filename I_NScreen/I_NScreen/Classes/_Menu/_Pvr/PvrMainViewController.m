@@ -413,7 +413,7 @@
         }
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 녹화 목록 리스트
@@ -447,7 +447,7 @@
         }
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 리모컨 상태 체크 전문
@@ -470,7 +470,7 @@
         [self requestWithRecordReservelist];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 녹화물 목록 삭제
@@ -493,7 +493,7 @@
             [self.pTableView reloadData];
         }
     }];
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 녹화예약취소
@@ -518,7 +518,7 @@
         }
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 델리게이트

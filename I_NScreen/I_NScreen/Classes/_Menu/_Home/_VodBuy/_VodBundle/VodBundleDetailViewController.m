@@ -160,6 +160,6 @@
         
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 @end

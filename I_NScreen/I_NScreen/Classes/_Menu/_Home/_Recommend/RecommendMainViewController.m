@@ -465,7 +465,7 @@
         [self banPageControllerInit];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 - (void)isPariringCheckWithSetTopBoxItem:(NSDictionary *)item
@@ -541,7 +541,7 @@
         [self requestWithWeekMovie];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 인기순위 Top 20 전문
@@ -597,7 +597,7 @@
         [self collectionPageControllerInitWithTrinfoType:TrinfoPopularity];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
     
 
 }
@@ -672,7 +672,7 @@
         [self collectionPageControllerInitWithTrinfoType:TrinfoNewWork];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 이달의 추천 vod 전문
@@ -745,7 +745,7 @@
         [self collectionPageControllerInitWithTrinfoType:TrinfoRecommend];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 - (void)CMPageCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistence:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId WithAssetBundle:(NSString *)assetBundle
@@ -893,6 +893,6 @@
         
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 @end

@@ -79,7 +79,7 @@
         
         [self.contentsTable reloadData];
     }];
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
 }
 
 @end

@@ -1592,3 +1592,65 @@ static SIAlertView *__si_alert_current_view;
 }
 
 @end
+
+#import "AFURLSessionManager.h"
+#import "AFURLConnectionOperation.h"
+@implementation SIAlertView (AFNetworking)
+
++ (void)showAlertViewForTaskWithErrorOnCompletion:(NSURLSessionTask *)task
+                                         delegate:(id)delegate
+{
+    [self showAlertViewForTaskWithErrorOnCompletion:task delegate:delegate cancelButtonTitle:@"확인" otherButtonTitles:nil, nil];
+}
+
++ (void)showAlertViewForTaskWithErrorOnCompletion:(NSURLSessionTask *)task
+                                         delegate:(id)delegate
+                                cancelButtonTitle:(NSString *)cancelButtonTitle
+                                otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
+{
+    NSMutableArray *mutableOtherTitles = [NSMutableArray array];
+    va_list otherButtonTitleList;
+    va_start(otherButtonTitleList, otherButtonTitles);
+    {
+        for (NSString *otherButtonTitle = otherButtonTitles; otherButtonTitle != nil; otherButtonTitle = va_arg(otherButtonTitleList, NSString *)) {
+            [mutableOtherTitles addObject:otherButtonTitle];
+        }
+    }
+    va_end(otherButtonTitleList);
+    
+    __block __weak id<NSObject> observer = [[NSNotificationCenter defaultCenter] addObserverForName:AFNetworkingTaskDidCompleteNotification object:task queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notification) {
+        NSError *error = notification.userInfo[AFNetworkingTaskDidCompleteErrorKey];
+        if (error) {
+            NSString *title, *message;
+//            AFGetAlertViewTitleAndMessageFromError(error, &title, &message);
+            title = @"통신오류";
+            message = @"데이타를 조회할 수 없습니다.";
+            [SIAlertView alert:title message:message button:cancelButtonTitle completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+            }];
+        }
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:observer];
+    }];
+}
+
+static void AFGetAlertViewTitleAndMessageFromError(NSError *error, NSString * __autoreleasing *title, NSString * __autoreleasing *message) {
+    if (error.localizedDescription && (error.localizedRecoverySuggestion || error.localizedFailureReason)) {
+        *title = error.localizedDescription;
+        if (error.localizedRecoverySuggestion) {
+            *message = error.localizedRecoverySuggestion;
+        } else {
+            *message = error.localizedFailureReason;
+        }
+    } else if (error.localizedDescription) {
+        *title = NSLocalizedStringFromTable(@"Error", @"AFNetworking", @"Fallback Error Description");
+        *message = error.localizedDescription;
+    } else {
+        *title = NSLocalizedStringFromTable(@"Error", @"AFNetworking", @"Fallback Error Description");
+        *message = [NSString stringWithFormat:NSLocalizedStringFromTable(@"%@ Error: %ld", @"AFNetworking", @"Fallback Error Failure Reason Format"), error.domain, (long)error.code];
+    }
+}
+
+
+@end
+
+

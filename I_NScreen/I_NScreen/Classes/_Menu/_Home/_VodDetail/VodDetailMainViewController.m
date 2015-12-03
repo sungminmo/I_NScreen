@@ -550,7 +550,7 @@ static int tvFontSize = 15;
         }
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 찜하기
@@ -565,7 +565,7 @@ static int tvFontSize = 15;
         
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 찜해제
@@ -579,7 +579,7 @@ static int tvFontSize = 15;
         self.isZzimCheck = NO;
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 시리즈 갯수 가져오는 전문
@@ -630,7 +630,7 @@ static int tvFontSize = 15;
         [self createSeriesButtonWithTag:nTag WithTotalCount:nTotalCount];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 - (void)onSeriesBtnClicked:(UIButton *)btn
@@ -805,7 +805,7 @@ static int tvFontSize = 15;
         
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 연관 이미지
@@ -855,7 +855,7 @@ static int tvFontSize = 15;
         
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 
@@ -1396,7 +1396,7 @@ static int tvFontSize = 15;
         [self requestWithGetAssetListByEpisodePeerId:sEpisodePeerId];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 시리즈 가져오는 api 새 전문
@@ -1434,7 +1434,7 @@ static int tvFontSize = 15;
         [self setResponseContentSeriesViewInit];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 상세 데이터에 따라 화면 셋팅
@@ -1814,7 +1814,7 @@ static int tvFontSize = 15;
         
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 @end

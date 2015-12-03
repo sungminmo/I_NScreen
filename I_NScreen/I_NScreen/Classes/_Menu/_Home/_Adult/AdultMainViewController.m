@@ -135,7 +135,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         [self requestWithGetCategoryTree2DepthWithCategoryId:sCategoryId];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 2탭스 카테고리 tree 리스트 전문
@@ -230,7 +230,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         }
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 인기순위 3댑스 리스트 뿌려줌   daily, weekly, all
@@ -285,7 +285,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         }
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - 3댑스 인기순위 외 전문 리스트
@@ -312,7 +312,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         [self.pCollectionView22 reloadData];
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -513,7 +513,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 - (void)VodDetailMainViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId

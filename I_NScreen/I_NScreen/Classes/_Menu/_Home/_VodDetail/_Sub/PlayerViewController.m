@@ -164,7 +164,7 @@ static PlayerViewController *playerViewCtr;
         WV_Initialize(WViPhoneCallback, dictionary);
     }];
     
-    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
 WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {

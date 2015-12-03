@@ -200,4 +200,7 @@ typedef void(^SIAlertViewTextFieldHandler)(NSInteger buttonIndex, SIAlertView* a
 
 @end
 
+@interface SIAlertView(AFNetworking)
++ (void)showAlertViewForTaskWithErrorOnCompletion:(NSURLSessionTask *)task delegate:(id)delegate;
+@end
 
