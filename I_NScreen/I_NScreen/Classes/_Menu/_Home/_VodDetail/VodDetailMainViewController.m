@@ -61,7 +61,7 @@
     //  시리즈인 경우
     if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
     {
-        // 시리즈
+        self.pAssetIdStr = nil; //  시리즈인 경우, 시리즈 첫번째 목록을 로드한다.
         [self requestWithGetEpisodePeerListByContentGroupId];
     }
     //  시리즈가 아닌 경우
@@ -1385,14 +1385,22 @@ static int tvFontSize = 15;
         
         NSString *sEpisodePeerId = @"";
         
-        for ( NSDictionary *dic in self.pEpisodePeerListArr )
-        {
-            if ( [self.pAssetIdStr isEqualToString:[dic objectForKey:@"primaryAssetId"]] )
+        //  초기 로드시, 시리즈의 첫번째로 로드한다.
+        if (self.pAssetIdStr == nil) {
+            
+            NSDictionary* episodeItem = self.pEpisodePeerListArr[0];
+            self.pAssetIdStr = episodeItem[@"primaryAssetId"];
+            sEpisodePeerId = episodeItem[@"episodePeerId"];
+        } else {
+            for ( NSDictionary *dic in self.pEpisodePeerListArr )
             {
-                sEpisodePeerId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"episodePeerId"]];
+                if ( [self.pAssetIdStr isEqualToString:[dic objectForKey:@"primaryAssetId"]] )
+                {
+                    sEpisodePeerId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"episodePeerId"]];
+                }
             }
         }
-        
+
         [self requestWithGetAssetListByEpisodePeerId:sEpisodePeerId];
     }];
     
