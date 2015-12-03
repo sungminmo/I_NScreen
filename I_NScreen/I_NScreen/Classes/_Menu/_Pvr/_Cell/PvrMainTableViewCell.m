@@ -206,26 +206,27 @@
     NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
     NSString *sProgramBroadcastingEndTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordEndTime"]];
     
-    NSArray *startArr = [sProgramBroadcastingStartTime componentsSeparatedByString:@" "];
-    NSArray *startArr2 = [[startArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    NSString* sStart = @"";
+    NSString* sEnd = @"";
+    if (sProgramBroadcastingStartTime.length > 0 && [[sProgramBroadcastingStartTime lowercaseString] isEqualToString:@"null"] == NO) {
+        sStart = [NSDate stringFromDateString:sProgramBroadcastingStartTime beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"HH:mm"];
+    }
+    if (sProgramBroadcastingEndTime.length > 0 && [[sProgramBroadcastingEndTime lowercaseString] isEqualToString:@"null"] == NO) {
+        sEnd = [NSDate stringFromDateString:sProgramBroadcastingEndTime beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"HH:mm"];
+    }
     
-    NSArray *endArr = [sProgramBroadcastingEndTime componentsSeparatedByString:@" "];
-    NSArray *endArr2 = [[endArr objectAtIndex:1] componentsSeparatedByString:@":"];
+    CGFloat progressFloat = 0;
+    if (sStart.length > 0 && sEnd.length > 0) {
+        progressFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd];
+    }
     
-    NSString *sStart = [NSString stringWithFormat:@"%@:%@", [startArr2 objectAtIndex:0], [startArr2 objectAtIndex:1]];
-    
-    NSString *sEnd = [NSString stringWithFormat:@"%@:%@", [endArr2 objectAtIndex:0], [endArr2 objectAtIndex:1]];
-    
-    CGFloat progressFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd];
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
-    
     [dateFormatter setDateFormat:@"dd"];
     int nDay = [[dateFormatter stringFromDate:[NSDate date]] intValue];
     
-    NSArray *startArr3 = [[startArr objectAtIndex:0] componentsSeparatedByString:@"-"];
-    NSString *sStartDD = [NSString stringWithFormat:@"%@", [startArr3 objectAtIndex:2]];
+    NSString *sStartDD = [NSDate stringFromDateString:sProgramBroadcastingStartTime beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"dd"];
     
     if ( nDay != [sStartDD intValue] )
     {

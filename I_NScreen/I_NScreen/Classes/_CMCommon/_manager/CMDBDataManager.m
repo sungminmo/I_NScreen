@@ -394,9 +394,8 @@
 
 - (RLMArray *)getVodWatchList
 {
-    RLMArray *rs = (RLMArray *)[CMVodWatchList allObjects];
-    
-    return rs;
+    NSPredicate* p = [NSPredicate predicateWithFormat:@"pAssetIdStr != %@", @"(null)"];
+    return (RLMArray *)[CMVodWatchList objectsWithPredicate:p];
 }
 
 - (void)removeVodWatchList:(int)index
