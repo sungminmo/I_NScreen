@@ -98,18 +98,18 @@
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sImageFileName]];
     self.pRankingLbl.text = [NSString stringWithFormat:@"%d", self.nIndex];
     
-    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
-    {
-        [self.pTitleLbl setFont:[UIFont systemFontOfSize:15.0f]];
-    }
-    else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
-    {
-        [self.pTitleLbl setFont:[UIFont systemFontOfSize:14.0f]];
-    }
-    else
-    {
-        [self.pTitleLbl setFont:[UIFont systemFontOfSize:12.0f]];
-    }
+//    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )
+//    {
+//        [self.pTitleLbl setFont:[UIFont systemFontOfSize:15.0f]];
+//    }
+//    else if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6] )
+//    {
+//        [self.pTitleLbl setFont:[UIFont systemFontOfSize:14.0f]];
+//    }
+//    else
+//    {
+//        [self.pTitleLbl setFont:[UIFont systemFontOfSize:12.0f]];
+//    }
     
     // isNew > promotionSticker > hot 우선순위
     NSString *sPromotionSticker = [NSString stringWithFormat:@"%@", [dic objectForKey:@"promotionSticker"]];
