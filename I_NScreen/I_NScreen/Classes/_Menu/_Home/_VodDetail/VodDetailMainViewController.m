@@ -1682,14 +1682,17 @@ static int tvFontSize = 15;
                 [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
             }
             
-            NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
-                                                                   attribute:NSLayoutAttributeLeft
-                                                                   relatedBy:NSLayoutRelationEqual
-                                                                      toItem:self.pBuyBtn23
-                                                                   attribute:NSLayoutAttributeLeft
-                                                                  multiplier:1.0 constant:-12];
-            
-            [self.view addConstraints:@[c_1]];
+            //  tv전용일경우
+            if ( [sPublicationRight isEqualToString:@"1"] ) {
+                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:self.pBuyBtn23
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                      multiplier:1.0 constant:-12];
+                
+                [self.view addConstraints:@[c_1]];
+            }
         }
         
         /*if ( [sPreviewPeriod isEqualToString:@"0"] )
