@@ -65,7 +65,7 @@
                                 <constraint firstAttribute="width" secondItem="HYJ-28-JjB" secondAttribute="height" multiplier="5:1" id="lKm-tc-dQ9"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <state key="normal" title="전체채널" backgroundImage="allch.png">
+                            <state key="normal" title="전체채널" backgroundImage="allch_default.png">
                                 <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <state key="highlighted" backgroundImage="allch_press.png"/>
@@ -170,7 +170,7 @@
         </view>
     </objects>
     <resources>
-        <image name="allch.png" width="379" height="46"/>
+        <image name="allch_default.png" width="297" height="60"/>
         <image name="allch_press.png" width="379" height="46"/>
         <image name="onoffbtn_normal.png" width="185" height="60"/>
         <image name="onoffbtn_press.png" width="185" height="60"/>
