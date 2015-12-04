@@ -284,25 +284,27 @@
 {
     NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
 
+    //  현재 방송중인 경우
     if ( [self getProgressTimerWithIndex:nIndex] > 0 )
     {
-        // 시청중
         BOOL isCheck = NO;
         for ( NSString *str in self.recordingchannelArr )
         {
             if ( [str isEqualToString:sChannelId] )
             {
-                isCheck = YES;
                 // 녹화중 -> 녹화중지 api 날린다.
+                isCheck = YES;
             }
         }
         
         if ( isCheck == YES )
         {
+            //  녹화중지
             [self requestWithSetRecordStopWithIndex:nIndex];
         }
         else
         {
+            //  녹화요청
             [self requestWithSetRecordWithIndex:nIndex];
         }
 
@@ -447,12 +449,63 @@
         DDLogError(@"녹화 예약 설정 단일 = [%@]", epgs);
         if ( [epgs count] == 0 )
             return;
+
+        NSDictionary* epgItem = epgs[0];
+        NSString* resultCode = epgItem[@"resultCode"];
         
-        if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        if ( [resultCode isEqualToString:@"100"] )
         {
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
+        }
+        else if ([resultCode isEqualToString:@"002"])
+        {
+            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 해당시간에 다른 채널이 녹화예약되어있습니다. 녹화예약을 취소해주세요."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"003"] )
+        {
+            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스의 저장공간이 부족합니다. 녹화물 목록을 확인해주세요."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"005"])
+        {
+            [SIAlertView alert:@"녹화 불가" message:@"선택 하신 채널은 녹화하실 수 없습니다."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"014"])
+        {
+            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스의 뒷 전원이 꺼져있거나, 통신이 고르지 못해 녹화가 불가합니다. 셋탑박스의 상태를 확인해주세요."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"010"])
+        {
+            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스에서 동시화면 기능을 사용중인 경우 즉시 녹화가 불가능합니다."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"023"])
+        {
+            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
         }
     }];
     
@@ -525,64 +578,87 @@
         if ( [epgs count] == 0 )
             return;
         
-        if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        NSDictionary* epgItem = epgs[0];
+        NSString* resultCode = epgItem[@"resultCode"];
+        
+        if ( [resultCode isEqualToString:@"100"] )
         {
             [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"녹화중" forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
             [self.pTableView reloadData];
         }
-        else if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"003"] )
+        else if ([resultCode isEqualToString:@"002"])
         {
-            
-            [SIAlertView alert:@"즉시녹화" message:@"셋탑박스의 저장공간이 부족합니다. 녹화물 목록을 확인해주세요."
+            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 해당시간에 다른 채널이 녹화예약되어있습니다. 녹화예약을 취소해주세요."
                         cancel:nil
                        buttons:@[@"확인"]
                     completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                        
                     }];
         }
-        else if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"009"] )
+        else if ( [resultCode isEqualToString:@"003"] )
         {
-            
-            [SIAlertView alert:@"즉시녹화" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."
+            [SIAlertView alert:@"녹화 불가" message:@"셋탑박스의 저장공간이 부족합니다. 녹화물 목록을 확인해주세요."
                         cancel:nil
                        buttons:@[@"확인"]
                     completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                        
                     }];
         }
-        else if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"010"] )
+        else if ( [resultCode isEqualToString:@"005"])
         {
-            
-            [SIAlertView alert:@"즉시녹화" message:@"셋탑박스에서 동시화면 기능을 사용중인 경우 즉시 녹화가 불가능합니다."
+            [SIAlertView alert:@"녹화 불가" message:@"선택 하신 채널은 녹화하실 수 없습니다."
                         cancel:nil
                        buttons:@[@"확인"]
                     completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                        
                     }];
         }
-        else if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"011"] )
+        else if ( [resultCode isEqualToString:@"009"] )
         {
-            
-            [SIAlertView alert:@"즉시녹화" message:@"고객님의 셋탑박스 설정에 의한 시청제한으로 녹화가 불가합니다. 셋탑박스 설정을 확인해주세요."
+            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."
                         cancel:nil
                        buttons:@[@"확인"]
                     completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                        
                     }];
         }
-        else if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"014"] ||
-                 [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"015"])
+        else if ( [resultCode isEqualToString:@"010"] )
         {
-            
-            [SIAlertView alert:@"즉시녹화" message:@"셋탑박스의 뒷 전원이 꺼져있거나, 통신이 고르지 못해 녹화가 불가합니다. 셋탑박스의 상태를 확인해주세요."
+            [SIAlertView alert:@"녹화 불가" message:@"셋탑박스에서 동시화면 기능을 사용중인 경우 즉시 녹화가 불가능합니다."
                         cancel:nil
                        buttons:@[@"확인"]
                     completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                        
                     }];
         }
-        
+        else if ( [resultCode isEqualToString:@"011"] )
+        {
+            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 현재 다른 채널을 녹화중입니다. 녹화를 중지해주세요."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"012"])
+        {
+            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스 설정에 의한 시청제한으로 녹화가 불가합니다. 셋탑박스 설정을 확인해주세요."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"014"])
+        {
+            [SIAlertView alert:@"녹화 불가" message:@"셋탑박스의 뒷 전원이 꺼져있거나, 통신이 고르지 못해 녹화가 불가합니다. 셋탑박스의 상태를 확인해주세요."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"023"])
+        {
+            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -620,10 +696,36 @@
         
         DDLogError(@"pairing = [%@]", pairing);
         
-        if ( [[[pairing objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        NSDictionary* item = pairing[0];
+        NSString* resultCode = item[@"resultCode"];
+        
+        if ( [resultCode isEqualToString:@"100"] )
         {
             // 체널 변경 성공
-            
+        }
+        else if ( [resultCode isEqualToString:@"014"])
+        {
+            [SIAlertView alert:@"채널 변경" message:@"셋탑박스가 꺼져있습니다."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"021"] )
+        {
+            [SIAlertView alert:@"채널 변경" message:@"VOD 시청중엔 채널변경이 불가능합니다."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
+        }
+        else if ( [resultCode isEqualToString:@"008"] )
+        {
+            [SIAlertView alert:@"채널 변경" message:@"녹화물 재생중엔 채널변경이 불가능합니다."
+                        cancel:nil
+                       buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    }];
         }
     }];
     
