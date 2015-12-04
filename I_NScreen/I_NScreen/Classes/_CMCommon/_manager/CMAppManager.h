@@ -122,6 +122,7 @@
 /* 남은시간 구하기 
  */
 - (NSString*)expiredDateStringWithPeriod:(NSString*)period purchased:(NSString*)purchased state:(NSString*)state;
+- (NSString*)expiredDateIntervalWithPeriod:(NSString*)period purchased:(NSString*)purchased state:(NSString *)state;
 
 /**
  * @brief 남은 시간 구하기 2015-11-10 23:59:59 -> 몇시간 남음

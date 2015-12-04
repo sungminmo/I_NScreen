@@ -828,6 +828,39 @@
     }
 }
 
+- (NSString*)expiredDateIntervalWithPeriod:(NSString*)period purchased:(NSString*)purchased state:(NSString *)state {
+    
+    if ([state isEqualToString:@"1"]) {
+        return @"0";
+    }
+    
+    NSDate* purchasedDate = [NSDate dateFromString:purchased withFormat:[NSDate timestampFormatString]];
+    NSTimeInterval purchansedInterval = [[NSDate date] timeIntervalSinceDate:purchasedDate];
+    
+    NSTimeInterval periodInterval  = -1;
+    NSDate* periodDate = [NSDate dateFromString:period withFormat:[NSDate timestampFormatString]];
+    if (periodDate == nil) {
+        NSInteger index = [period rangeOfString:@" "].location;
+        if ( [period rangeOfString:@" "].location != NSNotFound) {
+            period = [period substringToIndex:index];
+            period = [period stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        }
+        else {
+            period = @"0";
+        }
+        periodInterval = [period integerValue]*60*60*24;
+    }
+    else {
+        periodInterval = [[NSDate date] timeIntervalSinceDate:periodDate];
+    }
+    
+    NSTimeInterval remainInterval = periodInterval - purchansedInterval;
+    
+    return [NSString stringWithFormat:@"%.0f", remainInterval];
+}
+
+
+
 - (NSString *)getLicenseEndDate:(NSString *)endDate
 {
     

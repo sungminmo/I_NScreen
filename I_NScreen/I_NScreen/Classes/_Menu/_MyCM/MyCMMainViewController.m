@@ -480,16 +480,25 @@
         if ( [itemObject isKindOfClass:[NSDictionary class]] )
         {
             NSString *sPurchaseDeviceType = [NSString stringWithFormat:@"%@", [(NSDictionary *)itemObject objectForKey:@"purchaseDeviceType"]];
+            NSMutableDictionary* mDic = [itemObject mutableCopy];
+            
+            NSString* p = mDic[@"viewablePeriod"];
+            NSString* s = mDic[@"viewablePeriodState"];
+            NSString* b = mDic[@"purchasedTime"];
+            
+            NSString* validTime =  [[CMAppManager sharedInstance] expiredDateStringWithPeriod:p purchased:b state:s];
+            [mDic setObject:validTime forKey:@"validTime"];
             
             if ( [sPurchaseDeviceType isEqualToString:@"2"] )
             {
                 // 모바일구매
-                [mobile addObject:(NSDictionary *)itemObject];
+                
+                [mobile addObject:mDic];
             }
             else
             {
                 // tv 구매
-                [tv addObject:(NSDictionary *)itemObject];
+                [tv addObject:mDic];
             }
 
         }
@@ -499,15 +508,24 @@
             {
                 NSString *sPurchaseDeviceType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"purchaseDeviceType"]];
                 
+                NSMutableDictionary* mDic = [dic mutableCopy];
+                
+                NSString* p = mDic[@"viewablePeriod"];
+                NSString* s = mDic[@"viewablePeriodState"];
+                NSString* b = mDic[@"purchasedTime"];
+                
+                NSString* validTime =  [[CMAppManager sharedInstance] expiredDateIntervalWithPeriod:p purchased:b state:s];
+                [mDic setObject:validTime forKey:@"validTime"];
+                
                 if ( [sPurchaseDeviceType isEqualToString:@"2"] )
                 {
                     // 모바일구매
-                    [mobile addObject:dic];
+                    [mobile addObject:mDic];
                 }
                 else
                 {
                     // tv 구매
-                    [tv addObject:dic];
+                    [tv addObject:mDic];
                 }
             }
         }
@@ -516,7 +534,7 @@
         [self.pValidPurchaseLogListTvArr removeAllObjects];
         //소팅
         NSSortDescriptor* desc1 = [[NSSortDescriptor alloc] initWithKey:@"viewablePeriodState" ascending:NO];
-        NSSortDescriptor* desc2 = [[NSSortDescriptor alloc] initWithKey:@"viewablePeriod" ascending:NO];
+        NSSortDescriptor* desc2 = [[NSSortDescriptor alloc] initWithKey:@"validTime" ascending:NO];
         NSSortDescriptor* desc3 = [[NSSortDescriptor alloc] initWithKey:@"purchasedTime" ascending:NO];
         NSArray* sorted = nil;
         if (mobile.count > 1) {//licenseEnd
