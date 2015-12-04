@@ -29,6 +29,8 @@
 
 + (NSString*) stringFromDateString:(NSString*)dateString beforeFormat:(NSString*)beforeFormat afterFormat:(NSString*)afterFormat;
 
+//특정시점의 날짜를 추출한다.
++ (NSString*)stringFromSomeDateDays:(NSInteger)somedays now:(NSDate*)nowDate;
 
 + (BOOL)isSunday;
 + (BOOL)isSaturday;

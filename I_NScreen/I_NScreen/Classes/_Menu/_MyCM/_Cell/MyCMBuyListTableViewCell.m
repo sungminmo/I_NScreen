@@ -82,7 +82,8 @@
         
         self.pPurchasedTimeLbl01.text = [NSString stringWithFormat:@"%@.%@ (%@)", sMonth, sDay, sWeek];
         self.pPurchasedTimeLbl02.text = [NSString stringWithFormat:@"%@:%@", sHour, sMinute];
-        self.pLicenseEndLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getLicenseEndDate:[dic objectForKey:@"licenseEnd"]]];
+//        self.pLicenseEndLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getLicenseEndDate:[dic objectForKey:@"licenseEnd"]]];
+        self.pLicenseEndLbl.text = [[CMAppManager sharedInstance] expiredDateStringWithPeriod:dic[@"viewablePeriod"] purchased:dic[@"purchasedTime"] state:dic[@"viewablePeriodState"]];
 
     }
     else if ( viewType == MY_CM_MAIN_VIEW_BTN_03 )
@@ -132,7 +133,9 @@
         
         self.pPurchasedTimeLbl01.text = [NSString stringWithFormat:@"%@.%@ (%@)", sMonth, sDay, sWeek];
         self.pPurchasedTimeLbl02.text = [NSString stringWithFormat:@"%@:%@", sHour, sMinute];
-        self.pLicenseEndLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getLicenseEndDate:[[dic objectForKey:@"asset"] objectForKey:@"licenseEnd"]]];
+//        self.pLicenseEndLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] getLicenseEndDate:[[dic objectForKey:@"asset"] objectForKey:@"licenseEnd"]]];
+        self.pLicenseEndLbl.text = [[CMAppManager sharedInstance] expiredDateStringWithPeriod:dic[@"asset"][@"viewablePeriod"] purchased:dic[@"asset"][@"purchasedTime"] state:dic[@"asset"][@"viewablePeriodState"]];
+
         
         self.pLicenseEndLbl.hidden = YES;
         self.pPriceLbl.hidden = YES;

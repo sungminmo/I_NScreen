@@ -515,11 +515,12 @@
         [self.pValidPurchaseLogListMoblieArr removeAllObjects];
         [self.pValidPurchaseLogListTvArr removeAllObjects];
         //소팅
-        NSSortDescriptor* desc1 = [[NSSortDescriptor alloc] initWithKey:@"licenseEnd" ascending:YES];
-        NSSortDescriptor* desc2 = [[NSSortDescriptor alloc] initWithKey:@"purchasedTime" ascending:NO];
+        NSSortDescriptor* desc1 = [[NSSortDescriptor alloc] initWithKey:@"viewablePeriodState" ascending:NO];
+        NSSortDescriptor* desc2 = [[NSSortDescriptor alloc] initWithKey:@"viewablePeriod" ascending:NO];
+        NSSortDescriptor* desc3 = [[NSSortDescriptor alloc] initWithKey:@"purchasedTime" ascending:NO];
         NSArray* sorted = nil;
         if (mobile.count > 1) {//licenseEnd
-            sorted = [mobile sortedArrayUsingDescriptors:@[desc1, desc2]];
+            sorted = [mobile sortedArrayUsingDescriptors:@[desc1, desc2, desc3]];
             [self.pValidPurchaseLogListMoblieArr addObjectsFromArray:sorted];
         }
         else {

@@ -204,4 +204,47 @@
     return -1;
 }
 
++ (NSString*)stringFromSomeDateDays:(NSInteger)somedays now:(NSDate*)nowDate {
+    
+    NSDate *now = [NSDate date];
+    if (nowDate != nil) {
+        now = nowDate;
+    }
+    
+    NSString *nowFullText = [now stringWithFormat:[NSDate dbFormatString]];
+    NSString *today = [NSDate stringFromDateString:nowFullText beforeFormat:[NSDate dbFormatString] afterFormat:@"yyyyMMdd"];
+    
+    NSInteger y = [[today substringToIndex:4] integerValue];
+    NSInteger m = [[today substringWithRange:NSMakeRange(4, 2)] integerValue];
+    NSInteger d = [[today substringFromIndex:6] integerValue];
+    
+    CFAbsoluteTime newTime = 0;
+    const unsigned char format[] = "yMd";
+    BOOL isSuccess = CFCalendarComposeAbsoluteTime (
+                                                   CFCalendarCopyCurrent(),
+                                                   &newTime,
+                                                   format,
+                                                   y, m, d
+                                                   );
+    if (!isSuccess) {
+        DDLogError(@"newDate creating Fail~!");
+        return nil;
+    }
+    
+    NSString *strReturn = nil;
+    NSDate *someDate = nil;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
+    [df setDateFormat:[NSDate timestampFormatString]];
+    
+    NSTimeInterval weekInterval = 3600*24*somedays;
+    someDate = [NSDate dateWithTimeIntervalSinceReferenceDate:(newTime + weekInterval)];
+    strReturn = [df stringFromDate:someDate];
+    
+    return strReturn;
+}
+
+
+
 @end

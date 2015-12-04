@@ -787,6 +787,47 @@
 }
 
 #pragma mark - 남은 시간 구하기 2015-11-10 23:59:59 -> 몇시간 남음
+- (NSString*)expiredDateStringWithPeriod:(NSString*)period purchased:(NSString*)purchased state:(NSString *)state {
+    
+    if ([state isEqualToString:@"1"]) {
+        return @"무제한";
+    }
+    
+    NSDate* purchasedDate = [NSDate dateFromString:purchased withFormat:[NSDate timestampFormatString]];
+    NSTimeInterval purchansedInterval = [[NSDate date] timeIntervalSinceDate:purchasedDate];
+    
+    NSTimeInterval periodInterval  = -1;
+    NSDate* periodDate = [NSDate dateFromString:period withFormat:[NSDate timestampFormatString]];
+    if (periodDate == nil) {
+        NSInteger index = [period rangeOfString:@" "].location;
+        if ( [period rangeOfString:@" "].location != NSNotFound) {
+            period = [period substringToIndex:index];
+            period = [period stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        }
+        else {
+            period = @"0";
+        }
+        periodInterval = [period integerValue]*60*60*24;
+    }
+    else {
+        periodInterval = [[NSDate date] timeIntervalSinceDate:periodDate];
+    }
+    
+    NSTimeInterval remainInterval = periodInterval - purchansedInterval;
+
+    NSInteger remain = remainInterval/(60*60*24);
+    if (remain > 0) {
+        return [NSString stringWithFormat:@"%ld일 남음", remain];
+    }
+    else {
+        remain = remainInterval/(60*60);
+        if (remain > 0) {
+            return [NSString stringWithFormat:@"%ld시간 남음", remain];
+        }
+        return @"기간만료";
+    }
+}
+
 - (NSString *)getLicenseEndDate:(NSString *)endDate
 {
     
