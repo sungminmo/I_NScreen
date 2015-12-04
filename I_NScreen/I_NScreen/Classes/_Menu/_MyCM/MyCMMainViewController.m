@@ -7,11 +7,17 @@
 //
 
 #import "MyCMMainViewController.h"
-#import "NSMutableDictionary+MyC_M.h"
+
 #import "UIAlertView+AFNetworking.h"
+
+#import "NSMutableDictionary+MyC_M.h"
 #import "NSMutableDictionary+WISH.h"
+#import "NSMutableDictionary+VOD.h"
+#import "NSMutableDictionary+Payment.h"
+
 #import "CMDBDataManager.h"
 #import "CMVodWatchList.h"
+#import "VodDetailBundleMainViewController.h"
 
 @interface MyCMMainViewController ()
 @property (nonatomic, strong) NSMutableArray *pValidPurchaseLogListMoblieArr;   // vod 찜 목록 모바일 구매 목록
@@ -238,187 +244,159 @@
     //    EpgSubViewController *pViewController = [[EpgSubViewController alloc] initWithNibName:@"EpgSubViewController" bundle:nil];
     //    [self.navigationController pushViewController:pViewController animated:YES];
     
-    if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_04 )
-    {
-        // 찜목록
-        NSString *sRating = [NSString stringWithFormat:@"%@", [[[self.pWishListArr objectAtIndex:indexPath.row] objectForKey:@"asset"] objectForKey:@"rating"]];
-        NSString *sAssetId = [NSString stringWithFormat:@"%@", [[[self.pWishListArr objectAtIndex:indexPath.row] objectForKey:@"asset"] objectForKey:@"assetId"]];
-        
-        if ( [sRating isEqualToString:@"19"] )
+    BOOL isValidCheck = NO;
+    NSDictionary* item = nil;
+    
+    if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_04 ) {
+        item = self.pWishListArr[indexPath.row][@"asset"];
+    }
+    else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_03 ) {
+        item = self.pWatchListArr[indexPath.row];
+    }
+    else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_02 ) {
+        isValidCheck = YES;
+        if ( self.nSubTabTag == 0 ) {
+            item = self.pValidPurchaseLogListMoblieArr[indexPath.row];
+        } else {
+            item = self.pValidPurchaseLogListTvArr[indexPath.row];
+        }
+    }
+    
+    NSString *sRating = item[@"rating"];
+    __block NSString *sAssetId = item[@"assetId"];
+    NSString *sProductType = item[@"productType"];
+    NSString *sPurchasedTime = item[@"purchasedTime"];
+    
+    //1. 성인컨텐츠 처리
+    if ( [sRating isEqualToString:@"19"] ) {
+        if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == NO )
         {
-            // 성인 여부 컨텐츠이면
-            if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
-            {
-                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-                pViewController.pAssetIdStr = sAssetId;
-                pViewController.pEpisodePeerExistence = @"0";
-                pViewController.pContentGroupId = @"";
-                pViewController.delegate = self;
-                [self.navigationController pushViewController:pViewController animated:YES];
+            [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
+                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                        if ( buttonIndex == 1 ) {
+                            // 설정 창으로 이동
+                            CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
+                            [self.navigationController pushViewController:controller animated:YES];
+                        }
+            }];
+            return;
+        }
+    }
+    
+    //2. 묶음 상품 확인
+    __block NSString* resultCode = nil;
+    __block BOOL isRun = NO;
+    
+    if ( ([sProductType isEqualToString:@"Bundle"] && [sPurchasedTime length] != 0) ) { // 번들이고 구매한 사용자
+        NSString* sProductId = item[@"productId"];
+        isRun = YES;
+        [NSMutableDictionary paymentGetBundleProductInfoWithProductId:sProductId completion:^(NSArray *payment, NSError *error) {
+            DDLogError(@"번들 상세 = [%@]", payment);
+            id obj = [payment valueForKeyPath:@"resultCode"];
+            if ([obj isKindOfClass:[NSString class]]) {
+                resultCode = (NSString*)obj;
             }
-            else
-            {
-                [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
-                        completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                            
-                            if ( buttonIndex == 1 )
-                            {
-                                // 설정 창으로 이동
-                                CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
-                                [self.navigationController pushViewController:controller animated:YES];
-                            }
-                        }];
+            else {
+                resultCode = ((NSArray*)obj)[0];
             }
             
+            
+            if (sAssetId.length == 0) {
+                id obj2 =  [payment valueForKeyPath:@"assetId"];
+                if ([obj2 isKindOfClass:[NSString class]]) {
+                    sAssetId = (NSString*)obj2;
+                }
+                else {
+                    sAssetId = ((NSArray*)obj2)[0];
+                }
+            }
+            isRun = NO;
+        }];
+        
+        while (isRun) {
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+        }
+        
+        if (isValidCheck) {//구매목록이고 결과가 유효하지 않으면 돌아간다.
+            if (resultCode.length > 0 && [resultCode isEqualToString:@"100"] == NO) {
+                [self callAlertInvalidContents];
+                return;
+            }
+            resultCode = nil;
+        }
+        
+    }
+    
+    if (sAssetId.length == 0) {
+        return;
+    }
+    
+    [NSMutableDictionary vodGetAssetInfoWithAssetId:sAssetId WithAssetProfile:@"9" completion:^(NSArray *vod, NSError *error) {
+        DDLogError(@"vod 상세 = [%@]", vod);
+        id obj = [vod valueForKeyPath:@"resultCode"];
+        if ([obj isKindOfClass:[NSString class]]) {
+            resultCode = (NSString*)obj;
+        }
+        else {
+            resultCode = ((NSArray*)obj)[0];
+        }
+        
+        if (resultCode.length > 0 && [resultCode isEqualToString:@"100"] == NO) {
+            [self callAlertInvalidContents];
+            return;
+        }
+        
+        if ( [vod count] == 0 )
+            return;
+        
+        NSMutableArray *arr = [[NSMutableArray alloc] init];
+        NSObject *itemObject = vod[0][@"asset"][@"productList"][@"product"];
+        
+        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        {
+            [arr addObject:itemObject];
         }
         else
         {
+            [arr setArray:(NSArray *)itemObject];
+        }
+        
+        NSString *sProductId = @"";
+        
+        BOOL isCheck = NO;
+        for ( NSDictionary *dic in arr )
+        {
+            NSString *sProductType = dic[@"productType"];
+            NSString *sPurchasedTime = dic[@"purchasedTime"];
+            if ( [sProductType isEqualToString:@"Bundle"] && [sPurchasedTime length] != 0 )
+            {   // 번들이고 구매한 사용자
+                isCheck = YES;
+                sProductId = dic[@"productId"];
+            }
+        }
+        
+        if ( isCheck == YES )
+        {
+            // 묶음 페이지이동
+            VodDetailBundleMainViewController *pViewController = [[VodDetailBundleMainViewController alloc] initWithNibName:@"VodDetailBundleMainViewController" bundle:nil];
+            pViewController.sAssetId = sAssetId;
+            pViewController.sEpisodePeerExistence = @"0";
+            pViewController.sContentGroupId = @"";
+            pViewController.sProductId = sProductId;
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }
+        else
+        {
+            // 기존 상세 로직
             VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
             pViewController.pAssetIdStr = sAssetId;
+            pViewController.delegate = self;
             pViewController.pEpisodePeerExistence = @"0";
             pViewController.pContentGroupId = @"";
-            pViewController.delegate = self;
             [self.navigationController pushViewController:pViewController animated:YES];
-            
         }
         
-    }
-    else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_03 )
-    {
-        NSString *sRating = [NSString stringWithFormat:@"%@", [[self.pWatchListArr objectAtIndex:indexPath.row] objectForKey:@"rating"]];
-        NSString *sAssetId = [NSString stringWithFormat:@"%@", [[self.pWatchListArr objectAtIndex:indexPath.row] objectForKey:@"assetId"]];
-        
-        if ( [sRating isEqualToString:@"19"] )
-        {
-            // 성인 여부 컨텐츠이면
-            if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
-            {
-                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-                pViewController.pAssetIdStr = sAssetId;
-                pViewController.pEpisodePeerExistence = @"0";
-                pViewController.pContentGroupId = @"";
-                pViewController.delegate = self;
-                [self.navigationController pushViewController:pViewController animated:YES];
-            }
-            else
-            {
-                [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
-                        completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                            
-                            if ( buttonIndex == 1 )
-                            {
-                                // 설정 창으로 이동
-                                CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
-                                [self.navigationController pushViewController:controller animated:YES];
-                            }
-                        }];
-            }
-            
-        }
-        else
-        {
-            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-            pViewController.pAssetIdStr = sAssetId;
-            pViewController.pEpisodePeerExistence = @"0";
-            pViewController.pContentGroupId = @"";
-            pViewController.delegate = self;
-            [self.navigationController pushViewController:pViewController animated:YES];
-            
-        }
-
-    }
-    else if ( self.nTapTag == MY_CM_MAIN_VIEW_BTN_02 )
-    {
-        // 구매목록
-        if ( self.nSubTabTag == 0 )
-        {
-            NSString *sRating = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListMoblieArr objectAtIndex:indexPath.row] objectForKey:@"rating"]];
-            NSString *sAssetId = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListMoblieArr objectAtIndex:indexPath.row] objectForKey:@"assetId"]];
-            
-            if ( [sRating isEqualToString:@"19"] )
-            {
-                // 성인 여부 컨텐츠이면
-                if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
-                {
-                    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-                    pViewController.pAssetIdStr = sAssetId;
-                    pViewController.pEpisodePeerExistence = @"0";
-                    pViewController.pContentGroupId = @"";
-                    pViewController.delegate = self;
-                    [self.navigationController pushViewController:pViewController animated:YES];
-                }
-                else
-                {
-                    [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
-                            completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                                
-                                if ( buttonIndex == 1 )
-                                {
-                                    // 설정 창으로 이동
-                                    CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
-                                    [self.navigationController pushViewController:controller animated:YES];
-                                }
-                            }];
-                }
-                
-            }
-            else
-            {
-                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-                pViewController.pAssetIdStr = sAssetId;
-                pViewController.pEpisodePeerExistence = @"0";
-                pViewController.pContentGroupId = @"";
-                pViewController.delegate = self;
-                [self.navigationController pushViewController:pViewController animated:YES];
-                
-            }
-
-        }
-        else
-        {
-            NSString *sRating = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListTvArr objectAtIndex:indexPath.row] objectForKey:@"rating"]];
-            NSString *sAssetId = [NSString stringWithFormat:@"%@", [[self.pValidPurchaseLogListTvArr objectAtIndex:indexPath.row] objectForKey:@"assetId"]];
-            
-            if ( [sRating isEqualToString:@"19"] )
-            {
-                // 성인 여부 컨텐츠이면
-                if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
-                {
-                    VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-                    pViewController.pAssetIdStr = sAssetId;
-                    pViewController.pEpisodePeerExistence = @"0";
-                    pViewController.pContentGroupId = @"";
-                    pViewController.delegate = self;
-                    [self.navigationController pushViewController:pViewController animated:YES];
-                }
-                else
-                {
-                    [SIAlertView alert:@"성인인증 필요" message:@"성인 인증이 필요한 콘텐츠입니다.\n성인 인증을 하시겠습니까?" cancel:@"취소" buttons:@[@"확인"]
-                            completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                                
-                                if ( buttonIndex == 1 )
-                                {
-                                    // 설정 창으로 이동
-                                    CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
-                                    [self.navigationController pushViewController:controller animated:YES];
-                                }
-                            }];
-                }
-                
-            }
-            else
-            {
-                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
-                pViewController.pAssetIdStr = sAssetId;
-                pViewController.pEpisodePeerExistence = @"0";
-                pViewController.pContentGroupId = @"";
-                pViewController.delegate = self;
-                [self.navigationController pushViewController:pViewController animated:YES];
-                
-            }
-
-        }
-    }
+    }];
     
 }
 
@@ -796,5 +774,13 @@
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
+
+#pragma mark - 컨텐츠 유효기간 만료 팝업
+- (void)callAlertInvalidContents {
+    NSString* message = @"선택하신 VOD는 유효기간이 만료되어\n시청 및 구매가 제한된 상품입니다.";
+    [SIAlertView alert:@"VOD 유효기간 만료" message:message containBoldText:message button:@"확인" completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+    }];
+}
+
 
 @end
