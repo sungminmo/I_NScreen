@@ -130,6 +130,11 @@
 - (void)removeVodWatchList:(int)index;
 
 /**
+ *  vod 시청목록 전체삭제
+ */
+- (void)removeAllVodWatchList;
+
+/**
  *  시청예약 데이터 저장
  */
 - (void)setWatchReserveList:(NSDictionary *)dic;

@@ -191,6 +191,9 @@
         // 지역 설정 삭제
         [[CMAppManager sharedInstance] removeKeychainAreaCodeValue];
         
+        //시청목록 삭제
+        [[CMDBDataManager sharedInstance] removeAllVodWatchList];
+        
         CMDBDataManager *manager = [CMDBDataManager sharedInstance];
         [manager setPariringCheck:NO];
     }];

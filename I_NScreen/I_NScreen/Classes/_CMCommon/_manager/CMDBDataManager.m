@@ -412,6 +412,18 @@
 
 }
 
+- (void)removeAllVodWatchList {
+    RLMRealm *realm = [self cmRealm];
+    RLMArray *all = (RLMArray *)[CMVodWatchList allObjects];
+    if ( all.count > 0 )
+    {
+        [realm beginWriteTransaction];
+        [realm deleteObjects:all];
+        [realm commitWriteTransaction];
+    }    
+}
+
+
 - (void)setWatchReserveList:(NSDictionary *)dic
 {
     RLMRealm *realm = [self cmRealm];
