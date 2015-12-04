@@ -828,10 +828,10 @@
     }
 }
 
-- (NSString*)expiredDateIntervalWithPeriod:(NSString*)period purchased:(NSString*)purchased state:(NSString *)state {
+- (NSNumber*)expiredDateIntervalWithPeriod:(NSString*)period purchased:(NSString*)purchased state:(NSString *)state {
     
     if ([state isEqualToString:@"1"]) {
-        return @"0";
+        return @0;
     }
     
     NSDate* purchasedDate = [NSDate dateFromString:purchased withFormat:[NSDate timestampFormatString]];
@@ -856,7 +856,11 @@
     
     NSTimeInterval remainInterval = periodInterval - purchansedInterval;
     
-    return [NSString stringWithFormat:@"%.0f", remainInterval];
+    if (remainInterval < 0) {
+        return @-1;
+    }
+    
+    return [NSNumber numberWithDouble:remainInterval];
 }
 
 

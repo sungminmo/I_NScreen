@@ -486,7 +486,7 @@
             NSString* s = mDic[@"viewablePeriodState"];
             NSString* b = mDic[@"purchasedTime"];
             
-            NSString* validTime =  [[CMAppManager sharedInstance] expiredDateStringWithPeriod:p purchased:b state:s];
+            NSNumber* validTime =  [[CMAppManager sharedInstance] expiredDateIntervalWithPeriod:p purchased:b state:s];
             [mDic setObject:validTime forKey:@"validTime"];
             
             if ( [sPurchaseDeviceType isEqualToString:@"2"] )
@@ -514,7 +514,7 @@
                 NSString* s = mDic[@"viewablePeriodState"];
                 NSString* b = mDic[@"purchasedTime"];
                 
-                NSString* validTime =  [[CMAppManager sharedInstance] expiredDateIntervalWithPeriod:p purchased:b state:s];
+                NSNumber* validTime =  [[CMAppManager sharedInstance] expiredDateIntervalWithPeriod:p purchased:b state:s];
                 [mDic setObject:validTime forKey:@"validTime"];
                 
                 if ( [sPurchaseDeviceType isEqualToString:@"2"] )
@@ -546,7 +546,7 @@
         }
         
         if (tv.count > 1) {
-            sorted = [tv sortedArrayUsingDescriptors:@[desc1, desc2]];
+            sorted = [mobile sortedArrayUsingDescriptors:@[desc1, desc2, desc3]];
             [self.pValidPurchaseLogListTvArr addObjectsFromArray:sorted];
         } else {
             [self.pValidPurchaseLogListTvArr addObjectsFromArray:tv];
