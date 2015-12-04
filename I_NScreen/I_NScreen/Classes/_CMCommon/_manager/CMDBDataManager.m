@@ -284,7 +284,7 @@
     if (isForce || isEmpty) {
         CMAreaInfo *setting =  [[CMAreaInfo alloc] init];
         // 지역코드/명 기본값.
-        setting.areaCode = @"0";
+        setting.areaCode = CNM_AREA_CODE;
         setting.areaName = @"CnM";
         
         //1-2. 저장
