@@ -380,8 +380,10 @@
 #pragma mark - 한 채널 편성 정보 전문
 - (void)requestWithChannelSchedule
 {
+    CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
     NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
-    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelScheduleChannelId:sChannelId WithAreaCode:CNM_AREA_CODE block:^(NSArray *gets, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelScheduleChannelId:sChannelId WithAreaCode:areaInfo.areaCode
+    /*CNM_AREA_CODE*/ block:^(NSArray *gets, NSError *error) {
         
         DDLogError(@"한 채널 편성 정보 = [%@]", gets);
         

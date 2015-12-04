@@ -256,7 +256,8 @@
 #pragma mark - 전체 채널 리스트 전문
 - (void)requestWithChannelListFull
 {
-    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:CNM_AREA_CODE block:^(NSArray *gets, NSError *error) {
+    CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:areaInfo.areaCode/*CNM_AREA_CODE*/ block:^(NSArray *gets, NSError *error) {
         DDLogError(@"epg = [%@]", gets);
         
         if ( [gets count] == 0 )
@@ -299,7 +300,8 @@
 #pragma mark - 체널 리스트 전문
 - (void)requestWithChannelListWithGenreCode:(NSString *)genreCode
 {
-    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:CNM_AREA_CODE WithGenreCode:genreCode completion:^(NSArray *epgs, NSError *error) {
+    CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:areaInfo.areaCode/*CNM_AREA_CODE*/ WithGenreCode:genreCode completion:^(NSArray *epgs, NSError *error) {
         
         
         DDLogError(@"epg = [%@]", epgs);

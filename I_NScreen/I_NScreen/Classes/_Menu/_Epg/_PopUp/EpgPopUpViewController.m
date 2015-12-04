@@ -9,6 +9,7 @@
 #import "EpgPopUpViewController.h"
 #import "NSMutableDictionary+EPG.h"
 #import "UIAlertView+AFNetworking.h"
+#import "CMDBDataManager.h"
 
 @interface EpgPopUpViewController ()
 @property (nonatomic, strong) NSMutableArray *pDataArr;
@@ -225,7 +226,8 @@
 #pragma mark - 체널 장르 전문
 - (void)requestWithChannelGenre
 {
-    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelGenreAreCode:CNM_AREA_CODE Completion:^(NSArray *epgs, NSError *error) {
+    CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelGenreAreCode:areaInfo.areaCode/*CNM_AREA_CODE*/ Completion:^(NSArray *epgs, NSError *error) {
       
         DDLogError(@"epg = [%@]", epgs);
         
