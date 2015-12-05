@@ -71,6 +71,34 @@
     }
 }
 
+- (NSString*)getProductType:(NSDictionary*)productList
+{
+    NSObject* product = productList[@"product"];
+    NSArray* productArray;
+    NSString* productType = @"";
+    
+    if ([product isKindOfClass:[NSDictionary class]])
+    {
+        productArray = @[product];
+    }
+    else if([product isKindOfClass:[NSArray class]])
+    {
+        productArray = (NSArray*)product;
+    }
+    
+    for (NSDictionary* item in productArray) {
+        NSString* purchasedTime = item[@"purchasedTime"];
+        
+        if ([purchasedTime length] > 0 && ![purchasedTime isEqualToString:@"(null)"])
+        {
+            productType = item[@"productType"];
+            break;
+        }
+    }
+    
+    return productType;
+}
+
 #pragma mark - 초기화
 #pragma mark - 태그 초기화
 - (void)setTagInit
@@ -943,7 +971,17 @@ static int tvFontSize = 15;
         }
         else
         {
-            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            NSDictionary* productList = [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"];
+            NSString* productType = [self getProductType:productList];
+            if ([@"SVOD" isEqualToString:productType])
+            {
+                self.pPriceLbl.text = @"해당 월정액에 가입 하셨습니다.";
+            }
+            else
+            {
+                self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            }
+            
             // 7b5aa3 123 90 163
             self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         }
@@ -995,7 +1033,17 @@ static int tvFontSize = 15;
         }
         else
         {
-            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            NSDictionary* productList = [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"];
+            NSString* productType = [self getProductType:productList];
+            if ([@"SVOD" isEqualToString:productType])
+            {
+                self.pPriceLbl.text = @"해당 월정액에 가입 하셨습니다.";
+            }
+            else
+            {
+                self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            }
+            
             // 7b5aa3 123 90 163
             self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         }
@@ -1550,7 +1598,17 @@ static int tvFontSize = 15;
         }
         else
         {
-            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            NSDictionary* productList = [self pAssetListByEpisodePeerIdDic][@"productList"];
+            NSString* productType = [self getProductType:productList];
+            if ([@"SVOD" isEqualToString:productType])
+            {
+                self.pPriceLbl.text = @"해당 월정액에 가입 하셨습니다.";
+            }
+            else
+            {
+                self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            }
+            
             // 7b5aa3 123 90 163
             self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         }
@@ -1588,7 +1646,16 @@ static int tvFontSize = 15;
         }
         else
         {
-            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            NSDictionary* productList = [self pAssetListByEpisodePeerIdDic][@"productList"];
+            NSString* productType = [self getProductType:productList];
+            if ([@"SVOD" isEqualToString:productType])
+            {
+                self.pPriceLbl.text = @"해당 월정액에 가입 하셨습니다.";
+            }
+            else {
+                self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            }
+            
             // 7b5aa3 123 90 163
             self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         }
