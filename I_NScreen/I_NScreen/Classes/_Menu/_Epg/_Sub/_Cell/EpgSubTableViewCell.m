@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *hdImageView;
 @property (weak, nonatomic) IBOutlet CMProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UIImageView *pStateImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *pStateImageView2;
 @property (nonatomic) int nSelect;
 
 @property (strong, nonatomic) NSDictionary* dataDic;
@@ -70,26 +71,48 @@
     self.dataDic = data;
     self.nSelect = nIndex;
 
+    self.pStateImageView.hidden = YES;
+    self.pStateImageView2.hidden = YES;
+    BOOL isState1 = NO;
+    BOOL isReserved = NO;
+    
     if ( [sState isEqualToString:@"시청예약"] )
     {
         self.pStateImageView.hidden = NO;
         self.pStateImageView.image = [UIImage imageNamed:@"icon_watchrsv.png"];
-    }
-    else if ( [sState isEqualToString:@"녹화중"] )
-    {
-        self.pStateImageView.hidden = NO;
-        self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
+        isState1 = YES;
     }
     else if ( [sState isEqualToString:@"녹화예약중"] )
     {
-        self.pStateImageView.hidden = NO;
-        self.pStateImageView.image = [UIImage imageNamed:@"icon_recrsv.png"];
+        isReserved = YES;
+        if (isState1 == YES) {
+            self.pStateImageView2.hidden = NO;
+            self.pStateImageView2.image = [UIImage imageNamed:@"icon_recrsv.png"];
+        }
+        else {
+            self.pStateImageView.hidden = NO;
+            self.pStateImageView.image = [UIImage imageNamed:@"icon_recrsv.png"];
+            isState1 = YES;
+        }
     }
-    else
+    else if ( [sState isEqualToString:@"녹화중"] )
     {
-        self.pStateImageView.hidden = YES;
-        self.pStateImageView.image = [UIImage imageNamed:@""];
+        if (isState1 == YES) {
+            if (isReserved) {
+                self.pStateImageView.hidden = NO;
+                self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
+            }
+            else {
+                self.pStateImageView2.hidden = NO;
+                self.pStateImageView2.image = [UIImage imageNamed:@"icon_rec.png"];
+            }
+        } else {
+            self.pStateImageView.hidden = NO;
+            self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
+        }
     }
+
+
     
     NSString *sStartTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingStartTime"]];
     NSString *sEndTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingEndTime"]];

@@ -759,18 +759,49 @@
 #pragma mark - 녹화중 체크
 - (BOOL)getRecordingChannelIndex:(int)index
 {
-    // 체널 id 로 체크
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programId"]];
+//    // 체널 id 로 체크
+//    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programId"]];
+//    
+//    BOOL isCheck = NO;
+//    for ( NSString *str in self.recordingchannelArr )
+//    {
+//        if ( [str isEqualToString:sChannelId] )
+//        {
+//            isCheck = YES;
+//        }
+//    }
+//    return isCheck;
+    
+    //현재시간정보
+    NSString* strNow = [NSDate stringFromDate:[NSDate date] withFormat:@"YYYYMMddHHmmSS"];
+    
+    //채널가이드의 현재채널과 녹화예약시간
+    NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programBroadcastingStartTime"]];
+    NSString *sRecordEndTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programBroadcastingEndTime"]];
+    sRecordStartTime = [NSDate stringFromDateString:sRecordStartTime beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"YYYYMMddHHmmSS"];
+    sRecordEndTime = [NSDate stringFromDateString:sRecordEndTime beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"YYYYMMddHHmmSS"];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
     
     BOOL isCheck = NO;
-    for ( NSString *str in self.recordingchannelArr )
-    {
-        if ( [str isEqualToString:sChannelId] )
+    for ( NSDictionary *dic in self.pRecordReservListArr ) {
+        NSString *sDicRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
+        NSString *sDicRecordEndTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordEndTime"]];
+        sDicRecordStartTime = [NSDate stringFromDateString:sDicRecordStartTime beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"YYYYMMddHHmmSS"];
+        sDicRecordEndTime = [NSDate stringFromDateString:sDicRecordEndTime beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"YYYYMMddHHmmSS"];
+        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
+        
+        if ( [sRecordStartTime isEqualToString:sDicRecordStartTime] &&
+            [sChannelId isEqualToString:sDicChannelId] )
         {
-            isCheck = YES;
+            double now = [strNow doubleValue];
+            double start = [sRecordStartTime doubleValue];
+            double end = [sRecordEndTime doubleValue];
+            if (now >= start && now < end ) {
+                isCheck = YES;
+            }
         }
     }
-    return isCheck;
+    return isCheck;    
 }
 
 #pragma mark - 녹화 예약 체크
