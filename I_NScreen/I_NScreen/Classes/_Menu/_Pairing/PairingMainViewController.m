@@ -164,26 +164,40 @@
     }
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     NSString* pPwText = self.pPwTextField.text;
     NSString* pRePwText = self.pRePwTextFiled.text;
     
-    if ( (pPwText != nil && pPwText.length > 0) && (pRePwText != nil && pRePwText.length > 0) ) {
-        
-        if ([pPwText isEqualToString:pRePwText]) {
-            self.pDiscordLbl.text = @"입력 비밀번호가 일치합니다.";
-            self.pOkBtn.enabled = true;
-        } else {
-            self.pDiscordLbl.text = @"입력 비밀번호가 일치하지 않습니다.";
-            self.pOkBtn.enabled = false;
-            self.pRePwTextFiled.text = @"";
+    if ( (pPwText != nil && pPwText.length > 0) && (pRePwText != nil && pRePwText.length > 0) )
+    {
+        if ([pPwText isEqualToString:pRePwText])
+        {
+            self.pOkBtn.enabled = YES;
+            return YES;
         }
-    } else {
-        self.pDiscordLbl.text = @"";
+        else
+        {
+            self.pOkBtn.enabled = NO;
+            
+            self.pRePwTextFiled.text = @"";
+            
+            if (textField == self.pPwTextField)
+            {
+                [self.pRePwTextFiled performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.2];
+                return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
     }
+    
+    self.pOkBtn.enabled = NO;
+    
+    return YES;
 }
-
 
 #pragma mark - 델리게이트
 #pragma mark - PairingAuthViewController 델리게이트

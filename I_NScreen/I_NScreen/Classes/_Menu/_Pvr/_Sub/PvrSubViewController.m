@@ -298,7 +298,7 @@
         {
             //  시리즈 전체 삭제
             if ([reserveCancel isEqualToString:@"1"]) {
-                [self.navigationController popViewControllerAnimated:YES];
+                [self backCommonAction];
             } else {
                 [self.pSeriesReserveListArr removeObjectAtIndex:nIndex];
                 [self.pTableView reloadData];

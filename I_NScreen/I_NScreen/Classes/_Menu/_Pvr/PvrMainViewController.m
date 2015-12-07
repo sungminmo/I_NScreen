@@ -47,12 +47,6 @@
     self.title = @"녹화관리";
     
     self.isUseNavigationBar = YES;
-}
-
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     
     [self setTagInit];
     [self setViewInit];
