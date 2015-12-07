@@ -619,9 +619,10 @@
         
         if ( [resultCode isEqualToString:@"100"] )
         {
-            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"녹화중" forKey:@"cellState"];
-            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
-            [self.pTableView reloadData];
+            [self requestWithGetSetTopStatus];
+//            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"녹화중" forKey:@"cellState"];
+//            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
+//            [self.pTableView reloadData];
         }
 
     }];
@@ -643,9 +644,11 @@
         
         if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
-            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"" forKey:@"cellState"];
-            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
-            [self.pTableView reloadData];
+            [self requestWithGetSetTopStatus];
+            
+//            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"" forKey:@"cellState"];
+//            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
+//            [self.pTableView reloadData];
         }
     }];
     
@@ -773,7 +776,7 @@
 //    return isCheck;
     
     //현재시간정보
-    NSString* strNow = [NSDate stringFromDate:[NSDate date] withFormat:@"YYYYMMddHHmmSS"];
+    /*NSString* strNow = [NSDate stringFromDate:[NSDate date] withFormat:@"YYYYMMddHHmmSS"];
     
     //채널가이드의 현재채널과 녹화예약시간
     NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programBroadcastingStartTime"]];
@@ -799,9 +802,34 @@
             if (now >= start && now < end ) {
                 isCheck = YES;
             }
+            break;
+        }
+    }*/
+    
+    NSString* strNow = [NSDate stringFromDate:[NSDate date] withFormat:@"YYYYMMddHHmmSS"];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
+    NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programBroadcastingStartTime"]];
+    NSString *sRecordEndTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programBroadcastingEndTime"]];
+    sRecordStartTime = [NSDate stringFromDateString:sRecordStartTime beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"YYYYMMddHHmmSS"];
+    sRecordEndTime = [NSDate stringFromDateString:sRecordEndTime beforeFormat:@"YYYY-MM-dd HH:mm:SS" afterFormat:@"YYYYMMddHHmmSS"];
+    
+    double now = [strNow doubleValue];
+    double start = [sRecordStartTime doubleValue];
+    double end = [sRecordEndTime doubleValue];
+    BOOL isRecord = NO;
+    if (now >= start && now < end )
+    {
+        for (NSString* recordingchannel in self.recordingchannelArr)
+        {
+            if ([sChannelId isEqualToString:recordingchannel])
+            {
+                isRecord = YES;
+                break;
+            }
         }
     }
-    return isCheck;    
+    
+    return isRecord;
 }
 
 #pragma mark - 녹화 예약 체크
