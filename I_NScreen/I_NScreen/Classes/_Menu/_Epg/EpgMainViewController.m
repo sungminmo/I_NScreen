@@ -155,6 +155,12 @@
 }
 
 #pragma mark - 전문
+- (void)checkSetopBoxResult:(NSString*)code {
+    if ([@[@"206", @"028"] containsObject:code]) {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
+    }
+}
+
 #pragma mark - 전체 채널 리스트 전문
 - (void)requestWithChannelListFull
 {
@@ -224,6 +230,9 @@
     NSURLSessionDataTask *tesk = [NSMutableDictionary remoconGetSetTopStatusCompletion:^(NSArray *pairing, NSError *error) {
         
         DDLogError(@"리모컨 상태 체크 = [%@]", pairing);
+        
+        NSString *sResultCode = [[pairing objectAtIndex:0] objectForKey:@"resultCode"];
+        [self checkSetopBoxResult:sResultCode];
         
         if ( [pairing count] == 0 )
             return;

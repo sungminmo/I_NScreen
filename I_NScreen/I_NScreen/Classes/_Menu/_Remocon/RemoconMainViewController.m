@@ -224,6 +224,32 @@
 }
 
 #pragma mark - 전문
+- (void)checkSetopBoxResult:(NSString*)code {
+    if ([@[@"206", @"028"] containsObject:code]) {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
+    }
+}
+
+- (BOOL)checkRemoteControlState:(NSString*)code {
+    if ([code isEqualToString:@"014"]) {// Hold Mode
+        [SIAlertView alert:@"채널 변경" message:@"셋탑박스가 꺼져있습니다."];
+        return NO;
+    }
+    else if ([code isEqualToString:@"020"]) {
+        [SIAlertView alert:@"채널 변경" message:@"데이터 방송 시청중엔 채널변경이 불가능합니다."];
+        return NO;
+    }
+    else if ([code isEqualToString:@"021"]) {// VOD 시청중
+        [SIAlertView alert:@"채널 변경" message:@"VOD 시청중엔 채널변경이 불가능합니다."];
+        return NO;
+    }
+    else if ([code isEqualToString:@"008"]) {// 녹화물 재생중
+        [SIAlertView alert:@"채널 변경" message:@"녹화물 재생중엔 채널변경이 불가능합니다."];
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - 볼룸 조절 전문 리스트 UP, DOWN
 - (void)requestWithSetRemoteWithVolume:(NSString *)volume
 {
@@ -325,6 +351,9 @@
         
         DDLogError(@"리모컨 상태 체크 = [%@]", pairing);
         
+        NSString *sResultCode = [[pairing objectAtIndex:0] objectForKey:@"resultCode"];
+        [self checkSetopBoxResult:sResultCode];
+        
         if ( [pairing count] == 0 )
             return;
         
@@ -397,6 +426,9 @@
             NSString *sWatchingchannel = [NSString stringWithFormat:@"%@번", sChannelNumber];
             
             [self setChannelNumber:sWatchingchannel];
+        }
+        else {
+            [self checkRemoteControlState:[[pairing objectAtIndex:0] objectForKey:@"resultCode"]];
         }
     }];
     
