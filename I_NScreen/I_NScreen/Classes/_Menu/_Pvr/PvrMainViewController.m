@@ -69,8 +69,6 @@
 #pragma mark - 화면 초기화
 -(void)setViewInit
 {
-    self.isTabCheck = NO;
-    
     if (self.pListArr) {
         [self.pListArr removeAllObjects];
         [self.pReservListArr removeAllObjects];
@@ -454,7 +452,15 @@
                 }
             }
             
-            int nTotalCount = (int)[self.pReservListArr count];
+            NSInteger nTotalCount;
+            if (self.isTabCheck)
+            {
+                nTotalCount = self.pListArr.count;
+            } else
+            {
+                nTotalCount = self.pReservListArr.count;
+            }
+
             [self setInfoWithCount:nTotalCount];
             
             [self.pTableView reloadData];
