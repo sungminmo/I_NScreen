@@ -497,6 +497,10 @@
     // 체널 id 로 체크
     NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pChannelListArr objectAtIndex:index] objectForKey:@"ChannelId"]];
     
+    if ([sChannelId isEqualToString:@"(null)"]) {
+        return NO;
+    }
+    
     BOOL isCheck = NO;
     for ( NSString *str in self.recordingchannelArr )
     {

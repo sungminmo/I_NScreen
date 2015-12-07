@@ -376,7 +376,9 @@
     self.nScrollDateIndex = (int)index;
     
     [self setListDataSplit];
-    [self.pTableView reloadData];
+    
+    [self requestWithGetRecordReserveList];
+//    [self.pTableView reloadData];
 }
 
 
@@ -414,6 +416,12 @@
     }
     else if ([code isEqualToString:@"023"]) {
         [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."];
+    }
+    else if ([code isEqualToString:@"206"]) {
+        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."];
+    }
+    else if ([@[@"206", @"028"] containsObject:code]) {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
     }
 }
 
@@ -523,54 +531,7 @@
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
         }
-        else if ([resultCode isEqualToString:@"002"])
-        {
-            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 해당시간에 다른 채널이 녹화예약되어있습니다. 녹화예약을 취소해주세요."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    }];
-        }
-        else if ( [resultCode isEqualToString:@"003"] )
-        {
-            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스의 저장공간이 부족합니다. 녹화물 목록을 확인해주세요."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    }];
-        }
-        else if ( [resultCode isEqualToString:@"005"])
-        {
-            [SIAlertView alert:@"녹화 불가" message:@"선택 하신 채널은 녹화하실 수 없습니다."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    }];
-        }
-        else if ( [resultCode isEqualToString:@"014"])
-        {
-            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스의 뒷 전원이 꺼져있거나, 통신이 고르지 못해 녹화가 불가합니다. 셋탑박스의 상태를 확인해주세요."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    }];
-        }
-        else if ( [resultCode isEqualToString:@"010"])
-        {
-            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스에서 동시화면 기능을 사용중인 경우 즉시 녹화가 불가능합니다."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    }];
-        }
-        else if ( [resultCode isEqualToString:@"023"])
-        {
-            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    }];
-        }
+
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -601,22 +562,7 @@
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
         }
-        else if ([resultCode isEqualToString:@"002"])
-        {
-            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 해당시간에 다른 채널이 녹화예약되어있습니다. 녹화예약을 취소해주세요." button:@"확인"];
-        }
-        else if ([resultCode isEqualToString:@"003"])
-        {
-            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스의 저장공간이 부족합니다. 녹화물 목록을 확인해주세요." button:@"확인"];
-        }
-        else if ([resultCode isEqualToString:@"014"])
-        {
-            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스의 뒷 전원이 꺼져있거나, 통신이 고르지 못해 녹화가 불가합니다. 셋탑박스의 상태를 확인해주세요." button:@"확인"];
-        }
-        else if ([resultCode isEqualToString:@"010"])
-        {
-            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스에서 동시화면 기능을 사용중인 경우 즉시 녹화가 불가능합니다." button:@"확인"];
-        }
+
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -648,18 +594,7 @@
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약설정" forKey:@"deleState"];
             [self.pTableView reloadData];
         }
-        else if ([resultCode isEqualToString:@"014"])
-        {
-            [SIAlertView alert:@"녹화예약취소 불가" message:@"셋탑박스가 꺼져있습니다." button:@"확인"];
-        }
-        else if ([resultCode isEqualToString:@"021"])
-        {
-            [SIAlertView alert:@"녹화예약취소 불가" message:@"VOD 시청중엔 채널변경이 불가능합니다." button:@"확인"];
-        }
-        else if ([resultCode isEqualToString:@"008"])
-        {
-            [SIAlertView alert:@"녹화예약취소 불가" message:@"녹화물 재생중엔 채널변경이 불가능합니다." button:@"확인"];
-        }
+
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -728,35 +663,13 @@
         
         NSDictionary* item = pairing[0];
         NSString* resultCode = item[@"resultCode"];
+        [self checkSTBStateCode:resultCode];
         
         if ( [resultCode isEqualToString:@"100"] )
         {
             // 체널 변경 성공
         }
-        else if ( [resultCode isEqualToString:@"014"])
-        {
-            [SIAlertView alert:@"채널 변경" message:@"셋탑박스가 꺼져있습니다."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    }];
-        }
-        else if ( [resultCode isEqualToString:@"021"] )
-        {
-            [SIAlertView alert:@"채널 변경" message:@"VOD 시청중엔 채널변경이 불가능합니다."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    }];
-        }
-        else if ( [resultCode isEqualToString:@"008"] )
-        {
-            [SIAlertView alert:@"채널 변경" message:@"녹화물 재생중엔 채널변경이 불가능합니다."
-                        cancel:nil
-                       buttons:@[@"확인"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    }];
-        }
+
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -863,14 +776,15 @@
 #pragma mark - 녹화 예약 체크
 - (BOOL)getRecordReservListIndex:(int)index
 {
-    NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"RecordStartTime"]];
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programId"]];
+    NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programBroadcastingStartTime"]];
+//    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:index] objectForKey:@"programId"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
     
     BOOL isCheck = NO;
     for ( NSDictionary *dic in self.pRecordReservListArr )
     {
         NSString *sDicRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
-        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
         
         if ( [sRecordStartTime isEqualToString:sDicRecordStartTime] &&
             [sChannelId isEqualToString:sDicChannelId] )
@@ -889,14 +803,14 @@
         sState = @"시청예약";
     }
     
-    if ( [self getRecordingChannelIndex:index] == YES )
-    {
-        sState = @"녹화중";
-    }
-    
     if ( [self getRecordReservListIndex:index] == YES )
     {
         sState = @"녹화예약중";
+    }
+
+    if ( [self getRecordingChannelIndex:index] == YES )
+    {
+        sState = @"녹화중";
     }
     
     [[self.pNowStateCheckArr objectAtIndex:index] setObject:sState forKey:@"cellState"];
