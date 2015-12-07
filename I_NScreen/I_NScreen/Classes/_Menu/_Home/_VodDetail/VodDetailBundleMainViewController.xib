@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VodDetailBundleMainViewController">
@@ -1071,7 +1072,7 @@
                                     <exclude reference="ozq-Cd-5Ki"/>
                                 </mask>
                             </variation>
-                            <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                 <rect key="frame" x="0.0" y="213" width="400" height="587"/>
                                 <mask key="constraints">
                                     <exclude reference="3Bu-0e-b79"/>
@@ -1137,8 +1138,7 @@
                             <exclude reference="rff-Em-nYF"/>
                         </mask>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                    <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
                             <include reference="EgU-su-HG0"/>
                             <include reference="WF8-ib-Lrh"/>
@@ -1166,6 +1166,7 @@
                 <constraint firstItem="0Vn-uf-aqS" firstAttribute="leading" secondItem="IA1-Sb-Ssg" secondAttribute="leading" id="0rw-Ho-o34"/>
                 <constraint firstAttribute="trailing" secondItem="ojE-Kc-evO" secondAttribute="trailing" id="1jw-mV-Zzc"/>
                 <constraint firstAttribute="bottom" secondItem="ojE-Kc-evO" secondAttribute="bottom" id="Cja-mk-ie8"/>
+                <constraint firstItem="0Vn-uf-aqS" firstAttribute="height" secondItem="IA1-Sb-Ssg" secondAttribute="height" multiplier="0.7" id="Obc-pp-90X"/>
                 <constraint firstItem="ojE-Kc-evO" firstAttribute="top" secondItem="IA1-Sb-Ssg" secondAttribute="top" id="SFd-ni-5Ya"/>
                 <constraint firstItem="0Vn-uf-aqS" firstAttribute="width" secondItem="IA1-Sb-Ssg" secondAttribute="width" id="eck-HZ-psx"/>
                 <constraint firstItem="ojE-Kc-evO" firstAttribute="leading" secondItem="IA1-Sb-Ssg" secondAttribute="leading" id="xSm-XN-yKV"/>
@@ -1179,6 +1180,7 @@
                     <exclude reference="SFd-ni-5Ya"/>
                     <exclude reference="xSm-XN-yKV"/>
                     <exclude reference="0rw-Ho-o34"/>
+                    <exclude reference="Obc-pp-90X"/>
                     <exclude reference="eck-HZ-psx"/>
                 </mask>
             </variation>
@@ -1190,6 +1192,7 @@
                     <include reference="SFd-ni-5Ya"/>
                     <include reference="xSm-XN-yKV"/>
                     <include reference="0rw-Ho-o34"/>
+                    <include reference="Obc-pp-90X"/>
                     <exclude reference="eck-HZ-psx"/>
                 </mask>
             </variation>
