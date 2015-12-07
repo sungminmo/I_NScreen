@@ -42,15 +42,16 @@
     self.titleLabel.text = self.pTitleStr;
     self.pSeriesListArr = [[NSMutableArray alloc] init];
     
+    //  녹화물 목록
     if ( self.isTapCheck == YES )
     {
         [self requestWithGetRecordListSeries];
     }
+    //  녹화예약관리
     else
     {
         [self.pTableView reloadData];
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -147,8 +148,7 @@
                         if ( buttonIndex == 1 )
                         {
                             // 단편삭제
-                            
-                            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:@"0" WithIndex:(int)indexPath.row WithChannelId:sChannelId WithTime:sTime];
+                            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:sSeriesId WithIndex:(int)indexPath.row WithChannelId:sChannelId WithTime:sTime];
                         }
                         else if ( buttonIndex == 2 )
                         {
@@ -274,6 +274,16 @@
 }
 
 #pragma mark - 녹화예약 취소
+
+/**
+ *  녹화예약 취소
+ *
+ *  @param reserveCancel 전체:@"2" / 단편:@"1"
+ *  @param seriesId      시리즈 아이디
+ *  @param nIndex        선택된 셀 인덱스
+ *  @param channelId     채널 아이디
+ *  @param time          녹화시작시간
+ */
 - (void)requestWithSetRecordCancelReserveWithReserveCancel:(NSString *)reserveCancel WithSeriesId:(NSString *)seriesId WithIndex:(int)nIndex WithChannelId:(NSString *)channelId WithTime:(NSString *)time
 {
     //    ReserveCancel = 1 (시리즈 전체 삭제) / ReserveCancel = 2 (단편 삭제)
@@ -286,8 +296,13 @@
         
         if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
-            [self.pSeriesReserveListArr removeObjectAtIndex:nIndex];
-            [self.pTableView reloadData];
+            //  시리즈 전체 삭제
+            if ([reserveCancel isEqualToString:@"1"]) {
+                [self.navigationController popViewControllerAnimated:YES];
+            } else {
+                [self.pSeriesReserveListArr removeObjectAtIndex:nIndex];
+                [self.pTableView reloadData];
+            }
         }
     }];
     

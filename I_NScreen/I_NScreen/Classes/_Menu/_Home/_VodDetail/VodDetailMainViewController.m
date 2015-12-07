@@ -71,6 +71,34 @@
     }
 }
 
+- (NSString*)getProductType:(NSDictionary*)productList
+{
+    NSObject* product = productList[@"product"];
+    NSArray* productArray;
+    NSString* productType = @"";
+    
+    if ([product isKindOfClass:[NSDictionary class]])
+    {
+        productArray = @[product];
+    }
+    else if([product isKindOfClass:[NSArray class]])
+    {
+        productArray = (NSArray*)product;
+    }
+    
+    for (NSDictionary* item in productArray) {
+        NSString* purchasedTime = item[@"purchasedTime"];
+        
+        if ([purchasedTime length] > 0 && ![purchasedTime isEqualToString:@"(null)"])
+        {
+            productType = item[@"productType"];
+            break;
+        }
+    }
+    
+    return productType;
+}
+
 #pragma mark - 초기화
 #pragma mark - 태그 초기화
 - (void)setTagInit
@@ -896,10 +924,7 @@ static int tvFontSize = 15;
     {
         [self.pRatingImageView setImage:[UIImage imageNamed:@"all.png"]];
     }
-    
-    
-    
-    
+
     NSString *sUrl = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"imageFileName"]];
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     
@@ -924,30 +949,39 @@ static int tvFontSize = 15;
     // 배열로 단독 아님 패키지 가격이 내려 오는데 패키지 일땐 어떻하지???
     NSObject *productObj = [[[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"] objectForKey:@"product"];
     NSString *sPurchasedTime = @"";
+    NSString *price;
     
     
     if ( [productObj isKindOfClass:[NSDictionary class]] )
     {
         sPurchasedTime = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"purchasedTime"]];
         
-        // 단독
-        NSString *sProduct = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"price"]];
-        
-        
+        price = [NSString stringWithFormat:@"%@", [(NSDictionary *)productObj objectForKey:@"price"]];
+
         if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
         {
-            if ( [sProduct isEqualToString:@"0"] )
+            if ( [price isEqualToString:@"0"] )
             {
                 self.pPriceLbl.text = @"무료";
             }
             else
             {
-                self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:price]];
             }
         }
         else
         {
-            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            NSDictionary* productList = [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"];
+            NSString* productType = [self getProductType:productList];
+            if ([@"SVOD" isEqualToString:productType])
+            {
+                self.pPriceLbl.text = @"해당 월정액에 가입 하셨습니다.";
+            }
+            else
+            {
+                self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            }
+            
             // 7b5aa3 123 90 163
             self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         }
@@ -982,22 +1016,34 @@ static int tvFontSize = 15;
         
         
         // 패키지
-        NSString *sProduct = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"price"]];
+        price = [NSString stringWithFormat:@"%@", [[(NSArray *)productObj objectAtIndex:0] objectForKey:@"price"]];
         
         if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
         {
-            if ( [sProduct isEqualToString:@"0"] )
+            //  무료인 경우
+            if ( [price isEqualToString:@"0"] )
             {
                 self.pPriceLbl.text = @"무료";
             }
+            //  유료인 경우
             else
             {
-                self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:sProduct]];
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@ [부가세 별도]", [[CMAppManager sharedInstance] insertComma:price]];
             }
         }
         else
         {
-            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            NSDictionary* productList = [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"productList"];
+            NSString* productType = [self getProductType:productList];
+            if ([@"SVOD" isEqualToString:productType])
+            {
+                self.pPriceLbl.text = @"해당 월정액에 가입 하셨습니다.";
+            }
+            else
+            {
+                self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            }
+            
             // 7b5aa3 123 90 163
             self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         }
@@ -1072,32 +1118,50 @@ static int tvFontSize = 15;
     //  구매 X
     if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
     {
-        [self setViewInit22];
-        
-        if ( self.isZzimCheck == YES )
+        //  무료인 경우, [시청하기] 표출
+        if ( [price isEqualToString:@"0"] )
         {
-            
-            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+            //  tv전용일 경우
+            if ([sPublicationRight isEqualToString:@"1"])
+            {
+                [self setViewInit26];
+            }
+            //  tv/모바일일 경우
+            else if([sPublicationRight isEqualToString:@"2"])
+            {
+                [self setViewInit21];
+            }
         }
+        //  유료인 경우, [시청하기][구매하기][찜하기] 표출
         else
         {
+            [self setViewInit22];
             
-            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+            if ( self.isZzimCheck == YES )
+            {
+                
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+            }
+            else
+            {
+                
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+            }
+            
+            //  tv전용일 경우
+            if ([sPublicationRight isEqualToString:@"1"]) {
+                
+                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:self.pBuyBtn22
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                      multiplier:1.0 constant:-12];
+                
+                [self.view addConstraints:@[c_1]];
+            }
         }
-        
-        //  tv전용일 경우
-        if ([sPublicationRight isEqualToString:@"1"]) {
-            
-            NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
-                                                                   attribute:NSLayoutAttributeLeft
-                                                                   relatedBy:NSLayoutRelationEqual
-                                                                      toItem:self.pBuyBtn22
-                                                                   attribute:NSLayoutAttributeLeft
-                                                                  multiplier:1.0 constant:-12];
-            
-            [self.view addConstraints:@[c_1]];
-        }
-        
+
         /*if ( [sPreviewPeriod isEqualToString:@"0"] )
         {
             // 미리보기 없음
@@ -1511,12 +1575,10 @@ static int tvFontSize = 15;
     }
     
     NSObject *priceItem = [[[self pAssetListByEpisodePeerIdDic] objectForKey:@"productList"] objectForKey:@"product"];
-    
     NSString *sPurchasedTime = @"";
-    
     NSString *sViewablePeriodState = @"";
-    
     NSString *sViewablePeriod = @"";
+    
     
     if ( [priceItem isKindOfClass:[NSDictionary class]] )
     {
@@ -1536,7 +1598,17 @@ static int tvFontSize = 15;
         }
         else
         {
-            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            NSDictionary* productList = [self pAssetListByEpisodePeerIdDic][@"productList"];
+            NSString* productType = [self getProductType:productList];
+            if ([@"SVOD" isEqualToString:productType])
+            {
+                self.pPriceLbl.text = @"해당 월정액에 가입 하셨습니다.";
+            }
+            else
+            {
+                self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            }
+            
             // 7b5aa3 123 90 163
             self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         }
@@ -1574,7 +1646,16 @@ static int tvFontSize = 15;
         }
         else
         {
-            self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            NSDictionary* productList = [self pAssetListByEpisodePeerIdDic][@"productList"];
+            NSString* productType = [self getProductType:productList];
+            if ([@"SVOD" isEqualToString:productType])
+            {
+                self.pPriceLbl.text = @"해당 월정액에 가입 하셨습니다.";
+            }
+            else {
+                self.pPriceLbl.text = @"이미 구매하셨습니다.";
+            }
+            
             // 7b5aa3 123 90 163
             self.pPriceLbl.textColor = [UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f];
         }
@@ -1672,8 +1753,17 @@ static int tvFontSize = 15;
         //  무료시청 O
         if ( [sProductType isEqualToString:@"FOD"] )
         {
-            nTag = 24;
-            [self setViewInit24];
+            //  tv전용인 경우
+            if ([sPublicationRight isEqualToString:@"1"]) {
+                nTag = 25;
+                [self setViewInit25];
+            }
+            //  tv/모바일인 경우
+            else if ([sPublicationRight isEqualToString:@"2"])
+            {
+                nTag = 24;
+                [self setViewInit24];
+            }
         }
         //  무료시청 X
         else

@@ -177,6 +177,7 @@
         } else {
             self.pDiscordLbl.text = @"입력 비밀번호가 일치하지 않습니다.";
             self.pOkBtn.enabled = false;
+            self.pRePwTextFiled.text = @"";
         }
     } else {
         self.pDiscordLbl.text = @"";
