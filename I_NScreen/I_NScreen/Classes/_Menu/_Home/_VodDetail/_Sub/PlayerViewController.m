@@ -92,9 +92,24 @@ static PlayerViewController *playerViewCtr;
     return YES;
 }
 
+
+- (void)dealloc {
+    WV_Stop();
+    WV_Terminate();
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     self.title = @"스트리밍";
     self.isUseNavigationBar = NO;
@@ -130,17 +145,12 @@ static PlayerViewController *playerViewCtr;
 
 -(void)movieFinishedCallback:(NSNotification*)aNotification
 {
-    WV_Stop();
-    WV_Terminate();
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - back 버튼
 - (void) actionBackButton:(id)sender
 {
-    WV_Stop();
-    WV_Terminate();
-    
     [self.navigationController popViewControllerAnimated:NO];
 }
 
@@ -155,10 +165,14 @@ static PlayerViewController *playerViewCtr;
         [self.pDrmDic removeAllObjects];
         [self.pDrmDic setDictionary:drm];
         
+        NSString* key = [[[CMAppManager sharedInstance] getKeychainPrivateTerminalKey] copy];
+        NSString* assetId = [self.pAssetId copy];
+        NSString* userData = [NSString stringWithFormat:@",user_id:%@,content_id:%@,device_key:%@,so_idx:10", key, assetId, key];
+        
         NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [self.pDrmDic objectForKey:@"drmServerUri"], WVDRMServerKey,
                                     @"markanynhne", WVPortalKey,
-                                    @",user_id:cnmuserid,content_id:cnmcontentid,device_key:1234566,so_idx:10", WVCAUserDataKey,
+                                    userData, WVCAUserDataKey,
                                     NULL];
         
         WV_Initialize(WViPhoneCallback, dictionary);
@@ -213,9 +227,6 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
                    message:@"구매하신 VOD는 모바일용으로 준비 중에 있습니다.\n빠른 시일 내에 모바일에서 시청하실 수 있도록 조치하겠습니다.\n(본 VOD는 TV에서 시청 가능합니다.)"
                     button:@"확인"
                 completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    
-                    WV_Stop();
-                    WV_Terminate();
                     [self.navigationController popViewControllerAnimated:NO];
                 }];
     }
@@ -255,10 +266,6 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
                        message:@"구매하신 VOD는 모바일용으로 준비 중에 있습니다.\n빠른 시일 내에 모바일에서 시청하실 수 있도록 조치하겠습니다.\n(본 VOD는 TV에서 시청 가능합니다.)"
                         button:@"확인"
                     completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                       
-                        WV_Stop();
-                        WV_Terminate();
-                        
                         [self.navigationController popViewControllerAnimated:NO];
                     }];
         }
