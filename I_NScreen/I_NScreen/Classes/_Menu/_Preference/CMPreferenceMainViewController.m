@@ -113,7 +113,7 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
 #pragma mark - Event
 - (void)adultAuthorizationSuccessAfterEventWithSwitchButton:(UISwitch*)swButton value:(BOOL)isOn {
 
-    [[CMAppManager sharedInstance] setKeychainAdultLimit:!isOn];
+    [[CMAppManager sharedInstance] setKeychainAdultLimit:isOn];
 
     self.switchButton = nil;
     self.isSwitchOn = isOn;

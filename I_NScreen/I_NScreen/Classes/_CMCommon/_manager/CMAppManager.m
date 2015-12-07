@@ -351,9 +351,10 @@
 - (BOOL)getKeychainAdultLimit
 {
     BOOL isAdult = NO;
-    if ( [[[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_ADULT_LIMIT] isEqualToString:@"YES"] )
+    NSString* value = [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_ADULT_LIMIT];
+    if ( value == nil || [value isEqualToString:@"YES"] ) {
         isAdult = YES;
-    
+    }
     return isAdult;
 }
 
@@ -361,6 +362,7 @@
 - (void)removeKeychainAdultLimit
 {
     [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_ADULT_LIMIT];
+    [[FXKeychain defaultKeychain] setObject:@"YES" forKey:CNM_OPEN_API_ADULT_LIMIT];
 }
 
 #pragma mark - 지역 설정 set

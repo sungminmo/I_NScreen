@@ -90,10 +90,10 @@
             self.indicatorImageView.hidden = true;
             self.switchButton.hidden = false;
             
-            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-            CMContentsRestrictedType type = [ud restrictType];
+//            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+//            CMContentsRestrictedType type = [ud restrictType];
 //            BOOL isRestricted = type==CMContentsRestrictedTypeAdult?YES:NO;
-            BOOL isRestricted = type == [[CMAppManager sharedInstance] getKeychainAdultLimit]?YES:NO;
+            BOOL isRestricted = [[CMAppManager sharedInstance] getKeychainAdultLimit];
             self.switchButton.on = isRestricted;
             
         } else {
