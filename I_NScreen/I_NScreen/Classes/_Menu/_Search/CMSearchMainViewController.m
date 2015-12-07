@@ -157,7 +157,7 @@ static const CGFloat pageSize = 28;
     if (count < 0) {
         self.infoLabel.hidden = YES;
         self.pComentLbl.hidden = NO;
-        self.pComentLbl.text = @"검색결과가 없습니다. 다른 검색어를 입력해 주세요.";
+        self.pComentLbl.text = @"검색창에 원하시는 검색어를 입력해 주세요";
     }
     else if ( count == 0 )
     {
@@ -184,7 +184,7 @@ static const CGFloat pageSize = 28;
     
     [self.searchWordArray removeAllObjects];
     [self.dataArray removeAllObjects];
-    [self setListCount:0];
+    [self setListCount:-1];
     [self.vodList reloadData];
     [self.programList reloadData];
 }
@@ -532,7 +532,6 @@ static const CGFloat pageSize = 28;
     [self.searchField resignFirstResponder];
     [self showAutoCompletList:NO];
     
-    [self resetData];
     [self requestList];
     
     switch (tabIndex) {
