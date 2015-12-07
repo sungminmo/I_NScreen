@@ -326,6 +326,12 @@
         return;
     }
     else {
+        
+        if (sAssetId == nil || [[sAssetId emptyCheck] isEqualToString:@""]) {
+            [SIAlertView alert:@"알림" message:@"상품정보가 유효하지 않습니다."];
+            return;
+        }
+        
         [NSMutableDictionary vodGetAssetInfoWithAssetId:sAssetId WithAssetProfile:@"9" completion:^(NSArray *vod, NSError *error) {
             DDLogError(@"vod 상세 = [%@]", vod);
             id obj = [vod valueForKeyPath:@"resultCode"];

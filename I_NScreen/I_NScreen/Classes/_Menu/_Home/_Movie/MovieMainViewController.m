@@ -342,6 +342,10 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         }
         
         
+        if ([self.pThreeDepthDailyDataArr count] == 0) {
+            [SIAlertView alert:@"알림" message:@"목록이 없습니다."];
+        }
+        
         [self.pCollectionView22 reloadData];
     }];
     

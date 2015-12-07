@@ -105,6 +105,12 @@ unsigned char strToChar (char a, char b) {
     if ([self isEmpty]) {
         return @"";
     }
+    else if ([[self lowercaseString] isEqualToString:@"(null)"]) {
+        return @"";
+    }
+    else if ([[self lowercaseString] isEqualToString:@"null"]) {
+        return @"";
+    }
     return self;
 }
 
