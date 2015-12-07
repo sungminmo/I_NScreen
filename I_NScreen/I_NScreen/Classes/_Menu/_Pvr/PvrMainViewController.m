@@ -395,6 +395,12 @@
     if ([@[@"206", @"028"] containsObject:code]) {
         [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
     }
+    else if ([code isEqualToString:@"205"] )
+    {
+        NSString *sMessage = @"녹화물 목록을 받을 수 없습니다.";
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:sMessage button:@"확인" completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+        }];
+    }
 }
 
 - (void)requestWithRecordReservelist
@@ -463,6 +469,9 @@
         else {
             //셋탑상태 처리
             [self checkSetopBoxResult:sResultCode];
+            [self.pListArr removeAllObjects];
+            [self setInfoWithCount:0];
+            [self.pTableView reloadData];
         }
     }];
     
@@ -501,6 +510,9 @@
         else {
             //셋탑상태 처리
             [self checkSetopBoxResult:sResultCode];
+            [self.pListArr removeAllObjects];
+            [self setInfoWithCount:0];
+            [self.pTableView reloadData];
         }
         
     }];
