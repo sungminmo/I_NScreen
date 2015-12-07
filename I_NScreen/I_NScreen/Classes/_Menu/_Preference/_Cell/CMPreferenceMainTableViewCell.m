@@ -93,7 +93,7 @@
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
             CMContentsRestrictedType type = [ud restrictType];
 //            BOOL isRestricted = type==CMContentsRestrictedTypeAdult?YES:NO;
-            BOOL isRestricted = type == [[CMAppManager sharedInstance] getKeychainAdultLimit]?YES:NO;
+            BOOL isRestricted = type == [[CMAppManager sharedInstance] getKeychainAdultCertification]?YES:NO;
             self.switchButton.on = isRestricted;
             
         } else {

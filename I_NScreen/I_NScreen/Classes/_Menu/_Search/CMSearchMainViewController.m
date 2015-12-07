@@ -115,7 +115,7 @@ static const CGFloat pageSize = 28;
 {
     NSString *sIncludeAdultCategory = @"0";
     
-    if ( [[CMAppManager sharedInstance] getKeychainAdultLimit] == YES )
+    if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
     {
         sIncludeAdultCategory = @"1";
     }
@@ -281,7 +281,7 @@ static const CGFloat pageSize = 28;
     
     // IncludeAdultCategory 성인 체크 여부 0일시 성인 제한 , 1이면 전체 뿌림
     NSString *sIncludeAdultCategory = @"0";
-    if ( [[CMAppManager sharedInstance] getKeychainAdultLimit] == YES )
+    if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
     {
         sIncludeAdultCategory = @"1";
     }
