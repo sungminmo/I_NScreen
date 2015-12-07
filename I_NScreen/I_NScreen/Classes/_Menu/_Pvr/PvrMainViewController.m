@@ -47,7 +47,13 @@
     self.title = @"녹화관리";
     
     self.isUseNavigationBar = YES;
+}
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
     [self setTagInit];
     [self setViewInit];
 }
@@ -64,9 +70,18 @@
 -(void)setViewInit
 {
     self.isTabCheck = NO;
-    self.pListArr = [[NSMutableArray alloc] init];
-    self.pReservListArr = [[NSMutableArray alloc] init];
-    self.pSeriesReservDetailArr = [[NSMutableArray alloc] init];
+    
+    if (self.pListArr) {
+        [self.pListArr removeAllObjects];
+        [self.pReservListArr removeAllObjects];
+        [self.pSeriesReservDetailArr removeAllObjects];
+    } else {
+        self.pListArr = [[NSMutableArray alloc] init];
+        self.pReservListArr = [[NSMutableArray alloc] init];
+        self.pSeriesReservDetailArr = [[NSMutableArray alloc] init];
+    }
+
+    [self.pTableView reloadData];
     // 초기 예약 녹화 리스트
     
     [self setInfoWithCount:-1];
@@ -82,6 +97,11 @@
  */
 - (void)setInfoWithCount:(NSInteger)count {
     
+    if (count < 0) {
+        self.infoLabel.text = @"";
+        return;
+    }
+        
     if ( self.isTabCheck == YES )
     {
         // 녹화물 목록

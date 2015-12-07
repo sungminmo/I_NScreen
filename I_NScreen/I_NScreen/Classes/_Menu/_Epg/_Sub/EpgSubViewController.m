@@ -312,7 +312,8 @@
     else
     {
         // 시청예약인지 아닌지
-        NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.todayNewDateArr objectAtIndex:nIndex] objectForKey:@"programBroadcastingStartTime"]];
+        NSDictionary* item = self.todayNewDateArr[nIndex];
+        NSString *sProgramBroadcastingStartTime = item[@"programBroadcastingStartTime"];
         
         //        NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
         
@@ -325,9 +326,9 @@
             if ( [sRecordStartTime isEqualToString:sProgramBroadcastingStartTime] &&
                 [sChannelId isEqualToString:sChannelIdReserv] )
             {
-                
                 // 녹화 예약중이다
                 isCheck = YES;
+                break;
             }
         }
         
@@ -338,7 +339,32 @@
         }
         else
         {
-            [self requstWithSetRecordReserveWithIndex:nIndex];
+            //  시리즈인 경우, 팝업 표출
+            NSString* seriesId = item[@"seriesId"];
+            
+            //  단편
+            if (seriesId == nil)
+            {
+                [self requstWithSetRecordReserveWithIndex:nIndex];
+            }
+            //  시리즈
+            else
+            {
+                [SIAlertView alert:@"녹화예약확인" message:@"녹화예약을 하시겠습니까?"
+                            cancel:@"취소"
+                           buttons:@[@"시리즈예약", @"단편예약"]
+                        completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+
+                            if ( buttonIndex == 1 )
+                            {
+                                [self requstWithSetRecordSeriesReserveWithSeries:seriesId WithIndex:nIndex];
+                            }
+                            else if ( buttonIndex == 2 )
+                            {
+                                [self requstWithSetRecordReserveWithIndex:nIndex];
+                            }
+                        }];
+            }
         }
     }
 }
@@ -527,11 +553,28 @@
         if ( [epgs count] == 0 )
             return;
         
-        if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        NSString* resultCode = [[epgs objectAtIndex:0] objectForKey:@"resultCode"];
+        if ([resultCode isEqualToString:@"100"])
         {
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
+        }
+        else if ([resultCode isEqualToString:@"002"])
+        {
+            [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 해당시간에 다른 채널이 녹화예약되어있습니다. 녹화예약을 취소해주세요." button:@"확인"];
+        }
+        else if ([resultCode isEqualToString:@"003"])
+        {
+            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스의 저장공간이 부족합니다. 녹화물 목록을 확인해주세요." button:@"확인"];
+        }
+        else if ([resultCode isEqualToString:@"014"])
+        {
+            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스의 뒷 전원이 꺼져있거나, 통신이 고르지 못해 녹화가 불가합니다. 셋탑박스의 상태를 확인해주세요." button:@"확인"];
+        }
+        else if ([resultCode isEqualToString:@"010"])
+        {
+            [SIAlertView alert:@"녹화예약 불가" message:@"셋탑박스에서 동시화면 기능을 사용중인 경우 즉시 녹화가 불가능합니다." button:@"확인"];
         }
     }];
     
@@ -554,12 +597,25 @@
         if ( [epgs count] == 0 )
             return;
         
-        if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        NSString* resultCode = [[epgs objectAtIndex:0] objectForKey:@"resultCode"];
+        if ( [resultCode isEqualToString:@"100"] )
         {
 //            [self requestWithGetSetTopStatus];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약설정" forKey:@"deleState"];
             [self.pTableView reloadData];
+        }
+        else if ([resultCode isEqualToString:@"014"])
+        {
+            [SIAlertView alert:@"녹화예약취소 불가" message:@"셋탑박스가 꺼져있습니다." button:@"확인"];
+        }
+        else if ([resultCode isEqualToString:@"021"])
+        {
+            [SIAlertView alert:@"녹화예약취소 불가" message:@"VOD 시청중엔 채널변경이 불가능합니다." button:@"확인"];
+        }
+        else if ([resultCode isEqualToString:@"008"])
+        {
+            [SIAlertView alert:@"녹화예약취소 불가" message:@"녹화물 재생중엔 채널변경이 불가능합니다." button:@"확인"];
         }
     }];
     

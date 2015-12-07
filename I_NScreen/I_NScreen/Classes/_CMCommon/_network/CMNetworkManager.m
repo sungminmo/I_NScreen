@@ -777,6 +777,11 @@
     return task;
 }
 
+- (NSURLSessionDataTask *)epgSetRecordCancelReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithReserveCancel:(NSString *)reserveCancel completion:(void (^)(NSArray *epgs, NSError *error))block
+{
+    return [self epgSetRecordCancelReserveWithChannelId:channeId WithStartTime:startTime WithSeriesId:nil WithReserveCancel:reserveCancel completion:block];
+}
+
 - (NSURLSessionDataTask *)epgSetRecordCancelReserveWithChannelId:(NSString *)channeId WithStartTime:(NSString *)startTime WithSeriesId:(NSString *)seriesId WithReserveCancel:(NSString *)reserveCancel completion:(void (^)(NSArray *epgs, NSError *error))block
 {
     self.rumClient.responseSerializer = [AFXMLParserResponseSerializer new];
@@ -784,10 +789,20 @@
     
     NSDictionary *dict = nil;
     
-    if ( [reserveCancel isEqualToString:@"1"] )
+    //  단편
+    if (seriesId == nil || seriesId.length == 0) {
+        dict = @{
+                 CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
+                 CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
+                 @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
+                 @"ChannelId" : channeId,
+                 @"StartTime" : startTime,
+                 @"ReserveCancel" : reserveCancel
+                 };
+    }
+    //  시리즈
+    else
     {
-        // 시리즈
-        
         dict = @{
                  CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                  CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
@@ -797,20 +812,6 @@
                  @"seriesId" : seriesId,
                  @"ReserveCancel" : reserveCancel
                  };
-        
-    }
-    else
-    {
-        // 단편
-        dict = @{
-                 CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
-                 CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
-                 @"deviceId" : [[CMAppManager sharedInstance] getKeychainUniqueUuid],
-                 @"ChannelId" : channeId,
-                 @"StartTime" : startTime,
-                 @"ReserveCancel" : reserveCancel
-                 };
-        
     }
     
     NSString *sUrl = [NSString stringWithFormat:@"%@.asp", CNM_OPEN_API_INTERFACE_SetRecordCancelReserve];
