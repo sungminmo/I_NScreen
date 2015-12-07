@@ -150,8 +150,12 @@
     
     [pCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
+    //  녹화물 목록
     if ( self.isTabCheck == YES )
+    {
         [pCell setListDataList:[self.pListArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row];
+    }
+    //  녹화 예약 목록
     else
     {
         BOOL isCheck = NO;
@@ -173,9 +177,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 녹화물 목록
     if ( self.isTabCheck == YES )
     {
-        // 녹화물 목록
         NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
         
         if ( ![sSeriesId isEqualToString:@"NULL"] )
@@ -190,19 +194,21 @@
 
         }
     }
+    // 녹화예약관리
     else
     {
-        // 녹화예약관리
-        PvrSubViewController *pViewController = [[PvrSubViewController alloc] initWithNibName:@"PvrSubViewController" bundle:nil];
-        pViewController.delegate = self;
-        pViewController.pSeriesIdStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"];
-        pViewController.pTitleStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ProgramName"];
-        pViewController.isTapCheck = NO;
-        pViewController.pSeriesReserveListArr = self.pSeriesReservDetailArr;
-        [self.navigationController pushViewController:pViewController animated:YES];
-
+        NSString* seriesId = ((NSDictionary*)self.pReservListArr[indexPath.row])[@"SeriesId"];
+        
+        if ([seriesId isEqualToString:@"NULL"] == NO) {
+            PvrSubViewController *pViewController = [[PvrSubViewController alloc] initWithNibName:@"PvrSubViewController" bundle:nil];
+            pViewController.delegate = self;
+            pViewController.pSeriesIdStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"];
+            pViewController.pTitleStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ProgramName"];
+            pViewController.isTapCheck = NO;
+            pViewController.pSeriesReserveListArr = self.pSeriesReservDetailArr;
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -237,11 +243,11 @@
         return (int)[self.pReservListArr count];
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 녹화물 목록
     if ( self.isTabCheck == YES )
     {
-        // 녹화물 목록
         NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
         
         if ( [sSeriesId isEqualToString:@"NULL"] )
@@ -255,9 +261,9 @@
             return NO;
         }
     }
+    // 녹화예약관리
     else
     {
-        // 녹화예약관리
         NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
         
         if ( [sSeriesId isEqualToString:@"NULL"] )
@@ -279,9 +285,9 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         DDLogError(@"delete");
         
+        // 녹화물 목록
         if ( self.isTabCheck == YES )
         {
-            // 녹화물 목록
             [SIAlertView alert:@"녹화물 삭제" message:@"녹화물을 삭제 하시겠습니까?"
                         cancel:@"아니오"
                        buttons:@[@"예"]
@@ -294,9 +300,9 @@
                         
                     }];
         }
+        // 녹화 예약 목록
         else
         {
-            // 녹화 예약 목록
             BOOL isCheck = NO;
             NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ChannelId"]];
             for ( NSString *str in self.pPvringListArr )
@@ -308,14 +314,31 @@
                 }
             }
             
+            // 녹화예약취소
             if ( isCheck == NO )
             {
-                // 녹화예약취소
-                [self requestWithSetRecordCancelReserveWithIndex:(int)indexPath.row];
+                NSDictionary* reservItem = self.pReservListArr[indexPath.row];
+                NSString* seriesId = reservItem[@"SeriesId"];
+                
+                //  메인화면에서는 단편만 녹화예약취소 가능
+                if ([seriesId isEqualToString:@"NULL"]) {
+                    NSString* message = [NSString stringWithFormat:@"%@\n\n녹화예약을 삭제하시겠습니까?", reservItem[@"ProgramName"]];
+                    
+                    [SIAlertView alert:@"녹화예약취소확인" message:message
+                                cancel:@"취소"
+                               buttons:@[@"확인"]
+                            completion:^(NSInteger buttonIndex, SIAlertView *alert){
+                                
+                                if ( buttonIndex == 1 )
+                                {
+                                    [self requestWithSetRecordCancelReserveWithIndex:(int)indexPath.row reserveCancel:@"2"];
+                                }
+                            }];
+                }
             }
+            // 녹화중지
             else
             {
-                // 녹화중지
                 
             }
         }
@@ -331,14 +354,14 @@
 //    BOOL rec = indexPath.row%2; //  녹화중 여부 테스트 값
     NSString* text = @"";
     
+    // 녹화물 목록
     if ( self.isTabCheck == YES )
     {
-        // 녹화물 목록
         text = @"삭제";
     }
+    // 녹화예약관리
     else
     {
-        // 녹화예약관리
         text = @"녹화예약취소";
         NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ChannelId"]];
         for ( NSString *str in self.pPvringListArr )
@@ -497,12 +520,18 @@
 }
 
 #pragma mark - 녹화예약취소
-- (void)requestWithSetRecordCancelReserveWithIndex:(int)index
+
+/**
+ *  녹화예약취소
+ *  @param index    리스트 인덱스
+ *  @param reserveCancel    단편 - @"2", 시리즈 - 전체:@"2" / 단편:@"1"
+ */
+- (void)requestWithSetRecordCancelReserveWithIndex:(int)index reserveCancel:(NSString*)reserveCancel
 {
-     NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:index] objectForKey:@"ChannelId"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:index] objectForKey:@"ChannelId"]];
     NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.pReservListArr objectAtIndex:index] objectForKey:@"RecordStartTime"]];
     
-    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSetRecordCancelReserveWithChannelId:sChannelId WithStartTime:sRecordStartTime WithSeriesId:@"" WithReserveCancel:@"" completion:^(NSArray *epgs, NSError *error) {
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSetRecordCancelReserveWithChannelId:sChannelId WithStartTime:sRecordStartTime WithSeriesId:@"" WithReserveCancel:reserveCancel completion:^(NSArray *epgs, NSError *error) {
         
         DDLogError(@"녹화 예약 취소 = [%@]", epgs);
         
