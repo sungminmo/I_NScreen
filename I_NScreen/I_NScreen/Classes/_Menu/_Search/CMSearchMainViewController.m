@@ -94,7 +94,7 @@ static const CGFloat pageSize = 28;
     
     self.pNowStateCheckArr = [@[] mutableCopy];
     
-    [self setListCount:self.dataArray.count];
+    [self setListCount:-1];
 
     UINib* nib;
     
@@ -152,23 +152,26 @@ static const CGFloat pageSize = 28;
  *
  *  @param count 검색결과 카운트
  */
-- (void)setListCount:(NSInteger)count {
-    
-    if (0 > count) {
+- (void)setListCount:(NSInteger)count
+{
+    if (count < 0) {
+        self.infoLabel.hidden = YES;
+        self.pComentLbl.hidden = NO;
+        self.pComentLbl.text = @"검색결과가 없습니다. 다른 검색어를 입력해 주세요.";
+    }
+    else if ( count == 0 )
+    {
+        self.infoLabel.hidden = NO;
+        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , (long)count];
         
-        self.infoLabel.text = @"성인 콘텐츠를 검색하시려면\n 설정>성인검색 제한 설정을 해제 해주세요.";
-    } else {
-        if ( count == 0 )
-        {
-            self.pComentLbl.hidden = NO;
-            self.pComentLbl.text = @"검색결과가 없습니다. 다른 검색어를 입력해 주세요.";
-        }
-        else
-        {
-//            self.pComentLbl.text = @"검색창에 원하시는 검색어를 입력해 주세요.";
-            self.pComentLbl.hidden = YES;
-            self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , (long)count];
-        }
+        self.pComentLbl.hidden = NO;
+        self.pComentLbl.text = @"검색결과가 없습니다. 다른 검색어를 입력해 주세요.";
+    }
+    else
+    {
+        self.infoLabel.hidden = NO;
+        self.infoLabel.text = [NSString stringWithFormat:@"총 %ld개의 검색결과가 있습니다." , (long)count];
+        self.pComentLbl.hidden = YES;
     }
 }
 
