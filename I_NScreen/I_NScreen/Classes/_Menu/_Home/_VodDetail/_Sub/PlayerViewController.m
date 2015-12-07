@@ -117,6 +117,9 @@ static PlayerViewController *playerViewCtr;
     [self setViewInit];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self SetDeviceOrientation:UIInterfaceOrientationPortrait];
+    
+    MPMoviePlayerController *mp = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
+    self.pMoviePlayer = mp;
 }
 
 #pragma mark - 초기화
@@ -247,10 +250,7 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
             [manager setVodWatchList:dic];
             
             NSURL *url = [NSURL URLWithString:responseUrl];
-            MPMoviePlayerController *mp = [[MPMoviePlayerController alloc]
-                                           initWithContentURL:url];
-            self.pMoviePlayer = mp;
-            //                    [mp release];
+            [self.pMoviePlayer setContentURL:url];
             self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
             [self.pMoviePlayer setFullscreen:YES animated:YES];
             [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];

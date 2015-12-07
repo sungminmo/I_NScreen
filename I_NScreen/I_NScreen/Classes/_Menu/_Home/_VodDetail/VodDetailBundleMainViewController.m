@@ -58,19 +58,13 @@
 @end
 
 @implementation VodDetailBundleMainViewController
-@synthesize sAssetId;
-@synthesize sEpisodePeerExistence;
-@synthesize sContentGroupId;
-@synthesize sProductId;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     [self setViewInit];
     [self setTagInit];
     [self setDataInit];
@@ -231,7 +225,7 @@
                 [self.pBundleImageView01 setImageWithURL:[NSURL URLWithString:sUrl]];
                 self.pBundleTitleLbl01.text = [NSString stringWithFormat:@"%@", [[self.pBundleAssetArr objectAtIndex:i] objectForKey:@"displayName"]];
                 self.pBundleMoneyLbl01.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] insertComma:[[self.pBundleAssetArr objectAtIndex:i] objectForKey:@"suggestedPrice"]]];
-                
+
             }break;
             case 1:
             {
