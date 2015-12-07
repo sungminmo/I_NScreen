@@ -70,7 +70,8 @@
     // 초기 예약 녹화 리스트
     
     [self setInfoWithCount:-1];
-    [self requestWithGetSetTopStatus];
+//    [self requestWithGetSetTopStatus];//미사용 2015.12.07 - AOS소스보고 미사용으로 맞춤
+    [self requestWithRecordReservelist];
 }
 
 #pragma mark - Private
@@ -81,6 +82,10 @@
  *  @param count 목록수, 0보다 작은 경우 메세지를 표출하지 않는다.
  */
 - (void)setInfoWithCount:(NSInteger)count {
+    
+    if (count < 0) {
+        count = 0;
+    }
     
     if ( self.isTabCheck == YES )
     {
@@ -356,6 +361,12 @@
 
 #pragma mark - 전문
 #pragma mark - 예약 녹화물 리스트
+- (void)checkSetopBoxResult:(NSString*)code {
+    if ([@[@"206", @"028"] containsObject:code]) {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
+    }
+}
+
 - (void)requestWithRecordReservelist
 {
     NSURLSessionDataTask *tesk = [NSMutableDictionary pvrGetrecordReservelistCompletion:^(NSArray *pvr, NSError *error) {
@@ -411,6 +422,10 @@
             [self.pTableView reloadData];
 
         }
+        else {
+            //셋탑상태 처리
+            [self checkSetopBoxResult:sResultCode];
+        }
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -445,6 +460,11 @@
             [self setInfoWithCount:nTotalCount];
             [self.pTableView reloadData];
         }
+        else {
+            //셋탑상태 처리
+            [self checkSetopBoxResult:sResultCode];
+        }
+        
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
