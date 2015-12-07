@@ -280,10 +280,10 @@ static const CGFloat pageSize = 28;
     }
     
     // IncludeAdultCategory 성인 체크 여부 0일시 성인 제한 , 1이면 전체 뿌림
-    NSString *sIncludeAdultCategory = @"0";
-    if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
+    NSString *sIncludeAdultCategory = @"1";
+    if ( [[CMAppManager sharedInstance] getKeychainAdultLimit] == YES )
     {
-        sIncludeAdultCategory = @"1";
+        sIncludeAdultCategory = @"0";
     }
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary searchContentGroupWithSearchKeyword:searchWord WithIncludeAdultCategory:sIncludeAdultCategory completion:^(NSArray *gets, NSError *error) {
