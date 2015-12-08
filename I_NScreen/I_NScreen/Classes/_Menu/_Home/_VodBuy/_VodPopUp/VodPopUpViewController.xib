@@ -17,6 +17,7 @@
                 <outlet property="pPriceLbl" destination="7bL-F1-DYA" id="G8L-8O-aq3"/>
                 <outlet property="pPriceTitleLbl" destination="QBH-1k-lar" id="5a0-Be-AAP"/>
                 <outlet property="pTextField" destination="TJr-ZA-tsm" id="xEJ-mK-gLg"/>
+                <outlet property="periodLabel" destination="RIO-A8-cJz" id="eB1-bB-R37"/>
                 <outlet property="view" destination="Ogb-v6-nMb" id="SRB-1Z-2xk"/>
             </connections>
         </placeholder>
@@ -207,7 +208,7 @@
                                 <constraint firstAttribute="height" constant="36" id="hBu-u0-NBt"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="hBu-u0-NBt"/>

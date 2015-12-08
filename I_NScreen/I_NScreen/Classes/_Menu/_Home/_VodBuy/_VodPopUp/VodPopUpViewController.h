@@ -39,6 +39,8 @@ typedef enum : NSInteger {
 @property (nonatomic, weak) IBOutlet UIButton *pOkBtn;
 @property (nonatomic, weak) IBOutlet UIButton *pBgBtn;
 
+@property (nonatomic, weak) IBOutlet UILabel* periodLabel;
+
 @property (nonatomic, weak) IBOutlet CMTextField *pTextField;
 @property (nonatomic, strong) NSMutableDictionary *pDetailDic;
 @property (nonatomic) int nStep1Tag;
@@ -54,6 +56,9 @@ typedef enum : NSInteger {
 @property (nonatomic, strong) NSString *sAssetId;
 @property (nonatomic, strong) NSString *sEpisodePeerExistence;
 @property (nonatomic, strong) NSString *sContentGroupId;
+
+@property (nonatomic, strong) NSString* sViewablePeriod;//기간
+@property (nonatomic, strong) NSString* sProductName;//구매상품명 
 
 @property (nonatomic, weak) id <VodPopUpViewDelegate>delegate;
 

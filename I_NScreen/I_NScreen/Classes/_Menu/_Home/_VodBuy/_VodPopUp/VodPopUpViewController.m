@@ -65,18 +65,70 @@
 {
     self.pTextField.type = Secure_CMTextFieldType;
     
+    NSString* periodObj = self.pDetailDic[@"viewablePeriod"];
+    if (periodObj == nil) {
+        periodObj = ((NSArray*)self.pDetailDic[@"productList"][@"product"]).firstObject[@"viewablePeriod"];
+    }
+
+    if (periodObj != nil) {
+        NSTimeInterval periodInterval = -1;
+        NSString* period = [periodObj copy];
+        NSDate* periodDate = [NSDate dateFromString:period withFormat:[NSDate timestampFormatString]];
+        if (periodDate == nil) {
+            NSInteger index = [period rangeOfString:@" "].location;
+            if ( [period rangeOfString:@" "].location != NSNotFound) {
+                period = [period substringToIndex:index];
+                period = [period stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            }
+            else {
+                period = @"0";
+            }
+            periodInterval = [period integerValue]*60*60*24;
+        }
+        else {
+            periodInterval = [[NSDate date] timeIntervalSinceDate:periodDate];
+        }
+        
+        NSString* periodText = @"24시간";
+        NSInteger remain = periodInterval/(60*60*24);
+        if (remain > 0) {
+            periodText = [NSString stringWithFormat:@"%ld일", remain];
+        }
+        else {
+            remain = periodInterval/(60*60);
+            if (remain > 0) {
+                periodText = [NSString stringWithFormat:@"%ld시간", remain];
+            }
+        }
+        self.periodLabel.text = periodText;
+    }
+    
+    
     if ( !([self.sProductType isEqualToString:@"RVOD"] || [self.sProductType isEqualToString:@"Package"] || [self.sProductType isEqualToString:@"Bundle"]) )
     {
         // 그외에는 하단 결제 타입 별도
         switch (self.nStep1Tag) {
-            case VOD_BUY_VIEW_BTN_01:
-            case VOD_BUY_VIEW_BTN_02:
+            case VOD_BUY_VIEW_BTN_01: {
+                self.pPriceTitleLbl.text = @"일반결제[부가세 별도]";
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
+                self.nBuyType = BuyNomal;
+            }break;
+            case VOD_BUY_VIEW_BTN_02: {
+                self.pPriceTitleLbl.text = @"일반결제[부가세 별도]";
+                self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
+                self.nBuyType = BuyNomal;
+                
+                if ([self.sProductType isEqualToString:@"SVOD"]) {
+                    self.pPriceLbl.text = [NSString stringWithFormat:@"%@원/월", [[CMAppManager sharedInstance] insertComma:self.sStep2Price]];
+                    self.periodLabel.text = @"해지시까지";
+                }
+                
+            }break;
             case VOD_BUY_VIEW_BTN_03:
             {
                 self.pPriceTitleLbl.text = @"일반결제[부가세 별도]";
                 self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
                 self.nBuyType = BuyNomal;
-                
             }break;
         }
     }
@@ -90,10 +142,12 @@
                 
                 self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep2Price]];
                 
-                if ( [self.sProductType isEqualToString:@"Bundle"] )
+                if ( [self.sProductType isEqualToString:@"Bundle"] ) {
                     self.nBuyType = BuyBundleNomal;
-                else
+                }
+                else {
                     self.nBuyType = BuyNomal;
+                }
                 
             }break;
             case VOD_BUY_VIEW_BTN_05:
@@ -222,10 +276,31 @@
 #pragma mark - 일반 결제
 - (void)requestWithPurchaseAssetEx2
 {
-    NSString *sNewAssetId = [NSString stringWithFormat:@"%@", [[self.pDetailDic objectForKey:@"asset"] objectForKey:@"assetId"]];
+    NSString *sNewAssetId = nil;
+    if (self.pDetailDic[@"assetId"] != nil) {
+        sNewAssetId = [self.pDetailDic[@"assetId"] copy];
+    }
+    else if (self.pDetailDic[@"asset"] != nil && self.pDetailDic[@"asset"][@"assetId"] != nil ) {
+        sNewAssetId = [self.pDetailDic[@"asset"][@"assetId"] copy];
+    }
+    else {
+        sNewAssetId = @"";
+    }
+    
+    if (sNewAssetId == nil) {
+        sNewAssetId = @"";
+    }
+    
+    
     NSString *sNewProductId = self.sProductId;
     NSString *sNewGoodId = self.sGoodId;
     NSString *sNewPrice = self.sStep2Price;
+    
+    /*
+     월정액 가입이 완료되었습니다.
+     셋탑박스의 [마이TV>서비스 이용목록>월정액
+     가입 목록]에서 가입 내역을 확인하실 수 있습니다
+     */
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithAssetId:sNewAssetId WithProductId:sNewProductId WithGoodId:sNewGoodId WithPrice:sNewPrice completion:^(NSArray *payment, NSError *error) {
         
@@ -236,11 +311,17 @@
         
         if ( [[[payment objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
         {
-            [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-               
-                
-                [self.delegate VodPopUpViewWithTag:BUY_NOMAL_TAG];
-            }];
+            if ([self.sProductType isEqualToString:@"SVOD"]) {
+                NSString* message = [NSString stringWithFormat:@"%@ 가입이 완료되었습니다.\n셋탑박스의 [마이TV>서비스 이용목록>월정액 가입 목록]에서 가입 내역을 확인하실 수 있습니다", self.sProductName];
+                [SIAlertView alert:@"가입완료" message:message completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    [self.delegate VodPopUpViewWithTag:BUY_NOMAL_TAG];
+                }];
+            } else {
+                [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                    [self.delegate VodPopUpViewWithTag:BUY_NOMAL_TAG];
+                }];
+            }
+            
         }
     }];
     
