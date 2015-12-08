@@ -207,8 +207,20 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         {
             if ( [self.sRotCategoryId length] != 0 && [self.sRotViewerType length] != 0 && [self.sRotTitleName length] != 0 )
             {
-                // 더보기
-                [self.pDepthBtn setTitle:self.sRotTitleName forState:UIControlStateNormal];
+                NSArray* filteredArray = [self.pTwoDepthTreeDataArr filteredArrayUsingPredicate:
+                                          [NSPredicate predicateWithFormat:@"categoryId == %@", self.sRotCategoryId]];
+                
+                if (filteredArray.count > 0)
+                {
+                    // 더보기
+                    [self.pDepthBtn setTitle:filteredArray[0][@"categoryName"] forState:UIControlStateNormal];
+                }
+                else
+                {
+                    // 더보기
+                    [self.pDepthBtn setTitle:self.sRotTitleName forState:UIControlStateNormal];
+                }
+                
                 
                 if ( [self.sRotViewerType isEqualToString:@"200"] )
                 {
