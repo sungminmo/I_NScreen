@@ -218,4 +218,11 @@
 
 - (void)notiBuyListRegist:(NSDictionary *)dic WithSetRemove:(BOOL)isCheck;
 
+/**
+ *  전문에 resultCode 처리
+ *
+ *  @param code resultCode
+ */
+- (BOOL)checkSTBStateCode:(NSString*)code;
+
 @end

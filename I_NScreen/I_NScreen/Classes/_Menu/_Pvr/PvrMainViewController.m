@@ -11,6 +11,7 @@
 #import "UIAlertView+AFNetworking.h"
 #import "NSMutableDictionary+REMOCON.h"
 #import "NSMutableDictionary+EPG.h"
+#import "CMAppManager.h"
 
 @interface PvrMainViewController ()
 
@@ -194,7 +195,7 @@
     {
         NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
         
-        if ( ![sSeriesId isEqualToString:@"NULL"] )
+        if ([sSeriesId isEqualToString:@"NULL"] == false)
         {
             // 시리즈
             PvrSubViewController *pViewController = [[PvrSubViewController alloc] initWithNibName:@"PvrSubViewController" bundle:nil];
@@ -212,12 +213,20 @@
         NSString* seriesId = ((NSDictionary*)self.pReservListArr[indexPath.row])[@"SeriesId"];
         
         if ([seriesId isEqualToString:@"NULL"] == NO) {
+            
+            NSDictionary* item = self.pReservListArr[indexPath.row];
+            NSString* seiresId = item[@"SeriesId"];
+            NSString* title = item[@"ProgramName"];
+            NSMutableArray* filteredArray = [[self.pSeriesReservDetailArr filteredArrayUsingPredicate:
+                                              [NSPredicate predicateWithFormat:@"SeriesId == %@", seiresId]] mutableCopy];
+            
             PvrSubViewController *pViewController = [[PvrSubViewController alloc] initWithNibName:@"PvrSubViewController" bundle:nil];
             pViewController.delegate = self;
-            pViewController.pSeriesIdStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"];
-            pViewController.pTitleStr = [[self.pReservListArr objectAtIndex:indexPath.row] objectForKey:@"ProgramName"];
+            pViewController.pSeriesIdStr = seiresId;
+            pViewController.pTitleStr = title;
             pViewController.isTapCheck = NO;
-            pViewController.pSeriesReserveListArr = self.pSeriesReservDetailArr;
+            pViewController.pSeriesReserveListArr = filteredArray;
+            
             [self.navigationController pushViewController:pViewController animated:YES];
         }
     }
@@ -391,17 +400,6 @@
 
 #pragma mark - 전문
 #pragma mark - 예약 녹화물 리스트
-- (void)checkSetopBoxResult:(NSString*)code {
-    if ([@[@"206", @"028"] containsObject:code]) {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
-    }
-    else if ([code isEqualToString:@"205"] )
-    {
-        NSString *sMessage = @"녹화물 목록을 받을 수 없습니다.";
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:sMessage button:@"확인" completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-        }];
-    }
-}
 
 - (void)requestWithRecordReservelist
 {
@@ -411,10 +409,10 @@
         
         NSString *sResultCode = [[pvr objectAtIndex:0] objectForKey:@"resultCode"];
         
-        if ( [sResultCode isEqualToString:@"100"] )
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:sResultCode])
         {
             if ( [pvr count] == 0 )
-                return ;
+                return;
             
             [self.pReservListArr removeAllObjects];
             [self.pSeriesReservDetailArr removeAllObjects];
@@ -464,12 +462,10 @@
             [self setInfoWithCount:nTotalCount];
             
             [self.pTableView reloadData];
-
         }
         else {
-            //셋탑상태 처리
-            [self checkSetopBoxResult:sResultCode];
-            [self.pListArr removeAllObjects];
+            [self.pReservListArr removeAllObjects];
+            [self.pSeriesReservDetailArr removeAllObjects];
             [self setInfoWithCount:0];
             [self.pTableView reloadData];
         }
@@ -488,7 +484,7 @@
         
         NSString *sResultCode = [[pvr objectAtIndex:0] objectForKey:@"resultCode"];
         
-        if ( [sResultCode isEqualToString:@"100"] )
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:sResultCode])
         {
             if ( [pvr count] == 0 )
                 return ;
@@ -508,8 +504,6 @@
             [self.pTableView reloadData];
         }
         else {
-            //셋탑상태 처리
-            [self checkSetopBoxResult:sResultCode];
             [self.pListArr removeAllObjects];
             [self setInfoWithCount:0];
             [self.pTableView reloadData];
@@ -556,7 +550,8 @@
         if ( [pvr count] == 0 )
             return;
         
-        if ( [[[pvr objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        NSString* resultCode = [[pvr objectAtIndex:0] objectForKey:@"resultCode"];
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode])
         {
             // 성공시 로컬 데이터 삭제후 리플래시
             [self.pListArr removeObjectAtIndex:index];
@@ -585,8 +580,9 @@
         if ( [epgs count] == 0 )
             return;
         
-        if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
-            
+        NSString* resultCode = [[epgs objectAtIndex:0] objectForKey:@"resultCode"];
+        
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode])
         {
             // 성공시 로컬 데이터 삭제후 리플래시
             [self.pReservListArr removeObjectAtIndex:index];

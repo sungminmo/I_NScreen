@@ -1071,4 +1071,161 @@
         }
     }
 }
+
+- (BOOL)checkSTBStateCode:(NSString*)code {
+    
+    BOOL isSuccess = NO;
+    
+    //  공통
+    if ([code isEqualToString:@"100"])
+    {
+        isSuccess = YES;
+    }
+    else if ([code isEqualToString:@"200"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"알수없는 에러"];
+    }
+    else if ([code isEqualToString:@"201"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"지원하지 않는 프로토콜"];
+    }
+    else if ([code isEqualToString:@"202"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"인증 실패"];
+    }
+    else if ([code isEqualToString:@"203"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"지원하지 않는 프로파일"];
+    }
+    else if ([code isEqualToString:@"204"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"잘못된 파라미터값"];
+    }
+    else if ([code isEqualToString:@"205"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"녹화물 목록을 받을 수 없습니다."];
+    }
+    else if ([@[@"206", @"028"] containsObject:code])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
+    }
+    else if ([code isEqualToString:@"207"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"내부 프로세싱 에러"];
+    }
+    else if ([code isEqualToString:@"211"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"일반 DB 에러"];
+    }
+    else if ([code isEqualToString:@"221"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"이미 처리 되었음"];
+    }
+    else if ([code isEqualToString:@"223"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"이미 추가된 항목"];
+    }
+    else if ([code isEqualToString:@"231"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"인증코드발급 실패"];
+    }
+    else if ([code isEqualToString:@"232"])
+    {
+        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"만료된 인증코드"];
+    }
+    
+    //  녹화요청
+    else if ([code isEqualToString:@"001"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"MAC주소가 불일치 합니다."];
+    }
+    else if ([code isEqualToString:@"002"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 해당시간에 다른 채널이 녹화예약되어있습니다. 녹화예약을 취소해주세요."];
+    }
+    else if ([code isEqualToString:@"003"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"셋탑박스의 저장공간이 부족합니다. 녹화물 목록을 확인해주세요."];
+    }
+    else if ([code isEqualToString:@"004"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"튜너를 모두 사용하고 있습니다."];
+    }
+    else if ([code isEqualToString:@"005"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"선택 하신 채널은 녹화하실 수 없습니다."];
+    }
+    else if ([code isEqualToString:@"006"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"이미 녹화가 예약되었습니다."];
+    }
+    else if ([code isEqualToString:@"007"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"프로그램 정보가 없습니다."];
+    }
+    else if ([code isEqualToString:@"008"])
+    {
+        [SIAlertView alert:@"녹화예약취소 불가" message:@"녹화물 재생중엔 채널변경이 불가능합니다."];
+    }
+    else if ([code isEqualToString:@"009"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."];
+    }
+    else if ([code isEqualToString:@"010"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"셋탑박스에서 동시화면 기능을 사용중인 경우 즉시 녹화가 불가능합니다."];
+    }
+    else if ([code isEqualToString:@"011"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 현재 다른 채널을 녹화중입니다. 녹화를 중지해주세요."];
+    }
+    else if ([code isEqualToString:@"012"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스 설정에 의한 시청제한으로 녹화가 불가합니다. 셋탑박스 설정을 확인해주세요."];
+    }
+    else if ([code isEqualToString:@"013"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"제한채널로 녹화가 불가합니다."];
+    }
+    else if ([code isEqualToString:@"014"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"셋탑박스의 뒷 전원이 꺼져있거나, 통신이 고르지 못해 녹화가 불가합니다. 셋탑박스의 상태를 확인해주세요."];
+    }
+    else if ([code isEqualToString:@"015"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"이미 녹화 중입니다."];
+    }
+    else if ([code isEqualToString:@"016"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"삭제 오류입니다."];
+    }
+    else if ([code isEqualToString:@"017"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"이름변경 오류입니다."];
+    }
+    else if ([code isEqualToString:@"018"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"VOD상세 화면 띄우기 오류입니다."];
+    }
+    else if ([code isEqualToString:@"019"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"개인 미디어 재생중입니다."];
+    }
+    else if ([code isEqualToString:@"020"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"독립형(데이터 서비스) 실행중입니다."];
+    }
+    else if ([code isEqualToString:@"021"])
+    {
+        [SIAlertView alert:@"녹화예약취소 불가" message:@"VOD 시청중엔 채널변경이 불가능합니다."];
+    }
+    else if ([code isEqualToString:@"023"])
+    {
+        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."];
+    }
+    
+    
+    return isSuccess;
+}
+
 @end

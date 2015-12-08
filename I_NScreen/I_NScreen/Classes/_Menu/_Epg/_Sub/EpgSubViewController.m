@@ -415,9 +415,6 @@
     else if ([code isEqualToString:@"023"]) {
         [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."];
     }
-    else if ([code isEqualToString:@"206"]) {
-        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."];
-    }
     else if ([@[@"206", @"028"] containsObject:code]) {
         [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
     }

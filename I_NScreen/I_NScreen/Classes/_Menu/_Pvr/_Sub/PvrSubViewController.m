@@ -22,10 +22,6 @@
 @end
 
 @implementation PvrSubViewController
-@synthesize pSeriesIdStr;
-@synthesize pTitleStr;
-@synthesize delegate;
-@synthesize pSeriesReserveListArr;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -188,7 +184,9 @@
         
         [self.pSeriesReserveListArr removeAllObjects];
         
-        if ( [[[pvr objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        NSString* resultCode = [[pvr objectAtIndex:0] objectForKey:@"resultCode"];
+        
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode])
         {
             NSObject *itemObjet = [[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"];
             
@@ -218,18 +216,23 @@
             return;
         
         [self.pSeriesListArr removeAllObjects];
-        NSObject *itemObject = [[pvr objectAtIndex:0] objectForKey:@"Record_Item"];
         
-        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        NSString* resultCode = [[pvr objectAtIndex:0] objectForKey:@"resultCode"];
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode])
         {
-            [self.pSeriesListArr addObject:(NSDictionary *)itemObject];
+            NSObject *itemObject = [[pvr objectAtIndex:0] objectForKey:@"Record_Item"];
+            
+            if ( [itemObject isKindOfClass:[NSDictionary class]] )
+            {
+                [self.pSeriesListArr addObject:(NSDictionary *)itemObject];
+            }
+            else
+            {
+                [self.pSeriesListArr setArray:(NSArray *)itemObject];
+            }
+            
+            [self.pTableView reloadData];
         }
-        else
-        {
-            [self.pSeriesListArr setArray:(NSArray *)itemObject];
-        }
-        
-        [self.pTableView reloadData];
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -248,7 +251,8 @@
         if ( [pvr count] == 0 )
             return;
         
-        if ( [[[pvr objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        NSString* resultCode = [[pvr objectAtIndex:0] objectForKey:@"resultCode"];
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode])
         {
             // 성공시 로컬 데이터 삭제후 리플래시
             [self.pSeriesListArr removeObjectAtIndex:index];
@@ -294,7 +298,9 @@
         if ( [epgs count] == 0 )
             return;
         
-        if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        NSString* resultCode = [[epgs objectAtIndex:0] objectForKey:@"resultCode"];
+        
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode])
         {
             //  시리즈 전체 삭제
             if ([reserveCancel isEqualToString:@"1"]) {
@@ -308,6 +314,7 @@
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
+
 - (void)backCommonAction
 {
     [self.delegate PvrSubViewWithTap:self.isTapCheck];
