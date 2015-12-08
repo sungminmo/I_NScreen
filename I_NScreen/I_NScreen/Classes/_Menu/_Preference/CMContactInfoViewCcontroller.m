@@ -10,7 +10,6 @@
 #import "NSMutableDictionary+Preference.h"
 
 @interface CMContactInfoViewCcontroller ()
-@property (weak, nonatomic) IBOutlet UILabel* titleLabel;
 @property (weak, nonatomic) IBOutlet UIWebView* termsView;
 @end
 
@@ -36,9 +35,6 @@
         if (preference != nil) {
             NSDictionary* dic = (NSDictionary*)preference.lastObject;
             NSDictionary* guide = dic[@"Guide_Item"];
-
-            NSString* title = guide[@"guide_title"];
-            self.titleLabel.text = [title emptyCheck];
             
             NSString* contents = guide[@"guide_Content"];
             contents = [contents emptyCheck];

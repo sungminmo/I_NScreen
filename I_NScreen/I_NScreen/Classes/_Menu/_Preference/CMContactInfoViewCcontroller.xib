@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CMContactInfoViewCcontroller">
             <connections>
                 <outlet property="termsView" destination="Zck-RO-kLN" id="Ksr-zB-acy"/>
-                <outlet property="titleLabel" destination="FSo-0o-faM" id="ACy-aZ-dWW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,26 +41,6 @@
                         <action selector="actionDoneButton:" destination="-1" eventType="touchUpInside" id="eGt-nm-RKy"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSo-0o-faM">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="UO7-Bm-Kc6"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="UO7-Bm-Kc6"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="constraints">
-                            <include reference="UO7-Bm-Kc6"/>
-                        </mask>
-                    </variation>
-                </label>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zck-RO-kLN">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <animations/>
@@ -72,52 +51,41 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="6Se-hj-0UB" firstAttribute="top" secondItem="Zck-RO-kLN" secondAttribute="bottom" constant="8" id="0gt-cf-MSq"/>
-                <constraint firstItem="Zck-RO-kLN" firstAttribute="top" secondItem="FSo-0o-faM" secondAttribute="bottom" constant="20" id="292-7Y-FDb"/>
                 <constraint firstAttribute="trailing" secondItem="6Se-hj-0UB" secondAttribute="trailing" constant="14" id="Qvk-NZ-gCo"/>
                 <constraint firstAttribute="trailing" secondItem="Zck-RO-kLN" secondAttribute="trailing" constant="14" id="ST6-54-lqb"/>
-                <constraint firstItem="FSo-0o-faM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="113" id="acK-Pj-rye"/>
+                <constraint firstItem="Zck-RO-kLN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="106" id="bb2-L4-nIq"/>
                 <constraint firstItem="Zck-RO-kLN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="dIi-V8-kDu"/>
-                <constraint firstAttribute="trailing" secondItem="FSo-0o-faM" secondAttribute="trailing" id="eaq-ie-DyY"/>
                 <constraint firstItem="6Se-hj-0UB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="j06-Kl-rOb"/>
-                <constraint firstItem="FSo-0o-faM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ufq-jD-XPj"/>
                 <constraint firstAttribute="bottom" secondItem="6Se-hj-0UB" secondAttribute="bottom" constant="8" id="wOX-br-jOx"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="6Se-hj-0UB"/>
-                    <exclude reference="FSo-0o-faM"/>
                     <exclude reference="Zck-RO-kLN"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="ST6-54-lqb"/>
+                    <exclude reference="bb2-L4-nIq"/>
+                    <exclude reference="dIi-V8-kDu"/>
                     <exclude reference="0gt-cf-MSq"/>
                     <exclude reference="Qvk-NZ-gCo"/>
                     <exclude reference="j06-Kl-rOb"/>
                     <exclude reference="wOX-br-jOx"/>
-                    <exclude reference="acK-Pj-rye"/>
-                    <exclude reference="eaq-ie-DyY"/>
-                    <exclude reference="ufq-jD-XPj"/>
-                    <exclude reference="292-7Y-FDb"/>
-                    <exclude reference="ST6-54-lqb"/>
-                    <exclude reference="dIi-V8-kDu"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="6Se-hj-0UB"/>
-                    <include reference="FSo-0o-faM"/>
                     <include reference="Zck-RO-kLN"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="ST6-54-lqb"/>
+                    <include reference="bb2-L4-nIq"/>
+                    <include reference="dIi-V8-kDu"/>
                     <include reference="0gt-cf-MSq"/>
                     <include reference="Qvk-NZ-gCo"/>
                     <include reference="j06-Kl-rOb"/>
                     <include reference="wOX-br-jOx"/>
-                    <include reference="acK-Pj-rye"/>
-                    <include reference="eaq-ie-DyY"/>
-                    <include reference="ufq-jD-XPj"/>
-                    <include reference="292-7Y-FDb"/>
-                    <include reference="ST6-54-lqb"/>
-                    <include reference="dIi-V8-kDu"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="-124" y="431"/>
