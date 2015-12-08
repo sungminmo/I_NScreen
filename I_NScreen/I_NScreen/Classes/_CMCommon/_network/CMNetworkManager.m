@@ -2032,7 +2032,7 @@
 //
 //}
 
-- (NSURLSessionDataTask *)paymentPurchaseAssetEx2WithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price completion:(void (^)(NSArray *payment, NSError *error))block
+- (NSURLSessionDataTask *)paymentPurchaseAssetEx2WithAssetId:(NSString *)assetId WithProductId:(NSString *)productId WithGoodId:(NSString *)goodId WithPrice:(NSString *)price extraParam:(NSDictionary*)discountParam completion:(void (^)(NSArray *payment, NSError *error))block
 {
     self.smClient.responseSerializer = [AFXMLParserResponseSerializer new];
     self.smClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/xml"];
@@ -2045,10 +2045,17 @@
                            @"productId" : productId,
                            @"goodId" : goodId,
                            @"price" : price,
+                           @"domainId": @"CnM",
                            @"uiComponentDomain" : @"0",
                            @"uiComponentId" : @"0"
                            };
 
+    if (discountParam != nil) {
+        NSMutableDictionary* mDic = [dict mutableCopy];
+        [mDic addEntriesFromDictionary:discountParam];
+        dict = [mDic copy];
+    }
+    
     NSURLSessionDataTask *task = [self.smClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask * __nonnull task, id  __nonnull responseObject) {
 
         NSDictionary* result = [NSDictionary dictionaryWithXMLParser:(NSXMLParser *)responseObject];

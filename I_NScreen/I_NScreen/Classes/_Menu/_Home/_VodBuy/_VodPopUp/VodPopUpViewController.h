@@ -58,7 +58,11 @@ typedef enum : NSInteger {
 @property (nonatomic, strong) NSString *sContentGroupId;
 
 @property (nonatomic, strong) NSString* sViewablePeriod;//기간
-@property (nonatomic, strong) NSString* sProductName;//구매상품명 
+@property (nonatomic, strong) NSString* sProductName;//구매상품명
+
+@property (nonatomic, unsafe_unretained) BOOL isDiscount;//할인적용여부
+@property (nonatomic, strong) NSString* discountCouponId;//할인쿠폰아이디//isDiscount가 YES이면 항상 값이 있어야 한다.
+@property (nonatomic, strong) NSString* discountAmount;//할인금액//isDiscount가 YES이면 항상 값이 있어야 한다.
 
 @property (nonatomic, weak) id <VodPopUpViewDelegate>delegate;
 

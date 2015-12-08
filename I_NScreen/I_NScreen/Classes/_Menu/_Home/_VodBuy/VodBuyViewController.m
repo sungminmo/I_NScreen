@@ -26,6 +26,9 @@
 @property (nonatomic, strong) NSString* sProductName;//화면에 표시되는 1단계 상품명 (결제팝업에서 알림메세지에서 던지기 위해서 체크한다.)
 
 @property (nonatomic) BOOL isDiscount;      // 할인 카드 유무
+@property (nonatomic, strong) NSString* discountTargetId;//할인적용쿠폰아이디
+@property (nonatomic, strong) NSString* discountAmount;//할인금액
+
 @property (nonatomic) int nDisPrice;        // 할인 금액
 @property (nonatomic) int nPointBalance;    // TV포인트 금액
 @property (nonatomic) int nCouponPrice;     // 쿠폰 결제 금액
@@ -1097,6 +1100,9 @@
             pViewController.pDetailDic = self.pDetailDataDic;
             pViewController.nStep1Tag = self.nStep1BtnTag;
             pViewController.nStep2Tag = self.nStep2BtnTag;
+            pViewController.isDiscount = self.isDiscount;
+            pViewController.discountAmount = self.discountAmount;//isDiscount가 YES이면 항상 값이 있어야 한다.
+            pViewController.discountCouponId = self.discountTargetId;//isDiscount가 YES이면 항상 값이 있어야 한다.
             pViewController.delegate = self;
             [self presentViewController:pViewController animated:NO completion:^{
                 
@@ -1248,11 +1254,13 @@
         {
             if ( [subStr isEqualToString:disMasterId] )
             {
-                self.pStep2SubView02SaleImageView.hidden = NO;
-                self.isDiscount = YES;
-                
                 NSString *sDiscountAmount = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountAmount"]];
                 [arr addObject:sDiscountAmount];
+                
+                self.pStep2SubView02SaleImageView.hidden = NO;
+                self.isDiscount = YES;
+                self.discountAmount = [sDiscountAmount copy];
+                self.discountTargetId = [disMasterId copy];
             }
         }
     }

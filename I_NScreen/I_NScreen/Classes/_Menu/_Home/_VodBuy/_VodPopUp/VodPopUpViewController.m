@@ -308,7 +308,18 @@
      가입 목록]에서 가입 내역을 확인하실 수 있습니다
      */
     
-    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithAssetId:sNewAssetId WithProductId:sNewProductId WithGoodId:sNewGoodId WithPrice:sNewPrice completion:^(NSArray *payment, NSError *error) {
+    NSDictionary* discountDic = nil;
+    if (self.isDiscount) {
+        NSString* couponId = self.discountCouponId;
+        NSString* amount = self.discountAmount;
+        //            url += "&discountCouponId=" + sdiscountCouponId + "&discountAmount=" + ldiscountAmount +"&price=" + listPrice;
+        discountDic = @{
+                        @"discountCouponId": couponId,
+                        @"discountAmount": amount
+                        };
+    }
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseAssetEx2WithAssetId:sNewAssetId WithProductId:sNewProductId WithGoodId:sNewGoodId WithPrice:sNewPrice extraParam:discountDic completion:^(NSArray *payment, NSError *error) {
         
         DDLogError(@"일반 결제 = [%@]", payment);
         
