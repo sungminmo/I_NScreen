@@ -22,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *pVolumeDownBtn;  // 볼륨 다운 버튼
 @property (nonatomic, weak) IBOutlet UIButton *pVoluumeUpBtn;   // 볼륨 업 버튼
 @property (nonatomic, weak) IBOutlet UITableView *pTableView;
+@property (nonatomic, strong) NSMutableArray *pChannelFullListArr;  //  전체 채널 리스트
 @property (nonatomic, strong) NSMutableArray *pChannelListArr;  // 체널 리스트
 @property (nonatomic, strong) NSMutableDictionary *pStatusDic;  // 현재 상태
 @property (nonatomic, strong) NSMutableArray *pRecordReservListArr; // 녹화 예약 체크
@@ -72,6 +73,7 @@
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
+    self.pChannelFullListArr = [[NSMutableArray alloc] init];
     self.pChannelListArr = [[NSMutableArray alloc] init];
     self.pStatusDic = [[NSMutableDictionary alloc] init];
     self.pRecordReservListArr = [[NSMutableArray alloc] init];
@@ -291,6 +293,9 @@
 
         if ( self.nGenreCode == 0 )
         {
+            [self.pChannelFullListArr removeAllObjects];
+            [self.pChannelFullListArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
+            
             [self.pChannelListArr removeAllObjects];
             [self.pChannelListArr setArray:[[gets objectAtIndex:0] objectForKey:@"channelItem"]];
             
@@ -365,7 +370,7 @@
         NSString *sWatchingchannel = [NSString stringWithFormat:@"%@", [self.pStatusDic objectForKey:@"watchingchannel"]];
         
         NSString *sChannelNumber = @"";
-        for ( NSDictionary *dic in self.pChannelListArr )
+        for ( NSDictionary *dic in self.pChannelFullListArr )
         {
             NSString *sChannelId = [dic objectForKey:@"channelId"];
             
