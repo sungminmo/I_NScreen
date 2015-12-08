@@ -216,7 +216,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nH3-og-plm" userLabel="View4">
                             <rect key="frame" x="0.0" y="555" width="414" height="88"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zia-gc-Iek">
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zia-gc-Iek">
                                     <rect key="frame" x="210" y="21" width="188" height="45"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
