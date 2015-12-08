@@ -111,15 +111,20 @@ static PlayerViewController *playerViewCtr;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"스트리밍";
-    self.isUseNavigationBar = NO;
-    
-    [self setViewInit];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self SetDeviceOrientation:UIInterfaceOrientationPortrait];
     
-    MPMoviePlayerController *mp = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
-    self.pMoviePlayer = mp;
+    self.title = @"스트리밍";
+    self.isUseNavigationBar = NO;
+    
+    self.pMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
+    self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+    [self.pMoviePlayer setFullscreen:YES animated:YES];
+    [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];
+    
+    [self.view addSubview:self.pMoviePlayer.view];
+    
+    [self setViewInit];
 }
 
 #pragma mark - 초기화
@@ -140,7 +145,6 @@ static PlayerViewController *playerViewCtr;
                                              selector:@selector(movieFinishedCallback:)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification
                                                object:nil];
-    
     
     [self requestWithDrm];
 }
@@ -251,12 +255,7 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
             
             NSURL *url = [NSURL URLWithString:responseUrl];
             [self.pMoviePlayer setContentURL:url];
-            self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-            [self.pMoviePlayer setFullscreen:YES animated:YES];
-            [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];
-
-            [self.view addSubview:self.pMoviePlayer.view];
-    
+            
             [self.pMoviePlayer play];
 
         }
