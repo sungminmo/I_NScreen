@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -30,6 +30,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQh-C2-n09">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
                     <connections>
                         <action selector="onCloseBtnClick:" destination="-1" eventType="touchUpInside" id="dIg-jg-MqB"/>
                     </connections>
@@ -270,9 +271,14 @@
                             <rect key="frame" x="20" y="20" width="25" height="25"/>
                             <animations/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="25" id="0OI-h5-VV2"/>
-                                <constraint firstAttribute="height" constant="25" id="NUV-Am-cKE"/>
+                                <constraint firstAttribute="width" constant="25" id="0OI-h5-VV2">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                </constraint>
+                                <constraint firstAttribute="height" constant="25" id="NUV-Am-cKE">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                </constraint>
                             </constraints>
+                            <inset key="imageEdgeInsets" minX="10" minY="1" maxX="10" maxY="10"/>
                             <state key="normal" image="icon_fold_normal.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -298,11 +304,15 @@
                     <color key="backgroundColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="yft-uX-j5s" firstAttribute="leading" secondItem="Cmu-dD-wPi" secondAttribute="leading" constant="112" id="AKW-F9-12K">
-                            <variation key="heightClass=regular-widthClass=compact" constant="215"/>
+                            <variation key="heightClass=regular-widthClass=compact" constant="195"/>
                         </constraint>
                         <constraint firstItem="kNq-uG-6KS" firstAttribute="leading" secondItem="Cmu-dD-wPi" secondAttribute="leading" id="IYW-Fh-TeN"/>
-                        <constraint firstItem="yft-uX-j5s" firstAttribute="top" secondItem="Cmu-dD-wPi" secondAttribute="top" constant="30" id="JLM-CI-maF"/>
-                        <constraint firstItem="AUY-Yc-OKu" firstAttribute="top" secondItem="yft-uX-j5s" secondAttribute="bottom" constant="10" id="Lq6-c2-g9d"/>
+                        <constraint firstItem="yft-uX-j5s" firstAttribute="top" secondItem="Cmu-dD-wPi" secondAttribute="top" constant="30" id="JLM-CI-maF">
+                            <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                        </constraint>
+                        <constraint firstItem="AUY-Yc-OKu" firstAttribute="top" secondItem="yft-uX-j5s" secondAttribute="bottom" constant="10" id="Lq6-c2-g9d">
+                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                        </constraint>
                         <constraint firstAttribute="trailing" secondItem="kNq-uG-6KS" secondAttribute="trailing" id="NZx-NH-OAx"/>
                         <constraint firstItem="AUY-Yc-OKu" firstAttribute="leading" secondItem="Cmu-dD-wPi" secondAttribute="leading" constant="10" id="QZU-fU-x4n"/>
                         <constraint firstAttribute="trailing" secondItem="yft-uX-j5s" secondAttribute="trailing" constant="113" id="SfZ-nG-jVQ">
@@ -313,7 +323,9 @@
                         <constraint firstAttribute="width" constant="250" id="YPn-Bs-IhG"/>
                         <constraint firstItem="kNq-uG-6KS" firstAttribute="height" secondItem="Cmu-dD-wPi" secondAttribute="height" multiplier="0.4" priority="250" id="cdz-xQ-gn8"/>
                         <constraint firstItem="kNq-uG-6KS" firstAttribute="top" secondItem="AUY-Yc-OKu" secondAttribute="bottom" constant="13" id="ci4-Gu-h5G"/>
-                        <constraint firstItem="AUY-Yc-OKu" firstAttribute="top" secondItem="yft-uX-j5s" secondAttribute="bottom" constant="10" id="jgY-eN-WLw"/>
+                        <constraint firstItem="AUY-Yc-OKu" firstAttribute="top" secondItem="yft-uX-j5s" secondAttribute="bottom" constant="10" id="jgY-eN-WLw">
+                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                        </constraint>
                         <constraint firstAttribute="trailing" secondItem="AUY-Yc-OKu" secondAttribute="trailing" constant="10" id="nj1-dS-0bl"/>
                         <constraint firstItem="AUY-Yc-OKu" firstAttribute="height" secondItem="Cmu-dD-wPi" secondAttribute="height" multiplier="0.2" id="yQ6-ST-vZa">
                             <variation key="heightClass=regular-widthClass=compact" constant="1"/>

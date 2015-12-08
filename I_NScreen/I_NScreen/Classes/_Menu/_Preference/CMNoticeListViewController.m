@@ -69,7 +69,16 @@
         
         if (preference.count > 0) {
             NSDictionary* item = preference.lastObject;
-            [self.noticeList addObjectsFromArray:item[@"Notice_Item"]];
+            id obj = item[@"Notice_Item"];
+            
+            if ([obj isKindOfClass:[NSArray class]]) {
+                NSDictionary* item = preference.lastObject;
+                [self.noticeList addObjectsFromArray:item[@"Notice_Item"]];
+            }
+            else {
+                [self.noticeList addObject:item[@"Notice_Item"]];
+            }
+            
             [self.contentsTable reloadData];
         }
         
