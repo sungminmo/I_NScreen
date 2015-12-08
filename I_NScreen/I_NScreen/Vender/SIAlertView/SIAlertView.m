@@ -779,7 +779,8 @@ static SIAlertView *__si_alert_current_view;
         y += height;
 	}
     if (self.closeButton && self.isCloseButton) {
-        self.closeButton.frame = CGRectMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT - 18, CONTENT_PADDING_TOP * 2, 14, 14);
+        self.closeButton.frame = CGRectMake(CONTAINER_WIDTH - CONTENT_PADDING_LEFT - 38, CONTENT_PADDING_TOP * 2, 34, 34);
+        self.closeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 20, 20, 0);
     }
     if (self.messageLabel) {
         if (y > CONTENT_PADDING_TOP) {
