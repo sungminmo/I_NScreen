@@ -1158,6 +1158,29 @@
                         </mask>
                     </variation>
                 </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시청을 원하는 VOD를 선택하세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUN-40-JpX">
+                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="8yz-50-Jfx"/>
+                        <constraint firstAttribute="width" constant="210" id="Erc-LR-DIg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="8yz-50-Jfx"/>
+                            <exclude reference="Erc-LR-DIg"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="8yz-50-Jfx"/>
+                            <include reference="Erc-LR-DIg"/>
+                        </mask>
+                    </variation>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1168,11 +1191,16 @@
                 <constraint firstAttribute="bottom" secondItem="ojE-Kc-evO" secondAttribute="bottom" id="Cja-mk-ie8"/>
                 <constraint firstItem="0Vn-uf-aqS" firstAttribute="height" secondItem="IA1-Sb-Ssg" secondAttribute="height" multiplier="0.7" id="Obc-pp-90X"/>
                 <constraint firstItem="ojE-Kc-evO" firstAttribute="top" secondItem="IA1-Sb-Ssg" secondAttribute="top" id="SFd-ni-5Ya"/>
+                <constraint firstItem="SUN-40-JpX" firstAttribute="centerX" secondItem="IA1-Sb-Ssg" secondAttribute="centerX" id="dCD-He-UVD"/>
                 <constraint firstItem="0Vn-uf-aqS" firstAttribute="width" secondItem="IA1-Sb-Ssg" secondAttribute="width" id="eck-HZ-psx"/>
                 <constraint firstItem="ojE-Kc-evO" firstAttribute="leading" secondItem="IA1-Sb-Ssg" secondAttribute="leading" id="xSm-XN-yKV"/>
+                <constraint firstAttribute="bottom" secondItem="SUN-40-JpX" secondAttribute="bottom" constant="20" id="yli-GM-Hsy"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="SUN-40-JpX"/>
+                </mask>
                 <mask key="constraints">
                     <exclude reference="06P-tk-u3W"/>
                     <exclude reference="1jw-mV-Zzc"/>
@@ -1182,9 +1210,14 @@
                     <exclude reference="0rw-Ho-o34"/>
                     <exclude reference="Obc-pp-90X"/>
                     <exclude reference="eck-HZ-psx"/>
+                    <exclude reference="dCD-He-UVD"/>
+                    <exclude reference="yli-GM-Hsy"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="SUN-40-JpX"/>
+                </mask>
                 <mask key="constraints">
                     <include reference="06P-tk-u3W"/>
                     <include reference="1jw-mV-Zzc"/>
@@ -1194,6 +1227,8 @@
                     <include reference="0rw-Ho-o34"/>
                     <include reference="Obc-pp-90X"/>
                     <exclude reference="eck-HZ-psx"/>
+                    <include reference="dCD-He-UVD"/>
+                    <include reference="yli-GM-Hsy"/>
                 </mask>
             </variation>
         </view>

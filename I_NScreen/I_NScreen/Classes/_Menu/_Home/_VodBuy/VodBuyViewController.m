@@ -1254,13 +1254,14 @@
         {
             if ( [subStr isEqualToString:disMasterId] )
             {
-                NSString *sDiscountAmount = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountAmount"]];
+                NSString* sDiscountAmount = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountAmount"]];
+                NSString* sCoupon = [dic[@"couponId"] copy];
                 [arr addObject:sDiscountAmount];
                 
                 self.pStep2SubView02SaleImageView.hidden = NO;
                 self.isDiscount = YES;
                 self.discountAmount = [sDiscountAmount copy];
-                self.discountTargetId = [disMasterId copy];
+                self.discountTargetId = sCoupon;//[disMasterId copy];
             }
         }
     }
