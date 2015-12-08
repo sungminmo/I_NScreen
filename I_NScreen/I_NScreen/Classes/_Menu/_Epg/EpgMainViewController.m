@@ -155,12 +155,6 @@
 }
 
 #pragma mark - 전문
-- (void)checkSetopBoxResult:(NSString*)code {
-    if ([@[@"206", @"028"] containsObject:code]) {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
-    }
-}
-
 #pragma mark - 전체 채널 리스트 전문
 - (void)requestWithChannelListFull
 {
@@ -232,22 +226,24 @@
         DDLogError(@"리모컨 상태 체크 = [%@]", pairing);
         
         NSString *sResultCode = [[pairing objectAtIndex:0] objectForKey:@"resultCode"];
-        [self checkSetopBoxResult:sResultCode];
-        
-        if ( [pairing count] == 0 )
-            return;
-        
-        NSString *sRecordingchannel1 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel1"]];
-        NSString *sRecordingchannel2 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel2"]];
-        
-        [self.recordingchannelArr removeAllObjects];
-        
-        [self.recordingchannelArr addObject:sRecordingchannel1];
-        [self.recordingchannelArr addObject:sRecordingchannel2];
-        
-        DDLogError(@"녹화중 체크 = [%@]", self.recordingchannelArr );
-        
-        [self requestWithGetRecordReserveList];
+
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:sResultCode])
+        {
+            if ( [pairing count] == 0 )
+                return;
+            
+            NSString *sRecordingchannel1 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel1"]];
+            NSString *sRecordingchannel2 = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"recordingchannel2"]];
+            
+            [self.recordingchannelArr removeAllObjects];
+            
+            [self.recordingchannelArr addObject:sRecordingchannel1];
+            [self.recordingchannelArr addObject:sRecordingchannel2];
+            
+            DDLogError(@"녹화중 체크 = [%@]", self.recordingchannelArr );
+            
+            [self requestWithGetRecordReserveList];
+        }
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -265,20 +261,28 @@
         
         [self.pRecordReservListArr removeAllObjects];
         
-        NSObject *itemObject = [[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"];
-        
-        if ( [itemObject isKindOfClass:[NSDictionary class]] )
+        NSString* resultCode = [[pvr objectAtIndex:0] objectForKey:@"resultCode"];
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode])
         {
-            [self.pRecordReservListArr addObject:(NSDictionary *)itemObject];
+            NSObject *itemObject = [[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"];
+            
+            if ( [itemObject isKindOfClass:[NSDictionary class]] )
+            {
+                [self.pRecordReservListArr addObject:(NSDictionary *)itemObject];
+            }
+            else
+            {
+                [self.pRecordReservListArr setArray:(NSArray *)itemObject];
+            }
+            
+            DDLogError(@"녹화예약목록2 = [%@]", self.pRecordReservListArr);
+            
+            [self.pTableView reloadData];
         }
         else
         {
-            [self.pRecordReservListArr setArray:(NSArray *)itemObject];
+            [self.pTableView reloadData];
         }
-        
-        DDLogError(@"녹화예약목록2 = [%@]", self.pRecordReservListArr);
-        
-        [self.pTableView reloadData];
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];

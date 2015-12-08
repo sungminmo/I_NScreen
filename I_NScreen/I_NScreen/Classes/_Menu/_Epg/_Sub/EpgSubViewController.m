@@ -381,45 +381,6 @@
 }
 
 #pragma mark - 전문
-- (void)checkSTBStateCode:(NSString*)code {
-    if ([code isEqualToString:@"002"]) {// Hold Mode
-        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 해당시간에 다른 채널이 녹화예약되어있습니다. 녹화예약을 취소해주세요."];
-    }
-    else if ([code isEqualToString:@"003"]) {
-        [SIAlertView alert:@"녹화 불가" message:@"셋탑박스의 저장공간이 부족합니다. 녹화물 목록을 확인해주세요."];
-    }
-    else if ([code isEqualToString:@"005"]) {
-        [SIAlertView alert:@"녹화 불가" message:@"선택 하신 채널은 녹화하실 수 없습니다."];
-    }
-    else if ([code isEqualToString:@"008"]) {
-        [SIAlertView alert:@"녹화예약취소 불가" message:@"녹화물 재생중엔 채널변경이 불가능합니다."];
-    }
-    else if ([code isEqualToString:@"009"]) {
-        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."];
-    }
-    else if ([code isEqualToString:@"010"]) {
-        [SIAlertView alert:@"녹화 불가" message:@"셋탑박스에서 동시화면 기능을 사용중인 경우 즉시 녹화가 불가능합니다."];
-    }
-    else if ([code isEqualToString:@"011"]) {
-        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스는 현재 다른 채널을 녹화중입니다. 녹화를 중지해주세요."];
-    }
-    else if ([code isEqualToString:@"012"]) {
-        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스 설정에 의한 시청제한으로 녹화가 불가합니다. 셋탑박스 설정을 확인해주세요."];
-    }
-    else if ([code isEqualToString:@"014"]) {
-        [SIAlertView alert:@"녹화 불가" message:@"셋탑박스의 뒷 전원이 꺼져있거나, 통신이 고르지 못해 녹화가 불가합니다. 셋탑박스의 상태를 확인해주세요."];
-    }
-    else if ([code isEqualToString:@"021"]) {
-        [SIAlertView alert:@"녹화예약취소 불가" message:@"VOD 시청중엔 채널변경이 불가능합니다."];
-    }
-    else if ([code isEqualToString:@"023"]) {
-        [SIAlertView alert:@"녹화 불가" message:@"고객님의 셋탑박스에서 제공되지 않는 채널입니다."];
-    }
-    else if ([@[@"206", @"028"] containsObject:code]) {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
-    }
-}
-
 #pragma mark - 리모컨 상태 체크 전문
 - (void)requestWithGetSetTopStatus
 {
@@ -511,17 +472,13 @@
         NSDictionary* epgItem = epgs[0];
         NSString* resultCode = epgItem[@"resultCode"];
         
-        [self checkSTBStateCode:resultCode];
-        
-        if ( [resultCode isEqualToString:@"100"] )
-        {
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
             [self requestWithGetSetTopStatus];
-            
 //            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
 //            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
 //            [self.pTableView reloadData];
-        }
 
+        }
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -544,15 +501,12 @@
             return;
         
         NSString* resultCode = [[epgs objectAtIndex:0] objectForKey:@"resultCode"];
-        [self checkSTBStateCode:resultCode];
         
-        if ([resultCode isEqualToString:@"100"])
-        {
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
         }
-
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -575,16 +529,14 @@
             return;
         
         NSString* resultCode = [[epgs objectAtIndex:0] objectForKey:@"resultCode"];
-        [self checkSTBStateCode:resultCode];
         
-        if ( [resultCode isEqualToString:@"100"] )
-        {
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
             [self requestWithGetSetTopStatus];
 //            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
 //            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약설정" forKey:@"deleState"];
 //            [self.pTableView reloadData];
-        }
 
+        }
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -605,10 +557,7 @@
         NSDictionary* epgItem = epgs[0];
         NSString* resultCode = epgItem[@"resultCode"];
         
-        [self checkSTBStateCode:resultCode];
-        
-        if ( [resultCode isEqualToString:@"100"] )
-        {
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
             [self requestWithGetSetTopStatus];
 //            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"녹화중" forKey:@"cellState"];
 //            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
@@ -656,13 +605,10 @@
         
         NSDictionary* item = pairing[0];
         NSString* resultCode = item[@"resultCode"];
-        [self checkSTBStateCode:resultCode];
         
-        if ( [resultCode isEqualToString:@"100"] )
-        {
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
             // 체널 변경 성공
         }
-
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
