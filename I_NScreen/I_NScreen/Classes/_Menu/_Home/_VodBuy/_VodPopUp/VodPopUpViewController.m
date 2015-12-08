@@ -129,6 +129,12 @@
                 self.pPriceTitleLbl.text = @"일반결제[부가세 별도]";
                 self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
                 self.nBuyType = BuyNomal;
+                
+                if ([self.sProductType isEqualToString:@"SVOD"]) {
+                    self.pPriceLbl.text = [NSString stringWithFormat:@"%@원/월", [[CMAppManager sharedInstance] insertComma:self.sStep2Price]];
+                    self.periodLabel.text = @"해지시까지";
+                }
+                
             }break;
         }
     }

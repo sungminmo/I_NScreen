@@ -22,6 +22,9 @@
 @property (nonatomic, strong) NSString *sCouponMoney;       // 쿠폰 결제 금액
 @property (nonatomic, strong) NSMutableArray *pDiscountCouponMasterIdArr;   // 할인 카드 유무
 @property (nonatomic, strong) NSMutableArray *pPointBalanceArr;     // 포인트 조회
+
+@property (nonatomic, strong) NSString* sProductName;//화면에 표시되는 1단계 상품명 (결제팝업에서 알림메세지에서 던지기 위해서 체크한다.)
+
 @property (nonatomic) BOOL isDiscount;      // 할인 카드 유무
 @property (nonatomic) int nDisPrice;        // 할인 금액
 @property (nonatomic) int nPointBalance;    // TV포인트 금액
@@ -219,6 +222,9 @@
         self.pStep1SubView02MoneyLbl.text = [NSString stringWithFormat:@"%@원[부가세 별도]", sPrice];
         
     }
+    
+    self.sProductName = [self.pStep1SubView02TitleLbl.text copy];
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.tag = VOD_BUY_VIEW_BTN_01;
     [self onBtnClicked:btn];
@@ -491,6 +497,7 @@
                 [self pushBundleViewControllerWithProductId:sProductId];
             }
             
+            self.sProductName = [self.pStep1SubView02TitleLbl.text copy];
             
         }break;
         case VOD_BUY_VIEW_BTN_02:
@@ -565,7 +572,6 @@
 
                         }
                     }
-                    
                 }
                 else
                 {
@@ -627,6 +633,8 @@
                 NSString *sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"productId"]];
                 [self pushBundleViewControllerWithProductId:sProductId];
             }
+            
+            self.sProductName = [self.pStep1SubView03TitleLbl.text copy];
             
         }break;
         case VOD_BUY_VIEW_BTN_03:
@@ -763,6 +771,8 @@
                 NSString *sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productId"]];
                 [self pushBundleViewControllerWithProductId:sProductId];
             }
+            
+            self.sProductName = [self.pStep1SubView04TitleLbl.text copy];
             
         }break;
         case VOD_BUY_VIEW_BTN_04:
@@ -998,7 +1008,7 @@
                 case VOD_BUY_VIEW_BTN_03:
                 {
                     sStep1 = self.pStep1SubView04MoneyLbl.text;
-                    sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
+                    sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원 / 월[부가세 별도]" withString:@""];
                     sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"," withString:@""];
                     
                     sProductId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:2] objectForKey:@"productId"]];
@@ -1076,7 +1086,7 @@
                 }break;
             }
             
-            pViewController.sProductName = [self.pStep1SubView03TitleLbl.text copy];
+            pViewController.sProductName = [self.sProductName copy];
             pViewController.sProductType = sProductType;
             pViewController.sGoodId = sGoodId;
             pViewController.sProductId = sProductId;
