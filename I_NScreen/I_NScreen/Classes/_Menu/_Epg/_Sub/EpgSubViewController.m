@@ -334,8 +334,9 @@
         
         if ( isCheck == YES )
         {
+            NSString* seriesId = item[@"seriesId"];
             // 녹화 예약중
-            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:nil WithIndex:nIndex];
+            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:seriesId WithIndex:nIndex];
         }
         else
         {
