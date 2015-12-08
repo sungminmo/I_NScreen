@@ -1180,6 +1180,8 @@
             
             int nStep1Price = [step1Price intValue];
             
+//            pStep2SubView04ContentLbl01 :TV포인트 회원가입 필요
+//            pStep2SubView04ContentLbl02 :TV에서 가입 가능합니다.
             if( nStep1Price > self.nPointBalance )
             {
                 // tv 포인트 딤 처리
@@ -1190,6 +1192,10 @@
                 self.pStep2SubView04MoneyLbl.textColor = [UIColor whiteColor];
                 self.pStep2SubView04ContentLbl01.textColor = [UIColor whiteColor];
                 self.pStep2SubView04ContentLbl02.textColor = [UIColor whiteColor];
+                
+                self.pStep2SubView04ContentLbl01.text = @"TV 포인트 충전 필요";
+                self.pStep2SubView04ContentLbl02.text = @"TV에서 충전 하실 수 있습니다.";
+                
             }
             else
             {
@@ -1201,10 +1207,9 @@
                 self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
                 self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
 
-
             }
         }
-        else
+        else//TV포인트 비회원
         {
             self.pStep2SubView04MoneyLbl.text = @"잔액0원";
         }
