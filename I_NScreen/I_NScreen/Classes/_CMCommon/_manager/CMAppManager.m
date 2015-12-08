@@ -1077,7 +1077,8 @@
     BOOL isSuccess = NO;
     
     //  공통
-    if ([code isEqualToString:@"100"])
+    //  조회목록이 없는 경우(205)도 정상 처리임.
+    if ([@[@"100", @"205"] containsObject:code])
     {
         isSuccess = YES;
     }
@@ -1101,10 +1102,10 @@
     {
         [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"잘못된 파라미터값"];
     }
-    else if ([code isEqualToString:@"205"])
-    {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"녹화물 목록을 받을 수 없습니다."];
-    }
+//    else if ([code isEqualToString:@"205"])
+//    {
+//        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"녹화물 목록을 받을 수 없습니다."];
+//    }
     else if ([@[@"206", @"028"] containsObject:code])
     {
         [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
