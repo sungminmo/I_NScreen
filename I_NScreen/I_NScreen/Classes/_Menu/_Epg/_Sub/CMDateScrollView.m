@@ -17,6 +17,9 @@ static const CGFloat selectedFontSize = 15;
 
 @property (nonatomic, strong) UILabel* titleLabel;
 @property (nonatomic, strong) UIView* dotView;
+@property (nonatomic, strong) UIButton* backgroundButton;
+
+@property (nonatomic, copy) void (^selectionHandler)(CMDateItemView* dateItemView);
 
 @end
 
@@ -39,6 +42,12 @@ static const CGFloat selectedFontSize = 15;
         CGRect rect = CGRectMake(CGRectGetMidX(self.bounds) - dotSize/2, self.bounds.size.height - 16, dotSize, dotSize);
         self.dotView.frame = rect;
         
+        self.backgroundButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.backgroundButton.frame = self.bounds;
+        self.backgroundButton.backgroundColor = [UIColor clearColor];
+        [self.backgroundButton addTarget:self action:@selector(buttonWasTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:self.backgroundButton];
+
         [self setSelection:false];
     }
     
@@ -83,8 +92,23 @@ static const CGFloat selectedFontSize = 15;
     }
 }
 
+- (void)addTouchUpInsideEvent:(void (^)(id sender))handler
+{
+    self.selectionHandler = handler;
+}
+
+#pragma mark - Event
+
+- (void)buttonWasTouchUpInside:(id)sender
+{
+    if (self.selectionHandler) {
+        self.selectionHandler(self);
+    }
+}
+
 @end
 
+#pragma mark -
 #pragma mark -
 
 @interface CMDateScrollView ()
@@ -189,6 +213,18 @@ static const CGFloat selectedFontSize = 15;
         
         CGRect frame = CGRectMake(posX, 0, self.dateWidth, self.bounds.size.height);
         CMDateItemView* itemView = [[CMDateItemView alloc] initWithFrame:frame title:self.dateArray[i]];
+        
+        __weak __typeof(self) weakSelf = self;
+        [itemView addTouchUpInsideEvent:^(id sender) {
+            
+            NSInteger index = [weakSelf.itemViewArray indexOfObject:sender];
+            [weakSelf setSelectedIndex:index animated:YES];
+            
+            if ([weakSelf.delegate respondsToSelector:@selector(dateScrollView:selectedIndex:)]) {
+                [weakSelf.delegate dateScrollView:weakSelf selectedIndex:weakSelf.selectedIndex];
+            }
+        }];
+        
         [self.scrollView addSubview:itemView];
         
         [self.itemViewArray addObject:itemView];
@@ -211,7 +247,17 @@ static const CGFloat selectedFontSize = 15;
  *
  *  @param selectedIndex 선택될 날짜 항목의 인덱스
  */
-- (void)setSelectedIndex:(NSInteger)selectedIndex {
+- (void)setSelectedIndex:(NSInteger)selectedIndex
+{
+    [self setSelectedIndex:selectedIndex animated:NO];
+}
+
+/**
+ *  넘겨받은 인덱스에 해당하는 날짜를 선택한다.
+ *
+ *  @param selectedIndex 선택될 날짜 항목의 인덱스
+ */
+- (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated{
     
     if (selectedIndex >= self.itemViewArray.count) {
         return;
@@ -223,6 +269,27 @@ static const CGFloat selectedFontSize = 15;
     _selectedIndex = selectedIndex;
     itemView = self.itemViewArray[_selectedIndex];
     itemView.selection = YES;
+    
+    [self moveContentOffset:animated];
+}
+
+- (void)moveContentOffset:(BOOL)animated
+{
+    [self.scrollView setContentOffset:CGPointMake(_selectedIndex * self.dateWidth - self.scrollView.contentInset.left, 0) animated:animated];
+    
+    [self refreshArrows];
+}
+
+- (void)refreshArrows
+{
+    CGFloat maxIndex = self.dateArray.count - 1;
+    CGFloat maxPosX = maxIndex*self.dateWidth;
+    CGFloat offset = self.scrollView.bounds.size.width + (_selectedIndex*self.dateWidth - self.dateWidth);
+    if (offset >= maxPosX) {
+        self.rightArrowView.hidden = YES;
+    } else {
+        self.rightArrowView.hidden = NO;
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -238,14 +305,7 @@ static const CGFloat selectedFontSize = 15;
     if (targetIndex > maxIndex)
         targetIndex = maxIndex;
 
-
-    CGFloat maxPosX = maxIndex*self.dateWidth;
-    CGFloat offset = scrollView.bounds.size.width + (targetIndex*self.dateWidth - self.dateWidth);
-    if (offset >= maxPosX) {
-        self.rightArrowView.hidden = YES;
-    } else {
-        self.rightArrowView.hidden = NO;
-    }
+    [self refreshArrows];
     
     targetContentOffset->x = targetIndex * self.dateWidth - scrollView.contentInset.left;
     

@@ -321,7 +321,7 @@
         for ( NSDictionary *dic in self.pRecordReservListArr )
         {
             NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
-            NSString *sChannelIdReserv = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+            NSString *sChannelIdReserv = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
             
             if ( [sRecordStartTime isEqualToString:sProgramBroadcastingStartTime] &&
                 [sChannelId isEqualToString:sChannelIdReserv] )
@@ -335,7 +335,7 @@
         if ( isCheck == YES )
         {
             // 녹화 예약중
-            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:0 WithIndex:nIndex];
+            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:nil WithIndex:nIndex];
         }
         else
         {
@@ -371,16 +371,14 @@
 
 #pragma mark - CMDateScrollViewDelegate
 
-- (void)dateScrollView:(CMDateScrollView *)dateScrollView selectedIndex:(NSInteger)index {
-    NSLog(@"dateScrollView : %ld", (long)index);
+- (void)dateScrollView:(CMDateScrollView *)dateScrollView selectedIndex:(NSInteger)index
+{
     self.nScrollDateIndex = (int)index;
     
     [self setListDataSplit];
     
     [self requestWithGetRecordReserveList];
-//    [self.pTableView reloadData];
 }
-
 
 #pragma mark - 전문
 - (void)checkSTBStateCode:(NSString*)code {
@@ -493,20 +491,13 @@
             [self.pRecordReservListArr setArray:(NSArray *)itemObject];
         }
         
-        for ( int i =0; i < [self.pNowStateCheckArr count]; i++ )
-        {
-            [self setCellStateIndex:i];
-        }
-        
+        [self refreshCellState];
         
         [self.pTableView reloadData];
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
-
-/////
-
 
 #pragma mark - 녹화예약설정 단일
 - (void)requstWithSetRecordReserveWithIndex:(int)nIndex
@@ -527,9 +518,11 @@
         
         if ( [resultCode isEqualToString:@"100"] )
         {
-            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
-            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
-            [self.pTableView reloadData];
+            [self requestWithGetSetTopStatus];
+            
+//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
+//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
+//            [self.pTableView reloadData];
         }
 
     }];
@@ -589,10 +582,10 @@
         
         if ( [resultCode isEqualToString:@"100"] )
         {
-//            [self requestWithGetSetTopStatus];
-            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
-            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약설정" forKey:@"deleState"];
-            [self.pTableView reloadData];
+            [self requestWithGetSetTopStatus];
+//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
+//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약설정" forKey:@"deleState"];
+//            [self.pTableView reloadData];
         }
 
     }];
@@ -705,8 +698,12 @@
     }
     
     [self.dateScrollView setDateArray:self.scrollDateArray];
+    [self.dateScrollView setSelectedIndex:self.nScrollDateIndex];
 }
 
+/**
+ *  선택된 날짜(_nScrollDateIndex) 기준으로 방송 목록(_dataArray)을 필터링해서 _todayNewDateArr, _pNowStateCheckArr에 저장한다.
+ */
 - (void)setListDataSplit
 {
     NSString *sTwoDay = [NSString stringWithFormat:@"%@", [self.scrollDateArray objectAtIndex:self.nScrollDateIndex]];
@@ -852,6 +849,14 @@
         }
     }
     return isCheck;
+}
+
+- (void)refreshCellState
+{
+    for ( int i =0; i < [self.pNowStateCheckArr count]; i++ )
+    {
+        [self setCellStateIndex:i];
+    }
 }
 
 - (void)setCellStateIndex:(int)index
