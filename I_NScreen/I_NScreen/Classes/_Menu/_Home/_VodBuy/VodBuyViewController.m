@@ -995,6 +995,10 @@
                     sGoodId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:0] objectForKey:@"goodId"]];
                     sProductType = [[self.pProductArr objectAtIndex:0] objectForKey:@"productType"];
                     
+                    if ([sProductType isEqualToString:@"SVOD"]) {
+                        sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원 / 월[부가세 별도]" withString:@""];
+                        sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"," withString:@""];
+                    }
                     
                 }break;
                 case VOD_BUY_VIEW_BTN_02:
@@ -1291,14 +1295,13 @@
 - (void)VodPopUpViewWithTag:(int)nTag
 {
     [self.navigationController popViewControllerAnimated:YES];
-    
-    
     [self.delegate VodBuyViewWithTag:nTag];
 }
 
 - (void)VodPopUpViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId
 {
     [self.navigationController popViewControllerAnimated:YES];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
     [self.delegate VodBuyViewWithTag:nTag WithProductId:productId WithAssetId:assetId WithEpisodePeerExistence:EpisodePeerExistence WithContentGroupId:contentGroupId];
 }
 

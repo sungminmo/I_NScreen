@@ -67,7 +67,14 @@
     
     NSString* periodObj = self.pDetailDic[@"viewablePeriod"];
     if (periodObj == nil) {
-        periodObj = ((NSArray*)self.pDetailDic[@"productList"][@"product"]).firstObject[@"viewablePeriod"];
+        
+        id obj = self.pDetailDic[@"productList"][@"product"];
+        if ([obj isKindOfClass:[NSArray class]]) {
+            periodObj = ((NSArray*)self.pDetailDic[@"productList"][@"product"]).firstObject[@"viewablePeriod"];
+        }
+        else if ([obj isKindOfClass:[NSDictionary class]]) {
+            periodObj = ((NSDictionary*)self.pDetailDic[@"productList"][@"product"])[@"viewablePeriod"];
+        }
     }
 
     if (periodObj != nil) {
@@ -112,6 +119,12 @@
                 self.pPriceTitleLbl.text = @"일반결제[부가세 별도]";
                 self.pPriceLbl.text = [NSString stringWithFormat:@"%@원", [[CMAppManager sharedInstance] insertComma:self.sStep1Price]];
                 self.nBuyType = BuyNomal;
+                
+                if ([self.sProductType isEqualToString:@"SVOD"]) {
+                    self.pPriceLbl.text = [NSString stringWithFormat:@"%@원/월", [[CMAppManager sharedInstance] insertComma:self.sStep2Price]];
+                    self.periodLabel.text = @"해지시까지";
+                }
+                
             }break;
             case VOD_BUY_VIEW_BTN_02: {
                 self.pPriceTitleLbl.text = @"일반결제[부가세 별도]";
