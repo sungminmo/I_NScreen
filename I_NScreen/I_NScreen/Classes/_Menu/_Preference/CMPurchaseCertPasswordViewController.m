@@ -110,5 +110,115 @@ typedef enum : NSInteger {
             break;
     }
 }
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if(textField.text.length > 19)  // 20 자리 까지 입력 가능
+    {
+        if([string length] == 0)
+        {
+            // 뒤로가기 버튼 상태일때는 지우기가 가능해야함
+        }
+        else
+        {
+            return NO;
+        }
+    }
+    else
+    {
+        if ( [string rangeOfString:@"-"].location != NSNotFound ||
+            [string rangeOfString:@"/"].location != NSNotFound ||
+            [string rangeOfString:@":"].location != NSNotFound ||
+            [string rangeOfString:@";"].location != NSNotFound ||
+            [string rangeOfString:@"("].location != NSNotFound ||
+            [string rangeOfString:@")"].location != NSNotFound ||
+            [string rangeOfString:@"₩"].location != NSNotFound ||
+            [string rangeOfString:@"&"].location != NSNotFound ||
+            [string rangeOfString:@"@"].location != NSNotFound ||
+            [string rangeOfString:@"\""].location != NSNotFound ||
+            [string rangeOfString:@"."].location != NSNotFound ||
+            [string rangeOfString:@","].location != NSNotFound ||
+            [string rangeOfString:@"?"].location != NSNotFound ||
+            [string rangeOfString:@"!"].location != NSNotFound ||
+            [string rangeOfString:@"'"].location != NSNotFound ||
+            [string rangeOfString:@"["].location != NSNotFound ||
+            [string rangeOfString:@"]"].location != NSNotFound ||
+            [string rangeOfString:@"{"].location != NSNotFound ||
+            [string rangeOfString:@"}"].location != NSNotFound ||
+            [string rangeOfString:@"#"].location != NSNotFound ||
+            [string rangeOfString:@"%"].location != NSNotFound ||
+            [string rangeOfString:@"^"].location != NSNotFound ||
+            [string rangeOfString:@"*"].location != NSNotFound ||
+            [string rangeOfString:@"+"].location != NSNotFound ||
+            [string rangeOfString:@"="].location != NSNotFound ||
+            [string rangeOfString:@"-"].location != NSNotFound ||
+            [string rangeOfString:@"_"].location != NSNotFound ||
+            [string rangeOfString:@"\\"].location != NSNotFound ||
+            [string rangeOfString:@"|"].location != NSNotFound ||
+            [string rangeOfString:@"~"].location != NSNotFound ||
+            [string rangeOfString:@"<"].location != NSNotFound ||
+            [string rangeOfString:@">"].location != NSNotFound ||
+            [string rangeOfString:@"$"].location != NSNotFound )
+        {
+            NSLog(@"입력 되었으면");
+            
+            return NO;
+        }
+        
+    }
+    
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    NSString* pPwText = self.textField1.text;
+    NSString* pRePwText = self.textField2.text;
+    
+    if (![pPwText isEqualToString:pRePwText]) {
+        textField.text = @"";
+    }
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    NSString* pPwText = self.textField1.text;
+    NSString* pRePwText = self.textField2.text;
+    
+    if ( (pPwText != nil && pPwText.length > 0) && (pRePwText != nil && pRePwText.length > 0) )
+    {
+        if ([pPwText isEqualToString:pRePwText])
+        {
+            self.completButton.enabled = YES;
+            self.infoLabel.hidden = YES;
+            return YES;
+        }
+        else
+        {
+            self.completButton.enabled = NO;
+            
+            self.infoLabel.hidden = NO;
+            self.infoLabel.text = @"인증번호가 일치하지 않습니다.";
+            
+            self.textField2.text = @"";
+            
+            if (textField == self.textField1)
+            {
+                [self.textField2 performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.2];
+                return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
+    }
+    
+    self.infoLabel.hidden = YES;
+    self.completButton.enabled = NO;
+    
+    return YES;
+}
 
 @end

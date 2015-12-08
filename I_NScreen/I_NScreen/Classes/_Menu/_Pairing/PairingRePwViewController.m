@@ -167,6 +167,51 @@
     return YES;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    NSString* pPwText = self.pPwTextField.text;
+    NSString* pRePwText = self.pRePwTextFiled.text;
+    
+    if (![pPwText isEqualToString:pRePwText]) {
+        textField.text = @"";
+    }
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    NSString* pPwText = self.pPwTextField.text;
+    NSString* pRePwText = self.pRePwTextFiled.text;
+    
+    if ( (pPwText != nil && pPwText.length > 0) && (pRePwText != nil && pRePwText.length > 0) )
+    {
+        if ([pPwText isEqualToString:pRePwText])
+        {
+            self.pOkBtn.enabled = YES;
+            return YES;
+        }
+        else
+        {
+            self.pOkBtn.enabled = NO;
+            
+            self.pRePwTextFiled.text = @"";
+            
+            if (textField == self.pPwTextField)
+            {
+                [self.pRePwTextFiled performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.2];
+                return YES;
+            }
+            else
+            {
+                return NO;
+            }
+        }
+    }
+    
+    self.pOkBtn.enabled = NO;
+    
+    return YES;
+}
+
 #pragma mark - 전문
 #pragma mark - 셋탑쪽 페어링 정보 삭제
 - (void)requestWithRemoveUser
