@@ -382,16 +382,17 @@ static const CGFloat pageSize = 28;
 
         self.isLoading = NO;
         
-        NSDictionary* response = programs[0];
+        DDLogError(@"tv프로그램 목록 가져오기 = [%@]", programs);
         
+        [self.dataArray removeAllObjects];
+        
+        NSDictionary* response = programs[0];
         NSString* resultCode = response[CNM_OPEN_API_RESULT_CODE_KEY];
         if ([CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY isEqualToString:resultCode] == false) {
             
-            [self.dataArray removeAllObjects];
             [self.programList reloadData];
             
             DDLogError(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
-            
             return;
         }
         
@@ -976,7 +977,7 @@ static const CGFloat pageSize = 28;
 {
     [self.pNowStateCheckArr removeAllObjects];
     
-    for ( NSDictionary *dic in self.dataArray )
+    for (int i = 0; i < self.dataArray.count; i++ )
     {
         NSMutableDictionary *stateDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"", @"cellState", @"", @"moreState", @"", @"deleState", nil];
         [self.pNowStateCheckArr addObject:stateDic];

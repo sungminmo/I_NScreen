@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *gradeImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *hmImageView;
+@property (weak, nonatomic) IBOutlet CMProgressView* progressView;
 @property (nonatomic, weak) IBOutlet UIView* lineView;
 @property (nonatomic) int nIndex;
 @property (nonatomic, strong) NSDictionary *pDataDic;
