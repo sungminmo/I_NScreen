@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <BMXSwipableCell/BMXSwipableCell.h>
-#import "CMProgressView.h"
 
 @protocol CMSearchTableViewDelegate;
 

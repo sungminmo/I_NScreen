@@ -606,6 +606,17 @@
     return sDay;
 }
 
+#pragma mark - 날짜 splite ex) 2015-11-12 21:00:00 -> 2015.11.12
+- (NSString *)replaceDashToDot:(NSString *)sDate
+{
+    NSArray *dateArr = [sDate componentsSeparatedByString:@" "];
+    NSArray *dateArr2 = [[dateArr objectAtIndex:0] componentsSeparatedByString:@"-"];
+    
+    NSString *sDay = [NSString stringWithFormat:@"%@.%@.%@", [dateArr2 objectAtIndex:0], [dateArr2 objectAtIndex:1], [dateArr2 objectAtIndex:2]];
+    
+    return sDay;
+}
+
 #pragma mark - 날짜 splite ex) 0000-00-03 00:00:00 -> 몇일 남았는지 몇시간 남았는지
 - (NSString *)getSplitTermWithDateStr:(NSString *)sDate
 {
@@ -829,6 +840,14 @@
         }
         return @"기간만료";
     }
+}
+
+- (double)getLicenseRemainMinuteWithLicenseDate:(NSString*)licenseDateString compareDate:(NSDate*)compareDate
+{
+    NSDate* licenseDate = [NSDate dateFromString:licenseDateString withFormat:[NSDate timestampFormatString]];
+    NSTimeInterval interval = [licenseDate timeIntervalSinceDate:compareDate];
+    
+    return interval;
 }
 
 - (NSNumber*)expiredDateIntervalWithPeriod:(NSString*)period purchased:(NSString*)purchased state:(NSString *)state {

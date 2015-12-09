@@ -108,6 +108,11 @@
 - (NSString *)getSplitScrollWithDateStr:(NSString *)sDate;
 
 /**
+ *  @brief 날짜 splite ex) 2015-11-12 21:00:00 -> 2015.11.12
+ */
+- (NSString *)replaceDashToDot:(NSString *)sDate;
+
+/**
  * @brief 날짜 splite ex) 0000-00-03 00:00:00 -> 몇일 남았는지 몇시간 남았는지
  */
 - (NSString *)getSplitTermWithDateStr:(NSString *)sDate;
@@ -118,6 +123,10 @@
  * @brief 요일을 리턴한다
  */
 - (NSString *)GetDayOfWeek:(NSString *)strDay;
+
+/* @brief compareDate로부터 licenseDateString까지 남은 시간 (초)
+ */
+- (double)getLicenseRemainMinuteWithLicenseDate:(NSString*)licenseDateString compareDate:(NSDate*)compareDate;
 
 /* 남은시간 구하기 
  */

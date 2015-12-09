@@ -38,7 +38,7 @@ static NSString* const SearchWord = @"searchWord";
 static NSString* const VodSearch_Item = @"VodSearch_Item";
 static NSString* const ScheduleItem = @"scheduleItem";
 
-static const CGFloat pageSize = 28;
+static const CGFloat pageSize = 20;
 
 @interface CMSearchMainViewController ()
 
@@ -84,7 +84,7 @@ static const CGFloat pageSize = 28;
     self.isUseNavigationBar = YES;
     self.topConstraint.constant = cmNavigationHeight;
     
-    self.pageIndex = 0;
+    self.pageIndex = -1;
     self.totalPage = 0;
     self.searchWordArray = [@[] mutableCopy];
     self.dataArray = [@[] mutableCopy];
@@ -180,7 +180,7 @@ static const CGFloat pageSize = 28;
  */
 - (void)resetData {
     
-    self.pageIndex = 0;
+    self.pageIndex = -1;
     
     [self.searchWordArray removeAllObjects];
     [self.dataArray removeAllObjects];
@@ -376,20 +376,27 @@ static const CGFloat pageSize = 28;
         return;
     }
     
+    if (self.pageIndex < 0)
+    {
+        self.pageIndex = 0;
+        
+        [self.dataArray removeAllObjects];
+        [self.programList reloadData];
+    }
+    
     CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary programScheduleListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithAreaCode:areaInfo.areaCode completion:^(NSArray *programs, NSError *error) {
 
-        self.isLoading = NO;
+//        self.isLoading = NO;
         
         DDLogError(@"tv프로그램 목록 가져오기 = [%@]", programs);
-        
-        [self.dataArray removeAllObjects];
-        
+
         NSDictionary* response = programs[0];
         NSString* resultCode = response[CNM_OPEN_API_RESULT_CODE_KEY];
         if ([CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY isEqualToString:resultCode] == false) {
-            
+
+            [self.dataArray removeAllObjects];
             [self.programList reloadData];
             
             DDLogError(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
@@ -496,6 +503,8 @@ static const CGFloat pageSize = 28;
         
         
         [self.programList reloadData];
+        
+        self.isLoading = NO;
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -874,17 +883,21 @@ static const CGFloat pageSize = 28;
     switch ([self.tabMenu getTabMenuIndex]) {
         case VOD_TABMENU_TYPE: {
             
-            CGFloat offsetY = scrollView.contentOffset.y;
+            /*CGFloat offsetY = scrollView.contentOffset.y;
             CGFloat contentHeight = scrollView.contentSize.height;
             
             
             if ( self.isLoading == NO && (offsetY + scrollView.frame.size.height > contentHeight)) {
-                if (self.totalPage > self.pageIndex) {
-                    self.pageIndex++;
+                if (self.totalPage > self.pageIndex + 1) {
                     
-                    [self requestVodList];
+                    if (self.isLoading == NO)
+                    {
+                        self.pageIndex++;
+                        
+                        [self requestVodList];
+                    }
                 }
-            }
+            }*/
         }
             break;
         case PROGRAM_TABMENU_TYPE: {
@@ -893,10 +906,14 @@ static const CGFloat pageSize = 28;
             CGFloat contentHeight = scrollView.contentSize.height;
             
             if ( self.isLoading == NO && (offsetY + scrollView.frame.size.height > contentHeight)) {
-                if (self.totalPage > self.pageIndex) {
-                    self.pageIndex++;
-                    
-                    [self requestProgramList];
+                if (self.totalPage > self.pageIndex + 1) {
+                    if (self.isLoading == NO)
+                    {
+                        self.isLoading = YES;
+                        self.pageIndex++;
+                        NSLog(@"======= page : %ld", self.pageIndex);
+                        [self requestProgramList];
+                    }
                 }
             }
         }
