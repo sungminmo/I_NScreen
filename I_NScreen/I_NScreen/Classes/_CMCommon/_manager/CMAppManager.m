@@ -1229,4 +1229,79 @@
     return isSuccess;
 }
 
+- (UIImage*)makePromotionImage:(NSDictionary*)item
+{
+    UIImage* image = nil;
+    
+    NSString* promotionSticker = item[@"promotionSticker"];
+    NSString* isNew = item[@"isNew"];
+    NSString* assetNew = item[@"assetNew"];
+    NSString* assetHot = item[@"assetHot"];
+    NSString* hot = item[@"hot"];
+
+    //  new
+    if (isNew != nil && [isNew isEqualToString:@"0"] == false) {
+        image = [UIImage imageNamed:@"icon_promotion_01.png"];
+    }
+    //  new
+    else if (assetNew != nil && [assetNew isEqualToString:@"0"] == false)
+    {
+        image = [UIImage imageNamed:@"icon_promotion_01.png"];
+    }
+    //  new
+//    else if ([@"0" isEqualToString:promotionSticker]) {
+//        image = [UIImage imageNamed:@"icon_promotion_01.png"];
+//    }
+    //  인기상승
+    else if ([@"11" isEqualToString:promotionSticker])
+    {
+        image = [UIImage imageNamed:@"icon_promotion_10.png"];
+    }
+    //  추천
+    else if ([@"12" isEqualToString:promotionSticker])
+    {
+        image = [UIImage imageNamed:@"icon_promotion_06.png"];
+    }
+    //  이벤트
+    else if ([@"13" isEqualToString:promotionSticker])
+    {
+        image = [UIImage imageNamed:@"icon_promotion_03.png"];
+    }
+    //  극장동시
+    else if ([@"14" isEqualToString:promotionSticker])
+    {
+        image = [UIImage imageNamed:@"icon_promotion_07.png"];
+    }
+    //  할인
+    else if ([@"15" isEqualToString:promotionSticker])
+    {
+        image = [UIImage imageNamed:@"icon_promotion_09.png"];
+    }
+    //  HOT
+    else if ([@"16" isEqualToString:promotionSticker])
+    {
+        image = [UIImage imageNamed:@"icon_promotion_02.png"];
+    }
+    //  쿠폰증정
+    else if ([@"17" isEqualToString:promotionSticker])
+    {
+        image = [UIImage imageNamed:@"icon_promotion_04.png"];
+    }
+    //  랭킹 1위
+    else if ([@"18" isEqualToString:promotionSticker])
+    {
+        image = [UIImage imageNamed:@"icon_promotion_05.png"];
+    }
+    //  hot
+    else if (hot != nil && [hot isEqualToString:@"0"] == false) {
+        image = [UIImage imageNamed:@"icon_promotion_02.png"];
+    }
+    //  hot
+    else if (assetHot != nil && [assetHot isEqualToString:@"0"] == false) {
+        image = [UIImage imageNamed:@"icon_promotion_02.png"];
+    }
+    
+    return image;
+}
+
 @end

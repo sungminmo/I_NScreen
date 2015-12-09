@@ -225,4 +225,13 @@
  */
 - (BOOL)checkSTBStateCode:(NSString*)code;
 
+/**
+ *  프로모션 이미지 생성
+ *
+ *  @param item 데이터
+ *
+ *  @return 프로모션 이미지
+ */
+- (UIImage*)makePromotionImage:(NSDictionary*)item;
+
 @end

@@ -15,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet UILabel* titleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *pAdultImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *pTvOnlyImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *promotionImageView;
 @end
 
 @implementation CMSearchCollectionViewCell
@@ -23,7 +24,7 @@
     // Initialization code
 }
 
-- (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title rating:(NSString *)rating WithTyOnly:(BOOL)isTyOnly{
+- (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title rating:(NSString *)rating WithTyOnly:(BOOL)isTyOnly data:(NSDictionary*)data{
  
     if ( [rating isEqualToString:@"19"] )
     {
@@ -45,6 +46,9 @@
     self.posterImageView.image = nil;
     [self.posterImageView setImageWithURL:[NSURL URLWithString:imageUrl]];
     self.titleLabel.text = title;
+    
+    UIImage* promotionImage = [[CMAppManager sharedInstance] makePromotionImage:data];
+    self.promotionImageView.image = promotionImage;
 }
 
 @end

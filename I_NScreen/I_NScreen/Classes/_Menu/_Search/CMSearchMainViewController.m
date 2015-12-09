@@ -578,7 +578,7 @@ static const CGFloat pageSize = 28;
         }
     }
     
-    [cell setImageUrl:data[@"smallImageFileName"] title:data[@"title"] rating:data[@"rating"] WithTyOnly:isTvOnly];
+    [cell setImageUrl:data[@"smallImageFileName"] title:data[@"title"] rating:data[@"rating"] WithTyOnly:isTvOnly data:data];
    
     return cell;
 }
@@ -614,37 +614,34 @@ static const CGFloat pageSize = 28;
     NSString *sAssetId = @"";
     NSString *sContentGroupId = @"";
     NSString *sAssetBundle = @"0";
-    
-    NSArray *allKey = [[self.dataArray objectAtIndex:indexPath.row] allKeys];
-    
     NSString *sEpisodePeerExistence = @"0";
     
-    for ( NSString *key in allKey )
+    NSArray *allKey = [[self.dataArray objectAtIndex:indexPath.row] allKeys];
+    NSDictionary* item = self.dataArray[indexPath.row];
+    
+    if ([allKey containsObject:@"assetId"])
     {
-        if ( [key isEqualToString:@"assetId"] )
-        {
-            sAssetId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"assetId"]];
-        }
-        
-        if ( [key isEqualToString:@"primaryAssetId"] )
-        {
-            sAssetId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"primaryAssetId"]];
-        }
-        
-        if ( [key isEqualToString:@"episodePeerExistence"] )
-        {
-            sEpisodePeerExistence = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"episodePeerExistence"]];
-        }
-        
-        if ( [key isEqualToString:@"contentGroupId"] )
-        {
-            sContentGroupId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"contentGroupId"]];
-        }
-        
-        if ( [key isEqualToString:@"assetBundle"] )
-        {
-            sAssetBundle = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"assetBundle"]];
-        }
+        sAssetId = item[@"assetId"];
+    }
+    
+    if ([allKey containsObject:@"primaryAssetId"])
+    {
+        sAssetId = item[@"primaryAssetId"];
+    }
+    
+    if ([allKey containsObject:@"episodePeerExistence"])
+    {
+        sEpisodePeerExistence = item[@"episodePeerExistence"];
+    }
+    
+    if ([allKey containsObject:@"contentGroupId"])
+    {
+        sContentGroupId = item[@"contentGroupId"];
+    }
+    
+    if ([allKey containsObject:@"assetBundle"])
+    {
+        sAssetBundle = item[@"assetBundle"];
     }
     
     if ( [sRatinting isEqualToString:@"19"] )
