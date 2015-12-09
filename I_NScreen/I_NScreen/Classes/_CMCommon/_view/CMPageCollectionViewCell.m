@@ -95,7 +95,12 @@
     
     NSString *sImageFileName = [NSString stringWithFormat:@"%@", [dic objectForKey:@"smallImageFileName"]];
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
-    [self.pThumImageView setImageWithURL:[NSURL URLWithString:sImageFileName]];
+    
+//    [self.pThumImageView setImageWithURL:[NSURL URLWithString:sImageFileName]];
+    UIImage* holderImage = [UIImage imageNamed:@"posterlist_default.png"];
+    [self.pThumImageView setImageWithURL:[NSURL URLWithString:sImageFileName] placeholderImage:holderImage];
+    
+    
     self.pRankingLbl.text = [NSString stringWithFormat:@"%d", self.nIndex];
     
 //    if ( [[[CMAppManager sharedInstance] getDeviceCheck] isEqualToString:IPHONE_RESOLUTION_6_PLUS] )

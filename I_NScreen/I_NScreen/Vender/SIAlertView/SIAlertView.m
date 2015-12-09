@@ -461,7 +461,7 @@ static SIAlertView *__si_alert_current_view;
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:SIAlertViewDidShowNotification object:self userInfo:nil];
         #ifdef __IPHONE_7_0
-        [self addParallaxEffect];
+//        [self addParallaxEffect];
         #endif
         
         [SIAlertView setAnimating:NO];

@@ -27,6 +27,8 @@
     [cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
     int cacheSizeMemory = 8 * 1024 * 1024; // 8MB
     int cacheSizeDisk = 32 * 1024 * 1024;  // 32MB
+    cacheSizeDisk = 0;
+    cacheSizeMemory = 0;
     NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
     [NSURLCache setSharedURLCache:URLCache];
     

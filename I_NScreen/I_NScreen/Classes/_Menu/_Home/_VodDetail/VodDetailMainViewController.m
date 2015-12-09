@@ -32,6 +32,8 @@
 
 @property (nonatomic) BOOL isZzimCheck;
 
+@property (nonatomic, unsafe_unretained) BOOL seriesAscding;
+
 @end
 
 @implementation VodDetailMainViewController
@@ -647,12 +649,10 @@ static int tvFontSize = 15;
         if ( [sSeriesEndIndex isEqualToString:sTotalCount] )
         {
             // 같으면 종료된 시리즈 1회부터 보여줌
-            
         }
         else
         {
             // 다르면 종료되지 않음 최신회차 보여줌
-            
         }
         
         [self createSeriesButtonWithTag:nTag WithTotalCount:nTotalCount];
@@ -704,6 +704,7 @@ static int tvFontSize = 15;
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
     NSString *sSeriesCurIndex = @"";
+    NSArray* seriousIndex = nil;
     
     if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
     {
@@ -717,6 +718,11 @@ static int tvFontSize = 15;
     }
     
     int nSeriesCurIndex = [sSeriesCurIndex intValue];
+    
+    NSInteger sIndex = nTotalCount;
+    if (self.seriesAscding == YES) {
+        sIndex = 1;
+    }
     
     switch (nTag) {
         case 23:
@@ -734,18 +740,26 @@ static int tvFontSize = 15;
             for ( int i = 0; i < nTotalCount; i++ )
             {
                 nPosX = i * 64;
+                
+                NSString* strIndex = [NSString stringWithFormat:@"%ld회", sIndex];
                 UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-                [pBtn setTitle:[NSString stringWithFormat:@"%d회", i+1] forState:UIControlStateNormal];
+                [pBtn setTitle:strIndex forState:UIControlStateNormal];
                 [pBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-                if ( i + 1 == nSeriesCurIndex )
+                if ( sIndex == nSeriesCurIndex )
                 {
                     // 선택 버튼
                     [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
                 }
                 pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
-                pBtn.tag = i + 1;
+                pBtn.tag = sIndex;
                 [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [self.pSeriesScrollView23 addSubview:pBtn];
+                
+                if (self.seriesAscding == YES) {
+                    sIndex++;
+                } else {
+                    sIndex--;
+                }
             }
             self.pSeriesScrollView23.contentSize = CGSizeMake((nTotalCount - 1) * 64 + 47, CGRectGetHeight(self.pSeriesScrollView23.frame));
         }break;
@@ -764,18 +778,26 @@ static int tvFontSize = 15;
             for ( int i = 0; i < nTotalCount; i++ )
             {
                 nPosX = i * 64;
+                
+                NSString* strIndex = [NSString stringWithFormat:@"%ld회", sIndex];
                 UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-                [pBtn setTitle:[NSString stringWithFormat:@"%d회", i+1] forState:UIControlStateNormal];
+                [pBtn setTitle:strIndex forState:UIControlStateNormal];
                 [pBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-                if ( i + 1 == nSeriesCurIndex )
+                if ( sIndex == nSeriesCurIndex )
                 {
                     // 선택 버튼
                     [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
                 }
                 pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
-                pBtn.tag = i + 1;
+                pBtn.tag = sIndex;
                 [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [self.pSeriesScrollView24 addSubview:pBtn];
+                
+                if (self.seriesAscding == YES) {
+                    sIndex++;
+                } else {
+                    sIndex--;
+                }
             }
             
             self.pSeriesScrollView24.contentSize = CGSizeMake((nTotalCount - 1) * 64 + 47, CGRectGetHeight(self.pSeriesScrollView24.frame));
@@ -796,18 +818,26 @@ static int tvFontSize = 15;
             for ( int i = 0; i < nTotalCount; i++ )
             {
                 nPosX = i * 64;
+                
+                NSString* strIndex = [NSString stringWithFormat:@"%ld회", sIndex];
                 UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-                [pBtn setTitle:[NSString stringWithFormat:@"%d회", i+1] forState:UIControlStateNormal];
+                [pBtn setTitle:strIndex forState:UIControlStateNormal];
                 [pBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-                if ( i + 1 == nSeriesCurIndex )
+                if ( sIndex == nSeriesCurIndex )
                 {
                     // 선택 버튼
                     [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
                 }
                 pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
-                pBtn.tag = i + 1;
+                pBtn.tag = sIndex;
                 [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [self.pSeriesScrollView25 addSubview:pBtn];
+                
+                if (self.seriesAscding == YES) {
+                    sIndex++;
+                } else {
+                    sIndex--;
+                }
             }
 
             self.pSeriesScrollView25.contentSize = CGSizeMake((nTotalCount - 1) * 64 + 47, CGRectGetHeight(self.pSeriesScrollView25.frame));
@@ -1844,12 +1874,12 @@ static int tvFontSize = 15;
     if ( [sSeriesEndIndex isEqualToString:self.sTotalCount] )
     {
         // 같으면 종료된 시리즈 1회부터 보여줌
-        
+        self.seriesAscding = YES;
     }
     else
     {
         // 다르면 종료되지 않음 최신회차 보여줌
-        
+        self.seriesAscding = NO;
     }
     
     [self createSeriesButtonWithTag:nTag WithTotalCount:nTotalCount];

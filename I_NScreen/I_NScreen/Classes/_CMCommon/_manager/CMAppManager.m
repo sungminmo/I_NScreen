@@ -335,6 +335,7 @@
 - (void)removeKeychainAdultCertification
 {
     [[FXKeychain defaultKeychain] removeObjectForKey:CNM_OPEN_API_ADULT_CERTIFICATION];
+    self.adultCertificationState = CMAdultCertificationInfoNeed;    
 }
 
 #pragma mark - 유니크 성인 검색 제한 설정 set
