@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *gradeImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *hmImageView;
 @property (nonatomic, weak) IBOutlet UIView* lineView;
@@ -46,6 +47,7 @@
     self.channelLabel.text = @"";
     self.logoImageView.image = nil;
     self.timeLabel.text = @"";
+    self.stateLabel.text = @"";
     self.titleLabel.text = @"";
     self.gradeImageView.image = nil;
     self.hmImageView.hidden = NO;
@@ -71,12 +73,24 @@
     
     self.channelLabel.text = data[@"channelNumber"];
     
-    self.logoImageView.image = nil;
-    [self.logoImageView setImageWithURL:[NSURL URLWithString:data[@"channelLogoImg"]]];
-    
-    self.timeLabel.text = data[@"channelProgramTime"];
     self.titleLabel.text = data[@"channelProgramTitle"];
     
+    self.logoImageView.image = nil;
+    [self.logoImageView setImageWithURL:[NSURL URLWithString:data[@"channelLogoImg"]]];
+
+    self.timeLabel.text = [[CMAppManager sharedInstance] getSplitTimeWithDateStr:data[@"channelProgramTime"]];
+    
+    double interval = [[CMAppManager sharedInstance] getLicenseRemainMinuteWithLicenseDate:data[@"channelProgramTime"] compareDate:[NSDate date]];
+    
+    if (interval > 0)
+    {
+        self.stateLabel.text = [NSString stringWithFormat:@"%@ 방송예정", [[CMAppManager sharedInstance] replaceDashToDot:data[@"channelProgramTime"]]];
+    }
+    else
+    {
+        self.stateLabel.text = @"현재 방송 중";
+    }
+
     NSString* grade = data[@"channelProgramGrade"];
     
     if ( [grade isEqualToString:@"모두 시청"] )
@@ -104,15 +118,14 @@
         self.gradeImageView.image = [UIImage imageNamed:@""];
     }
     
-    NSString *sChannelProgramHD = data[@"channelProgramHD"];
+    NSString *channelInfo = data[@"channelInfo"];
     
-    if ( [sChannelProgramHD isEqualToString:@"YES"] )
+    if ( [channelInfo isEqualToString:@"HD"] )
     {
         // HD
-        
         self.hmImageView.image = [UIImage imageNamed:@"hd.png"];
     }
-    else
+    else if ([channelInfo isEqualToString:@"SD"])
     {
         // SD
         self.hmImageView.image = [UIImage imageNamed:@"sd.png"];

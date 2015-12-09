@@ -322,8 +322,8 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
                            @"searchString" : searchString,
-//                           @"limit" : @(pageSize),
-//                           @"offset" : @(pageIndex),
+                           @"limit" : @(pageSize),
+                           @"offset" : @(pageIndex),
                            @"areaCode" : areaCode
                            };
     
