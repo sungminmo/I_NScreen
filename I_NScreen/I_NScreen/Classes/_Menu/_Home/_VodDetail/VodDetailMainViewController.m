@@ -704,7 +704,6 @@ static int tvFontSize = 15;
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
     NSString *sSeriesCurIndex = @"";
-    NSArray* seriousIndex = nil;
     
     if ( [self.pEpisodePeerExistence isEqualToString:@"1"] )
     {
@@ -720,6 +719,7 @@ static int tvFontSize = 15;
     int nSeriesCurIndex = [sSeriesCurIndex intValue];
     
     NSInteger sIndex = nTotalCount;
+    NSInteger seriesIndex = -1;
     if (self.seriesAscding == YES) {
         sIndex = 1;
     }
@@ -736,9 +736,24 @@ static int tvFontSize = 15;
             }
             
             int nPosX = 0;
+
             
             for ( int i = 0; i < nTotalCount; i++ )
             {
+
+                if ([self.pEpisodePeerListArr count] > i) {
+                    NSDictionary* item = self.pEpisodePeerListArr[i];
+                    NSString* seriesNum = item[@"seriesIndex"];
+                    if (seriesNum != nil) {
+                        seriesIndex = [seriesNum integerValue];
+                        
+                        if (seriesIndex != sIndex) {
+                            sIndex = seriesIndex;
+                        }
+                        
+                    }
+                }
+                
                 nPosX = i * 64;
                 
                 NSString* strIndex = [NSString stringWithFormat:@"%ld회", sIndex];
@@ -777,6 +792,20 @@ static int tvFontSize = 15;
             
             for ( int i = 0; i < nTotalCount; i++ )
             {
+                
+                if ([self.pEpisodePeerListArr count] > i) {
+                    NSDictionary* item = self.pEpisodePeerListArr[i];
+                    NSString* seriesNum = item[@"seriesIndex"];
+                    if (seriesNum != nil) {
+                        seriesIndex = [seriesNum integerValue];
+                        
+                        if (seriesIndex != sIndex) {
+                            sIndex = seriesIndex;
+                        }
+                        
+                    }
+                }
+                
                 nPosX = i * 64;
                 
                 NSString* strIndex = [NSString stringWithFormat:@"%ld회", sIndex];
@@ -817,6 +846,20 @@ static int tvFontSize = 15;
             
             for ( int i = 0; i < nTotalCount; i++ )
             {
+                
+                if ([self.pEpisodePeerListArr count] > i) {
+                    NSDictionary* item = self.pEpisodePeerListArr[i];
+                    NSString* seriesNum = item[@"seriesIndex"];
+                    if (seriesNum != nil) {
+                        seriesIndex = [seriesNum integerValue];
+                        
+                        if (seriesIndex != sIndex) {
+                            sIndex = seriesIndex;
+                        }
+                        
+                    }
+                }
+                
                 nPosX = i * 64;
                 
                 NSString* strIndex = [NSString stringWithFormat:@"%ld회", sIndex];
@@ -1869,19 +1912,19 @@ static int tvFontSize = 15;
     }
     
     
-    NSString *sSeriesEndIndex = [NSString stringWithFormat:@"%@", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"seriesEndIndex"]];
+    NSString *seriesCurIndex = [NSString stringWithFormat:@"%@", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"seriesCurIndex"]];
     
     int nTotalCount = [self.sTotalCount intValue];
     
-    if ( [sSeriesEndIndex isEqualToString:self.sTotalCount] )
+    if ( [seriesCurIndex isEqualToString:self.sTotalCount] )
     {
         // 같으면 종료된 시리즈 1회부터 보여줌
-        self.seriesAscding = YES;
+        self.seriesAscding = NO;
     }
     else
     {
         // 다르면 종료되지 않음 최신회차 보여줌
-        self.seriesAscding = NO;
+        self.seriesAscding = YES;
     }
     
     [self createSeriesButtonWithTag:nTag WithTotalCount:nTotalCount];
