@@ -68,12 +68,12 @@
     NSString* periodObj = self.pDetailDic[@"viewablePeriod"];
     if (periodObj == nil) {
         
-        id obj = self.pDetailDic[@"productList"][@"product"];
+        id obj = self.pDetailDic[@"asset"][@"productList"][@"product"];
         if ([obj isKindOfClass:[NSArray class]]) {
-            periodObj = ((NSArray*)self.pDetailDic[@"productList"][@"product"]).firstObject[@"viewablePeriod"];
+            periodObj = ((NSArray*)obj).firstObject[@"viewablePeriod"];
         }
         else if ([obj isKindOfClass:[NSDictionary class]]) {
-            periodObj = ((NSDictionary*)self.pDetailDic[@"productList"][@"product"])[@"viewablePeriod"];
+            periodObj = ((NSDictionary*)obj)[@"viewablePeriod"];
         }
     }
 
