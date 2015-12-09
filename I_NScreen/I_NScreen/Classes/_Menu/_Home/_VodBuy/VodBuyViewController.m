@@ -1131,7 +1131,40 @@
         NSString *sTotalMoneyBalance = [NSString stringWithFormat:@"%@", [[vodBuy objectAtIndex:0] objectForKey:@"totalMoneyBalance"]];
         self.nCouponPrice = [[[vodBuy objectAtIndex:0] objectForKey:@"totalMoneyBalance"] intValue];
         
-        if ( self.nCouponPrice == 0 )
+        NSString *step1Price = @"";
+        
+        if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_01 )
+        {
+            step1Price = [[self.pProductArr objectAtIndex:0] objectForKey:@"price"];
+        }
+        else if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_02 )
+        {
+            step1Price = [[self.pProductArr objectAtIndex:1] objectForKey:@"price"];
+        }
+        else if ( self.nStep1BtnTag == VOD_BUY_VIEW_BTN_03 )
+        {
+            step1Price = [[self.pProductArr objectAtIndex:2] objectForKey:@"price"];
+        }
+        
+        int nStep1Price = [step1Price intValue];
+        
+        //        pStep2SubView03ContentLbl01 :보유 쿠폰 차감결제,
+        //        pStep2SubView03ContentLbl02 :(잔액부족-복합결제 가능)
+        //        if( nStep1Price > self.nPointBalance ) - 보유 쿠폰 부족, 보유 쿠폰 차감결제, 보유 쿠폰복합결제
+        //
+        
+        //        // 쿠폰 포인트
+        //        if ( ltotalMoneyBalance <= 0 ) {
+        //            vod_buy_step2_coupon_linearlayout.setEnabled(false);
+        //            vod_buy_step2_coupon_can_textview.setText("[잔액부족]");
+        //        } else if ( ltotalMoneyBalance >= lsListPrice ) {
+        //            vod_buy_step2_coupon_can_textview.setText("[쿠폰 결제 가능]");
+        //        } else {
+        //            vod_buy_step2_coupon_can_textview.setText("[잔액부족-복합결제가능]");
+        //        }
+        
+        
+        if ( self.nCouponPrice <= 0 )
         {
             self.pStep2SubView03Btn.enabled = NO;
             [self.pStep2SubView03Btn setBackgroundImage:[UIImage imageNamed:@"purchase_dimmed.png"] forState:UIControlStateNormal];
@@ -1139,6 +1172,9 @@
             self.pStep2SubView03MoneyLbl.textColor = [UIColor whiteColor];
             self.pStep2SubView03ContentLbl01.textColor = [UIColor whiteColor];
             self.pStep2SubView03ContentLbl02.textColor = [UIColor whiteColor];
+            
+            self.pStep2SubView03ContentLbl01.text = @"보유 쿠폰 부족";
+            self.pStep2SubView03ContentLbl02.text = @"(잔액부족)";
         }
         else
         {
@@ -1148,6 +1184,15 @@
             self.pStep2SubView03MoneyLbl.textColor = [UIColor blackColor];
             self.pStep2SubView03ContentLbl01.textColor = [UIColor blackColor];
             self.pStep2SubView03ContentLbl02.textColor = [UIColor blackColor];
+            
+            if (self.nCouponPrice >= nStep1Price) {
+                self.pStep2SubView03ContentLbl01.text = @"보유 쿠폰 차감결제";
+                self.pStep2SubView03ContentLbl02.text = @"(쿠폰 결제 가능)";
+            }
+            else {
+                self.pStep2SubView03ContentLbl01.text = @"보유 쿠폰 복합결제";
+                self.pStep2SubView03ContentLbl02.text = @"(잔액부족-복합결제가능)";
+            }
         }
 
         
@@ -1210,6 +1255,21 @@
             
 //            pStep2SubView04ContentLbl01 :TV포인트 회원가입 필요
 //            pStep2SubView04ContentLbl02 :TV에서 가입 가능합니다.
+            
+//            // TV 포인트
+//            if ( lpointBalance >= lsListPrice ) {
+//                vod_buy_step2_tv_can_textview.setText("TV 포인트 결제가능");
+//                vod_buy_step2_tv_can2_textview.setText("보유 포인트 차감결제");
+//            } else {    // TV포인트는 부족하면 무조건 딤처리. (복합결제 안됨)
+//                vod_buy_step2_point_linearlayout.setEnabled(false);
+//                vod_buy_step2_tv_can_textview.setText("TV에서 충전 하실 수 있습니다.");
+//                vod_buy_step2_tv_can_textview.setText("TV 포인트 충전 필요");
+//            }
+//            if (isJoinedTvPointMembership == false ) {
+//                vod_buy_step2_point_linearlayout.setEnabled(false);
+//                vod_buy_step2_tv_can_textview.setText("TV 포인트 회원가입 필요");
+//            }
+            
             if( nStep1Price > self.nPointBalance )
             {
                 // tv 포인트 딤 처리
@@ -1235,6 +1295,9 @@
                 self.pStep2SubView04ContentLbl01.textColor = [UIColor blackColor];
                 self.pStep2SubView04ContentLbl02.textColor = [UIColor blackColor];
 
+                self.pStep2SubView04ContentLbl01.text = @"TV 포인트 결제가능";
+                self.pStep2SubView04ContentLbl02.text = @"보유 포인트 차감결제";
+                
             }
         }
         else//TV포인트 비회원
