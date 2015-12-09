@@ -196,7 +196,7 @@ typedef void(^SIAlertViewTextFieldHandler)(NSInteger buttonIndex, SIAlertView* a
  *              그리고 해당 텍스트 필드 알림창은 최대 메세지를 5라인 이상 입력할 수 없음. 
  *
  */
-+ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText textHoloder:(NSString*)holder textValue:(NSString*)value textPosition:(SIAlertViewTextFieldPosition)position textLength:(NSInteger)maxLength cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion;
++ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText textHoloder:(NSString*)holder textValue:(NSString*)value textPosition:(SIAlertViewTextFieldPosition)position textLength:(NSInteger)maxLength cancel:(NSString*)cancel buttons:(NSArray*)buttons secure:(BOOL)isSecure completion:(SIAlertViewConfirmHandler)completion;
 
 @end
 

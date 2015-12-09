@@ -1449,7 +1449,7 @@ static SIAlertView *__si_alert_current_view;
     
 }
 
-+ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText textHoloder:(NSString*)holder textValue:(NSString*)value textPosition:(SIAlertViewTextFieldPosition)position textLength:(NSInteger)maxLength cancel:(NSString*)cancel buttons:(NSArray*)buttons completion:(SIAlertViewConfirmHandler)completion {
++ (void)alert:(NSString*)title message:(NSString*)message containBoldText:(NSString*)boldText textHoloder:(NSString*)holder textValue:(NSString*)value textPosition:(SIAlertViewTextFieldPosition)position textLength:(NSInteger)maxLength cancel:(NSString*)cancel buttons:(NSArray*)buttons secure:(BOOL)isSecure completion:(SIAlertViewConfirmHandler)completion {
     NSAttributedString* string = [[NSAttributedString alloc] initWithAttributedString:[SIAlertView attributeText:message bold:boldText filedPosition:position]];
     
     if (title.length == 0) {
@@ -1501,16 +1501,17 @@ static SIAlertView *__si_alert_current_view;
     
     alertView.willShowHandler = ^(SIAlertView *alertView) {
         NSLog(@"%@, willShowHandler2", alertView);
-        
         alertView.fieldView.maxInput = maxLength;
         if (value.length > 0) {
             alertView.fieldView.inputField.text = value;
         }
-        
-        
     };
     alertView.didShowHandler = ^(SIAlertView *alertView) {
         NSLog(@"%@, didShowHandler2", alertView);
+        if (isSecure == YES) {
+            alertView.fieldView.inputField.textAlignment = NSTextAlignmentCenter;
+            alertView.fieldView.inputField.secureTextEntry = YES;
+        }
     };
     alertView.willDismissHandler = ^(SIAlertView *alertView) {
         NSLog(@"%@, willDismissHandler2", alertView);
