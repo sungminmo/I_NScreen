@@ -143,8 +143,9 @@
             [self.pTapBtn02 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.pTapBtn03 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
 
-            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            [self.pWatchListArr removeAllObjects];
             
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
             for ( CMVodWatchList *info in [manager getVodWatchList] )
             {
                 NSString *sTitle = [NSString stringWithFormat:@"%@", [info pTitleStr]];
