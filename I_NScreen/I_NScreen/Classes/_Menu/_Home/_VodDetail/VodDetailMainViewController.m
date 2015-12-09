@@ -1005,7 +1005,8 @@ static int tvFontSize = 15;
     
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"title"]];
     
-    self.pCastLbl.text = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"starring"]];
+    NSString* starring =  [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"starring"];
+    self.pCastLbl.text = starring.length==0?@"":[starring copy];
     
     NSString *sHDContent = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"HDContent"]];
     
@@ -1188,7 +1189,8 @@ static int tvFontSize = 15;
     
     self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"genre"], nTotalMM];
     
-    self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"director"]];
+    NSString* director = [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"director"];
+    self.pManagerLbl.text = director.length==0?@"":[director copy];
     
     //  구매 X
     if ( [sPurchasedTime length] == 0 || [sPurchasedTime isEqualToString:@"(null)"] )
@@ -1635,7 +1637,8 @@ static int tvFontSize = 15;
     
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [self.pAssetListByEpisodePeerIdDic objectForKey:@"title"]];
     
-    self.pCastLbl.text = [NSString stringWithFormat:@"%@", [self.pAssetListByEpisodePeerIdDic objectForKey:@"starring"]];
+    NSString* starring = [self.pAssetListByEpisodePeerIdDic objectForKey:@"starring"];
+    self.pCastLbl.text = starring.length==0?@"":[starring copy];
     
     NSString *sHDContent = [NSString stringWithFormat:@"%@", [self.pAssetListByEpisodePeerIdDic objectForKey:@"HDContent"]];
     
@@ -1805,7 +1808,8 @@ static int tvFontSize = 15;
     
     self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"genre"], nTotalMM];
     
-    self.pManagerLbl.text = [NSString stringWithFormat:@"%@", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"director"]];
+    NSString* director = [[self pAssetListByEpisodePeerIdDic] objectForKey:@"director"];
+    self.pManagerLbl.text = director.length==0?@"":[director copy];
     
     int nTag = 0;
 
