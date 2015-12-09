@@ -75,6 +75,33 @@
     self.leftTabLayout.constant = 2;
     self.rightTabLayout.constant = 1;
 }
+#pragma mark - Private
+
+/**
+ * payment type에 따른 리스트 추가 여부 반환
+ * */
+
+- (BOOL)checkAddListWithPaymentType:(NSString*)paymentType
+{
+    if ([@"normal" isEqualToString:paymentType] || [@"coupon" isEqualToString:paymentType] || [@"point" isEqualToString:paymentType] || [@"complex" isEqualToString:paymentType]) {
+        return true;
+    }
+    
+    return false;
+}
+
+/**
+ * product type에 따른 리스트 추가 여부 반환
+ * */
+
+- (BOOL)checkAddListWithProductType:(NSString*)productType
+{
+    if ([@"rvod" isEqualToString:productType] || [@"package" isEqualToString:productType] || [@"bundle" isEqualToString:productType]) {
+        return true;
+    }
+    
+    return false;
+}
 
 #pragma mark - 액션 이벤트
 #pragma mark - 버튼 클릭 이벤트
@@ -459,27 +486,33 @@
         {
             for ( NSDictionary *dic in [[[myCm objectAtIndex:0] objectForKey:@"purchaseLogList"] objectForKey:@"purchaseLog"] )
             {
-                NSString *sPurchaseDeviceType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"purchaseDeviceType"]];
+                NSString* productType = [(NSString*)dic[@"productType"] lowercaseString];
+                NSString* paymentType = [(NSString*)dic[@"paymentType"] lowercaseString];
                 
-                NSMutableDictionary* mDic = [dic mutableCopy];
-                
-                NSString* p = mDic[@"viewablePeriod"];
-                NSString* s = mDic[@"viewablePeriodState"];
-                NSString* b = mDic[@"purchasedTime"];
-                
-                NSNumber* validTime =  [[CMAppManager sharedInstance] expiredDateIntervalWithPeriod:p purchased:b state:s];
-                [mDic setObject:validTime forKey:@"validTime"];
-                
-                if ( [sPurchaseDeviceType isEqualToString:@"2"] )
-                {
-                    // 모바일구매
-                    [mobile addObject:mDic];
+                if ([self checkAddListWithPaymentType:paymentType] && [self checkAddListWithProductType:productType]) {
+                    NSString *sPurchaseDeviceType = [NSString stringWithFormat:@"%@", [dic objectForKey:@"purchaseDeviceType"]];
+                    
+                    NSMutableDictionary* mDic = [dic mutableCopy];
+                    
+                    NSString* p = mDic[@"viewablePeriod"];
+                    NSString* s = mDic[@"viewablePeriodState"];
+                    NSString* b = mDic[@"purchasedTime"];
+                    
+                    NSNumber* validTime =  [[CMAppManager sharedInstance] expiredDateIntervalWithPeriod:p purchased:b state:s];
+                    [mDic setObject:validTime forKey:@"validTime"];
+                    
+                    if ( [sPurchaseDeviceType isEqualToString:@"2"] )
+                    {
+                        // 모바일구매
+                        [mobile addObject:mDic];
+                    }
+                    else
+                    {
+                        // tv 구매
+                        [tv addObject:mDic];
+                    }
                 }
-                else
-                {
-                    // tv 구매
-                    [tv addObject:mDic];
-                }
+                
             }
         }
         
