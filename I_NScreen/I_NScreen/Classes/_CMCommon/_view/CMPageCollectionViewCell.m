@@ -117,75 +117,7 @@
 //    }
     
     // isNew > promotionSticker > hot 우선순위
-    NSString *sPromotionSticker = [NSString stringWithFormat:@"%@", [dic objectForKey:@"promotionSticker"]];
-    NSString *sIsNew = [NSString stringWithFormat:@"%@", [dic objectForKey:@"isNew"]];
-    NSString *sHot = [NSString stringWithFormat:@"%@", [dic objectForKey:@"hot"]];
-    
-    [self.pStickerImageView setImage:[UIImage imageNamed:@""]];
-    
-//    if ( [sPromotionSticker isEqualToString:@"0"] )
-//    {
-//        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
-//    }
-    if ( [sPromotionSticker isEqualToString:@"11"] )
-    {
-        // 인기상승
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_08.png"]];
-    }
-    else if ( [sPromotionSticker isEqualToString:@"12"] )
-    {
-        // 추천
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_06.png"]];
-    }
-    else if ( [sPromotionSticker isEqualToString:@"13"] )
-    {
-        // 이벤트
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_03.png"]];
-    }
-    else if ( [sPromotionSticker isEqualToString:@"14"] )
-    {
-        // 극장 동시
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_07.png"]];
-    }
-    else if ( [sPromotionSticker isEqualToString:@"15"] )
-    {
-        // 할인
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_09.png"]];    //
-    }
-    else if ( [sPromotionSticker isEqualToString:@"16"] )
-    {
-        // HOT
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_02.png"]];
-    }
-    else if ( [sPromotionSticker isEqualToString:@"17"] )
-    {
-        // 쿠폰 증정
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_04.png"]];
-    }
-    else if ( [sPromotionSticker isEqualToString:@"18"] )
-    {
-        // 랭킹1위
-        [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_05.png"]];
-    }
-    else
-    {
-        if ( [sIsNew isEqualToString:@"1"] )
-        {
-            // new
-            [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_01.png"]];
-        }
-        else
-        {
-            //
-            if ( [sHot isEqualToString:@"1"] )
-            {
-                // hot
-                [self.pStickerImageView setImage:[UIImage imageNamed:@"icon_promotion_02.png"]];
-            }
-        }
-        
-        
-    }
+    self.pStickerImageView.image = [[CMAppManager sharedInstance] makePromotionImage:dic];
     
     // 19금 딤 처리
     NSString *sRating = [NSString stringWithFormat:@"%@", [dic objectForKey:@"rating"]];

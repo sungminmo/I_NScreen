@@ -11,10 +11,12 @@
 
 @interface CMHomeCommonCollectionViewCell ()
 
-@property (nonatomic, strong) IBOutlet UIImageView* posterImageView;
-@property (nonatomic, strong) IBOutlet UILabel* titleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView* posterImageView;
+@property (nonatomic, weak) IBOutlet UIImageView* promotionImageView;
+@property (nonatomic, weak) IBOutlet UILabel* titleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *pDimImageView;  // 성인 딤 처리 이미지
+
 @property (nonatomic, strong) NSString *sAssetId;
-@property (nonatomic, strong) IBOutlet UIImageView *pDimImageView;  // 성인 딤 처리 이미지
 @property (nonatomic) BOOL isAdultCheck;
 @property (nonatomic, strong) NSString *sEpisodePeerExistence;  // 1이면 시리즈 나머진 단일
 @property (nonatomic, strong) NSString *sContentGroupId;
@@ -115,6 +117,8 @@
             self.pOnlyTvImageView.hidden = NO;
         }
     }
+    
+    self.promotionImageView.image = [[CMAppManager sharedInstance] makePromotionImage:data];
     
     NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];
 //    [self.posterImageView setImageWithURL:imageUrl];

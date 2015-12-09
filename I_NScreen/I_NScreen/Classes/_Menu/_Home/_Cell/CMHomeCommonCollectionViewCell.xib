@@ -25,6 +25,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="95" height="138"/>
                         <animations/>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C2d-Ac-HE8">
+                        <rect key="frame" x="53" y="2" width="40" height="14"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="WYs-46-AjW"/>
+                            <constraint firstAttribute="width" constant="40" id="cKJ-tV-TBN"/>
+                            <constraint firstAttribute="height" constant="14" id="e76-7S-Mxj"/>
+                        </constraints>
+                    </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_onlytv.png" translatesAutoresizingMaskIntoConstraints="NO" id="oBt-No-TP4">
                         <rect key="frame" x="63" y="128" width="32" height="10"/>
                         <animations/>
@@ -62,12 +71,14 @@
                 <constraint firstAttribute="trailing" secondItem="3zK-Gu-2Km" secondAttribute="trailing" id="Vfg-sD-YY7"/>
                 <constraint firstItem="8Gs-y2-3X2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WHC-RA-2ej"/>
                 <constraint firstAttribute="bottom" secondItem="3zK-Gu-2Km" secondAttribute="bottom" id="ZFq-C2-fBK"/>
+                <constraint firstAttribute="trailing" secondItem="C2d-Ac-HE8" secondAttribute="trailing" constant="2" id="aBw-IC-08M"/>
                 <constraint firstItem="SIU-8T-EHH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bD7-Rg-1aB"/>
                 <constraint firstItem="qLi-r7-dtZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="c4E-sw-QJp"/>
                 <constraint firstAttribute="trailing" secondItem="oBt-No-TP4" secondAttribute="trailing" id="cTy-O9-xLU"/>
                 <constraint firstItem="3zK-Gu-2Km" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lYh-sP-QrU"/>
                 <constraint firstAttribute="bottom" secondItem="qLi-r7-dtZ" secondAttribute="bottom" id="rC8-TX-bhX"/>
                 <constraint firstAttribute="trailing" secondItem="qLi-r7-dtZ" secondAttribute="trailing" id="rXO-ch-okz"/>
+                <constraint firstItem="C2d-Ac-HE8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="tWC-Yd-txv"/>
                 <constraint firstItem="SIU-8T-EHH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wE7-lo-6nL"/>
                 <constraint firstAttribute="trailing" secondItem="8Gs-y2-3X2" secondAttribute="trailing" id="z1A-Il-tvx"/>
             </constraints>
@@ -75,6 +86,7 @@
                 <outlet property="pDimImageView" destination="SIU-8T-EHH" id="TT2-of-B8Q"/>
                 <outlet property="pOnlyTvImageView" destination="oBt-No-TP4" id="EKv-K3-vbZ"/>
                 <outlet property="posterImageView" destination="8Gs-y2-3X2" id="KXs-mQ-wUD"/>
+                <outlet property="promotionImageView" destination="C2d-Ac-HE8" id="SId-HW-kMq"/>
                 <outlet property="titleLabel" destination="qLi-r7-dtZ" id="tVR-0y-14X"/>
             </connections>
             <point key="canvasLocation" x="327.5" y="328"/>
