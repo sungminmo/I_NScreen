@@ -43,7 +43,10 @@
     }
 
     self.posterImageView.image = nil;
-    [self.posterImageView setImageWithURL:[NSURL URLWithString:imageUrl]];
+//    [self.posterImageView setImageWithURL:[NSURL URLWithString:imageUrl]];
+    UIImage* holderImage = [UIImage imageNamed:@"posterlist_default.png"];
+    [self.posterImageView setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:holderImage];
+    
     self.titleLabel.text = title;
 }
 

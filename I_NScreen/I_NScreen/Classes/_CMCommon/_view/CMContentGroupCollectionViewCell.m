@@ -66,7 +66,9 @@
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"primaryAssetId"]];
     NSString *sUrl = [NSString stringWithFormat:@"%@", [dic objectForKey:@"smallImageFileName"]];
     self.pSeriesLintStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"assetSeriesLink"]];
-    [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
+//    [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
+    UIImage* holderImage = [UIImage imageNamed:@"posterlist_default.png"];
+    [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl] placeholderImage:holderImage];
     
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [dic objectForKey:@"title"]];
     

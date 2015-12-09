@@ -117,7 +117,9 @@
     }
     
     NSURL* imageUrl = [NSURL URLWithString:data[@"smallImageFileName"]];
-    [self.posterImageView setImageWithURL:imageUrl];
+//    [self.posterImageView setImageWithURL:imageUrl];
+    UIImage* holderImage = [UIImage imageNamed:@"posterlist_default.png"];
+    [self.posterImageView setImageWithURL:imageUrl placeholderImage:holderImage];
     
     self.titleLabel.text = data[@"title"];
     
