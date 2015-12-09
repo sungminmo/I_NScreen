@@ -44,7 +44,7 @@ typedef enum : NSInteger {
 //    NSString* savedPurchaseNumber = [manager purchaseAuthorizedNumber];
     NSString* savedPurchaseNumber = [[CMAppManager sharedInstance] getKeychainBuyPw];
     if (savedPurchaseNumber.length > 0) {
-        [SIAlertView alert:@"구매인증 비밀번호 입력" message:@"구매인증 비밀번호를 입력해주세요.##FIELD##인증번호가 기억나지 않으실 경우,\n셋탑박스를 다시 등록 해주세요." containBoldText:@"" textHoloder:@"" textValue:@"" textPosition:SIAlertViewTextFieldPositionMiddle textLength:0 cancel:@"취소" buttons:@[@"확인"] completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+        [SIAlertView alert:@"구매인증 비밀번호 입력" message:@"구매인증 비밀번호를 입력해주세요.##FIELD##인증번호가 기억나지 않으실 경우,\n셋탑박스를 다시 등록 해주세요." containBoldText:@"" textHoloder:@"" textValue:@"" textPosition:SIAlertViewTextFieldPositionMiddle textLength:0 cancel:@"취소" buttons:@[@"확인"] secure:YES completion:^(NSInteger buttonIndex, SIAlertView *alert) {
             if (buttonIndex == 0) {
                 [self backCommonAction];
             }
@@ -73,7 +73,16 @@ typedef enum : NSInteger {
     [self.textField2 resetColor];
 
     BOOL validation = true;
-    if ([[self.textField1.text trim] isEqualToString:[self.textField2.text trim]] == false) {
+    if ([self.textField1.text trim].length == 0 && [self.textField2.text trim].length == 0) {
+        validation = false;
+        
+        self.infoLabel.text = @"인증번호를 입력해주세요.";
+        self.infoLabel.hidden = NO;
+        self.textField1.text = @"";
+        self.textField2.text = @"";
+
+    }
+    else if ([[self.textField1.text trim] isEqualToString:[self.textField2.text trim]] == false) {
         validation = false;
         
         self.infoLabel.text = @"인증번호가 일치하지 않습니다.";
