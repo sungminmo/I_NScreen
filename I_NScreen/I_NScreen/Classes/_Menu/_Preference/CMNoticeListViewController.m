@@ -75,7 +75,7 @@
                 NSDictionary* item = preference.lastObject;
                 [self.noticeList addObjectsFromArray:item[@"Notice_Item"]];
             }
-            else {
+            else if ([obj isKindOfClass:[NSDictionary class]]) {
                 [self.noticeList addObject:item[@"Notice_Item"]];
             }
             

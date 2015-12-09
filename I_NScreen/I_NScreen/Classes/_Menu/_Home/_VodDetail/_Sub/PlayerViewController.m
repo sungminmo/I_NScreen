@@ -31,7 +31,6 @@ static PlayerViewController *playerViewCtr;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - 강제 회전 모드
@@ -48,12 +47,8 @@ static PlayerViewController *playerViewCtr;
         orientation=UIInterfaceOrientationPortrait;
     }
     
-    
     int radian=0;
     CGRect viewFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration: 0.2];
     
     if(orientation==UIInterfaceOrientationLandscapeLeft
        || orientation==UIInterfaceOrientationLandscapeRight)
@@ -78,24 +73,36 @@ static PlayerViewController *playerViewCtr;
         radian=270;
     }
     
-    //뷰 회전 시키기
-    CGAffineTransform transform =
-    CGAffineTransformMakeRotation(degreesToRadian(radian));
-    
-    self.view.transform=transform;
-    self.view.bounds=viewFrame;
-    
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.2 animations:^{
+        //뷰 회전 시키기
+        CGAffineTransform transform =
+        CGAffineTransformMakeRotation(degreesToRadian(radian));
+        
+        self.view.transform=transform;
+        self.view.bounds=viewFrame;
+    } completion:^(BOOL finished) {
+        
+    }];
+
 }
 
 -(BOOL)prefersStatusBarHidden{
-    return YES;
+    if ([self.pStyleStr isEqualToString:@"play"]) {
+        return YES;
+    }
+    return NO;
 }
 
 
 - (void)dealloc {
+    
+    [self.pMoviePlayer stop];
+    
     WV_Stop();
     WV_Terminate();
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -111,18 +118,29 @@ static PlayerViewController *playerViewCtr;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [self SetDeviceOrientation:UIInterfaceOrientationPortrait];
+    if ([self.pStyleStr isEqualToString:@"play"]) {
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+        [self SetDeviceOrientation:UIInterfaceOrientationPortrait];
+        
+        self.title = @"";
+        self.isUseNavigationBar = NO;
+        
+        self.pMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
+        self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+        [self.pMoviePlayer setFullscreen:YES animated:NO];
+        
+        [self.view addSubview:self.pMoviePlayer.view];
+    }
+    else {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        self.title = @"미리보기";
+        self.isUseNavigationBar = YES;
+        self.pMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
+        self.pMoviePlayer.view.frame = [UIScreen mainScreen].applicationFrame;
+        [self.view addSubview:self.pMoviePlayer.view];
+    }
     
-    self.title = @"스트리밍";
-    self.isUseNavigationBar = NO;
-    
-    self.pMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
-    self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-    [self.pMoviePlayer setFullscreen:YES animated:YES];
-    [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];
-    
-    [self.view addSubview:self.pMoviePlayer.view];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     
     [self setViewInit];
 }
@@ -134,32 +152,43 @@ static PlayerViewController *playerViewCtr;
     // drm 초기화
     playerViewCtr = self;
     self.pDrmDic = [[NSMutableDictionary alloc] init];
- 
-    // Remove the movie player view controller from the "playback did finish" notification observers
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:MPMoviePlayerPlaybackDidFinishNotification
-                                                  object:nil];
-    
-    // Register this class as an observer instead
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(movieFinishedCallback:)
-                                                 name:MPMoviePlayerPlaybackDidFinishNotification
-                                               object:nil];
-    
     [self requestWithDrm];
 }
 
-
 -(void)movieFinishedCallback:(NSNotification*)aNotification
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    MPMoviePlayerController* player = (MPMoviePlayerController*)aNotification.object;
+    NSNumber *reason = [aNotification.userInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    
+    DDLogDebug(@"playbackState : %ld", player.playbackState);//MPMoviePlaybackStateStopped
+    DDLogDebug(@"loadState : %ld", player.loadState);//MPMovieLoadStateUnknown
+    
+    if ([reason intValue] == MPMovieFinishReasonPlaybackEnded) {
+        
+        if (player.playbackState == MPMoviePlaybackStateStopped && player.loadState == MPMovieLoadStateUnknown) {
+
+            return;
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }
+    else if ([reason intValue] == MPMovieFinishReasonPlaybackError) {
+        [SIAlertView alert:@"동영상 재생오류" message:@"동영상 재생 중 오류가 발생하였습니다. 재생을 종료합니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }
+    else if ([reason intValue] == MPMovieFinishReasonUserExited) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - back 버튼
 - (void) actionBackButton:(id)sender
 {
+    [self.pMoviePlayer stop];
     [self.navigationController popViewControllerAnimated:NO];
 }
+
 
 #pragma mark - 전문
 #pragma mark - drm 전문
@@ -255,7 +284,16 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
             
             NSURL *url = [NSURL URLWithString:responseUrl];
             [self.pMoviePlayer setContentURL:url];
-            
+            [self.pMoviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
+            if ([self.pStyleStr isEqualToString:@"play"]) {
+                [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];
+            }
+            else {
+                [self.pMoviePlayer setControlStyle:MPMovieControlStyleNone];     
+            }
+
+            [self.pMoviePlayer setRepeatMode:MPMovieRepeatModeNone];
+            [self.pMoviePlayer prepareToPlay];
             [self.pMoviePlayer play];
 
         }
@@ -270,5 +308,18 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
         }
     }
 }
+
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    for (UITouch *touch in touches)
+//    {
+//        NSArray *array = touch.gestureRecognizers;
+//        for (UIGestureRecognizer *gesture in array)
+//        {
+//            if (gesture.enabled && [gesture isMemberOfClass:[UIPinchGestureRecognizer class]])
+//                gesture.enabled = NO;
+//        }
+//    }
+//}
 
 @end
