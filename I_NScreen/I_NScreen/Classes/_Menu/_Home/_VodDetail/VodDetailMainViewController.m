@@ -954,6 +954,8 @@ static int tvFontSize = 15;
     {
         [self.pRatingImageView setImage:[UIImage imageNamed:@"all.png"]];
     }
+    
+    self.pPromotionImageView.image = [[CMAppManager sharedInstance] makePromotionImage:self.pAssetInfoDic[@"asset"]];
 
     NSString *sUrl = [NSString stringWithFormat:@"%@", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"imageFileName"]];
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];

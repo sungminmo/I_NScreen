@@ -64,6 +64,7 @@
 @property (nonatomic, strong) IBOutlet UIView *pView03;
 
 @property (nonatomic, strong) IBOutlet UIImageView *pThumImageView; // 섬네일 이미지
+@property (nonatomic, weak) IBOutlet UIImageView* pPromotionImageView;
 @property (nonatomic, strong) IBOutlet UIImageView *pStarImage01;
 @property (nonatomic, strong) IBOutlet UIImageView *pStarImage02;
 @property (nonatomic, strong) IBOutlet UIImageView *pStarImage03;
