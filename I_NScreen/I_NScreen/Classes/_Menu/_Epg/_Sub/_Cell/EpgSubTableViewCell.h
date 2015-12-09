@@ -20,7 +20,9 @@
  *
  *  @param data 셀에 표출될 정보
  */
-- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithCellState:(NSString *)sState;
+- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex;
+
+- (void)resetImageState:(NSArray*)sState;
 
 @end
 

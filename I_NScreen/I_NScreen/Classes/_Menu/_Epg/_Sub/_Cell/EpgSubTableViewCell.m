@@ -64,55 +64,12 @@
  *
  *  @param data 셀에 표출될 정보
  */
-- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex WithCellState:(NSString *)sState
+- (void)setData:(NSDictionary*)data WithIndex:(int)nIndex
 {
     [self resetData];
     
     self.dataDic = data;
     self.nSelect = nIndex;
-
-    self.pStateImageView.hidden = YES;
-    self.pStateImageView2.hidden = YES;
-    BOOL isState1 = NO;
-    BOOL isReserved = NO;
-    
-    if ( [sState isEqualToString:@"시청예약"] )
-    {
-        self.pStateImageView.hidden = NO;
-        self.pStateImageView.image = [UIImage imageNamed:@"icon_watchrsv.png"];
-        isState1 = YES;
-    }
-    else if ( [sState isEqualToString:@"녹화예약중"] )
-    {
-        isReserved = YES;
-        if (isState1 == YES) {
-            self.pStateImageView2.hidden = NO;
-            self.pStateImageView2.image = [UIImage imageNamed:@"icon_recrsv.png"];
-        }
-        else {
-            self.pStateImageView.hidden = NO;
-            self.pStateImageView.image = [UIImage imageNamed:@"icon_recrsv.png"];
-            isState1 = YES;
-        }
-    }
-    else if ( [sState isEqualToString:@"녹화중"] )
-    {
-        if (isState1 == YES) {
-            if (isReserved) {
-                self.pStateImageView.hidden = NO;
-                self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
-            }
-            else {
-                self.pStateImageView2.hidden = NO;
-                self.pStateImageView2.image = [UIImage imageNamed:@"icon_rec.png"];
-            }
-        } else {
-            self.pStateImageView.hidden = NO;
-            self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
-        }
-    }
-
-
     
     NSString *sStartTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingStartTime"]];
     NSString *sEndTime = [NSString stringWithFormat:@"%@", [data objectForKey:@"programBroadcastingEndTime"]];
@@ -206,6 +163,87 @@
         self.progressView.hidden = NO;
     }
 }
+
+- (void)resetImageState:(NSArray*)array {
+    
+    self.pStateImageView.hidden = YES;
+    self.pStateImageView2.hidden = YES;
+    
+    BOOL isState1 = NO;
+    BOOL isState2 = NO;
+
+    for (NSString* sState in array) {
+
+        if ( [sState isEqualToString:@"시청예약"] )
+        {
+            if (isState1 == YES) {
+                self.pStateImageView2.hidden = NO;
+                self.pStateImageView2.image = [UIImage imageNamed:@"icon_watchrsv.png"];
+                self.pStateImageView2.tag = 10;
+                isState2 = YES;
+            }
+            else {
+                self.pStateImageView.hidden = NO;
+                self.pStateImageView.image = [UIImage imageNamed:@"icon_watchrsv.png"];
+                self.pStateImageView.tag = 10;
+                isState1 = YES;
+            }
+        }
+        else if ( [sState isEqualToString:@"녹화예약중"] )
+        {
+            if (isState1 == YES) {
+                self.pStateImageView2.hidden = NO;
+                self.pStateImageView2.image = [UIImage imageNamed:@"icon_recrsv.png"];
+                self.pStateImageView2.tag = 20;
+                isState2 = YES;
+            }
+            else {
+                self.pStateImageView.hidden = NO;
+                self.pStateImageView.image = [UIImage imageNamed:@"icon_recrsv.png"];
+                self.pStateImageView.tag = 20;
+                isState1 = YES;
+            }
+        }
+        
+        if ( [sState isEqualToString:@"녹화중"] )
+        {
+            BOOL isWatch = NO;
+            
+            if (isState1) {
+                if (self.pStateImageView.tag == 10) {
+                    isWatch = YES;
+                }
+            }
+            if (isState2) {
+                if (self.pStateImageView.tag == 10) {
+                    isWatch = YES;
+                }
+            }
+            
+            if (isWatch) {
+                self.pStateImageView.hidden = NO;
+                self.pStateImageView.image = [UIImage imageNamed:@"icon_watchrsv.png"];
+                self.pStateImageView.tag = 10;
+                self.pStateImageView2.hidden = NO;
+                self.pStateImageView2.image = [UIImage imageNamed:@"icon_rec.png"];
+                self.pStateImageView2.tag = 30;
+            }
+            else {
+                self.pStateImageView.hidden = NO;
+                self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
+                self.pStateImageView.tag = 30;
+                
+                if (isState2) {
+                    self.pStateImageView.hidden = YES;
+                }
+                
+            }
+        }
+        
+    }
+
+}
+
 
 #pragma mark - Event
 
