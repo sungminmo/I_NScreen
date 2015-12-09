@@ -157,9 +157,9 @@
     
     NSDictionary* data = self.todayNewDateArr[indexPath.row];
     
-    NSString *sCellState = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"cellState"]];
-    
-    [cell setData:data WithIndex:(int)indexPath.row WithCellState:sCellState];
+    NSMutableArray* array = [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"cellState"];
+    [cell setData:data WithIndex:(int)indexPath.row ];
+    [cell resetImageState:array];
 
     NSString *sMore = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"moreState"]];
     NSString *sDele = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"deleState"]];
@@ -264,7 +264,11 @@
             // 설정 해제
             CMDBDataManager *manager = [CMDBDataManager sharedInstance];
             [manager setWatchReserveList:[self.todayNewDateArr objectAtIndex:nIndex]];
-            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약" forKey:@"cellState"];
+            
+            NSMutableArray* state = [self.pNowStateCheckArr objectAtIndex:nIndex][@"cellState"];
+            [state addObject:@"시청예약"];
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:state forKey:@"cellState"];
+            
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약취소" forKey:@"moreState"];
         }
         else
@@ -272,7 +276,15 @@
             // 시청 예약 설정
             CMDBDataManager *manager = [CMDBDataManager sharedInstance];
             [manager removeWatchReserveList:[self.todayNewDateArr objectAtIndex:nIndex]];
-            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
+            
+            NSMutableArray* state = [self.pNowStateCheckArr objectAtIndex:nIndex][@"cellState"];
+            for (NSString* value in state) {
+                if ([value isEqualToString:@"시청예약"]) {
+                    [state removeObject:value];
+                    break;
+                }
+            }
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:state forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약설정" forKey:@"moreState"];
         }
         
@@ -504,7 +516,9 @@
         NSString* resultCode = [[epgs objectAtIndex:0] objectForKey:@"resultCode"];
         
         if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
-            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
+            NSMutableArray* state = [self.pNowStateCheckArr objectAtIndex:nIndex][@"cellState"];
+            [state addObject:@"녹화예약중"];
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:state forKey:@"cellState"];
             [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
             [self.pTableView reloadData];
         }
@@ -662,7 +676,7 @@
         {
             [self.todayNewDateArr addObject:dic];
             
-            NSMutableDictionary *stateDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"", @"cellState", @"", @"moreState", @"", @"deleState", nil];
+            NSMutableDictionary *stateDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:[@[] mutableCopy], @"cellState", @"", @"moreState", @"", @"deleState", nil];
             [self.pNowStateCheckArr addObject:stateDic];
         }
     }
@@ -805,23 +819,23 @@
 
 - (void)setCellStateIndex:(int)index
 {
-    NSString *sState = @"";
+    NSMutableArray* state = [@[] mutableCopy];
     if ( [self getWatchReserveIndex2:index] == YES )
     {
-        sState = @"시청예약";
+        [state addObject:@"시청예약"];
     }
     
     if ( [self getRecordReservListIndex:index] == YES )
     {
-        sState = @"녹화예약중";
+        [state addObject:@"녹화예약중"];
     }
 
     if ( [self getRecordingChannelIndex:index] == YES )
     {
-        sState = @"녹화중";
+        [state addObject:@"녹화중"];
     }
     
-    [[self.pNowStateCheckArr objectAtIndex:index] setObject:sState forKey:@"cellState"];
+    [[self.pNowStateCheckArr objectAtIndex:index] setObject:state forKey:@"cellState"];
     
     NSString *sMore = @"";
     NSString *sDele = @"";
