@@ -158,19 +158,26 @@
             self.nTapTag = MY_CM_MAIN_VIEW_BTN_02;
             [self.pSubTabBtn01 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pSubTabBtn02 setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            
-            int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
-            if ( nTotal == 0 )
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 모바일 VOD가 없습니다."];
-            else
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
-            
+
             self.pSubTabBtn01.selected = YES;
             self.pSubTabBtn02.selected = NO;
             self.leftTabLayout.constant = 2;
             self.rightTabLayout.constant = 1;
             
             [self.pSubTableView01 reloadData];
+            
+            int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
+            if ( nTotal == 0 )
+            {
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 모바일 VOD가 없습니다."];
+            }
+            else
+            {
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+                
+                NSIndexPath* indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+                [self.pSubTableView01 scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            }
         }break;
         case MY_CM_MAIN_VIEW_BTN_06:
         {
@@ -180,18 +187,26 @@
             [self.pSubTabBtn01 setTitleColor:[UIColor colorWithRed:138.0f/255.0f green:140.0f/255.0f blue:142.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pSubTabBtn02 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
-            int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
-            if ( nTotal == 0 )
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 TV VOD가 없습니다."];
-            else
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
-
             self.pSubTabBtn01.selected = NO;
             self.pSubTabBtn02.selected = YES;
             self.leftTabLayout.constant = 1;
             self.rightTabLayout.constant = 2;
             
             [self.pSubTableView01 reloadData];
+            
+            int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
+            if ( nTotal == 0 )
+            {
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 TV VOD가 없습니다."];
+            }
+            else
+            {
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
+                
+                NSIndexPath* indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+                [self.pSubTableView01 scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+            }
+            
         }break;
     }
 }
@@ -484,7 +499,7 @@
         }
         
         if (tv.count > 1) {
-            sorted = [mobile sortedArrayUsingDescriptors:@[desc1, desc2, desc3]];
+            sorted = [tv sortedArrayUsingDescriptors:@[desc1, desc2, desc3]];
             [self.pValidPurchaseLogListTvArr addObjectsFromArray:sorted];
         } else {
             [self.pValidPurchaseLogListTvArr addObjectsFromArray:tv];
