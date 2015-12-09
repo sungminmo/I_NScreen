@@ -323,6 +323,7 @@
     
     NSDictionary* discountDic = nil;
     if (self.isDiscount) {
+        sNewPrice = [self.sStep1Price copy];
         NSString* couponId = self.discountCouponId;
         NSString* amount = self.discountAmount;
         //            url += "&discountCouponId=" + sdiscountCouponId + "&discountAmount=" + ldiscountAmount +"&price=" + listPrice;
