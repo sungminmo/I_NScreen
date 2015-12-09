@@ -1579,7 +1579,7 @@ static int tvFontSize = 15;
             }
         }
         
-        
+        self.pFileNameStr = self.pAssetListByEpisodePeerIdDic[@"fileName"];
         
         [self setResponseContentSeriesViewInit];
     }];
