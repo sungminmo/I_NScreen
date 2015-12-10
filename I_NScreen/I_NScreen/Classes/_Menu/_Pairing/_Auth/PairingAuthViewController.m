@@ -110,7 +110,6 @@
             NSString *sMessage = @"인증번호가 일치하지 않습니다.";
             [SIAlertView alert:@"error" message:sMessage button:@"확인" completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                self.pAuthTextField.text = @"";
-                self.pPwStr = @"";
             }];
         }
         else
@@ -118,7 +117,6 @@
             NSString *sMessage = [NSString stringWithFormat:@"%@", [[pairing objectAtIndex:0] objectForKey:@"errorString"]];
             [SIAlertView alert:@"error" message:sMessage button:@"확인" completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 self.pAuthTextField.text = @"";
-                self.pPwStr = @"";
             }];
         }
         
