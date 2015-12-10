@@ -176,6 +176,8 @@
                 else
                 {
                     pViewController.pDetailDataDic = self.pAssetInfoDic;
+                    pViewController.pEpisodePeerExistence = [self.pEpisodePeerExistence copy];
+                    pViewController.pContentGroupId = [self.pContentGroupId copy];
                 }
                 
                 pViewController.delegate = self;
@@ -1510,9 +1512,21 @@ static int tvFontSize = 15;
 
 - (void)VodBuyViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId
 {
-//    [self.navigationController popViewControllerAnimated:NO];
+    [self.navigationController popViewControllerAnimated:NO];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
-    [self.delegate VodDetailMainViewWithTag:nTag WithProductId:productId WithAssetId:assetId WithEpisodePeerExistence:EpisodePeerExistence WithContentGroupId:contentGroupId];
+    
+    if (self.delegate) {
+        [self.delegate VodDetailMainViewWithTag:nTag WithProductId:productId WithAssetId:assetId WithEpisodePeerExistence:EpisodePeerExistence WithContentGroupId:contentGroupId];
+    }
+    else {
+        // 묶음 페이지이동
+        VodDetailBundleMainViewController *pViewController = [[VodDetailBundleMainViewController alloc] initWithNibName:@"VodDetailBundleMainViewController" bundle:nil];
+        pViewController.sAssetId = assetId;
+        pViewController.sEpisodePeerExistence = EpisodePeerExistence;
+        pViewController.sContentGroupId = contentGroupId;
+        pViewController.sProductId = productId;
+        [self.navigationController pushViewController:pViewController animated:YES];
+    }
 }
 
 #pragma mark - 추가 전문

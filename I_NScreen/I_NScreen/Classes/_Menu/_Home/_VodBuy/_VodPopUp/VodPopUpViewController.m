@@ -49,6 +49,24 @@
 
     self.lineView.image = [UIImage imageWithColor:[UIColor lightGrayColor] withAlpha:1 withSize:self.lineView.bounds.size];
     
+    NSString *sNewAssetId = nil;
+    if (self.pDetailDic[@"assetId"] != nil) {
+        sNewAssetId = [self.pDetailDic[@"assetId"] copy];
+    }
+    else if (self.pDetailDic[@"asset"] != nil && self.pDetailDic[@"asset"][@"assetId"] != nil ) {
+        sNewAssetId = [self.pDetailDic[@"asset"][@"assetId"] copy];
+    }
+    else {
+        sNewAssetId = @"";
+    }
+    
+    if (sNewAssetId == nil) {
+        sNewAssetId = @"";
+    }
+    
+    self.sAssetId = [sNewAssetId copy];
+    
+    
 }
 
 #pragma mark - 초기화
@@ -499,6 +517,9 @@
 {
     NSString *sNewProductId = self.sProductId;
 
+//    [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
+//    return;
+    
     NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseProductWithProductId:sNewProductId completion:^(NSArray *payment, NSError *error) {
         
         DDLogError(@"묶음 일반 결제 = [%@]", payment);
@@ -512,7 +533,7 @@
                 
                 
 //                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG];
-                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
+                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
             }];
         }
     }];
@@ -537,7 +558,7 @@
             [SIAlertView alert:@"구매완료" message:@"구매가 완료되었습니다.\n[VOD 구매목록] 메뉴에서 구매내역을 확인하실 수 있습니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                 
 //                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG];
-                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
+                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
             }];
         }
     }];
@@ -564,7 +585,7 @@
                 
                 
 //                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG];
-                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
+                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
             }];
         }
     }];
@@ -596,7 +617,7 @@
                 
                 
 //                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG];
-                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:sEpisodePeerExistence WithContentGroupId:sContentGroupId];
+                [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
                 
             }];
         }

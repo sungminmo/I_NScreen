@@ -1097,6 +1097,8 @@
                 }break;
             }
             
+            pViewController.sContentGroupId = self.pContentGroupId;
+            pViewController.sEpisodePeerExistence = self.pEpisodePeerExistence;
             pViewController.sProductName = [self.sProductName copy];
             pViewController.sProductType = sProductType;
             pViewController.sGoodId = sGoodId;
