@@ -87,10 +87,7 @@ static PlayerViewController *playerViewCtr;
 }
 
 -(BOOL)prefersStatusBarHidden{
-    if ([self.pStyleStr isEqualToString:@"play"]) {
-        return YES;
-    }
-    return NO;
+    return YES;
 }
 
 
@@ -118,27 +115,17 @@ static PlayerViewController *playerViewCtr;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([self.pStyleStr isEqualToString:@"play"]) {
-        [[UIApplication sharedApplication] setStatusBarHidden:YES];
-        [self SetDeviceOrientation:UIInterfaceOrientationPortrait];
-        
-        self.title = @"";
-        self.isUseNavigationBar = NO;
-        
-        self.pMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
-        self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-        [self.pMoviePlayer setFullscreen:YES animated:NO];
-        
-        [self.view addSubview:self.pMoviePlayer.view];
-    }
-    else {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-        self.title = @"미리보기";
-        self.isUseNavigationBar = YES;
-        self.pMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
-        self.pMoviePlayer.view.frame = [UIScreen mainScreen].applicationFrame;
-        [self.view addSubview:self.pMoviePlayer.view];
-    }
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [self SetDeviceOrientation:UIInterfaceOrientationPortrait];
+    
+    self.title = @"";
+    self.isUseNavigationBar = NO;
+    
+    self.pMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
+    self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+    [self.pMoviePlayer setFullscreen:YES animated:NO];
+    
+    [self.view addSubview:self.pMoviePlayer.view];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     
@@ -164,17 +151,20 @@ static PlayerViewController *playerViewCtr;
     DDLogDebug(@"loadState : %ld", player.loadState);//MPMovieLoadStateUnknown
     
     if ([reason intValue] == MPMovieFinishReasonPlaybackEnded) {
-        
+        //빨리 감기등의 이벤트로 인한 경우
         if (player.playbackState == MPMoviePlaybackStateStopped && player.loadState == MPMovieLoadStateUnknown) {
-
+            [self.navigationController popViewControllerAnimated:YES];
+            [SIAlertView alert:@"동영상 재생오류" message:@"동영상 재생 중 오류가 발생하였습니다. 재생을 종료합니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+            }];
             return;
         }
         [self.navigationController popViewControllerAnimated:YES];
-        
+        [SIAlertView alert:@"동영상 재생오류" message:@"동영상 재생 중 오류가 발생하였습니다. 재생을 종료합니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+        }];
     }
     else if ([reason intValue] == MPMovieFinishReasonPlaybackError) {
+        [self.navigationController popViewControllerAnimated:YES];
         [SIAlertView alert:@"동영상 재생오류" message:@"동영상 재생 중 오류가 발생하였습니다. 재생을 종료합니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-            [self.navigationController popViewControllerAnimated:YES];
         }];
     }
     else if ([reason intValue] == MPMovieFinishReasonUserExited) {
@@ -285,17 +275,10 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
             NSURL *url = [NSURL URLWithString:responseUrl];
             [self.pMoviePlayer setContentURL:url];
             [self.pMoviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
-            if ([self.pStyleStr isEqualToString:@"play"]) {
-                [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];
-            }
-            else {
-                [self.pMoviePlayer setControlStyle:MPMovieControlStyleNone];     
-            }
-
+            [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];
             [self.pMoviePlayer setRepeatMode:MPMovieRepeatModeNone];
             [self.pMoviePlayer prepareToPlay];
             [self.pMoviePlayer play];
-
         }
         else
         {
