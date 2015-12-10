@@ -352,6 +352,10 @@
         self.pNoBuyLbl03.hidden = NO;
         self.pNoBuyLbl04.hidden = NO;
         self.pNoBuyLbl05.hidden = NO;
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.tag = VOD_BUY_VIEW_BTN_04;
+        [self onBtnClicked:btn];
     }
 }
 
