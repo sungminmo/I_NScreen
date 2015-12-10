@@ -108,7 +108,7 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if(textField.text.length > 19)  // 20 자리 까지 입력 가능
+    if(textField.text.length >= 4)  // 20 자리 까지 입력 가능
     {
         if([string length] == 0)
         {
