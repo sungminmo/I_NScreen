@@ -93,8 +93,8 @@
 //            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
 //            CMContentsRestrictedType type = [ud restrictType];
 //            BOOL isRestricted = type==CMContentsRestrictedTypeAdult?YES:NO;
-            BOOL isRestricted = [[CMAppManager sharedInstance] getKeychainAdultLimit];
-            self.switchButton.on = isRestricted;
+            BOOL isLimitY = [[CMAppManager sharedInstance] getKeychainAdultLimit];
+            self.switchButton.on = isLimitY;//QC가 우겨서..컴퍼넌트 속성값이랑 데이타 처리값이 반대로 되어 있음...
             
         } else {
             self.indicatorImageView.hidden = false;
@@ -150,7 +150,7 @@
 //            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
 //            [ud setRestrictType:CMContentsRestrictedTypeAdult];
 //            [ud synchronize];
-            [[CMAppManager sharedInstance] setKeychainAdultLimit:NO];
+            [[CMAppManager sharedInstance] setKeychainAdultLimit:YES];
         }
 
     }
