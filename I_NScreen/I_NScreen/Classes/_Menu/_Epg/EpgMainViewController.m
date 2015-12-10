@@ -46,7 +46,6 @@
     // 전체
     [self requestWithChannelListFull];
     [self requestWithGetSetTopStatus];
-    [self requestWithGetRecordReserveList];
 }
 
 #pragma mark - 초기화
@@ -158,8 +157,8 @@
 #pragma mark - 전체 채널 리스트 전문
 - (void)requestWithChannelListFull
 {
-    CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
-    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:areaInfo.areaCode/*CNM_AREA_CODE*/ block:^(NSArray *gets, NSError *error) {
+//    CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:CNM_AREA_CODE block:^(NSArray *gets, NSError *error) {
         DDLogError(@"epg = [%@]", gets);
         
         if ( [gets count] == 0 )
@@ -190,8 +189,6 @@
                 }
             }
         }
-        
-        [self requestWithGetSetTopStatus];
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -221,6 +218,9 @@
 #pragma mark - 리모컨 상태 체크 전문( 녹화중인지 체크 )
 - (void)requestWithGetSetTopStatus
 {
+//    NSString* settop 
+    
+    
     NSURLSessionDataTask *tesk = [NSMutableDictionary remoconGetSetTopStatusCompletion:^(NSArray *pairing, NSError *error) {
         
         DDLogError(@"리모컨 상태 체크 = [%@]", pairing);
@@ -290,12 +290,12 @@
 
 #pragma mark - 시청예약 체크
 - (BOOL)getWatchReserveIndex:(int)index
-{
-    NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"programTitle"]];
-    NSString *sStartTime = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"programBroadcastingStartTime"]];
-    NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"scheduleSeq"]];
-    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"programId"]];
-    NSString *sHd = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"programHD"]];
+{    
+    NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelProgramTitle"]];
+    NSString *sStartTime = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelProgramTime"]];
+    NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelProgramSeq"]];
+    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelId"]];
+    NSString *sHd = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelProgramHD"]];
     
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     BOOL isCheck = NO;
