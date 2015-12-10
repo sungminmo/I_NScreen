@@ -53,6 +53,13 @@
     [self setViewInit];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    
+}
+
+
 #pragma mark - 초기화
 #pragma mark - 화면 태그값 초기화
 - (void)setTagInit

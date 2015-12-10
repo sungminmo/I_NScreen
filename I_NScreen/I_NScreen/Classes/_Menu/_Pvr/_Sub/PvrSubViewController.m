@@ -28,6 +28,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.pTableView setEditing:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -326,9 +331,9 @@
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
 
-- (void)backCommonAction
-{
+- (void)backCommonAction {
     [self.delegate PvrSubViewWithTap:self.isTapCheck];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
