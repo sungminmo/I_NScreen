@@ -82,6 +82,15 @@ typedef enum : NSInteger {
         self.textField2.text = @"";
 
     }
+    if ([self.textField1.text trim].length < 4) {
+        validation = false;
+        
+        self.infoLabel.text = @"4자리 이상 입력해주세요.";
+        self.infoLabel.hidden = NO;
+        self.textField1.text = @"";
+        self.textField2.text = @"";
+        
+    }
     else if ([[self.textField1.text trim] isEqualToString:[self.textField2.text trim]] == false) {
         validation = false;
         
@@ -123,7 +132,7 @@ typedef enum : NSInteger {
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if(textField.text.length >= 4)  // 20 자리 까지 입력 가능
+    if(textField.text.length >= 20)  // 20 자리 까지 입력 가능
     {
         if([string length] == 0)
         {
