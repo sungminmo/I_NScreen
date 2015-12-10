@@ -55,6 +55,7 @@ static const CGFloat pageSize = 20;
 
 @property (nonatomic, strong) NSMutableArray* searchWordArray;  //  검색어 목록
 @property (nonatomic, strong) NSMutableArray* dataArray;        //  vod/프로그램 목록
+@property (nonatomic, strong) NSMutableArray* programArray;        //  vod/프로그램 목록
 
 @property (nonatomic, assign) NSInteger pageIndex;  //  검색 목록 페이지 인덱스
 @property (nonatomic, assign) NSInteger totalPage;  //  검색 목록 전체 페이지 수
@@ -69,6 +70,9 @@ static const CGFloat pageSize = 20;
 @property (nonatomic, strong) NSMutableArray *pNowStateCheckArr;    // 상태값 체크
 
 @property (nonatomic, weak) IBOutlet UILabel *pComentLbl;
+
+@property (nonatomic, strong) NSURLSessionDataTask *tesk1;
+@property (nonatomic, strong) NSURLSessionDataTask *tesk2;
 
 @end
 
@@ -88,6 +92,7 @@ static const CGFloat pageSize = 20;
     self.totalPage = 0;
     self.searchWordArray = [@[] mutableCopy];
     self.dataArray = [@[] mutableCopy];
+    self.programArray = [@[] mutableCopy];
     
     self.pRecordReservListArr = [@[] mutableCopy];
     self.recordingchannelArr = [@[] mutableCopy];
@@ -184,6 +189,7 @@ static const CGFloat pageSize = 20;
     
     [self.searchWordArray removeAllObjects];
     [self.dataArray removeAllObjects];
+    [self.programArray removeAllObjects];
     [self setListCount:-1];
     [self.vodList reloadData];
     [self.programList reloadData];
@@ -289,12 +295,13 @@ static const CGFloat pageSize = 20;
         sIncludeAdultCategory = @"0";
     }
     
-    NSURLSessionDataTask *tesk = [NSMutableDictionary searchContentGroupWithSearchKeyword:searchWord WithIncludeAdultCategory:sIncludeAdultCategory completion:^(NSArray *gets, NSError *error) {
+    self.tesk1 = [NSMutableDictionary searchContentGroupWithSearchKeyword:searchWord WithIncludeAdultCategory:sIncludeAdultCategory completion:^(NSArray *gets, NSError *error) {
+        
         
         DDLogError(@"vod 검색 = [%@]", gets);
         
         [self.dataArray removeAllObjects];
-        self.isLoading = NO;
+        
 
         NSDictionary* response = gets[0];
 
@@ -356,10 +363,10 @@ static const CGFloat pageSize = 20;
         }
         
         [self.vodList reloadData];
-
+        self.isLoading = NO;
     }];
     
-    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:self.tesk1 delegate:nil];
 }
 
 
@@ -380,13 +387,13 @@ static const CGFloat pageSize = 20;
     {
         self.pageIndex = 0;
         
-        [self.dataArray removeAllObjects];
+        [self.programArray removeAllObjects];
         [self.programList reloadData];
     }
     
     CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
     
-    NSURLSessionDataTask *tesk = [NSMutableDictionary programScheduleListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithAreaCode:areaInfo.areaCode completion:^(NSArray *programs, NSError *error) {
+    self.tesk2 = [NSMutableDictionary programScheduleListWithSearchString:searchWord WithPageSize:pageSize WithPageIndex:self.pageIndex WithAreaCode:areaInfo.areaCode completion:^(NSArray *programs, NSError *error) {
 
 //        self.isLoading = NO;
         
@@ -396,7 +403,7 @@ static const CGFloat pageSize = 20;
         NSString* resultCode = response[CNM_OPEN_API_RESULT_CODE_KEY];
         if ([CNM_OPEN_API_RESULT_CODE_SUCCESS_KEY isEqualToString:resultCode] == false) {
 
-            [self.dataArray removeAllObjects];
+            [self.programArray removeAllObjects];
             [self.programList reloadData];
             
             DDLogError(@"error : %@", response[CNM_OPEN_API_RESULT_ERROR_STRING_KEY]);
@@ -411,9 +418,9 @@ static const CGFloat pageSize = 20;
         NSObject* itemObject = response[ScheduleItem];
         
         if ([itemObject isKindOfClass:[NSDictionary class]]) {
-            [self.dataArray addObject:itemObject];
+            [self.programArray addObject:itemObject];
         } else if ([itemObject isKindOfClass:[NSArray class]]) {
-            [self.dataArray addObjectsFromArray:(NSArray*)itemObject];
+            [self.programArray addObjectsFromArray:(NSArray*)itemObject];
         }
         
         [self setListDataSplit];
@@ -421,7 +428,7 @@ static const CGFloat pageSize = 20;
         [self requestWithGetSetTopStatus];
     }];
     
-    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+//    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:self.tesk2 delegate:nil];
 }
 
 /**
@@ -496,7 +503,7 @@ static const CGFloat pageSize = 20;
         
         DDLogError(@"녹화예약목록2 = [%@]", self.pRecordReservListArr);
         
-        for ( int i =0; i < [self.pNowStateCheckArr count]; i++ )
+        for ( int i =0; i < [self.programArray count]; i++ )
         {
             [self setCellStateIndex:i];
         }
@@ -539,23 +546,33 @@ static const CGFloat pageSize = 20;
 
 - (void)tabMenu:(CMTabMenuView *)sender didSelectedTab:(NSInteger)tabIndex {
     
+    
+        
     [self.searchField resignFirstResponder];
     [self showAutoCompletList:NO];
-    
-    [self requestList];
-    
+
     switch (tabIndex) {
         case VOD_TABMENU_TYPE: {
+            if (self.tesk2) {
+                [self.tesk2 cancel];
+                self.tesk2 = nil;
+            }
             self.vodList.hidden = false;
             self.programList.hidden = true;
         }
             break;
         case PROGRAM_TABMENU_TYPE: {
+            if (self.tesk1) {
+                [self.tesk1 cancel];
+                self.tesk1 = nil;
+            }
             self.vodList.hidden = true;
             self.programList.hidden = false;
         }
             break;
     }
+    
+    [self requestList];
 }
 
 #pragma mark - UICollectionViewDataSource (VOD)
@@ -713,7 +730,7 @@ static const CGFloat pageSize = 20;
     if (self.autoCompletList == tableView) {
         return self.searchWordArray.count;
     } else if (self.programList == tableView) {
-        return self.dataArray.count;
+        return self.programArray.count;
     }
     return 0;
 }
@@ -732,7 +749,7 @@ static const CGFloat pageSize = 20;
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
-        NSDictionary* item = self.dataArray[indexPath.row];
+        NSDictionary* item = self.programArray[indexPath.row];
         
         CMDBDataManager *manager = [CMDBDataManager sharedInstance];
         RLMArray *ramArr = [manager getFavorChannel];
@@ -799,7 +816,7 @@ static const CGFloat pageSize = 20;
     }
     else if ( self.programList == tableView )
     {
-        NSDictionary* item = self.dataArray[indexPath.row];
+        NSDictionary* item = self.programArray[indexPath.row];
         
         NSString *sSeq = item[@"channelProgramSeq"];
         NSString *sProgramId = item[@"channelProgramID"];
@@ -932,9 +949,9 @@ static const CGFloat pageSize = 20;
 #pragma mark - 시청예약 체크
 - (BOOL)getWatchReserveIndex:(int)index
 {
-    NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:index] objectForKey:@"channelProgramTitle"]];
-    NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:index] objectForKey:@"channelProgramSeq"]];
-    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:index] objectForKey:@"channelProgramID"]];
+    NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelProgramTitle"]];
+    NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelProgramSeq"]];
+    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelProgramID"]];
     
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     BOOL isCheck = NO;
@@ -955,7 +972,7 @@ static const CGFloat pageSize = 20;
 - (BOOL)getRecordingChannelIndex:(int)index
 {
     // 체널 id 로 체크
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:index] objectForKey:@"channelId"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelId"]];
     
     BOOL isCheck = NO;
     for ( NSString *str in self.recordingchannelArr )
@@ -971,8 +988,8 @@ static const CGFloat pageSize = 20;
 #pragma mark - 녹화 예약 체크
 - (BOOL)getRecordReservListIndex:(int)index
 {
-    NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:index] objectForKey:@"channelProgramTime"]];
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:index] objectForKey:@"channelId"]];
+    NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelProgramTime"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelId"]];
     
     BOOL isCheck = NO;
     for ( NSDictionary *dic in self.pRecordReservListArr )
@@ -994,7 +1011,7 @@ static const CGFloat pageSize = 20;
 {
     [self.pNowStateCheckArr removeAllObjects];
     
-    for (int i = 0; i < self.dataArray.count; i++ )
+    for (int i = 0; i < self.programArray.count; i++ )
     {
         NSMutableDictionary *stateDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"", @"cellState", @"", @"moreState", @"", @"deleState", nil];
         [self.pNowStateCheckArr addObject:stateDic];
@@ -1054,9 +1071,9 @@ static const CGFloat pageSize = 20;
 
 - (NSString *)getWatchReserveIndex2:(int)index
 {
-    NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:index] objectForKey:@"channelProgramTitle"]];
-    NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:index] objectForKey:@"channelProgramSeq"]];
-    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:index] objectForKey:@"channelId"]];
+    NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelProgramTitle"]];
+    NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelProgramSeq"]];
+    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelId"]];
     
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     BOOL isCheck = NO;
@@ -1086,7 +1103,7 @@ static const CGFloat pageSize = 20;
     {
         // 설정 해제
         CMDBDataManager *manager = [CMDBDataManager sharedInstance];
-        [manager setWatchReserveList:[self.dataArray objectAtIndex:nIndex]];
+        [manager setWatchReserveList:[self.programArray objectAtIndex:nIndex]];
         [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약" forKey:@"cellState"];
         [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약취소" forKey:@"moreState"];
     }
@@ -1094,7 +1111,7 @@ static const CGFloat pageSize = 20;
     {
         // 시청 예약 설정
         CMDBDataManager *manager = [CMDBDataManager sharedInstance];
-        [manager removeWatchReserveList:[self.dataArray objectAtIndex:nIndex]];
+        [manager removeWatchReserveList:[self.programArray objectAtIndex:nIndex]];
         [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
         [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약설정" forKey:@"moreState"];
     }
@@ -1104,9 +1121,9 @@ static const CGFloat pageSize = 20;
 
 - (void)CMSearchTableViewDeleteBtn:(int)nIndex
 {
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:nIndex] objectForKey:@"channelId"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelId"]];
     
-    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"]];
+    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"]];
     
     BOOL isCheck = NO;
     for ( NSDictionary *dic in self.pRecordReservListArr )
@@ -1140,8 +1157,8 @@ static const CGFloat pageSize = 20;
 - (void)requestWithSetRecordCancelReserveWithReserveCancel:(NSString *)reserveCancel WithSeriesId:(NSString *)seriesId WithIndex:(int)nIndex
 {
     //    ReserveCancel = 1 (시리즈 전체 삭제) / ReserveCancel = 2 (단편 삭제)
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:nIndex] objectForKey:@"channelId"]];
-    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelId"]];
+    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"]];
     
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary epgSetRecordCancelReserveWithChannelId:sChannelId WithStartTime:sProgramBroadcastingStartTime WithSeriesId:seriesId WithReserveCancel:reserveCancel completion:^(NSArray *epgs, NSError *error) {
@@ -1165,8 +1182,8 @@ static const CGFloat pageSize = 20;
 #pragma mark - 녹화예약설정 단일
 - (void)requstWithSetRecordReserveWithIndex:(int)nIndex
 {
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:nIndex] objectForKey:@"channelId"]];
-    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelId"]];
+    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"]];
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary epgSetRecordReserveWithChannelId:sChannelId WithStartTime:sProgramBroadcastingStartTime completion:^(NSArray *epgs, NSError *error) {
         
@@ -1188,9 +1205,9 @@ static const CGFloat pageSize = 20;
 #pragma mark - 녹화예약설정 시리즈
 - (void)requstWithSetRecordSeriesReserveWithSeries:(NSString *)series WithIndex:(int)nIndex
 {
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:nIndex] objectForKey:@"channelId"]];
+    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelId"]];
     
-    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.dataArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"]];
+    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"]];
     
     
     
