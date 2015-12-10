@@ -77,23 +77,32 @@
         
         if ( nCount == 2 || nCount == 1 )
         {
-            NSString *sDelete = [NSString stringWithFormat:@"%@", [item objectForKey:@"Delete"]];
+            NSString *sDelete = [item objectForKey:@"Delete"];
+            NSString *sMore = [item objectForKey:@"More"];
+            if (sDelete.length > 0) {
+                UIButton *deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                deleteButton.backgroundColor = [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0f];
+                deleteButton.frame = CGRectMake(x + cellHeight, 0, cellHeight, cellHeight);
+                [deleteButton setTitle:sDelete forState: UIControlStateNormal];
+                [deleteButton.titleLabel setAdjustsFontSizeToFitWidth:true];
+                [deleteButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+                [deleteButton addTarget: self action: @selector(userPressedDeleteButton:)
+                       forControlEvents: UIControlEventTouchUpInside];
+                [self.basementView addSubview: deleteButton];
+            }
+            else if (sMore.length > 0) {
+                UIButton *moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                moreButton.backgroundColor = [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0f];
+                moreButton.frame = CGRectMake(x + cellHeight, 0, cellHeight, cellHeight);
+                [moreButton setTitle: sMore forState: UIControlStateNormal];
+                [moreButton.titleLabel setAdjustsFontSizeToFitWidth:true];
+                [moreButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+                [moreButton addTarget: self action: @selector(userPressedMoreButton:)
+                     forControlEvents: UIControlEventTouchUpInside];
+                [self.basementView addSubview: moreButton];
+            }
 
-            UIButton *deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            deleteButton.backgroundColor = [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0f];
-            deleteButton.frame = CGRectMake(x + cellHeight, 0, cellHeight, cellHeight);
-            if ( sDelete.length == 0 )
-                sDelete = @"Delete";
-            [deleteButton setTitle:sDelete forState: UIControlStateNormal];
-            [deleteButton.titleLabel setAdjustsFontSizeToFitWidth:true];
-            [deleteButton setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-            [deleteButton addTarget: self
-                             action: @selector(userPressedDeleteButton:)
-                   forControlEvents: UIControlEventTouchUpInside];
-            
-            [self.basementView addSubview: deleteButton];
         }
-       
     }
     
     CGRect rect = CGRectMake(0, 0, CGRectGetWidth(self.bounds),  CGRectGetHeight(self.bounds));

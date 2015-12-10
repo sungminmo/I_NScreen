@@ -164,7 +164,22 @@
     NSString *sMore = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"moreState"]];
     NSString *sDele = [NSString stringWithFormat:@"%@", [[self.pNowStateCheckArr objectAtIndex:indexPath.row] objectForKey:@"deleState"]];
     
-    [cell configureCellForItem:@{@"More":sMore, @"Delete":sDele} WithItemCount:2];
+    if (sMore.length > 0 && sDele.length > 0) {
+        cell.swipeEnabled = YES;
+        [cell configureCellForItem:@{@"More":sMore, @"Delete":sDele} WithItemCount:2];
+    }
+    else if (sMore.length > 0 && sDele.length == 0) {
+        cell.swipeEnabled = YES;
+        [cell configureCellForItem:@{@"More":sMore} WithItemCount:1];
+    }
+    else if (sMore.length == 0 && sDele.length > 0) {
+        cell.swipeEnabled = YES;
+        [cell configureCellForItem:@{@"Delete":sDele} WithItemCount:1];
+    }
+    else {
+        cell.swipeEnabled = NO;
+    }
+
     
     return cell;
 }
@@ -819,6 +834,8 @@
 
 - (void)setCellStateIndex:(int)index
 {
+
+    
     NSMutableArray* state = [@[] mutableCopy];
     if ( [self getWatchReserveIndex2:index] == YES )
     {
@@ -837,6 +854,22 @@
     
     [[self.pNowStateCheckArr objectAtIndex:index] setObject:state forKey:@"cellState"];
     
+    
+/*
+ -       미연동, SMART : 현재방송(기능없음), 미래방송(시청예약설정/시청예약취소)
+ -       HD : 현재방송(TV로 시청), 미래방송(시청예약설정/시청예약취소)
+ -       PVR : 현재방송(즉시녹화/녹화중지, TV로 시청), 미래방송(녹화예약설정/녹화예약취소, 시청예약설정/시청예약취소
+ */
+    NSString* sKind = [[CMDBDataManager sharedInstance] getSetTopBoxKind];
+    if (sKind.length == 0) {
+        return;
+    }
+    else if ([sKind isEqualToString:@"SMART"]) {
+        [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"시청예약설정" forKey:@"moreState"];
+        [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"시청예약취소" forKey:@"deleState"];
+        return;
+    }
+    
     NSString *sMore = @"";
     NSString *sDele = @"";
     if ( [self getProgressTimerWithIndex:index] > 0 )
@@ -844,15 +877,18 @@
         // 현재 시간
         sMore = @"TV로 시청";
         
-        if ( [self getRecordingChannelIndex:index] == YES )
-        {
-            // 녹화중이기 때문에 녹화중지로
-            sDele = @"즉시 녹화 중지";
+        if ([sKind isEqualToString:@"PVR"]) {
+            if ( [self getRecordingChannelIndex:index] == YES )
+            {
+                // 녹화중이기 때문에 녹화중지로
+                sDele = @"즉시 녹화 중지";
+            }
+            else
+            {
+                sDele = @"즉시 녹화";
+            }
         }
-        else
-        {
-            sDele = @"즉시 녹화";
-        }
+
     }
     else
     {
@@ -867,16 +903,19 @@
             sMore = @"시청예약설정";
         }
         
-        if ( [self getRecordReservListIndex:index] == YES )
-        {
-            // 녹화예약중이면 녹화예약취소로
-            sDele = @"녹화예약취소";
+        if ([sKind isEqualToString:@"PVR"]) {
+            if ( [self getRecordReservListIndex:index] == YES )
+            {
+                // 녹화예약중이면 녹화예약취소로
+                sDele = @"녹화예약취소";
+            }
+            else
+            {
+                // 녹화예약취소이면 녹화예약설정으로
+                sDele = @"녹화예약설정";
+            }
         }
-        else
-        {
-            // 녹화예약취소이면 녹화예약설정으로
-            sDele = @"녹화예약설정";
-        }
+
     }
     
     [[self.pNowStateCheckArr objectAtIndex:index] setObject:sMore forKey:@"moreState"];

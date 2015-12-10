@@ -17,6 +17,7 @@
 
 @interface PlayerViewController ()
 @property (nonatomic, strong) NSMutableDictionary *pDrmDic;
+@property (nonatomic, unsafe_unretained) BOOL isStopProcess;
 @end
 
 @implementation PlayerViewController
@@ -92,14 +93,7 @@ static PlayerViewController *playerViewCtr;
 
 
 - (void)dealloc {
-    
-    [self.pMoviePlayer stop];
-    
-    WV_Stop();
-    WV_Terminate();
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-    
+    [self stopProcess];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -110,6 +104,17 @@ static PlayerViewController *playerViewCtr;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    [self stopProcess];
+}
+
+- (void)stopProcess {
+    if (self.isStopProcess == NO) {
+        self.isStopProcess = YES;
+        [self.pMoviePlayer stop];
+        WV_Stop();
+        WV_Terminate();
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    }
 }
 
 - (void)viewDidLoad {

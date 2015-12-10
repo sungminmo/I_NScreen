@@ -55,6 +55,7 @@
     self.gradeImageView.image = nil;
     self.sdhdImageView01.hidden = true;
     self.sdhdImageView02.hidden = true;
+    [self hideBasement:NO];
 }
 
 #pragma mark - Pulbics

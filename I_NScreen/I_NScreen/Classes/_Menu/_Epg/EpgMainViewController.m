@@ -45,7 +45,6 @@
     
     // 전체
     [self requestWithChannelListFull];
-    [self requestWithGetSetTopStatus];
 }
 
 #pragma mark - 초기화
@@ -189,6 +188,8 @@
                 }
             }
         }
+        
+        [self requestWithGetSetTopStatus];
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
@@ -198,7 +199,13 @@
 - (void)requestWithChannelListWithGenreCode:(NSString *)genreCode
 {
     CMAreaInfo* areaInfo = [[CMDBDataManager sharedInstance] currentAreaInfo];
-    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:areaInfo.areaCode/*CNM_AREA_CODE*/ WithGenreCode:genreCode completion:^(NSArray *epgs, NSError *error) {
+    NSString* areaCode = CNM_AREA_CODE;
+    NSString* sKind = [[CMDBDataManager sharedInstance] getSetTopBoxKind];
+    if ([@[@"HD", @"PVR"] containsObject:sKind]) {
+        areaCode = areaInfo.areaCode;
+    }
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgGetChannelListAreaCode:areaCode WithGenreCode:genreCode completion:^(NSArray *epgs, NSError *error) {
         
         
         DDLogError(@"epg = [%@]", epgs);
@@ -218,8 +225,11 @@
 #pragma mark - 리모컨 상태 체크 전문( 녹화중인지 체크 )
 - (void)requestWithGetSetTopStatus
 {
-//    NSString* settop 
-    
+    NSString* sKind = [[CMDBDataManager sharedInstance] getSetTopBoxKind];
+    if ([@[@"HD", @"PVR"] containsObject:sKind] == NO) {
+        [self.pTableView reloadData];
+        return;
+    }
     
     NSURLSessionDataTask *tesk = [NSMutableDictionary remoconGetSetTopStatusCompletion:^(NSArray *pairing, NSError *error) {
         
