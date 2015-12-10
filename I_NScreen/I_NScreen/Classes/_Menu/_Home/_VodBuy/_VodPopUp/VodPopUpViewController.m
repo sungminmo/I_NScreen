@@ -363,7 +363,23 @@
 #pragma mark - 쿠폰 결제
 - (void)requestWithPurchaseByCoupon
 {
-    NSString *sNewAssetId = [NSString stringWithFormat:@"%@", [[self.pDetailDic objectForKey:@"asset"] objectForKey:@"assetId"]];
+    
+    NSString *sNewAssetId = nil;
+    if (self.pDetailDic[@"assetId"] != nil) {
+        sNewAssetId = [self.pDetailDic[@"assetId"] copy];
+    }
+    else if (self.pDetailDic[@"asset"] != nil && self.pDetailDic[@"asset"][@"assetId"] != nil ) {
+        sNewAssetId = [self.pDetailDic[@"asset"][@"assetId"] copy];
+    }
+    else {
+        sNewAssetId = @"";
+    }
+    
+    if (sNewAssetId == nil) {
+        sNewAssetId = @"";
+    }
+    
+    
     NSString *sNewProductId = self.sProductId;
     NSString *sNewGoodId = self.sGoodId;
     NSString *sNewPrice = self.pPriceLbl.text;
@@ -392,7 +408,22 @@
 #pragma mark - TV 포인트 결제
 - (void)requestWithPurchaseByPoint
 {
-    NSString *sNewAssetId = [NSString stringWithFormat:@"%@", [[self.pDetailDic objectForKey:@"asset"] objectForKey:@"assetId"]];
+
+    NSString *sNewAssetId = nil;
+    if (self.pDetailDic[@"assetId"] != nil) {
+        sNewAssetId = [self.pDetailDic[@"assetId"] copy];
+    }
+    else if (self.pDetailDic[@"asset"] != nil && self.pDetailDic[@"asset"][@"assetId"] != nil ) {
+        sNewAssetId = [self.pDetailDic[@"asset"][@"assetId"] copy];
+    }
+    else {
+        sNewAssetId = @"";
+    }
+    
+    if (sNewAssetId == nil) {
+        sNewAssetId = @"";
+    }
+    
     NSString *sNewProductId = self.sProductId;
     NSString *sNewGoodId = self.sGoodId;
     NSString *sNewPrice = self.sStep1Price;
@@ -420,7 +451,21 @@
 #pragma mark - 복합 결제
 - (void)requestWithPurchaseByComplexMethods
 {
-    NSString *sNewAssetId = [NSString stringWithFormat:@"%@", [[self.pDetailDic objectForKey:@"asset"] objectForKey:@"assetId"]];
+    NSString *sNewAssetId = nil;
+    if (self.pDetailDic[@"assetId"] != nil) {
+        sNewAssetId = [self.pDetailDic[@"assetId"] copy];
+    }
+    else if (self.pDetailDic[@"asset"] != nil && self.pDetailDic[@"asset"][@"assetId"] != nil ) {
+        sNewAssetId = [self.pDetailDic[@"asset"][@"assetId"] copy];
+    }
+    else {
+        sNewAssetId = @"";
+    }
+    
+    if (sNewAssetId == nil) {
+        sNewAssetId = @"";
+    }
+    
     NSString *sNewProductId = self.sProductId;
     NSString *sNewGoodId = self.sGoodId;
     NSString *sNewPrice = self.sStep2Price02;   // 총 할인 받은 결제 금액
