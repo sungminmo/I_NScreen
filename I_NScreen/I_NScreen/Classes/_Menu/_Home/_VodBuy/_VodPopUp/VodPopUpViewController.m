@@ -521,10 +521,6 @@
 - (void)requestWithPurchaseProduct
 {
     NSString *sNewProductId = self.sProductId;
-
-//    [self.delegate VodPopUpViewWithTag:BUY_BUNDLE_TAG WithProductId:self.sProductId WithAssetId:self.sAssetId WithEpisodePeerExistence:self.sEpisodePeerExistence WithContentGroupId:self.sContentGroupId];
-//    return;
-    
     NSURLSessionDataTask *tesk = [NSMutableDictionary paymentPurchaseProductWithProductId:sNewProductId completion:^(NSArray *payment, NSError *error) {
         
         DDLogError(@"묶음 일반 결제 = [%@]", payment);
