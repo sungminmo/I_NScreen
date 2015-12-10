@@ -1187,7 +1187,7 @@ static int tvFontSize = 15;
         nTotalMM = nRunningHH * 60 + nRunningMM;
     }
     
-    self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"genre"], nTotalMM];
+    self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d분", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"genre"], nTotalMM];
     
     NSString* director = [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"director"];
     self.pManagerLbl.text = director.length==0?@"":[director copy];
@@ -1806,7 +1806,7 @@ static int tvFontSize = 15;
         nTotalMM = nRunningHH * 60 + nRunningMM;
     }
     
-    self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"genre"], nTotalMM];
+    self.pSummaryLbl.text = [NSString stringWithFormat:@"%@/%d분", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"genre"], nTotalMM];
     
     NSString* director = [[self pAssetListByEpisodePeerIdDic] objectForKey:@"director"];
     self.pManagerLbl.text = director.length==0?@"":[director copy];
