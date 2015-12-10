@@ -724,6 +724,8 @@ static int tvFontSize = 15;
         sIndex = 1;
     }
     
+    CGFloat buttonWidth = 47;
+    
     switch (nTag) {
         case 23:
         {
@@ -759,13 +761,14 @@ static int tvFontSize = 15;
                 NSString* strIndex = [NSString stringWithFormat:@"%ld회", sIndex];
                 UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
                 [pBtn setTitle:strIndex forState:UIControlStateNormal];
+                pBtn.titleLabel.font = [UIFont systemFontOfSize:13];
                 [pBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
                 if ( sIndex == nSeriesCurIndex )
                 {
                     // 선택 버튼
                     [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
                 }
-                pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
+                pBtn.frame = CGRectMake(nPosX, 4, buttonWidth, 35);
                 pBtn.tag = sIndex;
                 [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [self.pSeriesScrollView23 addSubview:pBtn];
@@ -776,7 +779,7 @@ static int tvFontSize = 15;
                     sIndex--;
                 }
             }
-            self.pSeriesScrollView23.contentSize = CGSizeMake((nTotalCount - 1) * 64 + 47, CGRectGetHeight(self.pSeriesScrollView23.frame));
+            self.pSeriesScrollView23.contentSize = CGSizeMake((nTotalCount - 1) * 64 + buttonWidth, CGRectGetHeight(self.pSeriesScrollView23.frame));
         }break;
         case 24:
         {
@@ -811,13 +814,14 @@ static int tvFontSize = 15;
                 NSString* strIndex = [NSString stringWithFormat:@"%ld회", sIndex];
                 UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
                 [pBtn setTitle:strIndex forState:UIControlStateNormal];
+                pBtn.titleLabel.font = [UIFont systemFontOfSize:13];
                 [pBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
                 if ( sIndex == nSeriesCurIndex )
                 {
                     // 선택 버튼
                     [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
                 }
-                pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
+                pBtn.frame = CGRectMake(nPosX, 4, buttonWidth, 35);
                 pBtn.tag = sIndex;
                 [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [self.pSeriesScrollView24 addSubview:pBtn];
@@ -829,7 +833,7 @@ static int tvFontSize = 15;
                 }
             }
             
-            self.pSeriesScrollView24.contentSize = CGSizeMake((nTotalCount - 1) * 64 + 47, CGRectGetHeight(self.pSeriesScrollView24.frame));
+            self.pSeriesScrollView24.contentSize = CGSizeMake((nTotalCount - 1) * 64 + buttonWidth, CGRectGetHeight(self.pSeriesScrollView24.frame));
 
         }break;
         case 25:
@@ -865,13 +869,14 @@ static int tvFontSize = 15;
                 NSString* strIndex = [NSString stringWithFormat:@"%ld회", sIndex];
                 UIButton *pBtn = [UIButton buttonWithType:UIButtonTypeCustom];
                 [pBtn setTitle:strIndex forState:UIControlStateNormal];
+                pBtn.titleLabel.font = [UIFont systemFontOfSize:13];
                 [pBtn setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
                 if ( sIndex == nSeriesCurIndex )
                 {
                     // 선택 버튼
                     [pBtn setBackgroundImage:[UIImage imageNamed:@"seriesno_press.png"] forState:UIControlStateNormal];
                 }
-                pBtn.frame = CGRectMake(nPosX, 4, 47, 35);
+                pBtn.frame = CGRectMake(nPosX, 4, buttonWidth, 35);
                 pBtn.tag = sIndex;
                 [pBtn addTarget:self action:@selector(onSeriesBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
                 [self.pSeriesScrollView25 addSubview:pBtn];
@@ -883,7 +888,7 @@ static int tvFontSize = 15;
                 }
             }
 
-            self.pSeriesScrollView25.contentSize = CGSizeMake((nTotalCount - 1) * 64 + 47, CGRectGetHeight(self.pSeriesScrollView25.frame));
+            self.pSeriesScrollView25.contentSize = CGSizeMake((nTotalCount - 1) * 64 + buttonWidth, CGRectGetHeight(self.pSeriesScrollView25.frame));
         }break;
     }
 }
@@ -1505,7 +1510,7 @@ static int tvFontSize = 15;
 
 - (void)VodBuyViewWithTag:(int)nTag WithProductId:(NSString *)productId WithAssetId:(NSString *)assetId WithEpisodePeerExistence:(NSString *)EpisodePeerExistence WithContentGroupId:(NSString *)contentGroupId
 {
-    [self.navigationController popViewControllerAnimated:NO];
+//    [self.navigationController popViewControllerAnimated:NO];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
     [self.delegate VodDetailMainViewWithTag:nTag WithProductId:productId WithAssetId:assetId WithEpisodePeerExistence:EpisodePeerExistence WithContentGroupId:contentGroupId];
 }

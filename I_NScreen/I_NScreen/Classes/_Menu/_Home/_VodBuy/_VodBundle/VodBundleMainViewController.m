@@ -198,6 +198,20 @@
     self.pSugPriceLbl.text = [NSString stringWithFormat:@"%@", [self.pDetailDic objectForKey:@"suggestedPriceTotal"]];
     self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] insertComma:[self.pDetailDic objectForKey:@"price"]]];
     
+    NSString* rentalDuration = nil;
+    NSString* rentalDurationUnit = nil;
+    rentalDuration = self.pDetailDic[@"rentalDuration"];
+    rentalDurationUnit = self.pDetailDic[@"rentalDurationUnit"];
+    
+    if (rentalDurationUnit != nil && rentalDuration != nil) {
+        NSString* value = [NSString stringWithFormat:@"%@ %@", rentalDuration, [self durationUnit:rentalDurationUnit]];
+        self.pLicenseTimeLbl.text = value;
+    }
+    else {
+        self.pLicenseTimeLbl.text = @"";
+    }
+    
+    
     NSArray *keyArr = [self.pDetailDic allKeys];
     BOOL isCheck = NO;
     for ( NSString *key in keyArr )
@@ -288,5 +302,28 @@
         }
     }
 }
+
+
+#pragma mark - code parsing
+- (NSString*)durationUnit:(NSString*)code {
+    NSString* result = @"";
+    if ([code isEqualToString:@"0"]) {//시간
+        result = @"시간";
+    }
+    else if ([code isEqualToString:@"1"]) {//일
+        result = @"일";
+    }
+    else if ([code isEqualToString:@"2"]) {//주
+        result = @"주";
+    }
+    else if ([code isEqualToString:@"3"]) {//월
+        result = @"월";
+    }
+    else if ([code isEqualToString:@"4"]) {//년
+        result = @"년";
+    }
+    return result;
+}
+
 
 @end
