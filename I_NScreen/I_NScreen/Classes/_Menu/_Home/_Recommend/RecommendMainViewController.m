@@ -116,7 +116,43 @@
 #pragma mark - 화면 초기화
 - (void)setViewInit
 {
-   
+    [self.pBannerPgControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+    [self.pPopularityPgControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+    [self.pNewWorkPgControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+    [self.pRecommendPgControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+}
+
+-(void)changePage:(id)sender
+{
+    NSInteger page = [(UIPageControl*)sender currentPage];
+    if (sender == self.pBannerPgControl)
+    {
+        [self.pBannerScrollView setContentOffset:CGPointMake(page * self.pBannerScrollView.frame.size.width, 0) animated:YES];
+        [self banLoadScrollViewWithPage:page - 1];
+        [self banLoadScrollViewWithPage:page];
+        [self banLoadScrollViewWithPage:page + 1];
+    }
+    else if (sender == self.pPopularityPgControl)
+    {
+        [self.pPopularityScrollView setContentOffset:CGPointMake(page * self.pPopularityScrollView.frame.size.width, 0) animated:YES];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoPopularity WithPage:page - 1];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoPopularity WithPage:page];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoPopularity WithPage:page + 1];
+    }
+    else if (sender == self.pNewWorkPgControl)
+    {
+        [self.pNewWorkScrollView setContentOffset:CGPointMake(page * self.pNewWorkScrollView.frame.size.width, 0) animated:YES];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoNewWork WithPage:page - 1];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoNewWork WithPage:page];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoNewWork WithPage:page + 1];
+    }
+    else if (sender == self.pRecommendPgControl)
+    {
+        [self.pRecommendScrollView setContentOffset:CGPointMake(page * self.pRecommendScrollView.frame.size.width, 0) animated:YES];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoRecommend WithPage:page - 1];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoRecommend WithPage:page];
+        [self collectionLoadScrollViewWithTrinfoType:TrinfoRecommend WithPage:page + 1];
+    }
 }
 
 #pragma mark - 데이터 초기화
