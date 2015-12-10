@@ -132,27 +132,38 @@
         }
         else
         {
-            [SIAlertView alert:@"녹화예약물 삭제확인" message:@"녹화예약물을 삭제하시겠습니까?"
-                        cancel:@"취소"
-                       buttons:@[@"단편예약삭제", @"시리즈예약삭제"]
-                    completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                        
-                        NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
-                        NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"ChannelId"]];
-                        NSString *sTime = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"RecordStartTime"]];
-                        
-                        if ( buttonIndex == 1 )
-                        {
-                            // 단편삭제
-                            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:sSeriesId WithIndex:(int)indexPath.row WithChannelId:sChannelId WithTime:sTime];
-                        }
-                        else if ( buttonIndex == 2 )
-                        {
-                            // 시리즈 전체 삭제
-                            [self requestWithSetRecordCancelReserveWithReserveCancel:@"1" WithSeriesId:sSeriesId WithIndex:(int)indexPath.row WithChannelId:sChannelId WithTime:sTime];
-                        }
-                        
-                    }];
+            //  시리즈에 속한 목록이 하나만 있을경우, 시리즈 삭제를 진행한다.
+            if (self.pSeriesReserveListArr.count == 1)
+            {
+                NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
+                NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"ChannelId"]];
+                NSString *sTime = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"RecordStartTime"]];
+                
+                [self requestWithSetRecordCancelReserveWithReserveCancel:@"1" WithSeriesId:sSeriesId WithIndex:(int)indexPath.row WithChannelId:sChannelId WithTime:sTime];
+            }
+            else
+            {
+                [SIAlertView alert:@"녹화예약물 삭제확인" message:@"녹화예약물을 삭제하시겠습니까?"
+                            cancel:@"취소"
+                           buttons:@[@"단편예약삭제", @"시리즈예약삭제"]
+                        completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                            
+                            NSString *sSeriesId = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"SeriesId"]];
+                            NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"ChannelId"]];
+                            NSString *sTime = [NSString stringWithFormat:@"%@", [[self.pSeriesReserveListArr objectAtIndex:indexPath.row] objectForKey:@"RecordStartTime"]];
+                            
+                            if ( buttonIndex == 1 )
+                            {
+                                // 단편삭제
+                                [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:sSeriesId WithIndex:(int)indexPath.row WithChannelId:sChannelId WithTime:sTime];
+                            }
+                            else if ( buttonIndex == 2 )
+                            {
+                                // 시리즈 전체 삭제
+                                [self requestWithSetRecordCancelReserveWithReserveCancel:@"1" WithSeriesId:sSeriesId WithIndex:(int)indexPath.row WithChannelId:sChannelId WithTime:sTime];
+                            }
+                        }];
+            }
         }
     }
 }

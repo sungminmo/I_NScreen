@@ -82,6 +82,15 @@
     [self requestWithRecordReservelist];
 }
 
+- (void)resetData
+{
+    [self.pListArr removeAllObjects];
+    [self.pReservListArr removeAllObjects];
+    [self.pSeriesReservDetailArr removeAllObjects];
+    
+    [self.pTableView reloadData];
+}
+
 #pragma mark - Private
 
 /**
@@ -596,6 +605,8 @@
 #pragma mark - 델리게이트
 - (void)PvrSubViewWithTap:(BOOL)isTap
 {
+    [self resetData];
+    
     if ( isTap == YES )
     {
         // 녹화물 목록
