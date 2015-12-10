@@ -932,14 +932,15 @@ static int tvFontSize = 15;
         {
             for ( NSDictionary *dic in  [[[vod objectAtIndex:0] objectForKey:@"contentGroupList"] objectForKey:@"contentGroup"] )
             {
-                NSMutableDictionary *nDic = [[NSMutableDictionary alloc] init];
+//                NSMutableDictionary *nDic = [[NSMutableDictionary alloc] init];
+//                [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
+//                [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
+//                [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"primaryAssetId"];
+//                [nDic setObject:[dic objectForKey:@"assetSeriesLink"] forKey:@"assetSeriesLink"];
+//                [nDic setObject:[dic objectForKey:@"rating"] forKey:@"rating"];
+//                [nDic setObject:[dic objectForKey:@"assetBundle"] forKey:@"assetBundle"];
                 
-                [nDic setObject:[dic objectForKey:@"smallImageFileName"] forKey:@"smallImageFileName"];
-                [nDic setObject:[dic objectForKey:@"title"] forKey:@"title"];
-                [nDic setObject:[dic objectForKey:@"primaryAssetId"] forKey:@"primaryAssetId"];
-                [nDic setObject:[dic objectForKey:@"assetSeriesLink"] forKey:@"assetSeriesLink"];
-                [nDic setObject:[dic objectForKey:@"rating"] forKey:@"rating"];
-                [nDic setObject:[dic objectForKey:@"assetBundle"] forKey:@"assetBundle"];
+                NSMutableDictionary *nDic = [dic mutableCopy];
                 [pArr addObject:nDic];
                 
                 if ( nIndex % 4 == 0 || nIndex == nTotal)
@@ -1282,7 +1283,7 @@ static int tvFontSize = 15;
     }
 }
 
-#pragma mark - 연관검색어 셀 클릭시
+#pragma mark - 연관VOD 셀 클릭시
 - (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistence:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId WithAssetBundle:(NSString *)assetBundle
 {
     self.pAssetIdStr = [NSString stringWithFormat:@"%@", assetId];
@@ -1313,9 +1314,14 @@ static int tvFontSize = 15;
             else
             {
                 // 시리즈다
-                [self requestWithAssetInfo];
-                [self requestWithRecommendContentGroupByAssetId];
+//                [self requestWithAssetInfo];
+//                [self requestWithRecommendContentGroupByAssetId];
                 
+                VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+                pViewController.pAssetIdStr = assetId;
+                pViewController.pEpisodePeerExistence = episodePeerExistence;
+                pViewController.pContentGroupId = contentGroupId;
+                [self.navigationController pushViewController:pViewController animated:YES];
             }
 
         }
@@ -1355,9 +1361,14 @@ static int tvFontSize = 15;
         else
         {
             // 시리즈다
-            [self requestWithAssetInfo];
-            [self requestWithRecommendContentGroupByAssetId];
-            
+//            [self requestWithAssetInfo];
+//            [self requestWithRecommendContentGroupByAssetId];
+
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = assetId;
+            pViewController.pEpisodePeerExistence = episodePeerExistence;
+            pViewController.pContentGroupId = contentGroupId;
+            [self.navigationController pushViewController:pViewController animated:YES];
         }
 
     }
