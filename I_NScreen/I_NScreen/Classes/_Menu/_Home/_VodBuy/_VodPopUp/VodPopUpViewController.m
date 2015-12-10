@@ -125,6 +125,11 @@
                 periodText = [NSString stringWithFormat:@"%ld시간", remain];
             }
         }
+        
+        if ([periodText isEqualToString:@"999일"]) {
+            periodText = @"무제한";
+        }
+        
         self.periodLabel.text = periodText;
     }
     
