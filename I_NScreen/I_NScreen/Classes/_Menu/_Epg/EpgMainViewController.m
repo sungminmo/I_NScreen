@@ -122,7 +122,7 @@
         }
     }
 
-    [pCell setListData:[self.pListDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithStar:isCheck WithWatchCheck:[self getWatchReserveIndex:(int)indexPath.row] WithRecordingCheck:[self getRecordingChannelIndex:(int)indexPath.row] WithReservCheck:[self getRecordReservListIndex:(int)indexPath.row]];
+    [pCell setListData:[self.pListDataArr objectAtIndex:indexPath.row] WithIndex:(int)indexPath.row WithStar:isCheck WithWatchCheck:[self getWatchReserveIndex2:(int)indexPath.row] WithRecordingCheck:[self getRecordingChannelIndex:(int)indexPath.row] WithReservCheck:[self getRecordReservListIndex:(int)indexPath.row]];
     
     return pCell;
 }
@@ -359,6 +359,35 @@
             isCheck = YES;
         }
     }
+    return isCheck;
+}
+
+#pragma mark - 시청예약 체크
+- (BOOL)getWatchReserveIndex2:(int)index
+{
+    NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelProgramOnAirTitle"]];
+    NSString *sStartTime = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelProgramOnAirStartTime"]];
+//    NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"scheduleSeq"]];
+    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelProgramOnAirID"]];
+    NSString *sHd = [NSString stringWithFormat:@"%@", [[self.pListDataArr objectAtIndex:index] objectForKey:@"channelOnAirHD"]];
+    
+    CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+    BOOL isCheck = NO;
+    RLMArray* ra = [manager getWatchReserveList];
+    //    for ( CMWatchReserveList *info in [manager getWatchReserveList] )
+    for (int i = 0; i < ra.count ; i++)
+    {
+        CMWatchReserveList *info = ra[i];
+        if ( [sTilte isEqualToString:info.programTitleStr] &&
+            [sStartTime isEqualToString:info.programBroadcastingStartTimeStr] &&
+//            [sSeq isEqualToString:info.scheduleSeqStr] &&
+            [sProgramId isEqualToString:info.programIdStr] &&
+            [sHd isEqualToString:info.programHDStr] )
+        {
+            isCheck = YES;
+        }
+    }
+    
     return isCheck;
 }
 

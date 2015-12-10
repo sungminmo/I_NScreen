@@ -24,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet UILabel     *pChannelLbl;           // 체널
 @property (nonatomic, weak) IBOutlet UIButton    *pStarBtn;
 @property (nonatomic, weak) IBOutlet UIImageView *pStateImageView;  // 시청예약인지, 녹화중인지, 녹화예약인지
+@property (nonatomic, weak) IBOutlet UIImageView *pStateImageView2;  // 시청예약인지, 녹화중인지, 녹화예약인지
 @property (nonatomic) int nIndex;
 
 @property (nonatomic, strong) NSDictionary *pData;

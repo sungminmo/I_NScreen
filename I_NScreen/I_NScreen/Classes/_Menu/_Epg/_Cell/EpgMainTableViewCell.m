@@ -37,28 +37,39 @@
     
     self.nIndex = index;
     
-    if ( isWatch == YES )
+    if (isRecording == YES &&  isWatch == NO)
     {
-        // 시청예약중
-        self.pStateImageView.hidden = NO;
-        self.pStateImageView.image = [UIImage imageNamed:@"icon_watchrsv.png"];
-    }
-    
-    if ( isRecording == YES )
-    {
-        // 녹화중
         self.pStateImageView.hidden = NO;
         self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
+        
+        self.pStateImageView2.hidden = YES;
+        self.pStateImageView2.image = nil;
     }
-    
-    if ( isReservCheck == YES )
+    else if (isRecording == YES &&  isWatch == YES)
     {
-        // 녹화예약중
         self.pStateImageView.hidden = NO;
-        self.pStateImageView.image = [UIImage imageNamed:@"icon_recrsv"];
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_rec.png"];
+        
+        self.pStateImageView2.hidden = NO;
+        self.pStateImageView2.image = [UIImage imageNamed:@"icon_watchrsv.png"];
+    }
+    else if (isRecording == NO &&  isWatch == YES)
+    {
+        self.pStateImageView.hidden = NO;
+        self.pStateImageView.image = [UIImage imageNamed:@"icon_watchrsv.png"];
+        
+        self.pStateImageView2.hidden = YES;
+        self.pStateImageView2.image = nil;
+    }
+    else if (isRecording == NO &&  isWatch == NO)
+    {
+        self.pStateImageView.hidden = YES;
+        self.pStateImageView.image = nil;
+        
+        self.pStateImageView2.hidden = YES;
+        self.pStateImageView2.image = nil;
     }
     
-    ////
     self.pData = dic;
     
     NSString *sChannelLog = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelLogoImg"]];
@@ -151,7 +162,7 @@
     else
     {
         self.progressView.hidden = NO;
-        [self.progressView setProgressRatio:prosFloat animated:YES];
+        [self.progressView setProgressRatio:prosFloat animated:NO];
     }
 }
 

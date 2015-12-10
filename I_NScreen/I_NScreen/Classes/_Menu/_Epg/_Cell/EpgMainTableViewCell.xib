@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -13,76 +13,67 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDZ-Ez-DEr" userLabel="Image View(윗라인)">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uDZ-Ez-DEr" userLabel="Image View(윗라인)">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.7725490196" green="0.7725490196" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="aWE-gb-n3W"/>
+                        </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ch_unpick.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xS-dT-gFd" userLabel="ImageView(별)">
-                        <rect key="frame" x="13" y="25" width="26" height="25"/>
-                        <animations/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ch_unpick.png" translatesAutoresizingMaskIntoConstraints="NO" id="4xS-dT-gFd" userLabel="ImageView(별)">
+                        <rect key="frame" x="16" y="20.5" width="26" height="25"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6F-b4-mPP" userLabel="Label(체널번호)">
-                        <rect key="frame" x="46" y="9" width="20" height="20"/>
-                        <animations/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6F-b4-mPP" userLabel="Label(체널번호)">
+                        <rect key="frame" x="58" y="10.5" width="17.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-D9-yjk" userLabel="ImageView(방송사)">
-                        <rect key="frame" x="46" y="34" width="54" height="22"/>
-                        <animations/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-D9-yjk" userLabel="ImageView(방송사)">
+                        <rect key="frame" x="58" y="33.5" width="54" height="22"/>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.094117647058823528" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="9w0-UC-VpW"/>
                             <constraint firstAttribute="height" constant="22" id="J4M-ye-YAO"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ox3-mQ-9qf" userLabel="Label(체널명)">
-                        <rect key="frame" x="109" y="10" width="70" height="20"/>
-                        <animations/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ox3-mQ-9qf" userLabel="Label(체널명)">
+                        <rect key="frame" x="121" y="14" width="56.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="15:00~16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvC-bE-fIL" userLabel="Label(방송시간)">
-                        <rect key="frame" x="109" y="32" width="76" height="16"/>
-                        <animations/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:00~16:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvC-bE-fIL" userLabel="Label(방송시간)">
+                        <rect key="frame" x="121" y="32" width="76" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-yI-QDM" userLabel="ImageView(all)">
-                        <rect key="frame" x="192" y="32" width="29" height="16"/>
-                        <animations/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="all.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-yI-QDM" userLabel="ImageView(all)">
+                        <rect key="frame" x="204" y="32" width="29" height="16"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="isx-vz-pGC" userLabel="ImageView(Hd)">
-                        <rect key="frame" x="225" y="32" width="29" height="16"/>
-                        <animations/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="isx-vz-pGC" userLabel="ImageView(Hd)">
+                        <rect key="frame" x="237" y="32" width="29" height="16"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-0l-wkh" userLabel="ImageView(화살표)">
-                        <rect key="frame" x="393" y="26" width="13" height="22"/>
-                        <animations/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="indicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-0l-wkh" userLabel="ImageView(화살표)">
+                        <rect key="frame" x="399" y="26.5" width="7" height="13"/>
                     </imageView>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g44-b1-trP" customClass="CMProgressView">
-                        <rect key="frame" x="109" y="56" width="252" height="3"/>
-                        <animations/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g44-b1-trP" customClass="CMProgressView">
+                        <rect key="frame" x="121" y="56" width="240" height="3"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="3" id="2DI-cz-4sf"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GrO-7y-gc9" userLabel="Image View(밑라인)">
-                        <rect key="frame" x="0.0" y="65" width="414" height="1"/>
-                        <animations/>
+                        <rect key="frame" x="-94" y="-89" width="64" height="76"/>
                         <color key="backgroundColor" red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xh-D9-eir">
-                        <rect key="frame" x="0.0" y="0.0" width="49" height="66"/>
-                        <animations/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xh-D9-eir">
+                        <rect key="frame" x="0.0" y="0.0" width="48" height="64.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="2xh-D9-eir" secondAttribute="height" multiplier="49:66" id="rSE-it-ZoN"/>
                         </constraints>
@@ -90,34 +81,45 @@
                             <action selector="onBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="d6N-PE-9XO"/>
                         </connections>
                     </button>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_watchrsv.png" translatesAutoresizingMaskIntoConstraints="NO" id="PZk-Be-ZbU">
-                        <rect key="frame" x="262" y="32" width="52" height="16"/>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_watchrsv.png" translatesAutoresizingMaskIntoConstraints="NO" id="PZk-Be-ZbU">
+                        <rect key="frame" x="270" y="32" width="52" height="16"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="52" id="N80-j6-CPz"/>
                             <constraint firstAttribute="width" secondItem="PZk-Be-ZbU" secondAttribute="height" multiplier="13:4" id="REf-KX-YFH"/>
                         </constraints>
                     </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_watchrsv.png" translatesAutoresizingMaskIntoConstraints="NO" id="bMh-9x-Blm">
+                        <rect key="frame" x="324" y="32" width="52" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="52" id="AEG-gX-nSF"/>
+                            <constraint firstAttribute="width" secondItem="bMh-9x-Blm" secondAttribute="height" multiplier="13:4" id="OV2-0M-aoD"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="ZvC-bE-fIL" firstAttribute="leading" secondItem="xfc-D9-yjk" secondAttribute="trailing" constant="9" id="38V-NJ-CX7"/>
                     <constraint firstItem="Ubp-yI-QDM" firstAttribute="leading" secondItem="ZvC-bE-fIL" secondAttribute="trailing" constant="7" id="3ly-Au-WRl"/>
+                    <constraint firstItem="PZk-Be-ZbU" firstAttribute="centerY" secondItem="isx-vz-pGC" secondAttribute="centerY" id="3wO-vx-akt"/>
+                    <constraint firstItem="uDZ-Ez-DEr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3zT-ox-izu"/>
                     <constraint firstItem="Ubp-yI-QDM" firstAttribute="centerY" secondItem="ZvC-bE-fIL" secondAttribute="centerY" id="4TA-jq-4oC"/>
                     <constraint firstItem="g44-b1-trP" firstAttribute="leading" secondItem="ZvC-bE-fIL" secondAttribute="leading" id="74H-CO-8bQ"/>
+                    <constraint firstItem="uDZ-Ez-DEr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7bn-pn-UIl"/>
                     <constraint firstItem="4xS-dT-gFd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="972-BB-Sgt"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Ox3-mQ-9qf" secondAttribute="trailing" constant="45" id="BVf-cf-VCD"/>
+                    <constraint firstItem="bMh-9x-Blm" firstAttribute="leading" secondItem="PZk-Be-ZbU" secondAttribute="trailing" constant="2" id="CbD-UD-HyF"/>
                     <constraint firstAttribute="centerY" secondItem="Pph-0l-wkh" secondAttribute="centerY" id="Eqz-G8-yVb"/>
                     <constraint firstItem="isx-vz-pGC" firstAttribute="centerY" secondItem="Ubp-yI-QDM" secondAttribute="centerY" id="J3S-Mn-vlM"/>
                     <constraint firstAttribute="trailing" secondItem="Pph-0l-wkh" secondAttribute="trailing" constant="8" id="JDg-yB-QOm"/>
-                    <constraint firstItem="g44-b1-trP" firstAttribute="top" secondItem="PZk-Be-ZbU" secondAttribute="bottom" constant="8" id="La5-i3-pWd"/>
                     <constraint firstItem="4xS-dT-gFd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OPA-wE-wsJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="g44-b1-trP" secondAttribute="trailing" constant="45" id="QXc-YS-wAb"/>
-                    <constraint firstItem="PZk-Be-ZbU" firstAttribute="leading" secondItem="isx-vz-pGC" secondAttribute="trailing" constant="8" id="WLt-gr-ooz"/>
+                    <constraint firstItem="bMh-9x-Blm" firstAttribute="centerY" secondItem="PZk-Be-ZbU" secondAttribute="centerY" id="Ra9-9L-4fa"/>
+                    <constraint firstItem="PZk-Be-ZbU" firstAttribute="leading" secondItem="isx-vz-pGC" secondAttribute="trailing" constant="4" id="WLt-gr-ooz"/>
                     <constraint firstItem="ZvC-bE-fIL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="7" id="YEg-G7-wh2"/>
                     <constraint firstItem="isx-vz-pGC" firstAttribute="leading" secondItem="Ubp-yI-QDM" secondAttribute="trailing" constant="4" id="YYW-Yd-7pe"/>
                     <constraint firstItem="g44-b1-trP" firstAttribute="top" secondItem="ZvC-bE-fIL" secondAttribute="bottom" constant="8" id="YaB-2r-od7"/>
                     <constraint firstItem="2xh-D9-eir" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Zg0-Kh-yyi"/>
                     <constraint firstItem="Ox3-mQ-9qf" firstAttribute="leading" secondItem="ZvC-bE-fIL" secondAttribute="leading" id="cKZ-Gt-nqu"/>
-                    <constraint firstItem="PZk-Be-ZbU" firstAttribute="top" secondItem="uDZ-Ez-DEr" secondAttribute="bottom" constant="31" id="e00-cc-kOh"/>
+                    <constraint firstAttribute="trailing" secondItem="uDZ-Ez-DEr" secondAttribute="trailing" id="d83-Ru-Clw"/>
                     <constraint firstItem="M6F-b4-mPP" firstAttribute="leading" secondItem="4xS-dT-gFd" secondAttribute="trailing" constant="16" id="eJN-yO-s4u"/>
                     <constraint firstItem="ZvC-bE-fIL" firstAttribute="top" secondItem="Ox3-mQ-9qf" secondAttribute="bottom" constant="2" id="hmC-Ta-qkn"/>
                     <constraint firstAttribute="bottom" secondItem="2xh-D9-eir" secondAttribute="bottom" constant="1" id="j5o-TT-i64"/>
@@ -127,7 +129,6 @@
                     <constraint firstItem="xfc-D9-yjk" firstAttribute="leading" secondItem="M6F-b4-mPP" secondAttribute="leading" id="xfh-we-flC"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="pChannelInfoImageView" destination="isx-vz-pGC" id="aEK-dH-QLd"/>
                 <outlet property="pChannelLbl" destination="M6F-b4-mPP" id="1iX-1m-geW"/>
@@ -140,6 +141,7 @@
                 <outlet property="pStarBtn" destination="2xh-D9-eir" id="ewh-zK-9ng"/>
                 <outlet property="pStarImageView" destination="4xS-dT-gFd" id="ZoZ-GA-uOR"/>
                 <outlet property="pStateImageView" destination="PZk-Be-ZbU" id="P6z-ds-SL7"/>
+                <outlet property="pStateImageView2" destination="bMh-9x-Blm" id="I1B-bJ-z7W"/>
                 <outlet property="progressView" destination="g44-b1-trP" id="Q0b-5C-fwu"/>
             </connections>
             <point key="canvasLocation" x="340" y="375"/>
