@@ -1286,7 +1286,7 @@ static int tvFontSize = 15;
 #pragma mark - 연관VOD 셀 클릭시
 - (void)CMContentGroupCollectionBtnClicked:(int)nSelect WithAssetId:(NSString *)assetId WithSeriesLink:(NSString *)seriesLint WithAdultCheck:(BOOL)isAdult WithEpisodePeerExistence:(NSString *)episodePeerExistence WithContentGroupId:(NSString *)contentGroupId WithAssetBundle:(NSString *)assetBundle
 {
-    self.pAssetIdStr = [NSString stringWithFormat:@"%@", assetId];
+//    self.pAssetIdStr = [NSString stringWithFormat:@"%@", assetId];
     
     if ( isAdult == YES )
     {
