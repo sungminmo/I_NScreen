@@ -103,7 +103,7 @@ NSString* const CNM_OPEN_API_AREA_CODE_VALUE = @"areacodevalue";
 // ----------------------------------------------------------------------------------
 // 체널 지역 코드
 // CNM 지역 코드
-NSString* const CNM_AREA_CODE = @"0";
+NSString* const CNM_AREA_CODE = @"17";
 
 // add by bjk
 // 영화 애니 tv다시보기 성인 오늘의 추천 categoryId 는 고정으로 박음 됨

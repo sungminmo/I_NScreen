@@ -458,7 +458,8 @@
     NSDictionary *dict = @{
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            CNM_OPEN_API_TERMINAL_KEY_KEY : [[CMAppManager sharedInstance]getKeychainPrivateTerminalKey],
-                           @"areaCode" : areaCode
+                           @"areaCode" : areaCode,
+                           @"noCache" : @""
                            };
     
     NSURLSessionDataTask *task = [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -627,7 +628,8 @@
                            CNM_OPEN_API_VERSION_KEY : CNM_OPEN_API_VERSION,
                            @"channelId" : channelId,
                            @"areaCode" : areaCode,
-                           @"dateIndex" : @"7"
+                           @"dateIndex" : @"7",
+                           @"noCache" : @""
                            };
     
     NSURLSessionDataTask *task = [self.acodeClient GET:sUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
