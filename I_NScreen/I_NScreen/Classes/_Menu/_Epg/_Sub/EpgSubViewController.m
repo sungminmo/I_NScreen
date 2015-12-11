@@ -561,11 +561,16 @@
         NSString* resultCode = [[epgs objectAtIndex:0] objectForKey:@"resultCode"];
         
         if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
+            NSMutableArray* state = [self.pNowStateCheckArr objectAtIndex:nIndex][@"cellState"];
+            for (NSString* value in state) {
+                if ([value isEqualToString:@"녹화예약중"]) {
+                    [state removeObject:value];
+                    break;
+                }
+            }
+            [state addObject:@"녹화예약설정"];
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:state forKey:@"cellState"];
             [self requestWithGetSetTopStatus];
-//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
-//            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약설정" forKey:@"deleState"];
-//            [self.pTableView reloadData];
-
         }
     }];
     
