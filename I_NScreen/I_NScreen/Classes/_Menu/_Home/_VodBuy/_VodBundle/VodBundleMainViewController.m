@@ -195,8 +195,18 @@
     [self.pThumImageView setImageWithURL:[NSURL URLWithString:sUrl]];
     
     self.pTitleLbl.text = [NSString stringWithFormat:@"%@", [self.pDetailDic objectForKey:@"productName"]];
-    self.pSugPriceLbl.text = [NSString stringWithFormat:@"%@", [self.pDetailDic objectForKey:@"suggestedPriceTotal"]];
-    self.pPriceLbl.text = [NSString stringWithFormat:@"%@", [[CMAppManager sharedInstance] insertComma:[self.pDetailDic objectForKey:@"price"]]];
+    
+    //할인전
+    NSString* originalValue = [[CMAppManager sharedInstance] insertComma:[self.pDetailDic objectForKey:@"suggestedPriceTotal"]];
+    originalValue = [originalValue stringByAppendingString:@"원"];
+    NSAttributedString *theAttributedString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" %@ ", originalValue]
+                                                          attributes:@{NSStrikethroughStyleAttributeName:
+                                                                           [NSNumber numberWithInteger:NSUnderlineStyleSingle]}];
+    self.pSugPriceLbl.attributedText = theAttributedString;
+    
+    //할인후
+    NSString* afterValue = [[CMAppManager sharedInstance] insertComma:[self.pDetailDic objectForKey:@"price"]];
+    self.pPriceLbl.text = [afterValue stringByAppendingString:@"원"];
     
     NSString* rentalDuration = nil;
     NSString* rentalDurationUnit = nil;
