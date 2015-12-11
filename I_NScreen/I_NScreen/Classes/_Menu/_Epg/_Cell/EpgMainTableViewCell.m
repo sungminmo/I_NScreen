@@ -157,7 +157,9 @@
     
     if ( prosFloat <= 0 )
     {
-        self.progressView.hidden = YES;
+//        self.progressView.hidden = YES;
+        self.progressView.hidden = NO;
+        [self.progressView setProgressRatio:0 animated:NO];
     }
     else
     {

@@ -138,7 +138,7 @@
     
     CGFloat progreeFloat = [[CMAppManager sharedInstance] getProgressViewBufferWithStartTime:sStart WithEndTime:sEnd];
     
-    [self.progressView setProgressRatio:progreeFloat animated:YES];
+    [self.progressView setProgressRatio:progreeFloat animated:NO];
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Seoul"]];
