@@ -506,13 +506,33 @@
                 return ;
             [self.pListArr removeAllObjects];
             
+            NSArray* recordItems;
             if ( [[[pvr objectAtIndex:0] objectForKey:@"Reserve_Item"] isKindOfClass:[NSDictionary class]] )
             {
-                [self.pListArr addObject:[[pvr objectAtIndex:0] objectForKey:@"Record_Item"]];
+                recordItems = @[[[pvr objectAtIndex:0] objectForKey:@"Record_Item"]];
             }
             else
             {
-                [self.pListArr setArray:[[pvr objectAtIndex:0] objectForKey:@"Record_Item"]];
+                recordItems = [NSArray arrayWithArray:[[pvr objectAtIndex:0] objectForKey:@"Record_Item"]];
+            }
+            
+            NSMutableDictionary* seriesIds = [@{} mutableCopy];
+            for (NSDictionary* recordItem in recordItems) {
+                NSString* seriesId = recordItem[@"SeriesId"];
+                
+                if ([seriesId isEqualToString:@"NULL"])
+                {
+                    [self.pListArr addObject:recordItem];
+                }
+                else if (seriesIds[seriesId])
+                {
+                    break;
+                }
+                else
+                {
+                    [seriesIds setObject:@"" forKey:seriesId];
+                    [self.pListArr addObject:recordItem];
+                }
             }
             
             int nTotalCount = (int)[self.pListArr count];
