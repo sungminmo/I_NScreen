@@ -1015,6 +1015,11 @@
                     sGoodId = [NSString stringWithFormat:@"%@", [[self.pProductArr objectAtIndex:1] objectForKey:@"goodId"]];
                     sProductType = [[self.pProductArr objectAtIndex:1] objectForKey:@"productType"];
                     
+                    if ([sProductType isEqualToString:@"Package"] || [sProductType isEqualToString:@"Bundle"]) {
+                        sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"원[부가세 별도]" withString:@""];
+                        sStep1 = [sStep1 stringByReplacingOccurrencesOfString:@"," withString:@""];
+                    }
+                    
                 }break;
                 case VOD_BUY_VIEW_BTN_03:
                 {
@@ -1090,7 +1095,7 @@
                 }break;
                 case VOD_BUY_VIEW_BTN_06:
                 {
-                    sStep2 = self.pStep2SubView03MoneyLbl.text;
+                    sStep2 = self.pStep2SubView04MoneyLbl.text;
                     sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"원" withString:@""];
                     sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"잔액" withString:@""];
                     sStep2 = [sStep2 stringByReplacingOccurrencesOfString:@"," withString:@""];

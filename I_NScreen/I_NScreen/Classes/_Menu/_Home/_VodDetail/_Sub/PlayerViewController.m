@@ -164,8 +164,6 @@ static PlayerViewController *playerViewCtr;
             return;
         }
         [self.navigationController popViewControllerAnimated:YES];
-        [SIAlertView alert:@"동영상 재생오류" message:@"동영상 재생 중 오류가 발생하였습니다. 재생을 종료합니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-        }];
     }
     else if ([reason intValue] == MPMovieFinishReasonPlaybackError) {
         [self.navigationController popViewControllerAnimated:YES];
