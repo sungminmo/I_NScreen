@@ -33,6 +33,7 @@
         self.isFirst = [self isFirstLoading];
         if (self.isFirst) {
             [self defaultSetting];
+            [self ignoreICloudBackup];
         }
 
         self.adultCertificationState = CMAdultCertificationInfoNeed;
@@ -1323,5 +1324,29 @@
     
     return image;
 }
+
+
+#pragma mark - icloud 백업
+- (NSURL *)applicationDocumentsDirectory {
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                   inDomains:NSUserDomainMask] lastObject];
+}
+
+- (void)ignoreICloudBackup {
+    //백업옵션 제거
+    [self addSkipBackupAttributeToItemAtURL:[self applicationDocumentsDirectory] skip:YES];
+}
+
+- (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL*)URL skip:(BOOL)skip
+{
+    NSError* error = nil;
+    BOOL success = [URL setResourceValue:[NSNumber numberWithBool:skip] forKey:NSURLIsExcludedFromBackupKey error:&error];
+    if (!success) {
+        DDLogDebug(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+    }
+    return success;
+}
+
+
 
 @end
