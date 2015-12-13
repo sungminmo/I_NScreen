@@ -15,6 +15,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView* promotionImageView;
 @property (nonatomic, weak) IBOutlet UILabel* titleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *pDimImageView;  // 성인 딤 처리 이미지
+@property (nonatomic, weak) IBOutlet UIView* rankingView;
+@property (nonatomic, weak) IBOutlet UILabel* rankingLabel;
 
 @property (nonatomic, strong) NSString *sAssetId;
 @property (nonatomic) BOOL isAdultCheck;
@@ -49,37 +51,42 @@
     self.sEpisodePeerExistence = @"0";
     self.sAssetBundle = @"0";
     
-    NSArray *allKey = [data allKeys];
-        
-        
-    for ( NSString *key in allKey )
+    if (data[@"assetId"])
     {
-        if ( [key isEqualToString:@"assetId"] )
-        {
-            self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"assetId"]];
-        }
-        
-        if ( [key isEqualToString:@"primaryAssetId"] )
-        {
-            self.sAssetId = [NSString stringWithFormat:@"%@", [data objectForKey:@"primaryAssetId"]];
-        }
-        
-        if ( [key isEqualToString:@"episodePeerExistence"] )
-        {
-            self.sEpisodePeerExistence = [NSString stringWithFormat:@"%@", [data objectForKey:@"episodePeerExistence"]];
-        }
-        
-        if ( [key isEqualToString:@"contentGroupId"] )
-        {
-            self.sContentGroupId = [NSString stringWithFormat:@"%@", [data objectForKey:@"contentGroupId"]];
-        }
-        
-        if ( [key isEqualToString:@"assetBundle"] )
-        {
-            self.sAssetBundle = @"1";
-        }
+        self.sAssetId = data[@"assetId"];
     }
     
+    if (data[@"primaryAssetId"])
+    {
+        self.sAssetId = data[@"primaryAssetId"];
+    }
+    
+    if (data[@"episodePeerExistence"])
+    {
+        self.sEpisodePeerExistence = data[@"episodePeerExistence"];
+    }
+    
+    if (data[@"contentGroupId"])
+    {
+        self.sContentGroupId = data[@"contentGroupId"];
+    }
+    
+    if (data[@"assetBundle"])
+    {
+        self.sAssetBundle = @"1";
+    }
+    
+    if (data[@"ranking"])
+    {
+        self.rankingView.hidden = NO;
+        self.rankingLabel.text = data[@"ranking"];
+    }
+    else
+    {
+        self.rankingView.hidden = YES;
+        self.rankingLabel.text = @"";
+    }
+
     // tv 전용인지 아닌지
     NSArray *keyArr = [data allKeys];
     BOOL isCheck = NO;
