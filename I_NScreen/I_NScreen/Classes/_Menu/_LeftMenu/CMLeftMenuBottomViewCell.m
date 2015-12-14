@@ -20,11 +20,11 @@
     NSString* ver = [CMAppManager getAppShortVersion];
     NSString* build = [CMAppManager getAppBuildVersion];
 
-//#if DEBUG
+#if DEBUG
     NSString *sVerion = [NSString stringWithFormat:@"버전 %@ (build ver. %@)", ver, build];
-//#else
-//    NSString *sVerion = [NSString stringWithFormat:@"버전 %@", ver];
-//#endif
+#else
+    NSString *sVerion = [NSString stringWithFormat:@"버전 %@", ver];
+#endif
     
     [self.versionButton setTitle:sVerion forState:UIControlStateNormal];
 }

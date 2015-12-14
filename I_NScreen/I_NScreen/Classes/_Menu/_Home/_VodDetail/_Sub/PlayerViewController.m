@@ -277,7 +277,9 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
             
             NSURL *url = [NSURL URLWithString:responseUrl];
             [self.pMoviePlayer setContentURL:url];
-            [self.pMoviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
+            if ([self.pStyleStr isEqualToString:@"play"]) {
+                [self.pMoviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
+            }
             [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];
             [self.pMoviePlayer setRepeatMode:MPMovieRepeatModeNone];
             [self.pMoviePlayer prepareToPlay];
