@@ -9,3 +9,9 @@
 #ifndef TARGET_OS_WATCH
   #define TARGET_OS_WATCH 0
 #endif
+
+#ifdef DEBUG
+#define NSLog( s, ... ) NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define NSLog( s, ... )
+#endif
