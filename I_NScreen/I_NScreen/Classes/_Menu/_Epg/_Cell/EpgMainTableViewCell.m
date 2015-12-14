@@ -192,7 +192,7 @@
     }
     
     [self.delegate EpgMainTableViewWithTag:self.nIndex];
-    NSLog(@"[manager getFavorChannel] = [%@]", [manager getFavorChannel]);
+    DDLogDebug(@"[manager getFavorChannel] = [%@]", [manager getFavorChannel]);
     
 }
 

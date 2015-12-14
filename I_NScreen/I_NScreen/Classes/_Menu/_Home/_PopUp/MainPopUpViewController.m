@@ -317,7 +317,7 @@
                                                            options:NSJSONWritingPrettyPrinted error:&error];
         self.pFourDepthListJsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         
-        NSLog(@"jsonString = [%@]", self.pFourDepthListJsonStr);
+        DDLogDebug(@"jsonString = [%@]", self.pFourDepthListJsonStr);
         
         self.pModel = [[TreeListModel alloc] initWithJSONFilePath:self.pFourDepthListJsonStr];
         

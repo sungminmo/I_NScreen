@@ -187,7 +187,7 @@
     }
     
     
-    NSLog(@"[manager getFavorChannel] = [%@]", [manager getFavorChannel]);
+    DDLogDebug(@"[manager getFavorChannel] = [%@]", [manager getFavorChannel]);
     
     [self.delegate RemoconMainTableViewCellWithTag:self.nIndex];
 }

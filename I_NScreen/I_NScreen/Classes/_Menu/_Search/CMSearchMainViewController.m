@@ -928,7 +928,7 @@ static const CGFloat pageSize = 20;
                     {
                         self.isLoading = YES;
                         self.pageIndex++;
-                        NSLog(@"======= page : %ld", self.pageIndex);
+                        DDLogDebug(@"======= page : %ld", self.pageIndex);
                         [self requestProgramList];
                     }
                 }

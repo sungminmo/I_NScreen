@@ -227,7 +227,7 @@
     
     NSString *uniqueid = [[NSUserDefaults standardUserDefaults] stringForKey:CNM_OPEN_API_UUID_KEY];
     
-    NSLog(@"uuid : %@", uniqueid);
+    DDLogDebug(@"uuid : %@", uniqueid);
     
     return uniqueid;
 }

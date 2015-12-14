@@ -179,7 +179,7 @@ typedef enum : NSInteger {
             [string rangeOfString:@">"].location != NSNotFound ||
             [string rangeOfString:@"$"].location != NSNotFound )
         {
-            NSLog(@"입력 되었으면");
+            DDLogDebug(@"입력 되었으면");
             
             return NO;
         }

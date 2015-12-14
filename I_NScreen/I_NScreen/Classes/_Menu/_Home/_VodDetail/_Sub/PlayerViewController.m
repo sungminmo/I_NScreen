@@ -189,7 +189,7 @@ static PlayerViewController *playerViewCtr;
 {
     NSURLSessionDataTask *tesk = [NSMutableDictionary drmApiWithAsset:self.pFileNameStr WithPlayStyle:self.pStyleStr completion:^(NSDictionary *drm, NSError *error) {
         
-        NSLog(@"drm = [%@]", drm);
+        DDLogDebug(@"drm = [%@]", drm);
         
         [self.pDrmDic removeAllObjects];
         [self.pDrmDic setDictionary:drm];
@@ -211,7 +211,7 @@ static PlayerViewController *playerViewCtr;
 }
 
 WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
-    NSLog( @"callback %d %@ %@\n", event,
+    DDLogDebug( @"callback %d %@ %@\n", event,
           NSStringFromWViOsApiEvent( event ), attributes );
     @autoreleasepool {
         SEL selector = 0;
@@ -230,7 +230,7 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
                 selector = NSSelectorFromString(@"HandleChapterImage:");
                 break;
             case WViOsApiEvent_ChapterSetup:
-                NSLog( @"WViOsApiEvent_ChapterSetup\n" );
+                DDLogDebug( @"WViOsApiEvent_ChapterSetup\n" );
                 selector = NSSelectorFromString(@"HandleChapterSetup:");
                 break;
             case WViOsApiEvent_InitializeFailed:
