@@ -87,12 +87,36 @@
     if (periodObj == nil) {
         
         id obj = self.pDetailDic[@"asset"][@"productList"][@"product"];
-        if ([obj isKindOfClass:[NSArray class]]) {
-            periodObj = ((NSArray*)obj).firstObject[@"viewablePeriod"];
+        if (obj != nil) {
+            if ([obj isKindOfClass:[NSArray class]]) {
+                if ([self.sProductType isEqualToString:@"Package"]) {
+                    periodObj = ((NSArray*)obj).lastObject[@"viewablePeriod"];
+                }
+                else {
+                    periodObj = ((NSArray*)obj).firstObject[@"viewablePeriod"];
+                }
+            }
+            else if ([obj isKindOfClass:[NSDictionary class]]) {
+                periodObj = ((NSDictionary*)obj)[@"viewablePeriod"];
+            }
         }
-        else if ([obj isKindOfClass:[NSDictionary class]]) {
-            periodObj = ((NSDictionary*)obj)[@"viewablePeriod"];
+        else {
+            obj = self.pDetailDic[@"productList"][@"product"];
+            if (obj != nil) {
+                if ([obj isKindOfClass:[NSArray class]]) {
+                    if ([self.sProductType isEqualToString:@"Package"]) {
+                        periodObj = ((NSArray*)obj).lastObject[@"viewablePeriod"];
+                    }
+                    else {
+                        periodObj = ((NSArray*)obj).firstObject[@"viewablePeriod"];
+                    }
+                }
+                else if ([obj isKindOfClass:[NSDictionary class]]) {
+                    periodObj = ((NSDictionary*)obj)[@"viewablePeriod"];
+                }
+            }
         }
+        
     }
 
     if (periodObj != nil) {
