@@ -3720,6 +3720,7 @@
 				TargetAttributes = {
 					E5F6C6B31B7AD93B00618970 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = CR4R5HGD9P;
 					};
 					E5F6C6CC1B7AD93B00618970 = {
 						CreatedOnToolsVersion = 6.4;
@@ -4760,7 +4761,7 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/I_NScreen/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4791,7 +4792,7 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/I_NScreen/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
