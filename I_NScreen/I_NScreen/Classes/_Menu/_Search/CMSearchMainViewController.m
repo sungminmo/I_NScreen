@@ -139,6 +139,8 @@ static const CGFloat pageSize = 20;
 
 - (void)loadUI {
     
+    self.searchField.returnKeyType = UIReturnKeySearch;
+    
     [self.searchField addTarget:self action:@selector(textMessageChanged:) forControlEvents:UIControlEventEditingChanged];
     
     self.tabMenu = [[CMTabMenuView alloc] initWithMenuArray:@[@"VOD 명 검색", @"TV 프로그램 명 검색"] posY:0 delegate:self];
