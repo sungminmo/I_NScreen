@@ -72,6 +72,8 @@
         case HOME_GNB_VIEW_BTN_03:
         {
             // 추천
+            [self.pGnbViewController selectTabTag:HOME_GNB_VIEW_BTN_03];
+            
             [self bodySubViewsRemove];
             
             RecommendMainViewController *pViewController = [[RecommendMainViewController alloc] initWithNibName:@"RecommendMainViewController" bundle:nil];
@@ -85,6 +87,8 @@
         case HOME_GNB_VIEW_BTN_04:
         {
             // 영화
+            [self.pGnbViewController selectTabTag:HOME_GNB_VIEW_BTN_04];
+            
             [self bodySubViewsRemove];
             
             MovieMainViewController *pViewController = [[MovieMainViewController alloc] initWithNibName:@"MovieMainViewController" bundle:nil];
@@ -100,6 +104,8 @@
         case HOME_GNB_VIEW_BTN_05:
         {
             // 애니키즈
+            [self.pGnbViewController selectTabTag:HOME_GNB_VIEW_BTN_05];
+            
             [self bodySubViewsRemove];
             
             AniKidsMainViewController *pViewController = [[AniKidsMainViewController alloc] initWithNibName:@"AniKidsMainViewController" bundle:nil];
@@ -115,6 +121,8 @@
         case HOME_GNB_VIEW_BTN_06:
         {
             // TV다시보기
+            [self.pGnbViewController selectTabTag:HOME_GNB_VIEW_BTN_06];
+            
             [self bodySubViewsRemove];
             
             TVReplayViewController *pViewController = [[TVReplayViewController alloc] initWithNibName:@"TVReplayViewController" bundle:nil];
@@ -131,6 +139,8 @@
             // 성인
             if ( [[CMAppManager sharedInstance] getKeychainAdultCertification] == YES )
             {
+                [self.pGnbViewController selectTabTag:HOME_GNB_VIEW_BTN_07];
+                
                 [self bodySubViewsRemove];
                 
                 AdultMainViewController *pViewController = [[AdultMainViewController alloc] initWithNibName:@"AdultMainViewController" bundle:nil];

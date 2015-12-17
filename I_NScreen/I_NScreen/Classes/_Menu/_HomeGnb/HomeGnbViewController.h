@@ -24,6 +24,8 @@
 
 - (IBAction)onBtnClicked:(UIButton *)btn;
 
+- (void)selectTabTag:(NSInteger)tag;
+
 @end
 
 @protocol HomeGnbViewDelegate <NSObject>

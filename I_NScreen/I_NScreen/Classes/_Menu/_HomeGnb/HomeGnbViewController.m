@@ -59,7 +59,15 @@
 #pragma mark - 버튼 액션 이벤트
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    switch ([btn tag]) {
+    [self selectTabTag:((UIButton*)btn).tag];
+    [self.delegate onHomeGnbViewMenuList:(int)[btn tag]];
+}
+
+#pragma mark - Public
+
+- (void)selectTabTag:(NSInteger)tag {
+    
+    switch (tag) {
         case HOME_GNB_VIEW_BTN_01:
         {
             
@@ -133,8 +141,6 @@
             
         }break;
     }
-    [self.delegate onHomeGnbViewMenuList:(int)[btn tag]];
 }
-
 
 @end
