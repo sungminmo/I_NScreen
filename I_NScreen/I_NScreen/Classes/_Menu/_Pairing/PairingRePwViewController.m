@@ -47,6 +47,8 @@
 - (void)setViewInit
 {
     self.pPwTextField.type = Secure_CMTextFieldType;
+    self.pPwTextField.returnKeyType = UIReturnKeyNext;
+    
     self.pRePwTextFiled.type = Secure_CMTextFieldType;
 }
 
@@ -210,6 +212,16 @@
     self.pOkBtn.enabled = NO;
     
     return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.pPwTextField) {
+        
+        [self.pRePwTextFiled becomeFirstResponder];
+    }
+    
+    return true;
 }
 
 #pragma mark - 전문

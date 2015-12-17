@@ -38,6 +38,8 @@ typedef enum : NSInteger {
     self.completButton.tag = TAG_COMPLETE;
  
     self.textField1.type = Secure_CMTextFieldType;
+    self.textField1.returnKeyType = UIReturnKeyNext;
+    
     self.textField2.type = Secure_CMTextFieldType;
     
 //    CMDBDataManager* manager= [CMDBDataManager sharedInstance];
@@ -237,6 +239,16 @@ typedef enum : NSInteger {
     self.completButton.enabled = NO;
     
     return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.textField1) {
+        
+        [self.textField2 becomeFirstResponder];
+    }
+    
+    return true;
 }
 
 @end
