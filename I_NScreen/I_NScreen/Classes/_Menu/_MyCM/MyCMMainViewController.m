@@ -108,6 +108,7 @@
 - (IBAction)onBtnClick:(UIButton *)btn
 {
     self.nTapTag = (int)[btn tag];
+    
     switch (btn.tag) {
         case MY_CM_MAIN_VIEW_BTN_01:
         {
@@ -117,6 +118,14 @@
         }break;
         case MY_CM_MAIN_VIEW_BTN_02:
         {
+            [self.pValidPurchaseLogListMoblieArr removeAllObjects];
+            [self.pValidPurchaseLogListTvArr removeAllObjects];
+            [self.pWishListArr removeAllObjects];
+            [self.pWatchListArr removeAllObjects];
+        
+            [self.pSubTableView01 reloadData];
+            [self.pSubTableView02 reloadData];
+            
             self.pSubView01.hidden = NO;
             self.pSubView02.hidden = YES;
             // vod 구매목록
@@ -132,6 +141,14 @@
         }break;
         case MY_CM_MAIN_VIEW_BTN_03:
         {
+            [self.pValidPurchaseLogListMoblieArr removeAllObjects];
+            [self.pValidPurchaseLogListTvArr removeAllObjects];
+            [self.pWishListArr removeAllObjects];
+            [self.pWatchListArr removeAllObjects];
+            
+            [self.pSubTableView01 reloadData];
+            [self.pSubTableView02 reloadData];
+            
             self.pSubView01.hidden = YES;
             self.pSubView02.hidden = NO;
             // vod 시청목록
@@ -165,6 +182,14 @@
         }break;
         case MY_CM_MAIN_VIEW_BTN_04:
         {
+            [self.pValidPurchaseLogListMoblieArr removeAllObjects];
+            [self.pValidPurchaseLogListTvArr removeAllObjects];
+            [self.pWishListArr removeAllObjects];
+            [self.pWatchListArr removeAllObjects];
+            
+            [self.pSubTableView01 reloadData];
+            [self.pSubTableView02 reloadData];
+            
             self.pSubView01.hidden = YES;
             self.pSubView02.hidden = NO;
             // vod 찜목록

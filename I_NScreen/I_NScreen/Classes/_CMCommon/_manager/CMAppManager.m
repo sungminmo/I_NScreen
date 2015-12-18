@@ -805,7 +805,7 @@
 - (NSString*)expiredDateStringWithPeriod:(NSString*)period purchased:(NSString*)purchased state:(NSString *)state {
     
     if ([state isEqualToString:@"1"]) {
-        return @"무제한";
+        return @"무제한시청";
     }
     
     NSDate* purchasedDate = [NSDate dateFromString:purchased withFormat:[NSDate timestampFormatString]];
