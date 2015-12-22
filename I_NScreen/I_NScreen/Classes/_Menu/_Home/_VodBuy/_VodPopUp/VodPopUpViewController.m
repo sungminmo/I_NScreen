@@ -82,6 +82,7 @@
 - (void)setViewInit
 {
     self.pTextField.type = Secure_CMTextFieldType;
+    self.pTextField.returnKeyType = UIReturnKeyDone;
     
     NSString* periodObj = self.pDetailDic[@"viewablePeriod"];
     if (periodObj == nil) {
