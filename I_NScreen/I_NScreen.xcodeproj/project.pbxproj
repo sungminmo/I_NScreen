@@ -43,7 +43,7 @@
 		9946CC8C1C1F967A00633051 /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC891C1F967A00633051 /* splash@2x.png */; };
 		9946CC8D1C1F967A00633051 /* splash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC8A1C1F967A00633051 /* splash@3x.png */; };
 		9946CC901C1F975300633051 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC8E1C1F975300633051 /* Default.png */; };
-		9946CC911C1F975300633051 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC8F1C1F975300633051 /* Default@2x.png */; };
+		9946CC911C1F975300633051 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC8F1C1F975300633051 /* Default-568h@2x.png */; };
 		99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D2C1BAD3F3D00CC99E9 /* SIAlertView.m */; };
 		99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D2E1BAD3F3D00CC99E9 /* UIWindow+SIUtils.m */; };
 		99478D331BAD4B3E00CC99E9 /* UIView+Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D321BAD4B3E00CC99E9 /* UIView+Layer.m */; };
@@ -95,6 +95,7 @@
 		99CCC5691BF1E5FD00CD9447 /* MainPopUpTableView3thCloseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99CCC5651BF1E5FD00CD9447 /* MainPopUpTableView3thCloseCell.xib */; };
 		99CCC56A1BF1E5FD00CD9447 /* MainPopUpTableView3thOpenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99CCC5661BF1E5FD00CD9447 /* MainPopUpTableView3thOpenCell.xib */; };
 		99D808921BD5B76700533E35 /* NSMutableDictionary+SEARCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D808911BD5B76700533E35 /* NSMutableDictionary+SEARCH.m */; };
+		99E3FD001C28DA470087611E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99E3FCFF1C28DA470087611E /* Default@2x.png */; };
 		99E41C801BD49F3300C64056 /* CMDBDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E41C7F1BD49F3300C64056 /* CMDBDataManager.m */; };
 		99E9EDA21BBA2690002FEBF0 /* CMNoticeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E9EDA01BBA2690002FEBF0 /* CMNoticeListViewController.m */; };
 		99E9EDA31BBA2690002FEBF0 /* CMNoticeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99E9EDA11BBA2690002FEBF0 /* CMNoticeListViewController.xib */; };
@@ -911,7 +912,7 @@
 		9946CC891C1F967A00633051 /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		9946CC8A1C1F967A00633051 /* splash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@3x.png"; sourceTree = "<group>"; };
 		9946CC8E1C1F975300633051 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		9946CC8F1C1F975300633051 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9946CC8F1C1F975300633051 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		99478D2B1BAD3F3D00CC99E9 /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
 		99478D2C1BAD3F3D00CC99E9 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
 		99478D2D1BAD3F3D00CC99E9 /* UIWindow+SIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SIUtils.h"; sourceTree = "<group>"; };
@@ -1001,6 +1002,7 @@
 		99CCC5661BF1E5FD00CD9447 /* MainPopUpTableView3thOpenCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainPopUpTableView3thOpenCell.xib; path = _Home/_PopUp/_Cell/MainPopUpTableView3thOpenCell.xib; sourceTree = "<group>"; };
 		99D808901BD5B76700533E35 /* NSMutableDictionary+SEARCH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SEARCH.h"; sourceTree = "<group>"; };
 		99D808911BD5B76700533E35 /* NSMutableDictionary+SEARCH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SEARCH.m"; sourceTree = "<group>"; };
+		99E3FCFF1C28DA470087611E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		99E41C7E1BD49F3300C64056 /* CMDBDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDBDataManager.h; sourceTree = "<group>"; };
 		99E41C7F1BD49F3300C64056 /* CMDBDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDBDataManager.m; sourceTree = "<group>"; };
 		99E9ED9F1BBA2690002FEBF0 /* CMNoticeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNoticeListViewController.h; sourceTree = "<group>"; };
@@ -2310,8 +2312,9 @@
 		E50FF1441BCB808000F1045C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				99E3FCFF1C28DA470087611E /* Default@2x.png */,
 				9946CC8E1C1F975300633051 /* Default.png */,
-				9946CC8F1C1F975300633051 /* Default@2x.png */,
+				9946CC8F1C1F975300633051 /* Default-568h@2x.png */,
 				E5A6E3121BDE1CC2005AC701 /* default */,
 				E5A6E3221BDE1CC2005AC701 /* icons */,
 				E5B550C51BD9DD3E00AA02B2 /* @1x */,
@@ -4124,6 +4127,7 @@
 				E5B555391BD9DD3F00AA02B2 /* icon_2depth_open@3x.png in Resources */,
 				E5B5538E1BD9DD3F00AA02B2 /* pwbox.png in Resources */,
 				99F9BB571C0EE3E900AF8668 /* Appicon58.png in Resources */,
+				99E3FD001C28DA470087611E /* Default@2x.png in Resources */,
 				E5B554501BD9DD3F00AA02B2 /* allch_press@2x.png in Resources */,
 				E5B554B41BD9DD3F00AA02B2 /* moreindicator@3x.png in Resources */,
 				E5B554DD1BD9DD3F00AA02B2 /* indicator@3x.png in Resources */,
@@ -4142,7 +4146,7 @@
 				E5B554931BD9DD3F00AA02B2 /* genredrama_press@3x.png in Resources */,
 				E5B5543E1BD9DD3F00AA02B2 /* longselect@2x.png in Resources */,
 				E5B554201BD9DD3F00AA02B2 /* icon_tvpointpay@2x.png in Resources */,
-				9946CC911C1F975300633051 /* Default@2x.png in Resources */,
+				9946CC911C1F975300633051 /* Default-568h@2x.png in Resources */,
 				E5D258131C02E8AD007F45AB /* posterlist_default.png in Resources */,
 				E5B555341BD9DD3F00AA02B2 /* bullet_2depth@3x.png in Resources */,
 				E5B553911BD9DD3F00AA02B2 /* icon_discount_normal.png in Resources */,
