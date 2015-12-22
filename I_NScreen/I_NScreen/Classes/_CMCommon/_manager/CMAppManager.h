@@ -12,6 +12,7 @@
 
 @property (nonatomic, unsafe_unretained) BOOL isFirst;//앱 최초실행여부
 @property (nonatomic, unsafe_unretained) BOOL isNetworkErrorAlertWorking;//네트워크 에러창이 떠있는지 여부 (SIAlertView+AFNetworking 카테고리 내부에서 핸들링)
+@property (nonatomic, unsafe_unretained) BOOL onLeftMenu;
 
 
 + (CMAppManager *)sharedInstance;

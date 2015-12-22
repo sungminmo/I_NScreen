@@ -63,6 +63,12 @@
 #pragma mark -
 - (void)onLeftMenuListOpen:(id)control;
 {
+    if (self.onLeftMenu) {
+        return;
+    }
+    
+    self.onLeftMenu = true;
+    
     LeftMenuViewController *pViewController = [[LeftMenuViewController alloc] initWithNibName:@"LeftMenuViewController" bundle:nil];
     pViewController.delegate = control;
     
@@ -84,6 +90,7 @@
     LeftMenuViewController* controller = (LeftMenuViewController*)control;
     controller.alphaView.hidden = YES;
     
+    __weak typeof(self) weakController = self;
     [UIView animateWithDuration:0.5
                      animations:^{
                          
@@ -96,6 +103,8 @@
                          if ( [control respondsToSelector:@selector(onLeftMenuCloseComplet)])
                          {
                              [control onLeftMenuCloseComplet];
+                             
+                             weakController.onLeftMenu = false;
                          }
                      }];
 
