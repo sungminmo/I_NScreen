@@ -74,7 +74,13 @@
         [self.view addConstraint:layout];
     }
     [self.pMainScrollView setContentSize:CGSizeMake(width, posY)];
+
     [self.view updateConstraintsIfNeeded];
+    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if(version < 8.0){
+        [self.view layoutIfNeeded];
+    }
+
 }
 
 - (void)setViewSize
