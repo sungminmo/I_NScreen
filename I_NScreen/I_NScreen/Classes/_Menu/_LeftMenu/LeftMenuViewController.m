@@ -34,10 +34,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    
     [self.upperView clearSubOutLineLayers];
-    
-    [UIView setOuterLine:self.upperView direction:HMOuterLineDirectionTop|HMOuterLineDirectionBottom lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
 
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     if ( [manager getPairingCheck] == NO )
@@ -56,6 +53,13 @@
         self.pairingButton.selected = YES;
         self.pairingMessageLabel.text = @"셋탑박스와 연동중입니다.";
     }
+    
+    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if(version < 8.0){
+        [self.view layoutIfNeeded];
+    }
+    
+    [UIView setOuterLine:self.upperView direction:HMOuterLineDirectionTop|HMOuterLineDirectionBottom lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];    
 }
 
 #pragma mark - ui change
