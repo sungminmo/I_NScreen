@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieMainViewController">
@@ -30,7 +30,6 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5G-Dr-xYe">
                             <rect key="frame" x="17" y="14" width="379" height="46"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <state key="normal" backgroundImage="allch.png">
                                 <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,7 +39,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="q5G-Dr-xYe" secondAttribute="bottom" constant="14" id="GM4-UQ-gsa"/>
@@ -55,7 +53,6 @@
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cLl-3p-tbH">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="6" id="EyY-2V-7lA">
                                 <size key="itemSize" width="95" height="164"/>
@@ -69,7 +66,6 @@
                             </connections>
                         </collectionView>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="cLl-3p-tbH" firstAttribute="top" secondItem="rw7-EZ-1Xj" secondAttribute="top" id="4iG-WU-KQH"/>
@@ -86,45 +82,35 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5G-a7-TVK" userLabel="Button(왼쪽)">
                                     <rect key="frame" x="18" y="8" width="180" height="29"/>
-                                    <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal" title="실시간 인기순위">
                                         <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
-                                    <state key="selected" backgroundImage="3depth2btn_press.png"/>
-                                    <state key="highlighted" backgroundImage="3depth2btn_press.png"/>
-                                    <state key="focused" backgroundImage="3depth2btn_press.png"/>
                                     <connections>
                                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="A5F-HG-eGF"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWH-Ua-x2c" userLabel="Button(오른쪽)">
                                     <rect key="frame" x="216" y="8" width="180" height="29"/>
-                                    <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal" title="주간 인기순위">
                                         <color key="titleColor" red="0.54117647058823526" green="0.5490196078431373" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
-                                    <state key="selected" backgroundImage="3depth2btn_press.png"/>
-                                    <state key="highlighted" backgroundImage="3depth2btn_press.png"/>
-                                    <state key="focused" backgroundImage="3depth2btn_press.png"/>
                                     <connections>
                                         <action selector="onBtnClicked:" destination="-1" eventType="touchUpInside" id="KeC-Xa-yE5"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMv-fc-B9B" userLabel="View(왼쪽라인)">
-                                    <rect key="frame" x="7" y="39" width="200" height="2"/>
-                                    <animations/>
+                                    <rect key="frame" x="7" y="37" width="200" height="4"/>
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="2" id="ug4-yG-mCz"/>
+                                        <constraint firstAttribute="height" constant="4" id="ug4-yG-mCz"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2h-z3-b9m" userLabel="View(오른쪽라인)">
                                     <rect key="frame" x="207" y="40" width="200" height="1"/>
-                                    <animations/>
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="irS-Rj-c0r"/>
@@ -132,7 +118,6 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wd9-Mc-X5t" userLabel="View(중간라인)">
                                     <rect key="frame" x="207" y="18" width="1" height="8"/>
-                                    <animations/>
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="1" id="14Y-HL-HRX"/>
@@ -140,7 +125,6 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="z2h-z3-b9m" secondAttribute="trailing" constant="7" id="8ux-wH-SPp"/>
@@ -163,7 +147,6 @@
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="k95-gP-zKT">
                             <rect key="frame" x="0.0" y="53" width="414" height="494"/>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="6" id="eWp-q7-HhP">
                                 <size key="itemSize" width="95" height="164"/>
@@ -177,7 +160,6 @@
                             </connections>
                         </collectionView>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="k95-gP-zKT" secondAttribute="bottom" id="6g4-Em-SIh"/>
@@ -190,7 +172,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="rw7-EZ-1Xj" firstAttribute="top" secondItem="wMa-x9-SZd" secondAttribute="bottom" id="Ggj-oh-ie3"/>
@@ -211,7 +192,6 @@
         </view>
     </objects>
     <resources>
-        <image name="3depth2btn_press.png" width="180" height="27"/>
         <image name="allch.png" width="379" height="46"/>
     </resources>
 </document>

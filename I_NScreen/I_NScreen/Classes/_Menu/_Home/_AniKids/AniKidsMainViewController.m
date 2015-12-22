@@ -82,7 +82,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             
             self.pRealTimeBtn.selected = YES;
             self.pWeekBtn.selected = NO;
-            self.pLeftLineHeight.constant = 2;
+            self.pLeftLineHeight.constant = 4;
             self.pRightLineHeight.constant = 1;
             
             [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
@@ -99,7 +99,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
             self.pRealTimeBtn.selected = NO;
             self.pWeekBtn.selected = YES;
             self.pLeftLineHeight.constant = 1;
-            self.pRightLineHeight.constant = 2;
+            self.pRightLineHeight.constant = 4;
             
             [self requestWithGetPopularityChart3DepthWithItem:self.isItemCheck];
             
