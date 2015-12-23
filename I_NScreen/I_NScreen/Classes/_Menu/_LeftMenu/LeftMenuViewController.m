@@ -258,7 +258,7 @@ static NSInteger ivTag = 1212;
     {
         if ( [manager getPairingCheck] == NO )
         {
-            [SIAlertView alert:@"마이 C&M 미 지원 상품" message:@"마이 C&M은 셋탑박스와 연동 시에만\n사용하실 수 있습니다."];
+            [SIAlertView alert:@"마이 씨앤앰 미 지원 상품" message:@"마이 씨앤앰은 셋탑박스와 연동 시에만\n사용하실 수 있습니다."];
             return;
         }
     }
