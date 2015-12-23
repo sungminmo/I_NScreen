@@ -45,7 +45,7 @@
 
     self.topConstraint.constant = cmNavigationHeight;
     
-    self.title = @"녹화관리";
+    self.title = @"녹화";
     
     self.isUseNavigationBar = YES;
     
