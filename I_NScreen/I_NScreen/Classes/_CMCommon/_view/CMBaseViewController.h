@@ -35,6 +35,11 @@
 - (void)backCommonAction;
 
 /**
+ *  back버튼 숨김/표출
+ */
+- (void)hideBackButton:(BOOL)hidden;
+
+/**
  *  커스텀 테이블뷰셀의 xib 로드.
  *
  *  @param tableView      테이블뷰.

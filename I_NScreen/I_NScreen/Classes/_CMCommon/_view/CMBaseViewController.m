@@ -118,6 +118,15 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(actionBackButton:)];
 }
 
+- (void)hideBackButton:(BOOL)hidden {
+    
+    if (hidden == YES) {
+        self.navigationItem.leftBarButtonItem = nil;
+    } else if (self.navigationItem.leftBarButtonItem == nil){
+        [self loadCustomBackButton];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
