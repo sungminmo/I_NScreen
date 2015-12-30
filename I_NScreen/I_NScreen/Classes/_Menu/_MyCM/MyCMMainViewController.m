@@ -103,6 +103,15 @@
     return false;
 }
 
+- (void)refreshDesc
+{
+    int nTotal = (int)[self.pWatchListArr count];
+    if ( nTotal == 0 )
+        self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"시청한 VOD가 없습니다."];
+    else
+        self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 VOD 시청목록이 있습니다.", nTotal];
+}
+
 #pragma mark - 액션 이벤트
 #pragma mark - 버튼 클릭 이벤트
 - (IBAction)onBtnClick:(UIButton *)btn
@@ -172,11 +181,7 @@
                 [self.pWatchListArr addObject:dic];
             }
             
-            int nTotal = (int)[self.pWatchListArr count];
-            if ( nTotal == 0 )
-                self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"시청한 VOD가 없습니다."];
-            else
-                self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 VOD 시청목록이 있습니다.", nTotal];
+            [self refreshDesc];
             
             [self.pSubTableView02 reloadData];
         }break;
@@ -681,6 +686,7 @@
                             CMDBDataManager *manager = [CMDBDataManager sharedInstance];
                             [manager removeVodWatchList:(int)indexPath.row];
                             [self.pWatchListArr removeObjectAtIndex:indexPath.row];
+                            [self refreshDesc];
                             [self.pSubTableView02 reloadData];
                         }
                     }];
