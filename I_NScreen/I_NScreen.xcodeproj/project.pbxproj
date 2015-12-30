@@ -31,6 +31,12 @@
 		20FEC9A11BBCD93100F6984F /* CMAutoCompletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FEC99F1BBCD93100F6984F /* CMAutoCompletTableViewCell.m */; };
 		20FEC9A21BBCD93100F6984F /* CMAutoCompletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FEC9A01BBCD93100F6984F /* CMAutoCompletTableViewCell.xib */; };
 		564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */; };
+		9333DA091C328AEB00A873D3 /* vod2btn_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9333DA071C328AEB00A873D3 /* vod2btn_normal.png */; };
+		9333DA0A1C328AEB00A873D3 /* vod2btn_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 9333DA081C328AEB00A873D3 /* vod2btn_press.png */; };
+		9333DA0D1C328AF600A873D3 /* vod2btn_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9333DA0B1C328AF600A873D3 /* vod2btn_normal@2x.png */; };
+		9333DA0E1C328AF600A873D3 /* vod2btn_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9333DA0C1C328AF600A873D3 /* vod2btn_press@2x.png */; };
+		9333DA111C328B0100A873D3 /* vod2btn_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9333DA0F1C328B0100A873D3 /* vod2btn_normal@3x.png */; };
+		9333DA121C328B0100A873D3 /* vod2btn_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9333DA101C328B0100A873D3 /* vod2btn_press@3x.png */; };
 		93DFBD431C17E5420094EB47 /* icon_promotion_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DFBD421C17E5420094EB47 /* icon_promotion_10.png */; };
 		93DFBD491C17E7140094EB47 /* icon_promotion_10@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DFBD481C17E7140094EB47 /* icon_promotion_10@3x.png */; };
 		93DFBD4B1C17E71E0094EB47 /* icon_promotion_10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93DFBD4A1C17E71E0094EB47 /* icon_promotion_10@2x.png */; };
@@ -897,6 +903,12 @@
 		20FEC99F1BBCD93100F6984F /* CMAutoCompletTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAutoCompletTableViewCell.m; path = _Cell/CMAutoCompletTableViewCell.m; sourceTree = "<group>"; };
 		20FEC9A01BBCD93100F6984F /* CMAutoCompletTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CMAutoCompletTableViewCell.xib; path = _Cell/CMAutoCompletTableViewCell.xib; sourceTree = "<group>"; };
 		57C9EE5D8B32911941D7BC54 /* Pods-I_NScreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.debug.xcconfig"; sourceTree = "<group>"; };
+		9333DA071C328AEB00A873D3 /* vod2btn_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vod2btn_normal.png; sourceTree = "<group>"; };
+		9333DA081C328AEB00A873D3 /* vod2btn_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vod2btn_press.png; sourceTree = "<group>"; };
+		9333DA0B1C328AF600A873D3 /* vod2btn_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod2btn_normal@2x.png"; sourceTree = "<group>"; };
+		9333DA0C1C328AF600A873D3 /* vod2btn_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod2btn_press@2x.png"; sourceTree = "<group>"; };
+		9333DA0F1C328B0100A873D3 /* vod2btn_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod2btn_normal@3x.png"; sourceTree = "<group>"; };
+		9333DA101C328B0100A873D3 /* vod2btn_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vod2btn_press@3x.png"; sourceTree = "<group>"; };
 		93DFBD421C17E5420094EB47 /* icon_promotion_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_promotion_10.png; sourceTree = "<group>"; };
 		93DFBD481C17E7140094EB47 /* icon_promotion_10@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_promotion_10@3x.png"; sourceTree = "<group>"; };
 		93DFBD4A1C17E71E0094EB47 /* icon_promotion_10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_promotion_10@2x.png"; sourceTree = "<group>"; };
@@ -2774,6 +2786,8 @@
 		E5B5516F1BD9DD3E00AA02B2 /* vod */ = {
 			isa = PBXGroup;
 			children = (
+				9333DA071C328AEB00A873D3 /* vod2btn_normal.png */,
+				9333DA081C328AEB00A873D3 /* vod2btn_press.png */,
 				E529EDB21BFDF16300684E8D /* vod2btn_pick_normal.png */,
 				E529EDB31BFDF16300684E8D /* vod2btn_pick_press.png */,
 				E529EDB41BFDF16300684E8D /* vod2btn_pick_select.png */,
@@ -3061,6 +3075,8 @@
 		E5B552331BD9DD3E00AA02B2 /* vod */ = {
 			isa = PBXGroup;
 			children = (
+				9333DA0B1C328AF600A873D3 /* vod2btn_normal@2x.png */,
+				9333DA0C1C328AF600A873D3 /* vod2btn_press@2x.png */,
 				E529EDBE1BFDF17300684E8D /* vod2btn_pick_normal@2x.png */,
 				E529EDBF1BFDF17300684E8D /* vod2btn_pick_press@2x.png */,
 				E529EDC01BFDF17300684E8D /* vod2btn_pick_select@2x.png */,
@@ -3353,6 +3369,8 @@
 		E5B552FD1BD9DD3F00AA02B2 /* vod */ = {
 			isa = PBXGroup;
 			children = (
+				9333DA0F1C328B0100A873D3 /* vod2btn_normal@3x.png */,
+				9333DA101C328B0100A873D3 /* vod2btn_press@3x.png */,
 				E529EDCA1BFDF18000684E8D /* vod2btn_pick_normal@3x.png */,
 				E529EDCB1BFDF18000684E8D /* vod2btn_pick_press@3x.png */,
 				E529EDCC1BFDF18000684E8D /* vod2btn_pick_select@3x.png */,
@@ -3723,7 +3741,6 @@
 				TargetAttributes = {
 					E5F6C6B31B7AD93B00618970 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = CR4R5HGD9P;
 					};
 					E5F6C6CC1B7AD93B00618970 = {
 						CreatedOnToolsVersion = 6.4;
@@ -3775,6 +3792,7 @@
 				E5B554031BD9DD3F00AA02B2 /* 2btn_press@2x.png in Resources */,
 				E5B555261BD9DD3F00AA02B2 /* icon_pairingbig@3x.png in Resources */,
 				E5DE64BE1BCB4E3300FC3122 /* AniKidsMainViewController.xib in Resources */,
+				9333DA0E1C328AF600A873D3 /* vod2btn_press@2x.png in Resources */,
 				E5B553E01BD9DD3F00AA02B2 /* genreentertain_press@2x.png in Resources */,
 				E5B554401BD9DD3F00AA02B2 /* p1btn_cancel_press@2x.png in Resources */,
 				E5B553781BD9DD3F00AA02B2 /* check.png in Resources */,
@@ -3999,6 +4017,7 @@
 				E5B5552D1BD9DD3F00AA02B2 /* smallbtn_normal@3x.png in Resources */,
 				E5B553501BD9DD3F00AA02B2 /* hd.png in Resources */,
 				E5B5545A1BD9DD3F00AA02B2 /* serchbox@2x.png in Resources */,
+				9333DA121C328B0100A873D3 /* vod2btn_press@3x.png in Resources */,
 				E5B553C01BD9DD3F00AA02B2 /* icon_2depth_close.png in Resources */,
 				E5B554D21BD9DD3F00AA02B2 /* icon_promotion_05@3x.png in Resources */,
 				E5B553D01BD9DD3F00AA02B2 /* vod3btn_normal.png in Resources */,
@@ -4010,6 +4029,7 @@
 				E5B5547A1BD9DD3F00AA02B2 /* icon_2depth_open@2x.png in Resources */,
 				99E9EDB71BBA26D2002FEBF0 /* CMContactInfoViewCcontroller.xib in Resources */,
 				E5B5534F1BD9DD3F00AA02B2 /* ch_unpick.png in Resources */,
+				9333DA0A1C328AEB00A873D3 /* vod2btn_press.png in Resources */,
 				E5B554791BD9DD3F00AA02B2 /* icon_2depth_close@2x.png in Resources */,
 				E5B554BF1BD9DD3F00AA02B2 /* back@3x.png in Resources */,
 				E5B5553B1BD9DD3F00AA02B2 /* icon_3depth_open@3x.png in Resources */,
@@ -4217,6 +4237,7 @@
 				E5B554A91BD9DD3F00AA02B2 /* genreregion_select@3x.png in Resources */,
 				E5B553541BD9DD3F00AA02B2 /* icon_complexpay.png in Resources */,
 				E5B554851BD9DD3F00AA02B2 /* v_pick@2x.png in Resources */,
+				9333DA111C328B0100A873D3 /* vod2btn_normal@3x.png in Resources */,
 				E5D258141C02E8AD007F45AB /* voddetail_default.png in Resources */,
 				E5B553AF1BD9DD3F00AA02B2 /* icon_q_normal.png in Resources */,
 				E5B554341BD9DD3F00AA02B2 /* fp1btn_ok_normal@2x.png in Resources */,
@@ -4302,6 +4323,7 @@
 				E5B555211BD9DD3F00AA02B2 /* icon_menu_recording@3x.png in Resources */,
 				E5B553351BD9DD3F00AA02B2 /* genreregion_select.png in Resources */,
 				E5B555571BD9F1D800AA02B2 /* PairingMainViewController.xib in Resources */,
+				9333DA0D1C328AF600A873D3 /* vod2btn_normal@2x.png in Resources */,
 				E5B554DB1BD9DD3F00AA02B2 /* icon_tvpointpay@3x.png in Resources */,
 				E5B553E41BD9DD3F00AA02B2 /* genrefavorite_select@2x.png in Resources */,
 				E5B5542E1BD9DD3F00AA02B2 /* 3depth2btn_press@2x.png in Resources */,
@@ -4381,6 +4403,7 @@
 				E5B5545E1BD9DD3F00AA02B2 /* icon_fold_normal@2x.png in Resources */,
 				E58690511C08462F0086D69F /* VodBundleDetailViewController.xib in Resources */,
 				E5B555071BD9DD3F00AA02B2 /* pwbox_error@3x.png in Resources */,
+				9333DA091C328AEB00A873D3 /* vod2btn_normal.png in Resources */,
 				E5B555181BD9DD3F00AA02B2 /* magnifier@3x.png in Resources */,
 				E529EDBA1BFDF16300684E8D /* vod2btn_pick_select.png in Resources */,
 				E5E5A2BA1BD78A6500A99883 /* TestMainViewController.xib in Resources */,

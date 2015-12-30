@@ -56,7 +56,7 @@
     [self setTagInit];
     [self setViewInit];
 //    return;
-    [self requestWithGetWithList];
+//    [self requestWithGetWithList];
     
     [self requestWithRecommendContentGroupByAssetId];
     
@@ -70,6 +70,8 @@
     else
     {
         [self requestWithAssetInfo];
+        
+        [self requestWithGetWithList];
     }
 }
 
@@ -192,21 +194,26 @@
             if ( self.isZzimCheck == YES )
             {
                 // 찜하기 되어 있으면 찜하기 해제
-                                [self.pZzimBtn22 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-                [self.pZzimBtn23 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+//                [self.pZzimBtn22 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+//                [self.pZzimBtn23 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
 
                 
                 if ( self.pReviewBtn22.hidden == YES || self.pReviewBtn23.hidden == YES )
                 {
-                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
-                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                    
+                    [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
 
                 }
                 else
                 {
-                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
-                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
 
+                    [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
                 }
                 
                 [self requestWithRemoveWishItem];
@@ -215,18 +222,24 @@
             {
                 // 찜하기 안되어 있으면 찜하기
                 
-                [self.pZzimBtn22 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                [self.pZzimBtn23 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//                [self.pZzimBtn22 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//                [self.pZzimBtn23 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 
                 if ( self.pReviewBtn22.hidden == YES || self.pReviewBtn23.hidden == YES )
                 {
-                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
-                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                    
+                    [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
                 }
                 else
                 {
-                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
-                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
+                    
+                    [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
+                    [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
                 }
 
                 [self requestWithAddWishItem];
@@ -568,17 +581,25 @@ static int tvFontSize = 15;
         if ( self.isZzimCheck == YES )
         {
             // 찜하기 되어 있으면 123 90 163
-            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
-            [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_select.png"] forState:UIControlStateNormal];
-            [self.pZzimBtn22 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [self.pZzimBtn23 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
+            [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
+            
+            [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
+            [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
+            
+//            [self.pZzimBtn22 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//            [self.pZzimBtn23 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
         else
         {
-            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
-            [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_pick_normal.png"] forState:UIControlStateNormal];
-            [self.pZzimBtn22 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            [self.pZzimBtn23 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
+            [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
+            
+            [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
+            [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
+            
+//            [self.pZzimBtn22 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+//            [self.pZzimBtn23 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
         }
     }];
     
@@ -1221,20 +1242,25 @@ static int tvFontSize = 15;
         else
         {
             [self setViewInit22];
-            
-            if ( self.isZzimCheck == YES )
+
+            /*if ( self.isZzimCheck == YES )
             {
                 
-                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                
+                [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
             }
             else
             {
                 
-                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
-            }
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                
+                [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
+            }*/
             
-            //  tv전용일 경우
-            if ([sPublicationRight isEqualToString:@"1"]) {
+            //  tv전용일경우, [구매하기][찜하기]
+            if ([sPublicationRight isEqualToString:@"1"])
+            {
                 
                 NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
                                                                        attribute:NSLayoutAttributeLeft
@@ -1242,8 +1268,28 @@ static int tvFontSize = 15;
                                                                           toItem:self.pBuyBtn22
                                                                        attribute:NSLayoutAttributeLeft
                                                                       multiplier:1.0 constant:-12];
-                
                 [self.view addConstraints:@[c_1]];
+                
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                
+                self.pZzimBtn22.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 29);
+                self.pZzimBtn22.imageEdgeInsets = UIEdgeInsetsMake(0, 87, 0, 0);
+            }
+            //  [시청하기][구매하기][찜하기]
+            else
+            {
+                [self.pZzimBtn22 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
+                
+                self.pZzimBtn22.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 26);
+                self.pZzimBtn22.imageEdgeInsets = UIEdgeInsetsMake(0, 69, 0, 0);
+            }
+            
+            if (self.isZzimCheck) {
+                
+                [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
+            } else {
+                
+                [self.pZzimBtn22 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
             }
         }
 
@@ -1563,6 +1609,8 @@ static int tvFontSize = 15;
             NSDictionary* episodeItem = self.pEpisodePeerListArr[0];
             self.pAssetIdStr = episodeItem[@"primaryAssetId"];
             sEpisodePeerId = episodeItem[@"episodePeerId"];
+            
+            [self requestWithGetWithList];
         } else {
             for ( NSDictionary *dic in self.pEpisodePeerListArr )
             {
@@ -1881,25 +1929,51 @@ static int tvFontSize = 15;
             nTag = 23;
             [self setViewInit23];
             
-            if ( self.isZzimCheck == YES )
+            /*if ( self.isZzimCheck == YES )
             {
-                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_select.png"] forState:UIControlStateNormal];
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                
+                [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
             }
             else
             {
-                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_pick_normal.png"] forState:UIControlStateNormal];
-            }
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                
+                [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
+            }*/
             
-            //  tv전용일경우
-            if ( [sPublicationRight isEqualToString:@"1"] ) {
+            //  tv전용일경우, [구매하기][찜하기]
+            if ( [sPublicationRight isEqualToString:@"1"] )
+            {
                 NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
                                                                        attribute:NSLayoutAttributeLeft
                                                                        relatedBy:NSLayoutRelationEqual
                                                                           toItem:self.pBuyBtn23
                                                                        attribute:NSLayoutAttributeLeft
                                                                       multiplier:1.0 constant:-12];
-                
                 [self.view addConstraints:@[c_1]];
+                
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
+                
+                self.pZzimBtn23.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 29);
+                self.pZzimBtn23.imageEdgeInsets = UIEdgeInsetsMake(0, 87, 0, 0);
+            }
+            //  [시청하기][구매하기][찜하기]
+            else
+            {
+                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
+                
+                self.pZzimBtn23.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 26);
+                self.pZzimBtn23.imageEdgeInsets = UIEdgeInsetsMake(0, 69, 0, 0);
+            }
+            
+            if (self.isZzimCheck)
+            {
+                [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
+            }
+            else
+            {
+                [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_unpick.png"] forState:UIControlStateNormal];
             }
         }
         
