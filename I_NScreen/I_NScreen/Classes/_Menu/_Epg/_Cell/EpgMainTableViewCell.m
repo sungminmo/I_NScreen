@@ -170,7 +170,7 @@
 
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pData objectForKey:@"channelId"]];
+    NSString *channelNumber = [NSString stringWithFormat:@"%@", [self.pData objectForKey:@"channelNumber"]];
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     RLMArray *ramArr = [manager getFavorChannel];
     BOOL isCheck = NO;
@@ -178,7 +178,7 @@
     int nCount = 0;
     for ( CMFavorChannelInfo *info in ramArr )
     {
-        if ( [info.pChannelId isEqualToString:sChannelId] )
+        if ( [info.pChannelNumber isEqualToString:channelNumber] )
         {
             isCheck = YES;
             [manager removeFavorChannel:nCount];

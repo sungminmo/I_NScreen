@@ -77,12 +77,12 @@
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     RLMArray *ramArr = [manager getFavorChannel];
     
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
+    NSString *channelNumber = self.pListDataDic[@"channelNumber"];;
     
     BOOL isCheck = NO;
     for ( CMFavorChannelInfo *info in ramArr )
     {
-        if ( [info.pChannelId isEqualToString:sChannelId] )
+        if ( [info.pChannelNumber isEqualToString:channelNumber] )
         {
             // 선호체널
             isCheck = YES;
@@ -112,7 +112,7 @@
 
 - (void)favoriteButton:(id)sender
 {
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
+    NSString *channelNumber = self.pListDataDic[@"channelNumber"];
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     RLMArray *ramArr = [manager getFavorChannel];
     BOOL isCheck = NO;
@@ -120,7 +120,7 @@
     int nCount = 0;
     for ( CMFavorChannelInfo *info in ramArr )
     {
-        if ( [info.pChannelId isEqualToString:sChannelId] )
+        if ( [info.pChannelNumber isEqualToString:channelNumber] )
         {
             isCheck = YES;
             [manager removeFavorChannel:nCount];

@@ -756,14 +756,12 @@ static const CGFloat pageSize = 20;
         CMDBDataManager *manager = [CMDBDataManager sharedInstance];
         RLMArray *ramArr = [manager getFavorChannel];
 
-        NSString *sSeq = item[@"channelProgramSeq"];
-        NSString *sProgramId = item[@"channelProgramID"];
+        NSString *channelNumber = item[@"channelNumber"];
     
         BOOL isCheck = NO;
         for ( CMFavorChannelInfo *info in ramArr )
         {
-            if ( [info.pChannelSeq isEqualToString:sSeq] &&
-                [info.pProgramId isEqualToString:sProgramId] )
+            if ([info.pChannelNumber isEqualToString:channelNumber])
             {
                 // 선호체널
                 isCheck = YES;
@@ -820,8 +818,7 @@ static const CGFloat pageSize = 20;
     {
         NSDictionary* item = self.programArray[indexPath.row];
         
-        NSString *sSeq = item[@"channelProgramSeq"];
-        NSString *sProgramId = item[@"channelProgramID"];
+        NSString *channelNumber = item[@"channelNumber"];
         CMDBDataManager *manager = [CMDBDataManager sharedInstance];
         RLMArray *ramArr = [manager getFavorChannel];
         BOOL isCheck = NO;
@@ -829,8 +826,7 @@ static const CGFloat pageSize = 20;
         int nCount = 0;
         for ( CMFavorChannelInfo *info in ramArr )
         {
-            if ( [info.pChannelSeq isEqualToString:sSeq] &&
-                [info.pProgramId isEqualToString:sProgramId] )
+            if ([info.pChannelNumber isEqualToString:channelNumber])
             {
                 isCheck = YES;
                 [manager removeFavorChannel:nCount];
@@ -845,8 +841,6 @@ static const CGFloat pageSize = 20;
         
         [self.programList reloadData];
     }
-    
-   
 }
 
 #pragma mark - UITextFieldDelegate (검색어)

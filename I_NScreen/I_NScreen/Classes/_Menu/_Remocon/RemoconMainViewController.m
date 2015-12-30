@@ -187,12 +187,12 @@
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     RLMArray *ramArr = [manager getFavorChannel];
     
-    NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.pChannelListArr objectAtIndex:indexPath.row] objectForKey:@"channelId"]];
+    NSString *channelNumber = [NSString stringWithFormat:@"%@", [[self.pChannelListArr objectAtIndex:indexPath.row] objectForKey:@"channelNumber"]];
     
     BOOL isCheck = NO;
     for ( CMFavorChannelInfo *info in ramArr )
     {
-        if ( [info.pChannelId isEqualToString:sChannelId] )
+        if ( [info.pChannelNumber isEqualToString:channelNumber] )
         {
             // 선호체널
             isCheck = YES;
@@ -309,11 +309,11 @@
             
             for ( NSDictionary *dic in [[gets objectAtIndex:0] objectForKey:@"channelItem"] )
             {
-                NSString *sChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+                NSString *channelNumber = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelNumber"]];
                 
                 for ( CMFavorChannelInfo *info in ramArr )
                 {
-                    if ( [info.pChannelId isEqualToString:sChannelId] )
+                    if ( [info.pChannelNumber isEqualToString:channelNumber] )
                     {
                         [self.pChannelListArr addObject:dic];
                     }
