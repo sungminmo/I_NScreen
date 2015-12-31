@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -34,7 +34,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="3btn_outline.png" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-Cd-y9J">
                             <rect key="frame" x="6" y="10" width="397" height="35"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="gbP-dd-8ON"/>
                             </constraints>
@@ -51,7 +50,6 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkE-7R-1ta">
                             <rect key="frame" x="271" y="11" width="131" height="33"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="NaC-Ci-Cu3"/>
                             </constraints>
@@ -59,6 +57,9 @@
                             <state key="normal" title="VOD찜목록" backgroundImage="3btn_normal.png">
                                 <color key="titleColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" backgroundImage="3btn_select.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="highlighted" title="VOD구매목록" backgroundImage="3btn_press.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,7 +80,6 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keF-d6-WBD">
                             <rect key="frame" x="139" y="11" width="131" height="33"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="u3E-4W-3nz"/>
                             </constraints>
@@ -87,6 +87,9 @@
                             <state key="normal" title="VOD시청목록" backgroundImage="3btn_normal.png">
                                 <color key="titleColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" backgroundImage="3btn_select.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="highlighted" title="VOD시청목록" backgroundImage="3btn_press.png"/>
                             <variation key="default">
@@ -104,15 +107,18 @@
                                 <action selector="onBtnClick:" destination="-1" eventType="touchUpInside" id="6Ev-EJ-qxz"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-y6-PO8">
+                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" ambiguous="YES" misplaced="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4e1-y6-PO8">
                             <rect key="frame" x="7" y="11" width="131" height="33"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="C5O-nb-AQB"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="VOD구매목록" backgroundImage="3btn_select.png">
+                            <state key="normal" title="VOD구매목록" backgroundImage="3btn_normal.png">
+                                <color key="titleColor" red="0.4823529411764706" green="0.3529411764705882" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" backgroundImage="3btn_select.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="highlighted" title="VOD찜목록" backgroundImage="3btn_press.png"/>
                             <variation key="default">
@@ -131,7 +137,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="7Ei-ds-bSr"/>
@@ -205,7 +210,6 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d2-V5-xoH" userLabel="Button(왼쪽)">
                                     <rect key="frame" x="18" y="8" width="180" height="27"/>
-                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="27" id="Pjg-UF-iQq"/>
                                     </constraints>
@@ -231,7 +235,6 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="06b-wU-Oqq" userLabel="Button(오른쪽)">
                                     <rect key="frame" x="216" y="8" width="180" height="27"/>
-                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="27" id="Tv8-72-pVz"/>
                                     </constraints>
@@ -260,7 +263,6 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4g-OQ-mVZ" userLabel="View(왼쪽라인)">
                                             <rect key="frame" x="7" y="39" width="200" height="2"/>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="UFr-4K-3bF">
@@ -280,7 +282,6 @@
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RV1-2Y-Rl8" userLabel="View(오른쪽라인)">
                                             <rect key="frame" x="207" y="40" width="200" height="1"/>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="jJt-O2-LN2">
@@ -299,7 +300,6 @@
                                             </variation>
                                         </view>
                                     </subviews>
-                                    <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="RV1-2Y-Rl8" firstAttribute="width" secondItem="a4g-OQ-mVZ" secondAttribute="width" id="LpO-5s-rCc"/>
@@ -343,7 +343,6 @@
                                 </view>
                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k6r-t2-wpi" userLabel="View(중간라인)">
                                     <rect key="frame" x="207" y="18" width="1" height="8"/>
-                                    <animations/>
                                     <color key="backgroundColor" red="0.4823529412" green="0.35294117650000001" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="8" id="Gf5-1I-xzg"/>
@@ -363,7 +362,6 @@
                                     </variation>
                                 </view>
                             </subviews>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="k6r-t2-wpi" secondAttribute="bottom" constant="27" id="3vd-aL-zeU"/>
@@ -426,7 +424,6 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="총 0개의 TV VOD 구매목록이 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1H-AK-inu">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="27"/>
-                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="27" id="ppX-w8-X3x"/>
                                     </constraints>
@@ -446,7 +443,6 @@
                                     </variation>
                                 </label>
                             </subviews>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="o1H-AK-inu" firstAttribute="top" secondItem="1WE-IU-mPp" secondAttribute="top" id="1UY-KI-D5b"/>
@@ -473,7 +469,6 @@
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rtd-lF-sf5">
                             <rect key="frame" x="0.0" y="80" width="414" height="518"/>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="I3m-Rt-YVF"/>
@@ -481,7 +476,6 @@
                             </connections>
                         </tableView>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="rtd-lF-sf5" secondAttribute="trailing" id="D8y-pX-6IW"/>
@@ -538,7 +532,6 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="총 0개의 찜 VOD가 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Uf-be-Ang">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="27"/>
-                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="27" id="HoR-PH-fvF"/>
                                     </constraints>
@@ -558,7 +551,6 @@
                                     </variation>
                                 </label>
                             </subviews>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="0Uf-be-Ang" secondAttribute="bottom" id="SyV-tn-IRQ"/>
@@ -585,7 +577,6 @@
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ecn-vd-4Wx">
                             <rect key="frame" x="0.0" y="27" width="414" height="571"/>
-                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="9Y6-hs-rUs"/>
@@ -593,7 +584,6 @@
                             </connections>
                         </tableView>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="PDf-J1-Mus" secondAttribute="trailing" id="3zC-43-R8N"/>
@@ -631,7 +621,6 @@
                     </variation>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="WG2-qM-34F" secondAttribute="bottom" id="2oT-Wc-llb"/>

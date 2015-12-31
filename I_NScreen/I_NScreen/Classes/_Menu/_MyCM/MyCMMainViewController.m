@@ -105,11 +105,62 @@
 
 - (void)refreshDesc
 {
-    int nTotal = (int)[self.pWatchListArr count];
-    if ( nTotal == 0 )
-        self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"시청한 VOD가 없습니다."];
-    else
-        self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 VOD 시청목록이 있습니다.", nTotal];
+    //  구매목록
+    if (self.pTapBtn01.selected)
+    {
+        //  모바일
+        if (self.nSubTabTag == 0)
+        {
+            int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
+            if ( nTotal == 0 )
+            {
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 모바일 VOD가 없습니다."];
+            }
+            else
+            {
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
+            }
+        }
+        //  TV
+        else if (self.nSubTabTag == 1)
+        {
+            int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
+            if ( nTotal == 0 )
+            {
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 TV VOD가 없습니다."];
+            }
+            else
+            {
+                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
+            }
+        }
+    }
+    //  시청목록
+    else if (self.pTapBtn02.selected)
+    {
+        int nTotal = (int)[self.pWatchListArr count];
+        if ( nTotal == 0 )
+        {
+            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"시청한 VOD가 없습니다."];
+        }
+        else
+        {
+            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 VOD 시청목록이 있습니다.", nTotal];
+        }
+    }
+    //  찜한목록
+    else if (self.pTapBtn03.selected)
+    {
+        int nTotal = (int)[self.pWishListArr count];
+        if ( nTotal == 0 )
+        {
+            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"찜 한 VOD가 없습니다."];
+        }
+        else
+        {
+            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 찜 VOD가 있습니다.", nTotal];
+        }
+    }
 }
 
 #pragma mark - 액션 이벤트
@@ -138,13 +189,9 @@
             self.pSubView01.hidden = NO;
             self.pSubView02.hidden = YES;
             // vod 구매목록
-            [self.pTapBtn01 setBackgroundImage:[UIImage imageNamed:@"3btn_select.png"] forState:UIControlStateNormal];
-            [self.pTapBtn02 setBackgroundImage:[UIImage imageNamed:@"3btn_normal.png"] forState:UIControlStateNormal];
-            [self.pTapBtn03 setBackgroundImage:[UIImage imageNamed:@"3btn_normal.png"] forState:UIControlStateNormal];
-            
-            [self.pTapBtn01 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [self.pTapBtn02 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            [self.pTapBtn03 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            self.pTapBtn01.selected = true;
+            self.pTapBtn02.selected = false;
+            self.pTapBtn03.selected = false;
             
             [self requestWithGetValidPurchaseLogList];
         }break;
@@ -161,13 +208,9 @@
             self.pSubView01.hidden = YES;
             self.pSubView02.hidden = NO;
             // vod 시청목록
-            [self.pTapBtn01 setBackgroundImage:[UIImage imageNamed:@"3btn_normal.png"] forState:UIControlStateNormal];
-            [self.pTapBtn02 setBackgroundImage:[UIImage imageNamed:@"3btn_select.png"] forState:UIControlStateNormal];
-            [self.pTapBtn03 setBackgroundImage:[UIImage imageNamed:@"3btn_normal.png"] forState:UIControlStateNormal];
-            
-            [self.pTapBtn01 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            [self.pTapBtn02 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [self.pTapBtn03 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            self.pTapBtn01.selected = false;
+            self.pTapBtn02.selected = true;
+            self.pTapBtn03.selected = false;
 
             [self.pWatchListArr removeAllObjects];
             
@@ -198,14 +241,10 @@
             self.pSubView01.hidden = YES;
             self.pSubView02.hidden = NO;
             // vod 찜목록
-            [self.pTapBtn01 setBackgroundImage:[UIImage imageNamed:@"3btn_normal.png"] forState:UIControlStateNormal];
-            [self.pTapBtn02 setBackgroundImage:[UIImage imageNamed:@"3btn_normal.png"] forState:UIControlStateNormal];
-            [self.pTapBtn03 setBackgroundImage:[UIImage imageNamed:@"3btn_select.png"] forState:UIControlStateNormal];
-            
-            [self.pTapBtn01 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            [self.pTapBtn02 setTitleColor:[UIColor colorWithRed:123.0f/255.0f green:90.0f/255.0f blue:163.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-            [self.pTapBtn03 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            
+            self.pTapBtn01.selected = false;
+            self.pTapBtn02.selected = false;
+            self.pTapBtn03.selected = true;
+
             [self requestWithGetWishList];
             
         }break;
@@ -225,17 +264,14 @@
             [self.pSubTableView01 reloadData];
             
             int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
-            if ( nTotal == 0 )
+            
+            if (nTotal > 0)
             {
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 모바일 VOD가 없습니다."];
-            }
-            else
-            {
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
-                
                 NSIndexPath* indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
                 [self.pSubTableView01 scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
             }
+            
+            [self refreshDesc];
         }break;
         case MY_CM_MAIN_VIEW_BTN_06:
         {
@@ -569,27 +605,7 @@
             [self.pValidPurchaseLogListTvArr addObjectsFromArray:tv];
         }
         
-        
-        if ( self.nSubTabTag == 0 )
-        {
-            // 모바일 구매목록
-            int nTotal = (int)[self.pValidPurchaseLogListMoblieArr count];
-            if ( nTotal == 0 )
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 모바일 VOD가 없습니다."];
-            else
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 모바일 VOD 구매목록이 있습니다.", nTotal];
-            
-        }
-        else
-        {
-            // tv 구매목록
-            int nTotal = (int)[self.pValidPurchaseLogListTvArr count];
-            if ( nTotal == 0 )
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"구매한 TV VOD가 없습니다."];
-            else
-                self.pTotalExplanLbl01.text = [NSString stringWithFormat:@"총 %d개의 TV VOD 구매목록이 있습니다.", nTotal];
-            
-        }
+        [self refreshDesc];
         
         [self.pSubTableView01 reloadData];
     }];
@@ -609,10 +625,10 @@
     
         [self.pWishListArr removeAllObjects];
         
-        if ( [[[myCm objectAtIndex:0] objectForKey:@"errorString"] isEqualToString:@"WishList Not Found"] )
-        {
-            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"찜 한 VOD 가 없습니다."];
-        }
+//        if ( [[[myCm objectAtIndex:0] objectForKey:@"errorString"] isEqualToString:@"WishList Not Found"] )
+//        {
+//            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"찜 한 VOD 가 없습니다."];
+//        }
         
         NSObject *itemObject = [[[myCm objectAtIndex:0] objectForKey:@"wishItemList"] objectForKey:@"wishItem"];
         
@@ -620,20 +636,15 @@
         {
             // dictionary
             [self.pWishListArr addObject:(NSDictionary *)itemObject];
-            
-            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 1개의 찜 VOD가 있습니다."];
-            
         }
         else
         {
             // array
             [self.pWishListArr setArray:(NSArray *)itemObject];
-            
-            int nTotal = (int)[self.pWishListArr count];
-            self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 찜 VOD가 있습니다.", nTotal];
         }
         
-        
+        [self refreshDesc];
+
         [self.pSubTableView02 reloadData];
     }];
     
@@ -744,15 +755,7 @@
             // 성공이면
             [self.pWishListArr removeObjectAtIndex:index];
             
-            int nTotal = (int)[self.pWishListArr count];
-            if ( nTotal == 0 )
-            {
-               self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"찜 한 VOD 가 없습니다."];
-            }
-            else
-            {
-                self.pTotalExplanLbl02.text = [NSString stringWithFormat:@"총 %d개의 찜 VOD가 있습니다.", nTotal];
-            }
+            [self refreshDesc];
             
             [self.pSubTableView02 reloadData];
         }
