@@ -146,9 +146,9 @@ static const CGFloat pageSize = 20;
     self.tabMenu = [[CMTabMenuView alloc] initWithMenuArray:@[@"VOD 명 검색", @"TV 프로그램 명 검색"] posY:0 delegate:self];
     [self.tabMenuContainer addSubview:self.tabMenu];
     
-    UIView* tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.programList.frame.size.width, 1)];
-    tableHeaderView.backgroundColor = [CMColor colorTableSeparator];
-    self.programList.tableHeaderView = tableHeaderView;
+//    UIView* tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.programList.frame.size.width, 1)];
+//    tableHeaderView.backgroundColor = [CMColor colorTableSeparator];
+//    self.programList.tableHeaderView = tableHeaderView;
     
     self.vodList.hidden = false;
     self.programList.hidden = true;
@@ -548,8 +548,6 @@ static const CGFloat pageSize = 20;
 
 - (void)tabMenu:(CMTabMenuView *)sender didSelectedTab:(NSInteger)tabIndex {
     
-    
-        
     [self.searchField resignFirstResponder];
     [self showAutoCompletList:NO];
 
