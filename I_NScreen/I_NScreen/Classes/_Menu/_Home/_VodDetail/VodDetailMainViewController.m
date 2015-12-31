@@ -1104,7 +1104,7 @@ static int tvFontSize = 15;
         else
         {
             // 평생 소장
-            self.pTermLbl.text = @"평생소장";
+            self.pTermLbl.text = @"무제한 시청";
         }
     }
     else if ( [productObj isKindOfClass:[NSArray class]] )
@@ -1166,7 +1166,7 @@ static int tvFontSize = 15;
         else
         {
             // 평생 소장
-            self.pTermLbl.text = @"평생소장";
+            self.pTermLbl.text = @"무제한 시청";
         }
     }
     
@@ -1834,7 +1834,7 @@ static int tvFontSize = 15;
     else
     {
         // 평생 소장
-        self.pTermLbl.text = @"평생소장";
+        self.pTermLbl.text = @"무제한 시청";
     }
     
   
