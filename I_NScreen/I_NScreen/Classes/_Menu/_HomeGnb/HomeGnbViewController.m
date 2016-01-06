@@ -86,6 +86,12 @@
             [self.pMenu04 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pMenu05 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
+            self.pLine01.hidden = NO;
+            self.pLine02.hidden = YES;
+            self.pLine03.hidden = YES;
+            self.pLine04.hidden = YES;
+            self.pLine05.hidden = YES;
+            
         }break;
         case HOME_GNB_VIEW_BTN_04:
         {
@@ -95,6 +101,12 @@
             [self.pMenu03 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pMenu04 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pMenu05 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            
+            self.pLine01.hidden = YES;
+            self.pLine02.hidden = NO;
+            self.pLine03.hidden = YES;
+            self.pLine04.hidden = YES;
+            self.pLine05.hidden = YES;
             
         }break;
         case HOME_GNB_VIEW_BTN_05:
@@ -106,6 +118,12 @@
             [self.pMenu04 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pMenu05 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             
+            self.pLine01.hidden = YES;
+            self.pLine02.hidden = YES;
+            self.pLine03.hidden = NO;
+            self.pLine04.hidden = YES;
+            self.pLine05.hidden = YES;
+            
         }break;
         case HOME_GNB_VIEW_BTN_06:
         {
@@ -115,6 +133,12 @@
             [self.pMenu03 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self.pMenu04 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.pMenu05 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            
+            self.pLine01.hidden = YES;
+            self.pLine02.hidden = YES;
+            self.pLine03.hidden = YES;
+            self.pLine04.hidden = NO;
+            self.pLine05.hidden = YES;
             
         }break;
         case HOME_GNB_VIEW_BTN_07:
@@ -127,6 +151,12 @@
                 [self.pMenu03 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
                 [self.pMenu04 setTitleColor:[UIColor colorWithRed:195.0f/255.0f green:174.0f/255.0f blue:220.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
                 [self.pMenu05 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                
+                self.pLine01.hidden = YES;
+                self.pLine02.hidden = YES;
+                self.pLine03.hidden = YES;
+                self.pLine04.hidden = YES;
+                self.pLine05.hidden = NO;
             }
             
         }break;
