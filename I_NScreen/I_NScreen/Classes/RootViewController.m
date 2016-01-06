@@ -181,6 +181,16 @@
     }
 }
 
+- (void)bodySubViewsRemove
+{
+    for ( UIView *view in [[[self.view subviews] objectAtIndex:1] subviews] )
+    {
+        [view removeFromSuperview];
+    }
+}
+
+#pragma mark - HomeGnbViewDelegate
+
 - (void)onLeftMenuViewCloseCompletReflash:(int)nTag
 {
     switch (nTag) {
@@ -207,9 +217,9 @@
             // PVR - 녹화
             PvrMainViewController *pViewController = [[PvrMainViewController alloc] initWithNibName:@"PvrMainViewController" bundle:nil];
             [self.navigationController pushViewController:pViewController animated:YES];
-//            // 검색
-//            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
-//            [self.navigationController pushViewController:controller animated:YES];
+            //            // 검색
+            //            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
+            //            [self.navigationController pushViewController:controller animated:YES];
             
         }break;
         case 4:
@@ -227,7 +237,7 @@
         case 6:
         {
             // 페어링
-//            if ( [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY]  != NULL )
+            //            if ( [[FXKeychain defaultKeychain] objectForKey:CNM_OPEN_API_UUID_KEY]  != NULL )
             CMDBDataManager* manager= [CMDBDataManager sharedInstance];
             
             if ( [manager getPairingCheck] == YES )
@@ -241,29 +251,20 @@
                 PairingMainViewController *controller = [[PairingMainViewController alloc] initWithNibName:@"PairingMainViewController" bundle:nil];
                 controller.delegate = self;
                 [self.navigationController pushViewController:controller animated:YES];
-
+                
             }
             
         }break;
-//        case 6://임시
-//        {
-//            // 검색
-//            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
-//            [self.navigationController pushViewController:controller animated:YES];
-//            
-//        }break;
+            //        case 6://임시
+            //        {
+            //            // 검색
+            //            CMSearchMainViewController* controller = [[CMSearchMainViewController alloc] initWithNibName:@"CMSearchMainViewController" bundle:nil];
+            //            [self.navigationController pushViewController:controller animated:YES];
+            //            
+            //        }break;
     }
 }
 
-- (void)bodySubViewsRemove
-{
-    for ( UIView *view in [[[self.view subviews] objectAtIndex:1] subviews] )
-    {
-        [view removeFromSuperview];
-    }
-}
-
-#pragma mark - 델리게이트
 #pragma mark - MainPopUpViewController 델리게이트
 - (void)MainPopUpViewWithBtnData:(NSDictionary *)dataDic WithViewTag:(int)viewTag
 {

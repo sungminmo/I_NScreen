@@ -263,9 +263,10 @@ static NSInteger ivTag = 1212;
         }
     }
     
-    [[CMAppManager sharedInstance] onLeftMenuListClose:self];
     self.nTag = (int)[indexPath row] + 1;
     
+//    [[CMAppManager sharedInstance] onLeftMenuListClose:self];
+    [self onLeftMenuCloseComplet];
 }
 
 

@@ -61,7 +61,7 @@
 }
 
 #pragma mark -
-- (void)onLeftMenuListOpen:(id)control;
+- (void)onLeftMenuListOpen:(id)control
 {
     if (self.onLeftMenu) {
         return;
