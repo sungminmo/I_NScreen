@@ -291,6 +291,10 @@ static int tvFontSize = 15;
     
     self.pContentTextView21.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
     self.pContentTextView21.font = [UIFont systemFontOfSize:tvFontSize];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.pContentTextView21.contentOffset = CGPointZero;
+    });
 }
 
 #pragma mark - 시리즈가 아니고 구매 하지 않은 사용자
@@ -319,6 +323,10 @@ static int tvFontSize = 15;
     
     self.pContentTextView22.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
     self.pContentTextView22.font = [UIFont systemFontOfSize:tvFontSize];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.pContentTextView22.contentOffset = CGPointZero;
+    });
 }
 
 #pragma mark - 시리즈이고 구매 하지 않은 사용자
@@ -356,6 +364,10 @@ static int tvFontSize = 15;
         self.pContentTextView23.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
         self.pContentTextView23.font = [UIFont systemFontOfSize:tvFontSize];
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.pContentTextView23.contentOffset = CGPointZero;
+    });
 }
 
 #pragma mark - 시리즈이고 구매한 사용자
@@ -392,6 +404,10 @@ static int tvFontSize = 15;
         self.pContentTextView24.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
         self.pContentTextView24.font = [UIFont systemFontOfSize:tvFontSize];
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.pContentTextView24.contentOffset = CGPointZero;
+    });
 }
 
 #pragma mark  - 시리즈 이고 tv
@@ -433,6 +449,9 @@ static int tvFontSize = 15;
 
     }
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.pContentTextView25.contentOffset = CGPointZero;
+    });
 }
 
 
@@ -463,6 +482,10 @@ static int tvFontSize = 15;
     self.pContentTextView26.text = [NSString stringWithFormat:@"%@", [[[self pAssetInfoDic] objectForKey:@"asset"] objectForKey:@"synopsis"]];
     self.pContentTextView26.font = [UIFont systemFontOfSize:tvFontSize];
     self.pCommentLbl26.text = [NSString stringWithFormat:@"%@는(은)\nTV에서 시청하실 수 있습니다.", [[self.pAssetInfoDic objectForKey:@"asset"] objectForKey:@"title"]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.pContentTextView26.contentOffset = CGPointZero;
+    });
 }
 
 
