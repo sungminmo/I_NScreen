@@ -45,6 +45,7 @@ static const CGFloat pageSize = 20;
 @property (nonatomic, weak) IBOutlet CMTextField* searchField;    //  검색어 텍스트 필드
 @property (nonatomic, weak) IBOutlet UILabel* infoLabel;          //  검색갤과 정보 표출 라벨
 @property (nonatomic, weak) IBOutlet UITableView* autoCompletList;//  검색어 테이블
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint* autoCompletListHContraint;  //  검색어 테이블 높이
 
 @property (nonatomic, strong) CMTabMenuView* tabMenu;               //  vod, 프로그램 탭메뉴
 @property (nonatomic, weak) IBOutlet UIView* tabMenuContainer;    //  vod, 프로그램 탭메뉴
@@ -83,6 +84,8 @@ static const CGFloat pageSize = 20;
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardMoved:) name:UIKeyboardDidShowNotification object:nil];
     
     self.title = @"검색";
     self.isUseNavigationBar = YES;
@@ -135,6 +138,11 @@ static const CGFloat pageSize = 20;
     [super didReceiveMemoryWarning];
 }
 
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 #pragma mark - Private
 
 - (void)loadUI {
@@ -1284,6 +1292,21 @@ static const CGFloat pageSize = 20;
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - Notification
+
+-(void)keyboardMoved:(NSNotification *)notification
+{
+    if(notification.name == UIKeyboardDidShowNotification) {
+        CGRect keyboardFrame = [[notification.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+
+        CGRect frame = self.autoCompletList.frame;
+        
+        CGFloat height = self.view.frame.size.height - keyboardFrame.size.height - frame.origin.y;
+
+        self.autoCompletListHContraint.constant = height;
+    }
 }
 
 @end
