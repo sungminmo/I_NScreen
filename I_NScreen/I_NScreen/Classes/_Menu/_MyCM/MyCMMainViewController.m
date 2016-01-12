@@ -40,7 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"마이 씨앤엠";
+    self.title = @"마이 씨앤앰";
     self.isUseNavigationBar = YES;
     
     [self setTagInit];
