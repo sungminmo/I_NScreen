@@ -559,6 +559,12 @@ extern NSString* const CNM_OPEN_API_INTERFACE_purchaseProductByComplexMethods;
 // getBundleProductInfo
 extern NSString* const CNM_OPEN_API_INTERFACE_getBundleProductInfo;
 
+// network
+extern NSString* const CNM_NETWORK_REACHABILITY_STATUS;
+
+// refresh
+extern NSString* const CNM_HOME_REFRESH;
+
 @interface STVConstants : NSObject
 
 @end

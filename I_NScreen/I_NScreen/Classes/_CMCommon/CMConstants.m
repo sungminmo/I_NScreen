@@ -487,6 +487,12 @@ NSString* const CNM_OPEN_API_INTERFACE_purchaseProductByComplexMethods = @"purch
 // getBundleProductInfo
 NSString* const CNM_OPEN_API_INTERFACE_getBundleProductInfo = @"getBundleProductInfo";
 
+// network
+NSString* const CNM_NETWORK_REACHABILITY_STATUS = @"networkReachabilityStatus";
+
+// refresh
+NSString* const CNM_HOME_REFRESH = @"homeRefresh";
+
 @implementation STVConstants
 
 @end

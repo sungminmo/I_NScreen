@@ -18,6 +18,7 @@
 @interface PlayerViewController ()
 @property (nonatomic, strong) NSMutableDictionary *pDrmDic;
 @property (nonatomic, unsafe_unretained) BOOL isStopProcess;
+@property (nonatomic) BOOL isWifi;
 @end
 
 @implementation PlayerViewController
@@ -74,13 +75,14 @@ static PlayerViewController *playerViewCtr;
         radian=270;
     }
     
+    __weak __typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.2 animations:^{
         //뷰 회전 시키기
         CGAffineTransform transform =
         CGAffineTransformMakeRotation(degreesToRadian(radian));
         
-        self.view.transform=transform;
-        self.view.bounds=viewFrame;
+        weakSelf.view.transform=transform;
+        weakSelf.view.bounds=viewFrame;
     } completion:^(BOOL finished) {
         
     }];
@@ -94,6 +96,8 @@ static PlayerViewController *playerViewCtr;
 
 - (void)dealloc {
     [self stopProcess];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -115,6 +119,7 @@ static PlayerViewController *playerViewCtr;
         WV_Terminate();
         [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     }
+    
 }
 
 - (void)viewDidLoad {
@@ -122,6 +127,8 @@ static PlayerViewController *playerViewCtr;
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self SetDeviceOrientation:UIInterfaceOrientationPortrait];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNetworkStatus:) name:CNM_NETWORK_REACHABILITY_STATUS object:nil];
     
     self.title = @"";
     self.isUseNavigationBar = NO;
@@ -159,8 +166,14 @@ static PlayerViewController *playerViewCtr;
         //빨리 감기등의 이벤트로 인한 경우
         if (player.playbackState == MPMoviePlaybackStateStopped && player.loadState == MPMovieLoadStateUnknown) {
             [self.navigationController popViewControllerAnimated:YES];
-            [SIAlertView alert:@"동영상 재생오류" message:@"동영상 재생 중 오류가 발생하였습니다. 재생을 종료합니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-            }];
+            
+            if (self.isWifi) {
+                [SIAlertView alert:@"알림" message:@"모바일 데이터(LTE, 3G)로 연결되었습니다."];
+            } else {
+                [SIAlertView alert:@"동영상 재생오류" message:@"동영상 재생 중 오류가 발생하였습니다. 재생을 종료합니다." completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                }];
+            }
+            
             return;
         }
         [self.navigationController popViewControllerAnimated:YES];
@@ -187,19 +200,20 @@ static PlayerViewController *playerViewCtr;
 #pragma mark - drm 전문
 - (void)requestWithDrm
 {
+    __weak __typeof(self) weakSelf = self;
     NSURLSessionDataTask *tesk = [NSMutableDictionary drmApiWithAsset:self.pFileNameStr WithPlayStyle:self.pStyleStr completion:^(NSDictionary *drm, NSError *error) {
         
         DDLogDebug(@"drm = [%@]", drm);
         
-        [self.pDrmDic removeAllObjects];
-        [self.pDrmDic setDictionary:drm];
+        [weakSelf.pDrmDic removeAllObjects];
+        [weakSelf.pDrmDic setDictionary:drm];
         
         NSString* key = [[[CMAppManager sharedInstance] getKeychainPrivateTerminalKey] copy];
-        NSString* assetId = [self.pAssetId copy];
+        NSString* assetId = [weakSelf.pAssetId copy];
         NSString* userData = [NSString stringWithFormat:@",user_id:%@,content_id:%@,device_key:%@,so_idx:10", key, assetId, key];
         
         NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [self.pDrmDic objectForKey:@"drmServerUri"], WVDRMServerKey,
+                                    [weakSelf.pDrmDic objectForKey:@"drmServerUri"], WVDRMServerKey,
                                     @"markanynhne", WVPortalKey,
                                     userData, WVCAUserDataKey,
                                     NULL];
@@ -252,11 +266,12 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
 {
     if ( [[self.pDrmDic objectForKey:@"contentUri"] length] == 0 )
     {
+        __weak __typeof(self) weakSelf = self;
         [SIAlertView alert:@"VOD 시청 안내"
                    message:@"구매하신 VOD는 모바일용으로 준비 중에 있습니다.\n빠른 시일 내에 모바일에서 시청하실 수 있도록 조치하겠습니다.\n(본 VOD는 TV에서 시청 가능합니다.)"
                     button:@"확인"
                 completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                    [self.navigationController popViewControllerAnimated:NO];
+                    [weakSelf.navigationController popViewControllerAnimated:NO];
                 }];
     }
     else
@@ -287,11 +302,12 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
         }
         else
         {
+            __weak __typeof(self) weakSelf = self;
             [SIAlertView alert:@"VOD 시청 안내"
                        message:@"구매하신 VOD는 모바일용으로 준비 중에 있습니다.\n빠른 시일 내에 모바일에서 시청하실 수 있도록 조치하겠습니다.\n(본 VOD는 TV에서 시청 가능합니다.)"
                         button:@"확인"
                     completion:^(NSInteger buttonIndex, SIAlertView *alert) {
-                        [self.navigationController popViewControllerAnimated:NO];
+                        [weakSelf.navigationController popViewControllerAnimated:NO];
                     }];
         }
     }
@@ -309,5 +325,15 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
 //        }
 //    }
 //}
+
+#pragma mark - Notification
+- (void)changeNetworkStatus:(NSNotification*)notification {
+
+    if ([notification.object integerValue] == AFNetworkReachabilityStatusReachableViaWWAN) {
+        
+        self.isWifi = true;
+        [self.pMoviePlayer stop];
+    }
+}
 
 @end
