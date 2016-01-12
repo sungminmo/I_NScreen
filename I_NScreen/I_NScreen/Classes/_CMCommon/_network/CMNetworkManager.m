@@ -116,6 +116,7 @@
             switch (status) {
                 case AFNetworkReachabilityStatusReachableViaWWAN:
                 case AFNetworkReachabilityStatusReachableViaWiFi:
+                    [[NSNotificationCenter defaultCenter] postNotificationName:CNM_NETWORK_REACHABILITY_STATUS object:@(status)];
                     break;
                 case AFNetworkReachabilityStatusNotReachable:
                 default:
