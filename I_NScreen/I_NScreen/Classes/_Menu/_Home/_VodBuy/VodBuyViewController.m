@@ -122,7 +122,8 @@
             [self.pProductArr setArray:(NSArray *)itemObject];
         }
         
-        NSObject *saleObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
+//        NSObject *saleObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
+        NSObject *saleObject = [[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"discountCouponMasterIdList"];
         
         if ( [saleObject isKindOfClass:[NSDictionary class]] )
         {
@@ -147,7 +148,7 @@
             [self.pProductArr setArray:(NSArray *)itemObject];
         }
         
-        NSObject *saleObject = [[self.pDetailDataDic objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
+        NSObject *saleObject = [self.pDetailDataDic objectForKey:@"discountCouponMasterIdList"];
         
         if ( [saleObject isKindOfClass:[NSDictionary class]] )
         {
@@ -1328,10 +1329,11 @@
     {
         NSString *disMasterId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountCouponMasterId"]];
         
-        for ( NSString *subStr in self.pDiscountCouponMasterIdArr )
+        for ( NSDictionary *subDic in self.pDiscountCouponMasterIdArr )
         {
-            if ( [subStr isEqualToString:disMasterId] )
+            if ( [subDic[@"discountCouponMasterId"] isEqualToString:disMasterId] )
             {
+                
                 NSString* sDiscountAmount = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountAmount"]];
                 NSString* sCoupon = [dic[@"couponId"] copy];
                 [arr addObject:sDiscountAmount];
