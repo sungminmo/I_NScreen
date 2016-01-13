@@ -122,10 +122,9 @@
             [self.pProductArr setArray:(NSArray *)itemObject];
         }
         
-//        NSObject *saleObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
-        NSObject *saleObject = [[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"discountCouponMasterIdList"];
+        NSObject *saleObject = [[[self.pDetailDataDic objectForKey:@"asset"] objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
         
-        if ( [saleObject isKindOfClass:[NSDictionary class]] )
+        if ( [saleObject isKindOfClass:[NSString class]] )
         {
             [self.pDiscountCouponMasterIdArr addObject:saleObject];
         }
@@ -148,9 +147,9 @@
             [self.pProductArr setArray:(NSArray *)itemObject];
         }
         
-        NSObject *saleObject = [self.pDetailDataDic objectForKey:@"discountCouponMasterIdList"];
+        NSObject *saleObject = [[self.pDetailDataDic objectForKey:@"discountCouponMasterIdList"] objectForKey:@"discountCouponMasterId"];
         
-        if ( [saleObject isKindOfClass:[NSDictionary class]] )
+        if ( [saleObject isKindOfClass:[NSString class]] )
         {
             [self.pDiscountCouponMasterIdArr addObject:saleObject];
         }
@@ -1329,11 +1328,10 @@
     {
         NSString *disMasterId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountCouponMasterId"]];
         
-        for ( NSDictionary *subDic in self.pDiscountCouponMasterIdArr )
+        for ( NSString *subStr in self.pDiscountCouponMasterIdArr )
         {
-            if ( [subDic[@"discountCouponMasterId"] isEqualToString:disMasterId] )
+            if ( [subStr isEqualToString:disMasterId] )
             {
-                
                 NSString* sDiscountAmount = [NSString stringWithFormat:@"%@", [dic objectForKey:@"discountAmount"]];
                 NSString* sCoupon = [dic[@"couponId"] copy];
                 [arr addObject:sDiscountAmount];
