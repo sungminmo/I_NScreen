@@ -73,6 +73,8 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
                                                           //화면갱신 
                                                           [self settingListData];
                                                           [self.tableView reloadData];
+                                                          
+                                                          [[NSNotificationCenter defaultCenter] postNotificationName:CNM_HOME_REFRESH object:nil];
                                                       }
                                                       
                                                   }];

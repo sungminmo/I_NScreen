@@ -30,6 +30,7 @@
 - (IBAction)onBtnClicked:(UIButton *)btn;
 
 - (void)selectTabTag:(NSInteger)tag;
+- (NSInteger)currentTabTag;
 
 @end
 

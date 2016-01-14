@@ -10,6 +10,8 @@
 
 @interface HomeGnbViewController ()
 
+@property (nonatomic) NSInteger selectedTabTag;
+
 @end
 
 @implementation HomeGnbViewController
@@ -38,6 +40,8 @@
     self.pMenu04.tag = HOME_GNB_VIEW_BTN_06;
     self.pMenu05.tag = HOME_GNB_VIEW_BTN_07;
     self.pTestBtn.tag = HOME_GNB_VIEW_BTN_08;
+    
+    self.selectedTabTag = HOME_GNB_VIEW_BTN_03;
 }
 
 #pragma mark - 화면 초기화
@@ -92,6 +96,8 @@
             self.pLine04.hidden = YES;
             self.pLine05.hidden = YES;
             
+            self.selectedTabTag = HOME_GNB_VIEW_BTN_03;
+            
         }break;
         case HOME_GNB_VIEW_BTN_04:
         {
@@ -107,6 +113,8 @@
             self.pLine03.hidden = YES;
             self.pLine04.hidden = YES;
             self.pLine05.hidden = YES;
+            
+            self.selectedTabTag = HOME_GNB_VIEW_BTN_04;
             
         }break;
         case HOME_GNB_VIEW_BTN_05:
@@ -124,6 +132,8 @@
             self.pLine04.hidden = YES;
             self.pLine05.hidden = YES;
             
+            self.selectedTabTag = HOME_GNB_VIEW_BTN_05;
+            
         }break;
         case HOME_GNB_VIEW_BTN_06:
         {
@@ -139,6 +149,8 @@
             self.pLine03.hidden = YES;
             self.pLine04.hidden = NO;
             self.pLine05.hidden = YES;
+            
+            self.selectedTabTag = HOME_GNB_VIEW_BTN_06;
             
         }break;
         case HOME_GNB_VIEW_BTN_07:
@@ -157,6 +169,8 @@
                 self.pLine03.hidden = YES;
                 self.pLine04.hidden = YES;
                 self.pLine05.hidden = NO;
+                
+                self.selectedTabTag = HOME_GNB_VIEW_BTN_07;
             }
             
         }break;
@@ -173,4 +187,7 @@
     }
 }
 
+- (NSInteger)currentTabTag {
+    return self.selectedTabTag;
+}
 @end

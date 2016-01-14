@@ -21,6 +21,8 @@
 
 @interface RootViewController ()
 
+@property (nonatomic) BOOL isRefresh;   //  화면갱신여부
+@property (nonatomic, strong) CMBaseViewController* homeController;
 @end
 
 @implementation RootViewController
@@ -33,6 +35,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    if (self.isRefresh)
+    {
+        self.isRefresh = false;
+        [self onHomeGnbViewMenuList:(int)self.pGnbViewController.currentTabTag];
+    }
 }
 
 - (void)viewDidLoad {
@@ -52,8 +60,21 @@
     [self addChildViewController:pRecommendViewController];
     [pRecommendViewController didMoveToParentViewController:self];
     [self.pBodyView addSubview:pRecommendViewController.view];
+    
+    self.homeController = pRecommendViewController;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:CNM_HOME_REFRESH object:nil];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)refresh
+{
+    self.isRefresh = true;
+}
 
 - (void)onHomeGnbViewMenuList:(int)nTag
 {
@@ -83,6 +104,8 @@
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
             
+            self.homeController = pViewController;
+            
         }break;
         case HOME_GNB_VIEW_BTN_04:
         {
@@ -99,6 +122,8 @@
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
+            
+            self.homeController = pViewController;
             
         }break;
         case HOME_GNB_VIEW_BTN_05:
@@ -117,6 +142,8 @@
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
             
+            self.homeController = pViewController;
+            
         }break;
         case HOME_GNB_VIEW_BTN_06:
         {
@@ -132,6 +159,8 @@
             [self addChildViewController:pViewController];
             [pViewController didMoveToParentViewController:self];
             [self.pBodyView addSubview:pViewController.view];
+            
+            self.homeController = pViewController;
             
         }break;
         case HOME_GNB_VIEW_BTN_07:
@@ -150,6 +179,8 @@
                 [self addChildViewController:pViewController];
                 [pViewController didMoveToParentViewController:self];
                 [self.pBodyView addSubview:pViewController.view];
+                
+                self.homeController = pViewController;
             }
             else
             {
@@ -183,10 +214,17 @@
 
 - (void)bodySubViewsRemove
 {
-    for ( UIView *view in [[[self.view subviews] objectAtIndex:1] subviews] )
-    {
-        [view removeFromSuperview];
+    if (self.homeController) {
+        
+        [self.homeController.view removeFromSuperview];
+        [self.homeController removeFromParentViewController];
+        self.homeController = nil;
     }
+    
+//    for ( UIView *view in [[[self.view subviews] objectAtIndex:1] subviews] )
+//    {
+//        [view removeFromSuperview];
+//    }
 }
 
 #pragma mark - HomeGnbViewDelegate
