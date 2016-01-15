@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMNavigationController : UINavigationController
+@interface CMNavigationController : UINavigationController <UINavigationControllerDelegate>
 @end
 
 @interface CMBaseViewController : UIViewController

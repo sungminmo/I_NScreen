@@ -16,46 +16,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
-    {
-        self.interactivePopGestureRecognizer.enabled = YES;
-        self.interactivePopGestureRecognizer.delegate = nil;
-        [self.interactivePopGestureRecognizer addTarget:self action:@selector(actionForGesture:)];
+    self.delegate = self;
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        viewController.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    [super pushViewController:viewController animated:animated];
+}
+
+
+#pragma mark UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    NSArray* list = @[@"PlayerViewController", @"RootViewController"];
+    NSString* vcName = NSStringFromClass([viewController class]);
+    if ([list containsObject:vcName] == NO) {
+        if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            viewController.navigationController.interactivePopGestureRecognizer.enabled = YES;
+            viewController.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+        }
+    } else {
+        if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+            viewController.navigationController.interactivePopGestureRecognizer.enabled = NO;
+            viewController.navigationController.interactivePopGestureRecognizer.delegate = nil;
+        }
     }
 }
 
+
+#pragma mark -
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)] &&
         gestureRecognizer == self.navigationController.interactivePopGestureRecognizer) {
-        return NO;
+        return [self.navigationController.viewControllers count] > 1;
     }
     return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    return YES;
-}
-
-- (void)actionForGesture:(UISwipeGestureRecognizer *)recognizer {
-    if (self.topViewController != nil)//skip modal
-    {
-        return;
-    }
-    
-    if (recognizer.view != nil && recognizer.state == UIGestureRecognizerStateEnded )
-    {
-        if (self.viewControllers.count > 2)
-        {
-            UIViewController *controller = self.viewControllers[self.viewControllers.count - 1];
-            if ([controller isKindOfClass:NSClassFromString(@"CMBaseViewController")])
-            {
-                if ([controller respondsToSelector:@selector(actionForGesture:)])
-                {
-                    [(CMBaseViewController *)controller actionForGesture:(UISwipeGestureRecognizer*)recognizer];
-                }
-            }
-        }
-    }
 }
 
 @end
@@ -78,11 +74,6 @@
 - (void)viewDidLoad {
     [self setupLayout];
     [super viewDidLoad];
-    
-    if (self.isLoadWillAppear && [self.navigationController.viewControllers count] > 1) {
-        self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
-        [self.navigationController.interactivePopGestureRecognizer addTarget:self action:@selector(actionForGesture:)];
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -198,10 +189,6 @@
 
 #pragma mark - event
 - (void)actionBackButton:(id)sender {
-    [self backCommonAction];
-}
-
-- (void)actionForGesture:(UISwipeGestureRecognizer *)recognizer {
     [self backCommonAction];
 }
 
