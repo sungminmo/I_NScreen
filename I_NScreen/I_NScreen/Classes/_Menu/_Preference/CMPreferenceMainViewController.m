@@ -65,7 +65,7 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
                                                           [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.2]];
                                                           
                                                           [[CMAppManager sharedInstance] setKeychainAdultCertification:YES];
-                                                          
+  
                                                           if (self.switchButton != nil) {
                                                               [self adultAuthorizationSuccessAfterEventWithSwitchButton:self.switchButton value:self.isSwitchOn];
                                                           }
@@ -74,7 +74,19 @@ static NSString* const CellIdentifier = @"preferenceMainCell";
                                                           [self settingListData];
                                                           [self.tableView reloadData];
                                                           
-                                                          [[NSNotificationCenter defaultCenter] postNotificationName:CNM_HOME_REFRESH object:nil];
+                                                          // 성인인증후, 화면 이동 및 갱신 (FXKeychain버그로 인해 이런식으로 처리)
+                                                          if (APP_REFRESH_ADULT_TAB == [CMAppManager sharedInstance].appRefreshType ||
+                                                              APP_REFRESH_VOD_DETAIL == [CMAppManager sharedInstance].appRefreshType)
+                                                          {
+                                                              CMNavigationController* navigationController = (CMNavigationController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+                                                              [navigationController popToRootViewControllerAnimated:YES];
+                                                          }
+                                                          else if (APP_REFRESH_NONE == [CMAppManager sharedInstance].appRefreshType)
+                                                          {
+                                                              [CMAppManager sharedInstance].appRefreshType = APP_REFRESH_HOME;
+                                                          }
+                                                          
+//                                                          [[CMAppManager sharedInstance] excuteRefreshState];
                                                       }
                                                       
                                                   }];

@@ -21,7 +21,6 @@
 
 @interface RootViewController ()
 
-@property (nonatomic) BOOL isRefresh;   //  화면갱신여부
 @property (nonatomic, strong) CMBaseViewController* homeController;
 @end
 
@@ -36,10 +35,37 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
-    if (self.isRefresh)
+    // 성인인증후, 화면 이동 및 갱신 (FXKeychain버그로 인해 이런식으로 처리)
+    if (APP_REFRESH_ADULT_TAB == [CMAppManager sharedInstance].appRefreshType)
     {
-        self.isRefresh = false;
-        [self onHomeGnbViewMenuList:(int)self.pGnbViewController.currentTabTag];
+        [CMAppManager sharedInstance].appRefreshType = APP_REFRESH_NONE;
+        
+        if ([[CMAppManager sharedInstance] getKeychainAdultCertification] == YES)
+        {
+            [self refreshWithTab:[[CMAppManager sharedInstance].appRefreshInfo[CNM_REFRESH_TAP_TAG] integerValue]];
+        }
+    }
+    else if (APP_REFRESH_VOD_DETAIL == [CMAppManager sharedInstance].appRefreshType)
+    {
+        [CMAppManager sharedInstance].appRefreshType = APP_REFRESH_NONE;
+        
+        if ([[CMAppManager sharedInstance] getKeychainAdultCertification] == YES)
+        {
+            [self refreshWithTab:self.pGnbViewController.currentTabTag];
+            
+            VodDetailMainViewController *pViewController = [[VodDetailMainViewController alloc] initWithNibName:@"VodDetailMainViewController" bundle:nil];
+            pViewController.pAssetIdStr = [CMAppManager sharedInstance].appRefreshInfo[CNM_REFRESH_ASSET_ID];
+            pViewController.pEpisodePeerExistence = [CMAppManager sharedInstance].appRefreshInfo[CNM_REFRESH_EPISODE_PEER_EXISTENCE];
+            pViewController.pContentGroupId = [CMAppManager sharedInstance].appRefreshInfo[CNM_REFRESH_CONTENT_GROUP_ID];
+            pViewController.delegate = [CMAppManager sharedInstance].appRefreshInfo[CNM_REFRESH_DELEGATE];
+            [self.navigationController pushViewController:pViewController animated:YES];
+        }
+        
+    }
+    else if (APP_REFRESH_HOME == [CMAppManager sharedInstance].appRefreshType) {
+        
+        [CMAppManager sharedInstance].appRefreshType = APP_REFRESH_NONE;
+        [self refreshWithTab:self.pGnbViewController.currentTabTag];
     }
 }
 
@@ -62,8 +88,6 @@
     [self.pBodyView addSubview:pRecommendViewController.view];
     
     self.homeController = pRecommendViewController;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:CNM_HOME_REFRESH object:nil];
 }
 
 - (void)dealloc
@@ -71,12 +95,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)refresh
-{
-    self.isRefresh = true;
-}
-
-- (void)onHomeGnbViewMenuList:(int)nTag
+- (void)onHomeGnbViewMenuList:(NSInteger)nTag
 {
     switch (nTag) {
         case HOME_GNB_VIEW_BTN_01:
@@ -189,6 +208,7 @@
                     
                             if ( buttonIndex == 1 )
                             {
+                                [[CMAppManager sharedInstance] setRefreshTabInfoWithTag:nTag];
                                 // 설정 창으로 이동
                                 CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
                                 [self.navigationController pushViewController:controller animated:YES];
@@ -225,6 +245,12 @@
 //    {
 //        [view removeFromSuperview];
 //    }
+}
+
+- (void)refreshWithTab:(NSInteger)tag
+{
+    [self.pGnbViewController selectTabTag:tag];
+    [self onHomeGnbViewMenuList:tag];
 }
 
 #pragma mark - HomeGnbViewDelegate

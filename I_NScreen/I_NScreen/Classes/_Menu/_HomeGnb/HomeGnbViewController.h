@@ -37,6 +37,6 @@
 @protocol HomeGnbViewDelegate <NSObject>
 
 @optional
-- (void)onHomeGnbViewMenuList:(int)nTag;
+- (void)onHomeGnbViewMenuList:(NSInteger)nTag;
 
 @end

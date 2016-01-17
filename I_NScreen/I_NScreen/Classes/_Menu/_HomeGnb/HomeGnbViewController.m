@@ -64,7 +64,7 @@
 - (IBAction)onBtnClicked:(UIButton *)btn
 {
     [self selectTabTag:((UIButton*)btn).tag];
-    [self.delegate onHomeGnbViewMenuList:(int)[btn tag]];
+    [self.delegate onHomeGnbViewMenuList:[btn tag]];
 }
 
 #pragma mark - Public

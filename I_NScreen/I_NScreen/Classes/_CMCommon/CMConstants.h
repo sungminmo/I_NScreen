@@ -563,7 +563,11 @@ extern NSString* const CNM_OPEN_API_INTERFACE_getBundleProductInfo;
 extern NSString* const CNM_NETWORK_REACHABILITY_STATUS;
 
 // refresh
-extern NSString* const CNM_HOME_REFRESH;
+extern NSString* const CNM_REFRESH_TAP_TAG;
+extern NSString* const CNM_REFRESH_ASSET_ID;
+extern NSString* const CNM_REFRESH_EPISODE_PEER_EXISTENCE;
+extern NSString* const CNM_REFRESH_CONTENT_GROUP_ID;
+extern NSString* const CNM_REFRESH_DELEGATE;
 
 @interface STVConstants : NSObject
 

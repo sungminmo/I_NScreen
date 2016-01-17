@@ -491,7 +491,11 @@ NSString* const CNM_OPEN_API_INTERFACE_getBundleProductInfo = @"getBundleProduct
 NSString* const CNM_NETWORK_REACHABILITY_STATUS = @"networkReachabilityStatus";
 
 // refresh
-NSString* const CNM_HOME_REFRESH = @"homeRefresh";
+NSString* const CNM_REFRESH_TAP_TAG = @"refreshTapTag";
+NSString* const CNM_REFRESH_ASSET_ID = @"refreshAssetId";
+NSString* const CNM_REFRESH_EPISODE_PEER_EXISTENCE = @"refreshEpisodePeerExistence";
+NSString* const CNM_REFRESH_CONTENT_GROUP_ID = @"refreshContentGroupId";
+NSString* const CNM_REFRESH_DELEGATE = @"delegate";
 
 @implementation STVConstants
 

@@ -819,6 +819,8 @@
                         
                         if ( buttonIndex == 1 )
                         {
+                            [[CMAppManager sharedInstance] setRefreshVodInfoWithAssetId:assetId episodePeerExistence:episodePeerExistence contentGroupId:contentGroupId delegate:self];
+                            
                             // 설정 창으로 이동
                             CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
                             [self.navigationController pushViewController:controller animated:YES];

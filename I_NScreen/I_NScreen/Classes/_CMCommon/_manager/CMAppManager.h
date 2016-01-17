@@ -8,16 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_OPTIONS(NSInteger, APP_REFRESH_TYPE) {
+    APP_REFRESH_NONE,           //  refresh없음
+    APP_REFRESH_HOME,           //  홈화면 refresh
+    APP_REFRESH_VOD_DETAIL,     //  vod상세보기 화면으로 이동
+    APP_REFRESH_ADULT_TAB       //  성인탭으로 이동
+};
+
 @interface CMAppManager : NSObject
 
 @property (nonatomic, unsafe_unretained) BOOL isFirst;//앱 최초실행여부
 @property (nonatomic, unsafe_unretained) BOOL isNetworkErrorAlertWorking;//네트워크 에러창이 떠있는지 여부 (SIAlertView+AFNetworking 카테고리 내부에서 핸들링)
 @property (nonatomic, unsafe_unretained) BOOL onLeftMenu;
+@property (nonatomic) APP_REFRESH_TYPE appRefreshType;
+@property (nonatomic, strong) NSDictionary* appRefreshInfo;
 
 
 + (CMAppManager *)sharedInstance;
-
-
 
 /**
  *  @brief  기본값 설정.
@@ -243,5 +250,24 @@
  *  @return 프로모션 이미지
  */
 - (UIImage*)makePromotionImage:(NSDictionary*)item;
+
+/**
+ *  성인인증 후, 이동할 탭 정보 저장
+ *
+ *  @param tag 이동할 탭의 태그
+ */
+- (void)setRefreshTabInfoWithTag:(NSInteger)tag;
+
+/**
+ *  성인인증 후, 이동할 vod상세보기 화면 정보 저장
+ *
+ *  @param assetId              assetId
+ *  @param episodePeerExistence episodePeerExistence
+ *  @param contentGroupId       contentGroupId
+ *  @param delegate             delegate
+ */
+- (void)setRefreshVodInfoWithAssetId:(NSString*)assetId episodePeerExistence:(NSString*)episodePeerExistence contentGroupId:(NSString*)contentGroupId delegate:(id)delegate;
+
+- (void)excuteRefreshState;
 
 @end

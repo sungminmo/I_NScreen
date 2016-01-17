@@ -10,8 +10,11 @@
 #import "LeftMenuViewController.h"
 #import "FXKeychain.h"
 #import "CMDBDataManager.h"
+#import "CMBaseViewController.h"
+#import "RootViewController.h"
 
 @interface CMAppManager()
+
 @property (nonatomic, unsafe_unretained) CMAdultCertificationYN adultCertificationState;//성인인증여부 상태
 @end
 
@@ -23,6 +26,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstanced = [[self alloc] init];
+        
+        sharedInstanced.appRefreshType = APP_REFRESH_NONE;
     });
     return sharedInstanced;
 }
@@ -1356,6 +1361,39 @@
     return success;
 }
 
+- (void)setRefreshTabInfoWithTag:(NSInteger)tag {
 
+    self.appRefreshType = APP_REFRESH_ADULT_TAB;
+    self.appRefreshInfo = @{CNM_REFRESH_TAP_TAG:@(tag)};
+}
+
+- (void)setRefreshVodInfoWithAssetId:(NSString*)assetId episodePeerExistence:(NSString*)episodePeerExistence contentGroupId:(NSString*)contentGroupId delegate:(id)delegate {
+    
+    self.appRefreshType = APP_REFRESH_VOD_DETAIL;
+    self.appRefreshInfo = @{CNM_REFRESH_ASSET_ID:assetId,
+                            CNM_REFRESH_EPISODE_PEER_EXISTENCE:episodePeerExistence,
+                            CNM_REFRESH_CONTENT_GROUP_ID:contentGroupId,
+                            CNM_REFRESH_DELEGATE:delegate};
+}
+
+- (void)excuteRefreshState {
+
+    if (APP_REFRESH_NONE == self.appRefreshType)
+    {
+        return;
+    }
+    else if (APP_REFRESH_ADULT_TAB == self.appRefreshType)
+    {
+        CMNavigationController* navigationController = (CMNavigationController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        [navigationController popToRootViewControllerAnimated:YES];
+        
+        RootViewController* rootViewController = (RootViewController*)[navigationController topViewController];
+        [rootViewController refreshWithTab:[self.appRefreshInfo[CNM_REFRESH_TAP_TAG] integerValue]];
+    }
+    else if (APP_REFRESH_VOD_DETAIL == self.appRefreshType)
+    {
+        
+    }
+}
 
 @end

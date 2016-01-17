@@ -35,6 +35,8 @@
 
 @property (nonatomic, weak) id <RootViewDelegate>delegate;
 
+- (void)refreshWithTab:(NSInteger)tag;
+
 @end
 
 @protocol RootViewDelegate <NSObject>

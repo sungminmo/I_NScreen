@@ -706,6 +706,8 @@ static const CGFloat pageSize = 20;
                         
                         if ( buttonIndex == 1 )
                         {
+                            [[CMAppManager sharedInstance] setRefreshVodInfoWithAssetId:sAssetId episodePeerExistence:sEpisodePeerExistence contentGroupId:sContentGroupId delegate:self];
+                            
                             // 설정 창으로 이동
                             CMPreferenceMainViewController* controller = [[CMPreferenceMainViewController alloc] initWithNibName:@"CMPreferenceMainViewController" bundle:nil];
                             [self.navigationController pushViewController:controller animated:YES];
