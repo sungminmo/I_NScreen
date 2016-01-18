@@ -69,7 +69,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     switch ([btn tag]) {
         case ANI_KIDS_MAIN_VIEW_BTN_01:
         {
-            [self.delegate AniKidsMainViewWithBtnTag:ANI_KIDS_MAIN_VIEW_BTN_01 WithCategoryId:self.pCategoryId];
+            [self.delegate AniKidsMainViewWithBtnTag:ANI_KIDS_MAIN_VIEW_BTN_01 WithCategoryId:self.pCategoryId currentData:self.pDataDic];
         }break;
         case ANI_KIDS_MAIN_VIEW_BTN_02:
         {

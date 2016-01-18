@@ -68,7 +68,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     switch ([btn tag]) {
         case TV_REPLAY_VIEW_BTN_01:
         {
-            [self.delegate TVReplayViewWithBtnTag:TV_REPLAY_VIEW_BTN_01 WithCategoryId:self.pCategoryId];
+            [self.delegate TVReplayViewWithBtnTag:TV_REPLAY_VIEW_BTN_01 withCategoryId:self.pCategoryId currentData:self.pDataDic];
         }break;
         case TV_REPLAY_VIEW_BTN_02:
         {
@@ -252,6 +252,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
         {
             // 인기 순위
             sCategoryId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"categoryId"]];
+            break;
             
         }
     }

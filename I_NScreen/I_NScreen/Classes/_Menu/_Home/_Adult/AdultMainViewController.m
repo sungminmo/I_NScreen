@@ -74,7 +74,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     switch ([btn tag]) {
         case ADULT_MAIN_VIEW_BTN_01:
         {
-            [self.delegate AdultMainViewWithBtnTag:ADULT_MAIN_VIEW_BTN_01 WithCategoryId:self.pCategoryId];
+            [self.delegate AdultMainViewWithBtnTag:ADULT_MAIN_VIEW_BTN_01 WithCategoryId:self.pCategoryId currentData:self.pDataDic];
         }break;
         case ADULT_MAIN_VIEW_BTN_02:
         {

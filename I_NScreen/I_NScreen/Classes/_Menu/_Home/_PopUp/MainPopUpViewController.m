@@ -321,7 +321,28 @@
         
         self.pModel = [[TreeListModel alloc] initWithJSONFilePath:self.pFourDepthListJsonStr];
         
+        NSIndexPath* indexPath = nil;
+        if (self.selectedDataDic)
+        {
+            for (int i = 0; i < self.pModel.cellCount; i++)
+            {
+                indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+                
+                NSDictionary* item = [self.pModel itemForRowAtIndexPath:indexPath];
+             
+                if ([item[@"categoryId"] isEqualToString:self.selectedDataDic[@"parentCategoryId"]]) {
+                    [self.pModel setOpenClose:YES forRowAtIndexPath:indexPath];
+                    break;
+                }
+            }
+        }
+
         [self.pTableView reloadData];
+        
+        if (indexPath) {
+            [self.pTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+        }
+        
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];

@@ -33,6 +33,8 @@
 
 @property (nonatomic, weak) id<MainPopUpViewDelegate>delegate;
 
+@property (nonatomic, strong) NSDictionary* selectedDataDic;
+
 - (IBAction)onBtnClicked:(UIButton *)btn;
 
 @end

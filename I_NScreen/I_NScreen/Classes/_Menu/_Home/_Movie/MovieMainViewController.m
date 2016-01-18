@@ -74,7 +74,7 @@ static NSString* const CollectionViewCell = @"CollectionViewCell";
     switch ([btn tag]) {
         case MOVIE_MAIN_VIEW_BTN_01:
         {
-            [self.delegate MovieMainViewWithBtnTag:MOVIE_MAIN_VIEW_BTN_01 WithCategoryId:self.pCategoryId];
+            [self.delegate MovieMainViewWithBtnTag:MOVIE_MAIN_VIEW_BTN_01 WithCategoryId:self.pCategoryId currentData:self.pDataDic];
         }break;
         case MOVIE_MAIN_VIEW_BTN_02:
         {

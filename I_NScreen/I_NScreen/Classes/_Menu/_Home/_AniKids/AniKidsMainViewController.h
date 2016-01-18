@@ -42,6 +42,6 @@
 
 @optional
 //- (void)AniKidsMainViewWithBtnTag:(int)nTag;
-- (void)AniKidsMainViewWithBtnTag:(int)nTag WithCategoryId:(NSString *)categoryId;
+- (void)AniKidsMainViewWithBtnTag:(int)nTag WithCategoryId:(NSString *)categoryId currentData:(NSDictionary*)dataDic;
 
 @end
