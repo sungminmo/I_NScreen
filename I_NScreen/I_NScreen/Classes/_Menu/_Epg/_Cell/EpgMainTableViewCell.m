@@ -16,6 +16,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.pChannelTitleLbl.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
+    self.pChannelTimeLbl.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

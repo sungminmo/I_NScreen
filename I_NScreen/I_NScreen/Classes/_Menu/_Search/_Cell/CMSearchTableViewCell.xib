@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,7 +18,6 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ch_unpick.png" translatesAutoresizingMaskIntoConstraints="NO" id="n24-Ja-ik6">
                         <rect key="frame" x="9" y="21" width="25" height="24"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="7Y3-FT-Yxr"/>
                             <constraint firstAttribute="height" constant="24" id="LY6-kb-rv3"/>
@@ -26,7 +25,6 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyY-qn-4Gv" userLabel="channel Label">
                         <rect key="frame" x="46" y="9" width="54" height="21"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="FMZ-9z-1qg"/>
                             <constraint firstAttribute="height" constant="21" id="YwY-ub-ZxV"/>
@@ -37,7 +35,6 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-bE-nAs" userLabel="broadcaster Image">
                         <rect key="frame" x="46" y="34" width="54" height="22"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.094117647058823528" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="0sY-K2-4o0"/>
@@ -46,7 +43,6 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴스파이터" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="G20-Zd-dia" userLabel="title Label">
                         <rect key="frame" x="108" y="9" width="186" height="21"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="npm-fQ-9ud"/>
                         </constraints>
@@ -56,7 +52,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="wJK-zn-FaB" userLabel="time Label">
                         <rect key="frame" x="108" y="35" width="40" height="20"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="nG4-BH-iDW"/>
                             <constraint firstAttribute="width" constant="40" id="zas-2P-WEf"/>
@@ -67,7 +62,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015.12.12 방송예정" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="1Zp-9k-PSh" userLabel="state Label">
                         <rect key="frame" x="148" y="35" width="116" height="20"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="116" id="ICl-19-A0G"/>
                             <constraint firstAttribute="height" constant="20" id="v7t-Im-dcu"/>
@@ -78,7 +72,6 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YD7-1n-3pi" userLabel="ALL image">
                         <rect key="frame" x="232" y="11.5" width="29" height="16"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="Upa-uS-qdx"/>
                             <constraint firstAttribute="width" constant="29" id="hBD-6g-daK"/>
@@ -86,7 +79,6 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hd.png" translatesAutoresizingMaskIntoConstraints="NO" id="HbJ-bK-tkX" userLabel="HD image">
                         <rect key="frame" x="265" y="11.5" width="29" height="16"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="RJh-JO-Q1m"/>
                             <constraint firstAttribute="width" constant="29" id="yYF-t6-p6y"/>
@@ -94,7 +86,6 @@
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9G-wO-51N" userLabel="line View">
                         <rect key="frame" x="0.0" y="64" width="320" height="1"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.75294117647058822" green="0.75686274509803919" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="rD4-Ho-Xlr"/>
@@ -102,7 +93,6 @@
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vM2-aN-HE2">
                         <rect key="frame" x="0.0" y="2" width="46" height="63"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="vM2-aN-HE2" secondAttribute="height" multiplier="46:63" id="hh8-pa-2bQ"/>
                         </constraints>
@@ -111,7 +101,6 @@
                         </connections>
                     </button>
                 </subviews>
-                <animations/>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="w9G-wO-51N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0vR-Xo-paR"/>
@@ -146,7 +135,6 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="bookmarkImageView" destination="n24-Ja-ik6" id="SYS-2q-UOD"/>
                 <outlet property="channelLabel" destination="FyY-qn-4Gv" id="UDA-ea-gU4"/>

@@ -34,6 +34,10 @@
 - (void)awakeFromNib {
     
     [super awakeFromNib];
+    
+    self.titleLabel.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
+    self.titleLabel.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
+    self.stateLabel.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -569,6 +569,8 @@ extern NSString* const CNM_REFRESH_EPISODE_PEER_EXISTENCE;
 extern NSString* const CNM_REFRESH_CONTENT_GROUP_ID;
 extern NSString* const CNM_REFRESH_DELEGATE;
 
+extern const CGFloat CNM_DEFAULT_FONT_SIZE;
+
 @interface STVConstants : NSObject
 
 @end

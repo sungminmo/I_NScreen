@@ -68,7 +68,7 @@
                             <constraint firstAttribute="bottom" secondItem="NPj-Xk-1Sj" secondAttribute="bottom" id="f97-bn-zYP"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qLi-r7-dtZ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLi-r7-dtZ">
                         <rect key="frame" x="0.0" y="138" width="95" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="qLi-r7-dtZ" secondAttribute="height" multiplier="19:4" id="Sqs-LX-59Z"/>

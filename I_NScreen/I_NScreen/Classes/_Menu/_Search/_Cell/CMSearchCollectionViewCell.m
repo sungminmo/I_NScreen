@@ -21,7 +21,8 @@
 @implementation CMSearchCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+
+    self.titleLabel.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
 }
 
 - (void)setImageUrl:(NSString*)imageUrl title:(NSString*)title rating:(NSString *)rating WithTyOnly:(BOOL)isTyOnly data:(NSDictionary*)data{

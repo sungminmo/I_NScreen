@@ -33,6 +33,9 @@
     
     [super awakeFromNib];
     
+    self.titleLabel.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
+    self.timeLabel.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
+    
     [self resetData];
 }
 

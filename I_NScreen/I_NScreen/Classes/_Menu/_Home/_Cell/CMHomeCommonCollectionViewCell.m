@@ -32,6 +32,7 @@
 
 - (void)awakeFromNib {
     
+    self.titleLabel.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
 }
 
 #pragma mark - Private

@@ -34,6 +34,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.pTitleLbl.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
+    self.pTimeLbl.font = [UIFont systemFontOfSize:CNM_DEFAULT_FONT_SIZE];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

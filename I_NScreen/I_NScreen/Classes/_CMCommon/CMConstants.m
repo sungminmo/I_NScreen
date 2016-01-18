@@ -497,6 +497,9 @@ NSString* const CNM_REFRESH_EPISODE_PEER_EXISTENCE = @"refreshEpisodePeerExisten
 NSString* const CNM_REFRESH_CONTENT_GROUP_ID = @"refreshContentGroupId";
 NSString* const CNM_REFRESH_DELEGATE = @"delegate";
 
+// ui
+const CGFloat CNM_DEFAULT_FONT_SIZE = 13;
+
 @implementation STVConstants
 
 @end
