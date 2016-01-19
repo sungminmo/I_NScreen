@@ -844,7 +844,6 @@
 		E5E418851BE1E0C100B4DAB3 /* TestPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E418831BE1E0C100B4DAB3 /* TestPageViewController.xib */; };
 		E5E5A2B91BD78A6500A99883 /* TestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E5A2B71BD78A6500A99883 /* TestMainViewController.m */; };
 		E5E5A2BA1BD78A6500A99883 /* TestMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E5A2B81BD78A6500A99883 /* TestMainViewController.xib */; };
-		E5E7B5C41BF000D700B78341 /* libWViPhoneAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5E7B5C21BF000D700B78341 /* libWViPhoneAPI.a */; };
 		E5E7B5CE1BF001AB00B78341 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B5C91BF001AB00B78341 /* PlayerViewController.m */; };
 		E5E7B5CF1BF001AB00B78341 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E7B5CA1BF001AB00B78341 /* PlayerViewController.xib */; };
 		E5E7B5D01BF001AB00B78341 /* VodDetailMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E7B5CC1BF001AB00B78341 /* VodDetailMainViewController.m */; };
@@ -1867,7 +1866,6 @@
 				E5E418661BE1AE6000B4DAB3 /* libresolv.tbd in Frameworks */,
 				E5E418651BE1AE5800B4DAB3 /* libxml2.tbd in Frameworks */,
 				E5E418641BE1AE4900B4DAB3 /* libc++.tbd in Frameworks */,
-				E5E7B5C41BF000D700B78341 /* libWViPhoneAPI.a in Frameworks */,
 				E5F6DDEC1BB0EBB7006C4DD4 /* UIKit.framework in Frameworks */,
 				992894FB1BA3E68700BE62A0 /* CFNetwork.framework in Frameworks */,
 				564B7AC9961A2C92723F331D /* libPods-I_NScreen.a in Frameworks */,

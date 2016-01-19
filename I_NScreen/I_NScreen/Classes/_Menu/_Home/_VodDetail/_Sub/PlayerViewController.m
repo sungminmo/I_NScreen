@@ -7,7 +7,7 @@
 //
 
 #import "PlayerViewController.h"
-#import "WViPhoneAPI.h"
+//#import "WViPhoneAPI.h"
 #import "NSMutableDictionary+DRM.h"
 #import "UIAlertView+AFNetworking.h"
 #import "CMDBDataManager.h"
@@ -113,8 +113,8 @@ static PlayerViewController *playerViewCtr;
     if (self.isStopProcess == NO) {
         self.isStopProcess = YES;
         [self.pMoviePlayer stop];
-        WV_Stop();
-        WV_Terminate();
+//        WV_Stop();
+//        WV_Terminate();
         [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     }
     
@@ -210,18 +210,18 @@ static PlayerViewController *playerViewCtr;
         NSString* assetId = [weakSelf.pAssetId copy];
         NSString* userData = [NSString stringWithFormat:@",user_id:%@,content_id:%@,device_key:%@,so_idx:10", key, assetId, key];
         
-        NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [weakSelf.pDrmDic objectForKey:@"drmServerUri"], WVDRMServerKey,
-                                    @"markanynhne", WVPortalKey,
-                                    userData, WVCAUserDataKey,
-                                    NULL];
-        
-        WV_Initialize(WViPhoneCallback, dictionary);
+//        NSDictionary* dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                    [weakSelf.pDrmDic objectForKey:@"drmServerUri"], WVDRMServerKey,
+//                                    @"markanynhne", WVPortalKey,
+//                                    userData, WVCAUserDataKey,
+//                                    NULL];
+//        
+//        WV_Initialize(WViPhoneCallback, dictionary);
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
 }
-
+/*
 WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
     DDLogDebug( @"callback %d %@ %@\n", event,
           NSStringFromWViOsApiEvent( event ), attributes );
@@ -259,7 +259,7 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
     }
     return WViOsApiStatus_OK;
 }
-
+*/
 - (void)drmStart
 {
     if ( [[self.pDrmDic objectForKey:@"contentUri"] length] == 0 )
@@ -279,7 +279,7 @@ WViOsApiStatus WViPhoneCallback(WViOsApiEvent event, NSDictionary *attributes) {
         NSString *sContentUrl = [NSString stringWithFormat:@"%@", [self.pDrmDic objectForKey:@"contentUri"]];
         NSString *sNewContentUrl = [sContentUrl stringByReplacingOccurrencesOfString:@"widevine" withString:@"http"];
 
-        WV_Play(sNewContentUrl, responseUrl, 0);
+//        WV_Play(sNewContentUrl, responseUrl, 0);
         
         
         if ( [responseUrl length] != 0 )
