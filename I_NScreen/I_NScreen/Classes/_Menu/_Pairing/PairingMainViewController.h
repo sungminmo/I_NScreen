@@ -24,6 +24,12 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *pDiscordLbl;    // 불일치 라벨
 
+@property (nonatomic, weak) IBOutlet UIScrollView* scrollView;
+@property (nonatomic, weak) IBOutlet UIView* contentView1;
+@property (nonatomic, weak) IBOutlet UIView* contentView2;
+@property (nonatomic, weak) IBOutlet UIView* contentView3;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint* contentView3H;
+
 @property (nonatomic, weak) id <PairingMainViewDelegate>delegate;
 
 - (IBAction)onBtnClicked:(UIButton *)btn;

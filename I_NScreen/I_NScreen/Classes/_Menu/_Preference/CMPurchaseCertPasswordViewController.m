@@ -25,6 +25,10 @@ typedef enum : NSInteger {
 @property (nonatomic, weak) IBOutlet UIButton* cancelButton;
 @property (nonatomic, weak) IBOutlet UIButton* completButton;
 
+@property (nonatomic, weak) IBOutlet UIScrollView* scrollView;
+@property (nonatomic, weak) IBOutlet UIView* centerView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint* centerViewH;
+
 @end
 
 @implementation CMPurchaseCertPasswordViewController
@@ -58,7 +62,18 @@ typedef enum : NSInteger {
             }
         }];
     }
+}
+
+- (void)viewDidLayoutSubviews {
     
+    [super viewDidLayoutSubviews];
+    
+    CGRect frame = self.centerView.frame;
+    CGFloat maxY = CGRectGetMaxY(frame);
+    if (self.scrollView.frame.size.height + self.scrollView.contentOffset.y > maxY)
+    {
+        self.centerViewH.constant = self.scrollView.frame.size.height - frame.origin.y + self.scrollView.contentOffset.y;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

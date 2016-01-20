@@ -13,7 +13,9 @@
 
 @interface PairingAuthViewController ()
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *guideLabels;
-
+@property (nonatomic, weak) IBOutlet UIScrollView* scrollView;
+@property (nonatomic, weak) IBOutlet UIView* innerBottomView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint* innerBottomViewH;
 @end
 
 @implementation PairingAuthViewController
@@ -41,6 +43,18 @@
     
     [self setTagInit];
     [self setViewInit];
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
+    CGRect frame = self.innerBottomView.frame;
+    CGFloat maxY = CGRectGetMaxY(frame);
+    if (self.scrollView.frame.size.height + self.scrollView.contentOffset.y > maxY)
+    {
+        self.innerBottomViewH.constant = self.scrollView.frame.size.height - frame.origin.y + self.scrollView.contentOffset.y;
+    }
 }
 
 #pragma mark - 초기화

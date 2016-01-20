@@ -30,6 +30,18 @@
     [self setViewInit];
 }
 
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
+    CGRect frame = self.contentView3.frame;
+    CGFloat maxY = CGRectGetMaxY(frame);
+    if (self.scrollView.frame.size.height + self.scrollView.contentOffset.y > maxY)
+    {
+        self.contentView3H.constant = self.scrollView.frame.size.height - frame.origin.y + self.scrollView.contentOffset.y;
+    }
+}
+
 #pragma mark - 초기화
 #pragma mark - 테그 초기화
 - (void)setTagInit
