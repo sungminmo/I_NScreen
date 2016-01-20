@@ -41,6 +41,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *pStep1SubView04Btn;
 
 @property (nonatomic, weak) IBOutlet UIView *pStep2View;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint* pStep2ViewH;
 @property (nonatomic, weak) IBOutlet UIView *pStep2SubView01;
 
 @property (nonatomic, weak) IBOutlet UIView *pStep2SubView02;
@@ -65,7 +66,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *pStep2SubView04ContentLbl02;
 @property (nonatomic, weak) IBOutlet UIButton *pStep2SubView04Btn;
 
-@property (nonatomic, weak) IBOutlet UIView *pBtnView;
 @property (nonatomic, weak) IBOutlet UIButton *pCancelBtn;
 @property (nonatomic, weak) IBOutlet UIButton *pOkBtn;
 

@@ -64,6 +64,17 @@
     [self requestWithGetPointBalance];
 }
 
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
+    CGRect frame = self.pStep2View.frame;
+    CGFloat maxY = CGRectGetMaxY(frame);
+    if (self.scrollContainer.frame.size.height + self.scrollContainer.contentOffset.y > maxY)
+    {
+        self.pStep2ViewH.constant = self.scrollContainer.frame.size.height - frame.origin.y + self.scrollContainer.contentOffset.y;
+    }
+}
 
 #pragma mark - 초기화
 #pragma mark - 태그 초기화
