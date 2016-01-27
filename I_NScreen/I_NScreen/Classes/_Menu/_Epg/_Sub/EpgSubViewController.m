@@ -501,7 +501,9 @@
         NSString* resultCode = epgItem[@"resultCode"];
         
         if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
-            [self requestWithGetSetTopStatus];
+            
+            [self performSelector:@selector(requestWithGetSetTopStatus) withObject:nil afterDelay:0.6];
+//            [self requestWithGetSetTopStatus];
 //            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약중" forKey:@"cellState"];
 //            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"녹화예약취소" forKey:@"deleState"];
 //            [self.pTableView reloadData];
@@ -570,7 +572,9 @@
 //            }
 //            [state addObject:@"녹화예약설정"];
 //            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:state forKey:@"cellState"];
-            [self requestWithGetSetTopStatus];
+            
+            [self performSelector:@selector(requestWithGetSetTopStatus) withObject:nil afterDelay:0.6];
+//            [self requestWithGetSetTopStatus];
         }
     }];
     
