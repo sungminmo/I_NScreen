@@ -1043,33 +1043,60 @@ static const CGFloat pageSize = 20;
     
     [[self.pNowStateCheckArr objectAtIndex:index] setObject:sState forKey:@"cellState"];
     
+    NSString* sKind = [[CMDBDataManager sharedInstance] getSetTopBoxKind];
+    
+    if (sKind.length == 0 || [sKind isEqualToString:@"SMART"])
+    {
+        return;
+    }
+    
     NSString *sMore = @"";
     NSString *sDele = @"";
-    if ( [self getWatchReserveIndex:index] == YES )
-    {
-        // 시청 예약중이기 때문에 시청 예약 취소로
-        sMore = @"시청예약취소";
-    }
-    else
-    {
-        // 시청 예약 취소이기 때문에 시청 예약중으로
-        sMore = @"시청예약설정";
-    }
     
-    if ( [self getRecordReservListIndex:index] == YES )
+    if ([sKind isEqualToString:@"HD"])
     {
-        // 녹화예약중이면 녹화예약취소로
-        sDele = @"녹화예약취소";
-    }
-    else
+        
+        if ( [self getWatchReserveIndex:index] == YES )
+        {
+            // 시청 예약중이기 때문에 시청 예약 취소로
+            sMore = @"시청예약취소";
+        }
+        else
+        {
+            // 시청 예약 취소이기 때문에 시청 예약중으로
+            sMore = @"시청예약설정";
+        }
+        
+        [[self.pNowStateCheckArr objectAtIndex:index] setObject:sMore forKey:@"moreState"];
+        [[self.pNowStateCheckArr objectAtIndex:index] setObject:sDele forKey:@"deleState"];
+    } else if ([sKind isEqualToString:@"PVR"])
     {
-        // 녹화예약취소이면 녹화예약설정으로
-        sDele = @"녹화예약설정";
+        if ( [self getWatchReserveIndex:index] == YES )
+        {
+            // 시청 예약중이기 때문에 시청 예약 취소로
+            sMore = @"시청예약취소";
+        }
+        else
+        {
+            // 시청 예약 취소이기 때문에 시청 예약중으로
+            sMore = @"시청예약설정";
+        }
+        
+        if ( [self getRecordReservListIndex:index] == YES )
+        {
+            // 녹화예약중이면 녹화예약취소로
+            sDele = @"녹화예약취소";
+        }
+        else
+        {
+            // 녹화예약취소이면 녹화예약설정으로
+            sDele = @"녹화예약설정";
+        }
+        
+        
+        [[self.pNowStateCheckArr objectAtIndex:index] setObject:sMore forKey:@"moreState"];
+        [[self.pNowStateCheckArr objectAtIndex:index] setObject:sDele forKey:@"deleState"];
     }
-
-    
-    [[self.pNowStateCheckArr objectAtIndex:index] setObject:sMore forKey:@"moreState"];
-    [[self.pNowStateCheckArr objectAtIndex:index] setObject:sDele forKey:@"deleState"];
 }
 
 

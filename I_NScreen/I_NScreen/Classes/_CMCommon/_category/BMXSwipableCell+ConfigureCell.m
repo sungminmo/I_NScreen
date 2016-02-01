@@ -56,9 +56,22 @@
     
     if (!self.basementConfigured) {
         
+        NSString *sDelete = [item objectForKey:@"Delete"];
+        NSString *sMore = [item objectForKey:@"More"];
+        
+        nCount = 0;
+        if (sDelete.length > 0)
+        {
+            nCount++;
+        }
+        if (sMore.length > 0)
+        {
+            nCount++;
+        }
+        
         if ( nCount == 2 )
         {
-            NSString *sMore = [NSString stringWithFormat:@"%@", [item objectForKey:@"More"]];
+//            NSString *sMore = [NSString stringWithFormat:@"%@", [item objectForKey:@"More"]];
             
             UIButton *moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
             moreButton.backgroundColor = [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0f];
@@ -77,8 +90,8 @@
         
         if ( nCount == 2 || nCount == 1 )
         {
-            NSString *sDelete = [item objectForKey:@"Delete"];
-            NSString *sMore = [item objectForKey:@"More"];
+//            NSString *sDelete = [item objectForKey:@"Delete"];
+//            NSString *sMore = [item objectForKey:@"More"];
             if (sDelete.length > 0) {
                 UIButton *deleteButton = [UIButton buttonWithType:UIButtonTypeCustom];
                 deleteButton.backgroundColor = [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0f];
