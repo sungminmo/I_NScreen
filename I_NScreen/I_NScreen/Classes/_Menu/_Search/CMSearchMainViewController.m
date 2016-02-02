@@ -999,7 +999,7 @@ static const CGFloat pageSize = 20;
     for ( NSDictionary *dic in self.pRecordReservListArr )
     {
         NSString *sDicRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
-        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+        NSString *sDicChannelId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
         
         if ( [sRecordStartTime isEqualToString:sDicRecordStartTime] &&
             [sChannelId isEqualToString:sDicChannelId] )
@@ -1022,7 +1022,6 @@ static const CGFloat pageSize = 20;
     }
 }
 
-
 - (void)setCellStateIndex:(int)index
 {
     NSString *sState = @"";
@@ -1043,60 +1042,76 @@ static const CGFloat pageSize = 20;
     
     [[self.pNowStateCheckArr objectAtIndex:index] setObject:sState forKey:@"cellState"];
     
+    /*
+     -       미연동, SMART : 현재방송(기능없음), 미래방송(시청예약설정/시청예약취소)
+     -       HD : 현재방송(TV로 시청), 미래방송(시청예약설정/시청예약취소)
+     -       PVR : 현재방송(즉시녹화/녹화중지, TV로 시청), 미래방송(녹화예약설정/녹화예약취소, 시청예약설정/시청예약취소
+     */
     NSString* sKind = [[CMDBDataManager sharedInstance] getSetTopBoxKind];
-    
-    if (sKind.length == 0 || [sKind isEqualToString:@"SMART"])
-    {
+    if (sKind.length == 0) {
+        return;
+    }
+    else if ([sKind isEqualToString:@"SMART"]) {
+        [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"시청예약설정" forKey:@"moreState"];
+        [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"시청예약취소" forKey:@"deleState"];
         return;
     }
     
     NSString *sMore = @"";
     NSString *sDele = @"";
     
-    if ([sKind isEqualToString:@"HD"])
+    NSDictionary* dataDic = self.programArray[index];
+    double interval = [[CMAppManager sharedInstance] getLicenseRemainMinuteWithLicenseDate:dataDic[@"channelProgramTime"] compareDate:[NSDate date]];
+
+    if ( interval <= 0 )
     {
+        // 현재 시간
+        sMore = @"TV로 시청";
         
-        if ( [self getWatchReserveIndex:index] == YES )
-        {
-            // 시청 예약중이기 때문에 시청 예약 취소로
-            sMore = @"시청예약취소";
-        }
-        else
-        {
-            // 시청 예약 취소이기 때문에 시청 예약중으로
-            sMore = @"시청예약설정";
-        }
-        
-        [[self.pNowStateCheckArr objectAtIndex:index] setObject:sMore forKey:@"moreState"];
-        [[self.pNowStateCheckArr objectAtIndex:index] setObject:sDele forKey:@"deleState"];
-    } else if ([sKind isEqualToString:@"PVR"])
-    {
-        if ( [self getWatchReserveIndex:index] == YES )
-        {
-            // 시청 예약중이기 때문에 시청 예약 취소로
-            sMore = @"시청예약취소";
-        }
-        else
-        {
-            // 시청 예약 취소이기 때문에 시청 예약중으로
-            sMore = @"시청예약설정";
+        if ([sKind isEqualToString:@"PVR"]) {
+            if ( [self getRecordingChannelIndex:index] == YES )
+            {
+                // 녹화중이기 때문에 녹화중지로
+                sDele = @"즉시 녹화 중지";
+            }
+            else
+            {
+                sDele = @"즉시 녹화";
+            }
         }
         
-        if ( [self getRecordReservListIndex:index] == YES )
-        {
-            // 녹화예약중이면 녹화예약취소로
-            sDele = @"녹화예약취소";
-        }
-        else
-        {
-            // 녹화예약취소이면 녹화예약설정으로
-            sDele = @"녹화예약설정";
-        }
-        
-        
-        [[self.pNowStateCheckArr objectAtIndex:index] setObject:sMore forKey:@"moreState"];
-        [[self.pNowStateCheckArr objectAtIndex:index] setObject:sDele forKey:@"deleState"];
     }
+    else
+    {
+        if ( [self getWatchReserveIndex:index] == YES )
+        {
+            // 시청 예약중이기 때문에 시청 예약 취소로
+            sMore = @"시청예약취소";
+        }
+        else
+        {
+            // 시청 예약 취소이기 때문에 시청 예약중으로
+            sMore = @"시청예약설정";
+        }
+        
+        if ([sKind isEqualToString:@"PVR"]) {
+            if ( [self getRecordReservListIndex:index] == YES )
+            {
+                // 녹화예약중이면 녹화예약취소로
+                sDele = @"녹화예약취소";
+            }
+            else
+            {
+                // 녹화예약취소이면 녹화예약설정으로
+                sDele = @"녹화예약설정";
+            }
+        }
+        
+    }
+    
+    [[self.pNowStateCheckArr objectAtIndex:index] setObject:sMore forKey:@"moreState"];
+    [[self.pNowStateCheckArr objectAtIndex:index] setObject:sDele forKey:@"deleState"];
+    
 }
 
 
@@ -1104,7 +1119,7 @@ static const CGFloat pageSize = 20;
 {
     NSString *sTilte = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelProgramTitle"]];
     NSString *sSeq = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelProgramSeq"]];
-    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelId"]];
+    NSString *sProgramId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:index] objectForKey:@"channelProgramID"]];
     
     CMDBDataManager *manager = [CMDBDataManager sharedInstance];
     BOOL isCheck = NO;
@@ -1125,11 +1140,118 @@ static const CGFloat pageSize = 20;
     return sTitle;
 }
 
+#pragma mark - 체널 변경 전문
+- (void)requestWithChannelControl:(int)nIndex
+{
+    NSDictionary* dataDic = self.programArray[nIndex];
+    NSString *sChannelId = dataDic[@"channelId"];
+    NSURLSessionDataTask *tesk = [NSMutableDictionary remoconSetRemoteChannelControlWithChannelId:sChannelId completion:^(NSArray *pairing, NSError *error) {
+        
+        DDLogError(@"pairing = [%@]", pairing);
+        
+        NSDictionary* item = pairing[0];
+        NSString* resultCode = item[@"resultCode"];
+        
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
+            // 체널 변경 성공
+        }
+    }];
+    
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 즉시 녹화 중지
+- (void)requestWithSetRecordStopWithIndex:(int)index
+{
+    NSDictionary* dataDic = self.programArray[index];
+    NSString *sChannelId = dataDic[@"channelId"];
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSetRecordStopWithChannelId:sChannelId completion:^(NSArray *epgs, NSError *error) {
+        
+        DDLogError(@"즉시 녹화 중지 = [%@]", epgs);
+        
+        if ( [epgs count]  ==  0 )
+            return;
+        
+        if ( [[[epgs objectAtIndex:0] objectForKey:@"resultCode"] isEqualToString:@"100"] )
+        {
+            [self requestWithGetSetTopStatus];
+            
+            //            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"" forKey:@"cellState"];
+            //            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
+            //            [self.pTableView reloadData];
+        }
+    }];
+    
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+#pragma mark - 즉시 녹화
+- (void)requestWithSetRecordWithIndex:(int)index
+{
+    NSDictionary* dataDic = self.programArray[index];
+    NSString *sChannelId = dataDic[@"channelId"];
+    
+    NSURLSessionDataTask *tesk = [NSMutableDictionary epgSetRecordWithChannelId:sChannelId completion:^(NSArray *epgs, NSError *error) {
+        
+        DDLogError(@"즉시 녹화 = [%@]", epgs);
+        
+        if ( [epgs count] == 0 )
+            return;
+        
+        NSDictionary* epgItem = epgs[0];
+        NSString* resultCode = epgItem[@"resultCode"];
+        
+        if ([[CMAppManager sharedInstance] checkSTBStateCode:resultCode]) {
+            [self requestWithGetSetTopStatus];
+            //            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"녹화중" forKey:@"cellState"];
+            //            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"즉시 녹화 중지" forKey:@"deleState"];
+            //            [self.pTableView reloadData];
+        }
+        
+    }];
+    
+    [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
 #pragma mark - 델리게이트
 #pragma mark - EpgSubTableViewCellDelegate
 - (void)CMSearchTableViewMoreBtn:(int)nIndex
 {
-    // 시청 예약 체크
+    NSDictionary* dataDic = self.programArray[nIndex];
+    double interval = [[CMAppManager sharedInstance] getLicenseRemainMinuteWithLicenseDate:dataDic[@"channelProgramTime"] compareDate:[NSDate date]];
+    
+    if ( interval <= 0 )
+    {
+        // tv로 시청
+        [self requestWithChannelControl:nIndex];
+    }
+    else
+    {
+        // 시청 예약 체크
+        if ( [[self getWatchReserveIndex2:nIndex] isEqualToString:@"시청예약설정"] )
+        {
+            // 설정 해제
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            [manager setWatchReserveList:[self.programArray objectAtIndex:nIndex]];
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약" forKey:@"cellState"];
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약취소" forKey:@"moreState"];
+        }
+        else
+        {
+            // 시청 예약 설정
+            CMDBDataManager *manager = [CMDBDataManager sharedInstance];
+            [manager removeWatchReserveList:[self.programArray objectAtIndex:nIndex]];
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"" forKey:@"cellState"];
+            [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약설정" forKey:@"moreState"];
+            
+        }
+        
+        [self.programList reloadData];
+    }
+    
+    return;
+    /*// 시청 예약 체크
     if ( [[self getWatchReserveIndex2:nIndex] isEqualToString:@"시청예약설정"] )
     {
         // 설정 해제
@@ -1147,41 +1269,71 @@ static const CGFloat pageSize = 20;
         [[self.pNowStateCheckArr objectAtIndex:nIndex] setObject:@"시청예약설정" forKey:@"moreState"];
     }
     
-    [self.programList reloadData];
+    [self.programList reloadData];*/
 }
 
 - (void)CMSearchTableViewDeleteBtn:(int)nIndex
 {
     NSString *sChannelId = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelId"]];
+    NSDictionary* dataDic = self.programArray[nIndex];
+    double interval = [[CMAppManager sharedInstance] getLicenseRemainMinuteWithLicenseDate:dataDic[@"channelProgramTime"] compareDate:[NSDate date]];
     
-    NSString *sProgramBroadcastingStartTime = [NSString stringWithFormat:@"%@", [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"]];
-    
-    BOOL isCheck = NO;
-    for ( NSDictionary *dic in self.pRecordReservListArr )
+    //  현재 방송중인 경우
+    if ( interval <= 0 )
     {
-        NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
-        NSString *sChannelIdReserv = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
-        
-        if ( [sRecordStartTime isEqualToString:sProgramBroadcastingStartTime] &&
-            [sChannelId isEqualToString:sChannelIdReserv] )
+        BOOL isCheck = NO;
+        for ( NSString *str in self.recordingchannelArr )
         {
-            
-            // 녹화 예약중이다
-            isCheck = YES;
+            if ( [str isEqualToString:sChannelId] )
+            {
+                // 녹화중 -> 녹화중지 api 날린다.
+                isCheck = YES;
+            }
         }
-    }
-    
-    if ( isCheck == YES )
-    {
-        [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:0 WithIndex:nIndex];
+        
+        if ( isCheck == YES )
+        {
+            //  녹화중지
+            [self requestWithSetRecordStopWithIndex:nIndex];
+        }
+        else
+        {
+            //  녹화요청
+            [self requestWithSetRecordWithIndex:nIndex];
+        }
         
     }
     else
     {
-        [self requstWithSetRecordReserveWithIndex:nIndex];
+        // 시청예약인지 아닌지
+        NSString *sProgramBroadcastingStartTime = [[self.programArray objectAtIndex:nIndex] objectForKey:@"channelProgramTime"];
         
+        //        NSString *sChannelId = [NSString stringWithFormat:@"%@", [self.pListDataDic objectForKey:@"channelId"]];
+        
+        BOOL isCheck = NO;
+        for ( NSDictionary *dic in self.pRecordReservListArr )
+        {
+            NSString *sRecordStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"RecordStartTime"]];
+            NSString *sChannelIdReserv = [NSString stringWithFormat:@"%@", [dic objectForKey:@"ChannelId"]];
+            
+            if ( [sRecordStartTime isEqualToString:sProgramBroadcastingStartTime] &&
+                [sChannelId isEqualToString:sChannelIdReserv] )
+            {
+                // 녹화 예약중이다
+                isCheck = YES;
+                break;
+            }
+        }
+        
+        if ( isCheck == YES )
+        {
+            [self requestWithSetRecordCancelReserveWithReserveCancel:@"2" WithSeriesId:0 WithIndex:nIndex];
+        }
+        else
+        {
+            [self requstWithSetRecordReserveWithIndex:nIndex];
+        }
     }
-
 }
 
 #pragma mark - 녹화예약 취소

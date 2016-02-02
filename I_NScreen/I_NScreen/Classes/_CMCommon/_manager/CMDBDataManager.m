@@ -461,7 +461,7 @@
         watchReserveList.programTitleStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramTitle"]];
 //        watchReserveList.programPVRStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"programPVR"]];
         watchReserveList.scheduleSeqStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramSeq"]];
-        watchReserveList.programIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+        watchReserveList.programIdStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramID"]];
 //        watchReserveList.broadcastingDateStr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"broadcastingDate"]];
     }
     
@@ -512,7 +512,7 @@
         sTilte = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramTitle"]];
         sStartTime = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramTime"]];
         sSeq = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramSeq"]];
-        sProgramId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelId"]];
+        sProgramId = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramID"]];
         sHd = [NSString stringWithFormat:@"%@", [dic objectForKey:@"channelProgramHD"]];
     }
     
