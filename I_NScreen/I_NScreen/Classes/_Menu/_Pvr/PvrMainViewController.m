@@ -126,9 +126,17 @@
 #pragma mark - Event
 - (IBAction)onBtnClick:(UIButton *)btn
 {
+    //탭버튼 이벤트 방어코드 추가
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    
     switch (btn.tag) {
         case PVR_MAIN_VIEW_BTN_02:
         {
+            //탭버튼 이벤트 방어코드 추가
+            [self.pListArr removeAllObjects];
+            [self setInfoWithCount:0];
+            [self.pTableView reloadData];
+            
             // 녹화 예약 관리
             self.isTabCheck = NO;
             [self.pReservationBtn setBackgroundImage:[UIImage imageNamed:@"2btn_select.png"] forState:UIControlStateNormal];
@@ -141,6 +149,12 @@
         }break;
         case PVR_MAIN_VIEW_BTN_03:
         {
+            //탭버튼 이벤트 방어코드 추가
+            [self.pReservListArr removeAllObjects];
+            [self.pSeriesReservDetailArr removeAllObjects];
+            [self setInfoWithCount:0];
+            [self.pTableView reloadData];
+            
             // 녹화물 목록
             self.isTabCheck = YES;
             [self.pReservationBtn setBackgroundImage:[UIImage imageNamed:@"2btn_normal.png"] forState:UIControlStateNormal];
