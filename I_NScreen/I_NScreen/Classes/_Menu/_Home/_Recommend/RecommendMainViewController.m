@@ -531,6 +531,11 @@
             // 페어링 된 상태에서 앱만 삭제한 경우
             [manager setPariringCheck:YES]; // 페어링을 한 상태로 바꿔줌
             
+            //방어코드 추가 (앱 삭제후 재설치 시 페어링 정보 한번에 연동안되는 문제 수정)
+            if ([manager getSetTopBoxKind].length == 0) {
+                [manager setSetTopBoxKind:[[item objectForKey:@"SetTopBox_Item"] objectForKey:@"SetTopBoxKind"]];
+            }
+            
         }
         else
         {
