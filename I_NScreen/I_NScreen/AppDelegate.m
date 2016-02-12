@@ -175,4 +175,14 @@
     [SIAlertView alert:notification.alertAction message:notification.alertBody button:@"확인"];
 }
 
+#pragma mark - orientation
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    CMNavigationController* navigation = (CMNavigationController*)self.window.rootViewController;
+    NSString* className = NSStringFromClass([navigation.viewControllers.lastObject class]);
+    if ([className isEqualToString:@"PlayerViewController"]) {
+        return UIInterfaceOrientationMaskLandscape;
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 @end

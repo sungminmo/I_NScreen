@@ -153,6 +153,7 @@
         case VOD_DETAIL_MAIN_VIEW_BTN_05:
         {
             // 미리보기
+            [self refreshController];
             PlayerViewController *pViewController = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
             pViewController.delegate = self;
             pViewController.pStyleStr = @"preview";
@@ -251,6 +252,7 @@
         case VOD_DETAIL_MAIN_VIEW_BTN_08:
         {
             // 시청하기
+            [self refreshController];
             PlayerViewController *pViewController = [[PlayerViewController alloc] initWithNibName:@"PlayerViewController" bundle:nil];
             pViewController.delegate = self;
             pViewController.pStyleStr = @"play";

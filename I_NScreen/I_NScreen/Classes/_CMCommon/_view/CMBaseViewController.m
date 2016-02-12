@@ -54,6 +54,31 @@
     return YES;
 }
 
+#pragma mark -
+- (BOOL)shouldAutorotate {
+    NSString* className = NSStringFromClass([self.viewControllers.lastObject class]);
+    if ([className isEqualToString:@"PlayerViewController"]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    NSString* className = NSStringFromClass([self.viewControllers.lastObject class]);
+    if ([className isEqualToString:@"PlayerViewController"]) {
+        return UIInterfaceOrientationMaskLandscape;
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    NSString* className = NSStringFromClass([self.viewControllers.lastObject class]);
+    if ([className isEqualToString:@"PlayerViewController"]) {
+        return UIInterfaceOrientationLandscapeLeft|UIInterfaceOrientationLandscapeRight;
+    }
+    return UIInterfaceOrientationPortrait;
+}
+
 @end
 
 
@@ -64,6 +89,29 @@
 
 @implementation CMBaseViewController
 
+#pragma mark -
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
+
+- (void)refreshController {
+    UIViewController* vc = [[UIViewController alloc] init];
+    vc.view.frame = CGRectZero;
+    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [self.navigationController presentViewController:vc animated:NO completion:^{
+    }];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark -
 - (id)init{
     self = [super init];
     if(self){

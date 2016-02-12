@@ -15,6 +15,8 @@
 
 @property (nonatomic, unsafe_unretained) BOOL isUseNavigationBar;
 
+- (void)refreshController;
+
 /**
  *  백버튼 이벤트를 기술한다.
  *

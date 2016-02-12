@@ -35,64 +35,27 @@ static PlayerViewController *playerViewCtr;
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - 강제 회전 모드
--(void)SetDeviceOrientation:(UIInterfaceOrientation)orientation
-{
-    //가로보기 강제
-    if(orientation==UIInterfaceOrientationPortrait)
-    {
-        orientation=UIInterfaceOrientationLandscapeLeft;
-    }
-    //세로보기 강제
-    else if(orientation==UIInterfaceOrientationLandscapeLeft)
-    {
-        orientation=UIInterfaceOrientationPortrait;
-    }
-    
-    int radian=0;
-    CGRect viewFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    
-    if(orientation==UIInterfaceOrientationLandscapeLeft
-       || orientation==UIInterfaceOrientationLandscapeRight)
-    {
-        viewFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-        
-    }
-    if(orientation==UIInterfaceOrientationPortrait)
-    {
-        radian=0;
-    }
-    else if(orientation==UIInterfaceOrientationPortraitUpsideDown)
-    {
-        radian=180;
-    }
-    else if(orientation==UIInterfaceOrientationLandscapeRight)
-    {
-        radian=90;
-    }
-    else if(orientation==UIInterfaceOrientationLandscapeLeft)
-    {
-        radian=270;
-    }
-    
-    __weak __typeof(self) weakSelf = self;
-    [UIView animateWithDuration:0.2 animations:^{
-        //뷰 회전 시키기
-        CGAffineTransform transform =
-        CGAffineTransformMakeRotation(degreesToRadian(radian));
-        
-        weakSelf.view.transform=transform;
-        weakSelf.view.bounds=viewFrame;
-    } completion:^(BOOL finished) {
-        
-    }];
+#pragma mark - 
+- (BOOL)shouldAutorotate {
+//    if ([self supportedInterfaceOrientations] == UIInterfaceOrientationMaskLandscape) {
+//        return NO;
+//    }
+//    else {
+        return YES;
+//    }
+}
 
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationLandscapeLeft|UIInterfaceOrientationLandscapeRight;
 }
 
 -(BOOL)prefersStatusBarHidden{
     return YES;
 }
-
 
 - (void)dealloc {
     [self stopProcess];
@@ -124,8 +87,7 @@ static PlayerViewController *playerViewCtr;
     [super viewDidLoad];
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [self SetDeviceOrientation:UIInterfaceOrientationPortrait];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNetworkStatus:) name:CNM_NETWORK_REACHABILITY_STATUS object:nil];
     
     self.title = @"";
@@ -134,7 +96,6 @@ static PlayerViewController *playerViewCtr;
     self.pMoviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@""]];
     self.pMoviePlayer.view.frame = CGRectMake(0,0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
     [self.pMoviePlayer setFullscreen:YES animated:NO];
-    
     [self.view addSubview:self.pMoviePlayer.view];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieFinishedCallback:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
@@ -150,6 +111,18 @@ static PlayerViewController *playerViewCtr;
     playerViewCtr = self;
     self.pDrmDic = [[NSMutableDictionary alloc] init];
     [self requestWithDrm];
+    
+//    NSString* responseUrl = @"http://devstreaming.apple.com/videos/wwdc/ljbofiuvboiubvoiubseoriubvbip/502/ref.mov";
+//    NSURL *url = [NSURL URLWithString:responseUrl];
+//    [self.pMoviePlayer setContentURL:url];
+//    if ([self.pStyleStr isEqualToString:@"play"]) {
+//        [self.pMoviePlayer setMovieSourceType:MPMovieSourceTypeStreaming];
+//    }
+//    [self.pMoviePlayer setControlStyle:MPMovieControlStyleFullscreen];
+//    [self.pMoviePlayer setRepeatMode:MPMovieRepeatModeNone];
+//    [self.pMoviePlayer prepareToPlay];
+//    [self.pMoviePlayer play];
+    
 }
 
 -(void)movieFinishedCallback:(NSNotification*)aNotification
