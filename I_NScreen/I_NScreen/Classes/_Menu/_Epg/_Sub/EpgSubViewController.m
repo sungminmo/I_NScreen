@@ -443,13 +443,26 @@
         
         DDLogError(@"한 채널 편성 정보 = [%@]", gets);
         
-        [self.dataArray setArray:[[gets objectAtIndex:0] objectForKey:@"scheduleItem"]];
+        if ( [gets count] == 0 )
+            return;
         
-        [self setDateScroll];
-        [self setListDataSplit];
+        id obj = gets[0][@"scheduleItem"];
         
-        [self requestWithGetRecordReserveList];
-        
+        if (obj != nil) {
+            if ([obj isKindOfClass:[NSArray class]]) {
+                [self.dataArray setArray:(NSArray*)obj];
+            }
+            else if ([obj isKindOfClass:[NSDictionary class]]) {
+                [self.dataArray setArray:@[(NSDictionary*)obj]];
+            }
+            
+            if (self.dataArray.count > 0) {
+                [self setDateScroll];
+                [self setListDataSplit];
+                
+                [self requestWithGetRecordReserveList];
+            }
+        }
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
