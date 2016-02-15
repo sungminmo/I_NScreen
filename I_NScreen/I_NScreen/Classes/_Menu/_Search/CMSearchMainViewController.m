@@ -1052,8 +1052,12 @@ static const CGFloat pageSize = 20;
         return;
     }
     else if ([sKind isEqualToString:@"SMART"]) {
-        [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"시청예약설정" forKey:@"moreState"];
-        [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"시청예약취소" forKey:@"deleState"];
+        if ( [self getWatchReserveIndex:index] == YES ) {
+            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"시청예약취소" forKey:@"deleState"];
+        }
+        else {
+            [[self.pNowStateCheckArr objectAtIndex:index] setObject:@"시청예약설정" forKey:@"moreState"];
+        }
         return;
     }
     
