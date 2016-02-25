@@ -1876,6 +1876,8 @@ static int tvFontSize = 15;
         
         //  tv,모바일일 경우, 미리보기 있음
         self.pReviewBtn23.hidden = NO;
+        
+        [self defaultButtonsConstraintsWithFirstHidden:NO];
     }
     else
     {
@@ -1885,7 +1887,10 @@ static int tvFontSize = 15;
         
         //  tv전용일 경우, 미리보기 없음
         self.pReviewBtn23.hidden = YES;
+        
+        [self defaultButtonsConstraintsWithFirstHidden:YES];
     }
+    
     
     // 러닝 타임
     NSString *sRunningTime = [NSString stringWithFormat:@"%@", [[self pAssetListByEpisodePeerIdDic] objectForKey:@"runningTime"]];
@@ -1984,14 +1989,7 @@ static int tvFontSize = 15;
                 self.pZzimBtn23.imageEdgeInsets = UIEdgeInsetsMake(0, 87, 0, 0);
             }
             //  [시청하기][구매하기][찜하기]
-            else
-            {
-                [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod3btn_normal.png"] forState:UIControlStateNormal];
-                
-                self.pZzimBtn23.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 26);
-                self.pZzimBtn23.imageEdgeInsets = UIEdgeInsetsMake(0, 69, 0, 0);
-            }
-            
+
             if (self.isZzimCheck)
             {
                 [self.pZzimBtn23 setImage:[UIImage imageNamed:@"v_pick.png"] forState:UIControlStateNormal];
@@ -2125,6 +2123,120 @@ static int tvFontSize = 15;
     }];
     
     [SIAlertView showAlertViewForTaskWithErrorOnCompletion:tesk delegate:nil];
+}
+
+- (void)defaultButtonsConstraintsWithFirstHidden:(BOOL)isFirstHidden {
+    NSArray* btns = @[self.pReviewBtn23, self.pBuyBtn23, self.pZzimBtn23];
+    for (UIButton* btn in btns) {
+        [btn removeFromSuperview];
+        btn.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.pView23 addSubview:btn];
+    }
+    if (isFirstHidden == NO) {
+        [self defaultConstraints];
+    }
+    else {
+        [self hiddenFirstButtonConstraints];
+    }
+}
+
+- (void)defaultConstraints {
+
+    UIView* v1 = self.pReviewBtn23;
+    UIView* v2 = self.pBuyBtn23;
+    UIView* v3 = self.pZzimBtn23;
+    NSDictionary* views = NSDictionaryOfVariableBindings(v1, v2, v3);
+    
+    //구매버튼의 센터값과 부모뷰의 센터값 일치
+    NSLayoutConstraint* centerXConstraint = [NSLayoutConstraint constraintWithItem:v2
+                                                                         attribute:NSLayoutAttributeCenterX
+                                                                         relatedBy:NSLayoutRelationEqual
+                                                                            toItem:self.pView23
+                                                                         attribute:NSLayoutAttributeCenterX
+                                                                        multiplier:1.0f
+                                                                          constant:0.0f];
+    //구매 버튼의 높이값 고정
+    NSArray* vertConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[v2(46)]-0-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:views];
+    //버튼의 가로 너비, 간격 고정
+    NSArray* horzConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[v1(==v2)]-6-[v2(==v3)]-6-[v3(==v2)]-15-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:views];
+    [self.pView23 addConstraint:centerXConstraint];
+    [self.pView23 addConstraints:vertConstraints];
+    [self.pView23 addConstraints:horzConstraints];
+
+    // 미리보기
+    centerXConstraint = [NSLayoutConstraint constraintWithItem:self.pReviewBtn23
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self.pBuyBtn23
+                                                     attribute:NSLayoutAttributeCenterY
+                                                    multiplier:1.0f
+                                                      constant:0.0f];
+    vertConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[v1(46)]"
+                                                              options:0
+                                                              metrics:nil
+                                                                views:views];
+    [self.pView23 addConstraint:centerXConstraint];
+    [self.pView23 addConstraints:vertConstraints];
+    
+    //찜하기
+    NSLayoutConstraint* centerYConstraint = [NSLayoutConstraint constraintWithItem:self.pZzimBtn23
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self.pBuyBtn23
+                                                     attribute:NSLayoutAttributeCenterY
+                                                    multiplier:1.0f
+                                                      constant:0.0f];
+    vertConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[v3(46)]"
+                                                              options:0
+                                                              metrics:nil
+                                                                views:views];
+    [self.pView23 addConstraint:centerYConstraint];
+    [self.pView23 addConstraints:vertConstraints];
+    
+    self.pZzimBtn23.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 24);
+    self.pZzimBtn23.imageEdgeInsets = UIEdgeInsetsMake(0, 68, 0, 0);
+    
+}
+
+- (void)hiddenFirstButtonConstraints {
+    UIView* v1 = self.pReviewBtn23;
+    UIView* v2 = self.pBuyBtn23;
+    UIView* v3 = self.pZzimBtn23;
+    NSDictionary* views = NSDictionaryOfVariableBindings(v1, v2, v3);
+    
+    //구매 버튼의 높이값 고정
+    NSArray* vertConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[v2(46)]-0-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:views];
+    //버튼의 가로 너비, 간격 고정
+    NSArray* horzConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[v2(==v3)]-6-[v3(==v2)]-15-|"
+                                                                       options:0
+                                                                       metrics:nil
+                                                                         views:views];
+    [self.pView23 addConstraints:vertConstraints];
+    [self.pView23 addConstraints:horzConstraints];
+    
+    //찜하기
+    NSLayoutConstraint* centerYConstraint = [NSLayoutConstraint constraintWithItem:self.pZzimBtn23
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self.pBuyBtn23
+                                                     attribute:NSLayoutAttributeCenterY
+                                                    multiplier:1.0f
+                                                      constant:0.0f];
+    vertConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[v3(46)]"
+                                                              options:0
+                                                              metrics:nil
+                                                                views:views];
+    [self.pView23 addConstraint:centerYConstraint];
+    [self.pView23 addConstraints:vertConstraints];
 }
 
 @end
