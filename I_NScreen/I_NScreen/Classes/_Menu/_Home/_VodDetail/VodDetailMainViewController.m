@@ -2126,6 +2126,9 @@ static int tvFontSize = 15;
 }
 
 - (void)defaultButtonsConstraintsWithFirstHidden:(BOOL)isFirstHidden {
+    
+    return;
+    
     NSArray* btns = @[self.pReviewBtn23, self.pBuyBtn23, self.pZzimBtn23];
     for (UIButton* btn in btns) {
         [btn removeFromSuperview];
