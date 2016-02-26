@@ -14,7 +14,7 @@
 
 - (void)awakeFromNib {
     [self.bottomView clearSubOutLineLayers];
-    [UIView setOuterLine:self.bottomView direction:HMOuterLineDirectionTop lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];
+    [UIView setOuterLine:self.bottomView direction:HMOuterLineDirectionTop lineWeight:0.5 lineColor:[UIColor colorWithHexString:@"E4D8F2"]];
     
     // 앱 버전 라벨
     NSString* ver = [CMAppManager getAppShortVersion];

@@ -59,7 +59,7 @@
         [self.view layoutIfNeeded];
     }
     
-    [UIView setOuterLine:self.upperView direction:HMOuterLineDirectionTop|HMOuterLineDirectionBottom lineWeight:1 lineColor:[UIColor colorWithHexString:@"ffffff"]];    
+    [UIView setOuterLine:self.upperView direction:HMOuterLineDirectionTop|HMOuterLineDirectionBottom lineWeight:0.5 lineColor:[UIColor colorWithHexString:@"E4D8F2"]];
 }
 
 #pragma mark - ui change

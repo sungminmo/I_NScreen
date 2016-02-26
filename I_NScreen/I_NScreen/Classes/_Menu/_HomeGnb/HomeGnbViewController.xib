@@ -297,9 +297,9 @@
                                         <constraint firstItem="oZx-4z-iqg" firstAttribute="top" secondItem="JfM-ET-TJV" secondAttribute="top" id="zMb-CW-005"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kg-Q4-IyP">
+                                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kg-Q4-IyP">
                                     <rect key="frame" x="9" y="45" width="395" height="0.5"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.89411764709999997" green="0.84705882349999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="kr0-7G-dJt"/>
                                     </constraints>
