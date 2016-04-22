@@ -143,6 +143,7 @@ static const CGFloat pageSize = 20;
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 #pragma mark - Private
 
 - (void)loadUI {
