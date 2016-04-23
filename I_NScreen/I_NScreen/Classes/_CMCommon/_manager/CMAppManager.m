@@ -1119,55 +1119,55 @@
     }
     else if ([code isEqualToString:@"200"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"알수없는 에러"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"알수없는 에러"];
     }
     else if ([code isEqualToString:@"201"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"지원하지 않는 프로토콜"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"지원하지 않는 프로토콜"];
     }
     else if ([code isEqualToString:@"202"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"인증 실패"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"인증 실패"];
     }
     else if ([code isEqualToString:@"203"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"지원하지 않는 프로파일"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"지원하지 않는 프로파일"];
     }
     else if ([code isEqualToString:@"204"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"잘못된 파라미터값"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"잘못된 파라미터값"];
     }
 //    else if ([code isEqualToString:@"205"])
 //    {
-//        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"녹화물 목록을 받을 수 없습니다."];
+//        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"녹화물 목록을 받을 수 없습니다."];
 //    }
     else if ([@[@"206", @"028"] containsObject:code])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
     }
     else if ([code isEqualToString:@"207"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"내부 프로세싱 에러"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"내부 프로세싱 에러"];
     }
     else if ([code isEqualToString:@"211"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"일반 DB 에러"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"일반 DB 에러"];
     }
     else if ([code isEqualToString:@"221"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"이미 처리 되었음"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"이미 처리 되었음"];
     }
     else if ([code isEqualToString:@"223"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"이미 추가된 항목"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"이미 추가된 항목"];
     }
     else if ([code isEqualToString:@"231"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"인증코드발급 실패"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"인증코드발급 실패"];
     }
     else if ([code isEqualToString:@"232"])
     {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"만료된 인증코드"];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"만료된 인증코드"];
     }
     
     //  녹화요청

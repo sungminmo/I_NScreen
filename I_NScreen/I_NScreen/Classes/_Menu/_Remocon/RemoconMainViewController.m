@@ -228,7 +228,7 @@
 #pragma mark - 전문
 - (void)checkSetopBoxResult:(NSString*)code {
     if ([@[@"206", @"028"] containsObject:code]) {
-        [SIAlertView alert:@"씨앤앰 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
+        [SIAlertView alert:@"딜라이브 모바일 TV" message:@"셋탑박스와 통신이 끊어졌습니다.\n전원을 확인해주세요."];
     }
 }
 

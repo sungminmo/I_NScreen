@@ -118,7 +118,7 @@
 
 - (IBAction)actionPairingGuide:(id)sender {
     NSString* title = @"셋탑박스 연동이란?";
-    NSString* message = @"\n씨앤앰 방송 서비스를 이용하고 계시는\n 고객님의 셋탑박스와 모바일 앱을 연동하여\n VOD 구매, 방송 시청 예약 등\n다양한 서비스를 이용하실 수 있습니다.\n\n";
+    NSString* message = @"\n딜라이브 방송 서비스를 이용하고 계시는\n 고객님의 셋탑박스와 모바일 앱을 연동하여\n VOD 구매, 방송 시청 예약 등\n다양한 서비스를 이용하실 수 있습니다.\n\n";
     [SIAlertView alert:title message:message button:nil];
 }
 
@@ -165,7 +165,7 @@
             case 3:
             {
                 cell.imageView.image = [UIImage imageNamed:@"icon_menu_myc_m.png"];
-                cell.textLabel.text = @"마이 씨앤앰";
+                cell.textLabel.text = @"마이 딜라이브";
             }break;
             case 4:
             {
@@ -258,7 +258,7 @@ static NSInteger ivTag = 1212;
     {
         if ( [manager getPairingCheck] == NO )
         {
-            [SIAlertView alert:@"마이 씨앤앰 미 지원 상품" message:@"마이 씨앤앰은 셋탑박스와 연동 시에만\n사용하실 수 있습니다."];
+            [SIAlertView alert:@"마이 딜라이브 미 지원 상품" message:@"마이 딜라이브는 셋탑박스와 연동 시에만\n사용하실 수 있습니다."];
             return;
         }
     }

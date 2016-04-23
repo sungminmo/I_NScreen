@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -532,7 +532,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="씨앤앰 청구서 포함결제" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="A2F-B6-da3">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="딜라이브 청구서 포함결제" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="A2F-B6-da3">
                                                     <rect key="frame" x="181" y="18" width="160" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="28K-ag-5iG"/>
@@ -1095,14 +1095,14 @@
                     <include reference="5u6-C9-KZg"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="8f5-rw-Kzu"/>
-                    <include reference="mTo-gq-aa4"/>
-                    <include reference="sfT-WX-sXg"/>
-                    <include reference="cVg-Zn-A4A"/>
                     <include reference="A0E-6v-a0W"/>
                     <include reference="OLz-bc-fJ8"/>
                     <include reference="edR-s4-lpq"/>
                     <include reference="lgK-1N-wnh"/>
+                    <include reference="8f5-rw-Kzu"/>
+                    <include reference="mTo-gq-aa4"/>
+                    <include reference="sfT-WX-sXg"/>
+                    <include reference="cVg-Zn-A4A"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="340" y="375"/>
