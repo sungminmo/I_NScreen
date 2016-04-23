@@ -48,7 +48,6 @@
 		9946CC8B1C1F967A00633051 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC881C1F967A00633051 /* splash.png */; };
 		9946CC8C1C1F967A00633051 /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC891C1F967A00633051 /* splash@2x.png */; };
 		9946CC8D1C1F967A00633051 /* splash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC8A1C1F967A00633051 /* splash@3x.png */; };
-		9946CC901C1F975300633051 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC8E1C1F975300633051 /* Default.png */; };
 		9946CC911C1F975300633051 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9946CC8F1C1F975300633051 /* Default-568h@2x.png */; };
 		99478D2F1BAD3F3D00CC99E9 /* SIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D2C1BAD3F3D00CC99E9 /* SIAlertView.m */; };
 		99478D301BAD3F3D00CC99E9 /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 99478D2E1BAD3F3D00CC99E9 /* UIWindow+SIUtils.m */; };
@@ -911,7 +910,6 @@
 		9946CC881C1F967A00633051 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		9946CC891C1F967A00633051 /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		9946CC8A1C1F967A00633051 /* splash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@3x.png"; sourceTree = "<group>"; };
-		9946CC8E1C1F975300633051 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9946CC8F1C1F975300633051 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		99478D2B1BAD3F3D00CC99E9 /* SIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAlertView.h; sourceTree = "<group>"; };
 		99478D2C1BAD3F3D00CC99E9 /* SIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAlertView.m; sourceTree = "<group>"; };
@@ -2301,7 +2299,6 @@
 			isa = PBXGroup;
 			children = (
 				99E3FCFF1C28DA470087611E /* Default@2x.png */,
-				9946CC8E1C1F975300633051 /* Default.png */,
 				9946CC8F1C1F975300633051 /* Default-568h@2x.png */,
 				E5A6E3121BDE1CC2005AC701 /* default */,
 				E5B550C51BD9DD3E00AA02B2 /* @1x */,
@@ -4030,7 +4027,6 @@
 				E5B5539B1BD9DD3F00AA02B2 /* volumedown_press.png in Resources */,
 				E5B553551BD9DD3F00AA02B2 /* icon_couponpay.png in Resources */,
 				E5B5537D1BD9DD3F00AA02B2 /* fp2btn_ok_normal.png in Resources */,
-				9946CC901C1F975300633051 /* Default.png in Resources */,
 				E5B553AD1BD9DD3F00AA02B2 /* icon_pairing_before.png in Resources */,
 				E5B8BB9A1BEB12FF00B4C3B0 /* MainPopUpTableViewCell.xib in Resources */,
 				99EA17E31BC0D1E6005A958C /* CMTermsViewController.xib in Resources */,
