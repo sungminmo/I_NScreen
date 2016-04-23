@@ -128,9 +128,6 @@
 		99ECD5891BD5188B00EABA67 /* CMAreaInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD57E1BD5188B00EABA67 /* CMAreaInfo.m */; };
 		99ECD58A1BD5188B00EABA67 /* CMPurchaseAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5801BD5188B00EABA67 /* CMPurchaseAuthorize.m */; };
 		99ECD58B1BD5188B00EABA67 /* CMSearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ECD5821BD5188B00EABA67 /* CMSearchHistory.m */; };
-		99F9BB571C0EE3E900AF8668 /* Appicon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F9BB541C0EE3E900AF8668 /* Appicon58.png */; };
-		99F9BB581C0EE3E900AF8668 /* Appicon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F9BB551C0EE3E900AF8668 /* Appicon80.png */; };
-		99F9BB591C0EE3E900AF8668 /* Appicon87.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F9BB561C0EE3E900AF8668 /* Appicon87.png */; };
 		E511818C1BA7ACF900C1E31D /* EpgPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51181821BA7ACF900C1E31D /* EpgPopUpViewController.m */; };
 		E511818D1BA7ACF900C1E31D /* EpgPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51181831BA7ACF900C1E31D /* EpgPopUpViewController.xib */; };
 		E511818E1BA7ACF900C1E31D /* EpgSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51181871BA7ACF900C1E31D /* EpgSubTableViewCell.m */; };
@@ -204,12 +201,6 @@
 		E599DFD61BF5DAB2004B486B /* bi.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD51BF5DAB2004B486B /* bi.png */; };
 		E599DFD81BF5DAC4004B486B /* bi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD71BF5DAC4004B486B /* bi@2x.png */; };
 		E599DFDA1BF5DAD2004B486B /* bi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E599DFD91BF5DAD2004B486B /* bi@3x.png */; };
-		E59D7FE91C06D4E9007C9E77 /* Appicon76.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE31C06D4E9007C9E77 /* Appicon76.png */; };
-		E59D7FEA1C06D4E9007C9E77 /* Appicon120.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE41C06D4E9007C9E77 /* Appicon120.png */; };
-		E59D7FEB1C06D4E9007C9E77 /* Appicon152.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE51C06D4E9007C9E77 /* Appicon152.png */; };
-		E59D7FEC1C06D4E9007C9E77 /* Appicon167.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE61C06D4E9007C9E77 /* Appicon167.png */; };
-		E59D7FED1C06D4E9007C9E77 /* Appicon180.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE71C06D4E9007C9E77 /* Appicon180.png */; };
-		E59D7FEE1C06D4E9007C9E77 /* Appicon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = E59D7FE81C06D4E9007C9E77 /* Appicon1024.png */; };
 		E5A6E3101BDE1B4B005AC701 /* IDScrollableTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30C1BDE1B4B005AC701 /* IDScrollableTabBar.m */; };
 		E5A6E3111BDE1B4B005AC701 /* IDScrollableTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A6E30F1BDE1B4B005AC701 /* IDScrollableTabBarItem.m */; };
 		E5A9230C1BD137200076AF97 /* CMPageCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9230A1BD137200076AF97 /* CMPageCollectionViewController.m */; };
@@ -1056,9 +1047,6 @@
 		99ECD5801BD5188B00EABA67 /* CMPurchaseAuthorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPurchaseAuthorize.m; sourceTree = "<group>"; };
 		99ECD5811BD5188B00EABA67 /* CMSearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSearchHistory.h; sourceTree = "<group>"; };
 		99ECD5821BD5188B00EABA67 /* CMSearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSearchHistory.m; sourceTree = "<group>"; };
-		99F9BB541C0EE3E900AF8668 /* Appicon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon58.png; sourceTree = "<group>"; };
-		99F9BB551C0EE3E900AF8668 /* Appicon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon80.png; sourceTree = "<group>"; };
-		99F9BB561C0EE3E900AF8668 /* Appicon87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon87.png; sourceTree = "<group>"; };
 		9D7ADF5DD58A2A878C782D93 /* libPods-I_NScreen.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-I_NScreen.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59B2745D004925EB9E020AE /* Pods-I_NScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-I_NScreen.release.xcconfig"; path = "Pods/Target Support Files/Pods-I_NScreen/Pods-I_NScreen.release.xcconfig"; sourceTree = "<group>"; };
 		E51181811BA7ACF900C1E31D /* EpgPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpgPopUpViewController.h; sourceTree = "<group>"; };
@@ -1166,12 +1154,6 @@
 		E599DFD51BF5DAB2004B486B /* bi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bi.png; sourceTree = "<group>"; };
 		E599DFD71BF5DAC4004B486B /* bi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bi@2x.png"; sourceTree = "<group>"; };
 		E599DFD91BF5DAD2004B486B /* bi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bi@3x.png"; sourceTree = "<group>"; };
-		E59D7FE31C06D4E9007C9E77 /* Appicon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon76.png; sourceTree = "<group>"; };
-		E59D7FE41C06D4E9007C9E77 /* Appicon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon120.png; sourceTree = "<group>"; };
-		E59D7FE51C06D4E9007C9E77 /* Appicon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon152.png; sourceTree = "<group>"; };
-		E59D7FE61C06D4E9007C9E77 /* Appicon167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon167.png; sourceTree = "<group>"; };
-		E59D7FE71C06D4E9007C9E77 /* Appicon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon180.png; sourceTree = "<group>"; };
-		E59D7FE81C06D4E9007C9E77 /* Appicon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appicon1024.png; sourceTree = "<group>"; };
 		E5A6E2F41BDDBC73005AC701 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E5A6E2F61BDDBD0C005AC701 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E5A6E2F81BDDBD1B005AC701 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
@@ -2322,7 +2304,6 @@
 				9946CC8E1C1F975300633051 /* Default.png */,
 				9946CC8F1C1F975300633051 /* Default-568h@2x.png */,
 				E5A6E3121BDE1CC2005AC701 /* default */,
-				E5A6E3221BDE1CC2005AC701 /* icons */,
 				E5B550C51BD9DD3E00AA02B2 /* @1x */,
 				E5B5518B1BD9DD3E00AA02B2 /* @2x */,
 				E5B5524F1BD9DD3E00AA02B2 /* @3x */,
@@ -2512,22 +2493,6 @@
 				9946CC8A1C1F967A00633051 /* splash@3x.png */,
 			);
 			path = default;
-			sourceTree = "<group>";
-		};
-		E5A6E3221BDE1CC2005AC701 /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				99F9BB541C0EE3E900AF8668 /* Appicon58.png */,
-				99F9BB551C0EE3E900AF8668 /* Appicon80.png */,
-				99F9BB561C0EE3E900AF8668 /* Appicon87.png */,
-				E59D7FE31C06D4E9007C9E77 /* Appicon76.png */,
-				E59D7FE41C06D4E9007C9E77 /* Appicon120.png */,
-				E59D7FE51C06D4E9007C9E77 /* Appicon152.png */,
-				E59D7FE61C06D4E9007C9E77 /* Appicon167.png */,
-				E59D7FE71C06D4E9007C9E77 /* Appicon180.png */,
-				E59D7FE81C06D4E9007C9E77 /* Appicon1024.png */,
-			);
-			path = icons;
 			sourceTree = "<group>";
 		};
 		E5B550C51BD9DD3E00AA02B2 /* @1x */ = {
@@ -3873,8 +3838,6 @@
 				E5B5548D1BD9DD3F00AA02B2 /* allch@3x.png in Resources */,
 				E5B5534C1BD9DD3F00AA02B2 /* bigpic.png in Resources */,
 				99C43C701BA3EDA10035A0A4 /* RootViewController.xib in Resources */,
-				E59D7FE91C06D4E9007C9E77 /* Appicon76.png in Resources */,
-				E59D7FED1C06D4E9007C9E77 /* Appicon180.png in Resources */,
 				E5B554481BD9DD3F00AA02B2 /* pwbox_error@2x.png in Resources */,
 				E5B5531B1BD9DD3F00AA02B2 /* genreall_normal.png in Resources */,
 				E58C6AF71BE261660024405D /* CMContentGroupCollectionViewController.xib in Resources */,
@@ -3987,7 +3950,6 @@
 				E5B554871BD9DD3F00AA02B2 /* vod1btn_normal.select@2x.png in Resources */,
 				E5B553331BD9DD3F00AA02B2 /* genreregion_normal.png in Resources */,
 				E529EDD51BFDF18000684E8D /* vod3btn_pick_select@3x.png in Resources */,
-				E59D7FEE1C06D4E9007C9E77 /* Appicon1024.png in Resources */,
 				E5B5537C1BD9DD3F00AA02B2 /* fp2btn_cancel_press.png in Resources */,
 				E5B554CF1BD9DD3F00AA02B2 /* icon_promotion_02@3x.png in Resources */,
 				E5B5531A1BD9DD3F00AA02B2 /* allch_press.png in Resources */,
@@ -4066,7 +4028,6 @@
 				20989CE41BC7AE00009C4418 /* CMRegionSettingViewController.xib in Resources */,
 				E5B554191BD9DD3F00AA02B2 /* icon_promotion_06@2x.png in Resources */,
 				E5B5539B1BD9DD3F00AA02B2 /* volumedown_press.png in Resources */,
-				E59D7FEA1C06D4E9007C9E77 /* Appicon120.png in Resources */,
 				E5B553551BD9DD3F00AA02B2 /* icon_couponpay.png in Resources */,
 				E5B5537D1BD9DD3F00AA02B2 /* fp2btn_ok_normal.png in Resources */,
 				9946CC901C1F975300633051 /* Default.png in Resources */,
@@ -4136,12 +4097,10 @@
 				E52EE57C1BD508AF00797251 /* PvrSubTableViewCell.xib in Resources */,
 				E5B555391BD9DD3F00AA02B2 /* icon_2depth_open@3x.png in Resources */,
 				E5B5538E1BD9DD3F00AA02B2 /* pwbox.png in Resources */,
-				99F9BB571C0EE3E900AF8668 /* Appicon58.png in Resources */,
 				99E3FD001C28DA470087611E /* Default@2x.png in Resources */,
 				E5B554501BD9DD3F00AA02B2 /* allch_press@2x.png in Resources */,
 				E5B554B41BD9DD3F00AA02B2 /* moreindicator@3x.png in Resources */,
 				E5B554DD1BD9DD3F00AA02B2 /* indicator@3x.png in Resources */,
-				E59D7FEC1C06D4E9007C9E77 /* Appicon167.png in Resources */,
 				E5B5543F1BD9DD3F00AA02B2 /* p1btn_cancel_normal@2x.png in Resources */,
 				E5B553A21BD9DD3F00AA02B2 /* cloxe_x.png in Resources */,
 				E5B5540F1BD9DD3F00AA02B2 /* icon_complexpay@2x.png in Resources */,
@@ -4209,7 +4168,6 @@
 				E5B554561BD9DD3F00AA02B2 /* volumeup_press@2x.png in Resources */,
 				E5B553F91BD9DD3F00AA02B2 /* genresports_select@2x.png in Resources */,
 				E5B5550E1BD9DD3F00AA02B2 /* allch_default@3x.png in Resources */,
-				E59D7FEB1C06D4E9007C9E77 /* Appicon152.png in Resources */,
 				E5B554861BD9DD3F00AA02B2 /* v_unpick@2x.png in Resources */,
 				99C43C681BA3EDA10035A0A4 /* EpgMainTableViewCell.xib in Resources */,
 				E5B5542B1BD9DD3F00AA02B2 /* 3btn_outline@2x.png in Resources */,
@@ -4350,7 +4308,6 @@
 				E5B554E21BD9DD3F00AA02B2 /* icon_left_press@3x.png in Resources */,
 				E5B554AF1BD9DD3F00AA02B2 /* genreshopping_select@3x.png in Resources */,
 				E5B554E41BD9DD3F00AA02B2 /* icon_search_press@3x.png in Resources */,
-				99F9BB581C0EE3E900AF8668 /* Appicon80.png in Resources */,
 				E5B554CC1BD9DD3F00AA02B2 /* icon_monthlypay@3x.png in Resources */,
 				E5B553681BD9DD3F00AA02B2 /* pick.png in Resources */,
 				E5B553451BD9DD3F00AA02B2 /* 19.png in Resources */,
@@ -4453,7 +4410,6 @@
 				E5B554B11BD9DD3F00AA02B2 /* genresports_press@3x.png in Resources */,
 				E5B554F41BD9DD3F00AA02B2 /* fp2btn_ok_press@3x.png in Resources */,
 				E5B555311BD9DD3F00AA02B2 /* 4depth_select@3x.png in Resources */,
-				99F9BB591C0EE3E900AF8668 /* Appicon87.png in Resources */,
 				E5B554231BD9DD3F00AA02B2 /* pick@2x.png in Resources */,
 				2086CDA11BBA24B50065726E /* CMPreferenceMainTableViewCell.xib in Resources */,
 				E5B554291BD9DD3F00AA02B2 /* icon_search_press@2x.png in Resources */,
