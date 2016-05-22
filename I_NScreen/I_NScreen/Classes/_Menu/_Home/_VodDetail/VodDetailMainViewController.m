@@ -34,6 +34,8 @@
 
 @property (nonatomic, unsafe_unretained) BOOL seriesAscding;
 
+@property (nonatomic, strong) NSLayoutConstraint* imsiBuyBtnConstraint;
+
 @end
 
 @implementation VodDetailMainViewController
@@ -1975,19 +1977,32 @@ static int tvFontSize = 15;
             //  tv전용일경우, [구매하기][찜하기]
             if ( [sPublicationRight isEqualToString:@"1"] )
             {
-                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
-                                                                       attribute:NSLayoutAttributeLeft
-                                                                       relatedBy:NSLayoutRelationEqual
-                                                                          toItem:self.pBuyBtn23
-                                                                       attribute:NSLayoutAttributeLeft
-                                                                      multiplier:1.0 constant:-12];
-                [self.view addConstraints:@[c_1]];
+//                NSLayoutConstraint * c_1 =[NSLayoutConstraint constraintWithItem:self.view
+//                                                                       attribute:NSLayoutAttributeLeft
+//                                                                       relatedBy:NSLayoutRelationEqual
+//                                                                          toItem:self.pBuyBtn23
+//                                                                       attribute:NSLayoutAttributeLeft
+//                                                                      multiplier:1.0 constant:-12];
+//                [self.view addConstraints:@[c_1]];
+                
+                self.imsiBuyBtnConstraint = [NSLayoutConstraint constraintWithItem:self.view
+                                                                          attribute:NSLayoutAttributeLeft
+                                                                          relatedBy:NSLayoutRelationEqual
+                                                                             toItem:self.pBuyBtn23
+                                                                          attribute:NSLayoutAttributeLeft
+                                                                         multiplier:1.0 constant:-12];
+                [self.view addConstraints:@[self.imsiBuyBtnConstraint]];
                 
                 [self.pZzimBtn23 setBackgroundImage:[UIImage imageNamed:@"vod2btn_normal.png"] forState:UIControlStateNormal];
                 
                 self.pZzimBtn23.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 29);
                 self.pZzimBtn23.imageEdgeInsets = UIEdgeInsetsMake(0, 87, 0, 0);
+            } else if(self.imsiBuyBtnConstraint){
+                
+                [self.view removeConstraint:self.imsiBuyBtnConstraint];
+                self.imsiBuyBtnConstraint = nil;
             }
+            
             //  [시청하기][구매하기][찜하기]
 
             if (self.isZzimCheck)
