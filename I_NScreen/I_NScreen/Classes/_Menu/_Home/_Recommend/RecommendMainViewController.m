@@ -570,6 +570,42 @@
         
         if ( [pairing count] == 0 )
             return;
+        
+        NSDictionary* appVersionItem = pairing[0][@"AppVersion_Item"];
+        NSString* appCurVersion = appVersionItem[@"appversion"];
+        NSString* appVersion = [CMAppManager getAppShortVersion];
+        
+        NSArray* appCurVersionSplits = [appCurVersion componentsSeparatedByString:@"."];
+        NSArray* appVersionSplits = [appVersion componentsSeparatedByString:@"."];
+        
+        for (int i = 0; i < appCurVersionSplits.count; i++) {
+            
+            NSComparisonResult rs = [appCurVersionSplits[i] compare:appVersionSplits[i] options:NSLiteralSearch];
+            
+            if (rs == NSOrderedDescending) {
+                
+                NSString* messagge = [NSString stringWithFormat:@"%@\n\n 사용 중인 버전 : %@\n최신 버전 : %@", appVersionItem[@"contents"], appVersion, appCurVersion];
+                
+                [SIAlertView alert:@"알림" message:messagge cancel:@"확인" buttons:@[@"앱스토어"]
+                        completion:^(NSInteger buttonIndex, SIAlertView *alert) {
+                            
+                            if ( buttonIndex == 1 )
+                            {
+                                NSString *iTunesLink = @"itms://itunes.apple.com/kr/app/dillaibeu-mobailtv/id1067797371?mt=8";
+                                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+                            }
+                        }];
+                
+                break;
+            } else if (rs == NSOrderedSame) {
+                
+                continue;
+            } else {
+                
+                break;
+            }
+        }
+        
         [self.pGetAppInitialzeArr removeAllObjects];
         [self.pGetAppInitialzeArr setArray:[[pairing objectAtIndex:0] objectForKey:@"Category_Item"]];
         
