@@ -1985,6 +1985,12 @@ static int tvFontSize = 15;
 //                                                                      multiplier:1.0 constant:-12];
 //                [self.view addConstraints:@[c_1]];
                 
+                if (self.imsiBuyBtnConstraint) {
+                    
+                    [self.view removeConstraint:self.imsiBuyBtnConstraint];
+                    self.imsiBuyBtnConstraint = nil;
+                }
+                
                 self.imsiBuyBtnConstraint = [NSLayoutConstraint constraintWithItem:self.view
                                                                           attribute:NSLayoutAttributeLeft
                                                                           relatedBy:NSLayoutRelationEqual

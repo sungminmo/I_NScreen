@@ -586,13 +586,16 @@
                 
                 NSString* messagge = [NSString stringWithFormat:@"%@\n\n 사용 중인 버전 : %@\n최신 버전 : %@", appVersionItem[@"contents"], appVersion, appCurVersion];
                 
+                NSString* appurl = appVersionItem[@"appurl"];
+                appurl = [appurl stringByReplacingOccurrencesOfString:@"https://" withString:@""];
+                appurl = [NSString stringWithFormat:@"itms://%@", appurl];
+                
                 [SIAlertView alert:@"알림" message:messagge cancel:@"확인" buttons:@[@"앱스토어"]
                         completion:^(NSInteger buttonIndex, SIAlertView *alert) {
                             
                             if ( buttonIndex == 1 )
                             {
-                                NSString *iTunesLink = @"itms://itunes.apple.com/kr/app/dillaibeu-mobailtv/id1067797371?mt=8";
-                                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+                                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appurl]];
                             }
                         }];
                 
